@@ -1,4 +1,19 @@
-# Hot to build
+# Polycopié d'informatique
+
+Ce référentiel contient le polycopié d'informatique 1 et 2.
+
+## Install
+
+```bash
+git clone https://github.com/heig-vd-tin/info-handout.git
+cd info-handout
+git submodule init
+git submodulee update
+make html
+make pdf
+```
+
+## Build
 
 Make sure you have `sphinx` and the HTML theme installed `sphinx-press-theme`.
 
