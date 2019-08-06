@@ -1,0 +1,137 @@
+# Version formelle et étendue de la fiche d'unité de cours disponible sur GAPS
+# http://gaps.heig-vd.ch/public/fiches/uv/uv.php?id=5638
+---
+title:
+    name: Informatique 2
+    tag: info2
+    id: 5638
+domain: Ingénierie et Architecture
+filière: Génie électrique
+orientation:
+    name: Électronique et Automatisation industrielle
+    id: EAI
+formation: Plein temps
+validityDate:
+    - 2018-2019
+    - 2019-2020
+author: François Birling
+charge:
+    academicHours: 120
+    inClassAcademicHours: 80
+planning:
+    s1:
+        class: # 48
+            - hours: 4
+              chapters:
+                - Préprocesseur
+            - hours: 4
+              chapters:
+                - Classes de stockage
+            - hours: 8
+              chapters:
+                - Conception de type de données abstraits simples
+                - Création de bibliothèques
+            - hours: 10
+              chapters:
+                - Pointeurs
+                - Allocation dynamique
+            - hours: 6
+              chapters:
+                - Implémentation des listes
+                - Queues et piles basée sur les tableaux
+            - hours: 8
+              chapters:
+                - Type de données récursifs, queues et piles
+            - hours: 4
+              chapters:
+                - Fichiers binaires et textes
+            - hours: 4
+              chapters:
+                - Contrôles continus
+        laboratory:
+            - hours: 6
+              chapters:
+                - Mise en oeuvre de type de données composées (structures, tableaux multidimensionnels)
+            - hours: 4
+              chapters:
+                - Lecture et écriture de fichiers texte et binaire en mode séquentiel
+            - hours: 4
+              chapters:
+                - Mise en oeuvre de l'allocation dynamique de mémoire
+            - hours: 2
+              chapters:
+                - Compilation séparée et implémentation de bibliothèques
+            - hours: 4
+              chapters:
+                - Implémentation de types de données abstraits, type simple, liste tableau
+            - hours: 6
+              chapters:
+                - Implémentation de types de données abstraits, file, pile
+            - hours: 6
+              chapters:
+                - Mini-projet
+prerequisites: |
+    L'étudiant-e doit connaître et savoir utiliser les notions suivantes
+        - base de la programmation, types de base, structures de contrôle et sous-programmes
+        - bases des outils de bureautique.
+    L'unité d'enseignement APR1 (analyse et programmation) permet d'acquérir ces connaissances
+
+goals:
+    class:
+        - Décomposer un algorithme selon l'approche descendante (raffinage successif) et ascendante.
+        - Décomposer une application de complexité moyenne en algorithmes élémentaires.
+        - Concevoir un type de données abstrait simple et les fonctions pour le manipuler.
+        - Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.
+        - Ecrire un programme qui lit ou écrit un fichier au format binaire, texte.
+        - Mettre en oeuvre l'allocation dynamique de mémoire pour créer des tableaux dimensionnés à
+l'exécution.
+        - Définir et manipuler un type de données récursif (liste chaînée).
+        - Mettre en oeuvre des champs de bits et des unions pour manipuler des bits dans un masque binaire.
+    laboratory:
+        - Programmer une bibliothèque de fonctions de qualité professionnelle (et l'utiliser).
+        - Programmer et mettre au point des algorithmes de complexité moyenne.
+        - Réaliser une application de taille et de complexité moyennes, mêlant différents aspects de la
+programmation.
+
+plan:
+  - Algorithmie
+    - Raffinage successif
+    - Décomposition en éléments fonctionnels simples
+    - Conception d'algorithmes de complexité moyenne
+  - Types composés
+    - Manipulation d'une structure
+    - Passage par copie et référence
+  - Bibliothèque
+    - Concevoir une bibliothèque statique
+    - Utilisation d'une bibliothèque statique dans un programme
+  - Fichiers
+    - Types de fichiers
+      - Binaire
+      - Textes
+      - Données tabulées
+      - Données indexées
+    - Système de fichier
+      - Arborescence
+      - Dossiers
+      - Chemins relatifs et absolus
+    - Manipulation de fichiers
+      - Pointeur de fichier (ftell, fseek)
+      - Lecture (fread, fscanf)
+      - Écriture (fwrite, fprintf)
+  - Gestion de la mémoire
+    - Pointeurs
+      - Règle gauche droite
+    - Allocation dynamique
+      - malloc
+      - calloc
+      - free
+      - Création de tableaux dynamiques
+  - Types de données récursifs
+    - Liste simplement chaînée
+    - Liste doublement chaînée
+  - Alignement mémoire
+    - Unions
+    - Champs de bits
+  - Livraison
+    - Préparer le code à la livraison
+    - Construire une bibliothèque documentée

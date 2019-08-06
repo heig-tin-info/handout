@@ -1,0 +1,197 @@
+# Version formelle et étendue de la fiche d'unité de cours disponible sur GAPS
+# http://gaps.heig-vd.ch/public/fiches/uv/uv.php?id=5637
+---
+title:
+    name: Informatique 1
+    tag: info1
+    id: 5637
+domain: Ingénierie et Architecture
+filière: Génie électrique
+orientation:
+    name: Électronique et Automatisation industrielle
+    id: EAI
+formation: Plein temps
+validityDate:
+    - 2018-2019
+    - 2019-2020
+author: François Birling
+charge:
+    academicHours: 150
+    inClassAcademicHours: 96
+planning:
+    s1:
+        class: # 48
+            - hours: 4
+              chapters:
+                - Introduction.
+                - Aperçu du fonctionnement de l'ordinateur.
+                - Codage de l'information
+            - hours: 2
+              chapters:
+                - Présentation du langage C
+            - hours: 12
+              chapters:
+                - Types de données de base
+                - Variables
+                - Constantes
+                - Opérateurs
+                - Entrées et sorties console
+            - hours: 8
+              chapters:
+                - Structures de contrôle
+                - Branchements
+                - Boucles
+            - hours: 6
+              chapters:
+                - Fonctions
+            - hours: 8
+              chapters:
+                - Types avanceés
+                    - Tableaux
+                    - Structures
+                    - Chaînes de caractères
+            - hours: 4
+              chapters:
+                - Introduction à l'analyse et à la conception
+            - hours: 4
+              chapters:
+                - Controle continu et corrections
+        laboratory:
+            - hours: 2
+              chapters:
+                - Environnement de travail (réseau informatique)
+                - Outils bureautique
+            - hours: 2
+              chapters:
+                - Environnement de développement intégré
+                    - Installation
+                    - Configuration
+                    - Édition
+                    - Compilation
+            - hours: 8
+              chapters:
+                - Dialogues utilisateurs
+            - hours: 10
+              chapters:
+                - Utilisation des structures de contrôle.
+            - hours: 8
+              chapters:
+                - Type de données composés
+            - hours: 8
+              chapters:
+                - Mini projet.
+prerequisites: |
+    L'étudiant-e doit connaître et savoir utiliser les notions suivantes
+        - utilisation d'un système d'exploitation, notamment la gestion de fichiers
+        - bases des outils de bureautique.
+    L'unité préparatoire d'informatique UPI permet d'acquérir ces connaissances.
+    Conditions pour la programmation automatique de cette unité :
+    L'étudiant-e doit avoir obtenu une note supérieure ou égale à la limite de compensation dans les unités :
+    néant. L'étudiant-e doit avoir suivi ou suivre en parallèle les unités : néant.
+goals:
+    classroom:
+        - Expliquer les principes généraux de représentation de l'information dans les ordinateurs.
+        - Décrire la marche à suivre et les outils nécessaires pour créer un programme.
+        - Citer les éléments du langage C utilisés couramment pour écrire des programmes.
+        - Choisir le type de données simple approprié pour représenter les informations du monde réel.
+        - Concevoir et programmer un dialogue opérateur en mode console, formater un affichage pour le rendre lisible.
+        - Calculer la valeur d'une expression construite avec différents opérateurs du langage C et en déterminer le type.
+        - Choisir la structure de contrôle appropriée pour résoudre un problème algorithmique simple.
+        - Concevoir et implanter un algorithme imbriquant jusqu'à 3 niveaux de structure de contrôle.
+        - Créer une fonction utilisant le passage de paramètres par valeur, par adresse et/ou le retour d'un résultat.
+        - Construire et utiliser un type de données composé (tableau, structure).
+        - Utiliser les principales fonctions des bibliothèques `math.h` et `string.h`
+        - Corriger la présentation, les erreurs de syntaxe et de sémantique dans un programme fourni.
+    laboratory:
+        - Installer et configurer un environnement de développement intégré (EDI) pour le langage C.
+        - Créer des programmes avec un EDI (éditer un code source, le compiler, le tester, le déverminer).
+        - Créer un programme gérant un menu en mode console et affichant des résultats sous forme tabulaire.
+        - Mettre au point itérativement un programme pour atteindre un fonctionnement fiable et ergonomique.
+        - Comprendre un cahier des charges, identifier et clarifier les exigences importantes, et s'y conformer.
+        - Analyser de manière autonome les problèmes rencontrés et formuler une question précise.
+        - Livrer un logiciel de façon professionnelle (organisation des livrables, gestion des exigences et du délai).
+        - Citer des applications pratiques de la programmation en relation avec ses futurs débouchés professionnels.
+plan:
+  - Numération
+    - Bases (système décimal, hexadécimal, octal, binaire)
+    - Conversion de bases
+    - Complément à un
+    - Complément à deux
+    - Arithmétique binaire (et, ou, ou exclusif, négation)
+  - Processus de développement
+    - Outils
+      - Environnement intégré (IDE)
+      - Compilateur (*compiler*)
+      - Chaîne de développement (*toolchain*)
+    - Cycle de développement
+    - Cycle de compilation
+    - Installation d'un environnement de développement
+    - Programmes et processus
+  - Généralités du langage C
+    - Séquences
+    - Boucles (while, do..while, for)
+    - Embranchements (if, switch)
+    - Sauts (break, continue, return, goto)
+  - Types de données
+    - Typage
+    - Stockage des données en mémoire
+    - Entiers naturels
+    - Entiers relatifs
+    - Nombres réels (virgule flottante)
+    - Caractères
+      - Table ASCII
+    - Chaînes de caractères
+    - Booléens
+  - Interaction utilisateur en mode console
+    - Entrée standard
+    - Sortie standard
+    - Sortie d'erreur standard
+    - Questions/Réponses avec `printf` et `scanf`
+    - Formater un résultat sous forme tabulée et lisible
+    - Menu (choix multiples)
+  - Opérateurs
+    - Priorité des opérateurs
+    - Opérateurs du langage C
+    - Expressions
+    - Promotion et promotion implicite
+  - Conception
+    - Choix des structures de controles adaptées à des problèmes
+    - Algorithmes simple
+      - Manipulation de chaînes
+      - Manipulation de tableaux
+      - Manipulation de bits
+  - Algorithmie
+    - Complexité d'un algorithme
+    - Exemples d'algorithmes
+  - Fonctions
+    - Passage par valeur et par adresse
+    - Utilisation de la valeur de retour
+    - Prototypes de fonctions
+  - Types de données composées
+    - Structures
+    - Unions
+    - Tableaux
+    - Énumérations
+  - Bibliothèques standard
+    - <math.h>
+      - Fonctions trigonométriques
+      - Exponentielle
+      - Logarithme
+    - <string.h>
+      - Comparaison de chaînes de caractères
+      - Concaténation de chaînes de caractères
+      - Copie de chaînes de caractères
+      - Longueur d'une chaîne de caractères
+      - Recherche d'une sous-chaîne dans une chaîne de caractères
+    - <stdio.h>
+      - printf
+      - scanf
+      - putchar
+      - getchar
+      - puts
+      - gets
+  - Structure du code
+    - Corriger les erreurs de syntaxes
+    - Corriger les erreurs sémantiques
+    - Indentation du code
+    - Commentaires

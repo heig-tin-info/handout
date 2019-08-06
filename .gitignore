@@ -1,0 +1,11 @@
+_build/
+*~
+Thumbs.db
+.DS_Store
+.vscode
+_static
+*.a
+*.s
+*.so
+*.a
+*.out
