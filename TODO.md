@@ -8,6 +8,9 @@
     - [ ] Center les tables
     - [ ] Rename source file with ascending order
     - [ ] Numbered exercices
+    - [ ] Code
+        - [ ] Copy to clipboard icon
+        - [ ] Build and run icon
 - [ ] Sphinx Theme
     - [ ] Favicon in theme
     - [x] Center figures

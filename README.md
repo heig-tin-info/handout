@@ -1,6 +1,10 @@
 # Polycopié d'informatique
 
-Ce référentiel contient le polycopié d'informatique 1 et 2.
+Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
+
+- PDF
+- HTML
+- Manpage
 
 ## Install
 

@@ -15,7 +15,9 @@ copyright = 'HEIG-VD(c) 2019'
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.imgconverter',
     'exercices',
+    'unicode',
     'span-sectnum'
 ]
 

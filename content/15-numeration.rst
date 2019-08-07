@@ -29,7 +29,7 @@ Le système décimal est le système de numération utilisant la base dix et le 
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
-.. figure:: assets/encoding/hieroglyph.*
+.. figure:: ../assets/encoding/hieroglyph.*
     :width: 50%
 
     1506 en écriture hiéroglyphique
@@ -164,7 +164,7 @@ L'ingénieur doit connaître la correspondance hexadécimale de tous les quadrup
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme ``hexdump``
 pour lister le contenu hexadécimal de son fichier:
 
-.. code-block:: sh
+.. code-block:: text
 
     $ hexdump -C albatros.txt
     00000000  53 6f 75 76 65 6e 74 2c  20 70 6f 75 72 20 73 27  |Souvent, pour s'|
@@ -197,9 +197,9 @@ pour lister le contenu hexadécimal de son fichier:
 
 Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisé par deux caractères hexadécimaux, et à droite le texte ou chaque caractère non-imprimable est remplacé par un point. On observe notament ici que:
 
-- ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère unicode ``U+0065``
-- ``é`` de ailé est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` ``U+0301``
-- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode ``U+202F``, ainsi que recommandé par l'académie Française.
+- ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère unicode :unicode:`U+0065`
+- ``é`` de ailé est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` :unicode:`U+0301`
+- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode :unicode:`U+202F`, ainsi que recommandé par l'académie Française.
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le ``é``.
 

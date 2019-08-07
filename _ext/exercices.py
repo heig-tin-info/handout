@@ -59,6 +59,8 @@ def visit_solution(self, node, name=''):
 def depart_solution(self, node=None):
     self.depart_admonition(node)
 
+def novisit(self, node=None):
+    pass
 
 class ExercisesCollector(EnvironmentCollector):
 
@@ -142,12 +144,13 @@ class ExercisesCollector(EnvironmentCollector):
         return rewrite_needed
 
 def setup(app):
+    novisits = (novisit, novisit)
     visitors = (visit_exercise, depart_exercise)
 
     app.add_config_value('hide_solutions', False, 'html')
 
-    app.add_node(exercise, html=visitors, latex=visitors, text=visitors)
-    app.add_node(solution, html=(visit_solution, depart_solution))
+    app.add_node(exercise, html=visitors, latex=novisits, text=visitors, man=novisits)
+    app.add_node(solution, html=(visit_solution, depart_solution), latex=novisits, man=novisits)
 
     app.add_directive('exercise', ExerciceDirective)
     app.add_directive('solution', SolutionDirective)

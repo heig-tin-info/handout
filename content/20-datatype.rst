@@ -52,7 +52,9 @@ Le typage permet de résoudre toute ambiguïté.
 Boutisme
 ========
 
-La croix pour l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les oeufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs oeufs par le gros bout (gros boutisme/*big endian*).
+.. figure:: ../assets/images/endian.*
+
+La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les oeufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs oeufs par le gros bout (gros boutisme/*big endian*).
 
 Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est à dire que si une information est stockée en mémoire comme suit:
 
@@ -139,7 +141,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont:
 
 La construction d'un type entier C est la suivante:
 
-.. figure:: assets/datatype/ansi-integers.*
+.. figure:: ../assets/figures/datatype/ansi-integers.*
     :alt: Entiers standardisés **C89**
     :width: 100 %
 
@@ -194,7 +196,7 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête ``stdint.h``. Cette bibliothèque standard offre les types suivants:
 
-.. figure:: assets/datatype/c99-integers.*
+.. figure:: ../assets/figures/datatype/c99-integers.*
     :alt: Entiers standardisés **C99**
     :width: 100 %
 
@@ -403,13 +405,13 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'`ASA <https://fr.wikipedia.org/wiki/American_National_Standards_Institute>`__, l'*American Standards Association* aujourd'hui ANSI qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
-.. figure:: assets/figures/encoding/ascii-1963.*
+.. figure:: ../assets/figures/encoding/ascii-1963.*
 
     Table ASCII ASA X3.4 établie en 1963
 
 Aujourd'hui la table ASCII de base défini 128 carac,tères qui n'incluent pas les caractères accentués.
 
-.. figure:: assets/figures/encoding/ascii.*
+.. figure:: ../assets/figures/encoding/ascii.*
 
     Table ANSI INCITS 4-1986 (standard actuel)
 
@@ -417,7 +419,7 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
 Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
-.. figure:: assets/figures/encoding/latin1.*
+.. figure:: ../assets/figures/encoding/latin1.*
 
     Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)
 
@@ -429,11 +431,11 @@ Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-.. figure:: assets/figures/encoding/encoding-trends.*
+.. figure:: ../assets/figures/encoding/encoding-trends.*
 
     Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
 
-L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__, dont nous avons déjà parlé en :ref:`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère ``ह`` utilisé en Sanskrit possède la dénomination unicode ``U+0939`` et s'encode sur 3 octets: ``0xE0 0xA4 0xB9``
+L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__, dont nous avons déjà parlé en :ref:`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère ``ह`` utilisé en Sanskrit possède la dénomination unicode :unicode:`U+0939` et s'encode sur 3 octets: ``0xE0 0xA4 0xB9``
 
 En programmation C, un caractère ``char`` ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
 

@@ -9,3 +9,4 @@ _static
 *.so
 *.a
 *.out
+__pycache__

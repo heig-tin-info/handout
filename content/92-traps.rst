@@ -61,12 +61,14 @@ Observations:
 
 - Toujours protéger les paramètres des macros avec des parenthèses
 
-    ::
+    .. code-block:: c
+
         #define ABS(x) ((x) >= 0 ? (x): -(x))
 
 - Toujours protéger une macro à plusieurs instructions par une boucle vide:
 
-    ::
+    .. code-block:: c
+
         #define ERROR(str) do { \
             printf("Erreur: %s\r\n", str); \
             log(str); \

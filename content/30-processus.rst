@@ -139,7 +139,7 @@ Ainsi qu'à des sorties:
 
 La figure suivante résume les intéractions qu'un programme peut avoir sur son environnement. Les appels systèmes (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement au systèmes d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
-.. figure:: assets/figures/process/program.*
+.. figure:: ../assets/figures/process/program.*
 
     Résumé des interactions avec un programme
 

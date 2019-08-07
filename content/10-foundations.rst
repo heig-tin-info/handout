@@ -2,12 +2,12 @@
 Généralités du langage
 ======================
 
-Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propre au langage mais aussi les notions élémentaires permettant d'interpréter du code source.
+Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.
 
 L'alphabet
 ==========
 
-L'alphabet de C est composé des 52 caractères latins et de 10 chiffres:
+Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 `chiffres indo-arabes <https://fr.wikipedia.org/wiki/Chiffres_arabes>`__:
 
 .. code-block:: text
 
@@ -17,7 +17,7 @@ L'alphabet de C est composé des 52 caractères latins et de 10 chiffres:
 
 La séparation des symboles est assurée par `une espace <https://fr.wikipedia.org/wiki/Espace_(typographie)>`__, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est à dire qu'ils ne sont pas directement visible ni à l'écran, ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le `pied-de-mouche <https://fr.wikipedia.org/wiki/Pied-de-mouche>`__ ``¶`` pour indiquer les fin de paragraphes qui sont également des caractères non-imprimables.
 
-On nomme les caractères non-imprimables soit par leur acronyme ``LF`` pour *Line Feed* ou soit par leur convention C ``\n``:
+On nomme les caractères non-imprimables soit par leur acronyme ``LF`` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* ``\n``:
 
 .. code-block:: text
 
@@ -32,15 +32,36 @@ La ponctuation utilise les 29 symboles graphiques suivants:
 
 .. code-block:: text
 
-    ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , .
-    < > / ?
+    ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . < > / ?
 
 Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
+
+Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le `The International Obfuscated C Code Contest <https://www.ioccc.org/>`__ qui prime des codes les plus subtiles et illisibles comme le code suivant écrit par `Chris Mills <https://www.ioccc.org/2015/mills2>`__. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
+
+.. code-block:: c
+
+        int I=256,l,c, o,O=3; void e(
+    int L){ o=0; for( l=8; L>>++l&&
+    16>l;			    o+=l
+    <<l-			    1) ;
+    o+=l		     *L-(l<<l-1); { ; }
+    if (		    pread(3,&L,3,O+o/8)<
+    2)/*		    */exit(0);	L>>=7&o;
+    L%=1		     <<l; L>>8?256-L?e(
+    L-1)			    ,c||
+    (e(c			    =L),
+    c=0)			    :( O
+    +=(-I&7)*l+o+l>>3,I=L):putchar(
+        L); }int main(int l,char**o){
+                    for(
+                /*	    ////      */
+                open(1[o],0); ; e(I++
+                ))		      ;}
 
 Fin de lignes (EOL)
 ===================
 
-Restons un moment dans l'histoire et mentionnons qu'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même plus aguéri des programmeur. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatible <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
+À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même plus aguéri des programmeur. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatible <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
 
 Fort heureusement depuis que Apple a migré son système sur une base `BSD <https://en.wikipedia.org/wiki/Berkeley_Software_Distribution>`__ (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne:
 
@@ -49,7 +70,7 @@ Fort heureusement depuis que Apple a migré son système sur une base `BSD <http
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (``EOL``: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
-.. figure:: assets/encoding/crlf.*
+.. figure:: ../assets/figures/encoding/crlf.*
 
     Distinction de différents caractères non-imprimables
 
@@ -60,17 +81,14 @@ Le langage de programmation C tel que défini par C11 comporte 33 mots clés.
 
 .. code-block:: c
 
-    auto        enum         restrict     unsigned
-    break       extern       return       void
-    case        float        short        volatile
-    char        for          signed       while
-    const       goto         sizeof       _Bool
-    default     inline       struct       _imaginary
-    do          int          switch
-    double      long         typedef
+    auto        enum         restrict     unsigned      break       extern
+    return      void         case         float         short       volatile
+    char        for          signed       while         const       goto
+    sizeof      _Bool        default      inline        struct      _imaginary
+    do          int          switch       double        long        typedef
     else        register     union
 
-Dans ce cours d'introduction l'usage des mots clés suivants est découragé car leur usage peut preter à confusion ou mener à des inélégances d'écriture.
+Dans ce cours l'usage des mots clés suivants est découragé car leur utilsation pourrait preter à confusion ou mener à des inélégances d'écriture.
 
 .. code-block:: c
 
@@ -87,7 +105,7 @@ Identificateurs
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par:
 
-.. figure:: assets/grammar/identifier.*
+.. figure:: ../assets/figures/grammar/identifier.*
 
     Grammaire d'un identificateur C
 
@@ -122,7 +140,8 @@ Avant de pouvoir être utilisée, une variable doit être déclarée afin que le
     char c = '€';
     int temperature = 37;
     float neptune_stone_height = 376.86;
-    char message[] = "Jarvis, il faut parfois savoir courir avant de savoir marcher.";
+    char message[] = "Jarvis, il faut parfois savoir "
+        "courir avant de savoir marcher.";
 
 Il n'est pas nécessaire d'associer une valeur initiale à une variable, une déclaration peut se faire sans initialisation comme montré dans l'exemple suivant dans lequel on réserver trois variables ``i``, ``j``, ``k``.
 
@@ -148,7 +167,7 @@ Selon les standards adoptés chaque société on trouve ceux qui préfèrent nom
 +--------------+------------------+----------------------+
 | *snakecase*  | Casse de serpent | ``user_login_count`` |
 +--------------+------------------+----------------------+
-| *pascalcase* | Casse Pascal     | ``UserLoginCount``   |
+| *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
 +--------------+------------------+----------------------+
 | *kebabcase*  | Casse de kebab   | ``user-login-count`` |
 +--------------+------------------+----------------------+
@@ -215,7 +234,7 @@ Commentaires
 Comme en français et ainsi qu'illustré par la :numref:`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
 .. _proust:
-.. figure:: assets/images/proust.*
+.. figure:: ../assets/images/proust.*
 
     Les carafes dans la Vivonne
 
@@ -280,14 +299,19 @@ Exemple d'entête de fichier:
      * NOTE: Important notes about this code
      */
 
+Le format des commentaires est par essence libre au développeur mais il est généralement souhaité que:
+
+- Les commentaires soient concis et précis.
+- Les commentaires soient écrits en anglais.
+
 Opérateurs
 ==========
 
 Un opérateur applique une opération à une (opérateur unitaire), deux ou trois (ternaire) entrées.
 
-.. figure:: assets/processor/alu.*
+.. figure:: ../assets/figures/processor/alu.*
 
-    Unité de calcul arithmétique (ALU)
+    Unité de calcul arithmétique (ALU) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 
 .. code-block:: c
 
@@ -298,12 +322,18 @@ Opérateurs relationnels
 
 Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un **boolean** c'est à dire que le résultat d'une comparaison est soit **vrai**, soit **faux**.
 
-- ``==`` Egal
-- ``>=`` Supérieur ou égal
-- ``<=`` Inférieur ou égal
-- ``>`` Supérieur
-- ``<`` Inférieur
-- ``!=`` Différent
+.. table::
+
+    =========  =====================  ==================
+    Opérateur  Description            Exemple vrai
+    =========  =====================  ==================
+    ``==``     Egal                   ``42 == 0x101010``
+    ``>=``     Supérieur ou égal      ``9 >= 9``
+    ``<=``     Inférieur ou égal      ``-8 <= 8``
+    ``>``      Strictement supérieur  ``0x31 > '0'``
+    ``<``      Inférieur              ``8 < 12.33``
+    ``!=``     Différent              ``'a' != 'c'``
+    =========  =====================  ==================
 
 Opérateurs arithmétiques
 ------------------------

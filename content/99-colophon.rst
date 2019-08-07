@@ -13,7 +13,7 @@ Conventions
 Symbole d'égalité
 -----------------
 
-Le signe d'égalité ``=`` peut aisément être confondu avec l'opérateur d'affectation ``=`` utilisé en C. Dans certains exemples ou l'on montre une égalité entre différentes écritures, le signe d'égalité triple (``U+2262``) est utilisé pour faire disparaître toute ambiguïté:
+Le signe d'égalité ``=`` peut aisément être confondu avec l'opérateur d'affectation ``=`` utilisé en C. Dans certains exemples ou l'on montre une égalité entre différentes écritures, le signe d'égalité triple  (:unicode:`U+2261`) est utilisé pour faire disparaître toute ambiguïté:
 
 .. code-block::
 
@@ -29,6 +29,11 @@ Les convention C s'appliquent à la manière d'exprimer les grandeurs suivantes:
 - ``'c'`` pour les caractères (``/'([^']|\\[nrftvba'])'/``)
 - ``123`` pour les grandeurs entières (``/-?[1-9][0-9]*/``)
 - ``12.`` pour les grandeurs réelles à virgule flottante
+
+Encodage de caractère
+---------------------
+
+Il est souvent fait mention dans ce cours la notation du type :unicode:`U+01AE`, il s'agit d'une notation unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect car cela dépend de la table d'encodage utilisée. La notation unicode est exacte.
 
 Références
 ==========

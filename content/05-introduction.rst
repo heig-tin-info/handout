@@ -2,30 +2,9 @@
 Introduction
 ============
 
-.. _thompson:
-
-.. exercise:: Titre qui sent la rose brune, et verte.
-
-    La foncasdftion aArdjhc-fdsCosinus d``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
-
-    .. code-block:: c
-
-        void foo();
-
-Bal Masqué
-==========
-
-.. exercise:: Outback
-
-    La fonction aArdjhc-fdsCosinus d``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
-
-    .. code-block:: c
-
-        void foo();
-
 Historique
 ==========
-
+ /
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__.
 
 Le langage C a été inventé en 1972 par `Brian Kernighan <https://fr.wikipedia.org/wiki/Brian_Kernighan>`__ et `Dennis Ritchie <https://fr.wikipedia.org/wiki/Dennis_Ritchie>`__. Ils sont les concepteurs du système d'exploitation `UNIX <https://fr.wikipedia.org/wiki/Unix>`__ et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec `Bjarne Stroustrup <https://fr.wikipedia.org/wiki/Bjarne_Stroustrup>`__ qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.

@@ -18,7 +18,7 @@ Ces structures de contrôles sont toujours composées de
 Sequences
 =========
 
-En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (U+003B).
+En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (U+003B):
 
 .. code-block:: c
 
@@ -33,6 +33,10 @@ Une séquence est une suite d'instructions regroupées en un bloc matérialisé 
         area = pi * radius * radius;
     }
 
+.. note::
+
+    N'allez pas confondre le point virgule ``;`` (U+003B) avec le ``;`` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+
 Les embranchements
 ==================
 
@@ -42,7 +46,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 2. ``switch``
 3. L'instruction ternaire
 
-.. figure:: assets/figures/control-structure/branching-diagram.*
+.. figure:: ../assets/figures/control-structure/branching-diagram.*
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
 
@@ -221,7 +225,7 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 - ``while``
 - ``do`` .. ``while``
 
-.. figure:: assets/figures/control-structure/for.*
+.. figure:: ../assets/figures/control-structure/for.*
 
     Aperçu des trois structure de boucles
 
