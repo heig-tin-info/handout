@@ -59,19 +59,16 @@ Puis on compile:
 Aïe! La bibliothèque n'est pas installée.
 
 Debian/Ubuntu
-
     .. code-block:: console
 
         $ sudo apt-get install libgmp-dev
 
 Mac OS X
-
     .. code-block:: console
 
         $ brew install gmp
 
 Windows
-
     .. code-block:: console
 
         ERREUR 404
@@ -127,6 +124,43 @@ c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégr
     $ size a.out
     text    data     bss     dec     hex filename
     2752     680      16    3448     d78 ./a.out
+
+Exemple: ncurses
+================
+
+La bibliothèque `ncurses <https://fr.wikipedia.org/wiki/Ncurses>`__ traduction de *nouvelles malédictions* est une évolution de `curses <https://fr.wikipedia.org/wiki/Curses>`__ développé originellement par `Ken Arnold <https://en.wikipedia.org/wiki/Ken_Arnold>`__ . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilsée.
+
+La biblothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs, ...
+
+.. figure:: ../assets/images/linux-menuconfig.png
+
+    Example d'interface graphiques écrites avec `ncurses`. Ici la configuration du noyau Linux.
+
+L'écriture d'un programme Hello World avec cette biblothèque pourrait être:
+
+.. code-block:: c
+
+    #include <ncurses.h>
+
+    int main()
+    {
+        initscr();              // Start curses mode
+        printw("hello, world");	// Print Hello World
+        refresh();              // Print it on to the real screen
+        getch();	            // Wait for user input
+        endwin();               // End curses mode
+
+        return 0;
+    }
+
+La compilation n'est possible que si:
+
+1. La biblothèque est installée sur l'ordinateur
+2. Le lien vers la biblothèque dynamique est mentionné à la compilation
+
+.. code-block:: console
+
+    $ gcc ncurses-hello.c -ohello -lncurses
 
 Bibliothèques statique
 =======================

@@ -9,6 +9,8 @@ La philosophie d'un bon développeur repose sur plusieurs principes de programma
 Rasoir d'Ockham
 ===============
 
+.. figure:: ../assets/images/razor.*
+
 Le `rasoir d'Ockham <https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham>`__ expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise `Shadok <https://en.wikipedia.org/wiki/Les_Shadoks>`__: "Pourquoi faire simple quand on peut faire compliqué ?"
 
 En philosophie un `rasoir <https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>`__ est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
@@ -185,15 +187,64 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 - Un fichier est plus long que **1000 lignes**
 - **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible
 - Une fonction à plus de **trois** paramètres
+    .. code-block:: c
+
+        void make_coffee(int size, int mode, int mouture, int cup_size,
+            bool with_milk, bool cow_milk, int number_of_sugars);
+
 - **Copier coller**, du code est dupliqué
 - Les commentaires expliquent le comment du code et non le pourquoi
+    .. code-block:: c
+
+        // Additionne une constante avec une autre pour ensuite l'utiliser
+        double u = (a + cst);
+        u /= 1.11123445143; // division par une constante inférieur à 2
+
 - **Arbre de Noël**, plus de deux structures de contrôles sont impliquées
+    .. code-block:: c
+
+        if (a > 2) {
+            if (b < 8) {
+                if (c ==12) {
+                    if (d == 0) {
+                        exception(a, b, c, d);
+                    }
+                }
+            }
+        }
+
 - Usage de ``goto``
+    .. code-block:: c
+
+        loop:
+            i +=1;
+            if (i > 100)
+                goto end;
+        happy:
+            happy();
+            if (j > 10):
+                goto sad;
+        sad:
+            sad();
+            if (k < 50):
+                goto happy;
+        end:
+
 - Plusieurs variables avec des noms très similaires
+    .. code-block:: c
+
+        int advice = 11;
+        int advise = 12;
+
 - **Action à distance** par l'emploi immodéré de variables globales
 - **Ancre de bateau**, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
 - **Cyclomatisme aïgu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
 - **Attente active**, un boucle qui ne contient qu'une instruction de test, attendant la condition
+    .. code-block:: c
+
+        while (true) {
+            if (finished) break;
+        }
 - **Objet divin** quand un composant logiciel assure trop de fonctions essentielles (KISS)
 - **Coulée de lave** lorsqu'un code immature est mis en production
 - **Chirurgie au fusil de chasse** quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code (`Shotgun surgery <https://en.wikipedia.org/wiki/Shotgun_surgery>`__).

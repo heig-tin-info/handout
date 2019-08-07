@@ -2,11 +2,15 @@
 Fiches d'unités
 ===============
 
+.. _info1:
+
 Informatique 1
 ==============
 
 .. literalinclude:: ../info1.yaml
     :language: yaml
+
+.. _info2:
 
 Informatique 2
 ==============

@@ -2,9 +2,11 @@
 Introduction
 ============
 
+.. _thompson:
+
 Historique
 ==========
- /
+
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__.
 
 Le langage C a été inventé en 1972 par `Brian Kernighan <https://fr.wikipedia.org/wiki/Brian_Kernighan>`__ et `Dennis Ritchie <https://fr.wikipedia.org/wiki/Dennis_Ritchie>`__. Ils sont les concepteurs du système d'exploitation `UNIX <https://fr.wikipedia.org/wiki/Unix>`__ et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec `Bjarne Stroustrup <https://fr.wikipedia.org/wiki/Bjarne_Stroustrup>`__ qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
