@@ -31,7 +31,7 @@ Un exécutable binaire doit être compilé pour la bonne architecture matériell
 
 Prenons l'exemple du programme suivant qui calcul la suite des nombres de Fibonacci:
 
-.. literalinclude:: assets/src/fibonacci.c
+.. literalinclude:: ../assets/src/fibonacci.c
     :language: c
 
 Une fois `assemblé <https://fr.wikipedia.org/wiki/Assembly_(informatique)>`__ le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc:
@@ -139,7 +139,7 @@ Ainsi qu'à des sorties:
 
 La figure suivante résume les intéractions qu'un programme peut avoir sur son environnement. Les appels systèmes (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement au systèmes d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
-.. figure:: assets/program.svg
+.. figure:: assets/figures/process/program.*
 
     Résumé des interactions avec un programme
 

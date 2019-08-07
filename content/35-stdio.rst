@@ -155,7 +155,7 @@ La construction d'un marqueur est loin d'être simple mais heureusement on n'a p
 ``type``
     Type de formattage souhaité
 
-.. figure:: assets/formats.svg
+.. figure:: assets/figures/string/formats.*
 
     Formattage d'un marqueur
 

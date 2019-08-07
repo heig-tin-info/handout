@@ -29,7 +29,7 @@ Le système décimal est le système de numération utilisant la base dix et le 
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
-.. figure:: assets/hieroglyph.svg
+.. figure:: assets/encoding/hieroglyph.*
     :width: 50%
 
     1506 en écriture hiéroglyphique
@@ -408,10 +408,6 @@ Les avantages:
 
 Arithmétique binaire (opérations bit-à-bit)
 ===========================================
-
-Une opération arithmétique élémentaire peut s'exprimer de la façon suivante:
-
-.. figure:: assets/elementary-arithmetic.svg
 
 Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes:
 

@@ -28,7 +28,6 @@ language = 'fr'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'heigvd'
-html_static_path = ['_static']
 
 latex_engine = 'xelatex'
 latex_elements = {

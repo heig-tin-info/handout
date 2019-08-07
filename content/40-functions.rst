@@ -4,7 +4,7 @@ Fonctions
 
 A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolitique d'instruction esothérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
 
-.. figure:: assets/hamilton.jpg
+.. figure:: assets/images/hamilton.*
 
   Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
@@ -36,7 +36,7 @@ Conventions d'appel
 
 Dans le `Voyage de Chihiro <https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro>`__ (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
-.. figure:: assets/kamaji.png
+.. figure:: assets/images/kamaji.*
 
     Le vieux Kamaji et ses bras extensibles.
 
@@ -95,7 +95,7 @@ Overhead
 
 L'appel de fonctions coûte à l'exécution car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restoration des registres utilisés:
 
-.. figure:: assets/calling-convention.svg
+.. figure:: assets/figures/function/calling-convention.*
 
     Sauvegarde des registres du processeur et convention d'appel de fonctions.
 

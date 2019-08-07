@@ -49,7 +49,7 @@ Fort heureusement depuis que Apple a migré son système sur une base `BSD <http
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (``EOL``: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
-.. figure:: assets/crlf.svg
+.. figure:: assets/encoding/crlf.*
 
     Distinction de différents caractères non-imprimables
 
@@ -87,7 +87,7 @@ Identificateurs
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par:
 
-.. figure:: assets/identifier.svg
+.. figure:: assets/grammar/identifier.*
 
     Grammaire d'un identificateur C
 
@@ -215,7 +215,7 @@ Commentaires
 Comme en français et ainsi qu'illustré par la :numref:`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
 .. _proust:
-.. figure:: assets/proust.svg
+.. figure:: assets/images/proust.*
 
     Les carafes dans la Vivonne
 
@@ -285,7 +285,9 @@ Opérateurs
 
 Un opérateur applique une opération à une (opérateur unitaire), deux ou trois (ternaire) entrées.
 
-.. figure:: assets/alu.svg
+.. figure:: assets/processor/alu.*
+
+    Unité de calcul arithmétique (ALU)
 
 .. code-block:: c
 

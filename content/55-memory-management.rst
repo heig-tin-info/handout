@@ -59,7 +59,7 @@ Lorsqu'un programme à besoin de mémoire, il peut générer un appel système p
 
 L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. A chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
-.. figure:: assets/malloc.svg
+.. figure:: assets/figures/memory/malloc.*
 
 Mémoire de programme
 ====================
@@ -68,7 +68,7 @@ Les segments mémoire sont une construction de la bibliothèque standard, selon 
 
 Néanmoins une bonne représentation est la suivante:
 
-.. figure:: assets/program-memory.svg
+.. figure:: assets/figures/memory/program-memory.*
 
     Organisation de mémoire d'un programme
 

@@ -139,7 +139,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont:
 
 La construction d'un type entier C est la suivante:
 
-.. figure:: assets/integers-legacy.svg
+.. figure:: assets/datatype/ansi-integers.*
     :alt: Entiers standardisés **C89**
     :width: 100 %
 
@@ -194,7 +194,7 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête ``stdint.h``. Cette bibliothèque standard offre les types suivants:
 
-.. figure:: assets/integers.svg
+.. figure:: assets/datatype/c99-integers.*
     :alt: Entiers standardisés **C99**
     :width: 100 %
 
@@ -403,13 +403,13 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'`ASA <https://fr.wikipedia.org/wiki/American_National_Standards_Institute>`__, l'*American Standards Association* aujourd'hui ANSI qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
-.. figure:: assets/ascii-1963.svg
+.. figure:: assets/figures/encoding/ascii-1963.*
 
     Table ASCII ASA X3.4 établie en 1963
 
 Aujourd'hui la table ASCII de base défini 128 carac,tères qui n'incluent pas les caractères accentués.
 
-.. figure:: assets/ascii.svg
+.. figure:: assets/figures/encoding/ascii.*
 
     Table ANSI INCITS 4-1986 (standard actuel)
 
@@ -417,7 +417,7 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
 Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
-.. figure:: assets/latin1.svg
+.. figure:: assets/figures/encoding/latin1.*
 
     Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)
 
@@ -429,7 +429,7 @@ Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-.. figure:: assets/encoding-trends.svg
+.. figure:: assets/figures/encoding/encoding-trends.*
 
     Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
 

@@ -5,13 +5,13 @@ Fiches d'unités
 Informatique 1
 ==============
 
-.. literalinclude:: ../../info1.yaml
+.. literalinclude:: ../info1.yaml
     :language: yaml
 
 Informatique 2
 ==============
 
-.. literalinclude:: ../../info1.yaml
+.. literalinclude:: ../info1.yaml
     :language: yaml
 
 Modalités d'évalutation et de validation

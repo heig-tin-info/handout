@@ -9,7 +9,7 @@ Ce chapitre se concentre sur trois caractéristique d'une variable:
 
 Dans les trois cas, elles décrivent l'accessibilité, c'est à dire jusqu'à où et jusqu'à quand une variable est accessible.
 
-.. figure:: assets/visibility.jpg
+.. figure:: assets/images/visibility.*
 
     Brouillard matinal sur le `Golden Gate Bridge <https://fr.wikipedia.org/wiki/Golden_Gate_Bridge>`__, San Francisco.
 

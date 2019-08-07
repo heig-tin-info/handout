@@ -43,7 +43,7 @@ On a donc:
 
 Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satélite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci:
 
-.. literalinclude:: assets/src/gmp.c
+.. literalinclude:: ../assets/src/gmp.c
     :language: c
 
 Puis on compile:
@@ -140,12 +140,12 @@ Une bibliothèque statique n'est rien d'autre qu'une archive de un ou plusieurs 
 
 Par exemple si l'on souhaite écrire une bibliothèque statique pour le `code de César <https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage>`__ on ecrira un fichier source `caesar.c`:
 
-.. literalinclude:: assets/src/caesar.c
+.. literalinclude:: ../assets/src/caesar.c
     :language: c
 
 Ainsi qu'un fichier d'en-tête `caesar.h`:
 
-.. literalinclude:: assets/src/caesar.h
+.. literalinclude:: ../assets/src/caesar.h
     :language: c
 
 Pour créer une biblothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame:
@@ -157,7 +157,7 @@ Pour créer une biblothèque statique rien de plus facile. Le compilateur crée 
 
 Puis il suffit d'écrire un programme pour utiliser cette bibliothèque:
 
-.. literalinclude:: assets/src/encrypt.c
+.. literalinclude:: ../assets/src/encrypt.c
     :language: c
 
 Et de compiler le tout. Ici on utilise ``-I.`` et ``-L.`` pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.

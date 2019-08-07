@@ -177,11 +177,9 @@ Pointeur et chaînes de caractères
         "mais", "ou", "est", "donc", "or", "ni", "car"
     };
 
-.. figure:: assets/ptrstr.svg
+.. figure:: assets/figures/string/ptrstr.*
 
     Pointeur sur une chaîne de caractère
-
-
 
 Structures et pointeurs
 =======================
