@@ -2,7 +2,7 @@
 Avancé
 ======
 
-Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour ce cours.
+Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour le contrôle de connaissance.
 
 Complément sur les variables initialisées
 =========================================

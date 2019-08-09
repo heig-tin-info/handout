@@ -61,10 +61,10 @@ catégories expérimée du meilleur au plus mauvais:
 +----------------------+--------------------+----------------------------------------+
 | :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un batement de cil)            |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(2^n)`       | très très grand    | le soleil devenue géante rouge         |
+| :math:`O(2^n)`       | très très grand    | Le soleil devenue géante rouge         |
 |                      |                    | aura ingurgité la terre                |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(n!)`        | trop trop grand    | la galaxie ne sera plus que poussière  |
+| :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
 +----------------------+--------------------+----------------------------------------+
 
 Un algorithme en :math:`O(n^2)`, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.

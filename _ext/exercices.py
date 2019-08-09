@@ -1,25 +1,63 @@
-from docutils import nodes
+"""
+Add directives for writing exercises and solutions. This extension supports:
 
-from sphinx import addnodes
-from sphinx.application import Sphinx
-from sphinx.environment import BuildEnvironment
+   .. exercise:: Name
+
+       Any content here...
+
+       .. solution
+
+           Solution takes place here...
+
+To summarize:
+
+    - Exercises are automatically numbered "Exercise 1.1" (section number + exercise number)
+    - If a `.. all-exercises::`, the exercises are mentionned where, the `exercise` directive
+      is replaced with a reference to the exercise
+    - Solutions can be hidden with `:hidden:`
+"""
+import logging
+
+from docutils import nodes
+from docutils.parsers.rst import Directive
 from docutils.parsers.rst.directives.admonitions import Hint
+
+from sphinx.writers.html5 import HTML5Translator
+from sphinx.util.console import colorize
+from sphinx.locale import _
+from sphinx import addnodes
+from sphinx.util.docutils import SphinxDirective
 from sphinx.environment.adapters.toctree import TocTree
 from sphinx.environment.collectors import EnvironmentCollector
 from sphinx.util import url_re
 
-import uuid
+from collections import OrderedDict
+
+logger = logging.getLogger(__name__)
+
 
 class exercise(nodes.Admonition, nodes.Element):
     pass
 
+
+class all_exercises(nodes.General, nodes.Element):
+    pass
+
+
 class solution(nodes.Admonition, nodes.Element):
     pass
 
-class SolutionDirective(Hint):
-    pass
 
-class ExerciceDirective(Hint):
+class AllExercisesDirective(SphinxDirective):
+    """ Directive replaced with all exercises found in all documents:
+        Section number, subsection, exercises...
+    """
+    def run(self):
+        self.env.exercises_all_exercises_docname = self.env.docname
+        return [all_exercises()] # Let it process later once the toctree is built
+
+
+class ExerciseDirective(SphinxDirective):
     final_argument_whitespace = True
     has_content = True
     optional_arguments = 1
@@ -27,25 +65,35 @@ class ExerciceDirective(Hint):
     def run(self):
         self.assert_has_content()
 
-        text = '\n'.join(self.content)
+        id = 'exercise-%d' % self.env.new_serialno('sphinx.ext.exercises#exercises')
 
-        admonition_node = exercise(text, **self.options)
-        admonition_node.signature = str(uuid.uuid5(uuid.NAMESPACE_OID, text))
+        target_node = nodes.target('', '', ids=[id])
 
-        self.add_name(admonition_node)
+        node = exercise('\n'.join(self.content), **self.options)
+        node += nodes.title(_('Exercise'), _('Exercise'))
+        self.state.nested_parse(self.content, self.content_offset, node)
 
-        admonition_node.title = self.arguments[0] if len(self.arguments) > 0 else ''
+        if not hasattr(self.env, 'exercises_all_exercises'):
+            self.env.exercises_all_exercises = OrderedDict()
 
-        self.state.nested_parse(self.content, self.content_offset,
-                                admonition_node)
-        return [admonition_node]
+        self.env.exercises_all_exercises[(self.env.docname, id)] = {
+            'lineno': self.lineno,
+            'docname': self.env.docname,
+            'node': node,
+            'title': self.arguments[0] if len(self.arguments) else '',
+            'target': target_node,
+        }
+
+        return [target_node, node]
+
+
+class SolutionDirective(Hint):
+    pass
 
 
 def visit_exercise(self, node, name=''):
-    number = '.'.join(map(str, self.builder.env.toc_exercises[node.signature]))
-
     self.body.append(self.starttag(node, 'div', CLASS=('exercise ' + name)))
-    self.body.append('<h3>Exercice %s: %s</h3>' % (number, node.title))
+    if hasattr(node, 'exnum'): self.body.append('secnum: %s' % str(node.exnum))
 
 
 def depart_exercise(self, node=None):
@@ -59,103 +107,121 @@ def visit_solution(self, node, name=''):
 def depart_solution(self, node=None):
     self.depart_admonition(node)
 
-def novisit(self, node=None):
+def no_visit(self, node=None):
     pass
 
+def get_reference(meta):
+    return '/'.join(['exercise'] + list(map(str, meta['number'])))
+
+def process_exercise_nodes(app, doctree, fromdocname):
+    for node in doctree.traverse(exercise):
+        para = nodes.paragraph()
+
+        meta = app.env.exercises_all_exercises[(fromdocname, node['ids'][1])]
+        description = meta['label']
+
+        ref = nodes.reference('','')
+        innernode = nodes.Text(description, description)
+        ref['refdocname'] = fromdocname
+
+        if hasattr(app.env, 'exercises_all_exercises_docname'):
+            ref['refuri'] = app.builder.get_relative_uri(fromdocname, app.env.exercises_all_exercises_docname)
+            ref['refuri'] += '#' + get_reference(meta)
+
+        ref.append(innernode)
+        para += ref
+
+        node.parent.replace(node, para)
+
+    for node in doctree.traverse(all_exercises):
+        content = []
+        for _, ex in sorted(app.env.exercises_all_exercises.items(), key=lambda x: x[1]['number']):
+            n = ex['node']
+
+
+            title = nodes.caption('', ex['label'] + ' ' + ex['title'])
+
+            n.replace(n.children[n.first_child_matching_class(nodes.title)], title )
+            n['ids'] = [get_reference(ex)]
+
+            content.append(n)
+
+        node.replace_self(content)
+
+
 class ExercisesCollector(EnvironmentCollector):
-
-    def clear_doc(self, app: Sphinx, env: BuildEnvironment, docname):
-        if not hasattr(env, 'toc_exercise_numbers'):
-            env.toc_exercise_numbers =  {}
-
-        env.toc_exercise_numbers.pop(docname, None)
-
-    def process_doc(self, app: Sphinx, doctree: nodes.document) -> None:
+    def clear_doc(self, app, env, docname):
         pass
 
-    def get_updated_docs(self, app: Sphinx, env: BuildEnvironment):
-        return self.assign_exercise_numbers(env)
+    def process_doc(self, app, doctree):
+        pass
 
-    def assign_exercise_numbers(self, env: BuildEnvironment):
-        """Assign a exercise number to each exercise under a numbered toctree."""
+    def get_updated_docs(self, app, env):
+        if not hasattr(env, 'all_exercises'):
+            env.all_exercises = []
 
-        rewrite_needed = []
+        def traverse_all(app, env, docname):
+            doctree = env.get_doctree(docname)
 
-        assigned = set()  # type: Set[str]
-        old_exercise_numbers = env.toc_exercise_numbers
-        env.toc_exercise_numbers = {}
-        env.toc_exercises = {}
-        exercise_counter = {}  # type: Dict[str, Dict[Tuple[int, ...], int]]
+            for toc in doctree.traverse(addnodes.toctree):
+                for _, subdocname in toc['entries']:
+                    traverse_all(app, env, subdocname)
 
-        def get_section_number(docname, section):
-            anchorname = '#' + section['ids'][0]
-            secnumbers = env.toc_secnumbers.get(docname, {})
-            if anchorname in secnumbers:
-                secnum = secnumbers.get(anchorname)
-            else:
-                secnum = secnumbers.get('')
+            for node in doctree.traverse(exercise):
+                self.process_exercise(app, env, node, docname)
 
-            return secnum or tuple()
+        traverse_all(app, env, env.config.master_doc)
 
-        def get_next_exercise_number(secnum):
-            section = secnum[0]
-            exercise_counter[section] = exercise_counter.get(section, 0) + 1
-            return (section, exercise_counter[section],)
+        return []
 
-        def register_exercise_number(docname, secnum, exercise):
-            env.toc_exercise_numbers.setdefault(docname, {})
-            number = get_next_exercise_number(secnum)
-            env.toc_exercise_numbers[docname][exercise.signature] = number
-            env.toc_exercises[exercise.signature] = number
+    def process_exercise(self, app, env, node, docname):
+        meta = env.exercises_all_exercises[(docname, node['ids'][1])]
+        meta['number'] = env.toc_fignumbers.get(docname, {}).get('exercise', {}).get(node['ids'][0])
+        meta['label'] = app.config.numfig_format['exercise'] % '.'.join(map(str, meta['number']))
 
-        def _walk_doctree(docname, doctree, secnum) -> None:
-            for subnode in doctree.children:
-                if isinstance(subnode, nodes.section):
-                    next_secnum = get_section_number(docname, subnode)
-                    if next_secnum:
-                        _walk_doctree(docname, subnode, next_secnum)
-                    else:
-                        _walk_doctree(docname, subnode, secnum)
-                elif isinstance(subnode, addnodes.toctree):
-                    for title, subdocname in subnode['entries']:
-                        if url_re.match(subdocname) or subdocname == 'self':
-                            # don't mess with those
-                            continue
+        env.all_exercises.append(meta)
 
-                        _walk_doc(subdocname, secnum)
-                elif isinstance(subnode, exercise):
-                    register_exercise_number(docname, secnum, subnode)
-                    _walk_doctree(docname, subnode, secnum)
 
-                elif isinstance(subnode, nodes.Element):
-                    _walk_doctree(docname, subnode, secnum)
+class Translator(HTML5Translator):
+    def depart_caption(self, node):
+        self.body.append('</span>')
+        if (isinstance(node.parent, exercise)):
+            self.add_permalink_ref(node.parent, _('Permalink to this exercise'))
+        super().depart_caption(node)
 
-        def _walk_doc(docname, secnum) -> None:
-            if docname not in assigned:
-                assigned.add(docname)
-                doctree = env.get_doctree(docname)
-                _walk_doctree(docname, doctree, secnum)
 
-        _walk_doc(env.config.master_doc, tuple())
-        for docname, exercise_number in env.toc_exercise_numbers.items():
-            if exercise_number != old_exercise_numbers.get(docname):
-                rewrite_needed.append(docname)
+def init_numfig_format(app, config):
+    config.numfig_format.update({'exercise': _('Exercise %s')})
 
-        return rewrite_needed
 
 def setup(app):
-    novisits = (novisit, novisit)
+    no_visits = (no_visit, no_visit)
     visitors = (visit_exercise, depart_exercise)
 
-    app.add_config_value('hide_solutions', False, 'html')
+    app.add_enumerable_node(exercise, 'exercise',
+        html=visitors,
+        latex=no_visits,
+        text=visitors,
+        man=no_visits
+    )
 
-    app.add_node(exercise, html=visitors, latex=novisits, text=visitors, man=novisits)
-    app.add_node(solution, html=(visit_solution, depart_solution), latex=novisits, man=novisits)
+    app.add_node(solution,
+        html=(visit_solution, depart_solution),
+        latex=no_visits,
+        man=no_visits
+    )
 
-    app.add_directive('exercise', ExerciceDirective)
+
+    app.add_directive('exercise', ExerciseDirective)
     app.add_directive('solution', SolutionDirective)
+    app.add_directive('all-exercises', AllExercisesDirective)
+
+    app.connect('config-inited', init_numfig_format)
+    app.connect('doctree-resolved', process_exercise_nodes)
 
     app.add_env_collector(ExercisesCollector)
+
+    app.set_translator('html', Translator)
 
     return {
         'version': '0.1',

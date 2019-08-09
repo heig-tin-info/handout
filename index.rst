@@ -7,8 +7,8 @@ Cet ouvrage est destiné aux étudiants de première année Bachelor de la `HEIG
 Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modules suivantes:
 
 - Module **InfoMicro** (``InfoMicro``)
-- Unité **Informatique 1** (`Info1 <info1>`__)
-- Unité **Informatique 2** (`Info2 <info2>`__)
+- Unité **Informatique 1** (:ref:`Info1 <info1>`)
+- Unité **Informatique 2** (:ref:`Info2 <info2>`)
 
 .. toctree::
     :numbered:
