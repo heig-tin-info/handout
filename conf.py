@@ -18,6 +18,7 @@ extensions = [
     'sphinx.ext.imgconverter',
     'exercices',
     'unicode',
+    'appendix',
     'span-sectnum'
 ]
 

@@ -26,7 +26,7 @@ Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modul
 
     exercices/*
 
-.. toctree::
+.. appendix::
     :numbered:
     :maxdepth: 2
     :caption: Annexes

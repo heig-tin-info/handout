@@ -24,6 +24,14 @@ Il faut retenir que C est un langage simple et efficace. Votre machine à café,
 
     Les pères fondateurs du C
 
+.. exercise:: Auteurs
+
+    Qui a inventé le C ?
+
+    .. solution::
+
+        Brian Kernighan
+
 Standardisation
 ===============
 
