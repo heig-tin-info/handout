@@ -1,3 +1,7 @@
+.. raw:: latex
+
+    \backmatter
+
 ========
 Colophon
 ========

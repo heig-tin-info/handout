@@ -29,9 +29,16 @@ sudo pip3 install sphinx sphinx-press-theme recommonmark
 Then if you would like to generate the PDF version you need LaTeX as well.
 
 ```bash
+sudo apt-get install xindy # Index parser
+sudo apt-get install librsvg2-bin # For conversion from svg to pdf
+
 sudo apt-get install texlive-latex-base
 sudo apt-get install texlive-fonts-recommended
 sudo apt-get install texlive-fonts-extra
 sudo apt-get install texlive-latex-extra
+
 sudo apt-get install latexmk
+
+sudo pip install sphinx
+sudo pip install sphinxcontrib-svg2pdfconverter
 ```

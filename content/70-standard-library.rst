@@ -196,7 +196,7 @@ Puis il suffit d'écrire un programme pour utiliser cette bibliothèque:
 
 Et de compiler le tout. Ici on utilise ``-I.`` et ``-L.`` pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.
 
-.. code-block:: c
+.. code-block:: console
 
     $ gcc encrypt.c -I. -L. -l:caesar.a
 
@@ -336,7 +336,7 @@ Chaînes de caractères:
 +--------------------------+-------------------------------------------------------+
 | ``memmove(dst, src, n)`` | Identique à ``memcpy`` mais traite les cas            |
 |                          | particuliers lorsque les deux régions mémoire se      |
-|                          | superposent. (c.f. :numref:`memmove`)                 |
+|                          | superposent.                                          |
 +--------------------------+-------------------------------------------------------+
 
 Types de données

@@ -36,7 +36,7 @@ Conventions d'appel
 
 Dans le `Voyage de Chihiro <https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro>`__ (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
-.. figure:: ../assets/figures/images/kamaji.*
+.. figure:: ../assets/images/kamaji.*
 
     Le vieux Kamaji et ses bras extensibles.
 

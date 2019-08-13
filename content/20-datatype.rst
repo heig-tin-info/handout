@@ -353,33 +353,28 @@ La valeur de 1.0 est encodée:
 
 .. math::
 
-    \begin{align}
     0\:01111111\:00000000000000000000000_2 &= \text{3f80}\: \text{0000}_{16} \\
     &= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
     &= 2^{0} \cdot 1.0 = 1.0\\
-    \end{align}
 
 La valeur maximale exprimable:
 
 .. math::
 
-    \begin{align}
     0\:11111110\:11111111aquelle111111_2 &= \text{7f7f}\:, \text{ffff}_{16} \\
     &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
     &≈ 2^{127} \cdot 1.9999998807 \\
     &≈ 3.4028234664 \cdot 10^{38}
-    \end{align}
+
 
 La valeur de :math:`-\pi` (pi) est:
 
 .. math::
 
-    \begin{align}
     1\:10000000\:10010010000111111011011_2 &= \text{4049}\: \text{0fdb}_{16} \\
     &= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
     &≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
     &≈ -3.14159274101
-    \end{align}
 
 Vient s'ajouter les valeurs particulières suivantes:
 

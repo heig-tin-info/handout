@@ -8,14 +8,14 @@ import sys
 
 sys.path.append(os.path.abspath("./_ext"))
 
-project = 'Introduction au C'
+project = "Le C pour l'ingénieur"
 author = 'Pierre Bressy, Didier Mettler, François Birling, Yves Chevallier'
 copyright = 'HEIG-VD(c) 2019'
 
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
-    'sphinx.ext.imgconverter',
+    'sphinxcontrib.rsvgconverter',
     'exercices',
     'unicode',
     'appendix',
@@ -31,14 +31,32 @@ language = 'fr'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'heigvd'
+html_secnumber_suffix = '  '
+
+numfig = True
+
+latex_additional_files = [
+    '_templates/manual.cls',
+    '_templates/sphinx.sty',
+    '_templates/latexmkrc'
+]
+
+latex_documents = [
+    ('index', 'main.tex', None , 'Prof. Yves Chevallier' , 'manual')
+]
 
 latex_engine = 'xelatex'
 latex_elements = {
     'papersize': 'a4paper',
-    'babel': '\\usepackage{polyglossia}\n\\setmainlanguage{fr}'
+    'babel': '\\usepackage[french]{babel}',
+    'fontpkg': '',
+    'fncychap': '',
+    'preamble': '''
+        % Disable the ugly colouring of titles. Why does Sphinx do this?
+        \\definecolor{TitleColor}{rgb}{0,0,0}
+        \\definecolor{InnerLinkColor}{rgb}{0,0,0}
+
+    '''
 }
 
-numfig = True
-#highlight_language = 'c'
-
-html_secnumber_suffix = '  '
+latex_logo = '_artifacts/heig-vd.pdf'

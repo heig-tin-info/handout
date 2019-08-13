@@ -117,6 +117,9 @@ def process_exercise_nodes(app, doctree, fromdocname):
     for node in doctree.traverse(exercise):
         para = nodes.paragraph()
 
+        if (fromdocname, node['ids'][1]) not in app.env.exercises_all_exercises:
+            continue
+        
         meta = app.env.exercises_all_exercises[(fromdocname, node['ids'][1])]
         description = meta['label']
 

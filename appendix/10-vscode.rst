@@ -1,3 +1,7 @@
+.. raw:: latex
+
+    \appendix
+
 ==================
 Visual Studio Code
 ==================

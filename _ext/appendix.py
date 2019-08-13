@@ -1,3 +1,5 @@
+""" Rename section number with alphabetic letters for ``.. appendix``
+"""
 import string
 from docutils import nodes
 from sphinx.environment.collectors.toctree import TocTreeCollector
