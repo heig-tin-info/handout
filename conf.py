@@ -19,8 +19,11 @@ extensions = [
     'exercices',
     'unicode',
     'appendix',
+    'gtag',
     'span-sectnum'
 ]
+
+googleanalytics_id = 'UA-145664552-1'
 
 source_suffix = ['.rst']
 
