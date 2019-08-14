@@ -4,9 +4,9 @@
 
 Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
 
-- PDF
-- HTML
-- Manpage
+- PDF (voir [releases](https://github.com/heig-vd-tin/info-handout/releases))
+- HTML (https://heig-vd-tin.github.io/info-handout/)
+- Manpage (voir [releases](https://github.com/heig-vd-tin/info-handout/releases))
 
 ## Install
 
@@ -18,6 +18,15 @@ git submodulee update
 make html
 make pdf
 ```
+
+Alternativement vous pouvez utiliser Docker et suivre le contenu de `.travis.yml`.
+
+## Intégration continue
+
+Les nouvelles releases sont automatiquement générées par Travis CI:
+
+- A chaque nouveau tag, les version PDF et MAN sont générées
+- A chaque commit sur la branche `master` une version HTML est générée
 
 ## Build
 
