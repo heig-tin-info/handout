@@ -10,4 +10,4 @@ _static
 *.so
 *.a
 *.out
-*__pycache__*
+__pycache__/
