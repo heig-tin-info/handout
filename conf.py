@@ -9,7 +9,7 @@ import sys
 sys.path.append(os.path.abspath("./_ext"))
 
 project = "Le C pour l'ingénieur"
-author = 'Pierre Bressy, Didier Mettler, François Birling, Yves Chevallier'
+author = 'Prof. Yves Chevallier'
 copyright = 'HEIG-VD(c) 2019'
 
 extensions = [
@@ -45,7 +45,7 @@ latex_additional_files = [
 ]
 
 latex_documents = [
-    ('index', 'main.tex', None , 'Prof. Yves Chevallier' , 'manual')
+    ('index', 'main.tex', None , author, 'manual')
 ]
 
 latex_engine = 'xelatex'
@@ -63,3 +63,8 @@ latex_elements = {
 }
 
 latex_logo = '_artifacts/heig-vd.pdf'
+
+
+man_pages = [
+    ('index', 'info', None, author, 1)
+]

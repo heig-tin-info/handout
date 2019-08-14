@@ -31,4 +31,4 @@ artifacts: $(ARTIFACTS_DIR)/heig-vd.pdf
 clean:
 	$(RM) -rf _build _static
 
-.PHONY: all clean artifacts
+.PHONY: all clean artifacts dist
