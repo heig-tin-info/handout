@@ -1,5 +1,7 @@
 # Polycopié d'informatique
 
+[![Build Status](https://travis-ci.org/heig-vd-tin/info-handout.svg?branch=master)](https://travis-ci.org/heig-vd-tin/info-handout)
+
 Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
 
 - PDF
