@@ -7,4 +7,4 @@ RUN apt-get install -y python3 python3-pip python3-sphinx
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install sphinxcontrib-svg2pdfconverter
-RUN pip3 install sphinx-heigvd-theme
+RUN pip3 install sphinx-heigvd-theme==0.5.2
