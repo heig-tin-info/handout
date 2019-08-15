@@ -8,6 +8,7 @@
     - [ ] Center les tables
     - [ ] Rename source file with ascending order
     - [ ] Numbered exercices
+    - [ ] Display code-block with filename like https://docs.travis-ci.com/user/deployment/releases/
     - [ ] Code
         - [ ] Copy to clipboard icon
         - [ ] Build and run icon
@@ -32,6 +33,7 @@
     - Logitech K830 or K400
     - With touchpad
     - If possible in Bluetooth
+
 
 # Propositions
 
