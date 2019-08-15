@@ -24,14 +24,6 @@ Il faut retenir que C est un langage simple et efficace. Votre machine à café,
 
     Les pères fondateurs du C
 
-.. exercise:: Auteurs
-
-    Qui a inventé le C ?
-
-    .. solution::
-
-        Brian Kernighan
-
 Standardisation
 ===============
 
@@ -369,14 +361,72 @@ Décortiquons tout cela:
 
 .. code-block:: console
 
-    -               Il s'agit d'un fichier
-    rwx             Lisible (r), Éditable (w) et Exécutable (x) par le propriétaire
-    r-x             Lisible (r) et Exécutable (x) par le groupe
-    r--             Lisible (r) par les autres utilisateurs
-    1               Nombre de liens matériels pour ce fichier
-    ycr             Nom du propriétaire
-    iai             Nom du groupe
-    8.2K            Taille du fichier, soit 8200 bytes soit 65'600 bits
-    Jul 24 09:50    Date de création du fichier
-    a.out           Nom du fichier
+    -             Il s'agit d'un fichier
+    rwx           Lisible (r), Éditable (w) et Exécutable (x) par le propriétaire
+    r-x           Lisible (r) et Exécutable (x) par le groupe
+    r--           Lisible (r) par les autres utilisateurs
+    1             Nombre de liens matériels pour ce fichier
+    ycr           Nom du propriétaire
+    iai           Nom du groupe
+    8.2K          Taille du fichier, soit 8200 bytes soit 65'600 bits
+    Jul 24 09:50  Date de création du fichier
+    a.out         Nom du fichier
 
+.. Liste des exercices du chapitre:
+
+.. exercise:: Auteurs
+
+    Qui a inventé le C ?
+
+    .. solution::
+
+        Brian Kernighan et Dennis Ritchie en 1972
+
+.. exercise:: Standardisation
+
+    Quel est le standard C à utiliser en 2019 et pourquoi ?
+
+    .. solution::
+
+        Le standard industriel, malgré que nous soyons en 2019 est toujours
+        ISO/IEC 9899:1999 car peu de changements majeurs ont été apporté
+        au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
+        que d'adopter un standard plus récent qui n'apporte que peu de changements.
+
+.. exercise:: Paradigmes
+
+    Quels sont les paradigmes de programmation supportés par C?
+
+    .. solution::
+
+        C supporte les paradigmes impératifs, structurés et procédural.
+
+.. exercise:: Langage impératif
+
+    C'est quoi la programmation impérative ?
+
+    .. solution::
+
+        La programmation impérative consiste en des séquences de commandes ordonnées.
+        C'est à dire que les séquences sont exécutées dans un ordre défini les unes à la suite de autres.
+
+.. exercise:: Coulée de lave
+
+    Qu'est ce qu'une coulée de lave en informatique ?
+
+    .. solution::
+
+        Lorsqu'un code immatude est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
+        il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
+        s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
+        facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
+
+        Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement mais être difficile à l'utilisation car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
+
+.. exercise:: Cat
+
+    Qu'est-ce que ``cat``?
+
+    .. solution::
+
+        ``cat`` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notament dans cet ouvrage pour montrer que le contenu du fichier ``hello.c`` est bel et bien celui attendu.

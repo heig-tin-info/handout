@@ -119,7 +119,7 @@ def process_exercise_nodes(app, doctree, fromdocname):
 
         if (fromdocname, node['ids'][1]) not in app.env.exercises_all_exercises:
             continue
-        
+
         meta = app.env.exercises_all_exercises[(fromdocname, node['ids'][1])]
         description = meta['label']
 
@@ -192,6 +192,28 @@ class Translator(HTML5Translator):
             self.add_permalink_ref(node.parent, _('Permalink to this exercise'))
         super().depart_caption(node)
 
+    def get_secnumber(self, node):
+        # type: (nodes.Element) -> None
+        if node.get('secnumber'):
+            return node['secnumber']
+        elif isinstance(node.parent, nodes.section):
+            if self.builder.name == 'singlehtml':
+                docname = self.docnames[-1]
+                anchorname = "%s/#%s" % (docname, node.parent['ids'][0])
+                if anchorname not in self.builder.secnumbers:
+                    anchorname = "%s/" % docname  # try first heading which has no anchor
+            else:
+                anchorname = '#' + node.parent['ids'][0]
+                if anchorname not in self.builder.secnumbers:
+                    anchorname = ''  # try first heading which has no anchor
+            if self.builder.secnumbers.get(anchorname):
+                return self.builder.secnumbers[anchorname]
+        return None
+
+    def add_secnumber(self, node):
+        secnumber = self.get_secnumber(node)
+        if secnumber:
+            self.body.append('<span class="section-number">' + '.'.join(map(str, secnumber)) + '</span>')
 
 def init_numfig_format(app, config):
     config.numfig_format.update({'exercise': _('Exercise %s')})

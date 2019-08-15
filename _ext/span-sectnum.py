@@ -26,7 +26,7 @@ class Translator(HTML5Translator):
             self.body.append('<span class="sectnum">' + '.'.join(map(str, secnumber)) + '</span>')
 
 def setup(app):
-    # app.set_translator('html', Translator)
+    #app.set_translator('html', Translator)
 
     return {
         'version': '0.1',

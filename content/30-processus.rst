@@ -33,6 +33,7 @@ Prenons l'exemple du programme suivant qui calcul la suite des nombres de Fibona
 
 .. literalinclude:: ../assets/src/fibonacci.c
     :language: c
+    :caption: fibonacci.c
 
 Une fois `assemblé <https://fr.wikipedia.org/wiki/Assembly_(informatique)>`__ le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc:
 

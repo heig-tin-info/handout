@@ -5,12 +5,14 @@
 # http://www.sphinx-doc.org/en/master/config
 import os
 import sys
+import subprocess
 
 sys.path.append(os.path.abspath("./_ext"))
 
 project = "Le C pour l'ingénieur"
 author = 'Prof. Yves Chevallier'
 copyright = 'HEIG-VD(c) 2019'
+release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
 
 extensions = [
     'sphinx.ext.mathjax',
@@ -35,6 +37,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'heigvd'
 html_secnumber_suffix = '  '
+html_last_updated_fmt = r'%d %b %Y (version ' + release + ')'
 
 numfig = True
 
