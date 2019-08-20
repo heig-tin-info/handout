@@ -4,6 +4,104 @@ Types composites
 
 .. index:: struct
 
+Tableaux
+========
+
+Les `tableaux <https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)>`__ (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
+
+L'opérateur crochet ``[]`` est utilsé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau:
+
+La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante:
+
+.. code-block:: c
+
+    int array[10];
+
+Par la suite il est possible d'accéder aux différents éléments ici l'élémnent 1 et 3:
+
+.. code-block:: c
+
+    array[1];
+    array[5 - 2];
+
+L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant ``sizeof(array)`` retourne :math:`5\cdot4=20` tandis que ``sizeof(array[0])`` retourne la taille d'un seul élément :math:`4`; et donc, ``sizeof(array) / sizeof(array[0])`` est le nombre d'éléments de ce tableau, soit 5.
+
+.. code-block:: c
+
+    uint32_t array(5);
+    size_t length = sizeof(array) / sizeof(array[0]);
+
+.. hint::
+
+    L'index d'un tableau commence toujours à **0** et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser ``<`` et non ``<=``:
+
+    .. code-block:: c
+
+        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) { 〰 }
+
+Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est à dire la position mémoire à laquelle se trouve les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie mais seul une **référence** sur ce tableau est passée.
+
+La preuve étant que le contenu du tableau peut être modifié à distance:
+
+.. code-block:: c
+
+    void function(int i[5]) {
+       i[2] = 12
+    }
+
+    int main(void) {
+       int array[5] = {0};
+       function(array);
+       assert(array[2] == 5);
+    }
+
+.. exercise::
+
+    Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
+
+    .. solution::
+
+        .. code-block:: c
+
+            int64_t a;
+            for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
+                a[i] = i;
+            }
+
+.. exercise::
+
+    Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
+
+    0
+        La somme des deux tableaux est égal.
+
+    -1
+        La somme du tableau de gauche est plus petite que le tableau de droite
+
+    1
+        La somme du tableau de droite est plus grande que le tableau de gauche
+
+    Le prototype de la fonction à écrire est:
+
+        .. code-block:: c
+
+            int comp(char a[], char b[], size_t length);
+
+    .. solution::
+
+        .. code-block:: c
+
+            int comp(char a[], char b[], size_t length) {
+                int sum_a = 0, sum_b = 0;
+
+                for (size_t i = 0; i < length; i++) {
+                    sum_a += a[i];
+                    sum_b += b[i];
+                }
+
+                return sum_b - sum_a;
+            }
+
 Structures
 ==========
 

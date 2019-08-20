@@ -18,7 +18,7 @@ Ces structures de contrôles sont toujours composées de
 Sequences
 =========
 
-En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (U+003B):
+En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (:unicode:`U+003B`):
 
 .. code-block:: c
 
@@ -35,7 +35,7 @@ Une séquence est une suite d'instructions regroupées en un bloc matérialisé 
 
 .. note::
 
-    N'allez pas confondre le point virgule ``;`` (U+003B) avec le ``;`` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+    N'allez pas confondre le point virgule ``;`` (:unicode:`U+003B`) avec le ``;`` (:unicode:`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
 
 Les embranchements
 ==================
@@ -298,7 +298,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 
     for (; get_weight() < 420 ;)
     {
-        /* ... */
+        〰
     }
 
 Boucles infinies
@@ -339,7 +339,7 @@ On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de
 
     _Bool true = 0;
 
-    while (true) { /* ... */ }
+    while (true) { 〰 }
 
 Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale:
 

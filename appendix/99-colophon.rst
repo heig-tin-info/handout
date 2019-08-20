@@ -23,6 +23,11 @@ Le signe d'égalité ``=`` peut aisément être confondu avec l'opérateur d'aff
 
     'a' ≡ 0b1100001 ≡ 97 ≡ 0x61 ≡ 00141
 
+Symbole de remplissage
+----------------------
+
+Dans les exemples donnés, on voit régulièrement `while (condition) { 〰 }` ou `〰` (:unicode:`U+3030`) indique une continuité logique d'opération. Le symbole exprime ainsi `...` (`points de suspension <https://fr.wikipedia.org/wiki/Points_de_suspension>` ou *ellipsis*). Or pour ne pas confondre avec le symbole C `...` utilisé dans les fonctions à arguments variables tels que ``printf``.
+
 Types de données
 ----------------
 

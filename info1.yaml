@@ -129,8 +129,8 @@ plan:
     - Programmes et processus
   - Généralités du langage C
     - Séquences
-    - Boucles (while, do..while, for)
     - Embranchements (if, switch)
+    - Boucles (while, do..while, for)
     - Sauts (break, continue, return, goto)
   - Types de données
     - Typage
@@ -150,19 +150,20 @@ plan:
     - Formater un résultat sous forme tabulée et lisible
     - Menu (choix multiples)
   - Opérateurs
-    - Priorité des opérateurs
     - Opérateurs du langage C
+    - Priorité des opérateurs
     - Expressions
     - Promotion et promotion implicite
   - Conception
     - Choix des structures de controles adaptées à des problèmes
-    - Algorithmes simple
+    - Algorithmes simple (min, max, moyenne, ...)
       - Manipulation de chaînes
       - Manipulation de tableaux
       - Manipulation de bits
   - Algorithmie
     - Complexité d'un algorithme
     - Exemples d'algorithmes
+    - Algorithmes de tri (tri à bulle)
   - Fonctions
     - Passage par valeur et par adresse
     - Utilisation de la valeur de retour

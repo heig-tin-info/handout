@@ -65,6 +65,20 @@ Un nombre binaire peut être également décomposé en puissance successives:
 
     1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
 
+.. exercise::
+
+    Combien de valeurs décimales peuvent être représentées avec 10-bits ?
+
+    .. solution::
+
+        Avec une base binaire 2 et 10 bits, le total représentable est:
+
+            .. math::
+
+                2^10 = 1024
+
+        Soit les nombres de 0 à 1023.
+
 Système octal
 -------------
 
@@ -203,6 +217,30 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le ``é``.
 
+.. exercise:: Les chiffes hexadécimaux
+
+    Calculer la valeur décimale des nombres suivants et donnez le détail du calcul:
+
+    .. code-block:: text
+
+        0xaaaa
+        0b1100101
+        0x1010
+        129
+        0216
+
+        .. solution::
+
+            .. code-block::
+
+                0xaaaa    ≡ 43690
+                0b1100101 ≡   101
+                0x1010    ≡  4112
+                129       ≡   129 (n'est-ce pas ?)
+                0216      ≡   142
+
+.. _base-convertions:
+
 Conversions de bases
 --------------------
 
@@ -221,7 +259,7 @@ où:
 :math:`h_i`
     La valeur du chiffre à la position :math:`i`
 
-Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole tritrigesimal vers le système décimal:
+Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal:
 
 .. code-block:: text
 
@@ -255,6 +293,39 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
       1 / 2 ==   0,   1 % 2 == 1  |
 
     209 == 0b11010001
+
+.. exercise:: La numération Shadock
+
+    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo ``Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>``__ en explique le principe.
+
+    Convertir ``−⨼○◿○`` (``BU ZO GA MEU GA``) en décimal.
+
+    .. solution::
+
+        Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux:
+
+        .. code-block::
+
+            0 ○ (GA)
+            1 − (BU)
+            2 ⨼ (ZO)
+            3 ◿ (MEU)
+
+        Le nombre d'entrée ``−⨼O◿O`` peut ainsi s'exprimer:
+
+        .. code-block::
+
+            −⨼○◿○ ≡ 12030₄
+
+        En appliquant la méthode du cours (c.f. :numref:`base-convertions`) on obtient:
+
+        .. math::
+
+            1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
+
+        .. hint::
+
+            Depuis un terminal Python vous pouvez simplement utiliser ``int("12030", 4)``
 
 Entiers relatifs
 ================
@@ -406,8 +477,11 @@ Les avantages:
 - Le problème du double zéro est résolu.
 - On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédamment étudiées``.
 
-Arithmétique binaire (opérations bit-à-bit)
-===========================================
+Opérateurs Logiques
+===================
+
+Opérations bit à bit
+--------------------
 
 Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes:
 
@@ -427,9 +501,6 @@ Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes:
 | ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
 +-----------+-------------------+---------------------------------+
 
-ET logique
-----------
-
 Le ET logique est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
 +-----+-----+-------+
@@ -445,7 +516,6 @@ Le ET logique est identique à la multiplication appliquée bit à bit et ne gé
 +-----+-----+-------+
 
 OU logique
-----------
 
 +-----+-----+-----+
 | A   | B   | S   |
@@ -460,7 +530,6 @@ OU logique
 +-----+-----+-----+
 
 OU EXCLUSIF logique
--------------------
 
 +-----+-----+-------+
 | A   | B   | A ^ B |
@@ -475,7 +544,6 @@ OU EXCLUSIF logique
 +-----+-----+-------+
 
 Complément à un
----------------
 
 Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inverse de l'entrée en binaire:
 
@@ -487,17 +555,104 @@ Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inv
 | 1   | 0   |
 +-----+-----+
 
-Combinaisons
-------------
+Opérateurs arithmétiques
+------------------------
 
-Sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction:
+Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
+C'est à dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition:
+
+.. code-block:: text
+
+      ¹¹  ← retenues
+      123₁₀
+    +  89₁₀
+    -----
+      212₁₀
+
+En arithmétique binaire, c'est exactement la même chose:
+
++-----+-----+-------+---+
+| A   | B   | A + B | C |
++=====+=====+=======+===+
+| 0   | 0   |   0   | 0 |
++-----+-----+-------+---+
+| 0   | 1   |   1   | 0 |
++-----+-----+-------+---+
+| 1   | 0   |   1   | 0 |
++-----+-----+-------+---+
+| 1   | 1   |   0   | 1 |
++-----+-----+-------+---+
+
+.. code-block:: text
+
+     ¹¹¹  ¹¹¹
+      11100101₂
+    +  1100111₂
+    ----------
+     101001100₂
+
+.. exercise:: Additions binaires
+
+    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenants additions et soustractions.
+
+    Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
+
+    #. 1 + 51
+    #. 51 - 7
+    #. 204 + 51
+    #. 204 + 204 (sur 8-bits)
+
+    .. solution::
+
+        #. 1 + 51
+            .. code-block:: text
+
+                       ¹¹
+                         1₂
+                +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+                ----------
+                    110100₂
+
+        #. 51 - 7
+            .. code-block:: text
+
+                  …¹¹¹  ¹¹
+                  …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
+                + …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+                 -----------
+                  …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+
+        #. 204 + 51
+            .. code-block:: text
+
+                    11001100₂
+                +     110011₂
+                 -----------
+                  …011111111₂  (2⁸ - 1 ≡ 255)
+
+        #. 204 + 204 (sur 8-bits)
+
+            .. code-block:: text
+
+                   ¹|¹  ¹¹
+                    |11001100₂
+                +   |11001100₂
+                 ---+--------
+                   1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+
+Lois de De Morgan
+-----------------
+
+Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors eprimer que:
 
 .. code-block::
 
     ¬ (P ∧ Q) ⇒ ((¬ P) ∨ (¬ Q))
     ((¬ P) ∧ (¬ Q)) ⇒ ¬ (P ∨ Q)
 
-Les opérations suivantes sont donc équivalentes:
+Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
+
+A titre d'exemple, les opérations suivantes sont donc équivalentes:
 
 .. code-block:: c
 
@@ -506,3 +661,35 @@ Les opérations suivantes sont donc équivalentes:
 
     assert(a | b == ~a & ~b);
     assert(~a & ~b == ~(a | b));
+
+En logique booléenne on exprime la négation par une bar p.ex. :math:`\bar{P}`.
+
+.. exercise:: De Morgan
+
+    Utiliser les relations de De Morgan pour simplifier l'expression suivante
+
+    .. math::
+
+        D \cdot E + \bar{D} + \bar{E}
+
+    .. solution::
+
+        Si l'on applique De Morgan (:math:`\bar{XY} = \bar{X} + \bar{Y}`):
+
+        .. math::
+
+            D \cdot E + \bar{D} + \bar{E}
+
+.. exercise:: Swap sans valeur intermédiaire
+
+    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaire. Indice: utilisez l'opérateur XOR ``^``.
+
+    Testez votre solution
+
+    .. solution::
+
+        .. code-block:: c
+
+            a ^= b;
+            b ^= a;
+            a ^= b;

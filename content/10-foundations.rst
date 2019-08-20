@@ -116,6 +116,52 @@ En addition de ceci, voici quelques règles:
 - Le standard C99, se réserve l'usage de tous les identificateurs débutant par ``_`` suivi d'une lettre majuscule ou un autre *underscore* ``_``.
 - Le standard `POSIX <https://fr.wikipedia.org/wiki/POSIX>`__, se réserve l'usage de tous les identificateurs finissant par ``_t``.
 
+.. hint:: Expression régulière
+
+    Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante:
+
+    .. code-block:: text
+
+        ^[a-zA-Z_][a-zA-Z0-9_]*$
+
+.. exercise:: Validité des identificateurs
+
+    Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
+
+    #. ``2_pi``
+    #. ``x_2``
+    #. ``x___3``
+    #. ``x 2``
+    #. ``positionRobot``
+    #. ``piece_presente``
+    #. ``_commande_vanne``
+    #. ``-courant_sortie``
+    #. ``_alarme_``
+    #. ``panne#2``
+    #. ``int``
+    #. ``défaillance``
+    #. ``f'``
+    #. ``INT``
+
+    .. solution::
+
+        Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne `regex101.com <https://regex101.com/r/cmxaic/1>`__.
+
+        #. ``2_pi`` **invalide** car commence par un chiffre
+        #. ``x_2`` **valide**
+        #. ``x___3`` **valide**
+        #. ``x 2`` **invalide** car comporte un espace
+        #. ``positionRobot`` **valide**, notation *camelCase*
+        #. ``piece_presente`` **valide**, notation *snake_case*
+        #. ``_commande_vanne`` **valide**
+        #. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
+        #. ``_alarme_`` **valide**
+        #. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
+        #. ``int`` **invalide**, ``int`` est un mot réservé du langage
+        #. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+        #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
+        #. ``INT`` **valide**
+
 Variables
 =========
 
@@ -148,6 +194,43 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 .. code-block:: c
 
     int i, j, k;
+
+.. exercise:: Affectation de variables
+
+    Considérons les déclarations suivantes:
+
+    .. code-block:: c
+
+        int a, b, c;
+        float x;
+
+    Notez après chaque affectation, le contenu des différentes variables:
+
+    =====  ================  =====  =====  =====  =====
+    Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
+    =====  ================  =====  =====  =====  =====
+    1      ``a = 5;``
+    2      ``b = c;``
+    3      ``c = a;``
+    4      ``a = a + 1;``
+    5      ``x = a - ++c;``
+    6      ``b = c = x;``
+    7      ``x + 2. = 7.;``
+    =====  ================  =====  =====  =====  =====
+
+    .. solution::
+
+        =====  ================  =====  =====  =====  =====
+        Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
+        =====  ================  =====  =====  =====  =====
+        1      ``a = 5;``            5      ?      ?      ?
+        2      ``b = c;``            5      ?      ?      ?
+        3      ``c = a;``            5      ?      5      ?
+        4      ``a = a + 1;``        6      ?      5      ?
+        5      ``x = a - ++c;``      6      ?      6     12
+        6      ``b = c = x;``        6     12     12     12
+        7      ``x + 2. = 7.;``      -      -      -      -
+        =====  ================  =====  =====  =====  =====
 
 Convention de nommage
 ---------------------
@@ -899,4 +982,14 @@ De même que ce test n'effectura pas une division mais testera simplement le der
         puts("Impair");
     }
 
+.. exercise:: Swap
 
+    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b. A la fin de cette séquence d'instruction, la valeur initiale de ``a`` doit être dans ``b`` et réciproquement.
+
+    .. solution::
+
+        .. code-block:: c
+
+            int c = a;
+            a = b;
+            b = c;

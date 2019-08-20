@@ -23,6 +23,39 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 ``puts(char[] str)``
     Pour imprimer une chaîne de caractère
 
+.. exercise:: Mot du jour
+
+    Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.
+
+    .. code-block:: c
+
+        #include <time.h>
+        #include <stdlib.h>
+
+        char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat", "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie", "Idiosyncratique", "Entéléchie"};
+
+        #if 0
+            srand(time(NULL));   // Initialization, should only be called once.
+            size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value
+        #endif
+
+    .. solution:: c
+
+        .. code-block:: c
+
+            #include <time.h>
+            #include <stdlib.h>
+
+            char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat", "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie", "Idiosyncratique", "Entéléchie"};
+
+            int main(void)
+            {
+                srand(time(NULL));
+                puts(words[rand() % (sizeof(words) / sizeof(char*))]);
+
+                return 0;
+            }
+
 Sorties formatées
 =================
 
@@ -40,6 +73,8 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
 Voici un exemple possible d'implémentation:
 
 .. code-block:: c
+    :caption: iota.c
+    :name: iota-c
 
     void swap(char* a, char* b)
     {
@@ -373,4 +408,197 @@ Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur ``[
     sscanf(input, "%127[0-9A-Za-z+/]", &output);
 
 Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères majuscules et minuscules ``A-Za-z`` (52), ainsi que les caractères ``+``, ``/`` (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.
+
+.. exercise:: Crampes de doigts
+
+    Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
+
+    Grace à votre esprit affuté et votre oeil perçant vous identifiez 13 erreurs. Lesquelles sont-elles ?
+
+    .. code-block:: c
+
+        #include <std_io.h>
+        #jnclude <stdlib.h>
+        INT Main()
+        {
+        int a, sum;
+        printf("Addition de 2 entiers a et b.\n");
+
+        printf("a: ")
+        scanf("%d", a);
+
+        printf("b: ");
+        scanf("%d", &b);
+
+        /* Affichage du résultat
+        somme = a - b;
+        Printf("%d + %d = %d\n", a, b, sum);
+
+        retturn EXIT_FAILURE;
+        }
+        }
+
+    .. solution::
+
+        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences:
+
+        .. code-block:: diff
+
+            1,3c1,3
+            <         #include <stdio.h>
+            <         #include <stdlib.h>
+            <         int main()
+            ---
+            >         #include <std_io.h>
+            >         #jnclude <stdlib.h>
+            >         INT Main()
+            5c5
+            <         int a, b, sum;
+            ---
+            >         int a, sum;
+            9c9
+            <         scanf("%d", &a);
+            ---
+            >         scanf("%d", a);
+            14,16c14,16
+            <         /* Affichage du résultat */
+            <         sum = a + b;
+            <         printf("%d + %d = %d\n", a, b, sum);
+            ---
+            >         /* Affichage du résultat
+            >         somme = a - b;
+            >         Printf("%d + %d = %d\n", a, b, sum);
+            18c18,19
+            <         return EXIT_SUCCESS;
+            ---
+            >         retturn EXIT_FAILURE;
+            >         }
+
+
+.. exercise:: Géométrie affine
+
+    Considérez le programme suivant:
+
+    .. code-block:: c
+        :linenos:
+
+        #include <stdio.h>
+        #include <stdlib.h>
+
+        int main(void)
+        {
+            float a;
+            printf("a = ");
+            scanf("%f", &a);
+
+            float b;
+            printf("b = ");
+            scanf("%f", &b);
+
+            float x;
+            printf("x = ");
+            scanf("%f", &x);
+
+            float y = a * x + b;
+
+            printf("y = %f\n", y);
+
+            return 0;
+        }
+
+    #. À quelle ligne commence l'exécution de ce programme ?
+    #. Dans quel ordre s'exécutent les instruction ?
+    #. Décrivez ce que fait ce programme étape par étape
+    #. Que verra l'utilisateur à l'écran ?
+    #. Quel est l'utilité de ce programme ?
+
+    .. solution::
+
+        #. Ligne 6
+        #. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
+        #. Les étapes sont les suivantes:
+            #. Demande de la valeur de ``a`` à l'utilisateur
+            #. Demande de la valeur de ``b`` à l'utilisateur
+            #. Demande de la valeur de ``x`` à l'utilisateur
+            #. Calcul de l'image affine de ``x`` (équation de droite)
+            #. Affichage du résultat
+        #. Que verra l'utilisateur à l'écran ?
+            #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+        #. Quel est l'utilité de ce programme ?
+            #. Le calcul d'un point d'une droite
+
+.. exercise:: Équation de droite
+
+    L'exercice précédant souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?
+
+    .. solution::
+
+        Citons les défauts de ce programme:
+
+        - Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif
+        - Les invité de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
+        - La valeur de retour n'est pas exploitable directement car ``y = `` est de trop
+        - Le nom des variables utilisé n'est pas clair
+        - Aucune valeurs par défaut
+
+        Une solution possible serait:
+
+        .. literalinclude:: ../assets/src/linear.c
+            :language: c
+            :caption: linear.c
+
+.. exercise:: Loi d'Ohm
+
+    Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et afficher ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
+
+.. exercise:: Tour Eiffel
+
+    Considérons le programme suivant:
+
+    .. code-block:: c
+
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <math.h>
+
+        int main()
+        {
+            printf("Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): ");
+            float angle_degre;
+            scanf("%f", &angle_degrees);
+            float angle_radian = angle_degrees * M_PI / 45.;
+
+            printf("A quel distance vous trouvez vous du bâtiment (en mètres): ");
+            float distance;
+            scanf("%f", &distance);
+
+            float height = distance / tan(angle_radian);
+            printf("La hauteur du batiment est : %g mètres.\n", height);
+
+            return 0;
+        }
+
+    #. Que fait le programme étape par étape ?
+    #. Que verra l'utilisateur à l'écran ?
+    #. A quoi sert ce programme ?
+    #. Euh mais ? Ce programme comporte des erreurs, lesquelles ?
+    #. Implémentez-le et testez-le.
+
+.. exercise:: Hyperloop
+
+    `Hyperloop <https://fr.wikipedia.org/wiki/Hyperloop>`__ (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilsant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé `Swissmetro <https://fr.wikipedia.org/wiki/Swissmetro>`__ mais abandonné en 2009.
+
+    Néamoins, les ingénieurs suisse avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de suisse.
+
+    Écrire un programme pour calculer la distance entre deux ville de suisse parmis lesquelles proposées sont:
+
+        - Genève
+        - Zürich
+        - Bâle
+        - Bern
+        - St-Galle
+
+    Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.
+
+
 
