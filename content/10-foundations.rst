@@ -266,7 +266,6 @@ Formellement, une constante se déclare comme une variable mais préfixée du mo
 
     const double scale_factor = 12.67;
 
-
 .. note::
 
     Il ne faut pas confondre la **constante** qui est une variable immutable, stockée en mémoire et une **macro** qui appartient au pré-processeur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
@@ -275,6 +274,44 @@ Formellement, une constante se déclare comme une variable mais préfixée du mo
 
         #define M_PI 3.14159265358979323846
 
+
+Constantes littérales
+=====================
+
+Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.
+
+.. code-block:: c
+
+    6      // Grandeur valant le nombre d'heures sur l'horloge du Palais du Quirinal à Rome
+    12u    // Grandeur non signée
+    6l     // Grandeur entière signée codée sur un entier long
+    42ul   // Grandeur entière non signée codée sur un entier long
+    010    // Grandeur octale valant 8 en décimal
+    0xa    // Grandeur hexadécimale valant 10 en décimal
+    0b111  // Grandeur binaire valant 7 en décimal
+    33.    // Grandeur réelle exprimée en virgule flottante
+    '0'    // Grandeur caractère vallant 48 en décimal
+
+.. exercise:: Constances littérales
+
+    Pour les entrées suivantes, indiquez lesquelles sont correctes.
+
+    #. ``12.3``
+    #. ``12E03``
+    #. ``12u``
+    #. ``12.0u``
+    #. ``1L``
+    #. ``1.0L``
+    #. ``.9``
+    #. ``9.``
+    #. ``.``
+    #. ``0x33``
+    #. ``0xefg``
+    #. ``0xef``
+    #. ``0xeF``
+    #. ``0x0.2``
+    #. ``09``
+    #. ``02``
 
 Operateur d'affectation
 =======================
@@ -850,7 +887,6 @@ L'écriture en notation polonaise inversée, donnerait alors
 .. code-block:: text
 
     i, 0, [], ++, 34, /, 5, 23, +, +, y, <<, 0xFF, &, x, =
-
 
 Représentation mémoire des types de données
 -------------------------------------------

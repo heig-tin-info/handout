@@ -296,7 +296,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
 .. exercise:: La numération Shadock
 
-    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo ``Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>``__ en explique le principe.
+    Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo `Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>`__ en explique le principe.
 
     Convertir ``−⨼○◿○`` (``BU ZO GA MEU GA``) en décimal.
 
@@ -317,7 +317,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
             −⨼○◿○ ≡ 12030₄
 
-        En appliquant la méthode du cours (c.f. :numref:`base-convertions`) on obtient:
+        En appliquant la méthode du cours on obtient:
 
         .. math::
 

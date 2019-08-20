@@ -298,7 +298,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 
     for (; get_weight() < 420 ;)
     {
-        〰
+        /* ... */
     }
 
 Boucles infinies
@@ -339,7 +339,7 @@ On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de
 
     _Bool true = 0;
 
-    while (true) { 〰 }
+    while (true) { /* ... */ }
 
 Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale:
 

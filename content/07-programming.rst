@@ -2,7 +2,9 @@
 La programmation
 ================
 
-.. figure:: assets/image/eniac.png
+.. figure:: assets/images/eniac.png
+
+    L'un des premiers ordinateurs: l'Eniac
 
 Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation d'où elle est origine.
 

@@ -537,9 +537,9 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
         - Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif
         - Les invité de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
-        - La valeur de retour n'est pas exploitable directement car ``y = `` est de trop
-        - Le nom des variables utilisé n'est pas clair
-        - Aucune valeurs par défaut
+        - La valeur de retour n'est pas exploitable directement.
+        - Le nom des variables utilisé n'est pas clair.
+        - Aucune valeurs par défaut.
 
         Une solution possible serait:
 

@@ -37,7 +37,7 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire mais
 
     .. code-block:: c
 
-        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) { 〰 }
+        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) { /* ... */ }
 
 Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est à dire la position mémoire à laquelle se trouve les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie mais seul une **référence** sur ce tableau est passée.
 
