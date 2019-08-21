@@ -30,17 +30,19 @@ Les nouvelles releases sont automatiquement générées par Travis CI:
 
 ## Build
 
-Make sure you have `sphinx` and the HTML theme installed `sphinx-press-theme`.
+Make sure you have `sphinx` and the HTML theme installed `sphinx-heigvd-theme`.
 
 ```bash
-sudo apt-get install python3 python3-pip
-sudo pip3 install sphinx sphinx-press-theme recommonmark
+sudo apt-get install -y librsvg2-bin
+sudo apt-get install -y python3 python3-pip python3-sphinx
+
+sudo pip3 install sphinx-heigvd-theme
+sudo pip3 install sphinxcontrib-svg2pdfconverter
 ```
 
 Then if you would like to generate the PDF version you need LaTeX as well.
 
 ```bash
-sudo apt-get install xindy # Index parser
 sudo apt-get install librsvg2-bin # For conversion from svg to pdf
 
 sudo apt-get install texlive-latex-base

@@ -15,7 +15,7 @@ Le `rasoir d'Ockham <https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham>`__ expose 
 
 En philosophie un `rasoir <https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>`__ est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
 
-Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauve un développeur de la noyade, car un programme peut rester simple quelque soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
+Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple quelque soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
 
 .. _dry:
 
@@ -36,7 +36,7 @@ KISS
 YAGNI
 =====
 
-YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en dévelopment Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
+YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
 Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.
 
@@ -110,7 +110,7 @@ Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon g
             prev->next = entry->next;
     }
 
-Il répondi que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle ``while`` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
+Il répondit que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle ``while`` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
 
 Enlever un élément d'une liste chaînée nécessite de traiter deux cas:
 
@@ -198,7 +198,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
         // Additionne une constante avec une autre pour ensuite l'utiliser
         double u = (a + cst);
-        u /= 1.11123445143; // division par une constante inférieur à 2
+        u /= 1.11123445143; // division par une constante inférieure à 2
 
 - **Arbre de Noël**, plus de deux structures de contrôles sont impliquées
     .. code-block:: c
@@ -238,8 +238,8 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
 - **Action à distance** par l'emploi immodéré de variables globales
 - **Ancre de bateau**, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
-- **Cyclomatisme aïgu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
-- **Attente active**, un boucle qui ne contient qu'une instruction de test, attendant la condition
+- **Cyclomatisme aigu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
+- **Attente active**, une boucle qui ne contient qu'une instruction de test, attendant la condition
     .. code-block:: c
 
         while (true) {

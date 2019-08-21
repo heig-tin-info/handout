@@ -1,13 +1,13 @@
 Portée et visibilité
 ====================
 
-Ce chapitre se concentre sur trois caractéristique d'une variable:
+Ce chapitre se concentre sur trois caractéristiques d'une variable:
 
 - La portée
 - La visibilité
 - La durée de vie
 
-Dans les trois cas, elles décrivent l'accessibilité, c'est à dire jusqu'à où et jusqu'à quand une variable est accessible.
+Dans les trois cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible.
 
 .. figure:: ../assets/images/visibility.*
 
@@ -27,7 +27,7 @@ Portée
 
 La portée ou `scope <https://en.wikipedia.org/wiki/Scope_(computer_science)>`__ décrit jusqu'à où une variable est accessible.
 
-Une variable est **globale**, c'est à dire accessible partout, si elle est déclarée en dehors d'une fonction:
+Une variable est **globale**, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction:
 
 .. code-block:: c
 
@@ -174,7 +174,7 @@ la variable. Il est optionnel.
 Variables de classe auto
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-La classe *auto* est celle utilisée par défaut lorsque qu'aucune classe
+La classe *auto* est celle utilisée par défaut lorsqu'aucune classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
 le bloc où elles sont déclarées. Ces variables sont créées sur la pile
 mémoire (stack en anglais).
@@ -186,7 +186,7 @@ mémoire (stack en anglais).
 Pour les variables automatiques, le mot-clé *auto* n'est pas
 obligatoire.
 
-Variables de classe static
+Variables de classe statique
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La classe *static* permet de déclarer des variables dont le contenu est
@@ -203,7 +203,7 @@ Utilisation dans une fonction
 Les variables de classe *static* déclarées dans une fonction sont
 initialisées au premier appel de cette fonction. Si on sort de la
 fonction, le contenu de cette variable est préservé et lorsque l'on
-rentre à nouveau dedans, cette variable n'est pas réinitialisé mais a
+rentre à nouveau dedans, cette variable n'est pas réinitialisée, mais a
 conservé sa valeur précédente. On peut qualifier ce comportement d'effet
 mémoire.
 

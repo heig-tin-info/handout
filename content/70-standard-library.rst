@@ -8,19 +8,19 @@ L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilis
 
 Une *library*, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (*header*) contenant les définitions de cette bibliothèque.
 
-Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées mais les concepts restent les mêmes.
+Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.
 
 Exemple: libgmp
 ===============
 
-Voyons ensemble le cas de `libgmp <https://packages.debian.org/buster/libgmp-dev>`__. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multi-précision en C. En observant le détail du paquet logiciel Debian on peut lire que ``libgmp`` est disponible pour différentes architectures ``amd64``, ``arm64``, ``s390x``, ``i386``, ... Un développement sur un Raspberry-PI nécessitera ``arm64`` alors qu'un développement sur un PC utilisera ``amd64``. En `cliquant <https://packages.debian.org/buster/amd64/libgmp-dev/filelist>`__ sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C:
+Voyons ensemble le cas de `libgmp <https://packages.debian.org/buster/libgmp-dev>`__. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que ``libgmp`` est disponible pour différentes architectures ``amd64``, ``arm64``, ``s390x``, ``i386``, ... Un développement sur un Raspberry-PI nécessitera ``arm64`` alors qu'un développement sur un PC utilisera ``amd64``. En `cliquant <https://packages.debian.org/buster/amd64/libgmp-dev/filelist>`__ sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C:
 
 .. code-block::
 
     # Fichier d'en-tête C
     /usr/include/x86_64-linux-gnu/gmp.h
 
-    # Bibliothèque compilées pour l'architecture visée (ici amd64)
+    # Bibliothèque compilée pour l'architecture visée (ici amd64)
     /usr/lib/x86_64-linux-gnu/libgmp.a
     /usr/lib/x86_64-linux-gnu/libgmp.so
 
@@ -41,7 +41,7 @@ On a donc:
 ``libgmp.so``
     Bibliothèque **dynamique** qui contient aussi l'implémentation en langage machine des fonctionnalités
 
-Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satélite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci:
+Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci:
 
 .. literalinclude:: ../assets/src/gmp.c
     :language: c
@@ -90,7 +90,7 @@ Deuxième tentative:
     gmp.c:(.text+0x146): undefined reference to `__gmpz_clear'
     collect2: error: ld returned 1 exit status
 
-Cette fois-ci on peut lire que le compilateur à fait sont travail mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. ``__gmpz_add_ui``. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.
+Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. ``__gmpz_add_ui``. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.
 
 .. code-block:: console
 
@@ -101,7 +101,7 @@ Cette fois-ci on peut lire que le compilateur à fait sont travail mais ne parvi
     19810983098510928501928600000000000002
     392475051329485669436248957939688603493163430354043714007714400000000000004
 
-Cette manière de faire utilise le fichier ``libgmp.so`` qui est la bibliothèque **dynamique**, c'est à dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.
+Cette manière de faire utilise le fichier ``libgmp.so`` qui est la bibliothèque **dynamique**, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.
 
 Alternativement on peut compiler le même programme en utilisant la librairie **statique**
 
@@ -128,15 +128,15 @@ c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégr
 Exemple: ncurses
 ================
 
-La bibliothèque `ncurses <https://fr.wikipedia.org/wiki/Ncurses>`__ traduction de *nouvelles malédictions* est une évolution de `curses <https://fr.wikipedia.org/wiki/Curses>`__ développé originellement par `Ken Arnold <https://en.wikipedia.org/wiki/Ken_Arnold>`__ . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilsée.
+La bibliothèque `ncurses <https://fr.wikipedia.org/wiki/Ncurses>`__ traduction de *nouvelles malédictions* est une évolution de `curses <https://fr.wikipedia.org/wiki/Curses>`__ développé originellement par `Ken Arnold <https://en.wikipedia.org/wiki/Ken_Arnold>`__ . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.
 
-La biblothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs, ...
+La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...
 
 .. figure:: ../assets/images/linux-menuconfig.png
 
-    Example d'interface graphiques écrites avec `ncurses`. Ici la configuration du noyau Linux.
+    Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.
 
-L'écriture d'un programme Hello World avec cette biblothèque pourrait être:
+L'écriture d'un programme Hello World avec cette bibliothèque pourrait être:
 
 .. code-block:: c
 
@@ -155,14 +155,14 @@ L'écriture d'un programme Hello World avec cette biblothèque pourrait être:
 
 La compilation n'est possible que si:
 
-1. La biblothèque est installée sur l'ordinateur
-2. Le lien vers la biblothèque dynamique est mentionné à la compilation
+1. La bibliothèque est installée sur l'ordinateur
+2. Le lien vers la bibliothèque dynamique est mentionné à la compilation
 
 .. code-block:: console
 
     $ gcc ncurses-hello.c -ohello -lncurses
 
-Bibliothèques statique
+Bibliothèques statiques
 =======================
 
 Une *static library* est un fichier binaire compilé pour une architecture donnée et portant les extensions:
@@ -170,9 +170,9 @@ Une *static library* est un fichier binaire compilé pour une architecture donn�
 - ``.a`` sur un système POSIX (Android, Mac OS, Linux, Unix)
 - ``.lib`` sous Windows
 
-Une bibliothèque statique n'est rien d'autre qu'une archive de un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.
+Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.
 
-Par exemple si l'on souhaite écrire une bibliothèque statique pour le `code de César <https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage>`__ on ecrira un fichier source `caesar.c`:
+Par exemple si l'on souhaite écrire une bibliothèque statique pour le `code de César <https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage>`__ on écrira un fichier source `caesar.c`:
 
 .. literalinclude:: ../assets/src/caesar.c
     :language: c
@@ -182,7 +182,7 @@ Ainsi qu'un fichier d'en-tête `caesar.h`:
 .. literalinclude:: ../assets/src/caesar.h
     :language: c
 
-Pour créer une biblothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame:
+Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame:
 
 .. code-block:: console
 
@@ -202,7 +202,7 @@ Et de compiler le tout. Ici on utilise ``-I.`` et ``-L.`` pour dire au compilate
 
 La procédure sous Windows est plus compliquée et ne sera pas décrite ici.
 
-Bibliothèques dynamique
+Bibliothèques dynamiques
 ========================
 
 Une *dynamic library* est un fichier binaire compilé pour une architecture donnée et portant les extensions:
@@ -210,7 +210,7 @@ Une *dynamic library* est un fichier binaire compilé pour une architecture donn
 - ``.so`` sur un système POSIX (Android, Mac OS, Linux, Unix)
 - ``.dll`` sous Windows
 
-L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le concensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des *dll* localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.
+L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des *dll* localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.
 
 Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique:
 
@@ -218,13 +218,13 @@ Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dyn
 
     $ gcc -shared -o libcaesar.so caesar.o
 
-Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique il faut spécifier au compilateur quels sont les chemins vers lequels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas **installer** la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter au chemins par défaut, le chemin local ``$(pwd .)``, en créant une **variable d'environnement** nommée ``LIBRARY_PATH``.
+Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas **installer** la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local ``$(pwd .)``, en créant une **variable d'environnement** nommée ``LIBRARY_PATH``.
 
 .. code-block:: console
 
     $ LIBRARY_PATH=$(pwd .) gcc encrypt.c -I. -lcaesar
 
-Le problème est identique à l'exécution car il faut spécifier (ici avec ``LD_LIBRARY_PATH``) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.
+Le problème est identique à l'exécution, car il faut spécifier (ici avec ``LD_LIBRARY_PATH``) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.
 
 .. code-block:: console
 
@@ -244,7 +244,7 @@ Bibliothèques standard
 
 Les bibliothèques standard (`C standard library <https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C>`__) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.
 
-Le standard **C99** défini un certain nombre d'en-tête dont les plus utilisés (et ceux utilisés dans ce cours) sont:
+Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont:
 
 ``<assert.h>``
     Contient la macro ``assert`` pour valider certains prérequis.
@@ -253,7 +253,7 @@ Le standard **C99** défini un certain nombre d'en-tête dont les plus utilisés
     Pour manipuler les nombres complexes
 
 ``<float.h>``
-    Contient les constantes qui définissent la précision des types flottants sur l'achitecture cible. ``float`` et ``double`` n'ont pas besoin de cet en-tête pour être utilisés.
+    Contient les constantes qui définissent la précision des types flottants sur l'architecture cible. ``float`` et ``double`` n'ont pas besoin de cet en-tête pour être utilisés.
 
 ``<limits.h>``
     Contient les constantes qui définissent les limites des types entiers.
@@ -282,10 +282,60 @@ Le standard **C99** défini un certain nombre d'en-tête dont les plus utilisés
 ``<time.h>``
     Accès au fonctions lecture et de conversion de date et d'heure.
 
+.. exercise:: Arc-cosinus
+
+    La fonction Arc-Cosinus ``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
+
+    .. solution::
+
+        En cherchant ``man acos header`` dans Google, on trouve que la fonction ``acos`` est définie dans le header ``<math.h>``.
+
+        Une autre solution est d'utiliser sous Linux la commande ``apropos``:
+
+        .. code-block:: console
+
+            $ apropos acos
+            acos (3)     - arc cosine function
+            acosf (3)    - arc cosine function
+            acosh (3)    - inverse hyperbolic cosine function
+            acoshf (3)   - inverse hyperbolic cosine function
+            acoshl (3)   - inverse hyperbolic cosine function
+            acosl (3)    - arc cosine function
+            cacos (3)    - complex arc cosine
+            cacosf (3)   - complex arc cosine
+            cacosh (3)   - complex arc hyperbolic cosine
+            cacoshf (3)  - complex arc hyperbolic cosine
+            cacoshl (3)  - complex arc hyperbolic cosine
+            cacosl (3)   - complex arc cosine
+
+        Le premier résultat permet ensuite de voir:
+
+        .. code-block:: console
+
+            $ man acos | head -10
+            ACOS(3)    Linux Programmer's Manual         ACOS(3)
+
+            NAME
+                acos, acosf, acosl - arc cosine function
+
+            SYNOPSIS
+                #include <math.h>
+
+                double acos(double x);
+                float acosf(float x);
+
+        La réponse est donc `<math.h>`.
+
+        Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft `acos-acosf-acosl <https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl>`__ qui indique que le header source est ``<math.h>``.
+
+.. exercise:: Date
+
+    Lors du formatage d'une date, on y peut y lire ``%w``, par quoi sera remplacé ce *token* ?
+
 Fonctions d'intérêt
 -------------------
 
-Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction ``sin``. Néanmoins l'existence de certaines fonction peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
+Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction ``sin``. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
 
 Math
 ^^^^
@@ -414,7 +464,7 @@ Autres bibliothèques
 POSIX C Library
 ---------------
 
-Le standard C ne défini que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes:
+Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes:
 
 - La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
     - ``<sys/socket.h>``
@@ -432,16 +482,16 @@ Le standard C ne défini que le minimum vital et qui est valable sur toutes les 
 - Le log centralisé des messages (d'erreur)
     - ``<syslog.h>``
 
-Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponible sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application *bare-metal*. Elles dépendent grandement du système d'exploitation utilisé mais une tentative de normalisation existe et se nomme `POSIX <https://en.wikipedia.org/wiki/POSIX>`__ (ISO/IEC 9945).
+Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application *bare-metal*. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme `POSIX <https://en.wikipedia.org/wiki/POSIX>`__ (ISO/IEC 9945).
 
-Généralement la vaste majorité des distributions Linux et Unix sont compatible avec le standard POSIX et les bibliothèques ci-dessus seront disponibles à moins que vous ne visiez une architecture différente de celle sur laquelle s'exécute votre compilateur.
+Généralement la vaste majorité des distributions Linux et Unix sont compatibles avec le standard POSIX et les bibliothèques ci-dessus seront disponibles à moins que vous ne visiez une architecture différente de celle sur laquelle s'exécute votre compilateur.
 
 Le support POSIX sous Windows (Win32) n'est malheureusement que partiel et il n'est pas standardisé.
 
 GNU GLIBC
 ---------
 
-La bibliothèque portable `GNULIB <https://www.gnu.org/software/gnulib/>`__ est la bibliothèque standard référencée sous linux par ``libc6``.
+La bibliothèque portable `GNULIB <https://www.gnu.org/software/gnulib/>`__ est la bibliothèque standard référencée sous Linux par ``libc6``.
 
 Windows C library
 -----------------
@@ -456,18 +506,64 @@ L'accès à cet API est offert par un unique point d'entrée `windows.h <https:/
 ``<wincon.h>``
     L'accès à la console
 
-La documentation est disponible en ligne depuis le site de Microsoft mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de `LSTATUS` pour la fonction `RegCreateKeyExW <https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw>` permettant de créer une entrée dans la base de registre.
+La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de `LSTATUS` pour la fonction `RegCreateKeyExW <https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw>` permettant de créer une entrée dans la base de registre.
 
 Un bon point d'entrée est le `Microsoft API and reference catalog <https://msdn.microsoft.com/library>`__.
 
 Quelques observations:
 
 - Officiellement Windows est compatible avec C89 (ANSI C) (c.f. `C Language Reference <https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019>`__)
-- L'API Windows n'est pas officiellement compatible avec C99 mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.
+- L'API Windows n'est pas officiellement compatible avec C99, mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.
 - Microsoft n'a aucune priorité pour développer son support C, il se focalise davantage sur C++ et C#, c'est pourquoi certains éléments du langage ne sont pas ou peu documentés.
-- Les `types standards Windows <https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types>`__ diffèrent de ceux proposés par C99. Par exemple ``LONG32`` remplace ``int32_t``.
+- Les `types standards Windows <https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types>`__ différent de ceux proposés par C99. Par exemple ``LONG32`` remplace ``int32_t``.
 
 MacOS X Library
 ===============
 
 /usr/lib/libSystem.B.dylib
+
+.. exercise:: Arc-cosinus
+
+    La fonction Arc-Cosinus ``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
+
+    .. solution::
+
+        En cherchant ``man acos header`` dans Google, on trouve que la fonction ``acos`` est définie dans le header ``<math.h>``.
+
+        Une autre solution est d'utiliser sous Linux la commande ``apropos``:
+
+        .. code-block:: console
+
+            $ apropos acos
+            acos (3)     - arc cosine function
+            acosf (3)    - arc cosine function
+            acosh (3)    - inverse hyperbolic cosine function
+            acoshf (3)   - inverse hyperbolic cosine function
+            acoshl (3)   - inverse hyperbolic cosine function
+            acosl (3)    - arc cosine function
+            cacos (3)    - complex arc cosine
+            cacosf (3)   - complex arc cosine
+            cacosh (3)   - complex arc hyperbolic cosine
+            cacoshf (3)  - complex arc hyperbolic cosine
+            cacoshl (3)  - complex arc hyperbolic cosine
+            cacosl (3)   - complex arc cosine
+
+        Le premier résultat permet ensuite de voir:
+
+        .. code-block:: console
+
+            $ man acos | head -10
+            ACOS(3)    Linux Programmer's Manual         ACOS(3)
+
+            NAME
+                acos, acosf, acosl - arc cosine function
+
+            SYNOPSIS
+                #include <math.h>
+
+                double acos(double x);
+                float acosf(float x);
+
+        La réponse est donc `<math.h>`.
+
+        Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft `acos-acosf-acosl <https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl>`__ qui indique que le header source est ``<math.h>``.

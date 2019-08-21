@@ -2,13 +2,13 @@
 Algorithmes et conception
 =========================
 
-L'algorithmie est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
+L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
 
-Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulée par un système `Turing-complet <https://fr.wikipedia.org/wiki/Turing-complet>`__. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle `machine de Turing <https://fr.wikipedia.org/wiki/Machine_de_Turing>`__. Heureusement pour nous le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la siumulation de ces machines (compter, comparer, lire, écrire, ...)
+Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système `Turing-complet <https://fr.wikipedia.org/wiki/Turing-complet>`__. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle `machine de Turing <https://fr.wikipedia.org/wiki/Machine_de_Turing>`__. Heureusement pour nous le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines (compter, comparer, lire, écrire, ...)
 
-Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème infomratique. Cette recette contient à peu de choses prêt les éléments programmatiques que nous avons déjà entre aperçu: des structures de controles, des variables, etc.
+Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus: des structures de contrôle, des variables, etc.
 
-Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (*flowchart*) ou un structogramme (*Nassi-Shneiderman diagram*) afin de d'affranchir du langage de programmation cible.
+Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (*flowchart*) ou un structogramme (*Nassi-Shneiderman diagram*) afin de s'affranchir du langage de programmation cible.
 
 La **conception** aussi appelée `Architecture logicielle <https://fr.wikipedia.org/wiki/Architecture_logicielle>`__ est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.
 
@@ -22,7 +22,7 @@ Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de
 
 Pour l'un, l'idée est de savoir combine de temps CPU consomme un algorithme. Pour l'autre, on s'intéresse à l'utilisation de mémoire tampon.
 
-La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilsant la notation en O (*big O notation*). Par exemple, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait:
+La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (*big O notation*). Par exemple, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait:
 
 .. math::
     O(10)
@@ -34,7 +34,7 @@ Quelques points à retenir:
 - La complexité d'un algorithme considère toujours le cas le moins favorable.
 - Le meilleur algorithme est celui qui présente le meilleur compromis entre sa complexité en temps et sa complexité en mémoire.
 
-A titre d'exemple, le programme suivant qui se charge de remplacer les valeurs paires d'un tableau par un 0 et les valeurs impaires par un 1 à une complexité en temps de :math:`O(n)` où `n` est le
+À titre d'exemple, le programme suivant qui se charge de remplacer les valeurs paires d'un tableau par un 0 et les valeurs impaires par un 1 à une complexité en temps de :math:`O(n)` où `n` est le
 nombre d'éléments du tableau.
 
 .. code-block:: c
@@ -47,8 +47,8 @@ nombre d'éléments du tableau.
         }
     }
 
-D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendra à ces
-catégories expérimée du meilleur au plus mauvais:
+D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces
+catégories exprimées du meilleur au plus mauvais:
 
 +----------------------+--------------------+----------------------------------------+
 | Complexité           | :math:`n = 100000` | i7 (100'000 MIPS)                      |
@@ -59,9 +59,9 @@ catégories expérimée du meilleur au plus mauvais:
 +----------------------+--------------------+----------------------------------------+
 | :math:`O(n log(n))`  |       1'100'000    | 11 us                                  |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un batement de cil)            |
+| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)            |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(2^n)`       | très très grand    | Le soleil devenue géante rouge         |
+| :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge         |
 |                      |                    | aura ingurgité la terre                |
 +----------------------+--------------------+----------------------------------------+
 | :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
@@ -104,7 +104,22 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
       }
   }
 
+.. exercise::
+
+    Quel serait l'algorithme permettant d'afficher:
+
+    .. code-block::text
+
+        *****
+        ****
+        ***
+        **
+        *
+
+    et dont la taille peut varier ?
+
+
 Récursivité
 ===========
 
-La `récursivité <https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`__ est une auto-référence. Il peut s'agit en C d'une fonction qui s'appelle elle même.
+La `récursivité <https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`__ est une autoréférence. Il peut s'agit en C d'une fonction qui s'appelle elle-même.

@@ -230,6 +230,33 @@ Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de 
 
 Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
+.. exercise:: Expressions arithmétiques entières
+
+    Donnez la valeur des expressions ci-dessous:
+
+    .. code-block:: c
+
+        25 + 10 + 7 – 3
+        5 / 2
+        24 + 5 / 2
+        (24 + 5) / 2
+        25 / 5 / 2
+        25 / (5 / 2)
+        72 % 5 – 5
+        72 / 5 – 5
+        8 % 3
+        -8 % 3
+        8 % -3
+        -8 % -3
+
+.. exercise:: Débordement
+
+    Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante:
+
+    .. code-block:: c
+
+        uint16_t j = 1024 * 64;
+
 Les nombres réels
 =================
 
@@ -389,6 +416,20 @@ Double précision
 
 La double précision est similaire à la simple précision mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
 
+.. exercise:: Expressions arithmétiques flottantes
+
+    Donnez la valeur des expressions ci-dessous:
+
+    .. code-block:: c
+
+        25. + 10. + 7. – 3.
+        5. / 2.
+        24. + 5. / 2.
+        25. / 5. / 2.
+        25. / (5. / 2.)
+        2. * 13. % 7.
+        1.3E30 + 1.
+
 Les caractères
 ==============
 
@@ -472,6 +513,58 @@ La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les co
      0x04 01101111
      0x05 00000000
 
+
+.. exercise:: Constantes littérales caractérielles
+
+    Indiquez si les constantes littérales suivantes sont valides ou invalides.
+
+    #. ``'a'``
+    #. ``'A'``
+    #. ``'ab'``
+    #. ``'\x41'``
+    #. ``'\041'``
+    #. ``'\0x41'``
+    #. ``'\n'``
+    #. ``'\w'``
+    #. ``'\t'``
+    #. ``'\xp2'``
+    #. ``"abcdef"``
+    #. ``"\abc\ndef"``
+    #. ``"\'\"\\"``
+    #. ``"Hello \world !\n"``
+
+.. exercise:: Chaînes de formatage
+
+    Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
+
+    .. code-block:: c
+
+        char a = 'a';
+        short sh1 = 5;
+        float f1 = 7.0f;
+        int i1 = 7, i2 = 'a';
+
+    #. ``printf("Next char: %c.\n", a + 1);``
+    #. ``printf("Char: %3c.\n", a);``
+    #. ``printf("Char: %-3c.\n", a);``
+    #. ``printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);``
+    #. ``printf("Sum: %i\n", i1 + i2 - a);``
+    #. ``printf("Taux d’erreur\t%i %%\n", i1);``
+    #. ``printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);``
+    #. ``printf("Inventaire: %i4 pieces\n", i1);``
+    #. ``printf("Inventory: %i %s\n", i1, "pieces");``
+    #. ``printf("Inventaire: %4i pieces\n", i1);``
+    #. ``printf("Inventaire: %-4i pieces\n", i1);``
+    #. ``printf("Mixed sum: %f\n", sh1 + i1 + f1);``
+    #. ``printf("Tension: %5.2f mV\n", f1);``
+    #. ``printf("Tension: %5.2e mV\n", f1);``
+    #. ``printf("Code: %X\n", 12);``
+    #. ``printf("Code: %x\n", 12);``
+    #. ``printf("Code: %o\n", 12);``
+    #. ``printf("Value: %i\n", -1);``
+    #. ``printf("Value: %hi\n", 65535u);``
+    #. ``printf("Value: %hu\n", -1);``
+
 .. _booleans:
 
 Les booléens
@@ -519,3 +612,141 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 - Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres ``int main(void)``
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien ``void display(char c)``
 - Comme pointeur dont le type de destination n'est pas spécifié ``void* ptr``
+
+.. exercise:: Précision des flottants
+
+    Que vaut ``x``?
+
+    .. code-block:: c
+
+        float x = 10000000. + 0.1;
+
+    .. solution::
+
+        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc:
+
+        .. code-block:: c
+
+            #include <stdio.h>
+
+            int main(void) {
+                float x = 10000000. + 0.1;
+                printf("%f\n", x);
+            }
+
+        .. code-block:: console
+
+            $ ./a.out
+            10000000.000000
+
+.. exercise:: Type de donnée idoine
+
+    Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme:
+
+    #. Gestion d'un parking: nombre de voitures présentes
+    #. Station météo
+        #. Température moyenne de la journée
+        #. Nombre de valeurs utilisées pour la moyenne
+    #. Montant disponible sur un compte en banque
+    #. Programme de calcul de d'énergie produite dans une centrale nucléaire
+    #. Programme de conversion décimal, hexadécimal, binaire
+    #. Produit scalaire de deux vecteurs plans
+    #. Nombre d'impulsions reçues par un capteur de position incrémental
+
+.. exercise:: Construction d'expressions
+
+    On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
+    à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
+    nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
+    secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
+
+    Donnez une expression arithmétique permettant, en fonction d’un angle donné,
+    d’indiquer que est le secteur du disque se trouvent devant la flèche. Note :
+    l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
+    les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
+
+    Ecrivez un programme demandant l’angle et affichant le numéro de secteur
+    correspondant.
+
+.. exercise:: Somme des entiers
+
+    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme:
+
+    .. math::
+
+        \sum_{k=1}^n k = \frac{n(n+1)}{2}
+
+    Un grand mathématicien `Srinivasa Ramanujan <https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>`__ (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne:
+
+    .. math::
+
+        \sum_{k=1}^\inf k = -\frac{1}{12}
+
+    Vous ne le croyez pas et décider d'utiliser le super-ordinateur `Pensées Profondes <https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste>`__ pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
+
+    Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme ``time``:
+
+    .. code-block:: console
+
+        $ time ./a.out 1000000000
+        500000000500000000
+
+        real    0m0.180s
+        user    0m0.172s
+        sys     0m0.016s
+
+    A partir de quelle valeur, le temps de calcul devient significativement palpable ?
+
+    .. solution::
+
+        .. code-block:: c
+
+            #include <stdio.h>
+            #include <stdlib.h>
+
+            int main(int argc, char *argv[]) {
+                long long n = atoi(argv[1]);
+                long long sum = 0;
+                for(size_t i = 0; i < n; i++, sum += i);
+                printf("%lld\n", sum);
+            }
+
+.. exercise:: Système de vision industriel
+
+    La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes:
+
+    .. code-block:: c
+
+        uint32_t inspected_parts, bad_parts;
+        float percentage_good_parts;
+
+    A un moment du programme, on peut lire:
+
+    .. code-block:: c
+
+        percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+
+    Sachant que ``inspected_parts = 2000`` et ``bad_parts = 200``:
+
+    #. Quel résultat le développeur s'attend-il à obtenir ?
+    #. Qu'obtient-il en pratique ?
+    #. Pourquoi ?
+    #. Corrigez les éventuelles erreurs
+
+    .. solution::
+
+        #. Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.
+        #. En pratique, il obtient un entier, c'est à dire toujours 0.
+        #. La promotion implicite des entiers peut être découpée comme suit:
+            .. code-block:: c
+
+                (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+                (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+                (float)percentage_good_parts = (uint32_t)percentage;
+
+            La division est donc appliquée à des entiers et non des flottnts.
+
+        #. Une possible correction consiste à forcer le type d'un des membres de la division:
+            .. code-block::c
+
+                percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;

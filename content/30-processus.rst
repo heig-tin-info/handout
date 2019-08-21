@@ -13,33 +13,33 @@ Un programme peut se décliner sous plusieurs formes:
 - Listing assembleur
 - Exécutable binaire
 
-Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les `systèmes d'exploitations <https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation>`__ tels que Windows sont dit `multitâches <https://fr.wikipedia.org/wiki/Multit%C3%A2che>`__, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
+Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les `systèmes d'exploitation <https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation>`__ tels que Windows sont dit `multitâches <https://fr.wikipedia.org/wiki/Multit%C3%A2che>`__, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
 Code source
 -----------
 
 Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes `Ladder <https://fr.wikipedia.org/wiki/Langage_Ladder>`__ utilisés dans les automates programmables et respectant la norme `IEC 61131-3 <https://fr.wikipedia.org/wiki/CEI_61131-3>`__, ou `LabView <www.ni.com/en-us/shop/labview.html>`__ un outil de développement graphique.
 
-Le plus souvent le code source est organisé en une `arborescence <https://fr.wikipedia.org/wiki/Arborescence>`__ de fichiers. Des programmes complexes comme le noyau linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
+Le plus souvent le code source est organisé en une `arborescence <https://fr.wikipedia.org/wiki/Arborescence>`__ de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
 
 Exécutable binaire
 ------------------
 
-Une fois compilé en `langage machine <https://fr.wikipedia.org/wiki/Langage_machine>`__, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédaire d'un système d'exploitation. On dit que ce type de programme est `bare metal <https://en.wikipedia.org/wiki/Bare_machine>`__, qu'il s'exécute à même le métal.
+Une fois compilé en `langage machine <https://fr.wikipedia.org/wiki/Langage_machine>`__, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est `bare metal <https://en.wikipedia.org/wiki/Bare_machine>`__, qu'il s'exécute à même le métal.
 
-Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi, on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (`cross-compilation <https://en.wikipedia.org/wiki/Cross_compiler>`__).
+Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (`cross-compilation <https://en.wikipedia.org/wiki/Cross_compiler>`__).
 
-Prenons l'exemple du programme suivant qui calcul la suite des nombres de Fibonacci:
+Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci:
 
 .. literalinclude:: ../assets/src/fibonacci.c
     :language: c
-    :caption: fibonacci.c
+    :caption: Fibonacci.c
 
 Une fois `assemblé <https://fr.wikipedia.org/wiki/Assembly_(informatique)>`__ le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc:
 
 .. code-block:: console
 
-    gcc fibonacci.c -o fibonacci.exe
+    gcc Fibonacci.c -o fibonacci.exe
     objdump -d fibonacci.exe
 
 On obtiens un fichier similaire à ceci qui contient le code machine (``48 83 ec 20``), et l'équivalent en langage assembleur (``mov    %fs:0x28,%rax``):
@@ -102,14 +102,14 @@ Avec un visualisateur hexadécimal, on peut extraire le langage machine du binai
 
 Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs ``41 55`` puis ``41 54`` puis ``48 8d 35 59`` se retrouvent directement dans le *dump*: ``5541 5441 8d48``. Si les valeurs sont inverties c'est parce qu'un PC est *little-endian* (c.f. :numref:`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
-Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension ``.jpg`` sera un fichier image du `Join Photographic Experts Group <https://fr.wikipedia.org/wiki/JPEG>`__ et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défault pour visualiser les images de ce type. Un fichier avec l'extension ``.exe`` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
+Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension ``.jpg`` sera un fichier image du `Join Photographic Experts Group <https://fr.wikipedia.org/wiki/JPEG>`__ et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension ``.exe`` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
-Sous POSIX (Linux, MacOS, UNIX), les *flags* d'un fichier qualifie son type. Le programme ``ls`` permet de visualiser les flags du programme ``fibonacci`` que nous avons compilé:
+Sous POSIX (Linux, MacOS, UNIX), les *flags* d'un fichier qualifient son type. Le programme ``ls`` permet de visualiser les flags du programme ``Fibonacci`` que nous avons compilé:
 
 .. code-block:: console
 
     $ ls -al a.out
-    -rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 fibonacci
+    -rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 Fibonacci
 
 Les lettres ``r-x`` indiquent:
 
@@ -120,17 +120,17 @@ Les lettres ``r-x`` indiquent:
 ``x``
     Exécution autorisée
 
-Ce programme peut-être exécuté par tout le monde mais modifié que par l'utilisateur ``root``.
+Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur ``root``.
 
 .. _inputs_outputs:
 
 Entrées sorties
 ---------------
 
-Tout programme doit pouvoir intéragir avec son environnement. A l'époque des téléscripteurs, un programme intéragissait avec un clavier et une imprimante matricielle. Avec l'arrivée des sytèmes d'exploitation, le champ d'action fut réduit à des entrées:
+Tout programme doit pouvoir interagir avec son environnement. A l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées:
 
 - L'entrée standard ``STDIN`` fourni au programme du contenu qui est généralement fourni par la sortie d'un autre programme.
-- Les arguments du programmes ``ARGV``
+- Les arguments du programme ``ARGV``
 - Les variables d'environnement ``ENVP``
 
 Ainsi qu'à des sorties:
@@ -138,7 +138,7 @@ Ainsi qu'à des sorties:
 - La sortie standard ``STDOUT`` est généralement affichée à l'écran
 - La sortie d'erreur standard ``STDERR`` contient des détails sur les éventuelles erreurs d'exécution du programme.
 
-La figure suivante résume les intéractions qu'un programme peut avoir sur son environnement. Les appels systèmes (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement au systèmes d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
+La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement aux systèmes d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
 .. figure:: ../assets/figures/process/program.*
 
@@ -149,7 +149,7 @@ La figure suivante résume les intéractions qu'un programme peut avoir sur son 
 Signaux
 -------
 
-Lorsqu'un programme est en cours d'exécution, il peut reçevoir de la part du système d'exploitation des `signaux <https://fr.wikipedia.org/wiki/Signal_(informatique)>`__. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
+Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des `signaux <https://fr.wikipedia.org/wiki/Signal_(informatique)>`__. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
 
 Lorsque depuis Windows, vous vous rendez dans le `gestionnaire de tâches <https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows>`__ et que vous décider de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
 
@@ -159,7 +159,7 @@ Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des 
 - :kbd:`C-z` envoie le signal ``SIGTSTP`` pour suspendre l'exécution d'un programme
 - :kbd:`C-t` envoie le signal ``SIGINFO`` permettant de visualiser certaines informations liées à l'exécution du processus.
 
-Si le programme suivant est exécuté, il sera bloquant, c'est à dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus:
+Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus:
 
 .. code-block:: c
 
@@ -171,23 +171,23 @@ Si le programme suivant est exécuté, il sera bloquant, c'est à dire qu'à moi
 Arguments et options
 ====================
 
-L'interpréteur de commande ``cmd.exe`` sous Windows ou ``bash`` sous Linux fonctionne de façon assez similaire. L'**invite de commande** nommée *prompt* en anglais invite l'utilisateur à entrer une commande. Sous `DOS <https://fr.wikipedia.org/wiki/DOS>`__ puis sous Windows cet invite de commande ressemble à ceci:
+L'interpréteur de commande ``cmd.exe`` sous Windows ou ``bash`` sous Linux, fonctionne de façon assez similaire. L'**invite de commande** nommée *prompt* en anglais invite l'utilisateur à entrer une commande. Sous `DOS <https://fr.wikipedia.org/wiki/DOS>`__ puis sous Windows cet invite de commande ressemble à ceci:
 
 .. code-block:: console
 
     C:\>
 
-Sous Linux, le prompt est largement configurable et dépend de la distribution installée mais le plus souvent il se termine par le caractère ``$`` ou ``#``.
+Sous Linux, le prompt est largement configurable et dépend de la distribution installée, mais le plus souvent il se termine par le caractère ``$`` ou ``#``.
 
 Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.
 
 Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant:
 
-Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est à dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
+Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
 
 Un argument est une chaîne de caractère utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.
 
-En C, c'est au développeur de distinguer les options des arguments car ils sont tous passés par le paramètre ``argv``:
+En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre ``argv``:
 
 .. code-block:: c
 
@@ -217,19 +217,19 @@ En C, c'est au développeur de distinguer les options des arguments car ils sont
 Fonction main
 =============
 
-Le standard défini une fonction nommée ``main`` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction ``main`` a déjà été appellée il y a belle lurette lorsque l'ordinateur a été allumé et que le `BIOS <https://en.wikipedia.org/wiki/BIOS>`__ a chargé le système d'exploitation en mémoire. Dès lors la fonction ``main`` de notre programme `Hello World <hello>`__ n'est pas la première mais est appellée.
+Le standard définit une fonction nommée ``main`` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction ``main`` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le `BIOS <https://en.wikipedia.org/wiki/BIOS>`__ a chargé le système d'exploitation en mémoire. Dès lors la fonction ``main`` de notre programme `Hello World <hello>`__ n'est pas la première, mais est appelé.
 
 Qui appelle main ?
 ------------------
 
-Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmise par le système d'exploitation. Ce dernier transmet sur la **pile** du programme:
+Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme:
 
 - Le nombre d'arguments ``argc``
 - La liste des arguments ``argv``
 - Les variables d'environnements ``envp``
 - Les pointeurs de fichiers sur ``stdout``, ``stdin``, ``stderr``
 
-C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la responsabilité d'appeler la fonction ``main``. Voici son prototoype:
+C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la responsabilité d'appeler la fonction ``main``. Voici son prototype:
 
 .. code-block:: c
 
@@ -244,7 +244,7 @@ C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la re
 Valeur de retour
 ----------------
 
-La fonction ``main`` a toujours une valeur de retour qui agit comme le status de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attends à recevoir une valeur 32-bits a la fin de l'exécution d'un programme. L'interprétation est la suivante:
+La fonction ``main`` a toujours une valeur de retour qui agit comme le statut de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante:
 
 ``0``
     Succès, le programme s'est terminé correctement.
@@ -269,7 +269,7 @@ Par exemple le programme ``printf`` retourne dans le cas précis l'erreur 130:
 Entrées sorties standards
 =========================
 
-Le fichier d'en-tête ``stdio.h`` (`man stdio <http://man7.org/linux/man-pages/man3/stdio.3.html>`__) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (*shell*, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés ``stdin``, ``stdout`` et ``stderr``.
+Le fichier d'en-tête ``stdio.h`` (`man stdio <http://man7.org/linux/man-pages/man3/stdio.3.html>`__) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (*shell*, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés ``stdin``, ``stdout`` et ``stderr``.
 
 La fonction de base est ``putchar`` qui écrit un caractère sur ``stdout``:
 
@@ -286,7 +286,7 @@ La fonction de base est ``putchar`` qui écrit un caractère sur ``stdout``:
         putchar('\n');
     }
 
-Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formattage de chaînes de caractères et qui permet à l'aide de marqueurs (*tokens*) de formatter des variables:
+Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (*tokens*) de formater des variables:
 
 .. code-block:: c
 
@@ -297,7 +297,7 @@ Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formattage de cha
         printf("%d, %s, %f", 0x12, "World!", 3.1415);
     }
 
-Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concerne pas la sortie standard du programme, d'utiliser le bon canal de communication c'est à dire ``stderr`` au lieu de ``stdout``. La fonction ``fprintf`` permet de spécifier le flux standard de sortie:
+Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire ``stderr`` au lieu de ``stdout``. La fonction ``fprintf`` permet de spécifier le flux standard de sortie:
 
 .. code-block:: c
 
@@ -308,7 +308,7 @@ Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concerne pa
         fprintf(stderr, "Sortie d'erreur standard\n");
     }
 
-Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul mais en conjonction avec d'autres programmes:
+Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes:
 
 .. code-block:: console
 
@@ -316,10 +316,10 @@ Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? 
     $ cat data.txt
     Obawbhe
 
-Dans cet exemple ci-dessus le programme ``echo`` prend en argument la chaîne de caractère ``Bonjour`` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme ``tr`` qui effectue une opération de `ROT13 <https://fr.wikipedia.org/wiki/ROT13>`__ et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier ``data.txt``.
-La commande suivante ``cat`` lit le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
+Dans cet exemple ci-dessus le programme ``echo`` prends en argument la chaîne de caractère ``Bonjour`` qu'il envoie sur la sortie standard. Ce flux de sortie est relié au flux d'entrée du programme ``tr`` qui effectue une opération de `ROT13 <https://fr.wikipedia.org/wiki/ROT13>`__ et envoie le résultat sur la sortie standard. Ce flux est ensuite redirigé sur le fichier ``data.txt``.
+La commande suivante ``cat`` lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
 
-Dans le cas ou un de ces programme génère une alerte (*warning*), le texte ne sera pas transmi le long de la chaîne mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiiliser le bon flux de sortie: ``stdout`` pour la sortie standard et ``stderr`` pour les messages de diagnostique et les erreurs.
+Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: ``stdout`` pour la sortie standard et ``stderr`` pour les messages de diagnostique et les erreurs.
 
 Boucle d'attente
 ================
@@ -334,7 +334,7 @@ Comme évoqué, un programme est souvent destiné à tourner sur un système d'e
 
 consommera 100% des ressources du processeur. En d'autres termes, le processeur dépensera toute son énergie à faire 150 millions de calculs par seconde, pour rien. Et les autres processus n'auront que très peu de ressources disponibles pour tourner.
 
-Il est grandement préférable d'utiliser des appels systèmes pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard ``sleep`` pour demander au noyau d'être mis en attente pour une periode de temps spécifiée en paramètre.
+Il est grandement préférable d'utiliser des appels système pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard ``sleep`` pour demander au noyau d'être mis en attente pour une période de temps spécifiée en paramètre.
 
 .. code-block:: c
 
@@ -347,7 +347,7 @@ Il est grandement préférable d'utiliser des appels systèmes pour indiquer au 
             ...
         }
 
-Alternativement, lorsqu'un programme attends un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'expoitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attends que l'utilisateur presse la touche enter.
+Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche enter.
 
 .. code-block:: c
 

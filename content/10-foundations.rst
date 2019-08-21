@@ -4,6 +4,8 @@ Généralités du langage
 
 Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.
 
+Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
+
 L'alphabet
 ==========
 
@@ -116,6 +118,52 @@ En addition de ceci, voici quelques règles:
 - Le standard C99, se réserve l'usage de tous les identificateurs débutant par ``_`` suivi d'une lettre majuscule ou un autre *underscore* ``_``.
 - Le standard `POSIX <https://fr.wikipedia.org/wiki/POSIX>`__, se réserve l'usage de tous les identificateurs finissant par ``_t``.
 
+.. hint:: Expression régulière
+
+    Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante:
+
+    .. code-block:: text
+
+        ^[a-zA-Z_][a-zA-Z0-9_]*$
+
+.. exercise:: Validité des identificateurs
+
+    Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
+
+    #. ``2_pi``
+    #. ``x_2``
+    #. ``x___3``
+    #. ``x 2``
+    #. ``positionRobot``
+    #. ``piece_presente``
+    #. ``_commande_vanne``
+    #. ``-courant_sortie``
+    #. ``_alarme_``
+    #. ``panne#2``
+    #. ``int``
+    #. ``défaillance``
+    #. ``f'``
+    #. ``INT``
+
+    .. solution::
+
+        Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne `regex101.com <https://regex101.com/r/cmxaic/1>`__.
+
+        #. ``2_pi`` **invalide** car commence par un chiffre
+        #. ``x_2`` **valide**
+        #. ``x___3`` **valide**
+        #. ``x 2`` **invalide** car comporte un espace
+        #. ``positionRobot`` **valide**, notation *camelCase*
+        #. ``piece_presente`` **valide**, notation *snake_case*
+        #. ``_commande_vanne`` **valide**
+        #. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
+        #. ``_alarme_`` **valide**
+        #. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
+        #. ``int`` **invalide**, ``int`` est un mot réservé du langage
+        #. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+        #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
+        #. ``INT`` **valide**
+
 Variables
 =========
 
@@ -148,6 +196,43 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 .. code-block:: c
 
     int i, j, k;
+
+.. exercise:: Affectation de variables
+
+    Considérons les déclarations suivantes:
+
+    .. code-block:: c
+
+        int a, b, c;
+        float x;
+
+    Notez après chaque affectation, le contenu des différentes variables:
+
+    =====  ================  =====  =====  =====  =====
+    Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
+    =====  ================  =====  =====  =====  =====
+    1      ``a = 5;``
+    2      ``b = c;``
+    3      ``c = a;``
+    4      ``a = a + 1;``
+    5      ``x = a - ++c;``
+    6      ``b = c = x;``
+    7      ``x + 2. = 7.;``
+    =====  ================  =====  =====  =====  =====
+
+    .. solution::
+
+        =====  ================  =====  =====  =====  =====
+        Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
+        =====  ================  =====  =====  =====  =====
+        1      ``a = 5;``            5      ?      ?      ?
+        2      ``b = c;``            5      ?      ?      ?
+        3      ``c = a;``            5      ?      5      ?
+        4      ``a = a + 1;``        6      ?      5      ?
+        5      ``x = a - ++c;``      6      ?      6     12
+        6      ``b = c = x;``        6     12     12     12
+        7      ``x + 2. = 7.;``      -      -      -      -
+        =====  ================  =====  =====  =====  =====
 
 Convention de nommage
 ---------------------
@@ -183,7 +268,6 @@ Formellement, une constante se déclare comme une variable mais préfixée du mo
 
     const double scale_factor = 12.67;
 
-
 .. note::
 
     Il ne faut pas confondre la **constante** qui est une variable immutable, stockée en mémoire et une **macro** qui appartient au pré-processeur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
@@ -192,6 +276,44 @@ Formellement, une constante se déclare comme une variable mais préfixée du mo
 
         #define M_PI 3.14159265358979323846
 
+
+Constantes littérales
+=====================
+
+Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.
+
+.. code-block:: c
+
+    6      // Grandeur valant le nombre d'heures sur l'horloge du Palais du Quirinal à Rome
+    12u    // Grandeur non signée
+    6l     // Grandeur entière signée codée sur un entier long
+    42ul   // Grandeur entière non signée codée sur un entier long
+    010    // Grandeur octale valant 8 en décimal
+    0xa    // Grandeur hexadécimale valant 10 en décimal
+    0b111  // Grandeur binaire valant 7 en décimal
+    33.    // Grandeur réelle exprimée en virgule flottante
+    '0'    // Grandeur caractère vallant 48 en décimal
+
+.. exercise:: Constances littérales
+
+    Pour les entrées suivantes, indiquez lesquelles sont correctes.
+
+    #. ``12.3``
+    #. ``12E03``
+    #. ``12u``
+    #. ``12.0u``
+    #. ``1L``
+    #. ``1.0L``
+    #. ``.9``
+    #. ``9.``
+    #. ``.``
+    #. ``0x33``
+    #. ``0xefg``
+    #. ``0xef``
+    #. ``0xeF``
+    #. ``0x0.2``
+    #. ``09``
+    #. ``02``
 
 Operateur d'affectation
 =======================
@@ -227,6 +349,66 @@ S'agissant d'un opérateur il est possible de chaîner les opérations, comme on
     a = b = c = 42;
 
 Nous verrons :numref:`precedence` que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.
+
+.. exercise:: Affectations simples
+
+    Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous:
+
+    .. code-block:: c
+
+        float x;
+        int n, p;
+
+        p = 2;
+        x = 15 / p;
+        n = x + 0.5;
+
+    .. solution::
+
+        .. code-block:: c
+
+            p ≡ 2
+            x ≡ 7
+            n ≡ 7
+
+.. exercise:: Trop d'égalités
+
+    On considère les déclarations suivantes:
+
+    .. code-block:: c
+
+        int i, j, k;
+
+    Donnez les valeurs des variabels ``i``, ``j`` et ``k`` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
+
+    .. code-block:: c
+
+        /* 1 */ i = (k = 2) + (j = 3);
+        /* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
+        /* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
+
+    .. solution::
+
+        Selon la table de priorité des opérateurs, on note:
+
+        - ``()`` priorité 1 associativité à droite
+        - ``*`` priorité 3 associativité à gauche
+        - ``+`` priorité 4 associativité à droite
+        - ``=`` priorité 14 associativité à gauche
+
+        En revanche rien n'est dit sur les `point de séquences <https://en.wikipedia.org/wiki/Sequence_point>`__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.
+
+        Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
+
+        #. ``i = (k = 2) + (j = 3)``
+            - ``i = 5``
+            - ``j = 3``
+            - ``k = 2``
+        #. ``i = (k = 2) + (j = 2) + j * 3 + k * 4``
+            - Résultat indéterminé
+        #. ``i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)``
+            - Résultat indéterminé
+
 
 Commentaires
 ============
@@ -316,6 +498,17 @@ Un opérateur applique une opération à une (opérateur unitaire), deux ou troi
 .. code-block:: c
 
     c = a + b;
+
+Un opérateur possède plusieurs propriétés:
+
+Une priorité
+    La multiplication ``*`` est plus prioritaire que l'addition ``+``
+
+Une associativité
+    L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier
+
+Un point de séquence
+    Certains opérateurs comme ``&&``, ``||``, ``?`` ou ``,`` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression ``i < 12 && j > 2`` la valeur de ``i`` est plus grande que 12, le test ``j > 2`` ne sera jamais effectué. L'opérateur ``&&`` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation ``=``.
 
 Opérateurs relationnels
 -----------------------
@@ -698,7 +891,7 @@ La précédence
 |          +-----------------------+--------------------------------------------+                 |
 |          | ``!``, ``~``          | NON logique et NON binaire                 |                 |
 |          +-----------------------+--------------------------------------------+                 |
-|          | ``(type)``            | Cast                                       |                 |
+|          | ``(type)``            | Cast (Transtypage)                         |                 |
 |          +-----------------------+--------------------------------------------+                 |
 |          | ``*``                 | Indirection, déréfrencement                |                 |
 |          +-----------------------+--------------------------------------------+                 |
@@ -769,6 +962,14 @@ L'écriture en notation polonaise inversée, donnerait alors
 
     34, i, 0, [], ++,  /, 5, 23, +, +, 0xFF, y, <<, &, x, =
 
+Associativité
+^^^^^^^^^^^^^
+
+L'associativité des opérateurs (`operator associativity <https://en.wikipedia.org/wiki/Operator_associativity>`__) décrit la manière dont sont évaluées les expressions.
+
+Une associativité à gauche pour l'opérateur `~` signifie que l'expression ``a ~ b ~ c`` sera évaluée ``((a) ~ b) ~ c`` alors qu'une associativité à droite sera ``a ~ (b ~ (c))``.
+
+Il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
 
 Représentation mémoire des types de données
 -------------------------------------------
@@ -809,6 +1010,44 @@ Promotion implicite
 
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
+
+.. exercise:: Expressions mixtes
+
+    Soit les instructions suivantes:
+
+    .. code-block:: c
+
+        int n = 10;
+        int p = 7;
+        float x = 2.5;
+
+    Donnez le type et la valeur des expressions suivantes:
+
+    #. ``x + n % p``
+    #. ``x + p / n``
+    #. ``(x + p) / n``
+    #. ``.5 * n``
+    #. ``.5 * (float)n``
+    #. ``(int).5 * n``
+    #. ``(n + 1) / n``
+    #. ``(n + 1.0) / n``
+
+.. exercise:: Promotion numérique
+
+    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous:
+
+    .. code-block:: c
+
+        char c;
+        short sh;
+        int i;
+        float f;
+        double d;
+
+    #. ``c * sh - f / i + d;``
+    #. ``c * (sh – f) / i + d;``
+    #. ``c * sh - f - i + d;``
+    #. ``c + sh * f / i + d;``
 
 Effets du transtypage
 ---------------------
@@ -878,6 +1117,61 @@ pose un problème de précision de calcul.
 
 A l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
+
+.. exercise:: Conversion de types
+
+    On considère les déclarations suivantes:
+
+    .. code-block:: c
+
+        float x;
+        short i;
+        unsigned short j;
+        long k;
+        unsigned long l;
+
+    Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
+
+    .. code-block:: c
+
+        x = 1e6;
+        i = x;
+        j = -20;
+        k = x;
+        l = k;
+        k = -20;
+        l = k;
+
+    .. solution::
+
+        .. code-block:: c
+
+            x = 1e6;
+            i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+            j = -20;  // Incorrect, valeur signée dans un conteneur non signé
+            k = x;
+            l = k;
+            k = -20;
+            l = k;    // Incorrect, valeur signée dans un conteneur non signé
+
+.. exercise:: Un casting explicite
+
+    Que valent les valeurs de ``p``, ``x`` et ``n``:
+
+    .. code-block:: c
+
+        float x;
+        int n, p;
+
+        p = 2;
+        x = (float)15 / p;
+        n = x + 1.1;
+
+    .. solution::
+
+        p ≡ 2
+        x = 7.5
+        n = 8
 
 Optimisation
 ============

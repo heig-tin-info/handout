@@ -23,12 +23,12 @@ Les fichiers sont organisés dans une arborescence gérée par un `système de f
         ├── System32          Système d'exploitation 64-bits (oui, oui)
         └── Temp              Fichiers temporaires
 
-Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par chemin réseau ``\\eistore2``, etc. Sous POSIX, la stratégie est différente car il n'existe qu'UN SEUL système de fichier dont la racine est ``/``.
+Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par chemin réseau ``\\eistore2``, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'UN SEUL système de fichier dont la racine est ``/``.
 
 .. code-block:: console
 
     /
-    ├── bin                   Programmes exécutable crutiaux
+    ├── bin                   Programmes exécutables cruciaux
     ├── dev                   Périphériques (clavier, souris, ...)
     ├── usr
     │   └── bin               Programmes installés
@@ -55,14 +55,14 @@ La localisation d'un fichier au sein d'un système de fichier peut être soit **
 
 Le chemin ``/usr/bin/.././bin/../../home/john/documents`` est correct mais il n'est pas `canonique <https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)>`__. La forme canonique est ``/home/john/documents``. Un chemin peut être relatif s'il ne commence pas par un ``/``: ``../bin``. Sous Windows c'est pareil mais la racine différemment selon le type de média ``C:\``, ``\\network``, ...
 
-Lorsqu'un programme s'exécute son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.
+Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.
 
 Format d'un fichier
 ===================
 
-Un fichier peut avoir un contenu abitraire; une suite de zéros et de uns binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un `fichier texte <https://fr.wikipedia.org/wiki/Fichier_texte>`__. C'est à dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un `fichier binaire <https://fr.wikipedia.org/wiki/Fichier_binaire>`__.
+Un fichier peut avoir un contenu arbitraire; une suite de zéros et de uns binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un `fichier texte <https://fr.wikipedia.org/wiki/Fichier_texte>`__. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un `fichier binaire <https://fr.wikipedia.org/wiki/Fichier_binaire>`__.
 
-La frontière est parfois assez mince car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme:
+La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme:
 
 .. code-block:: c
 
@@ -89,7 +89,7 @@ Si nous le compilons et cherchons dans son code binaire:
     00000740  b0 00 00 00 18 fe ff ff  58 00 00 00 22 ff ff ff  |........X..."...|
     00000750  c8 00 00 00 58 ff ff ff  e8 00 00 00 c8 ff ff ff  |....X...........|
 
-Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande ``copy a.txt + b.txt c.txt`` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténées mais celle-ci ``copy /b a.bin + b.bin c.bin`` ne le fera pas.
+Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande ``copy a.txt + b.txt c.txt`` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci ``copy /b a.bin + b.bin c.bin`` ne le fera pas.
 
 Ouverture d'un fichier
 ======================
@@ -111,7 +111,7 @@ Sous POSIX, un programme doit demander au système d'exploitation l'accès à un
 
 Lorsque le programme ci-dessus est exécuté, il va demander l'ouverture du fichier ``toto`` en lecture et recevoir un descripteur de fichier ``fd`` (*file descriptor*) positif en cas de succès ou négatif en cas d'erreur.
 
-Dans l'exemple suivant on compile, puis exécute en arrière plan le programme qui ne se terminera pas puisqu'il attend un caractère d'entrée. L'appel au programme ``ps`` permet de lister la liste des processus en cours et la recherche de ``test`` permet de noter le numéro du processus, ici ``6690``. Dans l'arborescence de fichiers, il est possible d'aller consulter les descripteurs de fichiers ouverts pour le processus concerné.
+Dans l'exemple suivant, on compile, puis exécute en arrière-plan le programme qui ne se terminera pas puisqu'il attend un caractère d'entrée. L'appel au programme ``ps`` permet de lister la liste des processus en cours et la recherche de ``test`` permet de noter le numéro du processus, ici ``6690``. Dans l'arborescence de fichiers, il est possible d'aller consulter les descripteurs de fichiers ouverts pour le processus concerné.
 
 .. code-block:: console
 
@@ -128,7 +128,7 @@ On observe que trois descripteurs de fichiers sont ouverts.
 - ``2`` pour ``STDERR``
 - ``3`` pour le fichier ``toto`` ouvert en lecture seule
 
-La fonction ``open`` est en réalité un appel système qui n'est standardisé que sous POSIX, c'est à dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.
+La fonction ``open`` est en réalité un appel système qui n'est standardisé que sous POSIX, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.
 
 En réalité la bibliothèque standard, respectueuse de C99, dispose d'une fonction ``fopen`` pour *file open* qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à
 
@@ -165,11 +165,11 @@ Le mode d'ouverture du fichier peut être:
     Ouverture du fichier pour insertion. Le fichier est créé s'il n'existe pas déjà. Le pointeur est positionné à la fin du fichier.
 
 ``a+``
-    Ouverture du fichier pour lecture et écriture. Le fichier est créé s'il n'existe pas déjà et le pointeur du fichier est poisitionné à la fin.
+    Ouverture du fichier pour lecture et écriture. Le fichier est créé s'il n'existe pas déjà et le pointeur du fichier est positionné à la fin.
 
 Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag ``b`` pour *binary* existe. Pour ouvrir un fichier en mode binaire on peut alors écrire ``rb+``.
 
-L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est à dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée:
+L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée:
 
 .. code-block:: c
 
@@ -197,7 +197,7 @@ Le manuel `man fseek <http://man7.org/linux/man-pages/man3/fseek.3.html>`__ indi
     Positionne le curseur au début du fichier.
 
 ``SEEK_CUR``
-    Position courante du curseur. Permet d'ajouter un offset relatif à la position courante.
+    Position courante du curseur. Permets d'ajouter un offset relatif à la position courante.
 
 ``SEEK_END``
     Positionne le curseur à la fin du fichier.
@@ -205,7 +205,7 @@ Le manuel `man fseek <http://man7.org/linux/man-pages/man3/fseek.3.html>`__ indi
 ftell
 -----
 
-Il est parfois utile de savoir ou se trouve le curseur. ``ftell()`` retourne la position actuelle du curseur dans un fichier ouvert.
+Il est parfois utile de savoir où se trouve le curseur. ``ftell()`` retourne la position actuelle du curseur dans un fichier ouvert.
 
 .. code-block:: c
 
@@ -222,7 +222,7 @@ rewind
 
 L'appel ``rewind()`` est équivalent à ``(void) fseek(stream, 0L, SEEK_SET)`` et permet de se positionner au début du fichier.
 
-Lecture / Ecriture
+Lecture / Écriture
 ==================
 
 La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues ``printf`` et ``scanf`` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers:
@@ -274,7 +274,7 @@ Les nouvelles fonctions à connaître sont les suivantes:
 Buffer de fichier
 =================
 
-Pour améliorer les performances C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être:
+Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être:
 
 ``unbuffered`` (``_IONBF``)
     Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.
@@ -284,9 +284,9 @@ Pour améliorer les performances C99 prévoit (§7.19.3-3), un espace tampon pou
 
 ``line buffered`` (``_IO_LBF``)
 
-Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.
+Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courrier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.
 
-Par défaut, un pointeur de fichier est *fully buffered*. C'est à dire que dans le cas du programme suivant devrait exécuter 10x l'appel système ``write``, une fois par caractère.
+Par défaut, un pointeur de fichier est *fully buffered*. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système ``write``, une fois par caractère.
 
 .. code-block:: c
 
@@ -339,4 +339,4 @@ Le changement de mode peut être effectué avec la fonction ``setbuf`` ou ``setv
         fflush(stdout);
     }
 
-La fonction ``fflush`` force l'écriture malgré l'utilsation d'un buffer.
+La fonction ``fflush`` force l'écriture malgré l'utilisation d'un buffer.

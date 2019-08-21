@@ -18,7 +18,7 @@ Ces structures de contrôles sont toujours composées de :
 Séquences
 =========
 
-En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (U+003B):
+En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (:unicode:`U+003B`):
 
 .. code-block:: c
 
@@ -35,7 +35,7 @@ Une séquence est une suite d'instructions regroupées en un bloc matérialisé 
 
 .. note::
 
-    N'allez pas confondre le point virgule ``;`` (U+003B) avec le ``;`` (U+037E), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
+    N'allez pas confondre le point virgule ``;`` (:unicode:`U+003B`) avec le ``;`` (:unicode:`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
 
 Les embranchements
 ==================

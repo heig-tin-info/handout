@@ -2,9 +2,9 @@
 Préprocesseur
 =============
 
-Comme nous l'avons vu en introduction (c.f. :numref:`structured_text`), le langage C est basé sur une double grammaire, c'est à dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
+Comme nous l'avons vu en introduction (c.f. :numref:`structured_text`), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 
-Le coeur de cette opération est appelé **pré-processeur**. Les instructions du pré-processeur C sont facile à reconnaître car elles débutent toutes par le croisillon (``#``), *hash* en anglais et utilisé récemmment comme `hashtag <https://fr.wikipedia.org/wiki/Hashtag>`__ sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les anglais sous le dénominatif *pound* (livre). Lorsqu'il est aparu en europe, il a été confondu avec le caractère dièze (``♯``) présent sur les pavés numérique de téléphone.
+Le coeur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (``#``), *hash* en anglais et utilisé récemment comme `hashtag <https://fr.wikipedia.org/wiki/Hashtag>`__ sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (``♯``) présent sur les pavés numériques de téléphone.
 
 Le vocabulaire du préprocesseur est le suivant:
 
@@ -15,10 +15,10 @@ Le vocabulaire du préprocesseur est le suivant:
     Crée une définition (Macro)
 
 ``#undef``
-    Détruit une définition existante
+    Détruis une définition existante
 
 ``#if defined`` ou ``#ifdef``
-    Test si une definition existe
+    Teste si une définition existe
 
 ``#if`` .. ``#elif`` .. ``#else`` .. ``#endif``
     Test conditionnel (similaire à l'instruction ``if`` du langage C)
@@ -35,7 +35,7 @@ Le vocabulaire du préprocesseur est le suivant:
 ``#pragma``
     Directive spécifique au compilateur.
 
-Le pré-processeur C est indépendant du langage C, c'est à dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire:
+Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire:
 
 .. code-block:: text
 
@@ -60,7 +60,7 @@ Le pré-processeur C est indépendant du langage C, c'est à dire qu'il peut êt
     #    error "Lettre sans signature"
     #endif
 
-Il est possible d'appeler le pré-processeur directement avec l'option ``-E``. Des directives ``define`` peuvent être renseignées depuis la ligne de commande:
+Il est possible d'appeler le préprocesseur directement avec l'option ``-E``. Des directives ``define`` peuvent être renseignées depuis la ligne de commande:
 
 
 .. code-block:: console
@@ -83,7 +83,7 @@ Il est possible d'appeler le pré-processeur directement avec l'option ``-E``. D
 
     Adam
 
-Notez que les instructions du pré-processeur (à l'exception des opérateurs de concaténation de de conversion en chaîne de caractère) sont des instructions de ligne (*line-wise*), et doivent se terminer par un caractère de fin de ligne.
+Notez que les instructions du préprocesseur (à l'exception des opérateurs de concaténation de conversion en chaîne de caractère) sont des instructions de ligne (*line-wise*), et doivent se terminer par un caractère de fin de ligne.
 
 Phases de traduction
 ====================
@@ -92,8 +92,8 @@ Le standard décrit 4 phases de pré-processing:
 
 1. Remplacement des caractères spéciaux, décodage des trigraphes, traitement des fin de lignes.
 2. Fusionne les lignes utilisant un retour virtuel ``\``.
-3. Supprime les commentaires, décompose les symboles du pré-processeur
-4. Exécute les directives du pré-processeur (``#define`` et ``#include``)
+3. Supprime les commentaires, décompose les symboles du préprocesseur
+4. Exécute les directives du préprocesseur (``#define`` et ``#include``)
 
 Extensions des fichiers
 =======================
@@ -101,19 +101,19 @@ Extensions des fichiers
 Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur:
 
 ``.h``
-    Fichier d'en-tête ne comportant que des définitions pré-processeur, des déclarations (structures, unions, ...) et des prototypes de fonction mais aucun code exécutable. Ce fichier sera soumis au pré-processeur.
+    Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions, ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.
 
 ``.c``
-    Fichier source C comportant les implémentations de fonction et les variables globales. Ce fichier sera soumis au pré-processeur.
+    Fichier source C comportant les implémentations de fonction et les variables globales. Ce fichier sera soumis au préprocesseur.
 
 ``.i``
-    Fichier source C qui ne sera pas soumis au pré-processeur: ``gcc -E -o foo.i foo.c``
+    Fichier source C qui ne sera pas soumis au préprocesseur: ``gcc -E -o foo.i foo.c``
 
 ``.s``
-    Fichier assembleur non soumis au pré-processeur.
+    Fichier assembleur non soumis au préprocesseur.
 
 ``.S``
-    Fichier assembleur soumis au pré-processeur. Notons toutefois que cette convention n'est pas  applicable sous Windows car le système de fichier n'est pas sensible à la casse.
+    Fichier assembleur soumis au préprocesseur. Notons toutefois que cette convention n'est pas  applicable sous Windows, car le système de fichier n'est pas sensible à la casse.
 
 Inclusion de fichiers
 =====================
@@ -121,13 +121,13 @@ Inclusion de fichiers
 #include
 --------
 
-La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleur de l'une des questions les plus posées (c.f. `cette question <https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename>`__.).
+La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleurs de l'une des questions les plus posées (c.f. `cette question <https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename>`__.).
 
 ``#include <filename>``
-    Le pré-processeur va chercher le chemin du fichier à inclure dans les chemins de l'implémentation.
+    Le préprocesseur va chercher le chemin du fichier à inclure dans les chemins de l'implémentation.
 
 ``#include "filename"``
-    Le pré-processeur cherche le chemin du fichier à partir du chemin courant et les chemins donné par les des directives ``-I``.
+    Le préprocesseur cherche le chemin du fichier à partir du chemin courant et les chemins donnés par les des directives ``-I``.
 
 L'inclusion de fichier est simplement du remplacement de chaînes:
 
@@ -151,7 +151,7 @@ L'inclusion de fichier est simplement du remplacement de chaînes:
     , mais cette fin est là.
     # 3 "main.c" 2
 
-La directive ``#include`` est principalement utilisée pour include des fichiers d'en-tête (*header*) mais rarement (jamais), des fichiers C.
+La directive ``#include`` est principalement utilisée pour include des fichiers d'en-tête (*header*), mais rarement (jamais), des fichiers C.
 
 Définissions
 ============
@@ -159,7 +159,7 @@ Définissions
 #define
 -------
 
-Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le pré-processeur. Ces définitions peuvent être utile pour définir des constantes globales qui sont définies à la compilation:
+Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation:
 
 .. code-block:: c
 
@@ -180,7 +180,7 @@ Il est ainsi possible de définir la taille du tableau à la compilation avec:
 
     $ gcc main.c -DWINDOW_SIZE=42
 
-Notons qu'au pré-processing, toute occurence d'un symbole défini est remplacé par le contenu de sa définition. **C'est une remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire:
+Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. **C'est une remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire:
 
 .. code-block:: c
 
@@ -194,7 +194,7 @@ Notons qu'au pré-processing, toute occurence d'un symbole défini est remplacé
         printf("Hello" EOF);
     END
 
-On relevra qu'il est aussi possible de comettre certaines erreurs:
+On relèvera qu'il est aussi possible de commettre certaines erreurs:
 
 .. code-block:: c
 
@@ -204,7 +204,7 @@ On relevra qu'il est aussi possible de comettre certaines erreurs:
     int b = 23;
     int c = ADD * ADD
 
-Après pré-processing on aura un comportement non désiré car la multiplication est plus prioritaire que l'addition.
+Après pré-processing on aura un comportement non désiré, car la multiplication est plus prioritaire que l'addition.
 
 .. code-block:: c
 
@@ -219,7 +219,7 @@ Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les 
 #undef
 ------
 
-Un symbole défini soit par la ligne de commande ``-DFOO=1``, soit par la directive ``#define FOO 1`` ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser ``#undef`` pour supprimer une directive pré-processeur:
+Un symbole défini soit par la ligne de commande ``-DFOO=1``, soit par la directive ``#define FOO 1`` ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser ``#undef`` pour supprimer une directive préprocesseur:
 
 .. code-block:: c
 
@@ -233,7 +233,7 @@ Généralement on évitera de faire appel à ``#undef`` car le bon programmeur a
 Macros
 ======
 
-On appel **macro** une fonction définie au niveau du pré-processeur.
+On appel **macro** une fonction définie au niveau du préprocesseur.
 
 Debogage
 ========
@@ -252,7 +252,7 @@ Cette directive génère une erreur avec le texte qui suit la directive:
 Directives spéciales
 --------------------
 
-Le standard défini certains symboles utile pour le débogage:
+Le standard définit certains symboles utiles pour le débogage:
 
 ``__LINE__``
     Est remplacé par le numéro de la ligne sur laquelle est placé ce symbole
@@ -275,11 +275,11 @@ Le standard défini certains symboles utile pour le débogage:
 Caractère d'échappement
 =======================
 
-L'anti-slash (``backslash``) est interprété par le pré-processeur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes:
+L'anti-slash (``backslash``) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes:
 
 .. code-block:: c
 
-    #define TRACE printf("Le programme est passe " \
+    #define TRACE printf("Le programme est passé " \
         " dans le fichier %s" \
         " ligne %d\n", \
         __FILE__, __LINE__);
@@ -309,7 +309,7 @@ De la même manière que pour les définissions simple, il s'agit d'un remplacem
         return ((23) < (12) ? (23) : (12));
     }
 
-Notez que l'absence d'espace entre le nom de la macro et la parenthèse est important. L'exemple suivante le démontre:
+Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre:
 
 .. code-block:: console
 
@@ -328,7 +328,7 @@ Notez que l'absence d'espace entre le nom de la macro et la parenthèse est impo
 Directives conditionnelles
 ==========================
 
-Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utile pour rendre conditionnel une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible:
+Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible:
 
 .. code-block:: c
 
@@ -349,7 +349,7 @@ Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utile pour rendr
 Désactivation de code
 ---------------------
 
-On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée car les outils de `refactoring <https://en.wikipedia.org/wiki/Code_refactoring>`__ (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle:
+On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de `refactoring <https://en.wikipedia.org/wiki/Code_refactoring>`__ (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle:
 
 .. code-block:: c
 
@@ -362,7 +362,7 @@ On voit souvent des développeurs commenter des sections de code pour le déboga
 Include guard
 -------------
 
-La protection des fichiers d'en-tête permet d'éviter d'inclure un fichier s'il a déjà été inclu.
+La protection des fichiers d'en-tête permet d'éviter d'inclure un fichier s'il a déjà été inclus.
 
 Imaginons que la constante ``M_PI`` soit définie dans le header ``<math.h>``:
 
@@ -370,7 +370,7 @@ Imaginons que la constante ``M_PI`` soit définie dans le header ``<math.h>``:
 
     #define M_PI        3.14159265358979323846
 
-Si ce fichier d'en-tête est inclu à nouveau, le pré-processeur génèrera une erreur car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde:
+Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur génèrera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde:
 
 .. code-block:: c
 
@@ -381,7 +381,7 @@ Si ce fichier d'en-tête est inclu à nouveau, le pré-processeur génèrera une
 
     #endif
 
-Si le fichier a déjà été inclu, la définission ``MATH_H`` sera déjà déclarée et le fichier d'en-tête ne sera pas ré-inclu.
+Si le fichier a déjà été inclus, la définition ``MATH_H`` sera déjà déclarée et le fichier d'en-tête ne sera pas réinclus.
 
 On préfèrera utiliser la directive `#pragma once <https://en.wikipedia.org/wiki/Pragma_once>`__ qui est plus simple à l'usage et évite une collision de nom. Néanmoins et bien que cette directive ne soit pas standardisée par l'ISO, elle est compatible avec la très grande majorité des compilateurs C.
 
@@ -404,5 +404,5 @@ Les commentaires C du type:
      * Le corbeau et le renard.
      */
 
-sont aussi des directives du pré-processeur. Il seront retiré par le pré-processeur.
+sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur.
 
