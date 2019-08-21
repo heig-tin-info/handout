@@ -2,7 +2,7 @@
 La programmation
 ================
 
-.. figure:: assets/images/eniac.*
+.. figure:: ../assets/images/eniac.*
 
     L'un des premiers ordinateurs: l'Eniac
 
