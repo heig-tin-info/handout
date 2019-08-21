@@ -57,9 +57,9 @@ Le système binaire est similaire au système décimal mais utilise la base deux
 
     0, 1 = false, true = F, T
 
-En termes technique ces états sont le plus souvent représenté par des signaux électriques dont souvent l'un des deux état est dit récessif tandis que l'autre est dit dominant.
+En termes technique ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.
 
-Un nombre binaire peut être également décomposé en puissance successives:
+Un nombre binaire peut être également décomposé en puissances successives:
 
 .. math::
 
@@ -259,12 +259,15 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 Entiers relatifs
 ================
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander stocker des valeurs négatives.
+Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives.
 
 Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les variables c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
 Bit de signe
 ------------
+
+.. TOTO:: zieuter le 8ième qui sort pas bien
+
 
 On peut se réserver un bit de signe, par exemple le 8:sup:`ième` bit d'un ``char``.
 

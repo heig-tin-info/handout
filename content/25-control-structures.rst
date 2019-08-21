@@ -2,20 +2,20 @@
 Structures de contrôle
 ======================
 
-Les structure de contrôle appartiennent aux langages de programmation dit `structurés <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code Il y a trois catégories de structures de contrôle en C:
+Les structures de contrôle appartiennent aux langages de programmation dits `structurés <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C:
 
 1. Les embranchements (``branching``)
 2. Les boucles (``loops``)
 3. Les sauts (``jumps``)
 
-Ces structures de contrôles sont toujours composées de
+Ces structures de contrôles sont toujours composées de :
 
-- Sequences
-- Selections
+- Séquences
+- Sélections
 - Répétitions
 - Appels de fonctions
 
-Sequences
+Séquences
 =========
 
 En C, chaque instruction est séparée de la suivante par un point virgule ``;`` (U+003B):
@@ -50,7 +50,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
 
-Les embranchements s'appuyent sur les séquences:
+Les embranchements s'appuient sur les séquences:
 
 .. code-block:: c
 
@@ -116,11 +116,11 @@ Notons quelques erreurs courantes:
     if (z == 0);
     printf("z est nul"); // ALWAYS executed
 
-- Le test de la valeur d'une variable s'écrite avec l'opérateur d'égalité ``==`` et non l'opérateur d'affectation ``=``. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
+- Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité ``==`` et non l'opérateur d'affectation ``=``. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.
 
   .. code-block:: c
 
-    if (z = 0)
+    if (z = 0)               // set z to zero !!
         printf("z est nul"); // NEVER executed
 
 - L'oubli des accolades pour déclarer un bloc d'instructions
@@ -145,7 +145,7 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
     {
         printf("La valeur est paire et supérieure à 500.");
     }
-    else if (!(value % 5)
+    else if (!(value % 5))
     {
         printf("La valeur est paire, inférieur à 500 et divisible par 5.");
     }
@@ -172,7 +172,7 @@ L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, 
             printf("Prochaine étape, guerre nucléaire");
             break;
         case 3:
-            printf("Acroissement de la préparation des forces");
+            printf("Accroissement de la préparation des forces");
             break;
         case 4:
             printf("Mesures de sécurité renforcées et renseignements accrus");
@@ -219,7 +219,7 @@ Notons quelques observations:
 Les boucles
 ===========
 
-Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois type de boucles:
+Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles:
 
 - ``for``
 - ``while``
@@ -232,9 +232,9 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 while
 -----
 
-La structure ``while`` répête une séquence **tant que** la condition est vraie.
+La structure ``while`` répète une séquence **tant que** la condition est vraie.
 
-Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation
+Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.
 
 .. code-block:: c
 
@@ -244,7 +244,7 @@ Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est
         wait(5 /* seconds */);
     }
 
-Sequentiellement une boucle ``while`` test la condition, puis execute la séquence associée.
+Séquentiellement une boucle ``while`` teste la condition, puis exécute la séquence associée.
 
 do..while
 ---------
@@ -304,7 +304,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 Boucles infinies
 ----------------
 
-Une boucle infinie n'est jamais terminée. On renconte souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée `run loop <https://en.wikipedia.org/wiki/Event_loop>`__. Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction ``main`` tel que:
+Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée `run loop <https://en.wikipedia.org/wiki/Event_loop>`__. Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction ``main`` telle que:
 
 .. code-block:: c
 
@@ -372,7 +372,7 @@ Les sauts
 =========
 
 Il existe 4 instructions en C permettant de contrôler le déroulement de
-l'exécution d'un programme. Elle déclanchent un saut inconditionnel à un autre endroit du programme.
+l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
 
 - ``break`` interrompt la structure de contrôle en cours. Elle est valide pour:
     - ``while``
@@ -385,13 +385,13 @@ l'exécution d'un programme. Elle déclanchent un saut inconditionnel à un autr
 ``goto``
 --------
 
-Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison car dans la très vaste majorité des cas ou vous pensez avoir besoin de ``goto``, une autre solution plus élégente existe.
+Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison car dans la très vaste majorité des cas ou vous pensez avoir besoin de ``goto``, une autre solution plus élégante existe.
 
-Néanmoins, il est importante de comprendre que ``goto`` était dans certain langage de prorgramation comme BASIC, la seule structure de contrôle disponible permettant de faire des saut. Elle est par ailleurs le reflet du langage machine car la plupart des processeurs ne connaissent que cette instruction souvent appellée ``JUMP``. Il est par conséquent possible d'immiter le comportement de n'importe quelle structure de contrôle si l'on dispose de ``if`` et de ``goto``.
+Néanmoins, il est importante de comprendre que ``goto`` était dans certain langage de prorgramation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine car la plupart des processeurs ne connaissent que cette instruction souvent appellée ``JUMP``. Il est par conséquent possible d'immiter le comportement de n'importe quelle structure de contrôle si l'on dispose de ``if`` et de ``goto``.
 
 ``goto`` effectue un saut inconditionnel à un *label* défini en C par un :ref:`identificateur <identifiers>` suivi d'un ``:``.
 
-L'un des seul cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code:
+L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code:
 
 .. code-block::
 

@@ -34,9 +34,9 @@ La ponctuation utilise les 29 symboles graphiques suivants:
 
     ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . < > / ?
 
-Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
+Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
 
-Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le `The International Obfuscated C Code Contest <https://www.ioccc.org/>`__ qui prime des codes les plus subtiles et illisibles comme le code suivant écrit par `Chris Mills <https://www.ioccc.org/2015/mills2>`__. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
+Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le `The International Obfuscated C Code Contest <https://www.ioccc.org/>`__ qui prime des codes les plus subtils et illisibles comme le code suivant écrit par `Chris Mills <https://www.ioccc.org/2015/mills2>`__. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
 
 .. code-block:: c
 
@@ -61,7 +61,7 @@ Retenez que C peut être un langage extrèmement cryptique tant il est permissif
 Fin de lignes (EOL)
 ===================
 
-À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même plus aguéri des programmeur. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatible <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
+À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatibles <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
 
 Fort heureusement depuis que Apple a migré son système sur une base `BSD <https://en.wikipedia.org/wiki/Berkeley_Software_Distribution>`__ (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne:
 
@@ -88,7 +88,7 @@ Le langage de programmation C tel que défini par C11 comporte 33 mots clés.
     do          int          switch       double        long        typedef
     else        register     union
 
-Dans ce cours l'usage des mots clés suivants est découragé car leur utilsation pourrait preter à confusion ou mener à des inélégances d'écriture.
+Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
 .. code-block:: c
 
@@ -214,7 +214,7 @@ Mathématiquement, la valeur de ``b`` devrait être égale à 42 ce qui n'est pa
 
 Comme on ne connaît pas la valeur de ``b``, avec cet exemple, on ne peut pas connaître la valeur de ``a``.
 
-Certaines langages de programmation ont été sensibilité à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est ``<-`` et une affectation pourrait s'écrire par exemple: ``a <- 42`` ou ``42 -> a``.
+Certaines langages de programmation ont été sensibilisé à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est ``<-`` et une affectation pourrait s'écrire par exemple: ``a <- 42`` ou ``42 -> a``.
 
 En C, l'opérateur d'égalité que nous verrons plus loin s'écrit ``==`` (deux ``=`` concaténés).
 
@@ -253,7 +253,7 @@ Il existe deux manière d'écrire un commentaire en C:
     /* This is a
        Multi-line comment */
 
-Les commentaires sont parsé par le pré-processeur, aussi il n'influencent pas le fonctionnement d'un programme mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois mais comme tout développement doit être si possible **réutilisable**,
+Les commentaires sont parsés par le pré-processeur, aussi ils n'influencent pas le fonctionnement d'un programme mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois mais comme tout développement doit être si possible **réutilisable**,
 il est plus probable qu'il soit lu part d'autres développeurs.
 
 En conséquence, il est important de clarifier toute zone d'ombre lorsque que l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.
@@ -261,7 +261,7 @@ En conséquence, il est important de clarifier toute zone d'ombre lorsque que l'
 D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires mais un programme sans commentaires n'est pas
 nécessairement un bon programme.
 
-Notons que l'on ne commente jamais du code et ce pour plusieurs raisons:
+Notons que l'on ne commente jamais des portions de code et ce pour plusieurs raisons:
 
 1. Les outils de *refactoring* ne pourront pas accéder du code commenté
 2. La syntaxe ne pourra plus être vérifiée par l'IDE
@@ -283,7 +283,7 @@ D'une manière générale l'utilisaton des commentaires ne devrait pas être uti
 - Désactiver temporairement une portion de code sans l'effacer.
 - Expliquer le **comment** du fonctionnement du code.
 - Faire dans le dythyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.
-- Créer de jolies spéarations telles que ``/*************************/``.
+- Créer de jolies séparations telles que ``/*************************/``.
 
 Exemple d'entête de fichier:
 
@@ -356,6 +356,7 @@ Les opérations binaires agissent directement sur les bits d'une entrée:
 - ``^`` XOR arithmétique
 - ``<<`` Décalage à gauche
 - ``>>`` Décalage à droite
+- ``~`` Inversion binaire
 
 Opérateurs d'affectation
 ------------------------
@@ -766,7 +767,7 @@ L'écriture en notation polonaise inversée, donnerait alors
 
 .. code-block:: text
 
-    i, 0, [], ++, 34, /, 5, 23, +, +, y, <<, 0xFF, &, x, =
+    34, i, 0, [], ++,  /, 5, 23, +, +, 0xFF, y, <<, &, x, =
 
 
 Représentation mémoire des types de données
@@ -813,7 +814,7 @@ Effets du transtypage
 ---------------------
 
 Le changement de type forcé (transtypage) entre des variables de
-différents type engendre des effets de bord qu'il faut connaître. Lors
+différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. A l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
@@ -881,7 +882,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 Optimisation
 ============
 
-Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec ``-O2`` sous ``gcc``), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'emprunte mémoire du code, soit accélérer son exécution.
+Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec ``-O2`` sous ``gcc``), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.
 
 Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation:
 
@@ -898,5 +899,3 @@ De même que ce test n'effectura pas une division mais testera simplement le der
     } else {
         puts("Impair");
     }
-
-

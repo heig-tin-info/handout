@@ -176,7 +176,7 @@ Les grammaires des langages de programmation sont souvent formalisées à l'aide
 Les paradigmes de programmation
 ===============================
 
-Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL, Lisp et sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. :numref:`thompson`). Ces deux langages, et bien que leurs syntaxes soit différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partages le même `paradigme de programmation <https://fr.wikipedia.org/wiki/Paradigme_(programmation)>`__.
+Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL, Lisp et sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. :numref:`thompson`). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même `paradigme de programmation <https://fr.wikipedia.org/wiki/Paradigme_(programmation)>`__.
 
 Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit **multi-paradigmes**, c'est-à-dire qu'ils supportent différents paradigmes.
 
@@ -256,7 +256,7 @@ Avec ``gcc`` il est possible de demander que l'exécution du préprocesseur en u
 Compilation (*build*)
 ---------------------
 
-La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension `.o` ou `.obj`) qui sera utilisé pour la phase suivante. Lors de la *compilation*, des erreurs peuvent survenir et empêcher le déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
+La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension `.o` ou `.obj`) qui sera utilisé pour la phase suivante. Lors de la *compilation*, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
 Avec ``gcc`` il est possible de ne demander que l'assemblage d'un code avec l'option ``-S``.
 
@@ -275,19 +275,19 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 Une affaire de consensus
 ========================
 
-En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes. Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'`EOL <https://fr.wikipedia.org/wiki/Fin_de_ligne>`__, l'interdiction du ``goto``, le respect inconditionnel des règles `MISRA <https://en.wikipedia.org/wiki/MISRA_C>`__. Il existe ainsi de longues guerres de croyances, parfois vielles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là ou les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'`ancrage mental <https://fr.wikipedia.org/wiki/Ancrage_(psychologie)>`__. L'enseignant devrait être sensible ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.
+En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes. Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'`EOL <https://fr.wikipedia.org/wiki/Fin_de_ligne>`__, l'interdiction du ``goto``, le respect inconditionnel des règles `MISRA <https://en.wikipedia.org/wiki/MISRA_C>`__. Il existe ainsi de longues guerres de croyances, parfois vielles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là où les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'`ancrage mental <https://fr.wikipedia.org/wiki/Ancrage_(psychologie)>`__. L'enseignant devrait être sensible à ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.
 
-Citons par exemple les `guerres d'éditeurs <https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs>`__ qui date des années 1970 et qui opposent les défenseurs de l'éditeur ``vi`` aux inconditionnels d'``emacs``. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est à force d'habitudes.
+Citons par exemple les `guerres d'éditeurs <https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs>`__ qui date des années 1970 et qui opposent les défenseurs de l'éditeur ``vi`` aux inconditionnels d'``emacs``. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est, à force d'habitudes.
 
-S'enterrer dans une zone de confort renforce le biais du `Mateau de Maslow <https://everlaab.com/marteau-de-maslow/>`__, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence différentes approches possible d'un problème donné est, essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
+S'enterrer dans une zone de confort renforce le biais du `Marteau de Maslow <https://everlaab.com/marteau-de-maslow/>`__, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est, essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
 
-Un programme se soit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
+Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
 
-La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au `biais d'attention <https://en.wikipedia.org/wiki/Attentional_bias>`__. Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
+La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au `biais d'attention <https://en.wikipedia.org/wiki/Attentional_bias>`__. Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
 
-Vous verrez qu'au début, un programme ne vous est particulièrement lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le ``ﬁ`` est infiniment plus lisible que ``fi``. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si cher et que l'important n'est plus la forme, mais le fond. Vous aurez comme `Néo <https://fr.wikipedia.org/wiki/Neo_(Matrix)>`__, libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.
+Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le ``ﬁ`` est infiniment plus lisible que ``fi``. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si chère et que l'important n'est plus la forme, mais le fond. Vous aurez comme `Néo <https://fr.wikipedia.org/wiki/Neo_(Matrix)>`__, libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.
 
-En sommes, restez ouvert aux autres points de vues, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire `le code source <https://github.com/bitcoin/bitcoin>`__, vous aimez Linux, plongez-vous dans le code source du `kernel <https://github.com/torvalds/linux>`__, certains collègues ou amis vous ont parlé de Git, allez voir ses `entrailles <https://github.com/git/git>`__... oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?
+En somme, restez ouvert aux autres points de vues, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire `le code source <https://github.com/bitcoin/bitcoin>`__, vous aimez Linux, plongez-vous dans le code source du `kernel <https://github.com/torvalds/linux>`__, certains collègues ou amis vous ont parlé de Git, allez voir ses `entrailles <https://github.com/git/git>`__... Oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?
 
 .. _hello:
 
@@ -301,11 +301,11 @@ Il est traditionnellement coutume depuis la publication en 1978 du livre `The C 
 
 Ce programme est composé de deux parties. L'inclusion de la *library* standard d'entrées sorties (*STandarD Inputs Outputs*) qui définit la fonction ``printf``, et le programme principal nommé ``main``. Tout ce qui se situe à l'intérieur des accolades ``{ }`` appartient au programme ``main``.
 
-L'ensemble que défini ``main`` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf` dont son nom vient de *print formatted*.
+L'ensemble que définit ``main`` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf` dont le nom vient de *print formatted*.
 
 L'appel de ``printf`` prend en **paramètre** le texte ``Hello world!\n`` dont le ``\n`` représente un retour à la ligne.
 
-Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande, plus tard, l'IDE se chargera de l'opération automatiquement.
+Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard, l'IDE se chargera de l'opération automatiquement.
 
 Une console lancée ressemble à ceci, c'est intimidant si l'on en a pas l'habitude mais vraiment puissant.
 
@@ -326,7 +326,7 @@ La première étape est de s'assurer que le fichier ``test.c`` contient bien not
         return 0;
     }
 
-A présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autres options, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+A présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
 
 .. code-block:: console
 
@@ -341,14 +341,14 @@ On s'attends donc à trouver dans le répertoire courant, notre fichier source a
     $ ls
     hello.c       a.out
 
-Très bien ! A présent, exécutions le programme en prenant soin de préfixer le nom par ``./`` car étant un programme local ``a.out`` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé ``ls`` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité tout programme local doit être explicitement nommé.
+Très bien ! A présent, exécutons le programme en prenant soin de préfixer le nom par ``./`` car étant un programme local ``a.out`` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé ``ls`` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité tout programme local doit être explicitement nommé.
 
 .. code-block:: console
 
     $ ./a.out
     hello, world
 
-Féclicitations, le programme s'est exécuté.
+Fécicitations, le programme s'est exécuté.
 
 Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus ``ls`` nous sera utile mais cette fois-ci avec l'option ``l``:
 

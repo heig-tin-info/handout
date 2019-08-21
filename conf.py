@@ -9,7 +9,7 @@ import subprocess
 
 sys.path.append(os.path.abspath("./_ext"))
 
-project = "Le C pour l'ingénieur"
+project = 'Le C pour l\'ingenieur'
 author = 'Prof. Yves Chevallier'
 copyright = 'HEIG-VD(c) 2019'
 release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')

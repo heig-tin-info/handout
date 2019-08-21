@@ -272,12 +272,12 @@ Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens,
               │0│1│1│ / 2^3     ----> 83 / 8 = 10.375
               └─┴─┴─┘
 
-Cette solution est élégante mais demande a présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-biàs initiaux.
+Cette solution est élégante mais demande a présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
 Virgule flottante
 -----------------
 
-Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l'`exposant <https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>`__ et le reste de l'information la `mantisse <https://fr.wikipedia.org/wiki/Mantisse>`__, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la `mantis shrimp <https://fr.wikipedia.org/wiki/Stomatopoda>`__, une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
+Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' `exposant <https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>`__ et le reste de l'information la `mantisse <https://fr.wikipedia.org/wiki/Mantisse>`__, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la `mantis shrimp <https://fr.wikipedia.org/wiki/Stomatopoda>`__, une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
 
 .. code-block::
 
@@ -361,7 +361,7 @@ La valeur maximale exprimable:
 
 .. math::
 
-    0\:11111110\:11111111aquelle111111_2 &= \text{7f7f}\:, \text{ffff}_{16} \\
+    0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\:, \text{ffff}_{16} \\
     &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
     &≈ 2^{127} \cdot 1.9999998807 \\
     &≈ 3.4028234664 \cdot 10^{38}
@@ -404,7 +404,7 @@ Historiquement, alors que les informations dans un ordinateur ne sont que des 1 
 
     Table ASCII ASA X3.4 établie en 1963
 
-Aujourd'hui la table ASCII de base défini 128 carac,tères qui n'incluent pas les caractères accentués.
+Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.
 
 .. figure:: ../assets/figures/encoding/ascii.*
 
@@ -420,7 +420,7 @@ Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'
 
 Ce standard a généré durant des décénies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
-Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé `Windows-1252 <https://fr.wikipedia.org/wiki/Windows-1252>`__ s'inspirant de `ISO-8859-1 <https://fr.wikipedia.org/wiki/ISO/CEI_8859-1>`__. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste très trop longue. Et l'histoire n'est pas terminée...
+Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé `Windows-1252 <https://fr.wikipedia.org/wiki/Windows-1252>`__ s'inspirant de `ISO-8859-1 <https://fr.wikipedia.org/wiki/ISO/CEI_8859-1>`__. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
 Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), les coréens (한국어), les chinois avec le chinois simplifé (官话) et le chinois traditionel (官話), les japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
@@ -449,7 +449,7 @@ Attention donc au caractère ``'3'`` qui correspond à la grandeur hexadécimale
 Chaîne de caractères
 ====================
 
-Une chaîne de caractère est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
+Une chaîne de caractères est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
 
 La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les codes ASCII suivants.
 
@@ -477,7 +477,7 @@ La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les co
 Les booléens
 ============
 
-Un `booléen <https://fr.wikipedia.org/wiki/Bool%C3%A9en>`__ est un type de donnée à deux états consensuellement nommés *vrai* (``true``) et *faux* (``false``) et destiné à représenter les états en logique booléenne (Nom venant de `George Boole <https://fr.wikipedia.org/wiki/George_Boole>`__ fondateur de l'algèbre eponyme).
+Un `booléen <https://fr.wikipedia.org/wiki/Bool%C3%A9en>`__ est un type de donnée à deux états consensuellement nommés *vrai* (``true``) et *faux* (``false``) et destiné à représenter les états en logique booléenne (Nom venant de `George Boole <https://fr.wikipedia.org/wiki/George_Boole>`__ fondateur de l'algèbre éponyme).
 
 La convention est d'utiliser ``1`` pour mémoriser un état vrai, et ``0`` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
