@@ -147,7 +147,7 @@ https://linux.die.net/man/
 
     .. solution::
 
-        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>` et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
+        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>`__ et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
         Seriez-vous capable de répondre à une question posée?
 
@@ -415,13 +415,13 @@ Décortiquons tout cela:
     .. solution::
 
         Le standard industriel, malgré que nous soyons en 2019 est toujours
-        ISO/IEC 9899:1999 car peu de changements majeurs ont été apporté
+        **ISO/IEC 9899:1999** car peu de changements majeurs ont été apporté
         au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
         que d'adopter un standard plus récent qui n'apporte que peu de changements.
 
 .. exercise:: Paradigmes
 
-    Quels sont les paradigmes de programmation supportés par C?
+    Quels sont les paradigmes de programmation supportés par C ?
 
     .. solution::
 
@@ -429,7 +429,7 @@ Décortiquons tout cela:
 
 .. exercise:: Langage impératif
 
-    C'est quoi la programmation impérative ?
+    Pourriez-vous définir ce qu'est la programmation impérative ?
 
     .. solution::
 

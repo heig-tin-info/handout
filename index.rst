@@ -30,14 +30,6 @@ Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modul
 
     content/*
 
-.. toctree::
-    :numbered:
-    :maxdepth: 1
-    :glob:
-    :caption: Exercices
-
-    exercices/*
-
 .. appendix::
     :numbered:
     :maxdepth: 2
@@ -52,3 +44,4 @@ Autre
 =====
 
 * :ref:`genindex`
+* :ref:`exercises`

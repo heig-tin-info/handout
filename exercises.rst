@@ -1,5 +1,9 @@
+:orphan:
+
+.. _exercises:
+
 =========
-Exercises
+Exercices
 =========
 
 .. all-exercises::

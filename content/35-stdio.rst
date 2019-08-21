@@ -78,33 +78,29 @@ Voici un exemple possible d'implémentation:
 
     void swap(char* a, char* b)
     {
-        char t = a;
-        a = b;
-        b = t;
+        *a ^= *b;
+        *b ^= *a;
+        *a ^= *b;
     }
 
-    void reverse(char str[], size_t length)
+    void reverse(char* str, size_t length)
     {
-        size_t start = 0;
-        size_t end = length - 1;
-        while (start < end)
+        for (size_t start = 0, end = length - 1; start < end; start++, end--)
         {
-            swap(*(str + start), *(str + end));
-            start++;
-            end--;
+            swap(str + start, str + end);
         }
     }
 
-    char* itoa(int num, char* str)
+    void my_itoa(int num, char* str)
     {
-        int i = 0;
-
+        const unsigned int base = 10;
         bool is_negative = false;
+        size_t i = 0;
 
         if (num == 0) {
             str[i++] = '0';
             str[i] = '\0';
-            return str;
+            return;
         }
 
         if (num < 0) {
@@ -124,7 +120,6 @@ Voici un exemple possible d'implémentation:
         str[i] = '\0';
 
         reverse(str, i);
-        return str;
     }
 
 Cette implémentation pourrait être utilisée de la façon suivante:
@@ -428,7 +423,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
 
-    .. code-block:: c
+    .. code-block:: text
 
         #include <std_io.h>
         #jnclude <stdlib.h>

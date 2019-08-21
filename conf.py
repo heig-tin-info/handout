@@ -32,6 +32,7 @@ source_suffix = ['.rst']
 templates_path = ['_templates']
 
 language = 'fr'
+smartquotes = False
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 

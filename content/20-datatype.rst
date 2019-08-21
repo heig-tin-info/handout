@@ -680,7 +680,7 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 
     .. math::
 
-        \sum_{k=1}^\inf k = -\frac{1}{12}
+        \sum_{k=1}^{\inf} k = -\frac{1}{12}
 
     Vous ne le croyez pas et décider d'utiliser le super-ordinateur `Pensées Profondes <https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste>`__ pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
 

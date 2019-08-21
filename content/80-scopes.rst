@@ -187,7 +187,7 @@ Pour les variables automatiques, le mot-clé *auto* n'est pas
 obligatoire.
 
 Variables de classe statique
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La classe *static* permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.

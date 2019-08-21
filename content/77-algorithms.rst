@@ -59,9 +59,9 @@ catégories exprimées du meilleur au plus mauvais:
 +----------------------+--------------------+----------------------------------------+
 | :math:`O(n log(n))`  |       1'100'000    | 11 us                                  |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)            |
+| :math:`O(n^2)`       |  10'000'000'000    | 100 ms (un battement de cil)           |
 +----------------------+--------------------+----------------------------------------+
-| :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge         |
+| :math:`O(2^n)`       | très très grand    | Le soleil devenu géante rouge          |
 |                      |                    | aura ingurgité la terre                |
 +----------------------+--------------------+----------------------------------------+
 | :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |

@@ -20,7 +20,7 @@ import logging
 
 from docutils import nodes
 from docutils.parsers.rst import Directive
-from docutils.parsers.rst.directives.admonitions import Hint
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition, Hint
 
 from sphinx.writers.html5 import HTML5Translator
 from sphinx.util.console import colorize
@@ -29,7 +29,9 @@ from sphinx import addnodes
 from sphinx.util.docutils import SphinxDirective
 from sphinx.environment.adapters.toctree import TocTree
 from sphinx.environment.collectors import EnvironmentCollector
-from sphinx.util import url_re
+from sphinx.util import url_re, status_iterator
+
+import sphinx.locale
 
 from collections import OrderedDict
 
@@ -40,11 +42,11 @@ class exercise(nodes.Admonition, nodes.Element):
     pass
 
 
-class all_exercises(nodes.General, nodes.Element):
+class solution(nodes.Admonition, nodes.Element):
     pass
 
 
-class solution(nodes.Admonition, nodes.Element):
+class all_exercises(nodes.General, nodes.Element):
     pass
 
 
@@ -70,7 +72,7 @@ class ExerciseDirective(SphinxDirective):
         target_node = nodes.target('', '', ids=[id])
 
         node = exercise('\n'.join(self.content), **self.options)
-        node += nodes.title(_('Exercise'), _('Exercise'))
+        node += nodes.title(_('Exercice'), _('Exercice'))
         self.state.nested_parse(self.content, self.content_offset, node)
 
         if not hasattr(self.env, 'exercises_all_exercises'):
@@ -86,10 +88,14 @@ class ExerciseDirective(SphinxDirective):
 
         return [target_node, node]
 
+class SolutionDirective(BaseAdmonition):
+    node_class = solution
 
-class SolutionDirective(Hint):
-    pass
+    def run(self):
+        if not len(self.arguments):
+            self.arguments.append(_('Solution'))
 
+        return super().run()
 
 def visit_exercise(self, node, name=''):
     self.body.append(self.starttag(node, 'div', CLASS=('exercise ' + name)))
@@ -101,19 +107,26 @@ def depart_exercise(self, node=None):
 
 
 def visit_solution(self, node, name=''):
-    self.body.append(self.starttag(node, 'div', CLASS=('solution')))
+    self.visit_admonition(node, name='solution')
 
 
 def depart_solution(self, node=None):
     self.depart_admonition(node)
 
+
 def no_visit(self, node=None):
     pass
+
 
 def get_reference(meta):
     return '/'.join(['exercise'] + list(map(str, meta['number'])))
 
+
 def process_exercise_nodes(app, doctree, fromdocname):
+
+    if not hasattr(app.env, 'exercises_all_exercises'):
+        app.env.exercises_all_exercises = {}
+
     for node in doctree.traverse(exercise):
         para = nodes.paragraph()
 
@@ -138,9 +151,27 @@ def process_exercise_nodes(app, doctree, fromdocname):
 
     for node in doctree.traverse(all_exercises):
         content = []
-        for _, ex in sorted(app.env.exercises_all_exercises.items(), key=lambda x: x[1]['number']):
+
+        chapter = -1
+
+        titles = { value[''][0]: app.env.titles[key].astext()
+            for key, value in app.env.toc_secnumbers.items()
+        }
+
+        all_exs = sorted(app.env.exercises_all_exercises.items(), key=lambda x: x[1]['number'])
+
+        def cat2exercise(cat):
+            ex = cat[1]
+            return ex['label'] + ' ' + ex['title']
+
+        for _, ex in status_iterator(all_exs, 'collecting exercises... ', "darkgreen",
+            len(all_exs), stringify_func=cat2exercise):
             n = ex['node']
 
+            if ex['number'][0] != chapter:
+                chapter = ex['number'][0]
+                title = nodes.title('','%d. %s' % (chapter, titles[chapter]))
+                content.append(title)
 
             title = nodes.caption('', ex['label'] + ' ' + ex['title'])
 
@@ -189,7 +220,7 @@ class Translator(HTML5Translator):
     def depart_caption(self, node):
         self.body.append('</span>')
         if (isinstance(node.parent, exercise)):
-            self.add_permalink_ref(node.parent, _('Permalink to this exercise'))
+            self.add_permalink_ref(node.parent, _('Lien permanent vers cet exercice'))
         super().depart_caption(node)
 
     def get_secnumber(self, node):
@@ -215,8 +246,9 @@ class Translator(HTML5Translator):
         if secnumber:
             self.body.append('<span class="section-number">' + '.'.join(map(str, secnumber)) + '</span>')
 
+
 def init_numfig_format(app, config):
-    config.numfig_format.update({'exercise': _('Exercise %s')})
+    config.numfig_format.update({'exercise': _('Exercice %s')}) # TODO: Add translation
 
 
 def setup(app):
@@ -226,7 +258,6 @@ def setup(app):
     app.add_enumerable_node(exercise, 'exercise',
         html=visitors,
         latex=no_visits,
-        text=visitors,
         man=no_visits
     )
 
@@ -236,6 +267,7 @@ def setup(app):
         man=no_visits
     )
 
+    sphinx.locale.admonitionlabels['solution'] = _('Solution')
 
     app.add_directive('exercise', ExerciseDirective)
     app.add_directive('solution', SolutionDirective)

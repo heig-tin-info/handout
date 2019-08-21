@@ -963,7 +963,7 @@ L'écriture en notation polonaise inversée, donnerait alors
     34, i, 0, [], ++,  /, 5, 23, +, +, 0xFF, y, <<, &, x, =
 
 Associativité
-^^^^^^^^^^^^^
+-------------
 
 L'associativité des opérateurs (`operator associativity <https://en.wikipedia.org/wiki/Operator_associativity>`__) décrit la manière dont sont évaluées les expressions.
 

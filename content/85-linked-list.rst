@@ -105,7 +105,7 @@ pas oublier de libérer la mémoire allouée pour les éléments lors de leur
 suppression…
 
 Calcul du nombre d'éléments dans la liste
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pour évaluer le nombre d'éléments dans une liste, on effectue le
 parcours de la liste à partir de la tête, et on passe d'élément en
