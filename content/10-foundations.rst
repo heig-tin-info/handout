@@ -4,6 +4,8 @@ Généralités du langage
 
 Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.
 
+Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
+
 L'alphabet
 ==========
 
@@ -348,6 +350,66 @@ S'agissant d'un opérateur il est possible de chaîner les opérations, comme on
 
 Nous verrons :numref:`precedence` que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.
 
+.. exercise:: Affectations simples
+
+    Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous:
+
+    .. code-block:: c
+
+        float x;
+        int n, p;
+
+        p = 2;
+        x = 15 / p;
+        n = x + 0.5;
+
+    .. solution::
+
+        .. code-block:: c
+
+            p ≡ 2
+            x ≡ 7
+            n ≡ 7
+
+.. exercise:: Trop d'égalités
+
+    On considère les déclarations suivantes:
+
+    .. code-block:: c
+
+        int i, j, k;
+
+    Donnez les valeurs des variabels ``i``, ``j`` et ``k`` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
+
+    .. code-block:: c
+
+        /* 1 */ i = (k = 2) + (j = 3);
+        /* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
+        /* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
+
+    .. solution::
+
+        Selon la table de priorité des opérateurs, on note:
+
+        - ``()`` priorité 1 associativité à droite
+        - ``*`` priorité 3 associativité à gauche
+        - ``+`` priorité 4 associativité à droite
+        - ``=`` priorité 14 associativité à gauche
+
+        En revanche rien n'est dit sur les `point de séquences <https://en.wikipedia.org/wiki/Sequence_point>`__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.
+
+        Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
+
+        #. ``i = (k = 2) + (j = 3)``
+            - ``i = 5``
+            - ``j = 3``
+            - ``k = 2``
+        #. ``i = (k = 2) + (j = 2) + j * 3 + k * 4``
+            - Résultat indéterminé
+        #. ``i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)``
+            - Résultat indéterminé
+
+
 Commentaires
 ============
 
@@ -436,6 +498,17 @@ Un opérateur applique une opération à une (opérateur unitaire), deux ou troi
 .. code-block:: c
 
     c = a + b;
+
+Un opérateur possède plusieurs propriétés:
+
+Une priorité
+    La multiplication ``*`` est plus prioritaire que l'addition ``+``
+
+Une associativité
+    L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier
+
+Un point de séquence
+    Certains opérateurs comme ``&&``, ``||``, ``?`` ou ``,`` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression ``i < 12 && j > 2`` la valeur de ``i`` est plus grande que 12, le test ``j > 2`` ne sera jamais effectué. L'opérateur ``&&`` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation ``=``.
 
 Opérateurs relationnels
 -----------------------
@@ -817,7 +890,7 @@ La précédence
 |          +-----------------------+--------------------------------------------+                 |
 |          | ``!``, ``~``          | NON logique et NON binaire                 |                 |
 |          +-----------------------+--------------------------------------------+                 |
-|          | ``(type)``            | Cast                                       |                 |
+|          | ``(type)``            | Cast (Transtypage)                         |                 |
 |          +-----------------------+--------------------------------------------+                 |
 |          | ``*``                 | Indirection, déréfrencement                |                 |
 |          +-----------------------+--------------------------------------------+                 |
@@ -888,6 +961,15 @@ L'écriture en notation polonaise inversée, donnerait alors
 
     i, 0, [], ++, 34, /, 5, 23, +, +, y, <<, 0xFF, &, x, =
 
+Associativité
+^^^^^^^^^^^^^
+
+L'associativité des opérateurs (`operator associativity <https://en.wikipedia.org/wiki/Operator_associativity>`__) décrit la manière dont sont évaluées les expressions.
+
+Une associativité à gauche pour l'opérateur `~` signifie que l'expression ``a ~ b ~ c`` sera évaluée ``((a) ~ b) ~ c`` alors qu'une associativité à droite sera ``a ~ (b ~ (c))``.
+
+Il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
+
 Représentation mémoire des types de données
 -------------------------------------------
 
@@ -928,15 +1010,48 @@ Promotion implicite
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
 
+.. exercise:: Expressions mixtes
+
+    Soit les instructions suivantes:
+
+    .. code-block:: c
+
+        int n = 10;
+        int p = 7;
+        float x = 2.5;
+
+    Donnez le type et la valeur des expressions suivantes:
+
+    #. ``x + n % p``
+    #. ``x + p / n``
+    #. ``(x + p) / n``
+    #. ``.5 * n``
+    #. ``.5 * (float)n``
+    #. ``(int).5 * n``
+    #. ``(n + 1) / n``
+    #. ``(n + 1.0) / n``
+
+.. exercise:: Promotion numérique
+
+    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous:
+
+    .. code-block:: c
+
+        char c;
+        short sh;
+        int i;
+        float f;
+        double d;
+
+    #. ``c * sh - f / i + d;``
+    #. ``c * (sh – f) / i + d;``
+    #. ``c * sh - f - i + d;``
+    #. ``c + sh * f / i + d;``
+
 Effets du transtypage
 ---------------------
 
-Le changement de type forcé (transtypage) entre des variables de
-différents type engendre des effets de bord qu'il faut connaître. Lors
-d'un changement de type vers un type dont le pouvoir de représentation
-est plus important, il n'y a pas de problème. A l'inverse, on peut
-rencontrer des erreurs sur la précision ou une modification radicale de
-la valeur représentée !
+Le changement de type forcé (transtypage) entre des variables de différents type engendre des effets de bord qu'il faut connaître. Lors d'un changement de type vers un type dont le pouvoir de représentation est plus important, il n'y a pas de problème. A l'inverse, on peut rencontrer des erreurs sur la précision ou une modification radicale de la valeur représentée !
 
 Transtypage d'un entier en réel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -996,6 +1111,61 @@ pose un problème de précision de calcul.
 
 A l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
+
+.. exercise:: Conversion de types
+
+    On considère les déclarations suivantes:
+
+    .. code-block:: c
+
+        float x;
+        short i;
+        unsigned short j;
+        long k;
+        unsigned long l;
+
+    Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
+
+    .. code-block:: c
+
+        x = 1e6;
+        i = x;
+        j = -20;
+        k = x;
+        l = k;
+        k = -20;
+        l = k;
+
+    .. solution::
+
+        .. code-block:: c
+
+            x = 1e6;
+            i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+            j = -20;  // Incorrect, valeur signée dans un conteneur non signé
+            k = x;
+            l = k;
+            k = -20;
+            l = k;    // Incorrect, valeur signée dans un conteneur non signé
+
+.. exercise:: Un casting explicite
+
+    Que valent les valeurs de ``p``, ``x`` et ``n``:
+
+    .. code-block:: c
+
+        float x;
+        int n, p;
+
+        p = 2;
+        x = (float)15 / p;
+        n = x + 1.1;
+
+    .. solution::
+
+        p ≡ 2
+        x = 7.5
+        n = 8
 
 Optimisation
 ============

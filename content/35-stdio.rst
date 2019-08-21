@@ -219,6 +219,19 @@ Exemples
 | ``printf("%s", "Hello")``       | ``Hello``       | 5      |
 +---------------------------------+-----------------+--------+
 
+.. exercise:: Quelque bogues bien formattés
+
+    Indiquez les erreurs dans les instructions suivantes:
+
+    .. code-block:: c
+
+        printf("%d%d\n", 10, 20);
+        printf("%d, %d, %d\n", 10, 20);
+        printf("%d, %d, %d, %d\n", 10, 20, 30, 40.);
+        printf("%*d, %*d\n", 10, 20);
+        printf("%6.2f\n", 10);
+        printf("%10s\n", 0x9f);
+
 Entrées formatées
 =================
 

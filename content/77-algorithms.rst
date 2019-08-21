@@ -104,6 +104,21 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
       }
   }
 
+.. exercise::
+
+    Quel serait l'algorithme permettant d'afficher:
+
+    .. code-block::text
+
+        *****
+        ****
+        ***
+        **
+        *
+
+    et dont la taille peut varier ?
+
+
 Récursivité
 ===========
 

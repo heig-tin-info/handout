@@ -110,7 +110,7 @@ Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon g
             prev->next = entry->next;
     }
 
-Il répondi que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle ``while`` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
+Il répondit que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle ``while`` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
 
 Enlever un élément d'une liste chaînée nécessite de traiter deux cas:
 

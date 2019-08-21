@@ -513,6 +513,58 @@ La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les co
      0x04 01101111
      0x05 00000000
 
+
+.. exercise:: Constantes littérales caractérielles
+
+    Indiquez si les constantes littérales suivantes sont valides ou invalides.
+
+    #. ``'a'``
+    #. ``'A'``
+    #. ``'ab'``
+    #. ``'\x41'``
+    #. ``'\041'``
+    #. ``'\0x41'``
+    #. ``'\n'``
+    #. ``'\w'``
+    #. ``'\t'``
+    #. ``'\xp2'``
+    #. ``"abcdef"``
+    #. ``"\abc\ndef"``
+    #. ``"\'\"\\"``
+    #. ``"Hello \world !\n"``
+
+.. exercise:: Chaînes de formatage
+
+    Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
+
+    .. code-block:: c
+
+        char a = 'a';
+        short sh1 = 5;
+        float f1 = 7.0f;
+        int i1 = 7, i2 = 'a';
+
+    #. ``printf("Next char: %c.\n", a + 1);``
+    #. ``printf("Char: %3c.\n", a);``
+    #. ``printf("Char: %-3c.\n", a);``
+    #. ``printf("Chars: \n-%c.\n-%c.\n", a, 'z' - 1);``
+    #. ``printf("Sum: %i\n", i1 + i2 - a);``
+    #. ``printf("Taux d’erreur\t%i %%\n", i1);``
+    #. ``printf("Quel charabia horrible:\\\a\a\a%g\b\a%%\a\\\n", f1);``
+    #. ``printf("Inventaire: %i4 pieces\n", i1);``
+    #. ``printf("Inventory: %i %s\n", i1, "pieces");``
+    #. ``printf("Inventaire: %4i pieces\n", i1);``
+    #. ``printf("Inventaire: %-4i pieces\n", i1);``
+    #. ``printf("Mixed sum: %f\n", sh1 + i1 + f1);``
+    #. ``printf("Tension: %5.2f mV\n", f1);``
+    #. ``printf("Tension: %5.2e mV\n", f1);``
+    #. ``printf("Code: %X\n", 12);``
+    #. ``printf("Code: %x\n", 12);``
+    #. ``printf("Code: %o\n", 12);``
+    #. ``printf("Value: %i\n", -1);``
+    #. ``printf("Value: %hi\n", 65535u);``
+    #. ``printf("Value: %hu\n", -1);``
+
 .. _booleans:
 
 Les booléens
@@ -560,6 +612,32 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 - Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres ``int main(void)``
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien ``void display(char c)``
 - Comme pointeur dont le type de destination n'est pas spécifié ``void* ptr``
+
+.. exercise:: Précision des flottants
+
+    Que vaut ``x``?
+
+    .. code-block:: c
+
+        float x = 10000000. + 0.1;
+
+    .. solution::
+
+        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc:
+
+        .. code-block:: c
+
+            #include <stdio.h>
+
+            int main(void) {
+                float x = 10000000. + 0.1;
+                printf("%f\n", x);
+            }
+
+        .. code-block:: console
+
+            $ ./a.out
+            10000000.000000
 
 .. exercise:: Type de donnée idoine
 
@@ -632,3 +710,43 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
                 for(size_t i = 0; i < n; i++, sum += i);
                 printf("%lld\n", sum);
             }
+
+.. exercise:: Système de vision industriel
+
+    La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes:
+
+    .. code-block:: c
+
+        uint32_t inspected_parts, bad_parts;
+        float percentage_good_parts;
+
+    A un moment du programme, on peut lire:
+
+    .. code-block:: c
+
+        percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+
+    Sachant que ``inspected_parts = 2000`` et ``bad_parts = 200``:
+
+    #. Quel résultat le développeur s'attend-il à obtenir ?
+    #. Qu'obtient-il en pratique ?
+    #. Pourquoi ?
+    #. Corrigez les éventuelles erreurs
+
+    .. solution::
+
+        #. Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.
+        #. En pratique, il obtient un entier, c'est à dire toujours 0.
+        #. La promotion implicite des entiers peut être découpée comme suit:
+            .. code-block:: c
+
+                (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+                (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+                (float)percentage_good_parts = (uint32_t)percentage;
+
+            La division est donc appliquée à des entiers et non des flottnts.
+
+        #. Une possible correction consiste à forcer le type d'un des membres de la division:
+            .. code-block::c
+
+                percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;

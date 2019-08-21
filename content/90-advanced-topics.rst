@@ -4,6 +4,18 @@ Avancé
 
 Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour le contrôle de connaissance.
 
+Points de séquences
+===================
+
+On appelle un point de séquence ou `sequence point <https://en.wikipedia.org/wiki/Sequence_point>`__ exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est:
+
+    - L'appel d'une fonction est effectuée après que tous ses arguments ont été évalués
+    - La fin du premier opérande dans les opérations ``&&``, ``||``, `?` et `,`.
+        - Ceci permet de courtcircuiter le calcul dans ``a() && b() ``. La condition ``b()`` n'est jamais évaluée si la condition ``a()`` est valide.
+    - Avant et après des actions associées à un formattage d'entrée sortie
+
+L'opérateur d'assignation ``=`` n'est donc pas un point de séquence et l'exécution du code ``(a = 2) + a + (a = 2)`` est par conséquent indéterminée.
+
 Complément sur les variables initialisées
 =========================================
 

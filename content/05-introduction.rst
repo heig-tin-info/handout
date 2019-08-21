@@ -64,6 +64,14 @@ En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, ma
 
 Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux. L'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
 
+.. exercise:: Standardisation
+
+    Ouvrez le standard `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__ et cherchez la valeur maximale possible de la constante ``ULLONG_MAX``. Que vaut-elle ?
+
+    .. solution::
+
+        Au paragraphe §5.2.4.2.1-1 on peut lire que ``ULLONG_MAX`` est encodé sur 64-bits et donc que sa valeur est :math:`2^{64}-1` donc `18'446'744'073'709'551'615`.
+
 Environnement de développement
 ==============================
 
@@ -104,6 +112,14 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 `Ed <https://en.wikipedia.org/wiki/Ed_(text_editor)>`__
     Prononcé /iːdiː/ (hidi), il s'agit du tout premier éditeur de texte développé en 1969 faisant parti des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscure dans son fonctionnement mais bientôt 50 ans après, il fait toujours parti de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
 
+.. exercise:: Eclipse
+
+    Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
+
+    .. solution::
+
+        `Eclipse <https://www.eclipse.org/ide/>`__ est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+
 L'anglais
 =========
 
@@ -124,6 +140,16 @@ https://scholar.google.ch/
 
 https://linux.die.net/man/
     La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements MacOS/Linux/Unix et POSIX compatibles.
+
+.. exercise:: Pêche
+
+    Combien y-a-t-il eu de questions posées en C sur le site Stack Overflow?
+
+    .. solution::
+
+        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>` et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
+
+        Seriez-vous capable de répondre à une question posée?
 
 Apprendre à pêcher
 ==================
