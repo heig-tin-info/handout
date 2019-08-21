@@ -359,3 +359,13 @@ Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemp
             printf("Vous avez pressé la touche enter (\\n)\n");
         }
     }
+
+.. exercise:: La fortune, la vache qui dit et le chat drôle
+
+    En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande:
+
+    .. code-block:: console
+
+        $ fortune | cowsay | lolcat
+
+    Quelle est sa structure et que fait-elle ?
