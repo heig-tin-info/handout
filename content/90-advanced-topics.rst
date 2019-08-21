@@ -9,10 +9,10 @@ Points de séquences
 
 On appelle un point de séquence ou `sequence point <https://en.wikipedia.org/wiki/Sequence_point>`__ exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est:
 
-    - L'appel d'une fonction est effectuée après que tous ses arguments ont été évalués
+    - L'appel d'une fonction est effectué après que tous ses arguments ont été évalués
     - La fin du premier opérande dans les opérations ``&&``, ``||``, `?` et `,`.
-        - Ceci permet de courtcircuiter le calcul dans ``a() && b() ``. La condition ``b()`` n'est jamais évaluée si la condition ``a()`` est valide.
-    - Avant et après des actions associées à un formattage d'entrée sortie
+        - Ceci permet de court-circuiter le calcul dans ``a() && b() ``. La condition ``b()`` n'est jamais évaluée si la condition ``a()`` est valide.
+    - Avant et après des actions associées à un formatage d'entrée sortie
 
 L'opérateur d'assignation ``=`` n'est donc pas un point de séquence et l'exécution du code ``(a = 2) + a + (a = 2)`` est par conséquent indéterminée.
 
@@ -42,10 +42,10 @@ de l'exécution du *main*, des variables correctement initialisées.
 Binutils
 ========
 
-Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au déboguage. Certains de ces outils sont très pratiques mais nombreux sont les développeurs qui ne les connaissent pas.
+Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au débogage. Certains de ces outils sont très pratiques, mais nombreux sont les développeurs qui ne les connaissent pas.
 
 ``nm``
-    Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programe hello world de l'introduction donne:
+    Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne:
 
     .. code-block:: console
 
@@ -71,10 +71,10 @@ Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) 
                          U printf@@GLIBC_2.2.5
         00000000000005b0 t register_tm_clones
 
-    On observe notament que la fonciton ``printf`` est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction ``main``.
+    On observe notamment que la fonction ``printf`` est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction ``main``.
 
 ``strings``
-    Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débug qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère ``hello, world``. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de license en clair dans un fichier binaire.
+    Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débug qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère ``hello, world``. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.
 
     .. code-block:: console
 
@@ -110,7 +110,7 @@ Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) 
         .comment
 
 ``size``
-    Liste la taille des segments mémoire utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou ``84d`` bytes.
+    Liste la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou ``84d`` bytes.
 
     .. code-block:: console
 

@@ -4,7 +4,7 @@
 Gestion de la mémoire
 =====================
 
-Vous l'aurez appris à vos dépends, l'erreur *Segmentation fault* (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.
+Vous l'aurez appris à vos dépens, l'erreur *Segmentation fault* (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.
 
 La mémoire d'un programme est découpée en `segments de données <https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es>`__. Les principaux segments sont:
 
@@ -21,17 +21,17 @@ Segment de variables non initialisées ``.data``
     Les variables globales non initialisées comme ``static int bar;`` seront placées dans ce segment.
 
 Segment de tas ``.heap``
-    Les allocation dynamiques décrites plus bas dans ce chapitres sont déclarées ici.
+    Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.
 
 Segment de pile ``.stack``
-    La chaîne d'appel de fonctions ainsi que toutes les variables locales sont mémorisées dans ce segment.
+    La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.
 
 Allocation statique
 ===================
 
-Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est à dire que le compilateur est capable à priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.
+Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est-à-dire que le compilateur est capable a priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.
 
-La `déclaration statique <https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire#Allocation_statique>`__ suivante déclare un tableau de 1024 entiers 64-bits initialisés à zéro et stocké dans le segment ``.bss``, soit 64 kio:
+La `déclaration statique <https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire#Allocation_statique>`__ suivante déclare un tableau de 1024 entiers 64-bits initialisés à zéro et stockés dans le segment ``.bss``, soit 64 kio:
 
 ::
 
@@ -40,9 +40,9 @@ La `déclaration statique <https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9mo
 Allocation dynamique
 ====================
 
-Il est des circonstances ou un programme ne sait pas combien de mémoire il a besoin. Par exemple un programme qui compterait le nombre d'occurences de chaque mot dans un texte devra se construire un index de tous les mots qu'il découvre lors de la lecture du fichier d'entrée. A priori ce fichier d'entrée étant inconnu au moment de l'exécution du programme, l'espace mémoire nécessaire à constuire ce dictionnaire de mots est également inconnu.
+Il est des circonstances ou un programme ne sait pas combien de mémoire il a besoin. Par exemple un programme qui compterait le nombre d'occurrences de chaque mot dans un texte devra se construire un index de tous les mots qu'il découvre lors de la lecture du fichier d'entrée. A priori ce fichier d'entrée étant inconnu au moment de l'exécution du programme, l'espace mémoire nécessaire à construire ce dictionnaire de mots est également inconnu.
 
-L'approche la plus naïve serait d'anticiper le cas le plus défavorable. Le dictionnaire Littré comporte environ 132'000 mots tandis que le Petit Larousse Illustré 80'000 mots environ. Pour se donner une bonne marge de manoeuvre et anticiper les anglicismes et les noms propres. Il suffirait de réserver un tableau de 1 million de mots de 10 caractères soit un peu plus de 100 MiB de mémoire quand bien même le fichier qui serait lu ne comporterai que 2 mots: ``Hello World!``.
+L'approche la plus naïve serait d'anticiper le cas le plus défavorable. Le dictionnaire Littré comporte environ 132'000 mots tandis que le Petit Larousse Illustré 80'000 mots environ. Pour se donner une bonne marge de manoeuvre et anticiper les anglicismes et les noms propres. Il suffirait de réserver un tableau de 1 million de mots de 10 caractères soit un peu plus de 100 MiB de mémoire quand bien même le fichier qui serait lu ne comporterait que 2 mots: ``Hello World!``.
 
 L'approche correcte est d'allouer la mémoire au moment ou on en a besoin, c'est ce que l'on appelle l'`allocation dynamique <https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)>`__.
 
@@ -57,14 +57,14 @@ Lorsqu'un programme à besoin de mémoire, il peut générer un appel système p
 `void free(void *ptr)`
     Libère un espace préalablement alloué par ``malloc`` ou ``calloc``
 
-L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. A chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
+L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
 .. figure:: ../assets/figures/memory/malloc.*
 
 Mémoire de programme
 ====================
 
-Les segments mémoire sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.
+Les segments mémoires sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.
 
 Néanmoins une bonne représentation est la suivante:
 
@@ -77,7 +77,7 @@ On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se pe
 La pile
 =======
 
-Lorsqu'un programme s'exécute, l'ordre dont les fonctions s'exécute n'est pas connu à priori. L'ordre d'exécution des fonctions dans l'exemple suivant est inconnu par le programme et donc les éventuelles variables locales utilisées par ces fonctions doivent dynamiquement être allouées.
+Lorsqu'un programme s'exécute, l'ordre dont les fonctions s'exécutent n'est pas connu à priori. L'ordre d'exécution des fonctions dans l'exemple suivant est inconnu par le programme et donc les éventuelles variables locales utilisées par ces fonctions doivent dynamiquement être allouées.
 
 .. code-block:: c
 
@@ -163,7 +163,7 @@ Elle permet de :
 -  si ptr est NULL, créer un nouveau bloc
 -  si la réallocation échoue, retourner NULL ; le bloc passé en
    paramètre reste alors inchangé
--  en cas de succès, l'adresse retournée peut être différent de ptr ; le
+-  en cas de succès, l'adresse retournée peut être différente de ptr ; le
    bloc initialement pointé par ptr a alors été libéré
 -  le bloc réalloué est initialisé avec le contenu du bloc ptr ;
    l'espace supplémentaire est non initialisé
@@ -209,7 +209,7 @@ opérations de debug...
 Allocation dynamique sur la pile
 --------------------------------
 
-L'allocation dynamique sur la pile est équivalentes à l'allocation sur
+L'allocation dynamique sur la pile est équivalente à l'allocation sur
 le tas sauf qu'elle est plus rapide (pas de recherche par le système
 d'un espace suffisant et continu) et qu'elle ne nécessite pas de
 libération.
@@ -235,7 +235,7 @@ L'espace mémoire utilisé par la pile est une zone dont l'usage est
 uniquement dédié au programme. Si plusieurs programmes cohabitent en
 mémoire, ils auront chacun leur propre pile.
 
-Cet espace mémoire dédié à la pile est de taille fixe et défini lors de
+Cet espace mémoire dédié à la pile est de taille fixe et définie lors de
 la compilation du programme.
 
 La pile reçoit les éléments suivants :
@@ -247,17 +247,17 @@ La pile reçoit les éléments suivants :
 -  les données retournées par les fonctions,
 -  les zone allouées par la fonction ``alloca``.
 
-Etant donné que la taille de la pile est fixe, il y a un risque qu'elle
+Étant donné que la taille de la pile est fixe, il y a un risque qu'elle
 soit trop petite pour supporter toutes les informations que votre
 programme doit y placer. Si cela se produit, il y a corruption de la
 mémoire puisque la pile 'déborde' et que vous dépassez la zone qui lui
 est dédiée.
 
-Les événements suivants peuvent générer des débordement de pile :
+Les événements suivants peuvent générer des débordements de pile :
 
 -  trop de variables locales (par exemple un grand tableau),
--  trop d'appel de fonctions en cascade,
--  utilisation de fonctions récursives (qui s'auto-appellent).
+-  trop d'appels de fonctions en cascade,
+-  utilisation de fonctions récursives (qui s'autoappellent).
 
 Dans le jargon informatique, on appelle ça du *jardinage* puisque vous
 allez piétiner les zones mémoires voisines sans en avoir la permission.

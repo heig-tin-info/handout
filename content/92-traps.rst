@@ -2,12 +2,12 @@
 Pièges
 ======
 
-Ce chapitre traite des pièges les plus courant dans lesquels l'apprenti programmeur ne manquera pas de tomber. Le C est un langage puissant mais potentiellement dangereux car il permet d'opérer à très bas niveau, ce qui peut générer des bugs retors à l'exécution.
+Ce chapitre traite des pièges les plus courants dans lesquels l'apprenti programmeur ne manquera pas de tomber. Le C est un langage puissant, mais potentiellement dangereux, car il permet d'opérer à très bas niveau, ce qui peut générer des bugs retors à l'exécution.
 
-Preprocesseur
+Préprocesseur
 =============
 
-Les macros sont des simple remplacement de chaînes de caractères intervenant avant la compilation.
+Les macros sont des simples remplacements de chaînes de caractères intervenant avant la compilation.
 
 Macro avec paramètre
 --------------------
@@ -36,7 +36,7 @@ Paramètres de macro non protégés
 
 On ne le répètera jamais assez: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire ``#define m(x) x * 2`` et ``m(2 + 5)`` sera remplacé en ``2 + 5 * 2``.
 
-Quelle sera le problème dans le cas suivant ?
+Quel sera le problème dans le cas suivant ?
 
 .. code-block:: c
 
@@ -46,7 +46,7 @@ Quelle sera le problème dans le cas suivant ?
         return ABS(5 - 8);
     }
 
-Plus difficile, quelle serait le problème ici:
+Plus difficile, quel serait le problème ici:
 
 .. code-block:: c
 
@@ -77,7 +77,7 @@ Observations:
 Pré/Post incrémentation avec une macro
 --------------------------------------
 
-On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possible. Or, les post/pré incréments peuvent encore poser problème.
+On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possibles. Or, les post/pré incréments peuvent encore poser problème.
 
 .. code-block:: c
 
@@ -103,7 +103,7 @@ Erreur de syntaxe
 Confusion = et ==
 -----------------
 
-L'erreur est si vite commise mais souvent fatale:
+L'erreur est si vite commise, mais souvent fatale:
 
 .. code-block:: c
 
@@ -111,17 +111,17 @@ L'erreur est si vite commise mais souvent fatale:
 
     }
 
-L'effet contre intuitif est que le test retourne toujours VRAI car ``'o' > 0``. Ajoutons que la valeur de ``c`` est modifiée au passage.
+L'effet contre-intuitif est que le test retourne toujours VRAI, car ``'o' > 0``. Ajoutons que la valeur de ``c`` est modifié au passage.
 
 Observations:
 
-- Pour éviter toute ambiguïté, éviter les affectations dans les structure conditionnelles.
+- Pour éviter toute ambiguïté, éviter les affectations dans les structures conditionnelles.
 
 
 Confusion & et &&
 -----------------
 
-Confondre le ET logique et le ET binaire est courant. Dans l'exemple suivant le ``if`` n'est jamais exécuté:
+Confondre le ET logique et le ET binaire est courant. Dans l'exemple suivant, le ``if`` n'est jamais exécuté:
 
 .. code-block:: c
 
@@ -133,7 +133,7 @@ Confondre le ET logique et le ET binaire est courant. Dans l'exemple suivant le 
     }
 
 
-Ecriture déroutante
+Écriture déroutante
 -------------------
 
 Selon la table de précédences on aura ``i--`` calculé en premier suivi de ``- -j``:
@@ -144,14 +144,14 @@ Selon la table de précédences on aura ``i--`` calculé en premier suivi de ``-
 
 Observations:
 
-- Éviter les forme ambigües d'écriture
+- Éviter les formes ambigües d'écriture
 - Favoriser la précédence explicite en utilisant des parenthèses
 - Séparez vos opérations par des espaces pour plus de lisibilité: ``k = i-- - -j``
 
 Point virgule
 -------------
 
-L'erreur typique suivante est arrivée à tout programmeur débutant. Le ``;`` placé après le test ``if`` agit comme une instruction nulle si bien que la fusée sera lancée à tout les coup:
+L'erreur typique suivante est arrivée à tout programmeur débutant. Le ``;`` placé après le test ``if`` agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups:
 
 .. code-block:: c
 

@@ -2,7 +2,7 @@
 Fonctions
 =========
 
-A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolitique d'instruction esothérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
+A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
 
 .. figure:: ../assets/images/hamilton.*
 
@@ -10,9 +10,9 @@ A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une
 
 Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** et toutes les variables sont globales.
 
-Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un `Télé-encéphale hautement développé et son pouce préhenseur <https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs>`__ aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les `effets de bords <https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>`__.
+Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un `téléencéphale hautement développé et son pouce préhenseur <https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs>`__ aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les `effets de bords <https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>`__.
 
-Une fonction est donc un ensemble de code exécutable délimité du programme principal et diposant:
+Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant:
 
 - D'un identifiant unique
 - D'une valeur de retour
@@ -20,14 +20,14 @@ Une fonction est donc un ensemble de code exécutable délimité du programme pr
 
 L'utilisation des fonctions permet:
 
-- De décomposer un programme complèxe en tâches plus simples
+- De décomposer un programme complexe en tâches plus simples
 - De réduire la redondance de code
 - De maximiser la réutilisation du code
 - De s'abstraire des détails d'implémentation
-- D'augmenter la lisibilier du code
-- D'accroître la tracabilité à l'exécution
+- D'augmenter la lisibilité du code
+- D'accroître la traçabilité à l'exécution
 
-En revanche, une fonction apporte quelques désavantages qui, à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du `housekeeping <https://fr.wikipedia.org/wiki/Sous-programme>`__, qui se compose d'un prélude et d'un aboutissant et dans lequel le `contexte <https://fr.wikipedia.org/wiki/Commutation_de_contexte>`__ doit être sauvegardé.
+En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du `housekeeping <https://fr.wikipedia.org/wiki/Sous-programme>`__, qui se compose d'un prélude et d'un aboutissant et dans lequel le `contexte <https://fr.wikipedia.org/wiki/Commutation_de_contexte>`__ doit être sauvegardé.
 
 .. _calling_conventions:
 
@@ -40,9 +40,9 @@ Dans le `Voyage de Chihiro <https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro>`
 
     Le vieux Kamaji et ses bras extensibles.
 
-Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplies de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel les mélanges les herbes, il sont à l'instar de l'`ALU <https://en.wikipedia.org/wiki/Arithmetic_logic_unit>`__ d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la decoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserve d'herbes à côté de son pupitre dans de petits casiers, similaire aux registres du processeur.
+Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel les mélanges les herbes, il sont à l'instar de l'`ALU <https://en.wikipedia.org/wiki/Arithmetic_logic_unit>`__ d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaire aux registres du processeur.
 
-Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette données. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recette mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type:
+Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type:
 
 .. code-block::
 
@@ -59,7 +59,7 @@ Il profite de son temps libre, pendant que les bains sont fermés pour préparer
     ADD   R8 R1 R5    # Pilonne le contenu de R1 et R2 et place dans R8
     ADD   R8 R8 R4
     ...
-    STO   R8 @F6      # Place le mélange d'herbe autonmnale tonic dans le casier F6
+    STO   R8 @F6      # Place le mélange d'herbe automnale tonic dans le casier F6
 
 Souvent, le vieux Kamaji répète les mêmes suite d'opération et ce, peu importe les herbes qu'il manipule, une fois placées dans les petits casiers (registres), il pourrait travailler les yeux fermés.
 
@@ -69,11 +69,11 @@ On pourrait résumer ce travail par une fonction C, ici prenant un rhizome et de
 
     blend slice_and_blend(rootstock a, herb b, herb c);
 
-Pour des recettes complexes, il se pourrait que la fonction ``slice_and_blend`` soit appelées plusieurs fois à la suite mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que ``slice`` (découper) ou ``blend_together`` (incorporer).
+Pour des recettes complexes, il se pourrait que la fonction ``slice_and_blend`` soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que ``slice`` (découper) ou ``blend_together`` (incorporer).
 
 Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les `conventions d'appel <https://en.wikipedia.org/wiki/Calling_convention>`__. C'est à dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le *blend*, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.
 
-On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction ``slice``, n'utilise pas dans sa propre recette le casier R5 car sinon, c'est la catastrophe.
+On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction ``slice``, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.
 
 .. code-block:: c
 
@@ -81,7 +81,7 @@ On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres
 
 Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de `molène <https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)>`__ que R5 contient des tiges d'une autre plante.
 
-Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restorer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y en réalité plusieurs catégories de registres:
+Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y en réalité plusieurs catégories de registres:
 
 - ceux utilisés pour les paramètres de la fonction,
 - ceux utilisés pour les valeurs de retour,
@@ -93,11 +93,11 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce s
 Overhead
 --------
 
-L'appel de fonctions coûte à l'exécution car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restoration des registres utilisés:
+L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés:
 
 .. figure:: ../assets/figures/function/calling-convention.*
 
-    Sauvegarde des registres du processeur et convention d'appel de fonctions.
+    Sauvegarde des registres du processeur et convention d'appel de fonction.
 
 Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.
 
@@ -110,18 +110,18 @@ Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fo
 Stack
 -----
 
-En français la `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`__, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recette: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramtres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
+En français la `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`__, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
 
 .. code-block:: c
 
     double quaternion_norm(double a1, double b1, double c1, double d1);
 
-La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilé et dépilé les éléments au besoin. A chaque appel d'une fonction, la valeur des registres à sauvegarder sont empilés et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel, retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
+La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. A chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
 
 Prototype
 =========
 
-Le `prototype <https://en.wikipedia.org/wiki/Function_prototype>`__ d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour constuire des bibliothèques logicielles. La fonction ``printf`` que nous ne cessons pas d'utiliser voit son protype résider dans le fichier ``<stdio.h>`` et il est déclaré sous la forme:
+Le `prototype <https://en.wikipedia.org/wiki/Function_prototype>`__ d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction ``printf`` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier ``<stdio.h>`` et il est déclaré sous la forme:
 
 .. code-block:: text
 
@@ -129,7 +129,7 @@ Le `prototype <https://en.wikipedia.org/wiki/Function_prototype>`__ d'une foncti
 
 Notons qu'il n'y a pas d'accolades ici.
 
-Rappelons-le, C est un langage impératif et déclaratif, c'est à dire que les instructions sont séquentielles et que les déclaration du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction ``make_coffee``, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.
+Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction ``make_coffee``, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.
 
 Le code suivant fonctionne:
 
@@ -143,7 +143,7 @@ Le code suivant fonctionne:
         make_coffee();
     }
 
-Mais celui-ci ne fonctionnera pas car ``make_coffee`` n'est pas connu au moment de l'appel:
+Mais celui-ci ne fonctionnera pas, car ``make_coffee`` n'est pas connu au moment de l'appel:
 
 .. code-block:: c
 
@@ -169,12 +169,12 @@ Si pour une raison connue seule du développeur on souhaite déclarer la fonctio
         printf("Please wait...\n");
     }
 
-Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code mais simplement sa définition, permettant au compilateur d'établir les :ref:`conventions d'appel <calling_conventions>` de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les :ref:`conventions d'appel <calling_conventions>` de la fonction.
 
 Syntaxe
 =======
 
-La syntaxe d'écriture d'une fonction peut être assez compilquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme:
+La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme:
 
 .. code-block::
 
@@ -184,15 +184,15 @@ La syntaxe d'écriture d'une fonction peut être assez compilquée et la source 
     Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés ``extern``, ``static`` et ``inline``.
 
 ``<return-type>``
-    Le type de retour de la fonction, s'agit-il d'un ``int``, d'un ``float`` ? Le type de retour est annonyme, il n'a pas de nom et ce n'est pas nécessaire.
+    Le type de retour de la fonction, s'agit-il d'un ``int``, d'un ``float`` ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.
 
 ``<function-name>``
-    Il s'agit d'un :ref:`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelque fois associé à un nom: ``compute_norm``, ``make_coffee``, ... Néanmoins lorsqu'il n'y a pas d'ambiguité, on peut choisir des termes plus simples tels que ``main``, ``display`` ou ``dot_product``.
+    Il s'agit d'un :ref:`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: ``compute_norm``, ``make_coffee``, ... Néanmoins lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que ``main``, ``display`` ou ``dot_product``.
 
 ``<parameter-type> <parameter-name>``
     La fonction peut prendre en paramètre zéro à plusieurs paramètres chaque paramètre est défini par son type et son nom tel que: ``double real, double imag`` pour une fonction qui prendrait en paramètre un nombre complexe.
 
-Après la fermeture de la parenthèse de la liste des paramètres, deux possiblilités:
+Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités:
 
 Prototype
     On clos la déclaration avec un ``;``
@@ -220,7 +220,7 @@ Le type ``void`` est à une signification particulière dans la syntaxe d'une fo
 
         (void) foo(23, 11);
 
-La déclaration suivante est formellement fausse car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètre n'est pas contraint et le code suivant est valide au sens de **C99**.
+La déclaration suivante est formellement fausse, car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètres n'est pas contraint et le code suivant est valide au sens de **C99**.
 
 .. code-block:: c
 
@@ -231,19 +231,19 @@ La déclaration suivante est formellement fausse car la fonction ne possède pas
         dummy(120, 144);
     }
 
-Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser ``void`` lorsque la fonction ne prends aucun paramètres en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.
+Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser ``void`` lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.
 
 Paramètres
 ==========
 
-Comme nous l'avons vu plus haut, pour de meilleurs performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.
+Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.
 
-En plus de cela, les `paramètres <https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)>`__ peuvent être passé de deux manière:
+En plus de cela, les `paramètres <https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)>`__ peuvent être passés de deux manières:
 
 - Par valeur
 - Par référence
 
-En C, fondamentalement, tous les paramètres sont passés par valeur, c'est à dire que la valeur d'une variable est copié à l'appel de la fonction. Dans l'exemple suivant, la valeur affichée sera bel et bien ``33`` et non ``42``
+En C, fondamentalement, tous les paramètres sont passés par valeur, c'est-à-dire que la valeur d'une variable est copiée à l'appel de la fonction. Dans l'exemple suivant, la valeur affichée sera bel et bien ``33`` et non ``42``
 
 .. code-block:: c
 
@@ -257,7 +257,7 @@ En C, fondamentalement, tous les paramètres sont passés par valeur, c'est à d
         printf("%d\n", a);
     }
 
-Dans certains cas, on souhaite utiliser plus d'une valeur de retour et l'on peut utiliser un tableau. Dans l'exemple suivant la valeur affichée sera cette fois-ci ``42`` et non ``33``.
+Dans certains cas, on souhaite utiliser plus d'une valeur de retour et l'on peut utiliser un tableau. Dans l'exemple suivant, la valeur affichée sera cette fois-ci ``42`` et non ``33``.
 
 .. code-block:: c
 
@@ -271,8 +271,8 @@ Dans certains cas, on souhaite utiliser plus d'une valeur de retour et l'on peut
         printf("%d\n", array[0]);
     }
 
-Par abus de langage et en comparaison avec d'autres langage de programmation, on appellera ceci un passage par référence car ce n'est pas une copie du tableau qui est passée à la fonction ``alter`` mais seulement une référence sur ce tableau.
+Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction ``alter``, mais seulement une référence sur ce tableau.
 
 En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction ``alter``.
 
-Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modificable par le *caller*.
+Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le *caller*.

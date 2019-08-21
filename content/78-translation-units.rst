@@ -6,7 +6,7 @@ Assemblage différé
 Translation unit
 ================
 
-En programmation, on appelle *translation unit* (unité de traduction), un code qui peut être **compilé** en un **objet** sans autres dépendance externes. Le plus souvent, une unité de traduction correspond à un fichier C.
+En programmation, on appelle *translation unit* (unité de traduction), un code qui peut être **compilé** en un **objet** sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.
 
 Diviser pour mieux régner
 =========================
@@ -22,12 +22,12 @@ Rappelons-le:
 Donc à un moment, il va falloir divisier et créer plusieurs fichiers.
 
 Lorsque le programme commence à être volumineux, sa lecture, sa
-compréhension et sa mise au point devient délicate. Il peut être alors
+compréhension et sa mise au point deviennent délicates. Il peut être alors
 intéressant de le découper en plusieurs fichiers. Si on prend par
 exemple un programme qui effectue des calculs sur des nombres complexes,
 on peut imaginer le découpage suivant :
 
--  un fichier principale qui contient la partie applicative ``main.c``
+-  un fichier principal qui contient la partie applicative ``main.c``
 
 -  un ensemble de fichiers (module) qui contient la partie dédiée à la
    gestion des nombres complexes :
@@ -102,7 +102,7 @@ Définition
 
 La notion de module logiciel fait référence à un découpage logique et
 fonctionnel du programme à écrire. En règle générale, on rassemble dans
-un module les fonctions, structures, symboles…qui sont cohérentes entre
+un module les fonctions, structures, symboles…qui sont cohérents entre
 elles (voir l'exemple précédent pour les nombres complexes). Un module
 logiciel prend la forme de deux fichiers (au moins) :
 
@@ -113,7 +113,7 @@ logiciel prend la forme de deux fichiers (au moins) :
    -  l'inclusion des fichiers .h système nécessaires
       (``#include <...>``)
 
-   -  l'inclusion des fichiers .h utilisateur nécessaires
+   -  l'inclusion des fichiers .h utilisateur nécessaire
       (``#include ...``)
 
    -  les symboles du préprocesseur (``#define``)
@@ -164,7 +164,7 @@ comporte des variables avec les mêmes identificateurs, il n'y aura pas
 d'erreur lors de la phase d'édition des liens (pour peu qu'elles soients
 ``static`` également…).
 
-Variable globale visible à l'extérieur du le module
+Variable globale visible à l'extérieur du module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La variable doit être créée dans le fichier .c du module.
@@ -187,7 +187,7 @@ des variables externes, on peut accéder à ces variables (lecture et
 Protection contre les multiples inclusions
 ------------------------------------------
 
-Dès lors qu'on utilise des modules logiciels, il devient impératifs de
+Dès lors qu'on utilise des modules logiciels, il devient impératif de
 contrôler que lors de l'inclusion de fichiers d'entêtes (.h) on ne va
 pas se retrouver devant des erreurs de définitions multiples lorsqu'on
 compile l'application finale. Pour cela, on protège le contenu du
@@ -245,8 +245,8 @@ Compilation de l'application
 ----------------------------
 
 Lorsqu'on utilise des modules logiciels, chacun d'eux doit être compilé
-pour généré le fichier object correspondant. Les fichiers objets doivent
-alors être ajouté à la liste des fichiers pour la génération de
+pour générer le fichier object correspondant. Les fichiers objets doivent
+alors être ajoutés à la liste des fichiers pour la génération de
 l'exécutable final.
 
 Compilation d'un fichier .c

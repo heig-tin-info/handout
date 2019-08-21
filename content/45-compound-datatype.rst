@@ -9,7 +9,7 @@ Tableaux
 
 Les `tableaux <https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)>`__ (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
 
-L'opérateur crochet ``[]`` est utilsé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau:
+L'opérateur crochet ``[]`` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau:
 
 La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante:
 
@@ -17,14 +17,14 @@ La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon s
 
     int array[10];
 
-Par la suite il est possible d'accéder aux différents éléments ici l'élémnent 1 et 3:
+Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3:
 
 .. code-block:: c
 
     array[1];
     array[5 - 2];
 
-L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant ``sizeof(array)`` retourne :math:`5\cdot4=20` tandis que ``sizeof(array[0])`` retourne la taille d'un seul élément :math:`4`; et donc, ``sizeof(array) / sizeof(array[0])`` est le nombre d'éléments de ce tableau, soit 5.
+L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant ``sizeof(array)`` retourne :math:`5\cdot4=20` tandis que ``sizeof(array[0])`` retourne la taille d'un seul élément :math:`4`; et donc, ``sizeof(array) / sizeof(array[0])`` est le nombre d'éléments de ce tableau, soit 5.
 
 .. code-block:: c
 
@@ -39,7 +39,7 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire mais
 
         for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) { /* ... */ }
 
-Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est à dire la position mémoire à laquelle se trouve les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie mais seul une **référence** sur ce tableau est passée.
+Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seul une **référence** sur ce tableau est passée.
 
 La preuve étant que le contenu du tableau peut être modifié à distance:
 
@@ -73,7 +73,7 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
 
     0
-        La somme des deux tableaux est égal.
+        La somme des deux tableaux est égale.
 
     -1
         La somme du tableau de gauche est plus petite que le tableau de droite
@@ -107,7 +107,7 @@ Structures
 
 Les structures sont des déclarations permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type ``struct`` a été dérivé de ``ALGOL 68``. Il est également utilisé en C++ et est similaire à une classe.
 
-La structure suivante décrit un aggrégat de trois grandeurs scalaires formant un point tridimensionnel:
+La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel:
 
 .. code-block:: c
 
@@ -190,7 +190,7 @@ Le compilateur, selon l'architecture donnée, va insérer des éléments de remb
         int8_t __pad2; // Inséré par le compilateur
     };
 
-Notons que réagencer la structure initiale, peut éviter la perte d'espace mémoire. La structure suivante ne sera pas modifée par le compilateur.
+Notons que réagencer la structure initiale peut éviter la perte d'espace mémoire. La structure suivante ne sera pas modifiée par le compilateur.
 
 .. code-block:: c
 
@@ -207,7 +207,7 @@ L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est al
 Structure anonyme
 -----------------
 
-Une structure peut être anonyme, c'est à dire qu'elle n'est pas associée à un nom. Cette forme de structure est généralement déconseillée mais elle peut être utilisée:
+Une structure peut être anonyme, c'est-à-dire qu'elle n'est pas associée à un nom. Cette forme de structure est généralement déconseillée, mais elle peut être utilisée:
 
 - Lorsqu'une structure n'est utilisée qu'une seule fois.
 - Lorsqu'un type est généré à partir de cette structure (*typedef*).
@@ -246,7 +246,7 @@ Activer le bit ``stp`` (bit numéro 12) devient une opération triviale:
 
     i2cmdr.stp = true;
 
-Alors qu'elle demandrait une manipulation de bit sinon:
+Alors qu'elle demanderait une manipulation de bit sinon:
 
 .. code-block:: c
 
@@ -259,7 +259,7 @@ Notons que les champs de bits, ainsi que les structures seront déclarées diff�
 Unions
 ======
 
-Une `union <https://en.wikipedia.org/wiki/Union_type>`__ est une variable qui peut avoir plusieurs représentation d'un même contenu mémoire. Rappelez-vous, au :numref:`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toute les interprétations à la fois:
+Une `union <https://en.wikipedia.org/wiki/Union_type>`__ est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au :numref:`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois:
 
 .. code-block:: c
 
@@ -294,7 +294,7 @@ Une `union <https://en.wikipedia.org/wiki/Union_type>`__ est une variable qui pe
         );
     }
 
-Les unions sont très utilisées en combinaison avec des champs de bits. Pour reprendre l'exemple du champ de bit évoqué plus haut, on peut souhaiter accéder au registre soit sout la forme d'un entier 16-bits soit via chacuns de ses bits indépendaments.
+Les unions sont très utilisées en combinaison avec des champs de bits. Pour reprendre l'exemple du champ de bit évoqué plus haut, on peut souhaiter accéder au registre soit sous la forme d'un entier 16-bits soit via chacun de ses bits indépendamment.
 
 .. code-block:: c
 
@@ -339,7 +339,7 @@ Compound Literals
 
 Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode d'initialisation d'un type complexe.
 
-Notons qu'un type composé ne peut pas être initialisé après sa déclaration. L'exemple suivante ne fonctionne pas:
+Notons qu'un type composé ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas:
 
 .. code-block:: c
 
@@ -351,7 +351,7 @@ Notons qu'un type composé ne peut pas être initialisé après sa déclaration.
 Initialisation à zéro
 ---------------------
 
-La notation particulière ``{0}`` est un `sucre syntaxique <https://fr.wikipedia.org/wiki/Sucre_syntaxique>`__ permettant l'initialisation complète d'une variable à zéro. Elle est nécessaire pour les variables locale car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme.
+La notation particulière ``{0}`` est un `sucre syntaxique <https://fr.wikipedia.org/wiki/Sucre_syntaxique>`__ permettant l'initialisation complète d'une variable à zéro. Elle est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme.
 
 .. code-block:: c
 
@@ -409,13 +409,13 @@ L'initialisation ciblée est également possible avec un tableau:
 Initialization à une valeur particulière
 ----------------------------------------
 
-Cette écriture n'est pas normalisée **C99** mais est généralement compatible avec la majorité des compilateurs.
+Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
 
 .. code-block:: c
 
     int array[1024] = { [ 0 ... 1023 ] = -1 };
 
-En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionelle reste la boucle itérative:
+En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative:
 
 .. code-block:: c
 
@@ -435,14 +435,14 @@ L'adresse de l'élément d'un tableau s'écrit simplement en mettant le
 signe & devant l'élément.
 
 Par exemple, la forme d'écriture :math:`\&tab[3]` désigne l'adresse du
-4ème élément du tableau. On utilisera cette forme pour l'entrée
+4e élément du tableau. On utilisera cette forme pour l'entrée
 formatée.
 
 .. code-block:: c
 
     scanf("%d", &tab[1]); // place l'entrée dans le second élément du tableau
 
-L'adresse du premier élément du tableau notée :math:`\&tab[0]` peut
+L'adresse du premier élément du tableau noté :math:`\&tab[0]` peut
 également s'écrire :math:`tab`. Il en découle une autre forme d'écriture
 plus simple.
 
@@ -469,8 +469,8 @@ données du même type à l'aide d'une seule et même variable associée à
 Déclaration
 ~~~~~~~~~~~
 
-On utilise le même principe que pour le tableau à une dimension mais en
-mettant autant de paire de crochets qu'il y a de dimensions.
+On utilise le même principe que pour le tableau à une dimension, mais en
+mettant autant de paires de crochets qu'il y a de dimensions.
 
 Règle d'écriture :
 
@@ -478,7 +478,7 @@ Règle d'écriture :
 
     type identifiant[taille_dimension1][taille_dimension2]...;
 
-Exemple de déclaration d'un tableau de 10 x 20 entiers nommé tab :
+Exemple de déclaration d'un tableau de 10 x 20 entiers nommés tab :
 
 .. code-block:: c
 
@@ -497,7 +497,7 @@ Un simple exemple montre la simplicité de mise en œuvre.
     #define ROWS    3 // 3 lignes
     double matrice[ROWS][COLS] = {
       { 1.4, 2.3, 3.3, 5.4 }, // 1ère ligne
-      { 3.4, 1.2, 8.6, 5.7 }, // 2nde ligne
+      { 3.4, 1.2, 8.6, 5.7 }, // 2de ligne
       { 7.2, 8.1, 4.3, 3.9 }  // troisième ligne
     };
 
@@ -546,8 +546,8 @@ tableau, associé au type 'char'.
 
     char texte1[80]; // déclare un tableau de 80 caractères
 
-Un tableau de N caractères ne pourra contenir un chaîne que de N-1
-caractères car il faut garder un octet pour la valeur de fin de chaîne
+Un tableau de N caractères ne pourra contenir une chaîne que de N-1
+caractères, car il faut garder un octet pour la valeur de fin de chaîne
 zéro.
 
 Initialisation
@@ -656,7 +656,7 @@ Tableaux de chaînes de caractères
 ---------------------------------
 
 Il est parfois utile de créer des tableaux de chaînes de caractères.
-Deux déclarations sont possible et ont des impacts différents sur la
+Deux déclarations sont possibles et ont des impacts différents sur la
 taille mémoire occupée.
 
 Définitions des tableaux de chaînes de caractères
@@ -723,8 +723,8 @@ utilisera avantageusement les champs de bit pour y accéder.
 Définition
 ~~~~~~~~~~
 
-Un champs de bit est la réunion de plusieurs données identifiées chacune
-par un nom et une taille définie par un nombre de bit. Ces informations
+Un champ de bit est la réunion de plusieurs données identifiées chacune
+par un nom et une taille définie par un nombre de bits. Ces informations
 sont définies sous la forme d'une structure dont les données affectées à
 des champs de bit sont du type entier.
 
@@ -748,10 +748,10 @@ champs de bit.
     } sRegistre;
 
 Cette structure définit un type *sRegistre* qui contient 4 variables
-rassemblées sous la forme d'un champs de bit. La variable 'valide' est
-codée sur 1 bit, 'sens' sur un bit, 'vitesse' sur 4 bit ( valeurs
-possibles de 0 à 15), 'erreur' sur de 2 bit (valeurs possibles de 0 à 3)
-puis un bit non utilisé et enfin 'consigne' sur 4 bit. Autre exemple :
+rassemblées sous la forme d'un champ de bit. La variable 'valide' est
+codée sur 1 bit, 'sens' sur un bit, 'vitesse' sur 4 bits ( valeurs
+possibles de 0 à 15), 'erreur' sur de 2 bits (valeurs possibles de 0 à 3)
+puis un bit non utilisé et enfin 'consigne' sur 4 bits. Autre exemple :
 la représentation du type *float* :
 
 .. code-block:: c
@@ -764,8 +764,8 @@ la représentation du type *float* :
 
     } sFloat;
 
-Notez la virgule après les champs mantisse et exposant, évitant de
-répeter le type.
+Notez la virgule après les champs mantisse et exposants, évitant de
+répéter le type.
 
 Utilisation
 ~~~~~~~~~~~

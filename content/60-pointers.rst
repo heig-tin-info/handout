@@ -18,7 +18,7 @@ Cette variable ``lettre`` est dès lors enregistrée en mémoire à l'adresse ``
 
 Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire à fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.
 
-Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de *64-bits* il n'arrive a mémoriser que 8 caractères ``Chère Ma``. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son `tout nickelé <https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau>`__ jusqu'à ce que toute la lettre ait été retranscrite.
+Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de *64-bits* il n'arrive à mémoriser que 8 caractères ``Chère Ma``. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son `tout nickelé <https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau>`__ jusqu'à ce que toute la lettre ait été retranscrite.
 
 On se retrouve avec une **copie** de la lettre chez madame de Merteil:
 
@@ -31,7 +31,7 @@ La canicule n'étant pas finie, et cette physique discutable ne pouvant être d�
 
 .. code-block:: c
 
-    char castello_wall[] = "Chère Vicomte, ...";
+    char castello_wall[] = "Cher Vicomte, ...";
     char (*gps_position)[] = &castello_wall;
 
 De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont ce simple mot: ``0x30313233``. Le facteur parvient sans mal à mémoriser les 4 octets du message.
@@ -48,7 +48,7 @@ S'il avait oublié l'astérisque (``*``, :unicode:`U+002A`) dans cette dernière
 
 L'astérisque agit donc comme un **déréférencement**, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.
 
-Oui, mais, on utilise une astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (``&``, :unicode:`U+0026`): ``&castello_wall``, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
+Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (``&``, :unicode:`U+0026`): ``&castello_wall``, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
 
 Il manque encore une chose, il y a aussi une astérisque sur ``(*gps_position)[]``. Cela vaudrait-il dire qu’on déréférence la position gps pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
 
@@ -114,7 +114,7 @@ Vous ne le saviez pas, mais 𝄽 *plot twist* 𝄽 la variable ``array`` est un 
 
 La différence entre un **tableau** et un **pointeur** est la suivante:
 
-- Il n'est pas possible d'assigner une addresse à un tableau
+- Il n'est pas possible d'assigner une adresse à un tableau
 - Il n'est pas possible d'assigner des valeurs à un pointeur
 
 Arithmétique de pointeurs
@@ -216,7 +216,7 @@ initialiser un pointeur sur une structure de la façon suivante :
 Utilisation d'un pointeur sur une structure
 -------------------------------------------
 
-On a vu que les champs d'une structure sont accessible au travers du
+On a vu que les champs d'une structure sont accessibles au travers du
 :math:`.` faisant la liaison entre la variable et le champs. Cela est
 valable si la variable est du type structuré. Si la variable est du type
 pointeur sur une structure, on remplacera le :math:`.` par :math:`->`.
@@ -282,7 +282,7 @@ pointeurs.
 Paramètres sous la forme de pointeurs
 -------------------------------------
 
-Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
+Le prototype d'une fonction recevant un (ou plusieurs) pointeurs s'écrit
 de la manière suivante :
 
 .. code-block:: c
@@ -330,7 +330,7 @@ placera le symbole & pour lui donner l'adresse de la variable.
 Transtypage de pointeurs (cast)
 ===============================
 
-Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré (c.f. :numref:`void`), comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoire peut être de nature très différente:
+Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré (c.f. :numref:`void`), comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente:
 
 ::
 
@@ -350,9 +350,9 @@ Il faudrait donc autant de fonction ``memcpy`` que de type possible, ce qui n'es
     ptr = array;
     ptr = elements;
 
-Que pensez-vous que ``sizeof(void)`` devrait retourner ? Formellement ceci devrait mener à une erreur de compilation car ``void`` n'a pas de substance, et donc aucune taille associée. Néanmoins ``gcc`` est très permissif de base et (à ma `grande surprise <https://stackoverflow.com/questions/1666224/what-is-the-size-of-void>`__), il ne génère par défaut ni *warning*, ni erreurs sans l'option ``-Wpointer-arith`` sur laquelle nous aurons tout le loisir de revenir.
+Que pensez-vous que ``sizeof(void)`` devrait retourner ? Formellement ceci devrait mener à une erreur de compilation, car ``void`` n'a pas de substance, et donc aucune taille associée. Néanmoins ``gcc`` est très permissif de base et (à ma `grande surprise <https://stackoverflow.com/questions/1666224/what-is-the-size-of-void>`__), il ne génère par défaut ni *warning*, ni erreurs sans l'option ``-Wpointer-arith`` sur laquelle nous aurons tout le loisir de revenir.
 
-L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le plus souvent, de la balayer grace à l'arithmétique de pointeurs. Notre fonction de copie mémoire doit en somme pouvoir parcourir toute la région mémoire de source et de destination et de ce fait incrémenter le pointeur. Mais, n'ayant aucune taille l'arithmétique de pointeur n'est pas autorisée avec le pointeur ``void`` et nous voilà bien avancé, notre pointeur ne nous est guère d'usage que son utilité éponyme: rien.
+L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le plus souvent, de la balayer grâce à l'arithmétique de pointeurs. Notre fonction de copie mémoire doit en somme pouvoir parcourir toute la région mémoire de source et de destination et de ce fait incrémenter le pointeur. Mais, n'ayant aucune taille l'arithmétique de pointeur n'est pas autorisée avec le pointeur ``void`` et nous voilà bien avancés, notre pointeur ne nous est guère d'usage que son utilité éponyme: rien.
 
 Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen de s'en sortir par une pirouette programmatique dans laquelle je déclare un nouveau pointeur du type char auquel j'associe la valeur de ptr par un **cast explicite**.
 
@@ -360,7 +360,7 @@ Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen 
 
     char *iptr = (char*)ptr;
 
-Dès lors, l'arithmétique est redevient possible ``iptr++``. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire ``char *ptr = (char*)elements;`` directement et sans détour, mais ceci aurait alors mené à ce prototype ci:
+Dès lors, l'arithmétique est redevient possible ``iptr++``. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire ``char *ptr = (char*)elements;`` directement et sans détour, mais ceci aurait alors mené à ce prototype-ci:
 
 ::
 
@@ -370,7 +370,7 @@ La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55:
 
     A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.
 
-Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur ``void``. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto-documenté du code.
+Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur ``void``. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message autodocumenté du code.
 
 Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait:
 
@@ -395,7 +395,7 @@ Où plus concis:
             ((char*)dst)[i] = ((char*)src)[i];
     }
 
-Or, rien de tout ceci n'est juste. ``memcpy`` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajusté. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme `Thomas l'apôtre <https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>`__, et ne me croyez pas ? Alors digressons et essayons:
+Or, rien de tout ceci n'est juste. ``memcpy`` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme `Thomas l'apôtre <https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>`__, et ne me croyez pas ? Alors, digressons et essayons:
 
 .. code-block:: c
 
@@ -451,9 +451,9 @@ Vous pouvez jouer avec cet exemple `ici <https://godbolt.org/#g:!((g:!((g:!((h:c
 Pointeurs de fonctions
 ======================
 
-Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (`callback <https://fr.wikipedia.org/wiki/Fonction_de_rappel>`__).
+Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (`callback <https://fr.wikipedia.org/wiki/Fonction_de_rappel>`__).
 
-Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau mais la transformation n'est pas connue à l'avance. On pourrait écrire:
+Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire:
 
 .. code-block:: c
 
@@ -511,12 +511,12 @@ Trouver l'identifiant et se dire ``L'identifiant est``.
 Deuxième étape
 --------------
 
-Chercher le symbole à droite de l'identifiant. Si vous trouvez un ``()``, vous savez que cet identifiant est une fonction et vous avez ``L'identifiant est une fonction retournant``. Si vous trouvez un ``[]`` vous dites alors ``L'identifiant est un tableau de``. Continuez à droite jusqu'à ce que vous êtes à cours de symbole, **OU** que vous trouvez une parenthèse fermante ``)``.
+Chercher le symbole à droite de l'identifiant. Si vous trouvez un ``()``, vous savez que cet identifiant est une fonction et vous avez ``L'identifiant est une fonction retournant``. Si vous trouvez un ``[]`` vous dites alors ``L'identifiant est un tableau de``. Continuez à droite jusqu'à ce que vous êtes à court de symboles, **OU** que vous trouvez une parenthèse fermante ``)``.
 
 Troisième étape
 ---------------
 
-Regardez le symbole à gauche de l'identifiant. Si il n'est aucun des symbole précédent, dites quelque chose comme ``int``. Sinon, convertissez le symbole en utilisant la table de correspondance. Continez d'aller à **gauche** jusqu'à ce que vous êtes à cours de symboles **OU** que vous rencontrez une parenthèse ouvrante ``(``.
+Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme ``int``. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à **gauche** jusqu'à ce que vous êtes à court de symboles **OU** que vous rencontrez une parenthèse ouvrante ``(``.
 
 Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.
 

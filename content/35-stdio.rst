@@ -2,15 +2,15 @@
 Entrées Sorties
 ===============
 
-Comme nous l'avons vu (c.f. :numref:`inputs_outputs`) un programme dispose de canaux d'entrées sorties ``stdin``, ``stdout`` et ``stderr``. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formatter les sorties et interptèter les entrées.
+Comme nous l'avons vu (c.f. :numref:`inputs_outputs`) un programme dispose de canaux d'entrées sorties ``stdin``, ``stdout`` et ``stderr``. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
 
-La fonction phare est bien entendu ``printf`` pour le formattage de chaîne de caractère et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes:
+La fonction phare est bien entendu ``printf`` pour le formatage de chaîne de caractère et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes:
 
 - depuis/vers les canaux standards ``printf``, ``scanf``
 - depuis/vers un fichier quelconque ``fprintf``, ``fscanf``
 - depuis/vers une chaîne de caractère ``sprintf``, ``sscanf``
 
-La liste citée est non exaustive mais largement documentée ici: `<stdio.h> <http://man7.org/linux/man-pages/man3/stdio.3.html>`__.
+La liste citée est non exhaustive, mais largement documentée ici: `<stdio.h> <http://man7.org/linux/man-pages/man3/stdio.3.html>`__.
 
 Sorties non formatées
 =====================
@@ -127,7 +127,7 @@ Voici un exemple possible d'implémentation:
         return str;
     }
 
-Cette implémentation pourrait être utilsée de la façon suivante:
+Cette implémentation pourrait être utilisée de la façon suivante:
 
 .. code-block:: c
 
@@ -144,7 +144,7 @@ Cette implémentation pourrait être utilsée de la façon suivante:
 printf
 ======
 
-Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilsant des marques substitutives (*placeholder*). Ces specifieurs débutent par le caractère ``%`` suivi du formattage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formatter un entier non signé.
+Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces specifieurs débutent par le caractère ``%`` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formater un entier non signé.
 
 .. code-block:: c
 
@@ -162,11 +162,11 @@ Le standard **C99** défini le prototype de ``printf`` comme étant:
 
     int printf(const char *restrict format, ...);
 
-Il défini que la fonction ``printf`` prend en paramètre un format suivi de ``...``. La fonction ``printf`` comme toutes celles de la même catégorie sont dit `variadiques <https://fr.wikipedia.org/wiki/Fonction_variadique#C>`__, c'est à dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format ``"Mes nombres préférés sont %d et %d mais surtout %s"`` demandera trois paramètres additionnels:
+Il définit que la fonction ``printf`` prend en paramètre un format suivi de ``...``. La fonction ``printf`` comme toutes celles de la même catégorie sont dites `variadiques <https://fr.wikipedia.org/wiki/Fonction_variadique#C>`__, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format ``"Mes nombres préférés sont %d et %d, mais surtout %s"`` demandera trois paramètres additionnels:
 
 La fonction retourne le nombre de caractères formatés ou ``-1`` en cas d'erreur.
 
-La construction d'un marqueur est loin d'être simple mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant:
+La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant:
 
 .. code-block:: c
 
@@ -176,23 +176,23 @@ La construction d'un marqueur est loin d'être simple mais heureusement on n'a p
     Numéro de paramètre à utiliser
 
 ``flags`` (optionnel)
-    Modificateurs: préfixe, signe plus, alignement à gauche, ...
+    Modificateurs: préfixe, signe plus, alignement à gauche ...
 
 ``width`` (optionnel)
     Nombre **minimum** de caractères à utiliser pour l'affichage de la sortie.
 
 ``.precision`` (optionnel)
-    Nombre **minimum** de caractères affichés à droite de la virgule. Essentiellement valide pour les nombre à virgule flottante.
+    Nombre **minimum** de caractères affichés à droite de la virgule. Essentiellement, valide pour les nombres à virgule flottante.
 
 ``length`` (optionnel)
-    Longueur en mémoire. Indique la longueur de la représentation binaire
+    Longueur en mémoire. Indique la longueur de la représentation binaire.
 
 ``type``
-    Type de formattage souhaité
+    Type de formatage souhaité
 
 .. figure:: ../assets/figures/string/formats.*
 
-    Formattage d'un marqueur
+    Formatage d'un marqueur
 
 Exemples
 --------
@@ -219,7 +219,7 @@ Exemples
 | ``printf("%s", "Hello")``       | ``Hello``       | 5      |
 +---------------------------------+-----------------+--------+
 
-.. exercise:: Quelque bogues bien formattés
+.. exercise:: Quelque bogues bien formatés
 
     Indiquez les erreurs dans les instructions suivantes:
 
@@ -235,9 +235,9 @@ Exemples
 Entrées formatées
 =================
 
-A l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractère, c'est à dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
+À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractère, c'est-à-dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
 
-La fonction ``scanf`` est par exmple utilisée à cette fin:
+La fonction ``scanf`` est par exemple utilisée à cette fin:
 
 .. code-block:: c
 
@@ -268,9 +268,9 @@ soit exécuter ce programme en fournissant le nécessaire à stdin:
 .. code-block:: console
 
     $ echo "23" | ./a.out
-    Quelle est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?
+    Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?
 
-On observe ici un comportement différent car le retour clavier lorsque la touche *enter* est pressée n'est pas transmi au programme mais c'est le shell qui l'intercepte.
+On observe ici un comportement différent, car le retour clavier lorsque la touche *enter* est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.
 
 scanf
 -----
@@ -281,7 +281,7 @@ Cette fonction tient son origine une nouvelle fois de `ALGOL 68 <https://en.wiki
 
 La compréhension de ``scanf`` n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.
 
-Le programme suivant lit un entier et le place dans la variable ``n``. ``scanf`` retourne le nombre d'assignment réussis. Ici, il n'y a qu'un *placeholder*, on s'attends naturellement à lire ``1`` si la fonction réussi. Le programme écrit ensuite les nombres dans l'ordre d'apparition.
+Le programme suivant lit un entier et le place dans la variable ``n``. ``scanf`` retourne le nombre d'assignent réussis. Ici, il n'y a qu'un *placeholder*, on s'attend naturellement à lire ``1`` si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.
 
 .. code-block:: c
 
@@ -344,7 +344,7 @@ Lorsqu'exécuté avec ce contenu:
     beaucoup de chance
     10.0KG de
     poussière
-    100ergs de energie
+    100ergs d’énergie
 
 le programme se déroule comme suit:
 
@@ -361,12 +361,12 @@ le programme se déroule comme suit:
     quantity = 10.0; strcpy(units, "KG"); strcpy(item, "poussière");
     count = 3;
 
-    count = 0; // "100e" échoue contre "%f" car "100e3" serait un nombre valable
+    count = 0; // "100e" échoue contre "%f", car "100e3" serait un nombre valable
     count = EOF; // Fin de fichier
 
-Dans cet exemple, la boucle ``do``... ``while`` est utilisée car il n'est pas simplement possible de traiter le cas ``while(scanf(...) > 0`` puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau ``feof`` pour détecter si la fin du fichier est atteint, et ``ferror`` pour détecter une éventuelle erreur sur le flux d'entrée.
+Dans cet exemple, la boucle ``do``... ``while`` est utilisée, car il n'est pas simplement possible de traiter le cas ``while(scanf(...) > 0`` puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau ``feof`` pour détecter si la fin du fichier est atteinte, et ``ferror`` pour détecter une éventuelle erreur sur le flux d'entrée.
 
-La directive ``scanf("%*[^\n]");`` étant un peu particulière, il peu valoir la peine de s'y attarder un peu. Le *flag* ``*``, différent de ``printf`` indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.
+La directive ``scanf("%*[^\n]");`` étant un peu particulier, il peut valoir la peine de s'y attarder un peu. Le *flag* ``*``, différent de ``printf`` indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.
 
 .. code-block:: c
 
@@ -375,14 +375,14 @@ La directive ``scanf("%*[^\n]");`` étant un peu particulière, il peu valoir la
 
     int main(void) {
         int a, b;
-        char str[] = "24 kayak 42";
+        char str[] = "24 kayaks 42";
 
         sscanf(str, "%d%*s%d", &a, &b);
         assert(a == 24);
         assert(b == 42);
     }
 
-Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer une séquence de caractères parmis une liste de caractères acceptés. Cette syntaxe est inspirée des `expressions régulières <https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re>`__ très utilisées en informatique. Le caractère ``^`` à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmis une liste de caractères **qui ne sont pas acceptés**. C'est une sorte de négation. Dans le cas présent, cette directive ``scanf`` cherche à consommer tous les caractères jusqu'à une fin de ligne car, dans le cas ou la capture échoue à ``C`` de ``Celcius``, le pointeur de fichier est bloqué au caractère ``C`` et au prochain tour de boucle, ``scanf`` échoura au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.
+Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des `expressions régulières <https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re>`__ très utilisées en informatique. Le caractère ``^`` à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères **qui ne sont pas acceptés**. C'est une sorte de négation. Dans le cas présent, cette directive ``scanf`` cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à ``C`` de ``Celsius``, le pointeur de fichier est bloqué au caractère ``C`` et au prochain tour de boucle, ``scanf`` échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.
 
 Saisie de chaîne de caractères
 ------------------------------
@@ -426,7 +426,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
 
-    Grace à votre esprit affuté et votre oeil perçant vous identifiez 13 erreurs. Lesquelles sont-elles ?
+    Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
 
     .. code-block:: c
 
@@ -520,10 +520,10 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
         }
 
     #. À quelle ligne commence l'exécution de ce programme ?
-    #. Dans quel ordre s'exécutent les instruction ?
+    #. Dans quel ordre s'exécutent les instructions ?
     #. Décrivez ce que fait ce programme étape par étape
     #. Que verra l'utilisateur à l'écran ?
-    #. Quel est l'utilité de ce programme ?
+    #. Quelle est l'utilité de ce programme ?
 
     .. solution::
 
@@ -537,22 +537,22 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
             #. Affichage du résultat
         #. Que verra l'utilisateur à l'écran ?
             #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
-        #. Quel est l'utilité de ce programme ?
+        #. Quelle est l'utilité de ce programme ?
             #. Le calcul d'un point d'une droite
 
 .. exercise:: Équation de droite
 
-    L'exercice précédant souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?
+    L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?
 
     .. solution::
 
         Citons les défauts de ce programme:
 
         - Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif
-        - Les invité de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
+        - Les invités de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
         - La valeur de retour n'est pas exploitable directement.
         - Le nom des variables utilisé n'est pas clair.
-        - Aucune valeurs par défaut.
+        - Aucune valeur par défaut.
 
         Une solution possible serait:
 
@@ -562,7 +562,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
 .. exercise:: Loi d'Ohm
 
-    Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et afficher ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
+    Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et affichez ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
 
 .. exercise:: Tour Eiffel
 
@@ -581,29 +581,29 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
             scanf("%f", &angle_degrees);
             float angle_radian = angle_degrees * M_PI / 45.;
 
-            printf("A quel distance vous trouvez vous du bâtiment (en mètres): ");
+            printf("À quelle distance vous trouvez vous du bâtiment (en mètres): ");
             float distance;
             scanf("%f", &distance);
 
             float height = distance / tan(angle_radian);
-            printf("La hauteur du batiment est : %g mètres.\n", height);
+            printf("La hauteur du bâtiment est : %g mètres.\n", height);
 
             return 0;
         }
 
     #. Que fait le programme étape par étape ?
     #. Que verra l'utilisateur à l'écran ?
-    #. A quoi sert ce programme ?
-    #. Euh mais ? Ce programme comporte des erreurs, lesquelles ?
+    #. À quoi sert ce programme ?
+    #. Euh, mais ? Ce programme comporte des erreurs, lesquelles ?
     #. Implémentez-le et testez-le.
 
 .. exercise:: Hyperloop
 
-    `Hyperloop <https://fr.wikipedia.org/wiki/Hyperloop>`__ (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilsant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé `Swissmetro <https://fr.wikipedia.org/wiki/Swissmetro>`__ mais abandonné en 2009.
+    `Hyperloop <https://fr.wikipedia.org/wiki/Hyperloop>`__ (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé `Swissmetro <https://fr.wikipedia.org/wiki/Swissmetro>`__, mais abandonné en 2009.
 
-    Néamoins, les ingénieurs suisse avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de suisse.
+    Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.
 
-    Écrire un programme pour calculer la distance entre deux ville de suisse parmis lesquelles proposées sont:
+    Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont:
 
         - Genève
         - Zürich
