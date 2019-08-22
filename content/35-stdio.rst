@@ -4,11 +4,11 @@ Entrées Sorties
 
 Comme nous l'avons vu (c.f. :numref:`inputs_outputs`) un programme dispose de canaux d'entrées sorties ``stdin``, ``stdout`` et ``stderr``. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
 
-La fonction phare est bien entendu ``printf`` pour le formatage de chaîne de caractère et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes:
+La fonction phare est bien entendu ``printf`` pour le formatage de chaîne de caractères et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes:
 
 - depuis/vers les canaux standards ``printf``, ``scanf``
 - depuis/vers un fichier quelconque ``fprintf``, ``fscanf``
-- depuis/vers une chaîne de caractère ``sprintf``, ``sscanf``
+- depuis/vers une chaîne de caractères ``sprintf``, ``sscanf``
 
 La liste citée est non exhaustive, mais largement documentée ici: `<stdio.h> <http://man7.org/linux/man-pages/man3/stdio.3.html>`__.
 
@@ -21,7 +21,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
     Pour imprimer un caractère unique: ``putchar('c')``
 
 ``puts(char[] str)``
-    Pour imprimer une chaîne de caractère
+    Pour imprimer une chaîne de caractères
 
 .. exercise:: Mot du jour
 
@@ -59,7 +59,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 Sorties formatées
 =================
 
-Convertir un nombre en une chaîne de caractère n'est pas trivial. Prenons l'exemple de la valeur ``123``. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste:
+Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur ``123``. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste:
 
 .. code-block:: text
 
@@ -68,7 +68,7 @@ Convertir un nombre en une chaîne de caractère n'est pas trivial. Prenons l'ex
     2      12 / 10    1         2
     3      1 / 10     0         1
 
-Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis chiffre le moins significatif, il faudra inverser la chaîne de caractère produite.
+Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.
 
 Voici un exemple possible d'implémentation:
 
@@ -139,7 +139,7 @@ Cette implémentation pourrait être utilisée de la façon suivante:
 printf
 ======
 
-Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces specifieurs débutent par le caractère ``%`` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formater un entier non signé.
+Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifieurs débutent par le caractère ``%`` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formater un entier non signé.
 
 .. code-block:: c
 
@@ -230,7 +230,7 @@ Exemples
 Entrées formatées
 =================
 
-À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractère, c'est-à-dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
+À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
 
 La fonction ``scanf`` est par exemple utilisée à cette fin:
 
@@ -258,7 +258,7 @@ Cette fonction utilise l'entrée standard ``stdin``. Il est donc possible soit d
     Quelle est votre nombre favori ? 2
     Saviez-vous que votre nombre favori, 2, est pair ?
 
-soit exécuter ce programme en fournissant le nécessaire à stdin:
+soit d'exécuter ce programme en fournissant le nécessaire à stdin:
 
 .. code-block:: console
 
@@ -276,7 +276,7 @@ Cette fonction tient son origine une nouvelle fois de `ALGOL 68 <https://en.wiki
 
 La compréhension de ``scanf`` n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.
 
-Le programme suivant lit un entier et le place dans la variable ``n``. ``scanf`` retourne le nombre d'assignent réussis. Ici, il n'y a qu'un *placeholder*, on s'attend naturellement à lire ``1`` si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.
+Le programme suivant lit un entier et le place dans la variable ``n``. ``scanf`` retourne le nombre d'assignements réussis. Ici, il n'y a qu'un *placeholder*, on s'attend naturellement à lire ``1`` si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.
 
 .. code-block:: c
 
@@ -341,7 +341,7 @@ Lorsqu'exécuté avec ce contenu:
     poussière
     100ergs d’énergie
 
-le programme se déroule comme suit:
+Le programme se déroule comme suit:
 
 .. code-block:: c
 
@@ -401,7 +401,7 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 Saisie de chaîne de caractères
 ------------------------------
 
-Lors d'une saisie de chaîne de caractère, il est nécessaire de **toujours** indiquer une taille maximum de chaîne comme ``%20s`` qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son ``\0``. Sinon, il y a risque de `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__:
+Lors d'une saisie de chaîne de caractères, il est nécessaire de **toujours** indiquer une taille maximum de chaîne comme ``%20s`` qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son ``\0``. Sinon, il y a risque de `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__:
 
 .. code-block:: c
 

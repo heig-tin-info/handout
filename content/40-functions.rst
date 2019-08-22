@@ -40,7 +40,7 @@ Dans le `Voyage de Chihiro <https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro>`
 
     Le vieux Kamaji et ses bras extensibles.
 
-Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel les mélanges les herbes, il sont à l'instar de l'`ALU <https://en.wikipedia.org/wiki/Arithmetic_logic_unit>`__ d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaire aux registres du processeur.
+Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'`ALU <https://en.wikipedia.org/wiki/Arithmetic_logic_unit>`__ d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
 Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type:
 
@@ -61,7 +61,7 @@ Il profite de son temps libre, pendant que les bains sont fermés pour préparer
     ...
     STO   R8 @F6      # Place le mélange d'herbe automnale tonic dans le casier F6
 
-Souvent, le vieux Kamaji répète les mêmes suite d'opération et ce, peu importe les herbes qu'il manipule, une fois placées dans les petits casiers (registres), il pourrait travailler les yeux fermés.
+Souvent, le vieux Kamaji répète les mêmes suites d'opération et ce, peu importe les herbes qu'il manipule, une fois placées dans les petits casiers (registres), il pourrait travailler les yeux fermés.
 
 On pourrait résumer ce travail par une fonction C, ici prenant un rhizome et deux herbes en entrée et générant un mélange en sortie.
 
@@ -88,7 +88,7 @@ Dans les conventions d'appel, il faut donc également donner la responsabilité 
 - ceux qui peuvent être utilisés librement par une fonction (la sauvegarde est à la charge du *caller*, la fonction qui appelle une autre fonction),
 - ceux qui doivent être sauvegardés par le *callee* (la fonction qui est appelée).
 
-En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent à l'exécution d'un programme.
+En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.
 
 Overhead
 --------

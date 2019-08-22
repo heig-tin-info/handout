@@ -1,3 +1,5 @@
+.. TODO:: chapite 10.7 Enumérations ? titre juste ?
+
 ================
 Types composites
 ================
@@ -541,7 +543,7 @@ L'exemple suivant déclare un type ``Point`` et un prototype de fonction permett
 Compound Literals
 =================
 
-Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode d'initialisation d'un type complexe.
+Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode d'initialisation d'un type composé.
 
 Notons qu'un type composé ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas:
 
@@ -623,7 +625,7 @@ En **C99**, il n'est pas possible d'initialiser un type composé à une valeur u
 
 .. code-block:: c
 
-    for (size_t i = 0; i < sizeof(array); i++)
+    for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); i++)
         array[i] = -1;
 
 
@@ -778,7 +780,7 @@ caractère constante. Le contenu ne sera pas modifiable.
 Espace mémoire occupé par une chaîne et taille affichée
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-L'espace en mémoire utilisé par une chaîne de caractère est donné par la
+L'espace en mémoire utilisé par une chaîne de caractères est donné par la
 fonction *sizeof*. Elle retourne une valeur en octets.
 
 .. code-block:: c
@@ -905,7 +907,7 @@ avec des chaînes de longueurs différentes.
 Notez la déclaration avec une étoile devant le nom de la variable pour
 indiquer au compilateur que l'on déclare un tableau de caractères.
 
-Emumérations
+Enumérations
 ============
 
 Champs de bit

@@ -162,7 +162,7 @@ Le jeune homme tente de répéter les gestes de son père, mais il ne parvient p
 
 La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
 
-Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exaustif du langage car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
+Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
 
 .. _structured_text:
 
@@ -173,9 +173,9 @@ Le C comme la plupart des langages de programmation utilise du texte structuré,
 
 À l'inverse des `langages naturels <https://en.wikipedia.org/wiki/Natural_language>`__ comme le Français, un langage de programmation est un `langage formel <https://fr.wikipedia.org/wiki/Langage_formel>`__ et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.
 
-Les **compilateurs**, sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambigüités et accroître la productivité du développeur.
+Les **compilateurs**, sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
-L'exemple suivant est un `peudo-code <https://fr.wikipedia.org/wiki/Pseudo-code>`__ utilisant une grammaire simple:
+L'exemple suivant est un `pseudo-code <https://fr.wikipedia.org/wiki/Pseudo-code>`__ utilisant une grammaire simple:
 
 .. code-block::
 
@@ -320,7 +320,7 @@ En somme, restez ouvert aux autres points de vues, cherchez à adopter le consen
 Hello World!
 ============
 
-Il est traditionnellement coutume depuis la publication en 1978 du livre `The C Programing Language <https://en.wikipedia.org/wiki/The_C_Programming_Language>`__ de reprendre l'exemple de Brian Kernighan comme premier programme.
+Il est traditionnellement coutume depuis la publication en 1978 du livre `The C Programming Language <https://en.wikipedia.org/wiki/The_C_Programming_Language>`__ de reprendre l'exemple de Brian Kernighan comme premier programme.
 
 .. literalinclude:: ../assets/src/hello.c
     :language: c
@@ -374,7 +374,7 @@ Très bien ! A présent, exécutons le programme en prenant soin de préfixer le
     $ ./a.out
     hello, world
 
-Fécicitations, le programme s'est exécuté.
+Félicitations, le programme s'est exécuté.
 
 Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus ``ls`` nous sera utile mais cette fois-ci avec l'option ``l``:
 
@@ -442,7 +442,7 @@ Décortiquons tout cela:
 
     .. solution::
 
-        Lorsqu'un code immatude est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
+        Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
         il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
         s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
         facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.

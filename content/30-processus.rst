@@ -100,7 +100,7 @@ Avec un visualisateur hexadécimal, on peut extraire le langage machine du binai
     0000760 058d 016a 0000 8d48 f30d 0000 4800 3d8d
     0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000
 
-Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs ``41 55`` puis ``41 54`` puis ``48 8d 35 59`` se retrouvent directement dans le *dump*: ``5541 5441 8d48``. Si les valeurs sont inverties c'est parce qu'un PC est *little-endian* (c.f. :numref:`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
+Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs ``41 55`` puis ``41 54`` puis ``48 8d 35 59`` se retrouvent directement dans le *dump*: ``5541 5441 8d48``. Si les valeurs sont interverties c'est parce qu'un PC est *little-endian* (c.f. :numref:`endianess`), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension ``.jpg`` sera un fichier image du `Join Photographic Experts Group <https://fr.wikipedia.org/wiki/JPEG>`__ et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension ``.exe`` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
@@ -138,7 +138,7 @@ Ainsi qu'à des sorties:
 - La sortie standard ``STDOUT`` est généralement affichée à l'écran
 - La sortie d'erreur standard ``STDERR`` contient des détails sur les éventuelles erreurs d'exécution du programme.
 
-La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement aux systèmes d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
+La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (`syscall <https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me>`__) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
 .. figure:: ../assets/figures/process/program.*
 
@@ -151,7 +151,7 @@ Signaux
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des `signaux <https://fr.wikipedia.org/wiki/Signal_(informatique)>`__. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
 
-Lorsque depuis Windows, vous vous rendez dans le `gestionnaire de tâches <https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows>`__ et que vous décider de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
+Si, en utilisant Windows, vous vous rendez dans le `gestionnaire de tâches <https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows>`__ et que vous décider de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
 
 Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des signaux particuliers:
 
@@ -181,11 +181,11 @@ Sous Linux, le prompt est largement configurable et dépend de la distribution i
 
 Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.
 
-Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant:
+- Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant:
 
-Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
+- Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
 
-Un argument est une chaîne de caractère utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.
+Un argument est une chaîne de caractères utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.
 
 En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre ``argv``:
 
@@ -244,7 +244,7 @@ C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la re
 Valeur de retour
 ----------------
 
-La fonction ``main`` a toujours une valeur de retour qui agit comme le statut de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante:
+La fonction ``main`` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante:
 
 ``0``
     Succès, le programme s'est terminé correctement.
