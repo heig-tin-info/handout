@@ -581,3 +581,14 @@ L'utilisation de structure peut être utile pour initialiser un type de donnée 
         int matrix[10][10];
         int vector[100];
     } data;
+
+
+.. exercises
+
+.. exercise:: Esperluettes cascadées
+
+    Quel est le type de:
+
+    .. code-block:: c
+
+        *&*&*&*&*&*&(int)x;

@@ -118,8 +118,29 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
 
     et dont la taille peut varier ?
 
+.. exercise:: L'entier manquant
+
+    On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous ?
+
+    Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?
 
 Récursivité
 ===========
 
 La `récursivité <https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`__ est une autoréférence. Il peut s'agit en C d'une fonction qui s'appelle elle-même.
+
+.. exercise:: La plus petite différence
+
+    Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
+
+    Exemple:
+
+    .. code-block:: text
+
+        int a[] = {5, 3, 14, 11, 2};
+        int b[] = {24, 128, 236, 20, 8};
+
+        int diff = 3 // pair 11, 8
+
+    #. Proposer une implémentation
+    #. Quelle est la complexité de votre algorithme ?

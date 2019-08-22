@@ -1173,6 +1173,32 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         x = 7.5
         n = 8
 
+Valeurs gauche
+==============
+
+Une valeur gauche (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche:
+
+.. code-block:: c
+
+    int x, y, z;
+
+    x = y = z;    // (1)
+    (x = y) = z;  // (2)
+
+1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
+2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint:
+    ..code-block:: text
+
+        4:8: error: lvalue required as left operand of assignment
+            (x = y) = z;
+                    ^
+
+Voici quelques exemples de valeurs gauche:
+
+- ``x /= y``
+- ``++x``
+- ``(x ? y : z)``
+
 Optimisation
 ============
 

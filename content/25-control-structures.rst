@@ -154,6 +154,15 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
         printf("La valeur ne satisfait aucune condition établies.");
     }
 
+.. exercise:: Et si?
+
+    Comment se comporte l'exemple suivant:
+
+    .. code-block:: c
+
+        if (!(i < 8) && !(i > 8))
+            printf("i is %d\n", i);
+
 .. _switch:
 
 ``switch``
@@ -300,6 +309,38 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
     {
         /* ... */
     }
+
+.. exercise:: Erreur
+
+    Identifier les deux erreurs dans ce code suivant:
+
+    .. code-block:: c
+
+        for (size_t = 100; i >= 0; --i)
+            printf("%d\n", i);
+
+.. exercise:: De un à cent
+
+    Écrivez un programme affichant les entiers de 1 à 100 en employant:
+
+    1. Une boucle ``for``
+    2. Une boucle ``while``
+    3. Une boucle ``do..while``
+
+    Quel  est la structure de contrôle la plus adaptée à cette situation ?
+
+.. exercise:: Opérateur virgule dans une boucle
+
+    Expliquez quelle est la fonctionnalité globale du programme ci-dessous:
+
+    .. code-block:: c
+
+        int main(void) {
+            for(size_t i = 0, j = 0; i * i < 1000; i++, j++, j %= 26, printf("\n"))
+                printf("%c", 'a' + (char)j);
+        }
+
+    Proposer une meilleure implémentation de ce programme.
 
 Boucles infinies
 ----------------
@@ -479,3 +520,15 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
             alert_security_guards();
         }
     }
+
+
+------------
+
+.. exercise:: Comptons sur les caractères
+
+    Un texte est passé à un programme par ``stdin``. Comptez le nombre de caractères transmis.
+
+    .. code-block:: console
+
+        $ echo "Hello world" | count-this
+        11

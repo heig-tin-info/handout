@@ -68,6 +68,36 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
                 a[i] = i;
             }
 
+.. exercise:: Première position
+
+    Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurence d'une valeur dans le tableau.
+
+    Traitez les cas particuliers.
+
+.. exercise:: Déclarations de tableaux
+
+    Considérant les déclarations suivantes:
+
+    .. code-block:: c
+
+        #define LIMIT 10
+        const int twelve = 12;
+        int i = 3;
+
+    Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correcte ou non.
+
+    .. code-block:: c
+
+        int t(3);
+        int k, t[3], l;
+        int i[3], l = 2;
+        int t[LIMITE];
+        int t[i];
+        int t[douze];
+        int t[LIMITE + 3];
+        float t[3, /* five */ 5];
+        float t[3]        [5];
+
 .. exercise::
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
@@ -101,6 +131,180 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
 
                 return sum_b - sum_a;
             }
+
+.. exercise:: Le plus grand et le plus petit
+
+    Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En comémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
+
+    Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
+
+    Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci:
+
+    .. code-block:: text
+
+        1931
+        1986
+        1996
+        1981
+        1979
+        1999
+        2004
+        1978
+        1964
+
+    Votre programme sera exécuté comme suit:
+
+    .. code-block:: console
+
+        $ cat years.txt | marmite
+        2004
+        1931
+
+.. exercise:: L'index magique
+
+    Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Compte tenu que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+
+    Exemple:
+
+    .. code-block:: text
+
+          0   1   2   3   4   5   6   7   8   9   10
+        ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+        │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+        └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                      ^
+
+    .. solution:: c
+
+        Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique:
+
+        .. code-block:: c
+
+            int magic_index(int[] array) {
+                const size_t size = sizeof(array) / sizeof(array[0]);
+
+                size_t i = 0;
+
+                do {
+                    i++;
+                } while (i < size && array[i] != i)
+
+                return i == size ? -1 : i;
+            }
+
+        La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
+
+        Pour mieux se représenter le problème prenons l'exemple d'un tableau:
+
+        .. code-block:: text
+
+              0   1   2   3   4   5   6   7   8   9   10
+            ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+            │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+            └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                          ^
+
+        La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
+
+        Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait:
+
+        .. code-block:: text
+
+              0   1   2   3   4
+            ┌───┬───┬───┬───┬───┐
+            │ -1│ 0 │ 1 │ 2 │ 3 │
+            └───┴───┴───┴───┴───┘
+
+        On voit qu'il est impossible que la valeur se trouve à gauche car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur mediane.
+
+        Il est possible de répéter cette approche de façon dichotomique:
+
+        .. code-block:: c
+
+            int magic_index(int[] array) {
+                return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
+            }
+
+            int _magic_index(int[] array, size_t start, size_t end) {
+                if (end < start) return -1;
+                int mid = (start + end) / 2;
+                if (array[mid] == mid) {
+                    return mid;
+                } else if (array[mid] > mid) {
+                    return _magic_index(array, start, mid - 1);
+                } else {
+                    return _magic_index(array, mid + 1, end);
+                }
+            }
+
+Tableaux multi-dimensionnels
+----------------------------
+
+.. exercise:: Détectives privés
+
+    Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés:
+
+    =========  =======  ======   ======  ======  =====
+               Bosley   Sabrina  Jill    Kelly   TOTAL
+    =========  =======  ======   ======  ======  =====
+    Janvier    414.38   222.72   99.17   153.81
+    Février    403.41   390.61   174.39  18.11
+    Mars       227.55   73.86    291.08  416.55
+    Avril      220.20   342.25   139.45  86.98
+    Mai         13.46   172.66   252.33  265.32
+    Juin       259.37   378.72   173.02  208.43
+    Juillet    327.06   16.53    391.05  266.84
+    Août        50.82   3.37     201.71  170.84
+    Septembre  450.78   9.33     111.63  337.07
+    Octobre    434.45   77.80    459.46  479.17
+    Novembre   420.13   474.69   343.64  273.28
+    Décembre   147.76   250.73   201.47  9.75
+    =========  =======  ======   ======  ======  =====
+    Total
+    =========  =======  ======   ======  ======  =====
+
+    Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit:
+
+    .. code-block:: c
+
+        double accounts[][] = {
+            {414.38, 222.72,  99.17, 153.81, 0},
+            {403.41, 390.61, 174.39, 18.11,  0},
+            {227.55,  73.86, 291.08, 416.55, 0},
+            {220.20, 342.25, 139.45, 86.98,  0},
+            {13.46 , 172.66, 252.33, 265.32, 0},
+            {259.37, 378.72, 173.02, 208.43, 0},
+            {327.06,  16.53, 391.05, 266.84, 0},
+            {50.82 ,   3.37, 201.71, 170.84, 0},
+            {450.78,   9.33, 111.63, 337.07, 0},
+            {434.45,  77.80, 459.46, 479.17, 0},
+            {420.13, 474.69, 343.64, 273.28, 0},
+            {147.76, 250.73, 201.47, 9.75,   0},
+            {  0,      0,      0,    0,      0}
+        };
+
+    Et laquelle complète les valeurs manquantes.
+
+.. exercise:: Pot de peinture
+
+    A l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
+
+    L'image est représentée par un tableau bi-dimensionnel contenant des couleurs indexées:
+
+    .. code-block::
+
+        typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
+
+        #if 0 // Image declaration example
+        Color image[100][100];
+        #endif
+
+        boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
+
+    .. hint::
+
+        Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
+
 
 Structures
 ==========
@@ -859,4 +1063,3 @@ standard (type nom\_de\_variable).
     eeCodeCouleurResistance bague=E_ROUGE;
                         // déclaration et initialisation
                         // (bague vaut donc 2)
-

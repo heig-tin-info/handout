@@ -379,6 +379,25 @@ La directive ``scanf("%*[^\n]");`` étant un peu particulier, il peut valoir la 
 
 Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des `expressions régulières <https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re>`__ très utilisées en informatique. Le caractère ``^`` à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères **qui ne sont pas acceptés**. C'est une sorte de négation. Dans le cas présent, cette directive ``scanf`` cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à ``C`` de ``Celsius``, le pointeur de fichier est bloqué au caractère ``C`` et au prochain tour de boucle, ``scanf`` échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.
 
+.. exercise:: scanf sur des entiers et des réels
+
+    Considérant les déclarations:
+
+    .. code-block:: c
+
+        int i, j, k;
+        float f;
+
+    Donnez les valeurs de chacune des variables après exécution. Chaque ligne est indépendante des autres.
+
+    .. code-block:: c
+
+        i = sscanf("1 12.5", "%d %d, &j, &k);
+        sscanf("12.5", "%d %f", &j, %f);
+        i = sscanf("123 123", "%d %f", &j, &f);
+        i = sscanf("123a 123", "%d %f", &j, &f);
+        i = sscanf("%2d%2d%f", &j, &k, &f);
+
 Saisie de chaîne de caractères
 ------------------------------
 
@@ -391,7 +410,7 @@ Lors d'une saisie de chaîne de caractère, il est nécessaire de **toujours** i
         char b[10] = "Râteau";
 
         char str[] = "jardinage";
-        sscanf(str, "%s", &a);
+        sscanf(str, "%s", a);
 
         printf("a. %s\nb. %s\n", a, b);
     }
@@ -403,6 +422,15 @@ Lors d'une saisie de chaîne de caractère, il est nécessaire de **toujours** i
     b. age
 
 Ici la variable b contient ``age`` alors qu'elle devrait contenir ``râteau``. La raison est que le mot capturé ``jardinage`` est trop long pour la variable ``a`` qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec ``%5s``.
+
+En mémoire, ces deux variables sont adjacentes et naturellement `a[7]` est équivalent à dire *la septième case mémoire à partir du début de ``a``*.
+
+.. code-block:: text
+
+         a[6]              b[10]
+    ┞─┬─┬─┬─┬─┬─┦┞─┬─┬─┬─┬─┬─┬─┬─┬─┬─┦
+    │ │ │ │ │ │ ││R│â│t│e│a│u│ │ │ │ │
+    └─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
 Saisie arbitraire
 -----------------
@@ -607,6 +635,3 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
         - St-Galle
 
     Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.
-
-
-
