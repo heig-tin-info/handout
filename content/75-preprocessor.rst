@@ -406,3 +406,13 @@ Les commentaires C du type:
 
 sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur.
 
+
+-----
+
+.. exercise:: is_octal
+
+    Que pensez-vous de cette définition ?
+
+    .. code-block:: c
+
+        #define IS_OCTAL(c) ((c) >= '0' && (c) <= '8')

@@ -276,3 +276,42 @@ Par abus de langage et en comparaison avec d'autres langages de programmation, o
 En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeurs, c'est bien un passage par valeur dans lequel la valeur d'un pointeur sur un tableau est passée à la fonction ``alter``.
 
 Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le *caller*.
+
+------
+
+.. exercise:: Dans la moyenne
+
+    Écrire une fonction ``mean`` qui reçoit 3 paramètres réels et qui retourne la moyenne.
+
+    .. solution::
+
+        .. code-block:: c
+
+            double mean(double a, double b, double c) {
+                return (a + b + c) / 3.;
+            }
+
+.. exercise:: Le plus petit
+
+    Écrire une fonction ``min`` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
+
+    .. solution::
+
+        .. code-block:: c
+
+            double min(double a, double b, double c) {
+                double min_value = a;
+                if (b < min_value)
+                    min_value = b;
+                if (c < min_value)
+                    min_value = c;
+                return min_value;
+            }
+
+        Une manière plus compacte, mais moins lisible serait:
+
+        .. code-block:: c
+
+            double min(double a, double b, double c) {
+                return (a = (a < b ? a : b)) < c ? a : c;
+            }

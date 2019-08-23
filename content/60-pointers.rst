@@ -583,6 +583,8 @@ L'utilisation de structure peut être utile pour initialiser un type de donnée 
     } data;
 
 
+------
+
 .. exercises
 
 .. exercise:: Esperluettes cascadées
@@ -592,3 +594,33 @@ L'utilisation de structure peut être utile pour initialiser un type de donnée 
     .. code-block:: c
 
         *&*&*&*&*&*&(int)x;
+
+
+.. exercise:: Passage par adresse
+
+    Donnez lesvaleurs affichées par ce programme pour les variables ``a`` à ``e``.
+
+    .. code-block:: c
+
+        #include <stdio.h>
+        #include <stdlib.h>
+
+        int test(int a, int * b, int * c, int * d) {
+            a = *b;
+            *b = *b + 5;
+            *c = a + 2;
+            d = c;
+            return *d;
+        }
+
+        int main(void) {
+            int a = 0, b = 100, c = 200, d = 300, e = 400;
+            e = test(a, &b, &c, &d);
+            printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
+        }
+
+    .. solution::
+
+        .. code-block:: text
+
+            a:0, b:105, c:102, d:300, e:102

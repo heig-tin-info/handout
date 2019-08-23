@@ -296,6 +296,9 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
 .. exercise:: La numération Shadock
 
+    .. figure:: ../assets/images/shadocks.*
+        :height: 200px
+
     Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo `Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>`__ en explique le principe.
 
     Convertir ``−⨼○◿○`` (``BU ZO GA MEU GA``) en décimal.
@@ -337,10 +340,7 @@ Une approche naïve est de réserver une partie de la mémoire pour des entiers 
 Bit de signe
 ------------
 
-.. TOTO:: zieuter le 8ième qui sort pas bien
-
-
-On peut se réserver un bit de signe, par exemple le 8:sup:`ième` bit d'un ``char``.
+On peut se réserver un bit de signe, par exemple le 8\ :sup:`ième` bit d'un ``char``.
 
 .. code-block:: text
 
@@ -634,7 +634,6 @@ En arithmétique binaire, c'est exactement la même chose:
                   …011111111₂  (2⁸ - 1 ≡ 255)
 
         #. 204 + 204 (sur 8-bits)
-
             .. code-block:: text
 
                    ¹|¹  ¹¹

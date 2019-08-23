@@ -139,6 +139,9 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont:
 
 À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur ``signed`` était optionnel, le préfix ``long`` ne pouvait s'appliquer qu'au type ``int`` et ``long`` et la confusion entre ``long`` (préfixe) et ``long`` (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.
 
+Types standards
+^^^^^^^^^^^^^^^
+
 La construction d'un type entier C est la suivante:
 
 .. figure:: ../assets/figures/datatype/ansi-integers.*
@@ -200,6 +203,8 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
     :alt: Entiers standardisés **C99**
     :width: 100 %
 
+Types réformés
+^^^^^^^^^^^^^^
 
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
@@ -256,6 +261,70 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
     .. code-block:: c
 
         uint16_t j = 1024 * 64;
+
+Modèle de donnée
+^^^^^^^^^^^^^^^^
+
+Comme nous l'avons évoqué plus haut, la taille des entiers ``short``, ``int``, ... n'est pas précisément définie par le standard. On sait qu'un ``int`` contient **au moins** 16-bits mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment conscensieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
+
+Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un ``int`` comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du ``int`` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
+
+La première solution est de toujours utiliser les types proposés par ``<stdint.h>`` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données:
+
+.. list-table:: Modèle de données
+   :widths: 15 10 10 10 10 10 30
+   :header-rows: 1
+
+   * - Modèle de donnée
+     - ``short``
+     - ``int``
+     - ``long``
+     - ``long long``
+     - ``size_t``
+     - Système d'exploitation
+   * - **LP32**
+     - 16
+     - 16
+     - 32
+     -
+     - 32
+     - Windows 16-bits, Apple Macintosh (très vieux)
+   * - **ILP32**
+     - 16
+     - 32
+     - 32
+     - 64
+     - 32
+     - Windows x86, Linux/Unix 32-bits
+   * - **LLP64**
+     - 16
+     - 32
+     - 32
+     - 64
+     - 64
+     - `Microsoft Windows <https://en.wikipedia.org/wiki/Microsoft_Windows>`__ x86-64, `MinGW <https://en.wikipedia.org/wiki/MinGW>`__
+   * - **LP64**
+     - 16
+     - 32
+     - 64
+     - 64
+     - 64
+     - `Unix <https://en.wikipedia.org/wiki/Unix>`__, `Linux <https://en.wikipedia.org/wiki/Linux>`__, `macOS <https://en.wikipedia.org/wiki/MacOS>`__, `Cygwin <https://en.wikipedia.org/wiki/Cygwin>`__
+   * - **ILP64**
+     - 16
+     - 64
+     - 64
+     - 64
+     - 64
+     - `HAL <https://en.wikipedia.org/wiki/HAL_Computer_Systems>`__ (`SPARC <https://en.wikipedia.org/wiki/SPARC>`__)
+   * - **SILP64**
+     - 64
+     - 64
+     - 64
+     - 64
+     - 64
+     - `UNICOS <https://en.wikipedia.org/wiki/UNICOS>`__ (Super ordinateur)
+
 
 Les nombres réels
 =================
@@ -612,6 +681,36 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 - Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres ``int main(void)``
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien ``void display(char c)``
 - Comme pointeur dont le type de destination n'est pas spécifié ``void* ptr``
+
+
+------
+
+.. exercise:: Evaluation d'expressions
+
+    Considérons les déclarations suivantes:
+
+    .. code-block:: c
+
+        char c = 3;
+        short s = 7;
+        int i = 3;
+        long l = 4;
+        float f = 3.3;
+        double d = 7.7;
+
+    Que vaut le type et la valeur des expressions suivantes ?
+
+    #. ``c / 2``
+    #. ``sh + c / 10``
+    #. ``lg + i / 2.0``
+    #. ``d + f``
+    #. ``(int)d + f``
+    #. ``(int)d + lg``
+    #. ``c << 2``
+    #. ``sh & 0xF0``
+    #. ``sh && 0xF0``
+    #. ``sh == i + lg``
+    #. ``d + f == sh + lg``
 
 .. exercise:: Précision des flottants
 

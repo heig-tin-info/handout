@@ -76,6 +76,20 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
 
     Traitez les cas particuliers.
 
+    .. code-block:: c
+
+        int index_of(int *array, size_t size, int search);
+
+    .. solution::
+
+        .. code-block:: c
+
+            int index_of(int *array, size_t size, int search) {
+                int i = 0;
+                while (i < size && array[i++] != search);
+                return i == size ? -1 : i;
+            }
+
 .. exercise:: Déclarations de tableaux
 
     Considérant les déclarations suivantes:
@@ -104,20 +118,20 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
 
-    0
+    ``0``
         La somme des deux tableaux est égale.
 
-    -1
+    ``-1``
         La somme du tableau de gauche est plus petite que le tableau de droite
 
-    1
+    ``1``
         La somme du tableau de droite est plus grande que le tableau de gauche
 
     Le prototype de la fonction à écrire est:
 
-        .. code-block:: c
+    .. code-block:: c
 
-            int comp(char a[], char b[], size_t length);
+        int comp(char a[], char b[], size_t length);
 
     .. solution::
 
@@ -187,9 +201,7 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
 
                 size_t i = 0;
 
-                do {
-                    i++;
-                } while (i < size && array[i] != i)
+                while (i < size && array[i] != i) i++;
 
                 return i == size ? -1 : i;
             }
@@ -246,9 +258,9 @@ Tableaux multi-dimensionnels
 
     Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés:
 
-    =========  =======  ======   ======  ======  =====
-               Bosley   Sabrina  Jill    Kelly   TOTAL
-    =========  =======  ======   ======  ======  =====
+    =========  =======  ======   ======  ======
+               Bosley   Sabrina  Jill    Kelly
+    =========  =======  ======   ======  ======
     Janvier    414.38   222.72   99.17   153.81
     Février    403.41   390.61   174.39  18.11
     Mars       227.55   73.86    291.08  416.55
@@ -261,9 +273,7 @@ Tableaux multi-dimensionnels
     Octobre    434.45   77.80    459.46  479.17
     Novembre   420.13   474.69   343.64  273.28
     Décembre   147.76   250.73   201.47  9.75
-    =========  =======  ======   ======  ======  =====
-    Total
-    =========  =======  ======   ======  ======  =====
+    =========  =======  ======   ======  ======
 
     Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit:
 
@@ -1065,3 +1075,39 @@ standard (type nom\_de\_variable).
     eeCodeCouleurResistance bague=E_ROUGE;
                         // déclaration et initialisation
                         // (bague vaut donc 2)
+
+-----
+
+.. exercise:: Mendeleïev
+
+    Chaque élément du taleau périodique des éléments comporte les propriétés suivantes:
+
+    - Un nom jusqu'à 20 lettres
+    - Un symbole jusqu'à 2 lettres
+    - Un numéro atomique de 1 à 118 (2019)
+    - Le type de l'élément
+        - Métaux
+            - Alcalin
+            - Alcalino-terreux
+            - Lanthanides
+            - Actinides
+            - Métaux de transition
+            - Métaux pauvres
+        - Métalloïdes
+        - Non métaux
+            - Autres
+            - Halogène
+            - Gaz noble
+    - La période: un entier de 1 à 7
+    - Le groupe: un entier de 1 à 18
+
+    Déclarer une structure de données permettant de stocker tous les éléments chimiques de tel facon qu'ils puissent être accédés comme:
+
+    .. code-block:: c
+
+        assert(strcmp(table.element[6].name, "Helium") == 0);
+        assert(strcmp(table.element[54].type, "Gaz noble") == 0);
+        assert(table.element[11].period == 3);
+
+        Element *el = table.element[92];
+        assert(el->atomic_weight == 92);

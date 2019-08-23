@@ -255,6 +255,18 @@ Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est
 
 Séquentiellement une boucle ``while`` teste la condition, puis exécute la séquence associée.
 
+.. exercise:: Tant que...
+
+    Comment se comportent ces programmes:
+
+    #. ``size_t i=0;while(i<11){i+=2;printf("%i\n",i);}``
+    #. ``i=11;while(i--){printf("%i\n",i--);}``
+    #. ``i=12;while(i--){printf("%i\n",--i);}``
+    #. ``i = 1;while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}``
+    #. ``i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }``
+    #. ``i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }``
+    #. ``i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }``
+
 do..while
 ---------
 
@@ -309,6 +321,23 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
     {
         /* ... */
     }
+
+.. exercise:: Pour quelques tours
+
+    Comment est-ce que ces expressions se comportent-elles ?
+
+    .. code-block:: c
+
+        int i, k;
+
+    #. :code:`for (i = 'a'; i < 'd'; printf ("%i\n", ++i));`
+    #. :code:`for (i = 'a'; i < 'd'; printf ("%c\n", ++i));`
+    #. :code:`for (i = 'a'; i++ < 'd'; printf ("%c\n", i ));`
+    #. :code:`for (i = 'a'; i <= 'a' + 25; printf ("%c\n", i++ ));`
+    #. :code:`for (i = 1 / 3; i ; printf("%i\n", i++ ));`
+    #. :code:`for (i = 0; i != 1 ; printf("%i\n", i += 1 / 3 ));`
+    #. :code:`for (i = 12, k = 1; k++ < 5 ; printf("%i\n", i-- ));`
+    #. :code:`for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
 
 .. exercise:: Erreur
 
@@ -524,6 +553,119 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
 ------------
 
+.. exercise:: Faute d'erreur
+
+    Considérons les déclarations suivantes:
+
+    .. code-block:: c
+
+        long i = 0;
+        double x = 100.0;
+
+    Indiquer la nature de l'erreur dans les expressions suivants:
+
+    #.
+        .. code-block:: c
+
+            do
+                x = x / 2.0;
+                i++;
+            while (x > 1.0);
+
+    #.
+        .. code-block:: c
+
+            if (x = 0)
+                printf("0 est interdit !\n");
+
+    #.
+        .. code-block:: c
+
+            switch(x) {
+                case 100:
+                    printf("Bravo.\n");
+                    break;
+                default:
+                    printf("Pas encore.\n");
+
+            }
+    #.
+        .. code-block:: c
+
+            for (i = 0 ; i < 10 ; i++);
+                printf("%d\n", i);
+
+    #.
+        .. code-block:: c
+
+            while i < 100 {
+                printf("%d", ++i);
+            }
+
+.. exercise:: Cas appropriés
+
+    Parmis les cas suivants, quel structure de contrôle utiliser ?
+
+    #. Test qu'une variable soit dans un interval donné.
+    #. Actions suivant un choix multiple de l'utilsateur
+    #. Rechercher un caractère particulier dans une chaîne de caractère
+    #. Itérer toutes les valeurs paires sur un interval donné
+    #. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``
+
+    .. solution::
+
+        #. Le cas est circonscrit à un interval de valeur donnée, le ``if`` est approprié:
+            .. code-block:: c
+
+                if (i > min && i < max) { /* ... */ }
+
+        #. Dans ce cas un `switch` semble le plus approprié
+            .. code-block:: c
+
+                switch(choice) {
+                    case 0:
+                        /* ... */
+                        break;
+                    case 1:
+                        /* ... */
+                }
+
+        #. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
+            .. code-block:: c
+
+                size_t pos;
+                while (pos < strlen(str) && str[pos] != c) {
+                    pos++;
+                }
+                if (pos == strlen(str)) {
+                    // Not found
+                } else {
+                    // Found `c` in `str` at position `pos`
+                }
+
+        #. La boucle ``for`` semble ici la plus adaptée
+            .. code-block:: c
+
+                for (size_t i = 100; i < 200; i += 2) {
+                    /* ... */
+                }
+
+        #. Il est nécessaire ici d'assurer au moins un tour de boucle:
+            .. code-block:: c
+
+                const size_t max_line_length = 64;
+                char format[32];
+                snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
+                unsigned int line = 0;
+                char buffer[max_lines][max_line_length];
+                do {
+                    printf("%d. ", line);
+                } while (
+                    scanf(format, buffer[line]) == 1 &&
+                    strcmp(buffer[line], "STOP") &&
+                    ++line < max_lines
+                );
+
 .. exercise:: Comptons sur les caractères
 
     Un texte est passé à un programme par ``stdin``. Comptez le nombre de caractères transmis.
@@ -532,3 +674,25 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
         $ echo "Hello world" | count-this
         11
+
+.. exercise:: Esperluette conditionnelle
+
+    Quel est le problème avec cette ligne de code ?
+
+    .. code-block:: c
+
+        if (x&mask==bits)
+
+    .. solution::
+
+        La priorité de l'opérateur unitaire ``&`` est plus élevée que ``==`` ce qui se traduit par:
+
+        .. code-block:: c
+
+            if (x & (mask == bits))
+
+        Le développeur voulait probablement appliquer le masque à ``x`` puis le comparer au motif ``bits``. La bonne réponse devrait alors être:
+
+        .. code-block:: c
+
+            if ((x & mask) == bits)

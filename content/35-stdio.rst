@@ -39,7 +39,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
             size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value
         #endif
 
-    .. solution:: c
+    .. solution::
 
         .. code-block:: c
 
@@ -72,55 +72,9 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
 
 Voici un exemple possible d'implémentation:
 
-.. code-block:: c
-    :caption: iota.c
+.. literalinclude:: ../assets/src/iota.c
+    :language: c
     :name: iota-c
-
-    void swap(char* a, char* b)
-    {
-        *a ^= *b;
-        *b ^= *a;
-        *a ^= *b;
-    }
-
-    void reverse(char* str, size_t length)
-    {
-        for (size_t start = 0, end = length - 1; start < end; start++, end--)
-        {
-            swap(str + start, str + end);
-        }
-    }
-
-    void my_itoa(int num, char* str)
-    {
-        const unsigned int base = 10;
-        bool is_negative = false;
-        size_t i = 0;
-
-        if (num == 0) {
-            str[i++] = '0';
-            str[i] = '\0';
-            return;
-        }
-
-        if (num < 0) {
-            is_negative = true;
-            num = -num;
-        }
-
-        while (num != 0) {
-            int rem = num % 10;
-            str[i++] = rem + '0';
-            num /= base;
-        }
-
-        if (is_negative)
-            str[i++] = '-';
-
-        str[i] = '\0';
-
-        reverse(str, i);
-    }
 
 Cette implémentation pourrait être utilisée de la façon suivante:
 
@@ -628,10 +582,10 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont:
 
-        - Genève
-        - Zürich
-        - Bâle
-        - Bern
-        - St-Galle
+    - Genève
+    - Zürich
+    - Bâle
+    - Bern
+    - St-Galle
 
     Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.

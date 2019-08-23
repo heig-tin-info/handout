@@ -1219,3 +1219,27 @@ De même que ce test n'effectura pas une division mais testera simplement le der
     } else {
         puts("Impair");
     }
+
+
+-----
+
+.. exercise:: Verbosité
+
+    Comment récririez-vous ce programme?
+
+    .. code-block:: c
+
+        for (register unsigned int the_element_index = 0; the_element_index < number_of_elements; the_element_index += 1)
+            array_of_elements[the_element_index] =  the_element_index;
+
+    .. solution::
+
+        Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit:
+
+        .. code-block:: c
+
+            for (size_t i; i < nelems; i++)
+                elem[i] = i;
+
+        Un consensus assez bien établi est qu'une variable commencant par ``n`` peut signifier
+        *number of*.

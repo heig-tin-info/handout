@@ -340,3 +340,61 @@ Le changement de mode peut être effectué avec la fonction ``setbuf`` ou ``setv
     }
 
 La fonction ``fflush`` force l'écriture malgré l'utilisation d'un buffer.
+
+-----
+
+.. exercise:: Variantes
+
+    Considérez les deux programmes ci-dessous très similaires.
+
+    .. code-block:: c
+
+        #include <stdio.h>
+
+        int main(void)
+        {
+            char texte[80];
+
+            printf("Saisir un texte:");
+            gets(texte);
+            printf("Texte: %s\n", texte);
+        }
+
+    .. code-block:: c
+
+        #include <stdio.h>
+
+        int main(void)
+        {
+            char texte[80];
+
+            printf("Saisir un texte:");
+            fgets(texte, 80, stdin);
+            printf("Texte: %s\n", texte);
+        }
+
+    #. Quelle est la différence  entre ces 2 programmes ?
+    #. Dans quel cas est-ce que ces programmes auront un comportement différent ?
+    #. Quelle serait la meilleure solution ?
+
+.. exercise:: Numéro de ligne
+
+    Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
+
+    .. code-block:: console
+
+        $ ./search
+        Fichier: foo.txt
+        Recherche: bulbe
+
+        4
+        5
+        19
+        132
+        981
+
+    Question subsidiaire: que fait le programme suivant:
+
+    .. code-block:: console
+
+        $ grep foo.txt bulbe
