@@ -13,7 +13,7 @@ Généralement un algorithme peut être exprimé graphiquement en utilisant un o
 La **conception** aussi appelée `Architecture logicielle <https://fr.wikipedia.org/wiki/Architecture_logicielle>`__ est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.
 
 Complexité d'un algorithme
---------------------------
+==========================
 
 Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs:
 
@@ -124,6 +124,16 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
 
     Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?
 
+Machines d'états
+================
+
+Diagrammes visuels
+==================
+
+- Diagrammes en flux
+- Structogrammes
+- Diagramme d'activités
+
 Récursivité
 ===========
 
@@ -144,3 +154,37 @@ La `récursivité <https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`__ est u
 
     #. Proposer une implémentation
     #. Quelle est la complexité de votre algorithme ?
+
+Programmation dynamique
+=======================
+
+.. todo:: Compléter
+
+-----
+
+.. exercise:: Intégrateur de Kahan
+
+    L'intégrateur de Kahan (`Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`__) est une solution élégante pour palier à la limite de résolution des types de données.
+
+    L'algorithme pseudo-code peut être exprimé comme:
+
+    .. code-block:: text
+
+        function kahan_sum(input)
+            var sum = 0.0
+            var c = 0.0
+            for i = 1 to input.length do
+                var y = input[i] - c
+                var t = sum + y
+                c = (t - sum) - y
+                sum = t
+            next i
+            return sum
+
+    #. Implémenter cet algorithme en C compte tenu du prototype:
+        .. code-block:: c
+
+            float kahan_sum(float value, float sum, float c);
+
+    #. Expliquer comment fonctionne cet algorithme.
+    #. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.

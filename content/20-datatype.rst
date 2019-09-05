@@ -659,8 +659,8 @@ A titre d'exemple, si l'on souhaite stocker le genre d'un individu (male, ou fem
 
 .. _void:
 
-void
-====
+Type vide (*void*)
+==================
 
 Le type ``void`` est particulier car c'est un type qui ne vaut rien. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien:
 
@@ -682,6 +682,251 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien ``void display(char c)``
 - Comme pointeur dont le type de destination n'est pas spécifié ``void* ptr``
 
+Promotion implicite
+===================
+
++---------+-----------------------+----------+
+| char    | :math:`\Rightarrow`   | int      |
++---------+-----------------------+----------+
+| short   | :math:`\Rightarrow`   | int      |
++---------+-----------------------+----------+
+| int     | :math:`\Rightarrow`   | long     |
++---------+-----------------------+----------+
+| long    | :math:`\Rightarrow`   | float    |
++---------+-----------------------+----------+
+| float   | :math:`\Rightarrow`   | double   |
++---------+-----------------------+----------+
+
+Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
+passe directement à un type *int*.
+
+.. exercise:: Expressions mixtes
+
+    Soit les instructions suivantes:
+
+    .. code-block:: c
+
+        int n = 10;
+        int p = 7;
+        float x = 2.5;
+
+    Donnez le type et la valeur des expressions suivantes:
+
+    #. ``x + n % p``
+    #. ``x + p / n``
+    #. ``(x + p) / n``
+    #. ``.5 * n``
+    #. ``.5 * (float)n``
+    #. ``(int).5 * n``
+    #. ``(n + 1) / n``
+    #. ``(n + 1.0) / n``
+
+.. exercise:: Promotion numérique
+
+    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous:
+
+    .. code-block:: c
+
+        char c;
+        short sh;
+        int i;
+        float f;
+        double d;
+
+    #. ``c * sh - f / i + d;``
+    #. ``c * (sh – f) / i + d;``
+    #. ``c * sh - f - i + d;``
+    #. ``c + sh * f / i + d;``
+
+Effets du transtypage
+---------------------
+
+Le changement de type forcé (transtypage) entre des variables de
+différents types engendre des effets de bord qu'il faut connaître. Lors
+d'un changement de type vers un type dont le pouvoir de représentation
+est plus important, il n'y a pas de problème. A l'inverse, on peut
+rencontrer des erreurs sur la précision ou une modification radicale de
+la valeur représentée !
+
+Transtypage d'un entier en réel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La conversion d'un entier (signé ou non) en réel (*double* ou *float*)
+n'a pas d'effet particulier. Le type
+
+.. code-block:: c
+
+    long l=3;
+    double d=(double)l; // valeur : 3 => OK
+
+A l'exécution, la valeur de :math:`d` sera la même que :math:`l`.
+
+Transtypage d'un réel en entier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La conversion d'un nombre réel (*double* ou *float*) en entier (signé)
+doit être étudié pour éviter tout problème. Le type entier doit être
+capable de recevoir la valeur (attention aux valeurs maxi).
+
+.. code-block:: c
+
+    double d=3.9;
+    long l=(long)d; // valeur : 3 => perte de précision
+
+A l'exécution, la valeur de :math:`l` sera la partie entière de
+:math:`d`. Il n'y a pas d'arrondi.
+
+.. code-block:: c
+
+    double d=0x12345678;
+    short sh=(short)d; // valeur : 0x5678 => changement de valeur
+
+La variable sh (*short* sur 16 bit) ne peut contenir la valeur réelle.
+Lors du transtypage, il y a modification de la valeur ce qui conduit à
+des erreurs de calculs par la suite.
+
+.. code-block:: c
+
+    double d=-123;
+    unsigned short sh=(unsigned short)d; // valeur : 65413 => changement de valeur
+
+L'utilisation d'un type non signé pour convertir un nombre réel conduit
+également à une modification de la valeur numérique.
+
+Transtypage d'un double en float
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La conversion d'un nombre réel de type *double* en réel de type *float*
+pose un problème de précision de calcul.
+
+.. code-block:: c
+
+    double d=0.1111111111111111;
+    float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
+
+A l'exécution, il y a une perte de précision lors de la conversion ce
+qui peut, lors d'un calcul itératif induire des erreurs de calcul.
+
+.. exercise:: Conversion de types
+
+    On considère les déclarations suivantes:
+
+    .. code-block:: c
+
+        float x;
+        short i;
+        unsigned short j;
+        long k;
+        unsigned long l;
+
+    Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
+
+    .. code-block:: c
+
+        x = 1e6;
+        i = x;
+        j = -20;
+        k = x;
+        l = k;
+        k = -20;
+        l = k;
+
+    .. solution::
+
+        .. code-block:: c
+
+            x = 1e6;
+            i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+            j = -20;  // Incorrect, valeur signée dans un conteneur non signé
+            k = x;
+            l = k;
+            k = -20;
+            l = k;    // Incorrect, valeur signée dans un conteneur non signé
+
+.. exercise:: Un casting explicite
+
+    Que valent les valeurs de ``p``, ``x`` et ``n``:
+
+    .. code-block:: c
+
+        float x;
+        int n, p;
+
+        p = 2;
+        x = (float)15 / p;
+        n = x + 1.1;
+
+    .. solution::
+
+        p ≡ 2
+        x = 7.5
+        n = 8
+
+.. exercise:: Opérateurs de relation et opérateurs logiques
+
+    Soit les déclarations suivantes:
+
+    .. code-block:: c
+
+        float x, y;
+        bool condition;
+
+    Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations:
+
+    .. code-block:: c
+
+        condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+
+    Donner la valeur de ``condition`` évaluée avec les valeurs suivantes de ``x`` et ``y``:
+
+    #. ``x = -1.0; y = 60.;``
+    #. ``x = 0; y = 1.;``
+    #. ``x = 19.0; y = 1.0;``
+    #. ``x = 0.0; y = 50.0;``
+    #. ``x = 2.0; y = 50.0;``
+    #. ``x = -10.0; y = 60.0;``
+
+    .. solution::
+
+        .. code-block:: c
+
+            condition = (
+                (x >= 0) && (x <= 20) && (y > x))
+                ||
+                ((y == 50) && (x == 2))
+                ||
+                (y == 60)
+            );
+
+        #. ``true``
+        #. ``true``
+        #. ``false``
+        #. ``true``
+        #. ``true``
+        #. ``true``
+
+.. exercise:: Casses tête
+
+    Vous participez à une revue de code et tomber sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
+
+    Pour chaque exemple, donner la valeur des variables après exécution du code.
+
+    #. .. code-block:: c
+
+        unsigned short i = 32767;
+        i++;
+
+    #. .. code-block:: c
+
+        short i = 32767;
+        i++;
+
+    #. .. code-block:: c
+
+        short i = 0;
+        i = i--;
+        i = --i;
+        i = i--;
 
 ------
 
@@ -849,3 +1094,25 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
             .. code-block::c
 
                 percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
+
+.. exercise:: Missile Patriot
+
+    Durant la guerre du golfe le 25 février 1991, une batterie de missile américaine à Dharan en arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
+
+    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixieème de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:`ième` décimale après la virguleDes erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduit par 600 mètres d'erreur lors de la tentative d'interception.
+
+    Le stockage de la valeur 0.1 est donné par:
+
+    .. math::
+
+        0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
+
+    Un registre contient donc le nombre d'heures écoulées exprimée en dixième de seconde soit pour 100 heures:
+
+    .. math::
+
+        100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
+
+    En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne ``Q1.23 x Q0.24 = Q1.47`` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
+
+    Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?

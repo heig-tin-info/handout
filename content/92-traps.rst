@@ -2,12 +2,12 @@
 Pièges
 ======
 
-Ce chapitre traite des pièges les plus courants dans lesquels l'apprenti programmeur ne manquera pas de tomber. Le C est un langage puissant, mais potentiellement dangereux, car il permet d'opérer à très bas niveau, ce qui peut générer des bugs retors à l'exécution.
+Ce chapitre traite des pièges les plus courants dans lesquels l'apprenti programmeur ne manquera pas de tomber. Le C est un langage puissant, mais potentiellement dangereux, car il permet d'opérer à très bas niveau, ce qui peut occasionner des bogues retors à l'exécution.
 
 Préprocesseur
 =============
 
-Les macros sont des simples remplacements de chaînes de caractères intervenant avant la compilation.
+Rappelons-le, les macros sont des simples remplacements de chaînes de caractères intervenant avant la compilation.
 
 Macro avec paramètre
 --------------------
@@ -97,8 +97,8 @@ Observations:
 
 - Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.
 
-Erreur de syntaxe
-=================
+Erreurs de syntaxe
+==================
 
 Confusion = et ==
 -----------------
@@ -166,4 +166,3 @@ Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle 
     {
         i--;
     }
-

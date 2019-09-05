@@ -315,3 +315,132 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
             double min(double a, double b, double c) {
                 return (a = (a < b ? a : b)) < c ? a : c;
             }
+
+.. exercise:: Algorithme de retour de monnaie
+
+    On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
+
+    Dans le code du programme, les trois variables suivantes seront utilisées:
+
+    .. code-block:: c
+
+        // Available coins in the parking ticket machine
+        unsigned int ncoin_10, ncoin_20;
+
+        // How much money the user inserted into the machine (in cents)
+        unsigned int amount_payed;
+
+    Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme:
+
+    .. code-block:: console
+
+        $ echo "10 10 20 20 20" | ./ptm 30 1
+        ticket
+        20
+        10
+
+    Le programme reçois sur ``stdin`` les pièces introduites dans la machine. Les deux arguments passés au programme ``ptm`` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. ``stdout`` contient les valeurs rendue à l'utilisateur. La valeur ``ticket`` correspond au ticket distribué.
+
+    Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
+
+    .. solution::
+
+        Voici une solution partielle:
+
+        .. code-block:: c
+
+            #define TICKET_PRICE 50
+
+            void give_coin(unsigned int value) { printf("%d\n", value); }
+            void give_ticket(void) { printf("ticket\n"); }
+
+            bool no_ticket = amount_payed < TICKET_PRICE;
+
+            int amount_to_return = amount_payed - TICKET_PRICE;
+            do {
+                while (amount_to_return > 0) {
+                    if (amount_to_return >= 20 && ncoin_20 > 0) {
+                        give_coin(20);
+                        amount_to_return -= 20;
+                        ncoin_20--;
+                    } else if (amount_to_return >= 10 && ncoin_10 > 0) {
+                        give_coin(10);
+                        amount_to_return -= 10;
+                        ncoin_10--;
+                    } else {
+                        no_ticket = true;
+                        break;
+                    }
+                }
+            } while (amount_to_return > 0);
+
+            if (!no_ticket) {
+                give_ticket();
+            }
+
+.. exercise:: La fonction f
+
+    Considérons le programme suivant:
+
+    .. code-block:: c
+
+        int f(float x) {
+            int i;
+            if (x > 0.0)
+                i = (int)(x + 0.5);
+            else
+                i = (int)(x - 0.5);
+            return i;
+        }
+
+    Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
+
+    ..code-block:: c
+
+        f(1.2)
+        f(-1.2)
+        f(1.6)
+        f(-1.6)
+
+    Quel est votre conclusion sur cette fonction ?
+
+.. exercise:: Mauvaise somme
+
+    Le programme suivant compile sans erreurs graves mais ne fonctionne pas correctement.
+
+    .. code-block:: c
+
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <math.h>
+
+        long get_integer()
+        {
+            bool ok;
+            long result;
+            do
+            {
+                printf("Enter a integer value: ");
+                fflush(stdin); // Empty input buffer
+                ok = (bool)scanf("%ld", &result);
+                if (!ok)
+                    printf("Incorrect value.\n");
+            }
+            while (!ok);
+            return result;
+        }
+
+        int main(void)
+        {
+            long a = get_integer;
+            long b = get_integer;
+
+            printf("%d\n", a + b);
+        }
+
+    Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue:
+
+    .. code-block:: c
+
+        $ ./sum
+        8527952

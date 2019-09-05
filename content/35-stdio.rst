@@ -352,6 +352,83 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
         i = sscanf("123a 123", "%d %f", &j, &f);
         i = sscanf("%2d%2d%f", &j, &k, &f);
 
+.. exercise:: Saisie de valeurs
+
+    Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées:
+
+    .. code-block:: c
+
+        int i = 0, j = 0, n = 0;
+        float x = 0;
+
+    #. :code:`n = scanf("%1d%1d", &i, &j);`, ``12\n``
+    #. :code:`n = scanf("%d%d", &i, &j);`, ``1 , 2\n``
+    #. :code:`n = scanf("%d%d", &i, &j);`, ``-1   -2\n``
+    #. :code:`n = scanf("%d%d", &i, &j);`, ``-  1  -  2\n``
+    #. :code:`n = scanf("%d,%d", &i, &j);`, ``1  ,  2\n``
+    #. :code:`n = scanf("%d ,%d", &i, &j);`, ``1  ,  2\n``
+    #. :code:`n = scanf("%4d %2d", &i, &j);`, ``1 234\n``
+    #. :code:`n = scanf("%4d %2d", &i, &j);`, ``1234567\n``
+    #. :code:`n = scanf("%d%*d%d", &i, &j);`, ``123 456 789\n``
+    #. :code:`n = scanf("i=%d , j=%d", &i, &j);`, ``1 , 2\n``
+    #. :code:`n = scanf("i=%d , j=%d", &i, &j);`, ``i=1, j=2\n``
+    #. :code:`n = scanf("%d%d", &i, &j);`, ``1.23 4.56\n``
+    #. :code:`n = scanf("%d.%d", &i, &j);`, ``1.23 4.56\n``
+    #. :code:`n = scanf("%x%x", &i, &j);`, ``12 2a\n``
+    #. :code:`n = scanf("%x%x", &i, &j);`, ``0x12 0X2a\n``
+    #. :code:`n = scanf("%o%o", &i, &j);`, ``12 018\n``
+    #. :code:`n = scanf("%f", &x);`, ``123\n``
+    #. :code:`n = scanf("%f", &x);`, ``1.23\n``
+    #. :code:`n = scanf("%f", &x);`, ``123E4\n``
+    #. :code:`n = scanf("%e", &x);`, ``12\n``
+
+    .. solution::
+
+        #. ``i``: 1, ``j``: 2, ``n``: 2
+        #. ``i``: 1, ``j``: 0, ``n``: 1. ``j`` n'est pas lue car arrêt prématuré sur ``,``
+        #. ``i``: -1, ``j``: -2, ``n``: 2
+        #. ``i``: 0, ``j``: 0, ``n``: 0. ``i`` n'est pas lue car arrêt prématuré sur ``-``
+        #. ``i``: 1, ``j``: 0, ``n``: 1.
+        #. ``i``: 1, ``j``: 2, ``n``: 2
+        #. ``i``: 1, ``j``: 23, ``n``: 2
+        #. ``i``: 1234, ``j``: 56, ``n``: 2
+        #. ``i``: 123, ``j``: 789, ``n``: 2
+        #. ``i``: 0, ``j``: 0, ``n``: 0
+        #. ``i``: 1, ``j``: 2, ``n``: 2
+        #. ``i``: 1, ``j``: 0, ``n``: 1
+        #. ``i``: 1, ``j``: 23, ``n``: 2
+        #. ``i``: 18, ``j``: 42, ``n``: 2
+        #. ``i``: 10, ``j``: 1, ``n``: 2. Le chiffre 8 interdit en octal provoque un arrêt
+        #. ``x``: ``123.``, ``n``: 1
+        #. ``x``: ``1.23``, ``n``: 1
+        #. ``x``: ``1.23E6``, ``n``: 1
+        #. ``x``: ``12``, ``n``: 1
+
+.. exercise:: Chaînes de formats
+
+    #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+    #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+    #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+
+    .. solution::
+
+        #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+            .. code-block:: c
+
+                scanf("%c%c%c", &i, &j, &k);
+
+        #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+            .. code-block:: c
+
+                scanf("%f ;%f ;%f", &x, &y, &z);
+
+        #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+            .. code-block:: c
+
+                printf("t="); scanf("%f", &t);
+                printf("u="); scanf("%f", &u);
+                printf("v="); scanf("%f", &v);
+
 Saisie de chaîne de caractères
 ------------------------------
 
@@ -398,6 +475,147 @@ Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur ``[
     sscanf(input, "%127[0-9A-Za-z+/]", &output);
 
 Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères majuscules et minuscules ``A-Za-z`` (52), ainsi que les caractères ``+``, ``/`` (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.
+
+
+-----
+
+.. exercise:: Bugs
+
+    Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.
+
+    .. code-block:: c
+
+        short i;
+        long j;
+        unsigned short u;
+        float x;
+        double y;
+        printf(i);
+        scanf(&i);
+        printf("%d", &i);
+        scanf("%d", &i);
+        printf("%d%ld", i, j, u);
+        scanf("%d%ld", &i, j);
+        printf("%u", &u);
+        scanf("%d", &u);
+        printf("%f", x);
+        scanf("%f", &x);
+        printf("%f", y);
+        scanf("%f", &y);
+
+    .. solution::
+
+        .. code-block:: c
+
+            // Incorrect ! Le premier paramètre de printf doit être la chaîne de format.
+            printf(i);
+
+            // Incorrect ! Le premier paramètre de scanf doit être la chaine de format.
+            scanf(&i);
+
+            // Correct, mais surprenant.
+            // Cette instruction affichera l’adresse de I, et non pas sa valeur !
+            printf("%d", &i);
+
+            // Incorrect. Le paramètre i est de type short, alors que la chaîne de
+            // format spécifie un type int. Fonctionnera sur les machines dont le type
+            // short et int sont identiques
+            scanf("%d", &i);
+
+            // Incorrect, la troisième variable passée en paramètre ne sera pas affichée.
+            printf("%d%ld", i, j, u);
+
+            // Incorrect ! Le premier paramètre est de type short alors que int
+            // est spécifié dans la chaîne de format.
+            // Le deuxième paramètre n’est pas passé par adresse, ce qui va
+            // probablement causer une erreur fatale.
+            scanf("%d%ld", &i, j);
+
+            // Correct, mais étonnant. Affiche l’adresse de la variable u.
+            printf("%u", &u);
+
+            // Incorrect ! Le paramètre est de type unsigned short, alors que
+            // la chaîne de format spécifie int. Fonctionnera pour les valeurs
+            // positives sur les machines dont le type short et int sont identiques.
+            // Pour les valeurs négatives, le résultat sera l’interprétation non
+            // signée de la valeur en complément à 2.
+            scanf("%d", &u);
+
+            // Correct, mais x est traité comme double.
+            printf("%f", x);
+
+            // Correct.
+            scanf("%f", &x);
+
+            // Correct ! %f est traité comme double par printf !
+            printf("%f", y);
+
+            // Incorrect ! La chaîne de format spécifie float,
+            // le paramètre passé est l’adresse d’une variable de type double.
+            scanf("%f", &y);
+
+
+.. exercise:: Test de saisir correcte
+
+    Écrivez un programme déclarant des variables réelles ``x``, ``y`` et ``z``, permettant de
+    saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
+    été assignées. Dans le cas contraire, afficher un message du type "données
+    invalides".
+
+    .. solution::
+
+        .. code-block:: c
+
+            int n;
+            float x, y, z;
+            printf("Donnez les valeurs de x, y et z :");
+            n = scanf("%f%f%f", &x, &y, &z);
+            if (n != 3)
+            printf("Erreur de saisie.\n");
+
+.. exercise:: Produit scalaire
+
+    Écrire un programme effectuant les opérations suivantes:
+
+    - Saisir les coordonnées réelles ``x1`` et ``y1`` d’un vecteur ``v1``.
+    - Saisir les coordonnées réelles ``x2`` et ``y2`` d’un vecteur ``v2``.
+    - Calculer le produit scalaire. Afficher un message indiquant si les vecteurs sont orthogonaux ou non.
+
+    .. solution::
+
+        .. code-block:: c
+
+            #include <stdio.h>
+            #include <stdlib.h>
+
+            int main(void)
+            {
+                float x1, y1
+                printf("Coordonnees du vecteur v1 separees par un \";\" :\n");
+                scanf("%f ;%f", &x1, &y1);
+
+                float x2, y2;
+                printf("Coordonnees du vecteur v2 separees par un \";\" :\n");
+                scanf("%f ;%f", &x2, &y2);
+
+                float dot_product = x1 * x2 + y1 * y2;
+                printf("Produit scalaire : %f\n", dot_product);
+                if (dot_product == 0.0)
+                    printf("Les vecteurs sont orthogonaux.\n");
+            }
+
+        Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche mais cependant différent de zéro.
+        On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre ``-0.000001`` et ``+0.000001``:
+
+        .. code-block:: c
+
+            if (dot_product >= -1E-6 && dot_product <= 1E-6)
+
+        Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :
+
+        .. code-block:: c
+
+            if (fabs(dot_product) <= 1E-6)
 
 .. exercise:: Crampes de doigts
 

@@ -146,6 +146,7 @@ def process_exercise_nodes(app, doctree, fromdocname):
 
         ref.append(innernode)
         para += ref
+        para += nodes.Text(': ' + meta['title'], ': ' + meta['title'])
 
         node.parent.replace(node, para)
 

@@ -2,6 +2,10 @@
 Bibliothèques
 ==============
 
+.. figure:: https://upload.wikimedia.org/wikipedia/commons/4/4b/Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg
+
+    Bibliothèque du Trinity College de Dublin
+
 Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction ``printf`` est une de ces fonctionnalités et offerte par le header ``<stdio.h>`` faisant partie de la bibliothèque ``libc6``.
 
 L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme ``<stdlib.h>`` etant la concaténation de *standard library* par exemple. Notez que librairie n'est pas la traduction correcte de *library* qui est un `faux ami <https://fr.wikipedia.org/wiki/Faux-ami>`__.

@@ -184,100 +184,71 @@ Dès lors qu'un autre fichier source C inclus le fichier .h référençant
 des variables externes, on peut accéder à ces variables (lecture et
 écriture).
 
-Protection contre les multiples inclusions
-------------------------------------------
+Gardes d'en-têtes
+-----------------
 
-Dès lors qu'on utilise des modules logiciels, il devient impératif de
-contrôler que lors de l'inclusion de fichiers d'entêtes (.h) on ne va
-pas se retrouver devant des erreurs de définitions multiples lorsqu'on
-compile l'application finale. Pour cela, on protège le contenu du
-fichier d'entête par les directives ``#ifndef SYMBOLE`` /
-``#define SYMBOLE`` / ``#endif``. Le nom du symbole est en général une
-image du nom du fichier d'entête. Si le fichier est nommé ``complex.h``,
-le symbole sera nommé ``_COMPLEX_H_``. Cela donne le modèle d'entête
-suivant :
+Souvent nommé *header guards*, il s'agit d'une structure pré-processeur évitant la réinclusion d'un en-tête déjà inclus.
+
+Il existe deux stratégie. La première normalisée par le standard utilise la forme suivante:
 
 .. code-block:: c
 
-    // fichier imageProcessing.h
+    #ifndef IMAGE_PROCESSING_H
+    #define IMAGE_PROCESSING_H
 
-    #ifndef _IMAGE_PROCESSING_H_
-    #define _IMAGE_PROCESSING_H_
+    /* ... */
 
-    // system includes
-    #include <math.h>
+    #endif // IMAGE_PROCESSING_H
 
-    // user includes
-    #include "pixel.h"
+La seconde plus simple, n'est pas couverte par le standard mais largement utilisée et supportée par la plupart des compliateurs:
 
-    // preprocessor symbols
-    #define MAX(a,b) ( (a)>(b) ? (a):(b))
+.. code-block:: c
 
-    // enumerated types
-    typedef enum {
+    #pragma once
 
-      E_BLACK=0,
-      E_WHITE,
-      E_RED,
-      E_GREEN,
-      E_BLUE
+    /* ... */
 
-    } eColor;
+La seconde méthode permet de s'affranchir de plusieurs problèmes:
 
-    // structured types
-    typedef struct {
+1. Il n'y a plus de répétition du nom du fichier dans le fichier.
+  - Cela évite d'éventuelles collisions de noms.
+  - Cela évite d'oublier de renommer le garde si le fichier est renommé.
+2. Il n'y a plus de ``#endif`` terminal (que certains oublient parfois)
 
-      uint8_t *buffer;
-      uint32_t imgWidth;
-      uint32_t imgHeight;
-
-    } sImage, *pImage;
-
-    // prototypes
-    void displayImage(pImage _image);
-
-    // external variables
-    extern uint32_t imageCounter;
-
-    #endif //  _IMAGE_PROCESSING_H_
-
-Compilation de l'application
+Compilation de l'applicationbi
 ----------------------------
 
-Lorsqu'on utilise des modules logiciels, chacun d'eux doit être compilé
-pour générer le fichier object correspondant. Les fichiers objets doivent
-alors être ajoutés à la liste des fichiers pour la génération de
-l'exécutable final.
+La compilation séparée implique la séparation de la compilation en deux phases distinctes:
 
-Compilation d'un fichier .c
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Compilation indépendante de chacune des unités de traduction générant des fichiers objets.
+2. Édition des liens consistant en l'assembla des différents objets.
 
-La commande suivante permet de générer le fichier objet (.o) pour un
-module (ex : ``module.c``) :
+Nous avons vu qu'avec ``gcc`` la compilation est réduite à une seule commande:
 
-.. code-block:: c
+.. code-block:: console
 
-    > gcc -c module.c
+    gcc $CFLAGS -o executable source.c $LFLAGS
 
-Le résultat de cette commande est la création d'un fichier ``module.o``
-qui est le module compilé.
+Or, il est aussi possible de découper cette procédure en deux étapes:
 
-La commande suivante permet de générer le fichier objet (.o) pour le
-programme principal (ex : ``main.c``) :
+1. Compilation des objets
 
-.. code-block:: c
+    .. code-block:: console
 
-    > gcc -c main.c
+        cc $CFLAGS -c -o source.o source.c
 
-Le résultat de cette commande est la création d'un fichier ``main.o``
-qui est le programme principal compilé (mais pas l'exécutable).
+2. Édition des liens
 
-Edition des liens pour générer l'exécutable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .. code-block:: console
 
-.. code-block:: c
+        cc $LFLAGS -o executable source.o
 
-    > gcc -o application main.o module.o
+Avec la compilation séparée, il est désormais possible d'avoir plusieurs objets:
 
-Le résultat de cette commande est la création d'un fichier
-``application`` qui est l'exécutable proprement dit.
+.. code-block:: console
+
+    export CFLAGS=-std=c99 -O2 -Wall
+    export LFLAGS=-lm
+    cc $CFLAGS -c foo.c
+    cc $CFLAGS -c bar.c
+    cc $LFLAGS foo.o bar.o -o executable

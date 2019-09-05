@@ -2,7 +2,7 @@
 Philosophie
 ===========
 
-La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur, les vaudois l'appelant parfois: le bon sens paysan comme l'aurait sans doute confirmé `Jean Villard dit Gilles <https://fr.wikipedia.org/wiki/Jean_Villard>`__.
+La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur, les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu `Jean Villard dit Gilles <https://fr.wikipedia.org/wiki/Jean_Villard>`__.
 
 .. _ockham:
 
@@ -17,10 +17,13 @@ En philosophie un `rasoir <https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>`_
 
 Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple quelque soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
 
+Principes de programmation
+==========================
+
 .. _dry:
 
 DRY
-===
+---
 
 **Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas**! Il s'agit d'une philosophie de développement logiciel évitant la `redondance de code <https://fr.wikipedia.org/wiki/Duplication_de_code>`__. L'excellent livre `The Pragmatic Programmer <https://en.wikipedia.org/wiki/The_Pragmatic_Programmer>`__ de Andrew Hunt et David Thomas décrit cette philosophie en ces termes:
 
@@ -29,19 +32,19 @@ DRY
 En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`C` suivi de :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`V`. Dupliquer du code et quelque soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe d'un `code smell <https://fr.wikipedia.org/wiki/Code_smell>`__ qui indique que le code peut être simplifié et optimisé.
 
 KISS
-====
+----
 
 `Keep it simple, stupid <https://fr.wikipedia.org/wiki/Principe_KISS>`__ est une ligne directrice de conception qui encourage la simplicité d'un développement. Il est similaire au rasoir d'Ockham, mais grandement plus commun en informatique. Énoncé par `Eric Steven Raymond <https://fr.wikipedia.org/wiki/Eric_Raymond>`__ puis par le `Zen de Python <https://fr.wikipedia.org/wiki/Zen_de_Python>`__ un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du *shell* (``ls``, ``cat``, ``echo``, ``grep``, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.
 
 YAGNI
-=====
+-----
 
 YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
 Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.
 
 SSOT
-====
+----
 
 Ce principe tient son acronyme de `single source of truth <https://en.wikipedia.org/wiki/Single_source_of_truth>`__. Il adresse principalement un défaut de conception relatif aux métadonnées que peuvent être les paramètres d'un algorithme, le modèle d'une base de données ou la méthode usitée d'un programme à collecter des données.
 
@@ -183,9 +186,9 @@ L'odeur du code
 
 Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des `antipatterns <https://fr.wikipedia.org/wiki/Antipattern>`__. Voici quelques indicateurs les plus courants:
 
-- Une fonction est plus longue qu'un écran de haut (~50 lignes)
-- Un fichier est plus long que **1000 lignes**
-- **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible
+- **Mastodonte** Une fonction est plus longue qu'un écran de haut (~50 lignes)
+- Un fichier est plus long que **1000 lignes**.
+- **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible.
 - Une fonction à plus de **trois** paramètres
     .. code-block:: c
 

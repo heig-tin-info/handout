@@ -480,7 +480,7 @@ Les avantages:
 - Le problème du double zéro est résolu.
 - On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédamment étudiées``.
 
-Opérateurs Logiques
+Opérations logiques
 ===================
 
 Opérations bit à bit
@@ -681,6 +681,31 @@ En logique booléenne on exprime la négation par une bar p.ex. :math:`\bar{P}`.
         .. math::
 
             D \cdot E + \bar{D} + \bar{E}
+
+
+Arrondi
+-------
+
+En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exaustive:
+
+- **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
+- **arrondi à l'entier supérieur** (*rounding up*)
+- **arrondi à l'entier inférieur** (*rounding down*)
+- **arrondi en direction du zéro** (*rounding towards zero*)
+- **arrondi loin du zéro** (*rounding away from zero*)
+- **arrondi au plus proche entier** (*rounding to the nearest integer*)
+- **arrondi la moitié en direction de l'infini** (*rounding half up*)
+
+Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions ``ceil`` pour l'arrondi au plafond (entier supérieur), ``floor`` pour arrondi au plancher (entier inférieur) et ``round`` pour l'arrondi au plus proche (*nearest*). Il existe également fonction ``trunc`` qui tronque la valeur en supprimant la partie fractionnaire.
+
+Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donne 24.
+
+.. note::
+
+    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre intuitive car ``round(3.5)`` donne 4 mais ``round(4.5)`` donne 4 aussi.
+
+
+----
 
 .. exercise:: Swap sans valeur intermédiaire
 

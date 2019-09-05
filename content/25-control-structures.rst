@@ -163,6 +163,56 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
         if (!(i < 8) && !(i > 8))
             printf("i is %d\n", i);
 
+.. exercise:: D'autres si?
+
+    Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expressions si elles impriment ou non ``i vaut 8``:
+
+    #. .. code-block:: c
+
+        if (!(i < 8) && !(i > 8)) then
+            printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (!(i < 8) && !(i > 8))
+            printf("i vaut 8");
+            printf("\n");
+
+    #. .. code-block:: c
+
+        if !(i < 8) && !(i > 8)
+            printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (!(i < 8) && !(i > 8))
+            printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (i = 8) printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (i & (1 << 3)) printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (i ^ 8) printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (i - 8) printf("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (i == 1 << 3) printf ("i vaut 8\n");
+
+    #. .. code-block:: c
+
+        if (!((i < 8) || (i > 8)))
+            printf("i vaut 8\n");
+
 .. _switch:
 
 ``switch``
@@ -270,7 +320,7 @@ Séquentiellement une boucle ``while`` teste la condition, puis exécute la séq
 do..while
 ---------
 
-De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle ``do``...``while`` permet justement ceci:
+De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle ``do``...\ ``while`` permet justement ceci:
 
 .. code-block:: c
 

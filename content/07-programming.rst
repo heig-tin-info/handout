@@ -18,6 +18,12 @@ Algorithmique
 
 L'algorithmique et non l'*algorithmie*, est la science qui
 
+Fonctionnement de l'ordinateur
+==============================
+
+Machine de Turing
+-----------------
+
 Programmation
 =============
 

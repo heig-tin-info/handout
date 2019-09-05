@@ -17,6 +17,7 @@ release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.todo',
     'sphinxcontrib.rsvgconverter',
     'exercices',
     'unicode',
