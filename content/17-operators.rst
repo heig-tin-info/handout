@@ -4,7 +4,7 @@ Opérateurs
 
 Un opérateur applique une opération à une (opérateur unitaire), deux ou trois (ternaire) entrées.
 
-.. figure:: ../assets/figures/processor/alu.*
+.. figure:: ../assets/figures/dist/processor/alu.*
 
     Unité de calcul arithmétique (ALU) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 

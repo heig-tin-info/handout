@@ -46,7 +46,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 2. ``switch``
 3. L'instruction ternaire
 
-.. figure:: ../assets/figures/control-structure/branching-diagram.*
+.. figure:: ../assets/figures/dist/control-structure/branching-diagram.*
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
 
@@ -284,7 +284,7 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 - ``while``
 - ``do`` .. ``while``
 
-.. figure:: ../assets/figures/control-structure/for.*
+.. figure:: ../assets/figures/dist/control-structure/for.*
 
     Aperçu des trois structure de boucles
 

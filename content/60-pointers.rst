@@ -179,7 +179,7 @@ Pointeur et chaînes de caractères
         "mais", "ou", "est", "donc", "or", "ni", "car"
     };
 
-.. figure:: ../assets/figures/string/ptrstr.*
+.. figure:: ../assets/figures/dist/string/ptrstr.*
 
     Pointeur sur une chaîne de caractère
 

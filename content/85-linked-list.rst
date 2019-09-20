@@ -42,7 +42,7 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.
 Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
 à la valeur ``NULL``.
 
-.. figure:: ../assets/figures/recursive-data-structure/list.*
+.. figure:: ../assets/figures/dist/recursive-data-structure/list.*
 
 
 .. code-block:: c
@@ -122,7 +122,7 @@ le nombre d'éléments jusqu'à ce que le pointeur *next* soit égal à ``NULL``
 
 Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant:
 
-.. figure:: ../assets/figures/recursive-data-structure/loop.*
+.. figure:: ../assets/figures/dist/recursive-data-structure/loop.*
 
 La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?
@@ -131,7 +131,7 @@ Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appe
 
 .. index:: Floyd
 
-.. figure:: ../assets/figures/recursive-data-structure/floyd.*
+.. figure:: ../assets/figures/dist/recursive-data-structure/floyd.*
 
 .. code-block:: c
 
@@ -232,7 +232,7 @@ L'objectif de cette section n'est pas d'entrer dans les détails des `arbres bin
 
 L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un ``left`` et un ``right``:
 
-.. figure:: ../assets/figures/recursive-data-structure/binary-tree.*
+.. figure:: ../assets/figures/dist/recursive-data-structure/binary-tree.*
 
     Arbre binaire équilibré
 

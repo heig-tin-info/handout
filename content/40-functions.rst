@@ -95,7 +95,7 @@ Overhead
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés:
 
-.. figure:: ../assets/figures/function/calling-convention.*
+.. figure:: ../assets/figures/dist/function/calling-convention.*
 
     Sauvegarde des registres du processeur et convention d'appel de fonction.
 

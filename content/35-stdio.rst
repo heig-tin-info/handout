@@ -139,7 +139,7 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 ``type``
     Type de formatage souhaité
 
-.. figure:: ../assets/figures/string/formats.*
+.. figure:: ../assets/figures/dist/string/formats.*
 
     Formatage d'un marqueur
 

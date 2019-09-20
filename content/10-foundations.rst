@@ -72,7 +72,7 @@ Fort heureusement depuis que Apple a migré son système sur une base `BSD <http
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (``EOL``: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
-.. figure:: ../assets/figures/encoding/crlf.*
+.. figure:: ../assets/figures/dist/encoding/crlf.*
 
     Distinction de différents caractères non-imprimables
 
@@ -107,7 +107,7 @@ Identificateurs
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par:
 
-.. figure:: ../assets/figures/grammar/identifier.*
+.. figure:: ../assets/figures/dist/grammar/identifier.*
 
     Grammaire d'un identificateur C
 
