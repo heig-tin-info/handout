@@ -590,3 +590,27 @@ De même que ce test n'effectura pas une division mais testera simplement le der
     #. :math:`n \leftarrow n + 1`
     #. :math:`a \leftarrow \left\{\begin{array}{lr}-a & : b < 0\\ a & : \text{sinon}\end{array}\right.`
     #. :math:`n \leftarrow \text{la valeur des 4 bits de poids faible de}~n`
+
+.. exercise:: Nombres narcissiques
+
+    Un nombre narcissique ou `nombre d'Amstrong <https://fr.wikipedia.org/wiki/Nombre_narcissique>`__ est  un entier naturel ``n`` non nul qui est égal à la somme des puissances ``p``-ièmes de ses chiffres en base dix, où ``p`` désigne le nombre de chiffres de ``n``:
+
+        .. math::
+
+            n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
+
+    Par exemple:
+
+    - ``9`` est un nombre narcissique car :math:`9 = 9^1 = 9`
+    - ``153`` est un nombre narcissique car :math:`153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153`
+    - ``10`` n'est pas un nombre narcissique car :math:`10 \ne 1^2 + 0^2 = 1`
+
+    Implanter un programme permettant de vérifier si un nombre d'entrée est narcissique ou non. L'exécution est la suivante:
+
+    .. code-block::
+
+        $ ./armstrong 153
+        1
+
+        $ ./armstrong 154
+        0

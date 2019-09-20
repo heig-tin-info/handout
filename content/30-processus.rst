@@ -2,6 +2,10 @@
 Programmes et Processus
 =======================
 
+.. figure:: https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg
+
+    Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
+
 Qu'est-ce qu'un programme?
 ==========================
 
@@ -222,7 +226,7 @@ Le standard définit une fonction nommée ``main`` comme étant la fonction prin
 Qui appelle main ?
 ------------------
 
-Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme:
+Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`__) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme:
 
 - Le nombre d'arguments ``argc``
 - La liste des arguments ``argv``

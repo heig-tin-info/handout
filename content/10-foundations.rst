@@ -257,6 +257,16 @@ Selon les standards adoptés chaque société on trouve ceux qui préfèrent nom
 | *kebabcase*  | Casse de kebab   | ``user-login-count`` |
 +--------------+------------------+----------------------+
 
+Variable métasyntaxiques
+------------------------
+
+Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites `métasyntaxiques <https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique>`__. En français les valeurs ``toto``, ``titi``, ``tata`` et ``tutu`` sont régulièrement utilisées tandis qu'en anglais
+``foo``, ``bar``, ``baz`` et ``qux`` sont régulièrement utilisés. Les valeurs ``spam``, ``ham`` et ``eggs`` sont quant à elles souvent utilisée en Python, en référence au sketch `Spam <https://en.wikipedia.org/wiki/Spam_(Monty_Python)>`__ des Monthy Python.
+
+Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonnance d'un problème plus spécifique.
+
+On touvera une `table <http://www.catb.org/jargon/html/M/metasyntactic-variable.html>`__ des différents noms les plus courants utilisés dans différentes langues.
+
 Les constantes
 ==============
 

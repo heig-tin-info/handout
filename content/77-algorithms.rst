@@ -1,3 +1,5 @@
+.. _algorithms:
+
 =========================
 Algorithmes et conception
 =========================
@@ -188,3 +190,42 @@ Programmation dynamique
 
     #. Expliquer comment fonctionne cet algorithme.
     #. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
+
+.. exercise:: Robot aspirateur affamé
+
+    Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
+
+    Le robot dispose de plusieurs fonctionnalités:
+
+    - Avancer
+    - Tourner à droite de 90°
+    - Détection de sa position absolue p.ex. ``P5``
+
+    Élaborer un algorithme de recherche.
+
+    .. code-block::
+
+          │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
+        ──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+        1 ┃                     x ┃       ┃               ┃               ┃
+        ──┃             F1: Frigo ┃       ┃               ┃               ┃
+        2 ┃       ┃               ┃       ┃               ┃               ┃
+        ──┃       ┃               ┃       ┃               ┃               ┃
+        3 ┃       ┃               ┃       ┃               ┃               ┃
+        ──┃       ┃               ┃       ┃               ┃               ┃
+        4 ┃       ┃               ┃       ┃               ┃               ┃
+        ──┃       ┃               ┃       ┃               ┃               ┃
+        5 ┃       ┃               ┃       ┃               ┃      <--o     ┃
+        ──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
+        6 ┃       ┃               ┃       ┃               ┃               ┃
+        ──┃       ┃               ┃       ┃               ┃               ┃
+        7 ┃                       ┃       ┃               ┃               ┃
+        ──┃                       ┃       ┃               ┃               ┃
+        8 ┃       ┃               ┃       ┃               ┃               ┃
+        ──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
+        9 ┃                                                       ┃       ┃
+        ──┃                                                       ┃       ┃
+        10┃                                                               ┃
+        ──┃                                                               ┃
+        11┃                                                       ┃       ┃
+        ──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
