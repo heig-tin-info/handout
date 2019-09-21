@@ -6,10 +6,10 @@ La programmation
 
     L'un des premiers ordinateurs: l'Eniac
 
-Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine.
+Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.
 
 
-**Algorithmique et et Programmation**, il y donc deux questions à éclairer:
+**Algorithmique et Programmation**, il y donc deux questions à éclairer:
 
 - Qu'est-ce que l'algorithmique ?
 - Qu'est-ce que la programmation ?
@@ -17,10 +17,10 @@ Il ne serait pas raisonnable de vous enseigner la programmation C sans au préal
 Algorithmique
 =============
 
-L'algorithmique et non l'*algorithmique*, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours:
+L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours:
 
 - dans une recette de cuisine,
-- le tissage,
+- le tissage de tapis persans,
 - les casse-tête (`Rubik's Cube <https://fr.wikipedia.org/wiki/Rubik%27s_Cube>`__),
 - les tactiques sportives,
 - les procédures administratives.
@@ -99,6 +99,11 @@ Un calculateur du latin *calculare*: calculer avec des cailloux, originellement 
 
 Les `os d'Ishango <https://fr.wikipedia.org/wiki/Os_d%27Ishango>`__ datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
+Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur car même une calculatrice de poche doit gérer en plus des calculs:
+
+- l'interface de saisie (pavé numérique);
+- l'affichage du résultat (écran à cristaux liquide).
+
 Ordinateur
 ==========
 
@@ -166,3 +171,7 @@ Fonctionnement de l'ordinateur
 
 Machine de Turing
 -----------------
+
+.. exercise:: Alain Turing
+
+    Comment est mort Alain Turing et pourquoi est-il connu ?
