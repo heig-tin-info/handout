@@ -79,16 +79,18 @@ Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`
 Mots clés
 =========
 
-Le langage de programmation C tel que défini par C11 comporte 33 mots clés.
+Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés:
 
 .. code-block:: c
 
-    auto        enum         restrict     unsigned      break       extern
-    return      void         case         float         short       volatile
-    char        for          signed       while         const       goto
-    sizeof      _Bool        default      inline        struct      _imaginary
-    do          int          switch       double        long        typedef
-    else        register     union
+    auto        do           goto         return      typedef       _Complex
+    break       double       if           short       union         _Imaginary
+    case        else         inline       signed      unsigned
+    char        enum         int          sizeof      void
+    const       extern       long         static      volatile
+    continue    float        register     struct      while
+    default     for          restrict     switch      _Bool
+
 
 Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 

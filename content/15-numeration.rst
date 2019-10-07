@@ -229,15 +229,15 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
         129
         0216
 
-        .. solution::
+    .. solution::
 
-            .. code-block::
+        .. code-block::
 
-                0xaaaa    ≡ 43690
-                0b1100101 ≡   101
-                0x1010    ≡  4112
-                129       ≡   129 (n'est-ce pas ?)
-                0216      ≡   142
+            0xaaaa    ≡ 43690
+            0b1100101 ≡   101
+            0x1010    ≡  4112
+            129       ≡   129 (n'est-ce pas ?)
+            0216      ≡   142
 
 .. _base-convertions:
 
