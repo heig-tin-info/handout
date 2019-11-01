@@ -395,7 +395,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
     Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
 
-    ..code-block:: c
+    .. code-block:: c
 
         f(1.2)
         f(-1.2)

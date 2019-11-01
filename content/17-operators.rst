@@ -504,7 +504,7 @@ Une valeur gauche (*lvalue*) est une particularité de certains langage de progr
 
 1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
 2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint:
-    ..code-block:: text
+    .. code-block:: text
 
         4:8: error: lvalue required as left operand of assignment
             (x = y) = z;

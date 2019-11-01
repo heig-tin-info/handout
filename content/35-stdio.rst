@@ -688,7 +688,6 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
     Considérez le programme suivant:
 
     .. code-block:: c
-        :linenos:
 
         #include <stdio.h>
         #include <stdlib.h>
