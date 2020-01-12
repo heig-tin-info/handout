@@ -8,6 +8,7 @@ _static
 *.a
 *.s
 *.so
+*.exe
 *.a
 *.out
 __pycache__/

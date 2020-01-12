@@ -552,9 +552,15 @@ Voici par exemple comment déclarer une variable contenant le caractère dollar:
 
 Attention donc au caractère ``'3'`` qui correspond à la grandeur hexadécimale ``0x33``:
 
-.. raw:: html
+.. code-block:: c
 
-    <iframe height="400px" width="100%" src="https://repl.it/@yveschevallier/ContentMidnightbluePaintprogram?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+    #include <stdio.h>
+
+    int main(void) {
+        char c = '3';
+        printf("Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.\n", c, c, c);
+        return 0;
+    }
 
 Chaîne de caractères
 ====================
@@ -684,6 +690,13 @@ Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
 
 Promotion implicite
 ===================
+
+Généralement le type ``int`` est de la même largeur que le bus mémoire de donnée d'un ordinateur.
+C'est à dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
+du processeur. Les *registres* du processeur, autrement dit ses casiers mémoire, sont au moins
+assez grand pour  contenir un ``int``.
+
+Aussi, la plupart des types de taille inférieure à ``int`` sont automatiquement et implicitement promu en ``int``. Le résultat de ``a + b`` lorsque ``a`` et ``b`` sont des ``char`` sera automatiquement un ``int``.
 
 +---------+-----------------------+----------+
 | char    | :math:`\Rightarrow`   | int      |
