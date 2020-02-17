@@ -114,9 +114,6 @@ Pannification du semestre
 |   26	  | Examens                                                          |
 +---------+------------+-------------------------+---------------------------+
 
-- TE 1 Mardi 21 avril à 20h05
-- TE 2 Mardi 26 mai à 20h05
-
 Modalités d'évalutation et de validation
 ========================================
 
