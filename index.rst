@@ -29,7 +29,7 @@ Le C pour l'ingénieur
 
     \section*{Notes}
 
-Cet ouvrage est destiné aux étudiants de première année Bachelor de la **HEIG-VD**, département TIN et filières Génie électrique. Il est une introduction à la programmation en C. Il couvre la matière vue durant le cycle des cours :ref:`Info1 <info1>` et :ref:`Info2 <info2>`.
+Cet ouvrage est destiné aux étudiants de première année Bachelor, département TIN et filières Génie électrique. Il est une introduction à la programmation en C. Il couvre la matière vue durant le cycle des cours :ref:`Info1 <info1>` et :ref:`Info2 <info2>`.
 
 Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modules suivantes:
 
