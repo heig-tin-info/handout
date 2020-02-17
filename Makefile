@@ -6,7 +6,7 @@ SPHINXBUILD ?= sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
 
-all: artifacts html man pdf
+all: artifacts html man
 
 html: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
