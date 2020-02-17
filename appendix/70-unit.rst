@@ -128,7 +128,13 @@ La note finale est donnée par l'expression:
 
 .. math::
 
-    \text{note} = \frac{1}{4}\(\frac{\sum_{i=1}^{TEs} TE_i + \frac{\sum_{j=1}^{Quiz} Quiz_j}{Quizzes}{TEs + 1}\) + \frac{1}{4}\frac{\sum_{i=1}^{LABs}}{LABs} LAB_i + \frac{1}{2} EXAM
+    \text{note} = \frac{1}{4}
+    \left(
+        \frac{
+            \sum\limits_{i=1}^{\text{TE}s} \text{TE}_i +
+                \frac{\sum\limits_{j=1}^{\text{Quizzes}} \text{Quiz}_j}{\text{Quizzes}}
+            }{\text{TE}s + 1} + \frac{1}{4}\left(\frac{\sum\limits_{i=1}^{\text{LAB}s} \text{LAB}_i}{\text{LAB}s } \right ) + \frac{1}{2}\cdot\text{EXAM}
+    \right)
 
 Les règles sont:
 
