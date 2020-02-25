@@ -30,3 +30,86 @@ Format de rendu
 - Encodage: UTF-8 sans BOM
 - Code source respectueux de ISO/IEC 9899:1999
 - Le code doit comporter un exemple d'utilisation et une documentation mise à jour dans ``README.md``
+- Lorsqu'un rapport est demandé vous le placerez dans ``REPORT.md``
+
+Makefile et Visual Studio Code
+==============================
+
+Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces):
+
+.. code:: make
+
+    CSRCS=$(wildcard *.c)
+    COBJS=$(patsubst %.c,%.o,$(CSRCS))
+    EXEC=gallimard
+
+    CFLAGS=-std=c99 -g -Wall -pedantic -pg
+    LDFLAGS=-lm -pg
+
+    all: $(EXEC)
+
+    -include $(COBJS:.o=.d)
+
+    $(EXEC): $(COBJS)
+        $(CC) -o $@ $< $(LDFLAGS)
+
+    %.o: %.c
+        $(CC) -c $(CFLAGS) -o $@ $^ -MMD -MF $(@:.o=.d)
+
+    clean:
+        $(RM) $(EXEC) *.o a.out $(COBJS:.o=.d)
+
+    prof:
+        gprof -b $(EXEC) gmon.out
+
+    .PHONY: all prof clean
+
+Dans ce cas fichier ``launch.json`` ressemblera à ceci:
+
+.. code:: json
+
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "build project",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}",
+                "args": ["proust.md"],
+                "stopAtEntry": true,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ],
+                "preLaunchTask": "make",
+                "miDebuggerPath": "/usr/bin/gdb"
+            }
+        ]
+    }
+
+Et le fichier ``task.json``:
+
+.. code:: json
+
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "type": "shell",
+                "label": "make",
+                "command": "make",
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": "build"
+            }
+        ]
+    }
