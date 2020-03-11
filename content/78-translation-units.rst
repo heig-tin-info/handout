@@ -210,11 +210,9 @@ La seconde plus simple, n'est pas couverte par le standard mais largement utilis
 
 La seconde méthode permet de s'affranchir de plusieurs problèmes:
 
-1. Il n'y a plus de répétition du nom du fichier dans le fichier.
-  - Cela évite d'éventuelles collisions de noms.
-  - Cela évite d'oublier de renommer le garde si le fichier est renommé.
-
+1. Il n'y a plus de répétition du nom du fichier dans le fichier: cela évite d'éventuelles collisions de noms et cela évite d'oublier de renommer le garde si le fichier est renommé.
 2. Il n'y a plus de ``#endif`` terminal (que certains oublient parfois)
+
 
 Compilation de l'application
 ----------------------------

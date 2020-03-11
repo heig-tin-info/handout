@@ -239,7 +239,7 @@ Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un t
 
 Ci-dessous une possible utilisation de cette fonction:
 
-.. literalinclude:: assets/options.c
+.. literalinclude:: ../assets/src/options.c
     :language: c
 
 Windows
