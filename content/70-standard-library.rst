@@ -492,6 +492,8 @@ Généralement la vaste majorité des distributions Linux et Unix sont compatibl
 
 Le support POSIX sous Windows (Win32) n'est malheureusement que partiel et il n'est pas standardisé.
 
+Un point d'entrée de l'API POSIX est la bibliothèque ``<unistd.h>``.
+
 GNU GLIBC
 ---------
 

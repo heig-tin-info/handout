@@ -39,7 +39,9 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mai
 
     .. code-block:: c
 
-        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) { /* ... */ }
+        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) {
+           /* ... */
+        }
 
 Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seul une **référence** sur ce tableau est passée.
 
@@ -56,6 +58,18 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
        function(array);
        assert(array[2] == 5);
     }
+
+Un fait remarquable est que l'opérateur ``[]`` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique:
+
+.. code-block::c
+
+    a[b] == *(a + b)
+
+Et cela fonctionne même avec les tableaux à plusieurs dimensions:
+
+.. code-block::c
+
+    a[1][2] == *(*(a + 1) + 2))
 
 .. exercise::
 
@@ -356,6 +370,41 @@ On comprends aisément que l'avantage des structures et le regroupement de varia
         struct Point b;
     }
 
+Notons qu'en C une structure peut être **nommée** ou **anonyme**. L'équivalent anonyme de la structure ci-dessus s'écrira comme suit:
+
+.. code-block:: c
+
+    struct {
+        struct Point a;
+        struct Point b;
+    }
+
+Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu:
+
+.. code-block:: c
+
+    struct Point {
+        double x;
+        double y;
+    };
+
+    void foo(struct Point m, struct Point *n) {
+        m.x++;
+        n->x++;
+    }
+
+    int main(void) {
+        struct Point p = {0}, q = {0};
+        foo(p, &q);
+        printf("%g, %g\n", p.x, q.x);
+    }
+
+Le résultat affiché sera ``0.0, 1.0``. Seul la seconde valeur est modifiée.
+
+.. hint::
+
+    Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation ``->`` au lieu de ``.`` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire ``p->x`` au lieu de ``(*p).x``
+
 Alignement mémoire
 ------------------
 
@@ -419,6 +468,63 @@ Notons que réagencer la structure initiale peut éviter la perte d'espace mémo
     };
 
 L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur.
+
+Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Studio, d'utiliser un artifice pour forcer l'alignement mémoire. L'utilisation de ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante:
+
+.. code-block:: c
+
+    struct Test
+    {
+        char a;
+        int b;
+        char c;
+    };
+
+Elle pourrait être représentée en mémoire de la façon suivante:
+
+.. code-block:: text
+
+    |   1  |  2   |   3  |   4  |
+    |------|------|------|------|
+    | a(1) | pad............... |
+    | b(1) | b(2) | b(3) | b(4) |
+    | c(1) | pad............... |
+
+En revance si elle est décrite comme suit:
+
+.. code-block:: c
+
+    #pragma pack(2)
+
+    struct Test
+    {
+        char a;
+        int b;
+        char c;
+    };
+
+L'emprunte mémoire sera différente:
+
+.. code-block:: text
+
+    |   1  |   2  |
+    |------|------|
+    | a(1) | c(1) |
+    | b(1) | b(2) |
+    | b(3) | b(4) |
+
+Enfin, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant:
+
+.. code-block:: text
+
+    |   1  |
+    |------|
+    | a(1) |
+    | b(1) |
+    | b(2) |
+    | b(3) |
+    | b(4) |
+    | c(1) |
 
 Structure anonyme
 -----------------

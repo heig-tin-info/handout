@@ -218,6 +218,35 @@ En C, c'est au développeur de distinguer les options des arguments, car ils son
         -Viande
         -Oeufs
 
+Norme POSIX
+-----------
+
+Le standard POSIX décrit une façon de distinguer des *options* passées à un programme. Par exemple, le programme `cowsay <https://en.wikipedia.org/wiki/Cowsay>`__ peut être paramétré pour changer son comportement en utilisant des `options` standards comme ``-d``. La fonction ``getopt`` disponible dans la biblothèque ``<unistd.h>`` permet de facilement interpréter ces options.
+
+.. code-block::c
+
+    int getopt(int, char * const [], const char *);
+
+Extension GNU
+-------------
+
+Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension `GNU <https://fr.wikipedia.org/wiki/GNU>`__ et son en-tête ``<getopt.h>`` permet l'accès à la fonction ``getopt_long`` laquelle permet d'interpréter aussi les options longues ``--version`` qui sont devenues très répandues.
+
+.. code-block::c
+
+    int getopt_long (int argc, char *const *argv, const char *shortopts,
+		const struct option *longopts, int *longind);
+
+Ci-dessous une possible utilisation de cette fonction:
+
+.. literalinclude:: assets/options.c
+    :language: c
+
+Windows
+-------
+
+Windows utilise à l'instare de ``RDOS`` ou `OpenVMS <https://en.wikipedia.org/wiki/OpenVMS>`__, le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être ``ls -l -s D*``, sous Windows on utilisera ``dir /q d* /o:s``.
+
 Fonction main
 =============
 
