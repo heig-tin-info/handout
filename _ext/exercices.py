@@ -171,7 +171,6 @@ def process_exercise_nodes(app, doctree, fromdocname):
 
             if ex['number'][0] != chapter:
                 chapter = ex['number'][0]
-                print(ex, chapter, titles)
                 title = nodes.title('','%d. %s' % (chapter, titles[chapter]))
                 content.append(title)
 
