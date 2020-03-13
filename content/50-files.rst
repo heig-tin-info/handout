@@ -1,6 +1,6 @@
-===  ========
+=============
 Les  fichiers
-===  ========
+=============
 
 Système de fichiers
 ===================
@@ -185,6 +185,28 @@ L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'
 
 On peut noter que sous POSIX, écrire sur ``stdout`` ou ``stderr`` est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.
 
+.. exercise:: Numéro de ligne
+
+    Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
+
+    .. code-block:: console
+
+        $ ./search
+        Fichier: foo.txt
+        Recherche: bulbe
+
+        4
+        5
+        19
+        132
+        981
+
+    Question subsidiaire: que fait le programme suivant:
+
+    .. code-block:: console
+
+        $ grep foo.txt bulbe
+
 Navigation dans un fichier
 ==========================
 
@@ -276,7 +298,6 @@ Les nouvelles fonctions à connaître sont les suivantes:
     On notera au passage la nature *little-endian* du système.
 
 ``size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)``
-
     La fonction est similaire à ``fread`` mais pour écrire sur un flux.
 
 Buffer de fichier
@@ -576,25 +597,3 @@ En C, on pourra utilier la bibliothèque logicielle `json-c <https://github.com/
     #. Quelle est la différence  entre ces 2 programmes ?
     #. Dans quel cas est-ce que ces programmes auront un comportement différent ?
     #. Quelle serait la meilleure solution ?
-
-.. exercise:: Numéro de ligne
-
-    Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
-
-    .. code-block:: console
-
-        $ ./search
-        Fichier: foo.txt
-        Recherche: bulbe
-
-        4
-        5
-        19
-        132
-        981
-
-    Question subsidiaire: que fait le programme suivant:
-
-    .. code-block:: console
-
-        $ grep foo.txt bulbe
