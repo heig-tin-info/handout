@@ -405,13 +405,13 @@ La structure de donnée ``heap`` aussi nommée tas ne doit pas être confondue a
 
 Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante : 
 
-==============   ======================  ==========================
-Cible            Début 0                 Début 1
-==============   ======================  ==========================
-Enfant de gauche :math:`2*k + 1`         :math:`2 * k`
-Enfant de droite :math:`2*k + 2`         :math:`2 * k + 1`
-Parent           :math:`floor(k-1) / 2`  :math:`floor(k) / 2`  
-==============   ======================  ==========================
+================  ======================  ==========================
+Cible             Début 0                 Début 1
+================  ======================  ==========================
+Enfant de gauche  :math:`2*k + 1`         :math:`2 * k`
+Enfant de droite  :math:`2*k + 2`         :math:`2 * k + 1`
+Parent            :math:`floor(k-1) / 2`  :math:`floor(k) / 2`  
+================  ======================  ==========================
 
 .. figure:: ../assets/figures/dist/recursive-data-structure/heap.*
 
