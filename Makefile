@@ -6,7 +6,7 @@ SPHINXBUILD ?= sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
 
-DOCKER = docker run -v "$$(pwd -P |  sed s@^/mnt@@):/srv" -w/srv nowox/latex:1.2
+DOCKER = docker run -v "$$(pwd -P):/srv" -w/srv nowox/latex:1.2
 
 all: artifacts html man pdf
 

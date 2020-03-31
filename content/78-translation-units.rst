@@ -1,7 +1,7 @@
 
-==================
-Assemblage différé
-==================
+===================
+Compilation séparée
+===================
 
 Translation unit
 ================
@@ -11,30 +11,27 @@ En programmation, on appelle *translation unit* (unité de traduction), un code 
 Diviser pour mieux régner
 =========================
 
-De même qu'un magasine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers.
+De même qu'un magasine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.
 
-Rappelons-le:
+Rappelons-le (et c'est très important) :
 
-- Une fonction ne devrait pas dépasser un écran de haut (~50 lignes)
-- Un fichier ne devrait pas dépasser 1000 lignes
-- Une ligne ne devrait pas dépasser 80 caractères
+- une fonction ne devrait pas dépasser un écran de haut (~50 lignes) ;
+- un fichier ne devrait pas dépasser 1000 lignes ;
+- une ligne ne devrait pas dépasser 80 caractères.
 
-Donc à un moment, il va falloir divisier et créer plusieurs fichiers.
+Donc à un moment, il est essentiel de divisier son travail en créant plusieurs fichiers.
 
-Lorsque le programme commence à être volumineux, sa lecture, sa
-compréhension et sa mise au point deviennent délicates. Il peut être alors
-intéressant de le découper en plusieurs fichiers. Si on prend par
-exemple un programme qui effectue des calculs sur des nombres complexes,
-on peut imaginer le découpage suivant :
+Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguéri des développeur. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :
 
--  un fichier principal qui contient la partie applicative ``main.c``
+.. code-block:: console
 
--  un ensemble de fichiers (module) qui contient la partie dédiée à la
-   gestion des nombres complexes :
+    $ tree
+    .
+    ├── complex.c
+    ├── complex.h
+    └── main.c
 
-   -  un fichier contenant la définition du module ``complex.h``
-
-   -  un fichier contenant le code source C du module ``complex.c``
+Le programme principal et la fonction ``main`` est contenu dans ``main.c`` quant au module *complex* il est composé de deux fichiers : ``complex.h`` l'en-tête et ``complex.c``, l'implémentation du module. 
 
 Le fichier ``main.c`` devra inclure le fichier ``complex.h`` afin de
 pourvoir utiliser correctement les fonctions du module de gestion des
@@ -43,211 +40,251 @@ nombres complexes. Exemple :
 .. code-block:: c
 
     // fichier main.c
-    #include <stdio.h>
     #include "complex.h"
 
-
-    int main(void) {
-
-      sComplex c1={1.,-3.};  // c1=1-3j
-
-      complexDisplay(c1); // affiche le nombre complexe c1
-
-      return 0;
+    int main() {
+        Complex c1 = { .real = 1., .imag = -3. };
+        complex_fprint(stdout, c1); 
     }
 
 .. code-block:: c
 
     // fichier complex.h
+    #ifndef COMPLEX_H
+    #define COMPLEX_H
 
-    #ifndef _COMPLEX_H_
-    #define _COMPLEX_H_
+    #include <stdio.h>
 
-    #include <math.h>
+    typedef struct Complex {
+        double real;
+        double imag;
+    } Complex, *pComplex;
 
-    typedef struct {
+    void complex_fprint(FILE *fp, const Complex c);
 
-      double real;  // real part
-      double img;   // imaginary part
-
-    } sComplex, *pComplex;
-
-    void complexDisplay(const sComplex c);
-
-    #endif //  _COMPLEX_H_
+    #endif // COMPLEX_H
 
 .. code-block:: c
 
     // fichier complex.c
-
     #include "complex.h"
 
-    void complexDisplay(const sComplex c) {
-
-      printf("%+.3lf + %+.3lf\n",c.real, c.img);
-      return;
+    void complex_fprint(FILE* fp, const Complex c) {
+        fprintf(fp, "%+.3lf + %+.3lf\n", c.real, c.imag);
     }
 
-    #endif //  _COMPLEX_H_
 
 Un des avantages majeurs à la création de modules est qu'un module
 logiciel peut être réutilisé pour d'autres applications. Plus besoin de
-réinventer la roue pour chaque application !
+réinventer la roue à chaque application !
+
+Cet exemple sera compilé dans un environnement POSIX de la facon suivante :
+
+.. code-block:: console
+
+    gcc -c complex.c -o complex.o
+    gcc -c main.c -o main.o
+    gcc complex.o main.o -oprogram -lm
+
+Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes. 
 
 Module logiciel
----------------
+===============
 
-Définition
-~~~~~~~~~~
+Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre : 
 
-La notion de module logiciel fait référence à un découpage logique et
-fonctionnel du programme à écrire. En règle générale, on rassemble dans
-un module les fonctions, structures, symboles…qui sont cohérents entre
-elles (voir l'exemple précédent pour les nombres complexes). Un module
-logiciel prend la forme de deux fichiers (au moins) :
+- les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;
+- les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;
+- la lisibilité du programme est accrue car il est bien découpé en des ensembles fonctionnels ;
+- les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.
 
-1. un fichier .h (*header*) contenant :
+Lorsque vous utiliser la fonction ``printf``, vous dépendez d'un module externe nommé ``stdio``. En réalité l'ensemble des modules ``stdio``, ``stdlib``, ``stdint``, ``ctype``... sont tous groupé dans une seule bibliothèque logicielle nommée ``libc`` disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre ``glibc`` est utilisée. Il s'agit de la biblothèque `GNU C Library <https://fr.wikipedia.org/wiki/GNU_C_Library>`__. 
 
-   -  une protection contre les inclusions multiples
+Un module logiciel peut se composer de fichiers sources, c'est à dire un ensemble de fichiers ``.c`` et ``.h`` ainsi qu'une documentation et un script de compilation (``Makefile``). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers ``.h``, ``.a`` et ``.so``. Sous Windows on rencontre fréquemment l'extension ``.dll``. Ces fichiers compilés ne donnent pas accès au code source mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées. 
 
-   -  l'inclusion des fichiers .h système nécessaires
-      (``#include <...>``)
+Compilation avec assemblage différé
+===================================
 
-   -  l'inclusion des fichiers .h utilisateur nécessaire
-      (``#include ...``)
+Lorsque nous avions compilé notre premier exemple `Hello World <hello>`__ nous avions simplement appelé ``gcc`` avec le fichier source ``hello.c`` qui nous avait créé un exécutable ``a.out``. En réalité, GCC est passé par plusieurs sous étapes de compilation : 
 
-   -  les symboles du préprocesseur (``#define``)
+1. **Préprocessing** : les commentaires sont retirés, les directives pré-processeur sont remplacées par leur équivalent C.
+2. **Compilation** : le code C d'une seule *translation unit* est converti en langage machine en un fichier objet ``.o``.
+3. **Édition des liens** : aussi nommé *link*, les différents fichiers objets sont réunis en un seul exécutable.
 
-   -  les types énumérés (``typedef enum``)
+Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer. 
 
-   -  les structures (``typedef struct``)
+La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (``.s``) ou objets (``.o``) en utilisant la bonne commande. 
 
-   -  les prototypes des fonctions du module
+.. figure:: ../assets/figures/dist/toolchain/gcc.*
 
-   -  les variables du module visibles à l'extérieur de celui-ci
-      (``extern``)
+Notons que ces étapes existent quelque soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU). 
 
-2. un fichier .c (*code C*) contenant :
+Notons que généralement, seul deux étapes de GCC sont utilisées : 
 
-   -  l'inclusion du fichiers .h du module (``#include ...``)
+1. Compilation avec ``gcc -c <fichier.c>``, ceci génère automatiquement un fichier ``.o`` du même nom que le fichier d'entrée.
+2. Édition des liens avec ``gcc <fichier1.o> <fichier2.o> ...``, ceci génère automatiquement un fichier exécutable ``a.out``. 
 
-   -  les variables globales au module visibles à l'extérieur de
-      celui-ci
+Fichiers d'en-tête (*header*)
+=============================
 
-   -  l'implémentation des fonctions du module
+Les fichiers d'en-tête (``.h``) sont des fichiers écrits en langage C mais qui ne contienne pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de ``while``, de ``for`` ou même de ``if``. Par convention ces fichiers ne contienne que :
 
-Variables globales d'un module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Des prototypes de fonctions (ou de variables).
+- Des déclaration de types (``typedef``, ``struct``).
+- Des définitions pré-processeur (``#include``, ``#define``).
 
-Visibilité des variables globales d'un module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Les variables globales à un modules peuvent être :
-
--  globale au module mais visible uniquement dans le module
-
--  globale au module mais visible également à l'extérieur du module
-
-Variable globale visible uniquement dans le module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-On utilisera le préfixe ``static`` pour toute déclaration de variable
-globale dans le module que l'on ne veut pas partager à l'extérieur de
-celui.ci.
+Nous l'avons vu dans le chapitre sur le pré-processeur, la directive ``#include`` ne fait qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante : 
 
 .. code-block:: c
 
-    static uint32_t moduleCounter=0;
+    // main.c
+    int main() {
+       #include "foobar.def"
+    }
 
-L'avantage de créer des variables statiques est que si un autre module
-comporte des variables avec les mêmes identificateurs, il n'y aura pas
-d'erreur lors de la phase d'édition des liens (pour peu qu'elles soients
-``static`` également…).
-
-Variable globale visible à l'extérieur du module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-La variable doit être créée dans le fichier .c du module.
+Et le fichier ``foobar.def`` pourrait cotenir : 
 
 .. code-block:: c
 
-    uint32_t moduleStatus=0;
+    // foobar.def 
+    #ifdef FOO   
+    printf("hello foo!\n");
+    #else
+    printf("hello bar!\n");
+    #endif
 
-La variable doit être déclarée comme ``extern`` dans le fichier .h du
-module.
+Vous noterez que l'extension de ``foobar`` n'est pas ``.h`` puisque le contenu n'est pas un fichier d'en-tête. ``.def`` ou n'importe quelle autre extension pourrait donc faire l'affaire ici. 
 
-.. code-block:: c
-
-    extern uint32_t moduleStatus;
-
-Dès lors qu'un autre fichier source C inclus le fichier .h référençant
-des variables externes, on peut accéder à ces variables (lecture et
-écriture).
-
-Gardes d'en-têtes
------------------
-
-Souvent nommé *header guards*, il s'agit d'une structure pré-processeur évitant la réinclusion d'un en-tête déjà inclus.
-
-Il existe deux stratégie. La première normalisée par le standard utilise la forme suivante:
+Dans cet exemple, le pré-processeur ne fait qu'inclure le contenu du fichier ``foobar.def`` à l'emplacement de la définition ``#include "foobar.def"``. Voyons le en détail : 
 
 .. code-block:: c
 
-    #ifndef IMAGE_PROCESSING_H
-    #define IMAGE_PROCESSING_H
+    $ cat << EOF > main.c
+    → int main() {
+    →     #include "foobar.def"
+    →     #include "foobar.def"    
+    → }
+    → EOF
 
-    /* ... */
+    $ cat << EOF > foobar.def
+    → #ifdef FOO   
+    → printf("hello foo!\n");
+    → #else
+    → printf("hello bar!\n");
+    → #endif
+    → EOF
 
-    #endif // IMAGE_PROCESSING_H
+    $ gcc -E main.c | sed '/^#/ d'
+    int main() {
+    printf("hello bar\n");
+    printf("hello bar\n");    
+    }
 
-La seconde plus simple, n'est pas couverte par le standard mais largement utilisée et supportée par la plupart des compliateurs:
+Lorsque l'on observe le résultat du pré-processeur, on s'aperçois que toutes les directives préprocesseur ont disparues et que la directive ``#include`` a été remplacée par de contenu de ``foobar.def``. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
 
-.. code-block:: c
+Nous avons vu au chapitre sur les `prototypes de fonctions <function_prototype>`__ qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête ``stdio.h`` on trouvera la ligne : ``int printf( const char *restrict format, ... );``. 
+
+.. code-block::c
+
+    $ cat << EOF > main.c
+    → #include <stdio.h>
+    → int main() { }
+    → EOF
+
+    $ gcc -E main.c | grep -P '\bprintf\b'
+    extern int printf (const char *__restrict __format, ...);
+
+Notons qu'ici le prototype est précédé par le mot clé ``extern``. Il s'agit d'un mot clé **optionnel** permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas car ``printf`` est déjà compilée quelque part dans la bibliothèque ``libc`` inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
+
+Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.
+
+Protection de réentrance
+------------------------
+
+La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on défini dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclu par une autre bibliothèque une erreur de compilation apparaîtera : 
+
+.. code-block:: console
+
+    $ cat << EOF > main.c
+    → #include "foo.h"
+    → #include "bar.h"
+    → int main() {
+    →    Bar bar = {0};
+    →    foo(bar);
+    → }
+    → EOF
+
+    $ cat << EOF > foo.h
+    → #include "bar.h"
+    →
+    → extern void foo(Bar);
+    → EOF
+
+    $ cat << EOF > bar.h
+    → typedef struct Bar {
+    →    int b, a, r;
+    → } Bar;
+    → EOF
+
+    $ gcc main.c
+    In file included from main.c:2:0:
+    bar.h:1:16: error: redefinition of ‘struct Bar’
+    typedef struct Bar {
+                    ^~~
+    In file included from foo.h:1:0,
+                    from main.c:1:
+    bar.h:1:16: note: originally defined here
+    typedef struct Bar {
+                    ^~~
+    In file included from main.c:2:0:
+    bar.h:3:3: error: conflicting types for ‘Bar’
+    } Bar;
+    ^~~
+    ...
+
+Dans cet exemple l'utilisateur ne sait pas forcément que ``bar.h`` est déjà inclus avec ``foo.h`` et le résultat après pré-processing est le suivant : 
+
+.. code-block:: console
+
+    $ gcc -E main.c | sed '/^#/ d'
+    typedef struct Bar {
+    int b, a, r;
+    } Bar;
+
+    extern void foo(Bar);
+    typedef struct Bar {
+    int b, a, r;
+    } Bar;
+    int main() {
+    Bar bar = {0};
+    foo(bar);
+    }
+
+On y retrouve la définition de ``Bar`` deux fois et donc, le compilateur génère une erreur. 
+
+Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci: 
+
+.. code-block:: c 
+
+    #ifndef BAR_H
+    #define BAR_H
+
+    typedef struct Bar {
+    int b, a, r;
+    } Bar;
+
+    #endif // BAR_H
+
+Si aucune définition du type ``#define BAR_H`` n'existe, alors le fichier ``bar.h`` n'a jamais été inclus auparavant et le contenu de la directive ``#ifndef BAR_H`` dans lequel on commence par définir ``BAR_H`` est exécuté. Lors d'une future inclusion de ``bar.h``, la valeur de ``BAR_H`` aura déjà été définie et le contenu de la directive ``#ifndef BAR_H`` ne sera jamais exécuté. 
+
+Alternativement, il existe une solution **non standard** mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma:
+
+.. code-block:: c 
 
     #pragma once
 
-    /* ... */
+    typedef struct Bar {
+    int b, a, r;
+    } Bar;
 
-La seconde méthode permet de s'affranchir de plusieurs problèmes:
-
-1. Il n'y a plus de répétition du nom du fichier dans le fichier: cela évite d'éventuelles collisions de noms et cela évite d'oublier de renommer le garde si le fichier est renommé.
-2. Il n'y a plus de ``#endif`` terminal (que certains oublient parfois)
-
-
-Compilation de l'application
-----------------------------
-
-La compilation séparée implique la séparation de la compilation en deux phases distinctes:
-
-1. Compilation indépendante de chacune des unités de traduction générant des fichiers objets.
-2. Édition des liens consistant en l'assembla des différents objets.
-
-Nous avons vu qu'avec ``gcc`` la compilation est réduite à une seule commande:
-
-.. code-block:: console
-
-    gcc $CFLAGS -o executable source.c $LFLAGS
-
-Or, il est aussi possible de découper cette procédure en deux étapes:
-
-1. Compilation des objets
-
-    .. code-block:: console
-
-        cc $CFLAGS -c -o source.o source.c
-
-2. Édition des liens
-
-    .. code-block:: console
-
-        cc $LFLAGS -o executable source.o
-
-Avec la compilation séparée, il est désormais possible d'avoir plusieurs objets:
-
-.. code-block:: console
-
-    export CFLAGS=-std=c99 -O2 -Wall
-    export LFLAGS=-lm
-    cc $CFLAGS -c foo.c
-    cc $CFLAGS -c bar.c
-    cc $LFLAGS foo.o bar.o -o executable
+Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un ``#endif`` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT car le nom du fichier ``bar.h`` n'apparaît pas dans le fichier ``BAR_H``. 

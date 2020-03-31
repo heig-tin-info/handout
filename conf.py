@@ -37,9 +37,14 @@ smartquotes = False
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+html_static_path = ['_static']
+
 html_theme = 'heigvd'
 html_secnumber_suffix = '  '
 html_last_updated_fmt = r'%d %b %Y (version ' + release + ')'
+html_css_files = [
+    'custom.css'
+]
 
 numfig = True
 

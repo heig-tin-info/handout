@@ -80,7 +80,7 @@ Résumons:
 Pointeur simple
 ===============
 
-Le format le plus simple d'un pointeur sur un entier s'écrit:
+Le format le plus simple d'un pointeur sur un entier s'écrit avec l'asterix ``*``:
 
 .. code-block:: c
 
@@ -117,10 +117,16 @@ La différence entre un **tableau** et un **pointeur** est la suivante:
 - Il n'est pas possible d'assigner une adresse à un tableau
 - Il n'est pas possible d'assigner des valeurs à un pointeur
 
+D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un sucre syntaxique:
+
+.. code-block:: c
+
+   a[b] == *(a + b);
+
 Arithmétique de pointeurs
 =========================
 
-Fondamentalement un pointeur est une variable qui contient un `ordinal <https://fr.wikipedia.org/wiki/Nombre_ordinal>`__, c'est-à-dire qu'on peut imaginer ajouter à un pointeur une grandeur finie:
+Fondamentalement un pointeur est une variable qui contient un `ordinal <https://fr.wikipedia.org/wiki/Nombre_ordinal>`__, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie:
 
 .. code-block:: c
 
@@ -146,7 +152,7 @@ On peut le représenter en mémoire linéairement et utiliser de l'arithmétique
 
 .. code-block:: c
 
-    char magic[] = "792" "357" "816";
+    char magic[] = "492" "357" "816";
 
     char* ptr = magic;
 
@@ -182,6 +188,8 @@ Pointeur et chaînes de caractères
 .. figure:: ../assets/figures/dist/string/ptrstr.*
 
     Pointeur sur une chaîne de caractère
+
+Cette structure est très exactement la même que pour les arguments transmis à la fonction ``main``: la définition ``char *argv[]``.
 
 Structures et pointeurs
 =======================

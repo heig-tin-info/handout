@@ -118,6 +118,8 @@ En français la `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3
 
 La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. A chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
 
+.. _function_prototype:
+
 Prototype
 =========
 
