@@ -3,7 +3,6 @@
 Ligne de commande
 =================
 
-.. figure:: https://en.wikipedia.org/wiki/Bash_(Unix_shell)#/media/File:Bash_screenshot.png
 
 La maîtrise de la ligne de commande n'est pas indispensable pour ce cours mais la compréhension de quelques commandes est utile pour bien comprendre les exemples données. 
 
