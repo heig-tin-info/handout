@@ -272,16 +272,16 @@ Un tableau dynamique aussi appelé *vecteur* est, comme son nom l'indique, allou
 
 Un tableau dynamique est souvent spécifié par un facteur de croissance (rien à voir avec les hormones). Lorsque le tableau est plein et que l'on souhaite rajouter un nouvel élément, le tableau est réalloué dans un autre espace mémoire plus grand avec la fonction ``realloc``. Cette dernière n'est rien d'autre qu'un ``malloc`` suivi d'un ``memcopy`` suivi d'un ``free``. Un nouvel espace mémoire est réservé, les données sont copiées du premier espace vers le nouveau, et enfin le premier espace est libéré. Voici un exemple : 
 
-```c
-char *buffer = malloc(3); // Alloue un espace de trois chars
-buffer[0] = 'h'; 
-buffer[1] = 'e';
-buffer[2] = 'l'; // Maintenant le buffer est plein...
-*buffer = realloc(5); // Réalloue avec un espace de cinq chars
-buffer[3] = 'l'; 
-buffer[4] = 'o'; // Maintenant le buffer est à nouveau plein...
-free(buffer);
-```
+.. code-block:: c
+
+    char *buffer = malloc(3); // Alloue un espace de trois chars
+    buffer[0] = 'h'; 
+    buffer[1] = 'e';
+    buffer[2] = 'l'; // Maintenant le buffer est plein...
+    *buffer = realloc(5); // Réalloue avec un espace de cinq chars
+    buffer[3] = 'l'; 
+    buffer[4] = 'o'; // Maintenant le buffer est à nouveau plein...
+    free(buffer);
 
 La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est à dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc. 
 
@@ -294,12 +294,14 @@ Un tableau est représenté en mémoire comme un contenu séquentiel qui possèd
 
 Nous définirons par la suite le vocabulaire suivant: 
 
-| Action                                         | Terme technique |
-| ---------------------------------------------- | --------------- |
-| Ajout d'un élément à la tête du tableau        | `unshift`       |
-| Ajout d'un élément à la queue du tableau       | `push`          |
-| Suppression d'un élément à la tête du tableau  | `shift`         |
-| Suppression d'un élément à la queue du tableau | `pop`           |
+==============================================  ===============
+Action                                          Terme technique 
+==============================================  ===============
+Ajout d'un élément à la tête du tableau         `unshift`       
+Ajout d'un élément à la queue du tableau        `push`          
+Suppression d'un élément à la tête du tableau   `shift`         
+Suppression d'un élément à la queue du tableau  `pop`           
+==============================================  ===============
 
 Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...). 
 
@@ -360,6 +362,7 @@ Enfin, l'opération ``unshift`` ajoute un élément depuis le début du tableau 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array-unshift.*
 
 .. code-block:: c
+
     for (int k = elements; k < 1; k--)
         data[k] = data[k - 1];
     data[0] = value;
