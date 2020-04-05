@@ -43,10 +43,10 @@ Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la t
 
     CSRCS=$(wildcard *.c)
     COBJS=$(patsubst %.c,%.o,$(CSRCS))
-    EXEC=gallimard
+    EXEC?=a.out
 
-    CFLAGS=-std=c99 -g -Wall -pedantic -pg
-    LDFLAGS=-lm -pg
+    CFLAGS=-std=c99 -g -Wall -pedantic
+    LDFLAGS=-lm
 
     all: $(EXEC)
 
@@ -56,13 +56,10 @@ Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la t
         $(CC) -o $@ $< $(LDFLAGS)
 
     %.o: %.c
-        $(CC) -c $(CFLAGS) -o $@ $^ -MMD -MF $(@:.o=.d)
+        $(CC) -c $(CFLAGS) -o $@ $< -MMD -MF $(@:.o=.d)
 
     clean:
         $(RM) $(EXEC) *.o a.out $(COBJS:.o=.d)
-
-    prof:
-        gprof -b $(EXEC) gmon.out
 
     .PHONY: all prof clean
 
