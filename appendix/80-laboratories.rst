@@ -53,7 +53,7 @@ Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la t
     -include $(COBJS:.o=.d)
 
     $(EXEC): $(COBJS)
-        $(CC) -o $@ $< $(LDFLAGS)
+        $(CC) -o $@ $^ $(LDFLAGS)
 
     %.o: %.c
         $(CC) -c $(CFLAGS) -o $@ $< -MMD -MF $(@:.o=.d)
