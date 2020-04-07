@@ -7,11 +7,12 @@ Les laboratoires sont des travaux pratiques permettant à l'étudiant d'attaquer
 Protocole
 =========
 
-1. Récupérer le référentiel du laboratoire en utilisant GitHub Classroom.
-2. Prendre connaissance du cahier des charges.
-3. Rédiger le code.
-4. Le tester.
-5. Le soumettre avant la date butoire.
+#. Récupérer le référentiel du laboratoire en utilisant GitHub Classroom.
+#. Prendre connaissance du cahier des charges.
+#. Rédiger le code.
+#. Le tester.
+#. Rédiger votre rapport de test si demandé.
+#. Le soumettre avant la date butoire.
 
 Evaluation
 ==========
@@ -34,10 +35,183 @@ Format de rendu
 - Le code doit comporter un exemple d'utilisation et une documentation mise à jour dans ``README.md``.
 - Lorsqu'un rapport est demandé vous le placerez dans ``REPORT.md``.
 
-Makefile et Visual Studio Code
+Anatomie d'un travail pratique
 ==============================
 
-Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces):
+Un certain nombre de fichiers vous sont donnés, il est utile de les connaîtres. Un référentiel sera généralement composé des éléments suivants :
+
+.. code:: text
+
+    $ tree
+    .
+    ├── .clang-format
+    ├── .devcontainer
+    │   ├── Dockerfile
+    │   └── devcontainer.json
+    ├── .editorconfig
+    ├── .gitattributes
+    ├── .gitignore
+    ├── .vscode
+    │   ├── launch.json
+    │   └── tasks.json
+    ├── Makefile
+    ├── README.md
+    ├── assets
+    │   └── test.txt
+    ├── foo.c
+    ├── foo.h
+    ├── main.c    
+    ├── criteria.yml
+    └── tests
+        ├── Makefile
+        └── test_foo.c
+    
+
+.clang-format
+-------------
+
+Ce fichier est au format `YAML <https://fr.wikipedia.org/wiki/YAML>`__ et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension `Clang-Format <https://marketplace.visualstudio.com/items?itemName=xaver.clang-format>`__ et l'exécutable ``clang-format`` (``sudo apt install -y clang-format``). `Clang-format <https://clang.llvm.org/docs/ClangFormat.html>`__ est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC. 
+
+On voit que le texte passé sur ``stdin`` (jusqu'à EOF) est ensuite formatté proprement :
+
+.. code:: console
+
+    $ clang-format --style=mozilla <<EOF
+    #include <stdio.h>
+    int
+    main
+    ()
+    {printf("hello, world\n");}
+    EOF
+    #include <stdio.h>
+    int
+    main()
+    {
+    printf("hello, world\n");
+    }
+
+Par défaut ``clang-format`` utilise le fichier de configuration nommé ``.clang-format`` qu'il trouve. 
+
+Vous pouvez générer votre propre configuration facilement depuis un configurateur tel que `clang-format configurator <https://zed0.co.uk/clang-format-configurator/>`__.
+
+.editor_config
+--------------
+
+Ce fichier au format YAML permet de spécifier des recommendations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes **CR** ou **CRLF**, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. `EditorConfig <https://editorconfig.org/>`__ est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé ``.editor_config``. 
+
+Dans Visual Studio Code, il faut installer l'extension `EditorConfig for VS Code <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>`__ pour bénéficier de ce fichier. 
+
+Pour les travaux pratique on se contente de spécifier les directives suivantes :
+
+.. code:: yaml
+
+    root = true
+
+    [*]
+    end_of_line = lf
+    insert_final_newline = true
+    indent_style = space
+    indent_size = 4    
+    charset = utf-8
+
+    [*.{json,yaml}]
+    indent_style = space
+    indent_size = 2
+
+    [Makefile]
+    indent_style = tab
+
+    [*.{cmd,bat}]
+    end_of_line = crlf
+
+.gitattributes
+--------------
+
+Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quel sera la fin de ligne standard pour certain type de fichiers : 
+
+.. code::text
+
+    * text=auto eol=lf
+    *.{cmd,[cC][mM][dD]} text eol=crlf
+    *.{bat,[bB][aA][tT]} text eol=crlf
+
+.gitignore
+----------
+
+Ce fichier de configuration permet à Git d'ignorer par défaut certains fichiers et ainsi éviter qu'ils ne soient ajoutés par erreur au référentiel. Ici, on souhaite éviter d'ajouter les fichiers objets ``.o`` et les exécutables ``*.out`` :
+
+.. code::text
+
+    *.out
+    *.o
+    *.d
+    *.so
+    *.lib
+
+.vscode/launch.json
+-------------------
+
+Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme en mode débug. Il est au format JSON. Les lignes importantes sont ``program`` qui contient le nom de l'exécutable à lancer ``args`` qui spécifie les arguments passés à ce programme et ``MiMode`` qui est le nom du débogueur que vous utiliserez. Par défaut nous utilisons GDB.
+
+.. code:: json
+
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Launch Main",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/a.out",
+                "args": ["--foobar", "filename", "<<<", "hello, world"],
+                "stopAtEntry": true,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ],
+                "preLaunchTask": "Build Main"
+            }
+        ]
+    }
+
+.vscode/tasks.json
+------------------
+
+Ce fichier contient les directives de compilation utilisées par Visual Studio Code lors de l'exécution de la tâche *build* accessible par la touche ``<F5>``. On y voit que la commande exécutée est ``make``. Donc la manière dont l'exécutable est généré dépend d'un ``Makefile``.
+
+.. code::json
+
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build Main",
+                "type": "shell",
+                "command": "make",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "label": "Clean",
+                "type": "shell",
+                "command": "make clean"
+            }
+        ]
+    }
+
+Makefile
+--------
+
+Ce fichier contient les directives nécessaires au programme ``make`` pour générer votre exécutable. Vous pouvez vous inspirer de ce ``Makefile`` générique mais n'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces). Si vous avez l'extension EditorConfig installée pour votre éditeur vous pouvez reformater le fichier avant de l'enregistrer.
 
 .. code:: make
 
@@ -63,52 +237,137 @@ Vous pouvez vous inspirer de ce ``Makefile`` générique. N'oubliez pas que la t
 
     .PHONY: all prof clean
 
-Dans ce cas fichier ``launch.json`` ressemblera à ceci:
+En substance, ce fichier contient des règles, des dépendances et des recettes de fabrication. Les règles de base sont ``all`` et ``clean``. La règle ``all`` dépend de la règle ``$(EXEC)`` qui est une variable qui contient le nom de l'exécutable, ici ``a.out``. Vous pouvez spécifier le nom de l'exécutable souhaité à la ligne ``EXEC=mon_executable``. La règle ``$(EXEC)`` dépend de ``$(COBJS)`` qui sont la liste des objets C, à savoir tous les fichiers ``.c`` dont l'extension est remplacée par ``.o``. Une règle générique permet ensuite de générer tous les fichiers objets nécessaires à partir du fichier C correspondant : ``%.o: %.c``. Enfin, en compilation séparée, l'exécutable est créé en assemblant tous les fichiers objets. 
 
-.. code:: json
+Pas de panique, il vous suffit de savoir exécuter ``make all`` ou ``make clean`` pour vous en sortir.
 
-    {
-        "version": "0.2.0",
-        "configurations": [
-            {
-                "name": "build project",
-                "type": "cppdbg",
-                "request": "launch",
-                "program": "${fileDirname}/${fileBasenameNoExtension}",
-                "args": ["proust.md"],
-                "stopAtEntry": true,
-                "cwd": "${workspaceFolder}",
-                "environment": [],
-                "externalConsole": false,
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    }
-                ],
-                "preLaunchTask": "make",
-                "miDebuggerPath": "/usr/bin/gdb"
-            }
-        ]
-    }
+README.md
+---------
 
-Et le fichier ``task.json``:
+Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notament le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe : 
 
-.. code:: json
+.. code::markdown
 
-    {
-        "version": "2.0.0",
-        "tasks": [
-            {
-                "type": "shell",
-                "label": "make",
-                "command": "make",
-                "problemMatcher": [
-                    "$gcc"
-                ],
-                "group": "build"
-            }
-        ]
-    }
+    # Laboratoire <!-- omit in toc -->
+
+    - **Durée**: 2 périodes + environ 3h à la maison
+    - **Date de rendu**: dimanche avant minuit
+    - **Format**: travail individuel
+
+    ...
+
+criteria.yml
+------------
+
+Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé ``description`` et un nombre de point est spécifié. Une exigence peut avoir soit un nombre de point positif soit négatif. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas dilluer les exigences au travers d'autre critères importants mais normalment respectés des étudiants. 
+
+Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue. 
+
+.. code::yaml
+
+    # Critères d'évaluation du travail pratique
+    %YAML 1.2
+    ---
+    tests:
+        build:
+            description: Le programme compile sans erreurs ni warning
+            points: 0/-4
+            test: test_build
+        unit-testing:
+            function_foo:
+            points: 0/10
+            test: test_foo
+            function_bar:
+            points: 0/10
+            test: test_bar
+        functional-testing:
+            arguments:
+            description: La lecture des arguments fonctionne comme demandé
+            points: 0/7
+            test: test_arguments
+            output-display:
+            description: Affichage sur stdout/stderr comme spécifié
+            points: 0/3
+            test: test_output
+            errors:
+            description: Le programme affiche des erreurs si rencontrées
+            points: 0/2
+            test: test_errors
+    report:
+        introduction:
+            description: Le rapport de test contient une introduction
+            points: 0/2
+        conclusion:
+            description: Le rapport de test contient une conclusion
+            points: 0/2
+        analysis:
+            description: Le rapport de test contient une analyse du comportement
+            points: 0/3
+    code:
+        specifications:
+            prototypes:
+                description: Les prototypes des fonctions demandées sont respectés
+                points: 0/3
+            main:
+                description: Le programme principal est minimaliste
+                points: 0/3
+            algorithm:
+                description: L'algorithme de encode/decode est bien pensé
+                points: 0/5
+        comments:
+            header:
+            description: Un en-tête programme est clairement défini
+            points: 0/2
+            purpose:
+            description: Les commentaires sont pertinents
+            points: 0/-2
+            commented-code:
+            description: Du code est commenté
+            points: 0/-2
+        variables:
+            naming:
+            description: Le noms des variables est minimaliste et explicite
+            points: 0/2
+            scope:
+            description: La portée des variables est réduite au minimum
+            points: 0/2
+            type:
+            description: Le type des variables est approprié
+            points: 0/2
+        functions:
+            length:
+            description: La longueur des fonctions est raisonnable
+            points: 0/-4
+        control-flow:
+            description: Les structures de contrôle sont appropriées
+            points: 0/4
+        overall:
+            dry:
+            description: Pas de répétition dans le code
+            points: 0/-5
+            kiss:
+            description: Le code est minimaliste et simple
+            points: 0/-5
+            ssot:
+            description: Pas de répétition d'information
+            points: 0/-5
+            indentation:
+            description: L'indentation du code est cohérente
+            points: 0/-5
+    bonus:
+        help:
+            description: Le programme dispose d'une aide
+            bonus: 0/1
+            test: test_help
+        version:
+            description: La version du programme peut être affichée
+            bonus: 0/1
+            test: test_version
+        extension:
+            description: La fonctionnalité du programme est étendue
+            bonus: 0/3
+        english:
+            description: Usage de l'anglais
+            bonus: 0/1
+
+Ce fichier est utilisé par des tests automatique pour faciliter la correction du travail pratique. 
