@@ -6,13 +6,21 @@ Algorithmes et conception
 
 L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
 
-Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système `Turing-complet <https://fr.wikipedia.org/wiki/Turing-complet>`__. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle `machine de Turing <https://fr.wikipedia.org/wiki/Machine_de_Turing>`__. Heureusement pour nous le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines (compter, comparer, lire, écrire, ...)
+Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système `Turing-complet <https://fr.wikipedia.org/wiki/Turing-complet>`__. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle `machine de Turing <https://fr.wikipedia.org/wiki/Machine_de_Turing>`__. For heureusement, le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines, soit compter, comparer, lire, écrire...
 
 Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus: des structures de contrôle, des variables, etc.
 
 Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (*flowchart*) ou un structogramme (*Nassi-Shneiderman diagram*) afin de s'affranchir du langage de programmation cible.
 
 La **conception** aussi appelée `Architecture logicielle <https://fr.wikipedia.org/wiki/Architecture_logicielle>`__ est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.
+
+Pour être qualifié d'algorithme certaines propriété doivent être respectées :
+
+#. **Entrées**, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.
+#. **Sorties**, un algorithme doit posséder au moins une sortie.
+#. **Rigueur**, chaque étape d'un algorithme doit être claire et bien définie.
+#. **Finitude**, un algorithme doit comporté un nombre fini d'étapes.
+#. **Répétable**, un algorithme doit fournir un résultat répétable.
 
 Complexité d'un algorithme
 ==========================

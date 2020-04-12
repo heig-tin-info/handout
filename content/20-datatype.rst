@@ -663,7 +663,75 @@ Afin de faciliter la lecture du code, il est courant de préfixer les variables 
 
 A titre d'exemple, si l'on souhaite stocker le genre d'un individu (male, ou femelle), on pourrait utiliser la variable ``is_male``.
 
-.. _void:
+Énumérations
+============
+
+Ce style d'écriture permet de définir un type de données contenant un
+nombre fini de valeurs. Ces valeurs sont nommées textuellement et
+définies numériquement dans le type énuméré.
+
+.. code-block:: c
+
+    enum ColorCode {
+        COLOR_BLACK, // Vaut zéro par défaut
+        COLOR_BROWN,
+        COLOR_RED,
+        COLOR_ORANGE,
+        COLOR_YELLOW,
+        COLOR_GREEN,
+        COLOR_BLUE,
+        COLOR_PURPLE,
+        COLOR_GRAY,
+        COLOR_WHITE
+    };
+
+Le type d'une énumération est apparenté à un entier ``int``. Sans autre précisions, la première valeur vaut 0, la suivante 1, etc.
+
+Il est possible de forcer les valeurs de la manière suivante :
+
+.. code-block:: c
+
+    typedef enum {
+        CODE_SWITZERLAND=41,
+        CODE_FRANCE=33,
+        CODE_US=1
+    } CountryCodes;
+
+ou encore :
+
+.. code-block:: c
+
+    typedef enum {
+
+    typedef enum {
+        CODE_SWITZERLAND=41,
+        CODE_BELGIUM=32
+        CODE_FRANCE, // Sera 33...
+        CODE_SPAIN, // Sera 34...
+        CODE_US=1
+    } CountryCodes;
+
+Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter des éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.
+
+L'utilisation d'un type énuméré peut être la suivante :
+
+.. code-block:: c
+
+    void call(enum CountryCodes code) {
+        switch(code) {
+        case CODE_SWITZERLAND:
+            printf("Calling Switzerland, please wait...\n");
+            break;
+        case CODE_BELGIUM:
+            printf("Calling Belgium, please wait...\n");
+            break;
+        case CODE_FRANCE:
+            printf("Calling France, please wait...\n");
+            break;
+        default:
+            printf("No calls to this country are allowed yet!\n");
+        }
+    }
 
 Type vide (*void*)
 ==================

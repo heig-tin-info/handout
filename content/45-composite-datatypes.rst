@@ -1,5 +1,3 @@
-.. TODO:: chapite 10.7 Enumérations ? titre juste ?
-
 ================
 Types composites
 ================
@@ -13,13 +11,13 @@ Les `tableaux <https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)
 
 L'opérateur crochet ``[]`` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau:
 
-La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante:
+La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :
 
 .. code-block:: c
 
     int array[10];
 
-Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3:
+Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 :
 
 .. code-block:: c
 
@@ -39,7 +37,7 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mai
 
     .. code-block:: c
 
-        for(size_t i = 0; i <= sizeof(array) / sizeof(array[0]) - 1; i++) {
+        for(size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
            /* ... */
         }
 
@@ -71,7 +69,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
     a[1][2] == *(*(a + 1) + 2))
 
-.. exercise::
+.. exercise:: Assignation
 
     Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
 
@@ -128,7 +126,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
         float t[3, /* five */ 5];
         float t[3]        [5];
 
-.. exercise::
+.. exercise:: Comparaisons
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
 
@@ -265,8 +263,187 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
                 }
             }
 
+Initialisation
+--------------
+
+Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableaux. La déclaration suivante :
+
+.. code:: c
+
+    int32_t even[6];
+
+contient 6 entiers, chacuns d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.
+
+Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (``even[4]``), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu il faut initialiser le tableau, soit affecter des valeurs pour chaque indice :
+
+.. code:: c
+
+    int32_t sequence[6];
+    sequence[0] = 4;
+    sequence[1] = 8;
+    sequence[2] = 15;
+    sequence[3] = 16;
+    sequence[4] = 23;
+    sequence[5] = 42;
+
+Cette écriture n'est certainement pas la plus optimisée car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades :
+
+.. code:: c
+
+   int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
+
+Dans cette dernière écriture, il existe une redondance d'information. La partie d'initialisation ``{4, 8, 15, 16, 23, 42}`` comporte six éléments et le tableau est déclaré avec six éléments ``[6]``. Pour éviter une double source de vérité, il est ici possible d'omettre la taille du tableau :
+
+.. code:: c
+
+   int32_t sequence[] = {4, 8, 15, 16, 23, 42};
+
+Notons que dans premier de ces deux cas, si un nombre inférieur à 6 éléments est initialisé, les autrs éléments seront initializés à **zéro**
+
+.. code:: c
+
+   int32_t sequence[6] = {4, 8, 15, 16 /* le reste vaudra zéro */ };
+
+Il est également possible d'initialiser un tableau de façon explicite en utilisant une notation plus spécifique :
+
+.. code:: c
+
+   int32_t sequence[6] = {[0]=4, [1]=8, [2]=15, [3]=16, [4]=23, [5]=42};
+
+Et naturellement il est possible d'omettre certaines valeurs, lesquelles seront initialisées à zéro par défaut. Dans l'exemple suivant les valeurs aux indices 1 à 4 vaudront zéro.
+
+.. code:: c
+
+   int32_t sequence[6] = {[0]=4, [5]=42};
+
+Notons que lorsque que la notation ``[]=`` est utilisée, les valeurs qui suivent seront positionnées aux indices suivants :
+
+.. code:: c
+
+   int32_t sequence[6] = {[0]=4, 8, [3]=16, 23, 42};
+
+Dans l'exemple ci-dessus ``sequence[2]`` vaudra zéro.
+
+Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas:
+
+.. code-block:: c
+
+    int array[10];
+
+    // Erreur: l'initialisation tardive n'est pas autorisée.
+    array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+Initialisation à zéro
+---------------------
+
+Enfin, un sucre syntaxique ``{0}`` permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisées à zéro si non mentionnées :
+
+.. code:: c
+
+   int32_t sequence[6] = {0};
+
+Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
+
+Initialization à une valeur particulière
+----------------------------------------
+
+Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
+
+.. code-block:: c
+
+    int array[1024] = { [ 0 ... 1023 ] = -1 };
+
+En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative:
+
+.. code-block:: c
+
+    for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); i++)
+        array[i] = -1;
+
+Tableaux non modifiables
+------------------------
+
+A présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé ``const`` est utilisé a cette fin.
+
+.. code:: c
+
+   int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
+   sequence[2] = 12;
+
+Dans l'exemple ci-dessus, la seconde ligne génèrera l'erreur suivante :
+
+.. code:: text
+
+   error: assignment of read-only location ‘sequence[2]’
+
+Notons que lors de l'utilisation de pointeurs, il serait possible, de façon détournée, de modifier ce tableau malgré tout :
+
+.. code:: c
+
+   int *p = sequence;
+   p[2] = 12;
+
+Dans ce cas, ce n'est pas une erreur mais une alerte du compilateur qui survient :
+
+.. code:: text
+
+   warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+
 Tableaux multi-dimensionnels
 ----------------------------
+
+Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du *tic-tac-toe* ou morpion, il faudra une grille de 3x3.
+
+Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :
+
+.. code:: c
+
+    char game[6] = {0};
+    int row = 1;
+    int col = 2;
+    game[row * 3 + col] = 'x';
+
+Néanmoins, cette écriture n'est pas pratique et le langage C dispose du nécessaire pour alléger l'écriture. La grille de jeu sera simplement initialisée comme suit :
+
+.. code:: c
+
+    char game[3][3] = {0};
+
+Jouer ``x`` au centre équivaut à écrire :
+
+.. code:: c
+
+    game[1][1] = 'x';
+
+De la même façon il est possible de définir structure tri-dimensionnelles :
+
+.. code:: c
+
+    int volume[10][4][8];
+
+L'initialisation des tableaux multi-dimensionnel est très similaire au tableaux standards mais il est possible d'utiliser plusieurs niveau d'accolades.
+
+Ainsi le jeu de morpion suivant :
+
+.. code:: text
+
+     o | x | x
+    ---+---+---
+     x | o | o
+    ---+---+---
+     x | o | x
+
+Peut s'initialiser comme suit :
+
+.. code:: c
+
+   char game[][3] = {{'o', 'x', 'x'}, {'x', 'o', 'o'}, {'x', 'o', 'x'}};
+
+Notons que l'écriture suivante est similaire, car un tableau multidimensionnel est toujours représenté en mémoire de façon linéaire, comme un tableau à une dimension :
+
+.. code:: c
+
+   char game[][3] = {'o', 'x', 'x', 'x', 'o', 'o', 'x', 'o', 'x'};
 
 .. exercise:: Détectives privés
 
@@ -331,13 +508,135 @@ Tableaux multi-dimensionnels
 
         Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
 
+Chaînes de caractères
+=====================
+
+Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacuns représentant un caractère ASCII spécifique. La chaîne de caractère ``hello`` contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de ``char``.
+
+En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :
+
+.. code-block:: c
+
+    char str[] = "hello, world!";
+
+Le compilateur ajoutera automatiquement un caractère de terminaison ``'\0'`` à la fin de la chaîne. Pour comprendre l'utilité, imaginons une fonction qui permet de compter la longueur de la chaîne. Elle aurait comme prototype ceci :
+
+.. code-block:: c
+
+    size_t strlen(const char str[]);
+
+On peut donc lui passer un tableau dont la taille n'est pas définie et par conséquent, il n'est pas possible de connaître la taille de la chaîne passée sans le bénéfice d'une sentinelle.
+
+.. code-block:: c
+
+    size_t strlen(const char str[]) {
+        size_t len = 0,
+        while (str[len++] != '\0') {}
+        return len;
+    }
+
+Une chaîne de caractère est donc strictement identique à un tableau de ``char``.
+
+Ainsi une chaîne de caractère est initialisée comme suit :
+
+.. code-block:: c
+
+    char str[] = "Pulp Fiction";
+
+La taille de ce tableau sera donc de 12 caractères plus une sentinelle ``'\0'`` insérée automatiquement. Cette écriture est donc identique à :
+
+.. code-block:: c
+
+    char str[] = {
+        'P', 'u', 'l', 'p', ' ', 'F', 'i', 'c', 't', 'i', 'o', 'n', '\0'
+    };
+
+Tableaux de chaînes de caractères
+---------------------------------
+
+Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :
+
+.. code-block:: c
+
+    char conjunctions[][10] = {
+        "mais", "ou", "est", "donc", "or", "ni", "car"
+    };
+
+Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable ``conjunctions`` aura une taille de 7x10 caractères et le contenu mémoire de ``conjunctions[1]`` sera équivalent à :
+
+.. code-block:: c
+
+    {'o', 'u', 0, 0, 0, 0, 0, 0, 0, 0}
+
+D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon :
+
+.. code-block:: c
+
+    char conjunctions[][10] = {
+        'm', 'a', 'i', 's', 0, 0, 0, 0, 0, 0, 'o', 'u', 0, 0, 0,
+        0, 0, 0, 0, 0, 'e', 's', 't', 0, 0, 0, 0, 0, 0 , 0, 'd',
+        'o', 'n', 'c', 0, 0, 0, 0, 0 , 0, 'o', 'r', 0, 0, 0, 0,
+        0, 0, 0, 0, 'n', 'i', 0, 0, 0, 0, 0, 0, 0, 0, 'c', 'a',
+        'r', 0, 0, 0, 0, 0, 0, 0,
+    };
 
 Structures
 ==========
 
-Les structures sont des déclarations permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type ``struct`` a été dérivé de ``ALGOL 68``. Il est également utilisé en C++ et est similaire à une classe.
+Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type ``struct`` a été dérivé de ``ALGOL 68``. Il est également utilisé en C++ et est similaire à une classe.
 
-La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel:
+Il faut voir une structure comme un container à variables qu'il est possible de véhiculer comme un tout.
+
+La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :
+
+.. code-block:: c
+
+    struct {
+        double x;
+        double y;
+        double z;
+    };
+
+Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un bloc de code avec trois variables locales déclarées :
+
+.. code-block:: c
+
+    {
+        double x;
+        double y;
+        double z;
+    };
+
+En utilisant le mot-clé ``struct`` devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à ``x`` puisqu'il n'existe pas de variable ``x``. En revanche, un nouveau container contenant trois variable est défini, mais pas encore déclaré.
+
+La structure ainsi déclarée n'est pas très utile telle quelle, en revanche elle peut-être utilisée pour déclarer une variable de type ``struct`` :
+
+.. code-block:: c
+
+    struct {
+        double x;
+        double y;
+        double z;
+    } point;
+
+A présent on a déclaré une variable ``point`` de type ``struct`` contenant trois éléments de type ``double``. L'affectaction d'une valeur à cette variable utilise l'opérateur ``.`` :
+
+.. code-block:: c
+
+    point.x = 3060426.957;
+    point.y = 3192003.220;
+    point.z = 4581359.381;
+
+Comme ``point`` n'est pas une primitive standard mais un container à primitive, il n'est pas correct d'écrire ``point = 12``. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.
+
+Ces coordonnées sont un clin d'oeil aux `Pierres du Niton <https://fr.wikipedia.org/wiki/Pierres_du_Niton>`__ qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour `Axel Lidenbrock <https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre>`__ et son fulmicoton.
+
+Structures nommées
+------------------
+
+L'écriture que l'on a vu initialement ``struct { ... };`` est appelée structure annonyme, c'est à dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration ``struct { ... } nom;``. Néanmoins la structure est toujours annonyme.
+
+Le langage C prévoit la possibilté de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé ``struct`` :
 
 .. code-block:: c
 
@@ -347,7 +646,103 @@ La structure suivante décrit un agrégat de trois grandeurs scalaires formant u
         double z;
     };
 
-Cette structure peut être utilisée par la suite de la façon suivante:
+Pour ne pas confondre un nom de structure avec un nom de variable, on préférera un identificateur en capitales ou en écriture *camel-case*. Maintenant qu'elle est nommée, il est possible de déclarer plusieurs variables de ce type ailleurs dans le code :
+
+.. code-block:: c
+
+    struct Point foo;
+    struct Point bar;
+
+Dans cet exemple, on déclare deux variables ``foo`` et ``bar`` de type ``struct Point``. Il est donc possible d'accéder à ``foo.x`` ou ``bar.z``.
+
+Rien n'empêche de déclarer une structure nommée et d'également déclarer une variable par la même occasion :
+
+.. code-block:: c
+
+    struct Point {
+        double x;
+        double y;
+        double z;
+    } foo;
+    struct Point bar;
+
+Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est à dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :
+
+.. code-block:: c
+
+    struct point { double x; double y; double z; };
+    struct point point;
+    point.x = 42;
+
+Initialisation
+--------------
+
+Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet ``[]`` mais avec l'opérateur ``.``. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure ``struct Point`` serait identique à un tableau de trois ``double`` et par conséquent l'initialisation suivante est possible :
+
+.. code-block:: c
+
+    struct Point point = { 3060426.957, 3192003.220, 4581359.381 };
+
+Néanmoins on préfèrera la notation suivante, équivalente :
+
+.. code-block:: c
+
+    struct Point point = { .x=3060426.957, .y=3192003.220, .z=4581359.381 };
+
+Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la même manière qu'un tableau, il est possible d'initialiser une structure à zéro avec ``= {0};``.
+
+Il faut savoir que **C99** restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.
+
+Notons que des stuctures comportant des types différents peuvent aussi être initialisée de la même manière :
+
+.. code-block:: c
+
+    struct Product {
+        int weight; // Grams
+        double price; // Swiss francs
+        int category;
+        char name[64];
+    }
+
+    struct Product apple = {321, 0.75, 24, "Pomme Golden"};
+
+Tableaux de structures
+----------------------
+
+Une structure est un type comme un autre. Tout ce qui peut être fait avec ``char`` ou ``double`` peut donc être fait avec ``struct``. Et donc, il est aussi possibel de déclarer un tableau de structures. Ici donnons l'exemple d'un tableaux de points initialisés :
+
+.. code-block:: c
+
+    struct Point points[3] = {
+        {.x=1, .y=2, .z=3},
+        {.z=1, .x=2, .y=3},
+        {.y=1}
+    };
+
+Assigner une nouvelle valeur à un point est facile :
+
+.. code-block:: c
+
+    point[2].x = 12;
+
+Structures en paramètres
+------------------------
+
+L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :
+
+.. code-block:: c
+
+    struct Point generate_point(void) {
+        struct Point p = {
+            .x = rand(),
+            .y = rand(),
+            .z = rand()
+        };
+
+        return p;
+    }
+
+Il est également possible de passer une structure en paramètre d'une fonction :
 
 .. code-block:: c
 
@@ -359,24 +754,6 @@ Cette structure peut être utilisée par la suite de la façon suivante:
         struct Point p = { .x = 12.54, .y = -8.12, .z = 0.68 };
 
         double n = norm(p);
-    }
-
-On comprends aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites:
-
-.. code-block:: c
-
-    struct Line {
-        struct Point a;
-        struct Point b;
-    }
-
-Notons qu'en C une structure peut être **nommée** ou **anonyme**. L'équivalent anonyme de la structure ci-dessus s'écrira comme suit:
-
-.. code-block:: c
-
-    struct {
-        struct Point a;
-        struct Point b;
     }
 
 Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu:
@@ -405,10 +782,31 @@ Le résultat affiché sera ``0.0, 1.0``. Seul la seconde valeur est modifiée.
 
     Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation ``->`` au lieu de ``.`` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire ``p->x`` au lieu de ``(*p).x``
 
+Structure de structures
+-----------------------
+
+On comprends aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.
+
+Nous déclarons ici une structure ``struct Line`` composée de ``struct Point`` :
+
+.. code-block:: c
+
+    struct Line {
+        struct Point a;
+        struct Point b;
+    };
+
+L'accès à ces différentes valeurs s'effectue de la façon suivante :
+
+.. code-block:: c
+
+    struct Line line = {.a.x = 23, .a.y = 12, .b.z = 33};
+    printf("%g, %g", line.a.x, line.b.x);
+
 Alignement mémoire
 ------------------
 
-Une structure est agencée en mémoire dans l'ordre de sa déclaration.
+Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :
 
 .. code-block:: c
 
@@ -429,7 +827,9 @@ Une structure est agencée en mémoire dans l'ordre de sa déclaration.
     0x0028 line[1].b.y
     0x002C line[1].b.z
 
-Néanmoins, le compilateur se réserve le droit d'optimiser l' `alignement mémoire <https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire>`__. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Aussi la structure suivante sera implémentée différemment par le compilateur:
+Néanmoins, le compilateur se réserve le droit d'optimiser l' `alignement mémoire <https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire>`__. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information.
+
+Considérons la structure suivante :
 
 .. code-block:: c
 
@@ -441,7 +841,25 @@ Néanmoins, le compilateur se réserve le droit d'optimiser l' `alignement mémo
         int8_t a[3];
     };
 
-Le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures:
+Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bit est assez grand pour y stocker 4 bytes. Si l'on souhaite représenter la structure ci-dessus sans optimisation de la part du processeur, le casier 0 contiendra  ``c`` tandis que pour obtenir la valeur d il faudra accéder au casier 0 et au casier 1 :
+
+    0x0000 c    <-- data[0]
+    0x0001 d0
+    0x0002 d1
+    0x0003 d2
+
+    0x0004 d3   <-- data[1]
+    0x0005 i7
+    0x0006 i6
+    0x0007 i5
+
+    ...
+
+Ainsi, le compilateur sera obligé de faire du zèle pour accéder à d. En admettant que notre structure peut être accédée comme un tableau on aura :
+
+    int32_t d = (data[0] << 8) | (data[1] & 0x0F);
+
+Pour éviter ces manoeuvres, le compilateur selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
 
 .. code-block:: c
 
@@ -455,7 +873,9 @@ Le compilateur, selon l'architecture donnée, va insérer des éléments de remb
         int8_t __pad2; // Inséré par le compilateur
     };
 
-Notons que réagencer la structure initiale peut éviter la perte d'espace mémoire. La structure suivante ne sera pas modifiée par le compilateur.
+De cette manière, l'accès à ``d`` est facilité au détriment d'une perte substentielle de l'espace de stockage.
+
+Une solution optimale consiste à réagencer la structure initiale peut éviter la perte d'espace mémoire. La structure suivante ne sera pas modifiée par le compilateur car elle est alignée sur 32-bits :
 
 .. code-block:: c
 
@@ -526,20 +946,12 @@ Enfin, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant:
     | b(4) |
     | c(1) |
 
-Structure anonyme
------------------
-
-Une structure peut être anonyme, c'est-à-dire qu'elle n'est pas associée à un nom. Cette forme de structure est généralement déconseillée, mais elle peut être utilisée:
-
-- Lorsqu'une structure n'est utilisée qu'une seule fois.
-- Lorsqu'un type est généré à partir de cette structure (*typedef*).
-
 Champs de bits
 ==============
 
 Les champs de bits sont des structures dont une information supplémentaire est ajoutée: le nombre de bits utilisés.
 
-Prenons l'exemple du `module I2C <http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf>`__ du microcontrôleur TMS320F28335. Le registre ``I2CMDR`` décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits:
+Prenons l'exemple du `module I2C <http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf>`__ du microcontrôleur TMS320F28335. Le registre ``I2CMDR`` décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :
 
 .. code-block::
 
@@ -560,7 +972,7 @@ Prenons l'exemple du `module I2C <http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf
         bool nackmod :1;
     };
 
-Activer le bit ``stp`` (bit numéro 12) devient une opération triviale:
+Activer le bit ``stp`` (bit numéro 12) devient une opération triviale :
 
 .. code-block:: c
 
@@ -568,7 +980,7 @@ Activer le bit ``stp`` (bit numéro 12) devient une opération triviale:
 
     i2cmdr.stp = true;
 
-Alors qu'elle demanderait une manipulation de bit sinon:
+Alors qu'elle demanderait une manipulation de bit sinon :
 
 .. code-block:: c
 
@@ -581,7 +993,7 @@ Notons que les champs de bits, ainsi que les structures seront déclarées diff�
 Unions
 ======
 
-Une `union <https://en.wikipedia.org/wiki/Union_type>`__ est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au :numref:`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois:
+Une `union <https://en.wikipedia.org/wiki/Union_type>`__ est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au :numref:`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :
 
 .. code-block:: c
 
@@ -640,8 +1052,8 @@ Les unions sont très utilisées en combinaison avec des champs de bits. Pour re
         uint16_t all;
     };
 
-Nouveau type
-============
+Création de type
+================
 
 Le mot clé ``typedef`` permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe ``struct``), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.
 
@@ -659,369 +1071,44 @@ L'exemple suivant déclare un type ``Point`` et un prototype de fonction permett
 Compound Literals
 =================
 
-Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode d'initialisation d'un type composé.
+Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode de création d'un type composé "à la volée" utilisé de la même façon que les transtypages.
 
-Notons qu'un type composé ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas:
-
-.. code-block:: c
-
-    int array[10];
-
-    // Erreur: l'initialisation tardive n'est pas autorisée.
-    array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-Initialisation à zéro
----------------------
-
-La notation particulière ``{0}`` est un `sucre syntaxique <https://fr.wikipedia.org/wiki/Sucre_syntaxique>`__ permettant l'initialisation complète d'une variable à zéro. Elle est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme.
+Reprenons notre structure Point ``struct Point`` vue plus haut. Si l'on souhaite changer la valeur du point ``p`` il faudrait on pourrait écrire ceci :
 
 .. code-block:: c
 
-    int array[10] = {0};
+    struct Point p; // Déclaré plus haut
 
-    Point point = {0};
+    // ...
 
-Initialisation simple
----------------------
-
-Lors d'une initialisation simple d'un tableau, la taille du tableau est optionnelle, l'exemple suivant comporte une redondance qui peut être souhaitée:
-
-.. code-block:: c
-
-    int array[4] = {1, 2, 3, 4};
-
-Alternativement, et plus fréquemment, les chaines de caractères sont initialisées sans mentionner la taille du tableau:
-
-.. code-block:: c
-
-    char str[] = "Pulp Fiction";
-
-Une structure peut être initialisée de la même manière:
-
-.. code-block:: c
-
-    struct Product {
-        int weight; // Grams
-        double price; // Swiss francs
-        int category;
-        char name[64];
-    }
-
-    struct Product apple = {321, 0.75, 24, "Pomme Golden"};
-
-Initialisation ciblée
----------------------
-
-Parfois, il est utile d'initialiser seulement certaines valeurs d'une structure, l'opérateur ``.`` peut être utilisé dans une structure et permet l'initialisation ciblée.
-
-Dans l'exemple suivant, on initialise une variable ``banana`` avec un nom et une catégorie. Les autres champs seront initialisés à zéro s'il s'agit d'une variable globale.
-
-.. code-block:: c
-
-    struct Product banana = { .category = 33, .name = "Banane"};
-
-**C99** restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.
-
-L'initialisation ciblée est également possible avec un tableau:
-
-.. code-block:: c
-
-    int a[6] = { [1] = 12, 23, [4] = 98 };
-
-Initialization à une valeur particulière
-----------------------------------------
-
-Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
-
-.. code-block:: c
-
-    int array[1024] = { [ 0 ... 1023 ] = -1 };
-
-En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative:
-
-.. code-block:: c
-
-    for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); i++)
-        array[i] = -1;
-
-
-Adresse d'un élément et initialisation avec un scanf
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-L'initialisation de la valeur d'un élément d'un tableau en utilisant la
-fonction d'entrée formatée *scanf* est possible en prenant garde à
-exprimer correctement l'adresse de l'élément.
-
-La fonction *scanf* a besoin de l'adresse de l'élément à mettre à jour.
-L'adresse de l'élément d'un tableau s'écrit simplement en mettant le
-signe & devant l'élément.
-
-Par exemple, la forme d'écriture :math:`\&tab[3]` désigne l'adresse du
-4e élément du tableau. On utilisera cette forme pour l'entrée
-formatée.
-
-.. code-block:: c
-
-    scanf("%d", &tab[1]); // place l'entrée dans le second élément du tableau
-
-L'adresse du premier élément du tableau noté :math:`\&tab[0]` peut
-également s'écrire :math:`tab`. Il en découle une autre forme d'écriture
-plus simple.
-
-.. code-block:: c
-
-    scanf("%d", tab+1); // place l'entrée dans le second élément du tableau
-
-L'accès à des éléments dont l'indice dépasse la taille du tableau
-engendre des effets de bords imprévisibles. La lecture de tels éléments
-donne généralement des valeurs inattendues. L'écriture peut par contre
-engendrer des problèmes plus graves comme la modification d'autres
-variables ou des 'plantage' de votre application. Ces problèmes sont en
-général difficiles à traiter, aussi il est important de bien vérifier
-les valeurs des indices utilisées pour accéder aux éléments d'un
-tableau.
-
-Tableaux à plusieurs dimensions
--------------------------------
-
-Les tableaux en langage C permettent également de définir un ensemble de
-données du même type à l'aide d'une seule et même variable associée à
-'n' indices pour l'accès, 'n' correspondant à la dimension du tableau.
-
-Déclaration
-~~~~~~~~~~~
-
-On utilise le même principe que pour le tableau à une dimension, mais en
-mettant autant de paires de crochets qu'il y a de dimensions.
-
-Règle d'écriture :
-
-.. code-block:: c
-
-    type identifiant[taille_dimension1][taille_dimension2]...;
-
-Exemple de déclaration d'un tableau de 10 x 20 entiers nommés tab :
-
-.. code-block:: c
-
-    #define DIM1    10
-    #define DIM2    20
-    int tab[DIM1][DIM2];
-
-Initialisation
-~~~~~~~~~~~~~~
-
-Un simple exemple montre la simplicité de mise en œuvre.
-
-.. code-block:: c
-
-    #define COLS    4 // 4 colones
-    #define ROWS    3 // 3 lignes
-    double matrice[ROWS][COLS] = {
-      { 1.4, 2.3, 3.3, 5.4 }, // 1ère ligne
-      { 3.4, 1.2, 8.6, 5.7 }, // 2de ligne
-      { 7.2, 8.1, 4.3, 3.9 }  // troisième ligne
-    };
-
-Accès aux éléments du tableau
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Comme pour les tableaux à une dimension, on lit ou modifie les valeurs
-d'un élément en plaçant entre crochets les indices idoines.
-
-.. code-block:: c
-
-    x=matrice[2][3];    // lecture
-
-    matrice[0][0]=0.1;  // modification
-
-Si on désire accéder à l'adresse d'un élément, on utilisera le caractère
-& devant le nom du tableau indicé ou une écriture plus légère utilisant
-une référence sur le tableau.
-
-.. code-block:: c
-
-    scanf("%lf", &matrice[2][3]);   // ces deux lignes
-    scanf("%lf", matrice+2*COLS+3); // sont équivalentes
-
-Chaînes de caractères
----------------------
-
-Définition
-~~~~~~~~~~
-
-Une chaîne de caractères est une suite de caractères formant un texte.
-Dans sa représentation en mémoire, on trouve ainsi les caractères
-composant la chaîne plus un dernier dont la valeur vaut zéro, indiquant
-la fin de chaine.
-
-Exemple : la chaîne 'ABCD' qui comporte 4 caractères sera représentée en
-mémoire par 5 valeurs : 'A', 'B', 'C', 'D', 0.
-
-Déclaration
-~~~~~~~~~~~
-
-Pour déclarer une chaîne de caractères, on reprendra le concept de
-tableau, associé au type 'char'.
-
-.. code-block:: c
-
-    char texte1[80]; // déclare un tableau de 80 caractères
-
-Un tableau de N caractères ne pourra contenir une chaîne que de N-1
-caractères, car il faut garder un octet pour la valeur de fin de chaîne
-zéro.
-
-Initialisation
-~~~~~~~~~~~~~~
-
-L'initialisation est calquée sur celle des tableaux.
-
-.. code-block:: c
-
-    char texte1[]="Bonjour";
-    char texte2[100]="ABCDEFG";
-    char texte3[8]={'b','o','n','j','o','u','r','\0'};
-
-Notez l'utilisation du caractère :math:`\backslash 0` pour la valeur
-zéro afin de créer la fin de chaîne.
-
-Il est possible également de définir et initialiser une chaîne de
-caractère constante. Le contenu ne sera pas modifiable.
-
-.. code-block:: c
-
-    const char texte4[]="Chaine constante";
-
-Espace mémoire occupé par une chaîne et taille affichée
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-L'espace en mémoire utilisé par une chaîne de caractères est donné par la
-fonction *sizeof*. Elle retourne une valeur en octets.
-
-.. code-block:: c
-
-    char texte1[]="Bonjour";
-
-    printf("espace utilise : %d octets", sizeof(texte1));   // affiche 8
-
-Il ne faut pas confondre la valeur de l'espace mémoire occupée par la
-chaîne et la taille de la chaîne affichée (délimité par le délimiteur de
-fin de chaîne zéro).
-
-.. code-block:: c
-
-    char texte2[100]="Bonjour";
-
-    printf("espace utilise : %d octets", sizeof(texte2);    // affiche 100
-    printf("taille         : %d octets", strlen(texte2);    // affiche 7
-
-La fonction *strlen* impose d'inclure le fichier de définition
-*string.h*.
-
-Affichage et saisie
-~~~~~~~~~~~~~~~~~~~
-
-L'affichage et la saisie se fait simplement en utilisant les fonctions
-*printf* et *scanf*. Le *printf* affichera la chaîne passée en argument
-jusqu'à ce qu'il rencontre le caractère zéro.
-
-.. code-block:: c
-
-    char texte1[]="Bonjour";
-
-    printf("%s",texte1); // %s indique un format type chaîne de caractères
-    printf(texte1);
-
-Pour la saisie, on passera à la fonction scanf l'adresse de la chaîne,
-représentée tout simplement par le nom de la chaîne.
-
-.. code-block:: c
-
-    char texte1[100];
-
-    scanf("%s",texte1); // %s indique un format type chaîne de caractères
-
-Attention toutefois lors de l'utilisation du scanf pour la saisie d'une
-chaîne de caractères ! Le caractère 'espace' étant considéré par défaut
-comme séparateur de champs par la fonction scanf, il n'est pas possible
-de saisir une chaîne comportant plusieurs mots séparés par des espaces
-en une seule fois. On ne peut saisir qu'un seul mot.
-
-Pour la saisie d'une chaîne comportant plusieurs mots, on utilisera la
-fonction *gets* dont le prototype est le suivant :
-
-.. code-block:: c
-
-    char *gets(char *buffer);
-
-Cette fonction saisit la ligne entière jusqu'à ce qu'elle rencontre le
-caractère de fin de ligne \\n et la place dans *buffer*. Elle renvoie
-*buffer* en cas de succès, ou *NULL* sinon.
-
-Exemple d'application :
-
-.. code-block:: c
-
-    int main() {
-
-        char reference_article[80];
-
-        printf("Reference article:");
-        gets(reference_article);
-        printf("Article choisi : %s\n", reference_article);
-
-        return 0;
-    }
-
-Tableaux de chaînes de caractères
----------------------------------
-
-Il est parfois utile de créer des tableaux de chaînes de caractères.
-Deux déclarations sont possibles et ont des impacts différents sur la
-taille mémoire occupée.
-
-Définitions des tableaux de chaînes de caractères
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On définit un tableau de *n* chaînes de *x* caractères.
-
-.. code-block:: c
-
-    char chaine[4][10]; // un tableau de 4 chaînes de 10 caractères
-
-On peut aussi définir la taille d'un tableau par initialisation avec des
-chaînes de longueurs égales.
-
-.. code-block:: c
-
-    char types_composants[][20]= {
-
-      "résistance",
-      "condensateur",
-      "self",
-      "transistor",
-      "diode"       // un tableau de 5 chaînes
-    };              // chaque chaîne peut contenir 20 caractères
-                    // taille en mémoire = 5x20 = 100 octets
-
-En dernier lieu, il est possible de créer un tableau par initialisation
-avec des chaînes de longueurs différentes.
-
-.. code-block:: c
-
-    char *types_composants[]=
     {
-      "résistance",
-      "condensateur",
-      "self",
-      "transistor",
-      "diode"       // un tableau de 5 chaînes
-    };              // chaque chaîne est de longueur différente
-                    // taille en mémoire = 11+13+5+11+6=46 octets
+        struct Point q = {.x=1, .y=2, .z=3};
+        p = q;
+    }
 
-Notez la déclaration avec une étoile devant le nom de la variable pour
-indiquer au compilateur que l'on déclare un tableau de caractères.
+Notons que passer par une variable intermédiaire ``q`` n'est pas très utile. Il serait préférable d'écrire ceci :
+
+.. code-block:: c
+
+    p = {.x=1, .y=2, .z=3};
+
+Néanmoins cette écriture mènera à une erreur de compilation car le compilateur cherchera à déterminer le type de l'expression ``{.x=1, .y=2, .z=3}``. Il est alors essentiel d'utiliser la notation suivante :
+
+.. code-block:: c
+
+    p = (struct Point){.x=1, .y=2, .z=3};
+
+Cette notation de litéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction ``foo`` :
+
+.. code-block:: c
+
+    void foo(int array[3]) {
+        for (int i = 0; i < 3; i++) printf("%d ", array[i]);
+    }
+
+    void main() {
+        foo((int []){1,2,3});
+    }
 
 Enumérations
 ============
@@ -1102,85 +1189,6 @@ de bit s'effectue comme pour les champs d'une structure.
 
     registre.vitesse=4; // initialise le champs vitesse à 4
     csg=registre.consigne;  // la consigne est placée dans csg
-
-Énumérations
-------------
-
-Ce style d'écriture permet de définir un type de données contenant un
-nombre fini de valeurs. Ces valeurs sont nommées textuellement et
-définies numériquement dans le type énuméré.
-
-Déclaration
-~~~~~~~~~~~
-
-On utilise une notation permettant de définir un nouveau type.
-
-.. code-block:: c
-
-    typedef enum {
-
-      E_NOIR, // vaut zéro par défaut
-      E_MARRON,
-      E_ROUGE,
-      E_ORANGE,
-      E_JAUNE,
-      E_VERT,
-      E_BLEU,
-      E_VIOLET,
-      E_GRIS,
-      E_BLANC
-
-    } eCodeCouleurResistance;
-
-Le type est apparenté à un entier (int). Sans autre précisions, la
-première valeur vaut 0, la suivante 1, etc.
-
-Il est possible de forcer les valeurs de la manière suivante :
-
-.. code-block:: c
-
-    typedef enum {
-
-      E_M_NOIR=1,
-      E_M_MARRON=10,
-      E_M_ROUGE=100,
-      E_M_ORANGE=1000
-
-    } eMultiplicateurResistance;
-
-ou encore :
-
-.. code-block:: c
-
-    typedef enum {
-
-      E_M_NOIR=1,
-      E_M_TRANSP,   // vaut 2
-      E_M_ROUGE=100,
-      E_M_ROSE,     // vaut 101
-      E_M_ORANGE=1000
-
-    } eMultiplicateurResistance;
-
-Notez que le nom du type énuméré commence par le préfixe ``e`` pour
-permettre, lors de la lecture du code, d'identifier facilement que c'est
-un type énuméré.
-
-Notez que chaque identificateur commence par le préfixe ``E_`` pour
-permettre, lors de la lecture du code, d'identifier facilement que c'est
-un élément de type énuméré.
-
-Utilisation
-~~~~~~~~~~~
-
-La déclaration de variable de type énuméré s'effectue de la manière
-standard (type nom\_de\_variable).
-
-.. code-block:: c
-
-    eeCodeCouleurResistance bague=E_ROUGE;
-                        // déclaration et initialisation
-                        // (bague vaut donc 2)
 
 -----
 
