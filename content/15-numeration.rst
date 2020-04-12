@@ -11,7 +11,7 @@ Bases
 
 Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composé de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
-Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interprêter ces nombres:
+Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interprêter ces nombres :
 
 .. code-block::
 
@@ -34,13 +34,13 @@ L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(100
 
     1506 en écriture hiéroglyphique
 
-Notre système de représentation des nombres est le système de numération indo-arabe qui employe une notation positionnelle et dix chiffres allant de zéro à neuf:
+Notre système de représentation des nombres est le système de numération indo-arabe qui employe une notation positionnelle et dix chiffres allant de zéro à neuf :
 
 .. code-block::
 
     0 1 2 3 4 5 6 7 8 9
 
-Un nombre peut être décomposé en puissances successives:
+Un nombre peut être décomposé en puissances successives :
 
 .. math::
 
@@ -51,7 +51,7 @@ La base dix n'est pas utilsée dans les ordinateurs car elle nécessite la manip
 Système binaire
 ---------------
 
-Le système binaire est similaire au système décimal mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs emprunté au système indo-arabe:
+Le système binaire est similaire au système décimal mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs emprunté au système indo-arabe :
 
 .. code-block::
 
@@ -59,7 +59,7 @@ Le système binaire est similaire au système décimal mais utilise la base deux
 
 En termes technique ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.
 
-Un nombre binaire peut être également décomposé en puissances successives:
+Un nombre binaire peut être également décomposé en puissances successives :
 
 .. math::
 
@@ -71,7 +71,7 @@ Un nombre binaire peut être également décomposé en puissances successives:
 
     .. solution::
 
-        Avec une base binaire 2 et 10 bits, le total représentable est:
+        Avec une base binaire 2 et 10 bits, le total représentable est :
 
             .. math::
 
@@ -88,19 +88,19 @@ Inventé par Charles XII de Suède, le système de numération octal utilise 8 s
 
     0 1 2 3 4 5 6 7
 
-Un nombre octal peut également être décomposé en puissances successives:
+Un nombre octal peut également être décomposé en puissances successives :
 
 .. math::
 
     1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
 
-Au début de l'informatique la base octale fut très utilisée car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets:
+Au début de l'informatique la base octale fut très utilisée car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets :
 
 .. code-block:: text
 
     010'111'100'001₂ = 2741₈
 
-En C, un nombre octal est écrit en préfixant la valeur à représenter d'un zéro. Attention donc à ne pas confondre:
+En C, un nombre octal est écrit en préfixant la valeur à représenter d'un zéro. Attention donc à ne pas confondre :
 
 .. code-block:: c
 
@@ -109,7 +109,7 @@ En C, un nombre octal est écrit en préfixant la valeur à représenter d'un z�
 
     assert(octal != decimal);
 
-Il est également possible de faire référence à un caractère en utilsant l'échappement octal:
+Il est également possible de faire référence à un caractère en utilsant l'échappement octal :
 
 .. code-block:: c
 
@@ -125,7 +125,7 @@ Ce système de numération positionnel en base 16 est le plus utilisé en inform
 
     0 1 2 3 4 5 6 7 8 9 A B C D E F
 
-L'écriture peut également être décomposée en puissances successives:
+L'écriture peut également être décomposée en puissances successives :
 
 .. math::
 
@@ -137,7 +137,7 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 
     0101'1110'0001₂ = 5E1₁₆
 
-L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplications:
+L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplications :
 
 +------------+-------------+--------+---------+
 | Binaire    | Hexadécimal | Octal  | Décimal |
@@ -176,7 +176,7 @@ L'ingénieur doit connaître la correspondance hexadécimale de tous les quadrup
 +------------+-------------+--------+---------+
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme ``hexdump``
-pour lister le contenu hexadécimal de son fichier:
+pour lister le contenu hexadécimal de son fichier :
 
 .. code-block:: text
 
@@ -209,7 +209,7 @@ pour lister le contenu hexadécimal de son fichier:
     0000018d
 
 
-Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisé par deux caractères hexadécimaux, et à droite le texte ou chaque caractère non-imprimable est remplacé par un point. On observe notament ici que:
+Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisé par deux caractères hexadécimaux, et à droite le texte ou chaque caractère non-imprimable est remplacé par un point. On observe notament ici que :
 
 - ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère unicode :unicode:`U+0065`
 - ``é`` de ailé est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` :unicode:`U+0301`
@@ -219,7 +219,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
 .. exercise:: Les chiffes hexadécimaux
 
-    Calculer la valeur décimale des nombres suivants et donnez le détail du calcul:
+    Calculer la valeur décimale des nombres suivants et donnez le détail du calcul :
 
     .. code-block:: text
 
@@ -244,7 +244,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 Conversions de bases
 --------------------
 
-La conversion d'une base quelconque en système décimal utilise la relation suivante:
+La conversion d'une base quelconque en système décimal utilise la relation suivante :
 
 .. math::
 
@@ -259,11 +259,11 @@ où:
 :math:`h_i`
     La valeur du chiffre à la position :math:`i`
 
-Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal:
+Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal :
 
 .. code-block:: text
 
-    Tritrigesimal -> Décimal:
+    Tritrigesimal -> Décimal :
 
      0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
      0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
@@ -271,13 +271,13 @@ Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée 
      G  H  I  K  L  M  N  P  R  S  T  U  V  W  X  Y  Z
     16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
 
-    Conversion:
+    Conversion :
 
     AP7 -> 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -> 11'656
 
 La conversion d'une grandeur décimale vers une base quelconque est plus compliquée. La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.
 
-Pour chaque division par 2, on note le reste et tant que le quotient n'est pas nul, on itère l'opération. Le résultat en binaire est la suite des restes lus dans le sens inverse:
+Pour chaque division par 2, on note le reste et tant que le quotient n'est pas nul, on itère l'opération. Le résultat en binaire est la suite des restes lus dans le sens inverse :
 
 .. code-block:: text
 
@@ -305,7 +305,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
     .. solution::
 
-        Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux:
+        Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :
 
         .. code-block::
 
@@ -314,13 +314,13 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
             2 ⨼ (ZO)
             3 ◿ (MEU)
 
-        Le nombre d'entrée ``−⨼O◿O`` peut ainsi s'exprimer:
+        Le nombre d'entrée ``−⨼O◿O`` peut ainsi s'exprimer :
 
         .. code-block::
 
             −⨼○◿○ ≡ 12030₄
 
-        En appliquant la méthode du cours on obtient:
+        En appliquant la méthode du cours on obtient :
 
         .. math::
 
@@ -362,7 +362,7 @@ Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable 
     -+-----+-----+-----+->  -+-----+-----+-----+---> Méthode du bit de signe
      0     1     2     3     0    -1    -2    -3
 
-De plus les additions et soustractions sont difficile car il n'est pas possible d'effecuer des opérations simples:
+De plus les additions et soustractions sont difficile car il n'est pas possible d'effecuer des opérations simples :
 
 .. code-block:: text
 
@@ -371,7 +371,7 @@ De plus les additions et soustractions sont difficile car il n'est pas possible 
     ----------
       11111101 (-125)    2 - 5 != -125
 
-En résumé, la solution utilsant un bit de signe pose deux problèmes:
+En résumé, la solution utilsant un bit de signe pose deux problèmes :
 
 - Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place
 - Le double zéro (positif et négatif) est génant
@@ -381,7 +381,7 @@ Complément à un
 
 Le **complément à un** est une methode plus maline utilisée dans les premiers ordinateurs comme le `CDC 6600 <https://fr.wikipedia.org/wiki/Control_Data_6600>`__ (1964) ou le `UNIVAC 1107 <https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series#1107>`__ (1962). Il existe également un bit de signe mais il est implicite.
 
-Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par:
+Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par :
 
 .. math::
 
@@ -398,7 +398,7 @@ où
 :math:`y`
     La valeur à complémenter.
 
-Ainsi il est facile d'écrire le complément à neuf:
+Ainsi il est facile d'écrire le complément à neuf :
 
 .. code-block::
 
@@ -440,7 +440,7 @@ Reprenons l'exemple précédant de soustraction, on notera que l'opération fonc
     ----------
       11111100 (-3)
 
-En résumé, la méthode du complément à 1:
+En résumé, la méthode du complément à 1 :
 
 - Les opérations redeviennent presque triviale, mais il est nécessaire de soustraire 1 au résultat
 - Le double zéro (positif et négatif) est génant
@@ -450,12 +450,12 @@ En résumé, la méthode du complément à 1:
 Complément à deux
 -----------------
 
-Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont:
+Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
 1. Calculer le complément à un du nombre d'entrée.
 2. Ajouter 1 au résultat.
 
-Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résouds tous les problèmes amenés par le complément à un:
+Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résouds tous les problèmes amenés par le complément à un :
 
 .. code-block::
 
@@ -465,7 +465,7 @@ Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résouds tous l
      0     1     2     3    -3    -2    -1     0     complément à un
      0     1     2     3    -4    -3    -2    -1     complément à deux
 
-Au niveau du calcul:
+Au niveau du calcul :
 
 .. code-block::
 
@@ -474,7 +474,7 @@ Au niveau du calcul:
     ---     -----------
      -3        11111101   (~0b11111101 + 1 == 0b11 == 3)
 
-Les avantages:
+Les avantages :
 
 - Les opérations sont triviales.
 - Le problème du double zéro est résolu.
@@ -486,7 +486,7 @@ Opérations logiques
 Opérations bit à bit
 --------------------
 
-Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes:
+Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes :
 
 +-----------+-------------------+---------------------------------+
 | Opérateur | Description       | Exemple                         |
@@ -548,7 +548,7 @@ OU EXCLUSIF logique
 
 Complément à un
 
-Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inverse de l'entrée en binaire:
+Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inverse de l'entrée en binaire :
 
 +-----+-----+
 | A   | ¬ A |
@@ -562,7 +562,7 @@ Opérateurs arithmétiques
 ------------------------
 
 Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est à dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition:
+C'est à dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition :
 
 .. code-block:: text
 
@@ -572,7 +572,7 @@ C'est à dire en utilisant une retenue (*carry*). En base décimale, on se souve
     -----
       212₁₀
 
-En arithmétique binaire, c'est exactement la même chose:
+En arithmétique binaire, c'est exactement la même chose :
 
 +-----+-----+-------+---+
 | A   | B   | A + B | C |
@@ -645,7 +645,7 @@ En arithmétique binaire, c'est exactement la même chose:
 Lois de De Morgan
 -----------------
 
-Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors eprimer que:
+Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors eprimer que :
 
 .. code-block::
 
@@ -654,7 +654,7 @@ Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
 
-A titre d'exemple, les opérations suivantes sont donc équivalentes:
+A titre d'exemple, les opérations suivantes sont donc équivalentes :
 
 .. code-block:: c
 
@@ -686,7 +686,7 @@ En logique booléenne on exprime la négation par une bar p.ex. :math:`\bar{P}`.
 Arrondi
 -------
 
-En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exaustive:
+En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exaustive :
 
 - **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
 - **arrondi à l'entier supérieur** (*rounding up*)

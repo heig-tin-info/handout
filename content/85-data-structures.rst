@@ -134,12 +134,12 @@ Une queue est similaire à un tableau dynamique dans laquelle il n'est possible 
 Listes chaînées
 ===============
 
-Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par:
+Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :
 
 - un élément de tête (*head*),
 - un élément de queue (*tail*).
 
-Un élément est caractérisé par:
+Un élément est caractérisé par :
 
 - un contenu (*payload*),
 - une référence vers l'élément suivant et/ou précédent dans la liste.
@@ -249,7 +249,7 @@ le nombre d'éléments jusqu'à ce que le pointeur *next* soit égal à ``NULL``
         count++;
     }
 
-Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant:
+Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
 
 .. figure:: ../assets/figures/dist/recursive-data-structure/loop.*
 
@@ -306,7 +306,7 @@ Une bonne idée pour se simplifier la vie est simplement d'éviter la création 
 Insertion
 ^^^^^^^^^
 
-L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante:
+L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante :
 
 .. code-block:: c
 
@@ -338,12 +338,12 @@ La suppression implique d'accéder à l'élément parent, il n'est donc pas poss
 Recherche
 ^^^^^^^^^
 
-Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions:
+Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions :
 
 - Est-ce que la liste est triée?
 - Combien d'espace mémoire puis-je utiliser?
 
-On sait qu'une recherche idéale s'effectue en :math:`O(log(n))`, mais que la solution triviale en :math:`O(n)` est la suivante:
+On sait qu'une recherche idéale s'effectue en :math:`O(log(n))`, mais que la solution triviale en :math:`O(n)` est la suivante :
 
 Liste doublement chaînée
 ========================
@@ -359,12 +359,12 @@ L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfan
 
     Arbre binaire équilibré
 
-Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours:
+Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :
 
 - La valeur de l'enfant de gauche est inférieure à celle de son parent
 - La valeur de l'enfant de droite est supérieure à celle de son parent
 
-Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type:
+Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type :
 
 .. code-block:: c
 
@@ -381,7 +381,7 @@ Cette propriété est très appréciée pour rechercher et insérer des données
         struct node* right;
     } Node;
 
-Si l'on cherche le patient numéro ``612``, il suffit de parcourir l'arbre de façon dichotomique:
+Si l'on cherche le patient numéro ``612``, il suffit de parcourir l'arbre de façon dichotomique :
 
 .. code-block:: c
 

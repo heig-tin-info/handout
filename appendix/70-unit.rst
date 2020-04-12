@@ -117,14 +117,14 @@ Pannification du semestre
 Modalités d'évalutation et de validation
 ========================================
 
-Les cours se composent de:
+Les cours se composent de :
 
 - Travaux écrits notés (coefficient 100%)
 - Quiz notés ou pas notés (coefficient 10% ou 0%)
 - Séries d'exercices
 - Travaux pratiques (laboratoires)
 
-La note finale est donnée par l'expression:
+La note finale est donnée par l'expression :
 
 .. math::
 
@@ -136,7 +136,7 @@ La note finale est donnée par l'expression:
             }{\text{TE}s + 1} + \frac{1}{4}\left(\frac{\sum\limits_{i=1}^{\text{LAB}s} \text{LAB}_i}{\text{LAB}s } \right ) + \frac{1}{2}\cdot\text{EXAM}
     \right)
 
-Les règles sont:
+Les règles sont :
 
 - En cas d'absence à un quiz, la note de 1 est donnée.
 - En cas de plagiat, le dilemme du prisionnier s'applique.

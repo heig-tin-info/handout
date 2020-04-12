@@ -2,7 +2,7 @@
 Portée et visibilité
 ====================
 
-Ce chapitre se concentre sur trois caractéristiques d'une variable:
+Ce chapitre se concentre sur trois caractéristiques d'une variable :
 
 - La portée
 - La visibilité
@@ -17,7 +17,7 @@ Dans les trois cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou
 Espace de nommage
 =================
 
-L'espace de nommage ou ``namespace`` est un concept différent de celui existant dans d'autres langages tel que C++. Le standard **C99** décrit 4 types possibles pour un identifiant:
+L'espace de nommage ou ``namespace`` est un concept différent de celui existant dans d'autres langages tel que C++. Le standard **C99** décrit 4 types possibles pour un identifiant :
 
 - fonction et *labels*
 - noms de structures (``struct``), d'unions (``union``), d'énumération (``enum``),
@@ -28,13 +28,13 @@ Portée
 
 La portée ou `scope <https://en.wikipedia.org/wiki/Scope_(computer_science)>`__ décrit jusqu'à où une variable est accessible.
 
-Une variable est **globale**, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction:
+Une variable est **globale**, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction :
 
 .. code-block:: c
 
     int global_variable = 23;
 
-Une variable est **locale** si elle est déclarée à l'intérieur d'un bloc, ou à l'intérieur d'une fonction. Elle sera ainsi visible de sa déclaration jusqu'à la fin du bloc courant:
+Une variable est **locale** si elle est déclarée à l'intérieur d'un bloc, ou à l'intérieur d'une fonction. Elle sera ainsi visible de sa déclaration jusqu'à la fin du bloc courant :
 
 .. code-block:: c
 
@@ -52,7 +52,7 @@ Une variable est **locale** si elle est déclarée à l'intérieur d'un bloc, ou
 Variable shadowing
 ------------------
 
-On dit qu'une variable est *shadowed* ou *masquée* si sa déclaration masque une variable préalablement déclarée:
+On dit qu'une variable est *shadowed* ou *masquée* si sa déclaration masque une variable préalablement déclarée :
 
 .. code-block:: c
 

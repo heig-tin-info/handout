@@ -25,7 +25,7 @@ Principes de programmation
 DRY
 ---
 
-**Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas**! Il s'agit d'une philosophie de développement logiciel évitant la `redondance de code <https://fr.wikipedia.org/wiki/Duplication_de_code>`__. L'excellent livre `The Pragmatic Programmer <https://en.wikipedia.org/wiki/The_Pragmatic_Programmer>`__ de Andrew Hunt et David Thomas décrit cette philosophie en ces termes:
+**Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas**! Il s'agit d'une philosophie de développement logiciel évitant la `redondance de code <https://fr.wikipedia.org/wiki/Duplication_de_code>`__. L'excellent livre `The Pragmatic Programmer <https://en.wikipedia.org/wiki/The_Pragmatic_Programmer>`__ de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :
 
     Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.
 
@@ -48,7 +48,7 @@ SSOT
 
 Ce principe tient son acronyme de `single source of truth <https://en.wikipedia.org/wiki/Single_source_of_truth>`__. Il adresse principalement un défaut de conception relatif aux métadonnées que peuvent être les paramètres d'un algorithme, le modèle d'une base de données ou la méthode usitée d'un programme à collecter des données.
 
-Un programme qui respecte ce principe évite la duplication des données. Des défauts courants de conception sont:
+Un programme qui respecte ce principe évite la duplication des données. Des défauts courants de conception sont :
 
 - Indiquer le nom d'un fichier source dans le fichier source
 - Stocker la même image, le même document dans différents formats
@@ -63,7 +63,7 @@ Python est un langage de programmation qui devient très populaire, il est certe
 
 Le `Zen de Python <https://fr.wikipedia.org/wiki/Zen_de_Python>`__ est un ensemble de 19 principes publiés en 1999 par Tim Peters. Largement accepté par la communauté de développeurs et il est connu sous le nom de **PEP 20**.
 
-Voici le texte original anglais:
+Voici le texte original anglais :
 
 .. code-block::
 
@@ -93,7 +93,7 @@ The code taste
 Dans une `conférence <https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux>`__ TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé *code taste* traduisible par *avoir du goût pour le code*.
 
 
-Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût:
+Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût :
 
 .. code-block:: c
 
@@ -115,12 +115,12 @@ Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon g
 
 Il répondit que ce code est de mauvais goût, qu'il est *vilain* et *moche*, car ce test placé après la boucle ``while`` jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code *sent*, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.
 
-Enlever un élément d'une liste chaînée nécessite de traiter deux cas:
+Enlever un élément d'une liste chaînée nécessite de traiter deux cas :
 
 - Si l'élément est au début de la liste, il faut modifier ``head``
 - Sinon il faut modifier l'élément précédent ``prev->next``
 
-Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation:
+Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation :
 
 .. code-block:: c
 
@@ -136,7 +136,7 @@ Après avoir longuement questionné l'auditoire, il présente cette nouvelle imp
 
 La fonction originale de 10 lignes de code a été réduite à 4 lignes et bien que le nombre de lignes compte moins que la lisibilité du code, cette nouvelle implémentation élimine le traitement des cas d'exception en utilisant un adressage indirect beaucoup plus élégant.
 
-Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur `Medium <https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a>`__. Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel:
+Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur `Medium <https://medium.com/@bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a>`__. Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :
 
 .. code-block:: c
 
@@ -158,13 +158,13 @@ Un autre exemple similaire et plus simple à comprendre est présenté par Brian
         }
     }
 
-On constate plusieurs fautes de goût:
+On constate plusieurs fautes de goût :
 
 - ``GRID_SIZE`` pourrait être différent de la réelle taille de ``grid``
 - Les valeurs d'initialisation sont dupliquées
 - La complexité de l'algorithme est de :math:`O(n^2)` alors que l'on ne s'intéresse qu'à la bordure du tableau.
 
-Voici une solution plus élégante:
+Voici une solution plus élégante :
 
 .. code-block:: c
 
@@ -184,7 +184,7 @@ Voici une solution plus élégante:
 L'odeur du code
 ===============
 
-Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des `antipatterns <https://fr.wikipedia.org/wiki/Antipattern>`__. Voici quelques indicateurs les plus courants:
+Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des `antipatterns <https://fr.wikipedia.org/wiki/Antipattern>`__. Voici quelques indicateurs les plus courants :
 
 - **Mastodonte** Une fonction est plus longue qu'un écran de haut (~50 lignes)
 - Un fichier est plus long que **1000 lignes**.

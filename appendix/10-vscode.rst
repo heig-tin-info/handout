@@ -10,7 +10,7 @@ Visual Studio Code est un éditeur gratuit open-source développé par Microsoft
 
 Pour pouvoir l'utilser avec votre compilateur et écrire du C, il faut une configuration minimale.
 
-Visual Studio Code n'a pas la notion de **projet** mais d'espace de travail **workspace**. Un espace de travail est simplement un répertoire. A l'intérieur de ce répertoire on y trouvera:
+Visual Studio Code n'a pas la notion de **projet** mais d'espace de travail **workspace**. Un espace de travail est simplement un répertoire. A l'intérieur de ce répertoire on y trouvera :
 
 .. code-block::
 
@@ -19,7 +19,7 @@ Visual Studio Code n'a pas la notion de **projet** mais d'espace de travail **wo
     │   └── launch.json
     └── main.c
 
-Visual Studio Code peut en général générer automatiquement le fichier ``.vscode/launch.json`` qui contient tout ce qu'il faut pour compiler et exécuter le programme:
+Visual Studio Code peut en général générer automatiquement le fichier ``.vscode/launch.json`` qui contient tout ce qu'il faut pour compiler et exécuter le programme :
 
 .. code-block:: json
 

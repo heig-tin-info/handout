@@ -6,7 +6,7 @@ Comme nous l'avons vu en introduction (c.f. :numref:`structured_text`), le langa
 
 Le coeur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (``#``), *hash* en anglais et utilisé récemment comme `hashtag <https://fr.wikipedia.org/wiki/Hashtag>`__ sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (``♯``) présent sur les pavés numériques de téléphone.
 
-Le vocabulaire du préprocesseur est le suivant:
+Le vocabulaire du préprocesseur est le suivant :
 
 ``#include``
     Inclu un fichier dans le fichier courant
@@ -35,7 +35,7 @@ Le vocabulaire du préprocesseur est le suivant:
 ``#pragma``
     Directive spécifique au compilateur.
 
-Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire:
+Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire :
 
 .. code-block:: text
 
@@ -60,7 +60,7 @@ Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut êtr
     #    error "Lettre sans signature"
     #endif
 
-Il est possible d'appeler le préprocesseur directement avec l'option ``-E``. Des directives ``define`` peuvent être renseignées depuis la ligne de commande:
+Il est possible d'appeler le préprocesseur directement avec l'option ``-E``. Des directives ``define`` peuvent être renseignées depuis la ligne de commande :
 
 
 .. code-block:: console
@@ -88,7 +88,7 @@ Notez que les instructions du préprocesseur (à l'exception des opérateurs de 
 Phases de traduction
 ====================
 
-Le standard décrit 4 phases de pré-processing:
+Le standard décrit 4 phases de pré-processing :
 
 1. Remplacement des caractères spéciaux, décodage des trigraphes, traitement des fin de lignes.
 2. Fusionne les lignes utilisant un retour virtuel ``\``.
@@ -98,7 +98,7 @@ Le standard décrit 4 phases de pré-processing:
 Extensions des fichiers
 =======================
 
-Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur:
+Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur :
 
 ``.h``
     Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions, ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.
@@ -129,7 +129,7 @@ La directive include peut prendre deux formes, l'inclusion locale et l'inclusion
 ``#include "filename"``
     Le préprocesseur cherche le chemin du fichier à partir du chemin courant et les chemins donnés par les des directives ``-I``.
 
-L'inclusion de fichier est simplement du remplacement de chaînes:
+L'inclusion de fichier est simplement du remplacement de chaînes :
 
 .. code-block:: console
 
@@ -159,7 +159,7 @@ Définissions
 #define
 -------
 
-Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation:
+Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation :
 
 .. code-block:: c
 
@@ -174,13 +174,13 @@ Les définitions sont des symboles généralement écrits en majuscule et qui so
             tab[i] = i;
     }
 
-Il est ainsi possible de définir la taille du tableau à la compilation avec:
+Il est ainsi possible de définir la taille du tableau à la compilation avec :
 
 .. code-block:: console
 
     $ gcc main.c -DWINDOW_SIZE=42
 
-Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. **C'est une remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire:
+Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. **C'est une remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire :
 
 .. code-block:: c
 
@@ -194,7 +194,7 @@ Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplac�
         printf("Hello" EOF);
     END
 
-On relèvera qu'il est aussi possible de commettre certaines erreurs:
+On relèvera qu'il est aussi possible de commettre certaines erreurs :
 
 .. code-block:: c
 
@@ -219,7 +219,7 @@ Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les 
 #undef
 ------
 
-Un symbole défini soit par la ligne de commande ``-DFOO=1``, soit par la directive ``#define FOO 1`` ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser ``#undef`` pour supprimer une directive préprocesseur:
+Un symbole défini soit par la ligne de commande ``-DFOO=1``, soit par la directive ``#define FOO 1`` ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser ``#undef`` pour supprimer une directive préprocesseur :
 
 .. code-block:: c
 
@@ -241,7 +241,7 @@ Debogage
 #error
 ------
 
-Cette directive génère une erreur avec le texte qui suit la directive:
+Cette directive génère une erreur avec le texte qui suit la directive :
 
 .. code-block:: c
 
@@ -252,7 +252,7 @@ Cette directive génère une erreur avec le texte qui suit la directive:
 Directives spéciales
 --------------------
 
-Le standard définit certains symboles utiles pour le débogage:
+Le standard définit certains symboles utiles pour le débogage :
 
 ``__LINE__``
     Est remplacé par le numéro de la ligne sur laquelle est placé ce symbole
@@ -275,7 +275,7 @@ Le standard définit certains symboles utiles pour le débogage:
 Caractère d'échappement
 =======================
 
-L'anti-slash (``backslash``) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes:
+L'anti-slash (``backslash``) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :
 
 .. code-block:: c
 
@@ -287,13 +287,13 @@ L'anti-slash (``backslash``) est interprété par le préprocesseur comme un sau
 Macros
 ======
 
-Une macro est une définition qui prend des arguments en paramètre:
+Une macro est une définition qui prend des arguments en paramètre :
 
 .. code-block:: c
 
     #define MIN(x, y) ((x) < (y) ? (x) : (y))
 
-De la même manière que pour les définissions simple, il s'agit d'un remplacement de chaîne:
+De la même manière que pour les définissions simple, il s'agit d'un remplacement de chaîne :
 
 .. code-block:: console
 
@@ -309,7 +309,7 @@ De la même manière que pour les définissions simple, il s'agit d'un remplacem
         return ((23) < (12) ? (23) : (12));
     }
 
-Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre:
+Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre :
 
 .. code-block:: console
 
@@ -328,7 +328,7 @@ Notez que l'absence d'espace entre le nom de la macro et la parenthèse est impo
 Directives conditionnelles
 ==========================
 
-Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible:
+Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible :
 
 .. code-block:: c
 
@@ -349,7 +349,7 @@ Les directives ``#if``, ``#else``, ``#elif`` et ``#endif`` sont utiles pour rend
 Désactivation de code
 ---------------------
 
-On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de `refactoring <https://en.wikipedia.org/wiki/Code_refactoring>`__ (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle:
+On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de `refactoring <https://en.wikipedia.org/wiki/Code_refactoring>`__ (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle :
 
 .. code-block:: c
 
@@ -370,7 +370,7 @@ Imaginons que la constante ``M_PI`` soit définie dans le header ``<math.h>``:
 
     #define M_PI        3.14159265358979323846
 
-Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur génèrera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde:
+Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur génèrera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :
 
 .. code-block:: c
 
@@ -394,7 +394,7 @@ On préfèrera utiliser la directive `#pragma once <https://en.wikipedia.org/wik
 Commentaires
 ============
 
-Les commentaires C du type:
+Les commentaires C du type :
 
 .. code-block:: c
 

@@ -9,7 +9,7 @@ Le langage C a créé en **1972** par `Brian Kernighan <https://fr.wikipedia.org
 
 Le language est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
 
-Il faut retenir que le C est un langage dit:
+Il faut retenir que le C est un langage dit :
 
 - `Impératif <https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative>`__: programmation en séquences de commandes
 - `Structuré <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__: programmation impérative avec des structures de contrôle imbriquées
@@ -20,7 +20,7 @@ Ce sont ses paradigmes de programmation
 Cycle de développement
 ----------------------
 
-Le cycle de dévelopment se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé beaucoup utilisé dans l'industrie:
+Le cycle de dévelopment se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé beaucoup utilisé dans l'industrie :
 
 .. figure:: ../assets/figures/dist/software-life-cycle/waterfall.*
 
@@ -29,7 +29,7 @@ Le cycle de dévelopment se compose toujours des phases: étude, écriture du ca
 Cycle de compilation
 --------------------
 
-Faire évoluer un logiciel est aussi un processus itératif:
+Faire évoluer un logiciel est aussi un processus itératif :
 
 - Editer le code avec un éditeur comme `vi` ou `vscode`
 - Compilation et prétraitement
@@ -48,7 +48,7 @@ Faire évoluer un logiciel est aussi un processus itératif:
 Make
 ----
 
-Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et regénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme:
+Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et regénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme :
 
 - ``make all`` Pour compiler tout le projet
 - ``make clean`` Pour supprimer tous les fichiers intermédiaires générés
@@ -124,7 +124,7 @@ Identificateurs
 
     Grammaire d'un identificateur C
 
-Le format des identificateurs peut également être exprimé par une expression régulière:
+Le format des identificateurs peut également être exprimé par une expression régulière :
 
 .. code-block:: text
 
@@ -135,7 +135,7 @@ Variable
 
 Une variable possède 6 paramètres: **nom**, **type**, **valeur**, **adresse**, **portée**, **visibilité**.
 
-Elle peut être: **globale** et dans ce cas elle est automatiquement initialisée à 0:
+Elle peut être: **globale** et dans ce cas elle est automatiquement initialisée à 0 :
 
 .. code-block:: c
 
@@ -145,7 +145,7 @@ Elle peut être: **globale** et dans ce cas elle est automatiquement initialisé
         return foo;
     }
 
-Ou elle peut être locale et dasn ce cas il est nécessaire de l'initialiser à une valeur:
+Ou elle peut être locale et dasn ce cas il est nécessaire de l'initialiser à une valeur :
 
 .. code-block:: c
 
@@ -154,7 +154,7 @@ Ou elle peut être locale et dasn ce cas il est nécessaire de l'initialiser à 
         return foo;
     }
 
-Il est possible de déclarer plusieurs variable d'un même type sur la même ligne:
+Il est possible de déclarer plusieurs variable d'un même type sur la même ligne :
 
 .. code-block:: c
 
@@ -168,7 +168,7 @@ Les termes ``toto``, ``tata``, ``foo``, ``bar`` sont souvent utilisés comme nom
 Constantes littérales
 ---------------------
 
-Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution:
+Une constante littérale est une grandeur exprimant une valeur donnée qui n'est pas calculée à l'exécution :
 
 =============   ================  =========================================================
 Expression      Type              Description
@@ -187,7 +187,7 @@ Expression      Type              Description
 Commentaires
 ------------
 
-Il existe deux types de commentaires:
+Il existe deux types de commentaires :
 
 - Les commentaires de lignes (depuis C99)
 
@@ -205,7 +205,7 @@ Il existe deux types de commentaires:
 Fonction main
 -------------
 
-La fonction main peut s'érire sous deux formes:
+La fonction main peut s'érire sous deux formes :
 
 .. code-block:: c
 
@@ -224,13 +224,13 @@ Numération
 
 Les données dans l'ordinateur sont stockées sous forme binaire et le *type* d'une variable permet de définir son interprétation.
 
-- Une valeur **entière** et **non signée** est exprimée sous la forme binaire pure:
+- Une valeur **entière** et **non signée** est exprimée sous la forme binaire pure :
     .. code-block:: text
 
         ┌─┬─┬─┬─┬─┬─┬─┬─┐
         │0│1│0│1│0│0│1│1│ = 0b1010011 = 83
         └─┴─┴─┴─┴─┴─┴─┴─┘
-- Une valeur **entière** et **signée** est exprimée en complément à deux:
+- Une valeur **entière** et **signée** est exprimée en complément à deux :
     .. code-block:: text
 
         ┌─┬─┬─┬─┬─┬─┬─┬─┐     ┌─┬─┬─┬─┬─┬─┬─┬─┐
@@ -251,7 +251,7 @@ Les données dans l'ordinateur sont stockées sous forme binaire et le *type* d'
 Opérateurs
 ==========
 
-Les opérateurs appliquent une opération entre une ou plusieurs valeurs:
+Les opérateurs appliquent une opération entre une ou plusieurs valeurs :
 
 - Les opérateurs **unaire** s'appliquent à un seul opérande (``!12``, ``~23``)
 - Les opérateurs standards s'appliquent à deux opérandes (``12 ^ 32``)
@@ -272,13 +272,13 @@ Les opérateurs ont une priorité et une direction d'associativité:
      9    ^          -->
     14    =          -->
 
-Donc la priorité de ces opération sera:
+Donc la priorité de ces opération sera :
 
 .. code-block:: text
 
     (u = ((((++a) + (b * (c++))) >> 3) ^ 2))
 
-Dans le cas des opérateurs de pré et post incrémentation, il sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédant/suivant point de séquence. C'est à dire:
+Dans le cas des opérateurs de pré et post incrémentation, il sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédant/suivant point de séquence. C'est à dire :
 
 .. code-block:: text
 
@@ -329,13 +329,13 @@ Pour s'assurer d'une taille donnée on peut utiliser les types standard **C99** 
 
 Les valeurs signées sont exprimées en **complément à deux** c'est à dire que les valeurs maximales et minimales sont pour un entier 8-bit de ``-128`` à ``+128``.
 
-La construction des types standards:
+La construction des types standards :
 
 .. figure:: ../assets/figures/dist/datatype/ansi-integers.*
     :alt: Entiers standardisés **C89**
     :width: 100 %
 
-La construction des types portables:
+La construction des types portables :
 
 .. figure:: ../assets/figures/dist/datatype/c99-integers.*
     :alt: Entiers standardisés **C99**
@@ -344,7 +344,7 @@ La construction des types portables:
 Caractères
 ----------
 
-Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII:
+Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation est confiée à une table de correspondance nommée ASCII :
 
 .. figure:: ../assets/figures/dist/encoding/ascii.*
 
@@ -352,7 +352,7 @@ Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation 
 
 Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codé en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage **utf-8**.
 
-Les écritures suivantes sont donc strictement identiques:
+Les écritures suivantes sont donc strictement identiques :
 
 .. code-block:: c
 
@@ -377,7 +377,7 @@ La taille en mémoire de cette chaîne de caractère est de 6 *bytes*, 5 caract�
 Booléens
 --------
 
-En C la valeur ``0`` est considérée comme fausse (*false*) et une valeur différente de ``0`` est considérée comme vraie (*true*). Toutes les assertions suivantes sont vraies:
+En C la valeur ``0`` est considérée comme fausse (*false*) et une valeur différente de ``0`` est considérée comme vraie (*true*). Toutes les assertions suivantes sont vraies :
 
 .. code-block:: c
 
@@ -390,7 +390,7 @@ Pour utiliser les mots clés ``true`` et ``false`` il faut utiliser la biblioth�
 Promotion implicite
 -------------------
 
-Un type est automatiquement et tacitement promu dans le type le plus général:
+Un type est automatiquement et tacitement promu dans le type le plus général :
 
 .. code-block:: c
 
@@ -403,7 +403,7 @@ Un type est automatiquement et tacitement promu dans le type le plus général:
     a + c // Résultat promu en `long long`
     b + d // Résultat promu en `int`
 
-Attention aux valeurs en virgule flottante:
+Attention aux valeurs en virgule flottante :
 
 .. code-block:: c
 
@@ -421,7 +421,7 @@ Préfixer une variable ou une valeur avec ``(int)`` comme dans: ``(int)a`` perme
 
 Le transtypage peut être implcitie par exemple dans ``int a = 4.5``
 
-Ou plus spécifiquement dans:
+Ou plus spécifiquement dans :
 
 .. code-block:: c
 
@@ -434,7 +434,7 @@ Structure de contrôle
 Séquence
 --------
 
-Une séquence est déterminée par un bloc de code entre accolades:
+Une séquence est déterminée par un bloc de code entre accolades :
 
 .. code-block:: c
 
@@ -523,7 +523,7 @@ Entrées Sorties
 ``printf``
 ----------
 
-Les sorties formattées utilisent `printf` dont le format est:
+Les sorties formattées utilisent `printf` dont le format est :
 
 .. code-block:: text
 
@@ -558,19 +558,19 @@ Techniques de programmation
 Masque binaire
 --------------
 
-Pour tester si un bit est à un:
+Pour tester si un bit est à un :
 
 .. code-block:: c
 
     if (c & 0x040)
 
-Pour forcer un bit à zéro:
+Pour forcer un bit à zéro :
 
 .. code-block:: c
 
     c &= ~0x02;
 
-Pour forcer un bit à un:
+Pour forcer un bit à un :
 
 .. code-block:: c
 

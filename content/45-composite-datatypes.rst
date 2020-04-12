@@ -9,7 +9,7 @@ Tableaux
 
 Les `tableaux <https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)>`__ (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
 
-L'opérateur crochet ``[]`` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau:
+L'opérateur crochet ``[]`` est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :
 
 La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :
 
@@ -43,7 +43,7 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mai
 
 Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seul une **référence** sur ce tableau est passée.
 
-La preuve étant que le contenu du tableau peut être modifié à distance:
+La preuve étant que le contenu du tableau peut être modifié à distance :
 
 .. code-block:: c
 
@@ -57,13 +57,13 @@ La preuve étant que le contenu du tableau peut être modifié à distance:
        assert(array[2] == 5);
     }
 
-Un fait remarquable est que l'opérateur ``[]`` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique:
+Un fait remarquable est que l'opérateur ``[]`` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique :
 
 .. code-block::c
 
     a[b] == *(a + b)
 
-Et cela fonctionne même avec les tableaux à plusieurs dimensions:
+Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
 .. code-block::c
 
@@ -104,7 +104,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
 .. exercise:: Déclarations de tableaux
 
-    Considérant les déclarations suivantes:
+    Considérant les déclarations suivantes :
 
     .. code-block:: c
 
@@ -128,7 +128,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
 .. exercise:: Comparaisons
 
-    Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant:
+    Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
 
     ``0``
         La somme des deux tableaux est égale.
@@ -139,7 +139,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
     ``1``
         La somme du tableau de droite est plus grande que le tableau de gauche
 
-    Le prototype de la fonction à écrire est:
+    Le prototype de la fonction à écrire est :
 
     .. code-block:: c
 
@@ -166,7 +166,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
     Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
 
-    Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci:
+    Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
 
     .. code-block:: text
 
@@ -180,7 +180,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
         1978
         1964
 
-    Votre programme sera exécuté comme suit:
+    Votre programme sera exécuté comme suit :
 
     .. code-block:: console
 
@@ -192,7 +192,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
     Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Compte tenu que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
 
-    Exemple:
+    Exemple :
 
     .. code-block:: text
 
@@ -204,7 +204,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
     .. solution:: c
 
-        Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique:
+        Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique :
 
         .. code-block:: c
 
@@ -220,7 +220,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
         La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
 
-        Pour mieux se représenter le problème prenons l'exemple d'un tableau:
+        Pour mieux se représenter le problème prenons l'exemple d'un tableau :
 
         .. code-block:: text
 
@@ -232,7 +232,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
         La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
 
-        Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait:
+        Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
 
         .. code-block:: text
 
@@ -243,7 +243,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions:
 
         On voit qu'il est impossible que la valeur se trouve à gauche car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur mediane.
 
-        Il est possible de répéter cette approche de façon dichotomique:
+        Il est possible de répéter cette approche de façon dichotomique :
 
         .. code-block:: c
 
@@ -324,7 +324,7 @@ Notons que lorsque que la notation ``[]=`` est utilisée, les valeurs qui suiven
 
 Dans l'exemple ci-dessus ``sequence[2]`` vaudra zéro.
 
-Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas:
+Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas :
 
 .. code-block:: c
 
@@ -353,7 +353,7 @@ Cette écriture n'est pas normalisée **C99**, mais est généralement compatibl
 
     int array[1024] = { [ 0 ... 1023 ] = -1 };
 
-En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative:
+En **C99**, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :
 
 .. code-block:: c
 
@@ -447,7 +447,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 
 .. exercise:: Détectives privés
 
-    Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés:
+    Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 
     =========  =======  ======   ======  ======
                Bosley   Sabrina  Jill    Kelly
@@ -466,7 +466,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
     Décembre   147.76   250.73   201.47  9.75
     =========  =======  ======   ======  ======
 
-    Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit:
+    Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit :
 
     .. code-block:: c
 
@@ -492,7 +492,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 
     A l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
 
-    L'image est représentée par un tableau bi-dimensionnel contenant des couleurs indexées:
+    L'image est représentée par un tableau bi-dimensionnel contenant des couleurs indexées :
 
     .. code-block::
 
@@ -756,7 +756,7 @@ Il est également possible de passer une structure en paramètre d'une fonction 
         double n = norm(p);
     }
 
-Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu:
+Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :
 
 .. code-block:: c
 
@@ -889,7 +889,7 @@ Une solution optimale consiste à réagencer la structure initiale peut éviter 
 
 L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur.
 
-Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Studio, d'utiliser un artifice pour forcer l'alignement mémoire. L'utilisation de ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante:
+Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Studio, d'utiliser un artifice pour forcer l'alignement mémoire. L'utilisation de ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
 
 .. code-block:: c
 
@@ -900,7 +900,7 @@ Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Stu
         char c;
     };
 
-Elle pourrait être représentée en mémoire de la façon suivante:
+Elle pourrait être représentée en mémoire de la façon suivante :
 
 .. code-block:: text
 
@@ -910,7 +910,7 @@ Elle pourrait être représentée en mémoire de la façon suivante:
     | b(1) | b(2) | b(3) | b(4) |
     | c(1) | pad............... |
 
-En revance si elle est décrite comme suit:
+En revance si elle est décrite comme suit :
 
 .. code-block:: c
 
@@ -923,7 +923,7 @@ En revance si elle est décrite comme suit:
         char c;
     };
 
-L'emprunte mémoire sera différente:
+L'emprunte mémoire sera différente :
 
 .. code-block:: text
 
@@ -933,7 +933,7 @@ L'emprunte mémoire sera différente:
     | b(1) | b(2) |
     | b(3) | b(4) |
 
-Enfin, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant:
+Enfin, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
 
 .. code-block:: text
 
@@ -1194,7 +1194,7 @@ de bit s'effectue comme pour les champs d'une structure.
 
 .. exercise:: Mendeleïev
 
-    Chaque élément du taleau périodique des éléments comporte les propriétés suivantes:
+    Chaque élément du taleau périodique des éléments comporte les propriétés suivantes :
 
     - Un nom jusqu'à 20 lettres
     - Un symbole jusqu'à 2 lettres
@@ -1215,7 +1215,7 @@ de bit s'effectue comme pour les champs d'une structure.
     - La période: un entier de 1 à 7
     - Le groupe: un entier de 1 à 18
 
-    Déclarer une structure de données permettant de stocker tous les éléments chimiques de tel facon qu'ils puissent être accédés comme:
+    Déclarer une structure de données permettant de stocker tous les éléments chimiques de tel facon qu'ils puissent être accédés comme :
 
     .. code-block:: c
 

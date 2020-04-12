@@ -12,13 +12,13 @@ Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** 
 
 Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un `téléencéphale hautement développé et son pouce préhenseur <https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs>`__ aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les `effets de bords <https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>`__.
 
-Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant:
+Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :
 
 - D'un identifiant unique
 - D'une valeur de retour
 - De paramètres d'appel
 
-L'utilisation des fonctions permet:
+L'utilisation des fonctions permet :
 
 - De décomposer un programme complexe en tâches plus simples
 - De réduire la redondance de code
@@ -42,11 +42,11 @@ Dans le `Voyage de Chihiro <https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro>`
 
 Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'`ALU <https://en.wikipedia.org/wiki/Arithmetic_logic_unit>`__ d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
-Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type:
+Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type :
 
 .. code-block::
 
-  AUTUMN_TONIC_TEA:
+  AUTUMN_TONIC_TEA :
 
     MOVE  R1 @B4      # Déplace de la grande ortie du casier B4 au registre R1
     MOVE  R2 @A8      # Déplace la menthe verte (Mentha spicata) du casier A8 au registre R2
@@ -81,7 +81,7 @@ On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres
 
 Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de `molène <https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)>`__ que R5 contient des tiges d'une autre plante.
 
-Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y en réalité plusieurs catégories de registres:
+Dans les conventions d'appel, il faut donc également donner la responsabilité à quelqu'un de ne pas utiliser certains casiers, ou alors d'en sauvegarder ou de restaurer le contenu au début et à la fin de la recette. Dans les conventions d'appel, il y en réalité plusieurs catégories de registres :
 
 - ceux utilisés pour les paramètres de la fonction,
 - ceux utilisés pour les valeurs de retour,
@@ -93,7 +93,7 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce s
 Overhead
 --------
 
-L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés:
+L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
 .. figure:: ../assets/figures/dist/function/calling-convention.*
 
@@ -123,7 +123,7 @@ La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont em
 Prototype
 =========
 
-Le `prototype <https://en.wikipedia.org/wiki/Function_prototype>`__ d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction ``printf`` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier ``<stdio.h>`` et il est déclaré sous la forme:
+Le `prototype <https://en.wikipedia.org/wiki/Function_prototype>`__ d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction ``printf`` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier ``<stdio.h>`` et il est déclaré sous la forme :
 
 .. code-block:: text
 
@@ -133,7 +133,7 @@ Notons qu'il n'y a pas d'accolades ici.
 
 Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction ``make_coffee``, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.
 
-Le code suivant fonctionne:
+Le code suivant fonctionne :
 
 .. code-block:: c
 
@@ -145,7 +145,7 @@ Le code suivant fonctionne:
         make_coffee();
     }
 
-Mais celui-ci ne fonctionnera pas, car ``make_coffee`` n'est pas connu au moment de l'appel:
+Mais celui-ci ne fonctionnera pas, car ``make_coffee`` n'est pas connu au moment de l'appel :
 
 .. code-block:: c
 
@@ -176,7 +176,7 @@ Un **prototype** de fonction diffère de son **implémentation** par fait qu'il 
 Syntaxe
 =======
 
-La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme:
+La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme :
 
 .. code-block::
 
@@ -194,7 +194,7 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
 ``<parameter-type> <parameter-name>``
     La fonction peut prendre en paramètre zéro à plusieurs paramètres chaque paramètre est défini par son type et son nom tel que: ``double real, double imag`` pour une fonction qui prendrait en paramètre un nombre complexe.
 
-Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités:
+Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités :
 
 Prototype
     On clos la déclaration avec un ``;``
@@ -205,19 +205,19 @@ Implémentation
 void
 ----
 
-Le type ``void`` est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes:
+Le type ``void`` est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :
 
-- Pour indiquer l'absence de valeur de retour:
+- Pour indiquer l'absence de valeur de retour :
     .. code-block:: c
 
         void foo(int a, int b);
 
-- Pour indiquer l'absence de paramètres:
+- Pour indiquer l'absence de paramètres :
     .. code-block:: c
 
         int bar(void);
 
-- Pour indiquer que la valeur de retour n'est pas utilisée par le parent:
+- Pour indiquer que la valeur de retour n'est pas utilisée par le parent :
     .. code-block:: c
 
         (void) foo(23, 11);
@@ -240,7 +240,7 @@ Paramètres
 
 Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.
 
-En plus de cela, les `paramètres <https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)>`__ peuvent être passés de deux manières:
+En plus de cela, les `paramètres <https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)>`__ peuvent être passés de deux manières :
 
 - Par valeur
 - Par référence
@@ -310,7 +310,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
                 return min_value;
             }
 
-        Une manière plus compacte, mais moins lisible serait:
+        Une manière plus compacte, mais moins lisible serait :
 
         .. code-block:: c
 
@@ -322,7 +322,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
     On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
 
-    Dans le code du programme, les trois variables suivantes seront utilisées:
+    Dans le code du programme, les trois variables suivantes seront utilisées :
 
     .. code-block:: c
 
@@ -332,7 +332,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
         // How much money the user inserted into the machine (in cents)
         unsigned int amount_payed;
 
-    Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme:
+    Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
 
     .. code-block:: console
 
@@ -347,7 +347,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
     .. solution::
 
-        Voici une solution partielle:
+        Voici une solution partielle :
 
         .. code-block:: c
 
@@ -382,7 +382,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
 .. exercise:: La fonction f
 
-    Considérons le programme suivant:
+    Considérons le programme suivant :
 
     .. code-block:: c
 
@@ -440,7 +440,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
             printf("%d\n", a + b);
         }
 
-    Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue:
+    Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue :
 
     .. code-block:: c
 

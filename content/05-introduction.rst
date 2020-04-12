@@ -89,7 +89,7 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 
     Représentation graphique des notions de compilateur, IDE, toolchain, ...
 
-À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal:
+À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
 
 `Microsoft Visual Studio <https://visualstudio.microsoft.com/>`__
     Un **IDE** très puissant disponible sous Microsoft Windows exclusivement. Il supporte de nombreux langages de programmation comme C, C++, C# ou Python.
@@ -127,7 +127,7 @@ En programmation, quel que soit le langage utilisé, la langue **anglaise** est 
 
 Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning* car si l'un est la traduction ad-hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
 
-Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer:
+Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :
 
 https://stackoverflow.com/
     Aujourd'hui le plus grand portail de questions/réponses dédié à la programmation logicielle
@@ -175,18 +175,18 @@ Le C comme la plupart des langages de programmation utilise du texte structuré,
 
 Les **compilateurs**, sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.
 
-L'exemple suivant est un `pseudo-code <https://fr.wikipedia.org/wiki/Pseudo-code>`__ utilisant une grammaire simple:
+L'exemple suivant est un `pseudo-code <https://fr.wikipedia.org/wiki/Pseudo-code>`__ utilisant une grammaire simple :
 
 .. code-block::
 
-    POUR CHAQUE oeuf DANS le panier:
+    POUR CHAQUE oeuf DANS le panier :
         jaune, blanc 🠔 CASSER(oeuf)
         omelette 🠔 MELANGER(jaune, blanc)
         omelette_cuite 🠔 CUIRE(omelette)
 
     SERVIR(omelette_cuite)
 
-La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire:
+La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :
 
 .. code-block::
 
@@ -210,13 +210,13 @@ Nous citions plus haut le C++ qui permet la programmation orientée objet, laque
 
 Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.
 
-Le langage C répond aux paradigmes suivants:
+Le langage C répond aux paradigmes suivants :
 
 - `Impératif <https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative>`__: programmation en séquences de commandes
 - `Structuré <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__: programmation impérative avec des structures de contrôle imbriquées
 - `Procédural <https://fr.wikipedia.org/wiki/Programmation_proc%C3%A9durale>`__: programmation impérative avec appels de procédures
 
-Le C++ quant à lui apporte les paradigmes suivants à C:
+Le C++ quant à lui apporte les paradigmes suivants à C :
 
 - `Fonctionnel <https://fr.wikipedia.org/wiki/Programmation_fonctionnelle>`__
 - `Orienté objet <https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet>`__
@@ -226,7 +226,7 @@ Des langages de plus haut niveau comme Python ou C# apportent d'avantages de par
 Cycle de développement
 ======================
 
-Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le `Cycle en V <https://fr.wikipedia.org/wiki/Cycle_en_V>`__ ou le `modèle en cascade <https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade>`__. Quel que soit le modèle utilisé, il comprendra les étapes suivantes:
+Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le `Cycle en V <https://fr.wikipedia.org/wiki/Cycle_en_V>`__ ou le `modèle en cascade <https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade>`__. Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
 
 1. **Étude** et analyse du problème
 2. Écriture d'un **cahier des charges** (spécifications)
@@ -339,7 +339,7 @@ Une console lancée ressemble à ceci, c'est intimidant si l'on en a pas l'habit
 
     $
 
-La première étape est de s'assurer que le fichier ``test.c`` contient bien notre programme. Pour ce faire on utilise un autre programme `cat <https://fr.wikipedia.org/wiki/Cat_(Unix)>`__ qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console:
+La première étape est de s'assurer que le fichier ``test.c`` contient bien notre programme. Pour ce faire on utilise un autre programme `cat <https://fr.wikipedia.org/wiki/Cat_(Unix)>`__ qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :
 
 .. code-block:: console
 
@@ -383,7 +383,7 @@ Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la d
     $ ls -l a.out
     -rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*
 
-Décortiquons tout cela:
+Décortiquons tout cela :
 
 .. code-block:: console
 
@@ -398,7 +398,7 @@ Décortiquons tout cela:
     Jul 24 09:50  Date de création du fichier
     a.out         Nom du fichier
 
-.. Liste des exercices du chapitre:
+.. Liste des exercices du chapitre :
 
 .. exercise:: Auteurs
 

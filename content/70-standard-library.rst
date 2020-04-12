@@ -17,7 +17,7 @@ Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous 
 Exemple: libgmp
 ===============
 
-Voyons ensemble le cas de `libgmp <https://packages.debian.org/buster/libgmp-dev>`__. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que ``libgmp`` est disponible pour différentes architectures ``amd64``, ``arm64``, ``s390x``, ``i386``, ... Un développement sur un Raspberry-PI nécessitera ``arm64`` alors qu'un développement sur un PC utilisera ``amd64``. En `cliquant <https://packages.debian.org/buster/amd64/libgmp-dev/filelist>`__ sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C:
+Voyons ensemble le cas de `libgmp <https://packages.debian.org/buster/libgmp-dev>`__. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que ``libgmp`` est disponible pour différentes architectures ``amd64``, ``arm64``, ``s390x``, ``i386``, ... Un développement sur un Raspberry-PI nécessitera ``arm64`` alors qu'un développement sur un PC utilisera ``amd64``. En `cliquant <https://packages.debian.org/buster/amd64/libgmp-dev/filelist>`__ sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C :
 
 .. code-block::
 
@@ -34,7 +34,7 @@ Voyons ensemble le cas de `libgmp <https://packages.debian.org/buster/libgmp-dev
     /usr/share/doc/libgmp-dev/changelog.gz
     /usr/share/doc/libgmp-dev/copyright
 
-On a donc:
+On a donc :
 
 ``gmp.h``
     Fichier d'en-tête à include dans un fichier source pour utiliser les fonctionnalités
@@ -45,12 +45,12 @@ On a donc:
 ``libgmp.so``
     Bibliothèque **dynamique** qui contient aussi l'implémentation en langage machine des fonctionnalités
 
-Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci:
+Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet *libary* on écrit ceci :
 
 .. literalinclude:: ../assets/src/gmp.c
     :language: c
 
-Puis on compile:
+Puis on compile :
 
 .. code-block:: console
 
@@ -77,7 +77,7 @@ Windows
 
         ERREUR 404
 
-Deuxième tentative:
+Deuxième tentative :
 
 .. code-block:: console
 
@@ -113,7 +113,7 @@ Alternativement on peut compiler le même programme en utilisant la librairie **
 
     $ gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 
-c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse:
+c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :
 
 .. code-block:: console
 
@@ -140,7 +140,7 @@ La bibliothèque permet le positionnement arbitraire dans la fenêtre de command
 
     Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du noyau Linux.
 
-L'écriture d'un programme Hello World avec cette bibliothèque pourrait être:
+L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 
 .. code-block:: c
 
@@ -157,7 +157,7 @@ L'écriture d'un programme Hello World avec cette bibliothèque pourrait être:
         return 0;
     }
 
-La compilation n'est possible que si:
+La compilation n'est possible que si :
 
 1. La bibliothèque est installée sur l'ordinateur
 2. Le lien vers la bibliothèque dynamique est mentionné à la compilation
@@ -169,7 +169,7 @@ La compilation n'est possible que si:
 Bibliothèques statiques
 =======================
 
-Une *static library* est un fichier binaire compilé pour une architecture donnée et portant les extensions:
+Une *static library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
 
 - ``.a`` sur un système POSIX (Android, Mac OS, Linux, Unix)
 - ``.lib`` sous Windows
@@ -186,14 +186,14 @@ Ainsi qu'un fichier d'en-tête `caesar.h`:
 .. literalinclude:: ../assets/src/caesar.h
     :language: c
 
-Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame:
+Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame :
 
 .. code-block:: console
 
     $ gcc -c -o caesar.o caesar.c
     $ ar rcs caesar.a caesar.o
 
-Puis il suffit d'écrire un programme pour utiliser cette bibliothèque:
+Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :
 
 .. literalinclude:: ../assets/src/encrypt.c
     :language: c
@@ -209,14 +209,14 @@ La procédure sous Windows est plus compliquée et ne sera pas décrite ici.
 Bibliothèques dynamiques
 ========================
 
-Une *dynamic library* est un fichier binaire compilé pour une architecture donnée et portant les extensions:
+Une *dynamic library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
 
 - ``.so`` sur un système POSIX (Android, Mac OS, Linux, Unix)
 - ``.dll`` sous Windows
 
 L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des *dll* localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.
 
-Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique:
+Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :
 
 .. code-block:: console
 
@@ -235,12 +235,12 @@ Le problème est identique à l'exécution, car il faut spécifier (ici avec ``L
     $ LD_LIBRARY_PATH=$(pwd .) ./a.out ferrugineux
     sreehtvarhk
 
-Car sinon c'est l'erreur:
+Car sinon c'est l'erreur :
 
 .. code-block:: console
 
     $ LIBRARY_PATH=$(pwd .) ./a.out Hey?
-    ./a.out: error while loading shared libraries: libcaesar.so:
+    ./a.out: error while loading shared libraries: libcaesar.so :
     cannot open shared object file: No such file or directory
 
 Bibliothèques standard
@@ -248,7 +248,7 @@ Bibliothèques standard
 
 Les bibliothèques standard (`C standard library <https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C>`__) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.
 
-Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont:
+Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont :
 
 ``<assert.h>``
     Contient la macro ``assert`` pour valider certains prérequis.
@@ -312,7 +312,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
             cacoshl (3)  - complex arc hyperbolic cosine
             cacosl (3)   - complex arc cosine
 
-        Le premier résultat permet ensuite de voir:
+        Le premier résultat permet ensuite de voir :
 
         .. code-block:: console
 
@@ -378,7 +378,7 @@ Math
 | ``floor``        | Arrondi à l'entier inférieur                          |
 +------------------+-------------------------------------------------------+
 
-Chaînes de caractères:
+Chaînes de caractères :
 ^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------------------+-------------------------------------------------------+
@@ -468,7 +468,7 @@ Autres bibliothèques
 POSIX C Library
 ---------------
 
-Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes:
+Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes :
 
 - La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
     - ``<sys/socket.h>``
@@ -504,7 +504,7 @@ Windows C library
 
 La bibliothèque Windows `Windoes API <https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list>`_ offre une interface au système de fichier, au registre windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
 
-L'accès à cet API est offert par un unique point d'entrée `windows.h <https://en.wikipedia.org/wiki/Windows.h>`__ qui regroupe certains en-têtes standards (``<stdarg.h>``, ``<string.h>``, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que:
+L'accès à cet API est offert par un unique point d'entrée `windows.h <https://en.wikipedia.org/wiki/Windows.h>`__ qui regroupe certains en-têtes standards (``<stdarg.h>``, ``<string.h>``, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :
 
 ``<winreg.h>``
     Pour l'accès au registre Windows
@@ -516,7 +516,7 @@ La documentation est disponible en ligne depuis le site de Microsoft, mais n'est
 
 Un bon point d'entrée est le `Microsoft API and reference catalog <https://msdn.microsoft.com/library>`__.
 
-Quelques observations:
+Quelques observations :
 
 - Officiellement Windows est compatible avec C89 (ANSI C) (c.f. `C Language Reference <https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019>`__)
 - L'API Windows n'est pas officiellement compatible avec C99, mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.
@@ -554,7 +554,7 @@ MacOS X Library
             cacoshl (3)  - complex arc hyperbolic cosine
             cacosl (3)   - complex arc cosine
 
-        Le premier résultat permet ensuite de voir:
+        Le premier résultat permet ensuite de voir :
 
         .. code-block:: console
 

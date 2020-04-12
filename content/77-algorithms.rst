@@ -25,21 +25,21 @@ Pour être qualifié d'algorithme certaines propriété doivent être respectée
 Complexité d'un algorithme
 ==========================
 
-Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs:
+Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs :
 
 - La complexité en temps
 - La complexité en mémoire
 
 Pour l'un, l'idée est de savoir combine de temps CPU consomme un algorithme. Pour l'autre, on s'intéresse à l'utilisation de mémoire tampon.
 
-La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (*big O notation*). Par exemple, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait:
+La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (*big O notation*). Par exemple, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait :
 
 .. math::
     O(10)
 
 Un algorithme qui ferait une recherche dichotomique sur un tableau de :math:`n` éléments à une complexité :math:`O(log(n))`.
 
-Quelques points à retenir:
+Quelques points à retenir :
 
 - La complexité d'un algorithme considère toujours le cas le moins favorable.
 - Le meilleur algorithme est celui qui présente le meilleur compromis entre sa complexité en temps et sa complexité en mémoire.
@@ -58,7 +58,7 @@ nombre d'éléments du tableau.
     }
 
 D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces
-catégories exprimées du meilleur au plus mauvais:
+catégories exprimées du meilleur au plus mauvais :
 
 +----------------------+--------------------+----------------------------------------+
 | Complexité           | :math:`n = 100000` | i7 (100'000 MIPS)                      |
@@ -79,7 +79,7 @@ catégories exprimées du meilleur au plus mauvais:
 
 Un algorithme en :math:`O(n^2)`, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.
 
-Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants:
+Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :
 
 .. code-block:: c
 
@@ -116,7 +116,7 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
 
 .. exercise::
 
-    Quel serait l'algorithme permettant d'afficher:
+    Quel serait l'algorithme permettant d'afficher :
 
     .. code-block::text
 
@@ -153,7 +153,7 @@ La `récursivité <https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`__ est u
 
     Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
 
-    Exemple:
+    Exemple :
 
     .. code-block:: text
 
@@ -176,7 +176,7 @@ Programmation dynamique
 
     L'intégrateur de Kahan (`Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`__) est une solution élégante pour palier à la limite de résolution des types de données.
 
-    L'algorithme pseudo-code peut être exprimé comme:
+    L'algorithme pseudo-code peut être exprimé comme :
 
     .. code-block:: text
 
@@ -191,7 +191,7 @@ Programmation dynamique
             next i
             return sum
 
-    #. Implémenter cet algorithme en C compte tenu du prototype:
+    #. Implémenter cet algorithme en C compte tenu du prototype :
         .. code-block:: c
 
             float kahan_sum(float value, float sum, float c);
@@ -203,7 +203,7 @@ Programmation dynamique
 
     Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
 
-    Le robot dispose de plusieurs fonctionnalités:
+    Le robot dispose de plusieurs fonctionnalités :
 
     - Avancer
     - Tourner à droite de 90°

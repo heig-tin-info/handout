@@ -12,7 +12,7 @@ Un opérateur applique une opération à une (opérateur unitaire), deux ou troi
 
     c = a + b;
 
-Un opérateur possède plusieurs propriétés:
+Un opérateur possède plusieurs propriétés :
 
 Une priorité
     La multiplication ``*`` est plus prioritaire que l'addition ``+``
@@ -55,7 +55,7 @@ Aux 4 opérations de base, le C ajoute l'opération `modulo <https://fr.wikipedi
 Opérateurs bit à bit
 ====================
 
-Les opérations binaires agissent directement sur les bits d'une entrée:
+Les opérations binaires agissent directement sur les bits d'une entrée :
 
 - ``&`` ET arithmétique
 - ``|`` OU arithmétique
@@ -124,7 +124,7 @@ L'opérateur séquentiel (*comma operator*) permet l'exécution ordonné d'opér
 
 Dans le cas ci-dessus, il n'est pas possible de séparer les instructions ``i++`` et ``j--`` par un point virgule, l'opérateur virgule permet alors de combiner plusieurs instructions en une seule.
 
-Une particularité de cet opérateur est que seule la dernière valeur est retournée:
+Une particularité de cet opérateur est que seule la dernière valeur est retournée :
 
 .. code-block:: c
 
@@ -431,7 +431,7 @@ La précédence
 | 15       | ``,``                 | Virgule                                    | Gauche à Droite |
 +----------+-----------------------+--------------------------------------------+-----------------+
 
-Considérons l'exemple suivant:
+Considérons l'exemple suivant :
 
 .. code-block:: c
 
@@ -440,7 +440,7 @@ Considérons l'exemple suivant:
 
     x = 5 + 23 + 34 / ++i[0] & 0xFF << y;
 
-Selon la précédance de chaque opérateur ainsi que son associativité on a:
+Selon la précédance de chaque opérateur ainsi que son associativité on a :
 
 .. code-block:: text
 
@@ -493,7 +493,7 @@ La **promotion** est l'action de promouvoir un type de donnée en un autre type 
 Valeurs gauche
 ==============
 
-Une valeur gauche (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche:
+Une valeur gauche (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
 
 .. code-block:: c
 
@@ -503,14 +503,14 @@ Une valeur gauche (*lvalue*) est une particularité de certains langage de progr
     (x = y) = z;  // (2)
 
 1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
-2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint:
+2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint :
     .. code-block:: text
 
         4:8: error: lvalue required as left operand of assignment
             (x = y) = z;
                     ^
 
-Voici quelques exemples de valeurs gauche:
+Voici quelques exemples de valeurs gauche :
 
 - ``x /= y``
 - ``++x``
@@ -521,7 +521,7 @@ Optimisation
 
 Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec ``-O2`` sous ``gcc``), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.
 
-Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation:
+Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation :
 
 .. code-block:: c
 
@@ -541,13 +541,13 @@ De même que ce test n'effectura pas une division mais testera simplement le der
 
 .. exercise:: Masque binaire
 
-    Soit les déclarations suivantes:
+    Soit les déclarations suivantes :
 
     .. code-block:: c
 
         char m, n = 2, d = 0x55, e = 0xAA;
 
-    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable ``m`` après exécution de chacune des instructions suivantes:
+    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable ``m`` après exécution de chacune des instructions suivantes :
 
     #. :code:`m = 1 << n;`
     #. :code:`m = ~1 << n;`
@@ -561,7 +561,7 @@ De même que ce test n'effectura pas une division mais testera simplement le der
 
 .. exercise:: Registre système
 
-    Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes:
+    Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
 
     - mettre à 1 le bit numéro ``n``, ``n`` étant un entier entre 0 et 15;
     - mettre à 0 le bit numéro ``n``, ``n`` étant un entier entre 0 et 15;
@@ -571,7 +571,7 @@ De même que ce test n'effectura pas une division mais testera simplement le der
 
 .. exercise:: Recherche d'expressions
 
-    Considérant les déclarations suivantes:
+    Considérant les déclarations suivantes :
 
     .. code-block:: c
 
@@ -599,13 +599,13 @@ De même que ce test n'effectura pas une division mais testera simplement le der
 
             n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
 
-    Par exemple:
+    Par exemple :
 
     - ``9`` est un nombre narcissique car :math:`9 = 9^1 = 9`
     - ``153`` est un nombre narcissique car :math:`153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153`
     - ``10`` n'est pas un nombre narcissique car :math:`10 \ne 1^2 + 0^2 = 1`
 
-    Implanter un programme permettant de vérifier si un nombre d'entrée est narcissique ou non. L'exécution est la suivante:
+    Implanter un programme permettant de vérifier si un nombre d'entrée est narcissique ou non. L'exécution est la suivante :
 
     .. code-block::
 

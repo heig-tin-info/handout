@@ -9,7 +9,7 @@ Notons que ce chapitre est transveral, à la sa première lecture, le profane ne
 L'alphabet
 ==========
 
-Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 `chiffres indo-arabes <https://fr.wikipedia.org/wiki/Chiffres_arabes>`__:
+Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 `chiffres indo-arabes <https://fr.wikipedia.org/wiki/Chiffres_arabes>`__ :
 
 .. code-block:: text
 
@@ -30,7 +30,7 @@ On nomme les caractères non-imprimables soit par leur acronyme ``LF`` pour *Lin
     CR    \r   Carriage return (retour charriot)
     SPACE \040 Space
 
-La ponctuation utilise les 29 symboles graphiques suivants:
+La ponctuation utilise les 29 symboles graphiques suivants :
 
 .. code-block:: text
 
@@ -65,7 +65,7 @@ Fin de lignes (EOL)
 
 À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatibles <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
 
-Fort heureusement depuis que Apple a migré son système sur une base `BSD <https://en.wikipedia.org/wiki/Berkeley_Software_Distribution>`__ (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne:
+Fort heureusement depuis que Apple a migré son système sur une base `BSD <https://en.wikipedia.org/wiki/Berkeley_Software_Distribution>`__ (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne :
 
 - ``LF`` ou ``\n`` sur les ordinateurs POSIX comme Linux, Unix ou MacOS
 - ``CRLF`` ou ``\r\n`` sur les ordinateurs Windows.
@@ -79,7 +79,7 @@ Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`
 Mots clés
 =========
 
-Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés:
+Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
 
 .. code-block:: c
 
@@ -107,13 +107,13 @@ Notons que les mots clés ``true`` et ``false`` décrits à la :numref:`booleans
 Identificateurs
 ===============
 
-Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par:
+Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :
 
 .. figure:: ../assets/figures/dist/grammar/identifier.*
 
     Grammaire d'un identificateur C
 
-En addition de ceci, voici quelques règles:
+En addition de ceci, voici quelques règles :
 
 - Un identificateur ne peut pas être l'un des mots clés du langage.
 - Les identificateurs sont sensible à la `casse <https://fr.wikipedia.org/wiki/Casse_(typographie)>`__.
@@ -122,7 +122,7 @@ En addition de ceci, voici quelques règles:
 
 .. hint:: Expression régulière
 
-    Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante:
+    Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :
 
     .. code-block:: text
 
@@ -171,7 +171,7 @@ Variables
 
 Une variable est un symbole qui associe un nom **identificateur** à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
 
-Une variable est définie par:
+Une variable est définie par :
 
 - Son **nom** (*name*), c'est à dire l'identificateur associé au symbole.
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
@@ -183,7 +183,7 @@ Une variable est définie par:
 Déclaration
 -----------
 
-Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C:
+Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :
 
 .. code-block:: c
 
@@ -201,14 +201,14 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 
 .. exercise:: Affectation de variables
 
-    Considérons les déclarations suivantes:
+    Considérons les déclarations suivantes :
 
     .. code-block:: c
 
         int a, b, c;
         float x;
 
-    Notez après chaque affectation, le contenu des différentes variables:
+    Notez après chaque affectation, le contenu des différentes variables :
 
     =====  ================  =====  =====  =====  =====
     Ligne  Instruction       ``a``  ``b``  ``c``  ``x``
@@ -239,7 +239,7 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 Convention de nommage
 ---------------------
 
-Il existe autant de conventions de nommage qu'il y a de développeurs mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que:
+Il existe autant de conventions de nommage qu'il y a de développeurs mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :
 
 - La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.
 - Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguité.
@@ -334,14 +334,14 @@ Dans les exemples ci-dessus on utilise l'opérateur d'affectation pour associer 
 
 Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal ``=`` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.
 
-Pour mieux saisir la nuance, considérons le programme suivant:
+Pour mieux saisir la nuance, considérons le programme suivant :
 
 .. code-block:: c
 
     a = 42;
     a = b;
 
-Mathématiquement, la valeur de ``b`` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code car oui, C est un langage impératif (c.f. :numref:`paradigms`). Ainsi, dans l'ordre on lit:
+Mathématiquement, la valeur de ``b`` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code car oui, C est un langage impératif (c.f. :numref:`paradigms`). Ainsi, dans l'ordre on lit :
 
 #. J'assigne la valeur 42 à la variable symbolisée par ``a``
 #. Puis, j'assigne la valeur de la variable ``b`` au contenu de ``a``.
@@ -364,7 +364,7 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
 
 .. exercise:: Affectations simples
 
-    Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous:
+    Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous :
 
     .. code-block:: c
 
@@ -385,7 +385,7 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
 
 .. exercise:: Trop d'égalités
 
-    On considère les déclarations suivantes:
+    On considère les déclarations suivantes :
 
     .. code-block:: c
 
@@ -401,7 +401,7 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
 
     .. solution::
 
-        Selon la table de priorité des opérateurs, on note:
+        Selon la table de priorité des opérateurs, on note :
 
         - ``()`` priorité 1 associativité à droite
         - ``*`` priorité 3 associativité à gauche
@@ -432,7 +432,7 @@ Comme en français et ainsi qu'illustré par la :numref:`proust`, il est possibl
 
     Les carafes dans la Vivonne
 
-Il existe deux manière d'écrire un commentaire en C:
+Il existe deux manière d'écrire un commentaire en C :
 
 - Les commentaires de lignes (depuis C99)
 
@@ -455,7 +455,7 @@ En conséquence, il est important de clarifier toute zone d'ombre lorsque que l'
 D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires mais un programme sans commentaires n'est pas
 nécessairement un bon programme.
 
-Notons que l'on ne commente jamais des portions de code et ce pour plusieurs raisons:
+Notons que l'on ne commente jamais des portions de code et ce pour plusieurs raisons :
 
 1. Les outils de *refactoring* ne pourront pas accéder du code commenté
 2. La syntaxe ne pourra plus être vérifiée par l'IDE
@@ -472,14 +472,14 @@ désactiver cette portion de code.
     }
     #endif
 
-D'une manière générale l'utilisaton des commentaires ne devrait pas être utilisée pour:
+D'une manière générale l'utilisaton des commentaires ne devrait pas être utilisée pour :
 
 - Désactiver temporairement une portion de code sans l'effacer.
 - Expliquer le **comment** du fonctionnement du code.
 - Faire dans le dythyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.
 - Créer de jolies séparations telles que ``/*************************/``.
 
-Exemple d'entête de fichier:
+Exemple d'entête de fichier :
 
 .. code-block:: c
 
@@ -493,7 +493,7 @@ Exemple d'entête de fichier:
      * NOTE: Important notes about this code
      */
 
-Le format des commentaires est par essence libre au développeur mais il est généralement souhaité que:
+Le format des commentaires est par essence libre au développeur mais il est généralement souhaité que :
 
 - Les commentaires soient concis et précis.
 - Les commentaires soient écrits en anglais.
@@ -513,7 +513,7 @@ Le format des commentaires est par essence libre au développeur mais il est gé
 
     .. solution::
 
-        Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit:
+        Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :
 
         .. code-block:: c
 

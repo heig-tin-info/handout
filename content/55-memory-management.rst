@@ -6,7 +6,7 @@ Gestion de la mémoire
 
 Vous l'aurez appris à vos dépens, l'erreur *Segmentation fault* (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.
 
-La mémoire d'un programme est découpée en `segments de données <https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es>`__. Les principaux segments sont:
+La mémoire d'un programme est découpée en `segments de données <https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es>`__. Les principaux segments sont :
 
 Segment de code ``.text``
     Les instructions du programme exécutable sont chargées dans ce segment.
@@ -31,7 +31,7 @@ Allocation statique
 
 Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est-à-dire que le compilateur est capable a priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.
 
-La `déclaration statique <https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire#Allocation_statique>`__ suivante déclare un tableau de 1024 entiers 64-bits initialisés à zéro et stockés dans le segment ``.bss``, soit 64 kio:
+La `déclaration statique <https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire#Allocation_statique>`__ suivante déclare un tableau de 1024 entiers 64-bits initialisés à zéro et stockés dans le segment ``.bss``, soit 64 kio :
 
 ::
 
@@ -66,7 +66,7 @@ Mémoire de programme
 
 Les segments mémoires sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.
 
-Néanmoins une bonne représentation est la suivante:
+Néanmoins une bonne représentation est la suivante :
 
 .. figure:: ../assets/figures/dist/memory/program-memory.*
 

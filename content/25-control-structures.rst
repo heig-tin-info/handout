@@ -2,7 +2,7 @@
 Structures de contrôle
 ======================
 
-Les structures de contrôle appartiennent aux langages de programmation dits `structurés <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C:
+Les structures de contrôle appartiennent aux langages de programmation dits `structurés <https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e>`__. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :
 
 1. Les embranchements (``branching``)
 2. Les boucles (``loops``)
@@ -40,7 +40,7 @@ Une séquence est une suite d'instructions regroupées en un bloc matérialisé 
 Les embranchements
 ==================
 
-Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements:
+Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :
 
 1. ``if``, ``if else``
 2. ``switch``
@@ -50,7 +50,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
 
-Les embranchements s'appuient sur les séquences:
+Les embranchements s'appuient sur les séquences :
 
 .. code-block:: c
 
@@ -68,7 +68,7 @@ if..else
 
 Le mot clé ``if`` est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le ``else`` est exécuté.
 
-Les enchaînements possibles sont:
+Les enchaînements possibles sont :
 
 - ``if``
 - ``if`` + ``else``
@@ -76,7 +76,7 @@ Les enchaînements possibles sont:
 - ``if`` + ``else if`` + ``else if`` + ...
 - ``if`` + ``else if`` + ``else``
 
-Une condition n'est pas nécessairement unique mais peut-être la concaténation logique de plusieurs conditions séparées:
+Une condition n'est pas nécessairement unique mais peut-être la concaténation logique de plusieurs conditions séparées :
 
 .. code-block:: c
 
@@ -107,7 +107,7 @@ Remarquons qu'au passage cet exemple peut être simplifié:
     }
 
 
-Notons quelques erreurs courantes:
+Notons quelques erreurs courantes :
 
 - Il est courant de placer un point virgule derrière un ``if``. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.
 
@@ -133,7 +133,7 @@ Notons quelques erreurs courantes:
         else
             printf("OK");
 
-L'instruction ``if`` permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées:
+L'instruction ``if`` permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées :
 
 .. code-block:: c
 
@@ -156,7 +156,7 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 
 .. exercise:: Et si?
 
-    Comment se comporte l'exemple suivant:
+    Comment se comporte l'exemple suivant :
 
     .. code-block:: c
 
@@ -218,28 +218,28 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 ``switch``
 ----------
 
-L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, l'instruction ``switch`` peut-être utilisée:
+L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, l'instruction ``switch`` peut-être utilisée :
 
 .. code-block:: c
 
     switch (defcon)
     {
-        case 1:
+        case 1 :
             printf("Guerre nucléaire imminente");
             break;
-        case 2:
+        case 2 :
             printf("Prochaine étape, guerre nucléaire");
             break;
-        case 3:
+        case 3 :
             printf("Accroissement de la préparation des forces");
             break;
-        case 4:
+        case 4 :
             printf("Mesures de sécurité renforcées et renseignements accrus");
             break;
-        case 5:
+        case 5 :
             printf("Rien à signaler, temps de paix");
             break;
-        default:
+        default :
             printf("ERREUR: Niveau d'alerte DEFCON invalide");
     }
 
@@ -253,23 +253,23 @@ Les labels peuvent être chaînés sans instructions intermédiaires ni ``break`
 
     switch (coffee)
     {
-        case IRISH_COFFEE:
+        case IRISH_COFFEE :
             add_whisky();
 
-        case CAPPUCCINO:
-        case MACCHIATO:
+        case CAPPUCCINO :
+        case MACCHIATO :
             add_milk();
 
-        case ESPRESSO:
-        case AMERICANO:
+        case ESPRESSO :
+        case AMERICANO :
             add_coffee();
             break;
 
-        default:
+        default :
             printf("ERREUR 418: Type de café inconnu");
     }
 
-Notons quelques observations:
+Notons quelques observations :
 
 - La structure ``switch`` bien qu'elle puisse toujours être remplacée par une structure ``if..else if`` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. :numref:`DRY`).
 - Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement e.g. ``{12, 13, 14, 15}``.
@@ -278,7 +278,7 @@ Notons quelques observations:
 Les boucles
 ===========
 
-Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles:
+Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
 - ``for``
 - ``while``
@@ -307,7 +307,7 @@ Séquentiellement une boucle ``while`` teste la condition, puis exécute la séq
 
 .. exercise:: Tant que...
 
-    Comment se comportent ces programmes:
+    Comment se comportent ces programmes :
 
     #. ``size_t i=0;while(i<11){i+=2;printf("%i\n",i);}``
     #. ``i=11;while(i--){printf("%i\n",i--);}``
@@ -320,7 +320,7 @@ Séquentiellement une boucle ``while`` teste la condition, puis exécute la séq
 do..while
 ---------
 
-De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle ``do``...\ ``while`` permet justement ceci:
+De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle ``do``...\ ``while`` permet justement ceci :
 
 .. code-block:: c
 
@@ -336,7 +336,7 @@ Contrairement à la boucle ``while``, la séquence est ici exécutée **au moins
 for
 ---
 
-La boucle ``for`` est un ``while`` amélioré qui permet en une ligne de résumer les conditions de la boucle:
+La boucle ``for`` est un ``while`` amélioré qui permet en une ligne de résumer les conditions de la boucle :
 
 .. code-block:: c
 
@@ -354,7 +354,7 @@ Expression 2
 Expression 3
     Action de fin de tour. A la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.
 
-Voici comment répéter 10x un block de code:
+Voici comment répéter 10x un block de code :
 
 .. code-block:: c
 
@@ -391,7 +391,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 
 .. exercise:: Erreur
 
-    Identifier les deux erreurs dans ce code suivant:
+    Identifier les deux erreurs dans ce code suivant :
 
     .. code-block:: c
 
@@ -400,7 +400,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 
 .. exercise:: De un à cent
 
-    Écrivez un programme affichant les entiers de 1 à 100 en employant:
+    Écrivez un programme affichant les entiers de 1 à 100 en employant :
 
     1. Une boucle ``for``
     2. Une boucle ``while``
@@ -410,7 +410,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 
 .. exercise:: Opérateur virgule dans une boucle
 
-    Expliquez quelle est la fonctionnalité globale du programme ci-dessous:
+    Expliquez quelle est la fonctionnalité globale du programme ci-dessous :
 
     .. code-block:: c
 
@@ -424,7 +424,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
 Boucles infinies
 ----------------
 
-Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée `run loop <https://en.wikipedia.org/wiki/Event_loop>`__. Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction ``main`` telle que:
+Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée `run loop <https://en.wikipedia.org/wiki/Event_loop>`__. Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction ``main`` telle que :
 
 .. code-block:: c
 
@@ -441,7 +441,7 @@ Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucl
         }
     }
 
-Il y a différentes variantes de boucles infinies:
+Il y a différentes variantes de boucles infinies :
 
 .. code-block:: c
 
@@ -453,7 +453,7 @@ Il y a différentes variantes de boucles infinies:
 
 Notions que l'expression ``while (1)`` que l'on rencontre fréquemment dans des exemples est fausse syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire ``1`` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire ``while (1 == 1)`` ou simplement ``while (true)``.
 
-On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de conditions extérieure car en effet, avant **C99** définir la valeur ``true`` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût:
+On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de conditions extérieure car en effet, avant **C99** définir la valeur ``true`` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :
 
 .. code-block:: c
 
@@ -461,7 +461,7 @@ On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de
 
     while (true) { /* ... */ }
 
-Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale:
+Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale :
 
 .. code-block:: c
 
@@ -494,7 +494,7 @@ Les sauts
 Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
 
-- ``break`` interrompt la structure de contrôle en cours. Elle est valide pour:
+- ``break`` interrompt la structure de contrôle en cours. Elle est valide pour :
     - ``while``
     - ``do``...``while``
     - ``switch``
@@ -511,7 +511,7 @@ Néanmoins, il est importante de comprendre que ``goto`` était dans certain lan
 
 ``goto`` effectue un saut inconditionnel à un *label* défini en C par un :ref:`identificateur <identifiers>` suivi d'un ``:``.
 
-L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code:
+L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
 
 .. code-block::
 
@@ -555,7 +555,7 @@ Le mot clé ``continue`` ne peut exister qu'à l'intérieur d'une boucle. Il per
         printf("Dans cet avion il y a un siège numéro %d\n", airplane_seat);
     }
 
-Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple:
+Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :
 
 .. code-block:: c
 
@@ -567,7 +567,7 @@ Cette structure est équivalente à l'utilisation d'un goto avec un label placé
 
         /* ... */
 
-        contin:
+        contin :
     }
 
 ``break``
@@ -605,14 +605,14 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
 .. exercise:: Faute d'erreur
 
-    Considérons les déclarations suivantes:
+    Considérons les déclarations suivantes :
 
     .. code-block:: c
 
         long i = 0;
         double x = 100.0;
 
-    Indiquer la nature de l'erreur dans les expressions suivants:
+    Indiquer la nature de l'erreur dans les expressions suivants :
 
     #.
         .. code-block:: c
@@ -632,10 +632,10 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
         .. code-block:: c
 
             switch(x) {
-                case 100:
+                case 100 :
                     printf("Bravo.\n");
                     break;
-                default:
+                default :
                     printf("Pas encore.\n");
 
             }
@@ -673,10 +673,10 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
             .. code-block:: c
 
                 switch(choice) {
-                    case 0:
+                    case 0 :
                         /* ... */
                         break;
-                    case 1:
+                    case 1 :
                         /* ... */
                 }
 
@@ -700,7 +700,7 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
                     /* ... */
                 }
 
-        #. Il est nécessaire ici d'assurer au moins un tour de boucle:
+        #. Il est nécessaire ici d'assurer au moins un tour de boucle :
             .. code-block:: c
 
                 const size_t max_line_length = 64;
@@ -735,13 +735,13 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
     .. solution::
 
-        La priorité de l'opérateur unitaire ``&`` est plus élevée que ``==`` ce qui se traduit par:
+        La priorité de l'opérateur unitaire ``&`` est plus élevée que ``==`` ce qui se traduit par :
 
         .. code-block:: c
 
             if (x & (mask == bits))
 
-        Le développeur voulait probablement appliquer le masque à ``x`` puis le comparer au motif ``bits``. La bonne réponse devrait alors être:
+        Le développeur voulait probablement appliquer le masque à ``x`` puis le comparer au motif ``bits``. La bonne réponse devrait alors être :
 
         .. code-block:: c
 

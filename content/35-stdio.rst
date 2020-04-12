@@ -4,7 +4,7 @@ Entrées Sorties
 
 Comme nous l'avons vu (c.f. :numref:`inputs_outputs`) un programme dispose de canaux d'entrées sorties ``stdin``, ``stdout`` et ``stderr``. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
 
-La fonction phare est bien entendu ``printf`` pour le formatage de chaîne de caractères et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes:
+La fonction phare est bien entendu ``printf`` pour le formatage de chaîne de caractères et ``scanf`` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes :
 
 - depuis/vers les canaux standards ``printf``, ``scanf``
 - depuis/vers un fichier quelconque ``fprintf``, ``fscanf``
@@ -15,7 +15,7 @@ La liste citée est non exhaustive, mais largement documentée ici: `<stdio.h> <
 Sorties non formatées
 =====================
 
-Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles:
+Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :
 
 ``putchar(char c)``
     Pour imprimer un caractère unique: ``putchar('c')``
@@ -59,7 +59,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 Sorties formatées
 =================
 
-Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur ``123``. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste:
+Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur ``123``. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :
 
 .. code-block:: text
 
@@ -70,13 +70,13 @@ Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'e
 
 Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.
 
-Voici un exemple possible d'implémentation:
+Voici un exemple possible d'implémentation :
 
 .. literalinclude:: ../assets/src/iota.c
     :language: c
     :name: iota-c
 
-Cette implémentation pourrait être utilisée de la façon suivante:
+Cette implémentation pourrait être utilisée de la façon suivante :
 
 .. code-block:: c
 
@@ -105,17 +105,17 @@ Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des p
         printf("La circonférence de la terre vaut vaut %d km", earth_perimeter);
     }
 
-Le standard **C99** défini le prototype de ``printf`` comme étant:
+Le standard **C99** défini le prototype de ``printf`` comme étant :
 
 .. code-block:: c
 
     int printf(const char *restrict format, ...);
 
-Il définit que la fonction ``printf`` prend en paramètre un format suivi de ``...``. La fonction ``printf`` comme toutes celles de la même catégorie sont dites `variadiques <https://fr.wikipedia.org/wiki/Fonction_variadique#C>`__, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format ``"Mes nombres préférés sont %d et %d, mais surtout %s"`` demandera trois paramètres additionnels:
+Il définit que la fonction ``printf`` prend en paramètre un format suivi de ``...``. La fonction ``printf`` comme toutes celles de la même catégorie sont dites `variadiques <https://fr.wikipedia.org/wiki/Fonction_variadique#C>`__, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format ``"Mes nombres préférés sont %d et %d, mais surtout %s"`` demandera trois paramètres additionnels :
 
 La fonction retourne le nombre de caractères formatés ou ``-1`` en cas d'erreur.
 
-La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant:
+La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant :
 
 .. code-block:: c
 
@@ -170,7 +170,7 @@ Exemples
 
 .. exercise:: Quelque bogues bien formatés
 
-    Indiquez les erreurs dans les instructions suivantes:
+    Indiquez les erreurs dans les instructions suivantes :
 
     .. code-block:: c
 
@@ -186,7 +186,7 @@ Entrées formatées
 
 À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
 
-La fonction ``scanf`` est par exemple utilisée à cette fin:
+La fonction ``scanf`` est par exemple utilisée à cette fin :
 
 .. code-block:: c
 
@@ -204,7 +204,7 @@ La fonction ``scanf`` est par exemple utilisée à cette fin:
             favorite % 2 ? "impair" : "pair");
     }
 
-Cette fonction utilise l'entrée standard ``stdin``. Il est donc possible soit d'exécuter ce programme en mode interactif:
+Cette fonction utilise l'entrée standard ``stdin``. Il est donc possible soit d'exécuter ce programme en mode interactif :
 
 .. code-block:: console
 
@@ -212,7 +212,7 @@ Cette fonction utilise l'entrée standard ``stdin``. Il est donc possible soit d
     Quelle est votre nombre favori ? 2
     Saviez-vous que votre nombre favori, 2, est pair ?
 
-soit d'exécuter ce programme en fournissant le nécessaire à stdin:
+soit d'exécuter ce programme en fournissant le nécessaire à stdin :
 
 .. code-block:: console
 
@@ -245,7 +245,7 @@ Le programme suivant lit un entier et le place dans la variable ``n``. ``scanf``
         return 0;
     }
 
-Si le code est exécuté avec une suite arbitraire de nombres:
+Si le code est exécuté avec une suite arbitraire de nombres :
 
 .. code-block:: text
 
@@ -253,7 +253,7 @@ Si le code est exécuté avec une suite arbitraire de nombres:
     456 1
         2378
 
-il affichera chacun des nombres dans l'ordre d'apparition:
+il affichera chacun des nombres dans l'ordre d'apparition :
 
 .. code-block:: console
 
@@ -284,7 +284,7 @@ Voyons un exemple plus complexe (c.f. C99 §7.19.6.2-19).
         scanf("%*[^\n]");
     } while (!feof(stdin) && !ferror(stdin));
 
-Lorsqu'exécuté avec ce contenu:
+Lorsqu'exécuté avec ce contenu :
 
 .. code-block:: text
 
@@ -295,7 +295,7 @@ Lorsqu'exécuté avec ce contenu:
     poussière
     100ergs d’énergie
 
-Le programme se déroule comme suit:
+Le programme se déroule comme suit :
 
 .. code-block:: c
 
@@ -335,7 +335,7 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 
 .. exercise:: scanf sur des entiers et des réels
 
-    Considérant les déclarations:
+    Considérant les déclarations :
 
     .. code-block:: c
 
@@ -354,7 +354,7 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 
 .. exercise:: Saisie de valeurs
 
-    Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées:
+    Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :
 
     .. code-block:: c
 
@@ -432,7 +432,7 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 Saisie de chaîne de caractères
 ------------------------------
 
-Lors d'une saisie de chaîne de caractères, il est nécessaire de **toujours** indiquer une taille maximum de chaîne comme ``%20s`` qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son ``\0``. Sinon, il y a risque de `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__:
+Lors d'une saisie de chaîne de caractères, il est nécessaire de **toujours** indiquer une taille maximum de chaîne comme ``%20s`` qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son ``\0``. Sinon, il y a risque de `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__ :
 
 .. code-block:: c
 
@@ -466,7 +466,7 @@ En mémoire, ces deux variables sont adjacentes et naturellement `a[7]` est équ
 Saisie arbitraire
 -----------------
 
-Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur ``[`` pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en `tetrasexagesimal <https://en.wikipedia.org/wiki/Base64>`__ (base 64). Je peux écrire:
+Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur ``[`` pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en `tetrasexagesimal <https://en.wikipedia.org/wiki/Base64>`__ (base 64). Je peux écrire :
 
 .. code-block:: c
 
@@ -575,7 +575,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
 .. exercise:: Produit scalaire
 
-    Écrire un programme effectuant les opérations suivantes:
+    Écrire un programme effectuant les opérations suivantes :
 
     - Saisir les coordonnées réelles ``x1`` et ``y1`` d’un vecteur ``v1``.
     - Saisir les coordonnées réelles ``x2`` et ``y2`` d’un vecteur ``v2``.
@@ -648,7 +648,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     .. solution::
 
-        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences:
+        Une fois la correction effectuée, vous utilisez l'outil de ``diff`` pour montrer les différences :
 
         .. code-block:: diff
 
@@ -685,7 +685,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
 .. exercise:: Géométrie affine
 
-    Considérez le programme suivant:
+    Considérez le programme suivant :
 
     .. code-block:: c
 
@@ -723,7 +723,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
         #. Ligne 6
         #. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
-        #. Les étapes sont les suivantes:
+        #. Les étapes sont les suivantes :
             #. Demande de la valeur de ``a`` à l'utilisateur
             #. Demande de la valeur de ``b`` à l'utilisateur
             #. Demande de la valeur de ``x`` à l'utilisateur
@@ -740,7 +740,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     .. solution::
 
-        Citons les défauts de ce programme:
+        Citons les défauts de ce programme :
 
         - Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif
         - Les invités de dialogue ``a = ``, ``b = `` ne sont pas clair, ``a`` et ``b`` sont associés à quoi ?
@@ -748,7 +748,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
         - Le nom des variables utilisé n'est pas clair.
         - Aucune valeur par défaut.
 
-        Une solution possible serait:
+        Une solution possible serait :
 
         .. literalinclude:: ../assets/src/linear.c
             :language: c
@@ -760,7 +760,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
 .. exercise:: Tour Eiffel
 
-    Considérons le programme suivant:
+    Considérons le programme suivant :
 
     .. code-block:: c
 
@@ -797,7 +797,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.
 
-    Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont:
+    Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont :
 
     - Genève
     - Zürich

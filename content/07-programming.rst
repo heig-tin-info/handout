@@ -9,7 +9,7 @@ La programmation
 Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.
 
 
-**Algorithmique et Programmation**, il y donc deux questions à éclairer:
+**Algorithmique et Programmation**, il y donc deux questions à éclairer :
 
 - Qu'est-ce que l'algorithmique ?
 - Qu'est-ce que la programmation ?
@@ -17,7 +17,7 @@ Il ne serait pas raisonnable de vous enseigner la programmation C sans au préal
 Algorithmique
 =============
 
-L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours:
+L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours :
 
 - dans une recette de cuisine,
 - le tissage de tapis persans,
@@ -25,7 +25,7 @@ L'algorithmique et non l'*algorithmie*, est la science qui étudie la production
 - les tactiques sportives,
 - les procédures administratives.
 
-Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'`algorithme d'Euclide <https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`__ datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le `plus grand commun diviseur <https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur>`__ (PGCD). Voici la description de l'algorithme:
+Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'`algorithme d'Euclide <https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`__ datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le `plus grand commun diviseur <https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur>`__ (PGCD). Voici la description de l'algorithme :
 
 .. figure:: ../assets/figures/dist/algorithm/euclide-gcd.*
 
@@ -54,11 +54,11 @@ Les cartes perforées contiennent donc la suite des actions guidant les crochets
 
 La `programmation <https://fr.wikipedia.org/wiki/Programmation_informatique>`__ définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.
 
-Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en `héraldique <https://fr.wikipedia.org/wiki/H%C3%A9raldique>`__ et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique à son langage parfois obscure et celui qui le maitrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci:
+Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en `héraldique <https://fr.wikipedia.org/wiki/H%C3%A9raldique>`__ et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique à son langage parfois obscure et celui qui le maitrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
 .. code-block:: text
 
-    Écartelé, en 1 et 4:
+    Écartelé, en 1 et 4 :
         coupé et parti en 3,
             au premier fascé de gueules et d'argent,
             au deuxième d'azur semé de lys d'or
@@ -99,7 +99,7 @@ Un calculateur du latin *calculare*: calculer avec des cailloux, originellement 
 
 Les `os d'Ishango <https://fr.wikipedia.org/wiki/Os_d%27Ishango>`__ datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
-Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur car même une calculatrice de poche doit gérer en plus des calculs:
+Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur car même une calculatrice de poche doit gérer en plus des calculs :
 
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).

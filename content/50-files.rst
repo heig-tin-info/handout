@@ -7,11 +7,11 @@ Système de fichiers
 
 Dans un environnement POSIX tout est fichier. ``stdin`` est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.
 
-Les fichiers sont organisés dans une arborescence gérée par un `système de fichiers <https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers>`__. Sous Windows l'arborescence classique est:
+Les fichiers sont organisés dans une arborescence gérée par un `système de fichiers <https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers>`__. Sous Windows l'arborescence classique est :
 
 .. code-block:: console
 
-    C:
+    C :
     ├── Program Files         Programmes installés
     ├── Users                 Comptes utilisateur
     │   └── John
@@ -40,7 +40,7 @@ Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par
     │       └── documents
     └── var                   Fichiers variables comme les logs ou les database
 
-Chaque élément qui contient d'autres éléments est appelé un **répertoire** ou **dossier**, en anglais *directory*. Chaque répertoire contient toujours au minimum deux fichiers spéciaux:
+Chaque élément qui contient d'autres éléments est appelé un **répertoire** ou **dossier**, en anglais *directory*. Chaque répertoire contient toujours au minimum deux fichiers spéciaux :
 
 ``.``
     Un fichier qui symbolise le répertoire courant, celui dans lequel je me trouve
@@ -48,7 +48,7 @@ Chaque élément qui contient d'autres éléments est appelé un **répertoire**
 ``..``
     Un fichier qui symbolise le répertoire parent, c'est à dire ``home`` lorsque je suis dans ``john``.
 
-La localisation d'un fichier au sein d'un système de fichier peut être soit **absolue** soit **relative**. Cette localisation s'appelle un **chemin** ou *path*. La convention est d'utiliser le symbole:
+La localisation d'un fichier au sein d'un système de fichier peut être soit **absolue** soit **relative**. Cette localisation s'appelle un **chemin** ou *path*. La convention est d'utiliser le symbole :
 
 - Slash ``/`` sous POSIX
 - Antislash ``\`` sous Windows
@@ -60,7 +60,7 @@ Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rappo
 Navigation
 ----------
 
-Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants:
+Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :
 
 - ``ls`` est un raccourcis du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
 - ``cd`` pour *change directory* permet de naviger dans l'arboresence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
@@ -70,7 +70,7 @@ Format d'un fichier
 
 Un fichier peut avoir un contenu arbitraire; une suite de zéros et de uns binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un `fichier texte <https://fr.wikipedia.org/wiki/Fichier_texte>`__. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un `fichier binaire <https://fr.wikipedia.org/wiki/Fichier_binaire>`__.
 
-La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme:
+La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :
 
 .. code-block:: c
 
@@ -83,7 +83,7 @@ La frontière est parfois assez mince, car parfois le fichier binaire peut conte
         return strcmp(argv[1], password);
     }
 
-Si nous le compilons et cherchons dans son code binaire:
+Si nous le compilons et cherchons dans son code binaire :
 
 .. code-block::
 
@@ -155,7 +155,7 @@ En réalité la bibliothèque standard, respectueuse de C99, dispose d'une fonct
         // ...
     }
 
-Le mode d'ouverture du fichier peut être:
+Le mode d'ouverture du fichier peut être :
 
 ``r``
     Ouverture en lecture seule depuis le début du fichier.
@@ -177,7 +177,7 @@ Le mode d'ouverture du fichier peut être:
 
 Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag ``b`` pour *binary* existe. Pour ouvrir un fichier en mode binaire on peut alors écrire ``rb+``.
 
-L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée:
+L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée :
 
 .. code-block:: c
 
@@ -201,7 +201,7 @@ On peut noter que sous POSIX, écrire sur ``stdout`` ou ``stderr`` est exactemen
         132
         981
 
-    Question subsidiaire: que fait le programme suivant:
+    Question subsidiaire: que fait le programme suivant :
 
     .. code-block:: console
 
@@ -255,7 +255,7 @@ L'appel ``rewind()`` est équivalent à ``(void) fseek(stream, 0L, SEEK_SET)`` e
 Lecture / Écriture
 ==================
 
-La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues ``printf`` et ``scanf`` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers:
+La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues ``printf`` et ``scanf`` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers :
 
 ``int fscanf(FILE *stream, const char *format, ...)``
     Équivalent à ``scanf`` mais pour les fichiers
@@ -277,7 +277,7 @@ La lecture, écriture dans un fichier s'effectue de manière analogue aux foncti
 
 Bref... Vous avez compris.
 
-Les nouvelles fonctions à connaître sont les suivantes:
+Les nouvelles fonctions à connaître sont les suivantes :
 
 ``size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)``
     Lecture arbitraire de ``nmemb * size`` bytes depuis le flux ``stream`` dans le buffer ``ptr``:
@@ -303,7 +303,7 @@ Les nouvelles fonctions à connaître sont les suivantes:
 Buffer de fichier
 =================
 
-Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être:
+Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :
 
 ``unbuffered`` (``_IONBF``)
     Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.
@@ -331,7 +331,7 @@ Par défaut, un pointeur de fichier est *fully buffered*. C'est-à-dire que dans
             putchar('c');
     }
 
-Cependant le comportement réel est différent. Seulement si le buffer est désactivé que le programme interrompt le noyau pour chaque caractère:
+Cependant le comportement réel est différent. Seulement si le buffer est désactivé que le programme interrompt le noyau pour chaque caractère :
 
 .. code-block:: console
 
@@ -373,7 +373,7 @@ La fonction ``fflush`` force l'écriture malgré l'utilisation d'un buffer.
 Fichiers et Flux
 ================
 
-Historiquement les descripteurs de fichiers sont appelés ``FILE`` alors qu'ils sont préférablement appelés ``streams`` en C++. Un fichier au même titre que ``stdin``, ``stdout`` et ``stderr`` sont des flux de données. La norme POSIX, décrit que par défaut les flux:
+Historiquement les descripteurs de fichiers sont appelés ``FILE`` alors qu'ils sont préférablement appelés ``streams`` en C++. Un fichier au même titre que ``stdin``, ``stdout`` et ``stderr`` sont des flux de données. La norme POSIX, décrit que par défaut les flux :
 
 - ``0``. ``STDIN``,
 - ``1``. ``STDOUT``,
@@ -412,7 +412,7 @@ On peut voir que l'on lit ``k\n`` sur le flux ``0``, soit ``stdin``, puis que le
 Formats de sérialisation
 ========================
 
-Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois:
+Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois :
 
 =========  =======  =====  =====  =====  ====  ====  ====  ====  ====  ====  ====  =====  =====
   Pays      Ville    01     02     03     04    05    06    07    08    09    10    11     12
@@ -424,7 +424,7 @@ Yémen      Aden     25.7   26.0   27.2   28.9  31.0  32.7  32.7  31.5  31.6  28
 Russie     Yakutsk  -38.6  -33.8  -20.1  -4.8  7.5   16.4  19.5  15.2  6.1   -7.8  -27.0  -37.6
 =========  =======  =====  =====  =====  ====  ====  ====  ====  ====  ====  ====  =====  =====
 
-Il existe plusieurs manière d'écrire ces informations dans un fichier:
+Il existe plusieurs manière d'écrire ces informations dans un fichier :
 
 - Écriture tabulée
 - Écriture avec remplissage
@@ -444,7 +444,7 @@ Un fichier dit tabulé, utilise une `sentinelle <https://fr.wikipedia.org/wiki/V
     Yémen\tAden\t25.7\t26.0\t27.2\t28.9\t31.0\t32.7\t32.7\t31.5\t31.6\t28.9\t27.1\t26.01\n
     Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-27.0\t-37.6\n
 
-Ce fichier peut être observé avec un lecteur hexadécimal:
+Ce fichier peut être observé avec un lecteur hexadécimal :
 
 .. code-block:: console
 
@@ -483,7 +483,7 @@ Format avec remplissage
 -----------------------
 
 Pour palier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours aligné avec la
-48 ième colonne:
+48 ième colonne :
 
 .. code-block:: text
 
@@ -498,7 +498,7 @@ Idéalement on utilise comme caractère de remplissage le caractère nulle ``\0`
 
 La lecture aléatoire de ce type de fichier est facilitée car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caracètres, la ville sur 9 caractères et chaque température sur 7 caractères.
 
-L'utilisation de ``fseek`` est par conséquent utile:
+L'utilisation de ``fseek`` est par conséquent utile :
 
 .. code-block:: c
 
@@ -515,7 +515,7 @@ L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'a
 Format sérialisé
 ----------------
 
-Des langages de sérialisation permettent de stucturer de l'information en utilisant un format spécifique. Ici `JSON <https://fr.wikipedia.org/wiki/JavaScript_Object_Notation>`__:
+Des langages de sérialisation permettent de stucturer de l'information en utilisant un format spécifique. Ici `JSON <https://fr.wikipedia.org/wiki/JavaScript_Object_Notation>`__ :
 
 .. code-block:: json
 

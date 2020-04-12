@@ -9,7 +9,7 @@ Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requis
 Points de séquences
 ===================
 
-On appelle un point de séquence ou `sequence point <https://en.wikipedia.org/wiki/Sequence_point>`__ exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est:
+On appelle un point de séquence ou `sequence point <https://en.wikipedia.org/wiki/Sequence_point>`__ exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :
 
 - L'appel d'une fonction est effectué après que tous ses arguments ont été évalués
 - La fin du premier opérande dans les opérations ``&&``, ``||``, `?` et `,`.
@@ -47,7 +47,7 @@ Binutils
 Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au débogage. Certains de ces outils sont très pratiques, mais nombreux sont les développeurs qui ne les connaissent pas.
 
 ``nm``
-    Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne:
+    Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne :
 
     .. code-block:: console
 

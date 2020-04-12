@@ -227,16 +227,16 @@ La protection de réentrence aussi nommée *header guards* est une solution au p
     → EOF
 
     $ gcc main.c
-    In file included from main.c:2:0:
+    In file included from main.c:2:0 :
     bar.h:1:16: error: redefinition of ‘struct Bar’
     typedef struct Bar {
                     ^~~
     In file included from foo.h:1:0,
-                    from main.c:1:
+                    from main.c:1 :
     bar.h:1:16: note: originally defined here
     typedef struct Bar {
                     ^~~
-    In file included from main.c:2:0:
+    In file included from main.c:2:0 :
     bar.h:3:3: error: conflicting types for ‘Bar’
     } Bar;
     ^~~
@@ -277,7 +277,7 @@ Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par e
 
 Si aucune définition du type ``#define BAR_H`` n'existe, alors le fichier ``bar.h`` n'a jamais été inclus auparavant et le contenu de la directive ``#ifndef BAR_H`` dans lequel on commence par définir ``BAR_H`` est exécuté. Lors d'une future inclusion de ``bar.h``, la valeur de ``BAR_H`` aura déjà été définie et le contenu de la directive ``#ifndef BAR_H`` ne sera jamais exécuté. 
 
-Alternativement, il existe une solution **non standard** mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma:
+Alternativement, il existe une solution **non standard** mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :
 
 .. code-block:: c 
 

@@ -8,7 +8,7 @@ Pointeurs
 
 Les pointeurs sont des **variables** qui, au lieu de stocker une valeur, stockent une **adresse mémoire**. Dans quel but me direz-vous ? Pour créer des indirections, simplifier l'exécution du code.
 
-Prenons un exemple concret. Le `Vicomte de Valmont <https://fr.wikipedia.org/wiki/Vicomte_de_Valmont>`__ décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a:
+Prenons un exemple concret. Le `Vicomte de Valmont <https://fr.wikipedia.org/wiki/Vicomte_de_Valmont>`__ décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a :
 
 .. code-block:: c
 
@@ -20,7 +20,7 @@ Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer
 
 Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de *64-bits* il n'arrive à mémoriser que 8 caractères ``Chère Ma``. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son `tout nickelé <https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau>`__ jusqu'à ce que toute la lettre ait été retranscrite.
 
-On se retrouve avec une **copie** de la lettre chez madame de Merteil:
+On se retrouve avec une **copie** de la lettre chez madame de Merteil :
 
 .. code-block:: c
 
@@ -52,13 +52,13 @@ Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple p
 
 Il manque encore une chose, il y a aussi une astérisque sur ``(*gps_position)[]``. Cela vaudrait-il dire qu’on déréférence la position gps pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
 
-Notons qu'il y a plusieurs interprétations de l'astérisque en C:
+Notons qu'il y a plusieurs interprétations de l'astérisque en C :
 
 - Opérateur de multiplication: ``a * b``
 - Déréférencement d'un pointeur: ``*ptr``
 - Déclaration d'un pointeur: ``int * ptr``
 
-Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'on verra plus bas:
+Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'on verra plus bas :
 
 .. code-block:: c
 
@@ -70,7 +70,7 @@ Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'o
     ^^^^                       5. caractères
                                6. PROFIT...
 
-Résumons:
+Résumons :
 
 - Un pointeur est une **variable**
 - Il contient une **adresse mémoire**
@@ -88,7 +88,7 @@ Le format le plus simple d'un pointeur sur un entier s'écrit avec l'asterix ``*
 
 La valeur ``NULL`` corresponds à l'adresse nulle ``0x00000000``. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.
 
-À tout moment la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier:
+À tout moment la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :
 
 .. code-block:: c
 
@@ -100,7 +100,7 @@ La valeur ``NULL`` corresponds à l'adresse nulle ``0x00000000``. On utilise cet
         printf("%d", *ptr);
     }
 
-Lorsque nous avions vu les tableaux, nous écrivions:
+Lorsque nous avions vu les tableaux, nous écrivions :
 
 .. code-block:: c
 
@@ -112,12 +112,12 @@ Vous ne le saviez pas, mais 𝄽 *plot twist* 𝄽 la variable ``array`` est un 
 
     printf("%d", *array);
 
-La différence entre un **tableau** et un **pointeur** est la suivante:
+La différence entre un **tableau** et un **pointeur** est la suivante :
 
 - Il n'est pas possible d'assigner une adresse à un tableau
 - Il n'est pas possible d'assigner des valeurs à un pointeur
 
-D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un sucre syntaxique:
+D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un sucre syntaxique :
 
 .. code-block:: c
 
@@ -126,7 +126,7 @@ D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un sucre syntaxiqu
 Arithmétique de pointeurs
 =========================
 
-Fondamentalement un pointeur est une variable qui contient un `ordinal <https://fr.wikipedia.org/wiki/Nombre_ordinal>`__, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie:
+Fondamentalement un pointeur est une variable qui contient un `ordinal <https://fr.wikipedia.org/wiki/Nombre_ordinal>`__, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :
 
 .. code-block:: c
 
@@ -136,7 +136,7 @@ Fondamentalement un pointeur est une variable qui contient un `ordinal <https://
         putchar(*ptr);
     }
 
-Imaginons que l'on souhaite représenter le carré magique suivant:
+Imaginons que l'on souhaite représenter le carré magique suivant :
 
 .. code-block::
 
@@ -148,7 +148,7 @@ Imaginons que l'on souhaite représenter le carré magique suivant:
     │ 8 │ 1 │ 6 │
     └───┴───┴───┘
 
-On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner:
+On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner :
 
 .. code-block:: c
 
@@ -338,7 +338,7 @@ placera le symbole & pour lui donner l'adresse de la variable.
 Transtypage de pointeurs (cast)
 ===============================
 
-Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré (c.f. :numref:`void`), comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente:
+Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré (c.f. :numref:`void`), comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :
 
 ::
 
@@ -348,7 +348,7 @@ Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void``
 
     struct { int a; char b; float c[3] } elements[128];
 
-Il faudrait donc autant de fonction ``memcpy`` que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie ``void`` et qui permet sans autre:
+Il faudrait donc autant de fonction ``memcpy`` que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie ``void`` et qui permet sans autre :
 
 ::
 
@@ -368,19 +368,19 @@ Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen 
 
     char *iptr = (char*)ptr;
 
-Dès lors, l'arithmétique est redevient possible ``iptr++``. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire ``char *ptr = (char*)elements;`` directement et sans détour, mais ceci aurait alors mené à ce prototype-ci:
+Dès lors, l'arithmétique est redevient possible ``iptr++``. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire ``char *ptr = (char*)elements;`` directement et sans détour, mais ceci aurait alors mené à ce prototype-ci :
 
 ::
 
     void *memcpy(char* dest, const char* src, size_t n);
 
-La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55:
+La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55 :
 
     A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.
 
 Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur ``void``. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message autodocumenté du code.
 
-Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait:
+Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :
 
 ::
 
@@ -393,7 +393,7 @@ Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité
             cdest[i] = csrc[i];
     }
 
-Où plus concis:
+Où plus concis :
 
 ::
 
@@ -403,7 +403,7 @@ Où plus concis:
             ((char*)dst)[i] = ((char*)src)[i];
     }
 
-Or, rien de tout ceci n'est juste. ``memcpy`` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme `Thomas l'apôtre <https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>`__, et ne me croyez pas ? Alors, digressons et essayons:
+Or, rien de tout ceci n'est juste. ``memcpy`` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme `Thomas l'apôtre <https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>`__, et ne me croyez pas ? Alors, digressons et essayons :
 
 .. code-block:: c
 
@@ -424,7 +424,7 @@ On observe qu'il n'y a aucun appel de fonction à ``memcpy`` comme c'est le cas 
 
 .. code-block::
 
-    main:
+    main :
         // Entry
         str     lr, [sp, #-4]!
         sub     sp, sp, #60
@@ -449,9 +449,9 @@ On observe qu'il n'y a aucun appel de fonction à ``memcpy`` comme c'est le cas 
         mov     r0, #0
         add     sp, sp, #60
         ldr     pc, [sp], #4
-    .L4:
+    .L4 :
         .word   .LC0
-    .LC0:
+    .LC0 :
         .ascii  "La Broye c'est fantastique!\000"
 
 Vous pouvez jouer avec cet exemple `ici <https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4>`__.
@@ -461,7 +461,7 @@ Pointeurs de fonctions
 
 Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (`callback <https://fr.wikipedia.org/wiki/Fonction_de_rappel>`__).
 
-Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire:
+Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :
 
 .. code-block:: c
 
@@ -484,7 +484,7 @@ Par exemple on veut appliquer une transformation sur tous les éléments d'un ta
         map(array, is_odd);
     }
 
-Avec la règle gauche droite on parvient à décortiquer la déclaration:
+Avec la règle gauche droite on parvient à décortiquer la déclaration :
 
 .. code-block:: c
 
@@ -501,7 +501,7 @@ La règle gauche-droite
 
 Cette `règle <http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html>`__ est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs.
 
-Il faut tout d'abord lire:
+Il faut tout d'abord lire :
 
 +---------+-------------------------+-------------------+
 | Symbole | Traduction              | Direction         |
@@ -565,7 +565,7 @@ Exemples
 cdecl
 -----
 
-Il existe un programme nommé `cdecl <https://github.com/paul-j-lucas/cdecl>`__ qui permet de décoder de complexes déclaration c:
+Il existe un programme nommé `cdecl <https://github.com/paul-j-lucas/cdecl>`__ qui permet de décoder de complexes déclaration c :
 
 .. code-block:: console
 
@@ -597,7 +597,7 @@ L'utilisation de structure peut être utile pour initialiser un type de donnée 
 
 .. exercise:: Esperluettes cascadées
 
-    Quel est le type de:
+    Quel est le type de :
 
     .. code-block:: c
 

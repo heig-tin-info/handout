@@ -11,7 +11,7 @@ Qu'est-ce qu'un programme?
 
 Un `programme informatique <https://fr.wikipedia.org/wiki/Programme_informatique>`__ est un ensemble d'opérations destinées à être exécutées par un ordinateur.
 
-Un programme peut se décliner sous plusieurs formes:
+Un programme peut se décliner sous plusieurs formes :
 
 - Code source
 - Listing assembleur
@@ -33,13 +33,13 @@ Une fois compilé en `langage machine <https://fr.wikipedia.org/wiki/Langage_mac
 
 Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (`cross-compilation <https://en.wikipedia.org/wiki/Cross_compiler>`__).
 
-Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci:
+Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 
 .. literalinclude:: ../assets/src/fibonacci.c
     :language: c
     :caption: Fibonacci.c
 
-Une fois `assemblé <https://fr.wikipedia.org/wiki/Assembly_(informatique)>`__ le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc:
+Une fois `assemblé <https://fr.wikipedia.org/wiki/Assembly_(informatique)>`__ le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
 
 .. code-block:: console
 
@@ -82,7 +82,7 @@ On obtiens un fichier similaire à ceci qui contient le code machine (``48 83 ec
     749:   00 00 00
     74c:   0f 1f 40 00             nopl   0x0(%rax)
 
-Avec un visualisateur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire ``hexdump`` est appelé avec deux options ``-s`` pour spécifier l'adresse de début, on choisi ici celle du début de la fonction ``main`` ``0x680``, et ``-n`` pour n'extraire que les premiers 256 octets:
+Avec un visualisateur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire ``hexdump`` est appelé avec deux options ``-s`` pour spécifier l'adresse de début, on choisi ici celle du début de la fonction ``main`` ``0x680``, et ``-n`` pour n'extraire que les premiers 256 octets :
 
 .. code-block:: console
 
@@ -115,7 +115,7 @@ Sous POSIX (Linux, MacOS, UNIX), les *flags* d'un fichier qualifient son type. L
     $ ls -al a.out
     -rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 Fibonacci
 
-Les lettres ``r-x`` indiquent:
+Les lettres ``r-x`` indiquent :
 
 ``r``
     Lecture autorisée
@@ -131,13 +131,13 @@ Ce programme peut-être exécuté par tout le monde, mais modifié que par l'uti
 Entrées sorties
 ---------------
 
-Tout programme doit pouvoir interagir avec son environnement. A l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées:
+Tout programme doit pouvoir interagir avec son environnement. A l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
 
 - L'entrée standard ``STDIN`` fourni au programme du contenu qui est généralement fourni par la sortie d'un autre programme.
 - Les arguments du programme ``ARGV``
 - Les variables d'environnement ``ENVP``
 
-Ainsi qu'à des sorties:
+Ainsi qu'à des sorties :
 
 - La sortie standard ``STDOUT`` est généralement affichée à l'écran
 - La sortie d'erreur standard ``STDERR`` contient des détails sur les éventuelles erreurs d'exécution du programme.
@@ -157,13 +157,13 @@ Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du sy
 
 Si, en utilisant Windows, vous vous rendez dans le `gestionnaire de tâches <https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows>`__ et que vous décider de *Terminer une tâche*, le système d'exploitation envoie un signal au programme lui demandant de se terminer.
 
-Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des signaux particuliers:
+Sous Linux, habituellement, le *shell* relie certains raccourcis clavier à des signaux particuliers :
 
 - :kbd:`C-c` envoie le signal ``SIGINT`` pour interrompre l'exécution d'un programme
 - :kbd:`C-z` envoie le signal ``SIGTSTP`` pour suspendre l'exécution d'un programme
 - :kbd:`C-t` envoie le signal ``SIGINFO`` permettant de visualiser certaines informations liées à l'exécution du processus.
 
-Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus:
+Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :
 
 .. code-block:: c
 
@@ -175,7 +175,7 @@ Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moi
 Arguments et options
 ====================
 
-L'interpréteur de commande ``cmd.exe`` sous Windows ou ``bash`` sous Linux, fonctionne de façon assez similaire. L'**invite de commande** nommée *prompt* en anglais invite l'utilisateur à entrer une commande. Sous `DOS <https://fr.wikipedia.org/wiki/DOS>`__ puis sous Windows cet invite de commande ressemble à ceci:
+L'interpréteur de commande ``cmd.exe`` sous Windows ou ``bash`` sous Linux, fonctionne de façon assez similaire. L'**invite de commande** nommée *prompt* en anglais invite l'utilisateur à entrer une commande. Sous `DOS <https://fr.wikipedia.org/wiki/DOS>`__ puis sous Windows cet invite de commande ressemble à ceci :
 
 .. code-block:: console
 
@@ -185,7 +185,7 @@ Sous Linux, le prompt est largement configurable et dépend de la distribution i
 
 Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.
 
-- Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant:
+- Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant :
 
 - Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
 
@@ -208,7 +208,7 @@ En C, c'est au développeur de distinguer les options des arguments, car ils son
 .. code-block:: console
 
     $ argverbose --help -h=12 3.14 'Baguette au beurre' $'\t-Lait\n\t-Viande\n\t-Oeufs\f'
-    Liste des arguments et options passés au programme:
+    Liste des arguments et options passés au programme :
     0. ./a.out
     1. --help
     2. -h=12
@@ -237,7 +237,7 @@ Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un t
     int getopt_long (int argc, char *const *argv, const char *shortopts,
 		const struct option *longopts, int *longind);
 
-Ci-dessous une possible utilisation de cette fonction:
+Ci-dessous une possible utilisation de cette fonction :
 
 .. literalinclude:: ../assets/src/options.c
     :language: c
@@ -255,14 +255,14 @@ Le standard définit une fonction nommée ``main`` comme étant la fonction prin
 Qui appelle main ?
 ------------------
 
-Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`__) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme:
+Un exécutable binaire à un format particulier appelé **ELF** (`Executable and Linkable Format <https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`__) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé ``_init``. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
 
 - Le nombre d'arguments ``argc``
 - La liste des arguments ``argv``
 - Les variables d'environnements ``envp``
 - Les pointeurs de fichiers sur ``stdout``, ``stdin``, ``stderr``
 
-C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la responsabilité d'appeler la fonction ``main``. Voici son prototype:
+C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la responsabilité d'appeler la fonction ``main``. Voici son prototype :
 
 .. code-block:: c
 
@@ -277,7 +277,7 @@ C'est la fonction ``__libc_start_main`` de la bibliothèque standard qui a la re
 Valeur de retour
 ----------------
 
-La fonction ``main`` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante:
+La fonction ``main`` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (`exit status <https://en.wikipedia.org/wiki/Exit_status>`__). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
 
 ``0``
     Succès, le programme s'est terminé correctement.
@@ -285,7 +285,7 @@ La fonction ``main`` renvoie toujours une valeur de retour qui agit comme le sta
 ``!0``
     Erreur, le programme ne s'est pas terminé correctement.
 
-Par exemple le programme ``printf`` retourne dans le cas précis l'erreur 130:
+Par exemple le programme ``printf`` retourne dans le cas précis l'erreur 130 :
 
 .. code-block:: console
 
@@ -319,7 +319,7 @@ La fonction de base est ``putchar`` qui écrit un caractère sur ``stdout``:
         putchar('\n');
     }
 
-Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (*tokens*) de formater des variables:
+Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (*tokens*) de formater des variables :
 
 .. code-block:: c
 
@@ -330,7 +330,7 @@ Bien vite, on préfèrera utiliser ``printf`` qui simplifie le formatage de cha�
         printf("%d, %s, %f", 0x12, "World!", 3.1415);
     }
 
-Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire ``stderr`` au lieu de ``stdout``. La fonction ``fprintf`` permet de spécifier le flux standard de sortie:
+Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire ``stderr`` au lieu de ``stdout``. La fonction ``fprintf`` permet de spécifier le flux standard de sortie :
 
 .. code-block:: c
 
@@ -341,7 +341,7 @@ Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent 
         fprintf(stderr, "Sortie d'erreur standard\n");
     }
 
-Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes:
+Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :
 
 .. code-block:: console
 
@@ -357,7 +357,7 @@ Dans le cas où un de ces programmes génère une alerte (*warning*), le texte n
 Boucle d'attente
 ================
 
-Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci:
+Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :
 
 .. code-block:: c
 
@@ -395,7 +395,7 @@ Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemp
 
 .. exercise:: La fortune, la vache qui dit et le chat drôle
 
-    En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande:
+    En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
 
     .. code-block:: console
 

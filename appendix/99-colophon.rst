@@ -31,7 +31,7 @@ Dans les exemples donnés, on voit régulièrement ``while (condition) { 〰 }``
 Types de données
 ----------------
 
-Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes:
+Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes :
 
 - ``0xABCD`` pour les valeurs hexadécimales (``/0x[0-9a-f]+/i``)
 - ``00217`` pour les valeurs octales (``/0[0-7]+/``)
@@ -47,7 +47,7 @@ Il est souvent fait mention dans ce cours la notation du type :unicode:`U+01AE`,
 Références
 ==========
 
-Les références utilisées dans cet ouvrage sont:
+Les références utilisées dans cet ouvrage sont :
 
 - Programming languages C -- `ISO/IEC 9899 <https://www.iso.org/standard/74528.html>`__
 - Le guide complet du langage C -- Claude Delanoy, 844 pages (`ISBN-13 978-2212140125 <https://isbnsearch.org/isbn/9782212140125>`__)

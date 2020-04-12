@@ -12,7 +12,7 @@ Rappelons-le, les macros sont des simples remplacements de chaînes de caractèr
 Macro avec paramètre
 --------------------
 
-Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi considérant cet exemple:
+Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi considérant cet exemple :
 
 .. code-block:: c
 
@@ -26,7 +26,7 @@ Le préprocesseur génère ceci et le compilateur retournera une erreur du type 
 
     int u = (x) ((x) + 1)(1)
 
-Observations:
+Observations :
 
 - Ne jamais mettre d'espace entre le nom d'une macro et ses paramètres.
 - Être toujours prêt à mettre en doute le code généré par une macro.
@@ -46,7 +46,7 @@ Quel sera le problème dans le cas suivant ?
         return ABS(5 - 8);
     }
 
-Plus difficile, quel serait le problème ici:
+Plus difficile, quel serait le problème ici :
 
 .. code-block:: c
 
@@ -57,7 +57,7 @@ Plus difficile, quel serait le problème ici:
     else
         x = x / y;
 
-Observations:
+Observations :
 
 - Toujours protéger les paramètres des macros avec des parenthèses
 
@@ -65,7 +65,7 @@ Observations:
 
         #define ABS(x) ((x) >= 0 ? (x): -(x))
 
-- Toujours protéger une macro à plusieurs instructions par une boucle vide:
+- Toujours protéger une macro à plusieurs instructions par une boucle vide :
 
     .. code-block:: c
 
@@ -85,7 +85,7 @@ On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'e
 
     return ABS(x++)
 
-On peut constater que x sera post-incrémenté deux fois au lieu d'une:
+On peut constater que x sera post-incrémenté deux fois au lieu d'une :
 
 .. code-block:: c
 
@@ -93,7 +93,7 @@ On peut constater que x sera post-incrémenté deux fois au lieu d'une:
 
     return ((x++) >= 0 ? (x++) : -(x++))
 
-Observations:
+Observations :
 
 - Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.
 
@@ -103,7 +103,7 @@ Erreurs de syntaxe
 Confusion = et ==
 -----------------
 
-L'erreur est si vite commise, mais souvent fatale:
+L'erreur est si vite commise, mais souvent fatale :
 
 .. code-block:: c
 
@@ -113,7 +113,7 @@ L'erreur est si vite commise, mais souvent fatale:
 
 L'effet contre-intuitif est que le test retourne toujours VRAI, car ``'o' > 0``. Ajoutons que la valeur de ``c`` est modifié au passage.
 
-Observations:
+Observations :
 
 - Pour éviter toute ambiguïté, éviter les affectations dans les structures conditionnelles.
 
@@ -142,7 +142,7 @@ Selon la table de précédences on aura ``i--`` calculé en premier suivi de ``-
 
     k = i----j;
 
-Observations:
+Observations :
 
 - Éviter les formes ambigües d'écriture
 - Favoriser la précédence explicite en utilisant des parenthèses
@@ -151,14 +151,14 @@ Observations:
 Point virgule
 -------------
 
-L'erreur typique suivante est arrivée à tout programmeur débutant. Le ``;`` placé après le test ``if`` agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups:
+L'erreur typique suivante est arrivée à tout programmeur débutant. Le ``;`` placé après le test ``if`` agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups :
 
 .. code-block:: c
 
     if (countdown == 0);
       launch_rocket();
 
-Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle infinie:
+Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle infinie :
 
 .. code-block:: c
 

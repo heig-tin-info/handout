@@ -28,9 +28,9 @@ Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une si
 
     01000000 01001001 01001001 11011011
 
-Il pourrait s'agir:
+Il pourrait s'agir :
 
-- de 4 caractères de 8-bits:
+- de 4 caractères de 8-bits :
     - ``01000000`` ``@``
     - ``01001001`` ``I``
     - ``01001001`` ``\x0f``
@@ -56,7 +56,7 @@ Boutisme
 
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les oeufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs oeufs par le gros bout (gros boutisme/*big endian*).
 
-Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est à dire que si une information est stockée en mémoire comme suit:
+Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est à dire que si une information est stockée en mémoire comme suit :
 
 .. code-block:: text
 
@@ -76,7 +76,7 @@ Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres ex
 Les entiers naturels
 --------------------
 
-En mathématiques, un `entier naturel <https://fr.wikipedia.org/wiki/Entier_naturel>`__ est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante:
+En mathématiques, un `entier naturel <https://fr.wikipedia.org/wiki/Entier_naturel>`__ est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
 
 .. math::
 
@@ -86,7 +86,7 @@ En informatique, ces nombres sont par conséquent **non signés**, et peuvent pr
 
 En C, on nomme ce type de donnée ``unsigned int``, ``int`` étant le dénominatif du latin *integer* signifiant "entier".
 
-Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique:
+Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :
 
 +--------------+-----------+-------------------------------------------------+
 | Profondeur   | Minimum   | Maximum                                         |
@@ -115,7 +115,7 @@ Les entiers relatifs sont des nombres **signés** et donc ils peuvent être **n�
 
 En C on dit que ces nombres sont ``signed``. Il est par conséquent correct d'écrire ``signed int`` bien que le préfixe ``signed`` soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.
 
-Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information:
+Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :
 
 +--------------+------------------+------------------+
 | Profondeur   | Minimum          | Maximum          |
@@ -132,7 +132,7 @@ En mémoire ces nombres sont stockés en utilisant le :ref:`complément à deux 
 Les entiers bornés
 ------------------
 
-Comme nous l'avons vu, les degrés de liberté pour définir un entier sont:
+Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
 - Signé ou non signé
 - Nombre de bits avec lesquels l'information est stockée en mémoire
@@ -142,7 +142,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont:
 Types standards
 ^^^^^^^^^^^^^^^
 
-La construction d'un type entier C est la suivante:
+La construction d'un type entier C est la suivante :
 
 .. figure:: ../assets/figures/dist/datatype/ansi-integers.*
     :alt: Entiers standardisés **C89**
@@ -197,7 +197,7 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
     | | ``unsigned long long int``                  |          |                  |          |
     +-----------------------------------------------+----------+------------------+----------+
 
-Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête ``stdint.h``. Cette bibliothèque standard offre les types suivants:
+Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête ``stdint.h``. Cette bibliothèque standard offre les types suivants :
 
 .. figure:: ../assets/figures/dist/datatype/c99-integers.*
     :alt: Entiers standardisés **C99**
@@ -237,7 +237,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
 
 .. exercise:: Expressions arithmétiques entières
 
-    Donnez la valeur des expressions ci-dessous:
+    Donnez la valeur des expressions ci-dessous :
 
     .. code-block:: c
 
@@ -256,7 +256,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
 
 .. exercise:: Débordement
 
-    Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante:
+    Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante :
 
     .. code-block:: c
 
@@ -269,7 +269,7 @@ Comme nous l'avons évoqué plus haut, la taille des entiers ``short``, ``int``,
 
 Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un ``int`` comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du ``int`` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
 
-La première solution est de toujours utiliser les types proposés par ``<stdint.h>`` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données:
+La première solution est de toujours utiliser les types proposés par ``<stdint.h>`` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
 .. list-table:: Modèle de données
    :widths: 15 10 10 10 10 10 30
@@ -348,7 +348,7 @@ Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facil
     └─┴─┴─┴─┴─┴─┴─┴─┘
                     , / 2^0     ----> 83 / 1 = 83
 
-Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre ``0b01010011`` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisé par 8 (:math:`2^3`). On parviens alors à exprimer une grandeur réelle comportant une epartie décimale:
+Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre ``0b01010011`` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisé par 8 (:math:`2^3`). On parviens alors à exprimer une grandeur réelle comportant une epartie décimale :
 
 .. code-block::
 
@@ -357,7 +357,7 @@ Imaginons à présent que nous déplacions cette virgule virtuelle de trois él�
     └─┴─┴─┴─┴─┴─┴─┴─┘
               ,       / 2^3     ----> 83 / 8 = 10.375
 
-Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle ``[0..7]``, il serait possible d'utiliser trois bits supplémentaires à cette fin:
+Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle ``[0..7]``, il serait possible d'utiliser trois bits supplémentaires à cette fin :
 
 .. code-block::
 
@@ -385,7 +385,7 @@ Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de
 
 Notre construction nous permet toujours d'exprimer des grandeurs réelles mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre :math:`1\cdot2^{7}=0.0078125` et :math:`63`. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
-Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse:
+Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :
 
 .. code-block::
 
@@ -397,13 +397,13 @@ Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octe
     │0│0│0│1│0│0│0│0││0│1│0│0│1│0│0│0││1│1│0│1│1│1│1│1││0│1│0│0│0│0│0│1│
     └─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
 
-Peu à peu, nous nous rapprochons du *Standard for Floating-Point Arithmetic* (`IEEE 754 <https://fr.wikipedia.org/wiki/IEEE_754>`__). La formule de base est la suivante:
+Peu à peu, nous nous rapprochons du *Standard for Floating-Point Arithmetic* (`IEEE 754 <https://fr.wikipedia.org/wiki/IEEE_754>`__). La formule de base est la suivante :
 
 .. math::
 
     x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{max}}
 
-Avec:
+Avec :
 
 :math:`s`
     Signe (:math:`\pm1`)
@@ -418,7 +418,7 @@ Avec:
 
 Etant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres ``binary16``, ``binary32`` ou ``binary64``, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés.
 
-Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (`FPU <https://en.wikipedia.org/wiki/Floating-point_unit>`__ pour *Floating point unit*) sont les suivants:
+Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (`FPU <https://en.wikipedia.org/wiki/Floating-point_unit>`__ pour *Floating point unit*) sont les suivants :
 
 +--------------+----------+----------+-------+
 | IEEE-754     | Exposant | Mantisse | Signe |
@@ -439,13 +439,13 @@ Prenons le temps de faire quelques observations.
 Simple précision
 ----------------
 
-Le type ``float`` aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de:
+Le type ``float`` aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
 
 - :math:`\pm\inf` lorsque l'exposant vaut ``0xff``
 - :math:`(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}`
 - :math:`0` lorsque la mantisse vaut ``0x00000``
 
-La valeur de 1.0 est encodée:
+La valeur de 1.0 est encodée :
 
 .. math::
 
@@ -453,7 +453,7 @@ La valeur de 1.0 est encodée:
     &= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
     &= 2^{0} \cdot 1.0 = 1.0\\
 
-La valeur maximale exprimable:
+La valeur maximale exprimable :
 
 .. math::
 
@@ -463,7 +463,7 @@ La valeur maximale exprimable:
     &≈ 3.4028234664 \cdot 10^{38}
 
 
-La valeur de :math:`-\pi` (pi) est:
+La valeur de :math:`-\pi` (pi) est :
 
 .. math::
 
@@ -472,7 +472,7 @@ La valeur de :math:`-\pi` (pi) est:
     &≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
     &≈ -3.14159274101
 
-Vient s'ajouter les valeurs particulières suivantes:
+Vient s'ajouter les valeurs particulières suivantes :
 
 .. code-block::
 
@@ -487,7 +487,7 @@ La double précision est similaire à la simple précision mais avec une mantiss
 
 .. exercise:: Expressions arithmétiques flottantes
 
-    Donnez la valeur des expressions ci-dessous:
+    Donnez la valeur des expressions ci-dessous :
 
     .. code-block:: c
 
@@ -544,7 +544,7 @@ L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octe
 
 En programmation C, un caractère ``char`` ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
 
-Voici par exemple comment déclarer une variable contenant le caractère dollar:
+Voici par exemple comment déclarer une variable contenant le caractère dollar :
 
 .. code-block:: c
 
@@ -719,16 +719,16 @@ L'utilisation d'un type énuméré peut être la suivante :
 
     void call(enum CountryCodes code) {
         switch(code) {
-        case CODE_SWITZERLAND:
+        case CODE_SWITZERLAND :
             printf("Calling Switzerland, please wait...\n");
             break;
-        case CODE_BELGIUM:
+        case CODE_BELGIUM :
             printf("Calling Belgium, please wait...\n");
             break;
-        case CODE_FRANCE:
+        case CODE_FRANCE :
             printf("Calling France, please wait...\n");
             break;
-        default:
+        default :
             printf("No calls to this country are allowed yet!\n");
         }
     }
@@ -736,7 +736,7 @@ L'utilisation d'un type énuméré peut être la suivante :
 Type vide (*void*)
 ==================
 
-Le type ``void`` est particulier car c'est un type qui ne vaut rien. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien:
+Le type ``void`` est particulier car c'est un type qui ne vaut rien. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 
 .. code-block:: c
 
@@ -750,7 +750,7 @@ Il peut être également utilisé comme type générique comme la fonction de co
 
     void *memcpy(void * restrict dest, const void * restrict src, size_t n);
 
-Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants:
+Le mot clé ``void`` ne peut être utilisé que dans les contextes suivants :
 
 - Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres ``int main(void)``
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien ``void display(char c)``
@@ -783,7 +783,7 @@ passe directement à un type *int*.
 
 .. exercise:: Expressions mixtes
 
-    Soit les instructions suivantes:
+    Soit les instructions suivantes :
 
     .. code-block:: c
 
@@ -791,7 +791,7 @@ passe directement à un type *int*.
         int p = 7;
         float x = 2.5;
 
-    Donnez le type et la valeur des expressions suivantes:
+    Donnez le type et la valeur des expressions suivantes :
 
     #. ``x + n % p``
     #. ``x + p / n``
@@ -804,7 +804,7 @@ passe directement à un type *int*.
 
 .. exercise:: Promotion numérique
 
-    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous:
+    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
 
     .. code-block:: c
 
@@ -890,7 +890,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Conversion de types
 
-    On considère les déclarations suivantes:
+    On considère les déclarations suivantes :
 
     .. code-block:: c
 
@@ -945,14 +945,14 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Opérateurs de relation et opérateurs logiques
 
-    Soit les déclarations suivantes:
+    Soit les déclarations suivantes :
 
     .. code-block:: c
 
         float x, y;
         bool condition;
 
-    Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations:
+    Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
 
     .. code-block:: c
 
@@ -1013,7 +1013,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Evaluation d'expressions
 
-    Considérons les déclarations suivantes:
+    Considérons les déclarations suivantes :
 
     .. code-block:: c
 
@@ -1048,7 +1048,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     .. solution::
 
-        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc:
+        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
 
         .. code-block:: c
 
@@ -1066,7 +1066,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Type de donnée idoine
 
-    Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme:
+    Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme :
 
     #. Gestion d'un parking: nombre de voitures présentes
     #. Station météo
@@ -1095,13 +1095,13 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Somme des entiers
 
-    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme:
+    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme :
 
     .. math::
 
         \sum_{k=1}^n k = \frac{n(n+1)}{2}
 
-    Un grand mathématicien `Srinivasa Ramanujan <https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>`__ (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne:
+    Un grand mathématicien `Srinivasa Ramanujan <https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan>`__ (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :
 
     .. math::
 
@@ -1138,14 +1138,14 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Système de vision industriel
 
-    La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes:
+    La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
     .. code-block:: c
 
         uint32_t inspected_parts, bad_parts;
         float percentage_good_parts;
 
-    A un moment du programme, on peut lire:
+    A un moment du programme, on peut lire :
 
     .. code-block:: c
 
@@ -1162,7 +1162,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
         #. Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.
         #. En pratique, il obtient un entier, c'est à dire toujours 0.
-        #. La promotion implicite des entiers peut être découpée comme suit:
+        #. La promotion implicite des entiers peut être découpée comme suit :
             .. code-block:: c
 
                 (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
@@ -1171,7 +1171,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
             La division est donc appliquée à des entiers et non des flottnts.
 
-        #. Une possible correction consiste à forcer le type d'un des membres de la division:
+        #. Une possible correction consiste à forcer le type d'un des membres de la division :
             .. code-block::c
 
                 percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
@@ -1182,13 +1182,13 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixieème de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:`ième` décimale après la virguleDes erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduit par 600 mètres d'erreur lors de la tentative d'interception.
 
-    Le stockage de la valeur 0.1 est donné par:
+    Le stockage de la valeur 0.1 est donné par :
 
     .. math::
 
         0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
 
-    Un registre contient donc le nombre d'heures écoulées exprimée en dixième de seconde soit pour 100 heures:
+    Un registre contient donc le nombre d'heures écoulées exprimée en dixième de seconde soit pour 100 heures :
 
     .. math::
 
