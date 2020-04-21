@@ -782,6 +782,31 @@ Le résultat affiché sera ``0.0, 1.0``. Seul la seconde valeur est modifiée.
 
     Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation ``->`` au lieu de ``.`` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire ``p->x`` au lieu de ``(*p).x``
 
+Structures flexibles
+--------------------
+
+Introduit avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
+
+.. code-block:: c
+
+    struct Vector {
+        char name[16]; // name of the vector
+        size_t len; // length of the vector
+        double array[]; // flexible array member
+    };
+
+Cette écriture permet par exemple de réserver un espace mémoire plus grand que la structure de base, et d'utiliser le reste de l'espace domme tableau flexible.
+
+.. code-block:: c
+
+    struct Vector *vector = malloc(1024);
+    strcpy(vector->name, "Mon vecteur");
+    vector->len = 1024 - 16 - 4;
+    for (int i = 0; i < vector->len; i++)
+        vector->array[i] = ...
+
+Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.
+
 Structure de structures
 -----------------------
 
@@ -843,6 +868,8 @@ Considérons la structure suivante :
 
 Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bit est assez grand pour y stocker 4 bytes. Si l'on souhaite représenter la structure ci-dessus sans optimisation de la part du processeur, le casier 0 contiendra  ``c`` tandis que pour obtenir la valeur d il faudra accéder au casier 0 et au casier 1 :
 
+.. code-block:: text
+
     0x0000 c    <-- data[0]
     0x0001 d0
     0x0002 d1
@@ -856,6 +883,8 @@ Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bit est 
     ...
 
 Ainsi, le compilateur sera obligé de faire du zèle pour accéder à d. En admettant que notre structure peut être accédée comme un tableau on aura :
+
+.. code-block:: c
 
     int32_t d = (data[0] << 8) | (data[1] & 0x0F);
 
