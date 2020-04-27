@@ -77,6 +77,13 @@ catégories exprimées du meilleur au plus mauvais :
 | :math:`O(n!)`        | trop trop grand    | La galaxie ne sera plus que poussière  |
 +----------------------+--------------------+----------------------------------------+
 
+Les différentes complexité peuvent être résumées sur la figure suivante :
+
+.. figure:: ../assets/images/complexity.*
+
+    Différentes complexités d'algorithmes
+
+
 Un algorithme en :math:`O(n^2)`, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.
 
 Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :
