@@ -1,38 +1,28 @@
 # TO-DO list
 
 - [ ] Sphinx
-  - [ ] Numbered section with letters for appendix
   - [ ] List figures
-  - [ ] Numbered figures
   - [ ] Bibliography
   - [ ] Center les tables
   - [ ] Rename source file with ascending order
-  - [ ] Numbered exercices
   - [ ] Display code-block with filename like https://docs.travis-ci.com/user/deployment/releases/
   - [ ] Code
       - [ ] Copy to clipboard icon
       - [ ] Build and run icon
 - [ ] Sphinx Theme
-  - [ ] Favicon in theme
-  - [x] Center figures
   - [ ] Left title on sidebar, only center figures
-  - [ ] Admonitions
   - [ ] Spacing on bullets
   - [ ] Menu déroulant pour toc-tree
 - [ ] Custom
   - [ ] Rendu de la fiche d'unité
-- [ ] Latex
-  - [ ] LaTeX to PDF
+- [ ] Make LaTeX work flawlessly
 - [ ] Advanced
   - [ ] Keep track of the hyperlinked used
 - [ ] Bugs
   - [ ] Quotes in french
   - [ ] Navlink header: Contenu, Exercices, Annexes,
-
-- [ ] Order wireless keyboard for students
-  - Logitech K830 or K400
-  - With touchpad
-  - If possible in Bluetooth
+- [ ] §3.3.3 ou exclusif : symbole ^ dans l'entête du tableau
+- [ ] §3.3.4 complément à un : symbole ~ dans l'entête du tableau
 
 # Propositions
 

@@ -387,7 +387,8 @@ Dans ce cas, ce n'est pas une erreur mais une alerte du compilateur qui survient
 
 .. code:: text
 
-   warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   warning: initialization discards ‘const’ qualifier from pointer
+   target type [-Wdiscarded-qualifiers]
 
 Tableaux multi-dimensionnels
 ----------------------------
@@ -1138,86 +1139,6 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
     void main() {
         foo((int []){1,2,3});
     }
-
-Enumérations
-============
-
-Champs de bit
--------------
-
-Il est parfois nécessaire de regrouper plusieurs informations dans un
-type de données. Nous avons vu pour cela qu'il était possible d'utiliser
-les structures.
-
-Dans un contexte où la place mémoire disponible pour les données est
-restreinte, on est amené à concentrer les informations. Pour cela, on
-utilise les champs de bit.
-
-D'un autre côté, lorsque l'on développe des logiciels ayant pour but de
-communiquer avec des périphériques fonctionnant avec des registres, il
-est courant qu'un registre contienne plusieurs informations. On
-utilisera avantageusement les champs de bit pour y accéder.
-
-Définition
-~~~~~~~~~~
-
-Un champ de bit est la réunion de plusieurs données identifiées chacune
-par un nom et une taille définie par un nombre de bits. Ces informations
-sont définies sous la forme d'une structure dont les données affectées à
-des champs de bit sont du type entier.
-
-Déclaration
-~~~~~~~~~~~
-
-On utilise la déclaration d'une structure en ajoutant la taille des
-champs de bit.
-
-.. code-block:: c
-
-    typedef struct {
-
-      int   valide:1;
-      int   sens:1;
-      int   vitesse:4;
-      int   erreur:2;
-      int   :1;
-      int   consigne:4;
-
-    } sRegistre;
-
-Cette structure définit un type *sRegistre* qui contient 4 variables
-rassemblées sous la forme d'un champ de bit. La variable 'valide' est
-codée sur 1 bit, 'sens' sur un bit, 'vitesse' sur 4 bits ( valeurs
-possibles de 0 à 15), 'erreur' sur de 2 bits (valeurs possibles de 0 à 3)
-puis un bit non utilisé et enfin 'consigne' sur 4 bits. Autre exemple :
-la représentation du type *float* :
-
-.. code-block:: c
-
-    typedef struct {
-
-      unsigned int  mantisse:23,
-                    exposant:8,
-                    signe:1;
-
-    } sFloat;
-
-Notez la virgule après les champs mantisse et exposants, évitant de
-répéter le type.
-
-Utilisation
-~~~~~~~~~~~
-
-La lecture ou l'écriture des variables déclarées sous la forme de champs
-de bit s'effectue comme pour les champs d'une structure.
-
-.. code-block:: c
-
-    sRegistre registre; // déclaration
-    int csg;
-
-    registre.vitesse=4; // initialise le champs vitesse à 4
-    csg=registre.consigne;  // la consigne est placée dans csg
 
 -----
 
