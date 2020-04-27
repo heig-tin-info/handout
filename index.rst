@@ -43,18 +43,18 @@ La version actuelle est |release| générée le |today|.
     \mainmatter
 
 .. toctree::
-    :numbered :
+    :numbered:
     :maxdepth: 2
     :caption: Contenu
-    :glob :
+    :glob:
 
     content/*
 
 .. appendix::
-    :numbered :
+    :numbered:
     :maxdepth: 2
     :caption: Annexes
-    :glob :
+    :glob:
 
     appendix/*
 

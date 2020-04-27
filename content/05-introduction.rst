@@ -398,7 +398,7 @@ Décortiquons tout cela :
     Jul 24 09:50  Date de création du fichier
     a.out         Nom du fichier
 
-.. Liste des exercices du chapitre :
+.. Liste des exercices du chapitre:
 
 .. exercise:: Auteurs
 
