@@ -338,7 +338,7 @@ placera le symbole & pour lui donner l'adresse de la variable.
 Transtypage de pointeurs (cast)
 ===============================
 
-Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré (c.f. :numref:`void`), comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :
+Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré, comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :
 
 ::
 
