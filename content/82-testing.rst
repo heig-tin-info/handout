@@ -61,7 +61,7 @@ Considérons le programme suivant :
 
 A priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyé des privilèges administrateurs. Testons ce programme :
 
-.. code-block:: c
+.. code-block:: console
 
     $ gcc u.c -fno-stack-protector
     $ ./a.out
@@ -71,7 +71,7 @@ A priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon
 
 Très bien, maintenant testons avec un mauvais mot de passe :
 
-.. code-block:: c
+.. code-block:: console
 
     $ ./a.out
     Password: startrek

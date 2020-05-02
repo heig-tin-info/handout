@@ -229,3 +229,177 @@ On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera u
     {
         return q_mul(a, b, 12);
     }
+
+Mémoire partagée
+================
+
+Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accedée par un autre programme. Le système d'exploitation l'en empêche.
+
+Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :
+
+- les flux (fichiers, stdin, stdout...)
+- la mémoire partagée
+- les sockets
+
+Vous avez déjà vu les flux au chapitre précédant, et les sockets ne font pas partie de ce cours d'introduction.
+
+Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.
+
+C'est principalement l'appel système ``mmap`` qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.
+
+.. code-block:: c
+
+    void *mmap(
+        void *addr,
+        size_t length, // Taille en byte de l'espace mémoire
+        int prot,      // Protection d'accès (lecture, écriture, exécution)
+        int flags,     // Attributs (partagé, privé, anonyme...)
+        int fd,
+        off_t offset
+    );
+
+
+Voici un exemple permettant de réserver un espace partagé en écriture et en lecture entre deux processus :
+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <sys/mman.h>
+
+    void* create_shared_memory(size_t size) {
+        // Accessible en lecture et écriture
+        int protection = PROT_READ | PROT_WRITE;
+
+        // D'autres processus peuvent accéder à cet espace
+        // lequel est anonyme
+        // so only this process and its children will be able to use it:
+        int visibility = MAP_SHARED | MAP_ANONYMOUS;
+
+        // The remaining parameters to `mmap()` are not important for this use case,
+        // but the manpage for `mmap` explains their purpose.
+        return mmap(NULL, size, protection, visibility, -1, 0);
+    }
+
+File memory mapping
+-------------------
+
+Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec ``fopen`` et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :
+
+.. code-block:: c
+
+    FILE *fp = fopen("foo", "r");
+    fseek(fp, 0, SEEK_END);
+    int filesize = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    char *file = malloc(filesize);
+    fread(file, filesize, sizeof(char), fp);
+    fclose(fp);
+
+Cette copie n'est pas nécessairement nécessaire. Une approche **POSIX**, qui n'est donc pas couverte par le standard **C99** consiste à lier le fichier dans un espace mémoire partagé.
+
+Ceci nécessite l'utilisation de fonctions bas niveau.
+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <sys/mman.h>
+
+    int main() {
+        int fd = open("foo.txt", O_RDWR, 0600);
+        char *addr = mmap(NULL, 100, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+        printf("Espace mappé à %p\n", addr);
+        printf("Premiers caractères du fichiers : %.*s...\n", 20, addr);
+    }
+
+Les avantages de cette méthode sont :
+
+- pas nécessaire de copier l'intégralité du fichier en mémoire ;
+- possibilité de partager le même fichier ouvert entre plusieurs processus ;
+- possibilité laissée au système d'exploitation d'utiliser la RAM ou non si les ressources mémoires deviennent tendues.
+
+Collecteur de déchets (*garbage collector*)
+===========================================
+
+Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur :
+
+.. code-block:: c
+
+    int* get_number() {
+        int *num = malloc(sizeof(int));
+        *num = rand();
+    }
+
+    int main() {
+        for (int i = 0; i < 100; i++) {
+            printf("%d\n", *get_number());
+        }
+    }
+
+La fonction ``get_number`` alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.
+
+A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les `limbes <https://fr.wikipedia.org/wiki/Limbes>`__. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec ``free``.
+
+On dit que le programme à une `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que ``malloc`` retourne ``NULL`` et qu'une erreur de segmentaiton apparaisse lors du ``printf``.
+
+Allons plus loin dans notre exemple et considérons le code suivant :
+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int foo(int *new_value) {
+        static int *values[10] = { NULL };
+        static int count = 0;
+
+        if (rand() % 5 && count < sizeof(values) / sizeof(*values) - 1) {
+            values[count++] = new_value;
+        }
+
+        if (count > 0)
+            printf("Foo aime %d\n", *values[rand() % count]);
+    }
+
+    int bar(int *new_value) {
+        static int *values[10] = { NULL };
+        static int count = 0;
+
+        if (rand() % 5 && count < sizeof(values) / sizeof(*values) - 1) {
+            values[count++] = new_value;
+        }
+
+        if (count > 0)
+            printf("Bar aime %d\n", *values[rand() % count]);
+    }
+
+    int* get_number() {
+        int *number = malloc(sizeof(int));
+        *number = rand() % 1000;
+        return number;
+    }
+
+    int main() {
+        int experiment_iterations = 10;
+        for (int i = 0; i < experiment_iterations; i++) {
+            int *num = get_number();
+            foo(num);
+            bar(num);
+            #if 0 // ...
+                free(num) ??
+            #endif
+        };
+    }
+
+La fonction ``get_number`` alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions ``foo`` et ``bar`` reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur ``stdout`` qu'elle aime un des nombre mémorisés.
+
+Au niveau du ``#if 0`` dans la fonction ``main``, il est impossible de savoir si l'adresse pointée par ``num`` est encore utilisée ou non. Il se peut que ``foo`` et ``bar`` utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.
+
+Comment peut-on savoir si il est possible de libérer ou non ``num`` ?
+
+Une solution courament utilsée en C++ s'appelle un *smart pointer*. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas ou le nombre de référence tombe à zéro, il est possible de libérer la ressource.
+
+Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé *Garbage Collector* et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le *gc* décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.
+
+En revanche en C, il n'existe aucun mécanisme aussi sophistiqués alors prenez garde à bien libérer les ressources utilisée et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.

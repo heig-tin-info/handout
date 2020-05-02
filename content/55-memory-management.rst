@@ -59,6 +59,7 @@ Lorsqu'un programme à besoin de mémoire, il peut générer un appel système p
 
 L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
+.. _fig_allocation:
 .. figure:: ../assets/figures/dist/memory/malloc.*
 
 Mémoire de programme
@@ -264,4 +265,54 @@ allez piétiner les zones mémoires voisines sans en avoir la permission.
 
 Le compilateur (en réalité l'éditeur de liens - le *linker*) vous permet
 de spécifier la taille de la pile ; c'est une de ses nombreuses options.
+
+Variables automatiques
+======================
+
+Une variable est dite *automatique* lorsque sa déclaration est faite au sein d'une fonction. La variable d'itération ``int i`` dans une boucle ``for`` est dite automatique. C'est à dire que le compilateur à le choix de placer cette variable :
+
+- sur la pile ;
+- dans un registre mémoire processeur.
+
+Jadis, le mot clé ``register`` était utiliser pour forcer le compilateur à placer une variable locale dans un registre processeur pour obtenir de meilleures performances. Aujourd'hui, les compilateurs sont assez malins pour déterminer automatiquement les variables souvent utilisées.
+
+Fragmentation mémoire
+=====================
+
+On peut observer à la figure :numref:`fig_allocation` qu'après un appel successif de ``malloc`` et de ``free`` des espaces mémoires non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
+
+Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (``free``), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.
+
+.. figure:: ../assets/figures/dist/memory/fragmentation.*
+
+Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire est malvenue. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : `éteindre puis redémarrer <https://www.youtube.com/watch?v=nn2FB1P_Mn8>`__.
+
+MMU
+---
+
+Les systèmes d'exploitations modernes (Windows, Linux, macOS...) utilisent tous un dispositif matériel nommé `MMU <https://en.wikipedia.org/wiki/Memory_management_unit>`__ pour *Memory Management Unit*. La MMU est en charge de créer un espace mémoire **virtuel** entre l'espace physique. Cela crée une indirection supplémentaire mais permet de réorganiser la mémoire physique sans compromettre le système.
+
+En pratique l'espace de mémoire virtuelle est toujours beaucoup plus grand que l'espace physique. Cela permet de s'affranchir dans une large mesure de problèmes de fragmentation car si l'espace virtuel est suffisament grand, il y aura statistiquement plus de chance d'y trouver un emplacement non utilisé.
+
+La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possèdent pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanisme comme les *memory pool*.
+
+Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques proriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
+
+.. figure:: ../assets/figures/dist/memory/mmu.*
+
+Erreurs de segmentation (*segmentation fault*)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lorsqu'un programme tente d'accéder à un espace mémoire qui n'est pas mappé dans la MMU, ou que cet espace mémoire ne permet pas le type d'accès souhaité : par exemple une écriture dans une page en lecture seule. Le système d'exploitation tue le processus avec une erreur *Segmentation Fault*. C'est la raison pour laquelle, il n'est pas systématique d'avoir une erreur de segmentation en cas de jarinage mémoire. Tant que les valeurs modifées sont localisées au sein d'un bloc mémoire autorisé, il n'y aura pas d'erreur.
+
+L'erreur de segmentation est donc générée par le système d'exploitation en lèvant le signal **SIGSEGV** (Violation d'accès à un segment mémoire, où erreur de segmentation).
+
+Memory Pool
+-----------
+
+Un *memory pool* est une méthode faisant appel à de l'allocation dynamique de blocs de taille fixe. Lorsqu'un programme doit très régulièrement allouer et désalouer de la mémoire, il est préférable que les blocs mémoire ait une taille fixe. De cette façon, après un ``free``, la mémoire libérée est assez grande pour une allocation ultérieure.
+
+Lorsqu'un programme est exécuté sous Windows, macOS ou Linux, l'allocation dynamique standard ``malloc``, ``calloc``, ``realloc`` et ``free`` sont performants et le risque de crash dû à une fragmentation mémoire est rare.
+
+En revanche lors de l'utilisation sur de petites architectures (microcontrôleurs) qui n'ont pas de système sophistiqués pour gérer la mémoire, il est parfois nécessaire d'écrire son propre système de gestion de mémoire.
 

@@ -733,10 +733,15 @@ L'utilisation d'un type énuméré peut être la suivante :
         }
     }
 
+Type incomplet
+==============
+
+Un type incomplet est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
+
 Type vide (*void*)
 ==================
 
-Le type ``void`` est particulier car c'est un type qui ne vaut rien. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
+Le type ``void`` est particulier. Il s'agit d'un type dit **incomplet** car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 
 .. code-block:: c
 

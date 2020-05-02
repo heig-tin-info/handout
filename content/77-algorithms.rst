@@ -177,6 +177,27 @@ Programmation dynamique
 
 .. todo:: Compléter
 
+Algorithmes de tris
+===================
+
+Heap Sort
+---------
+
+
+
+.. code-block:: text
+
+                 8
+                 |
+             ----+----
+           /           \
+          4            12
+         --            --
+       /    \        /    \
+      20     6      42    14
+     / \    / \    / \   /  \
+    11  3  35  7  9  11 50  16
+
 -----
 
 .. exercise:: Intégrateur de Kahan
