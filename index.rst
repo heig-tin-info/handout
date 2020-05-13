@@ -20,6 +20,7 @@ Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modul
 - Unité **Informatique 2** (:ref:`Info2 <info2>`)
 
 La version actuelle : |release|
+
 Date : |today|
 
 .. raw:: latex

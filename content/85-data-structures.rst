@@ -652,10 +652,45 @@ Parent            :math:`floor(k-1) / 2`  :math:`floor(k) / 2`
 
 .. figure:: ../assets/figures/dist/data-structure/heap.*
 
-Max-heap
---------
+Queue prioritaire
+=================
 
+Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.
 
+.. code-block:: c
+
+    typedef struct Person {
+       char *name;
+       enum SocialStatus {
+           PEON;
+           WORKER;
+           ENGINEER;
+           DOCTOR;
+           PROFESSOR;
+           PRESIDENT;
+           SUPERHERO;
+       } status;
+    } Person;
+
+    int main() {
+        ProrityQueue queue;
+        queue_init(queue);
+
+        for(int i = 0; i < 100; i++) {
+           queue_enqueue(queue, (Person) {
+              .name = random_name(),
+              .status = random_status()
+           });
+
+           Person person;
+           queue_dequeue(queue, &person);
+           dentist_heal(person);
+        }
+    }
+
+La queue prioritaire dispose donc aussi des méthodes ``enqueue`` et ``dequeue`` mais le ``dequeue`` retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération ``enqueue`` ou ``dequeue``. L'une de ces deux opération pourrait donc avoir une complexité de :math:`O(n log n)`. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.
+
+L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un *heap*, soit construit à partir d'un tableau statique, soit un tableau dynamique.
 
 Tableau de Hachage
 ==================

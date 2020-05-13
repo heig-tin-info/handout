@@ -176,6 +176,24 @@ Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléme
 
 Oui très exactement, les deux codes sont similaires, mais l'un est plus élégant que l'autre, lequel d'après vous ?
 
+L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :
+
+==============  ========  ============  ============  ================
+Élement         Premier   Deuxième      Troisième     n ième
+==============  ========  ============  ============  ================
+Accès tableau   ``a[0]``  ``a[1]``      ``a[2]``      ``a[n - 1]``
+Accès pointeur  ``*a``    ``*(a + 1)``  ``*(a + 2)``  ``*(a + n - 1)``
+==============  ========  ============  ============  ================
+
+De même, l'exercice peut être répété avec des tabelaux à deux dimensions :
+
+==============  ===============  ===============  ===================
+Élement         Premier          Deuxième         n ligne m colonne
+==============  ===============  ===============  ===================
+Accès tableau   ``a[0][0]``      ``a[1][1]``      ``a[n - 1][m - 1]``
+Accès pointeur  ``*(*(a+0)+0)``	 ``*(*(a+1)+1)``  ``*(*(a+i-1)+j-1)``
+==============  ===============  ===============  ===================
+
 Pointeur et chaînes de caractères
 =================================
 
@@ -590,6 +608,63 @@ L'utilisation de structure peut être utile pour initialiser un type de donnée 
         int vector[100];
     } data;
 
+Enchevêtrement ou *Aliasing*
+============================
+
+Travailler avec les pointeurs demande une attention particulière à tous
+les problème d'*alisasing* dans lesquels différents pointeurs pointent sur
+une même région mémoire.
+
+Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant :
+
+.. code-block:: c
+
+    void memory_move(char *dst, char*src, size_t size) {
+        for (int i = 0; i < size; i++)
+            *dst++ = *src++;
+    }
+
+Ce code est très simple mais il peut poser problème selon les cas. Imaginons que l'on dispose d'un tableau simple de dix éléments et de deux pointeurs ``*src`` et ``*dst``. Pour déplacer la région du tableau de 4 éléments vers la droite. On se dirait que le code suivant pourrait fonctionner :
+
+.. code-block:: text
+
+    ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+    │0│1│2│3│4│5│6│7│8│9│
+    └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+     ^*src ^*dst
+          ┌─┬─┬─┬─┬─┬─┬─┐
+          │0│1│2│3│4│5│6│
+          └─┴─┴─┴─┴─┴─┴─┘
+           ↓ ↓ ↓ ↓ ↓ ↓ ↓
+    ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+    │0│1│2│0│1│2│3│4│5│6│
+    └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+
+Naïvement l'exécution suivante devrait fonctionner, mais les deux pointeurs source et destination s'enchevêtrent et le résultat n'est pas celui escompté.
+
+.. code-block:: c
+
+    char array[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    char *src = &array[0];
+    char *dst = &array[3];
+
+    memory_move(b, a, 7);
+
+.. code-block:: text
+
+    ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+    │0│1│2│3│4│5│6│7│8│9│ Tableau d'origine
+    └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+    ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+    │0│1│2│0│1│2│0│1│2│0│ Opération avec `memory_move`
+    └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+    ┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+    │0│1│2│0│1│2│3│4│5│6│ Opération avec `memmove` (fonction standard)
+    └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+
+Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoire qui s'enchevêtrent. En revanche, la fonction standard ``memmove`` de ``<stdlib.h>`` fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.
+
+Notons que sa fonction voisine ``memcpy`` ne dois **jamais** être utilisée en cas d'*aliasing*. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple ``memory_move``. Le standard **C99** ne défini pas le comportement de ``memcpy`` pour des pointeurs qui se chevauchent.
 
 ------
 

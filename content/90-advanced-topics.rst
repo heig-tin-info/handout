@@ -255,7 +255,7 @@ C'est principalement l'appel système ``mmap`` qui est utilisé. Il permet de ma
         int prot,      // Protection d'accès (lecture, écriture, exécution)
         int flags,     // Attributs (partagé, privé, anonyme...)
         int fd,
-        off_t offset
+        int offset
     );
 
 

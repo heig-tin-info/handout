@@ -41,6 +41,23 @@ Les opérateurs relationnels permettent de comparer deux entités. Le résultat 
     ``!=``     Différent              ``'a' != 'c'``
     =========  =====================  ==================
 
+Un opérateur relationnel est plus prioritaire que l'opérateur d'affectation et donc l'écriture suivante applique le test d'égalité entre ``a`` et ``b`` et le résultat de ce test ``1`` ou ``0`` sera affecté à la variable ``c`` :
+
+.. code-block:: c
+
+    int a = 2, b = 3;
+    int c = a == b;
+
+Les opérateurs relationnels sont le plus souvent utilisés dans des structures de contrôles :
+
+.. code-block:: c
+
+    if (a == b) {
+        printf("Egaux");
+    } else {
+        printf("Pas égaux");
+    }
+
 Opérateurs arithmétiques
 ========================
 
@@ -51,6 +68,12 @@ Aux 4 opérations de base, le C ajoute l'opération `modulo <https://fr.wikipedi
 - ``*`` Multiplication
 - ``/`` Division
 - ``%`` Modulo
+
+Attention néanmoins aux types des variables impliquées. La division ``5 / 2`` donnera ``2`` et non ``2.5`` car les deux valeurs fournies sont entières.
+
+Le modulo est le reste de la division entière. L'assertion suivante est donc vraie : ``13 % 4 == 1``, car 13 divisé par 4 égal 3 et il reste 1.
+
+Les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. L'addition de deux entiers 8 bits ``120 + 120`` ne fera pas ``240`` car le type ne permet pas de stoquer des valeurs plus grandes que ``127``.
 
 Opérateurs bit à bit
 ====================
@@ -79,6 +102,8 @@ Opérateurs d'affectation
 - ``<<=`` Affectation par décalage à gauche
 - ``>>=`` Affectation par décalage à droite
 
+Les opérateurs d'affectation combinés peuvent tous des sucres syntaxiques : ``a += b`` est strictement équivalent à ``a = a + b``.  De la même manière ``a <<= b`` est une autre manière d'écrire ``a = a << b``.
+
 Opérateurs logiques
 ===================
 
@@ -105,8 +130,6 @@ Important : seule la valeur utilisée pour le résultat est évaluée.
 .. code-block:: c
 
     val_max = (a > b ? a : b);  // retourne la valeur max entre a et b
-
-
 
 Opérateur de transtypage
 ========================
