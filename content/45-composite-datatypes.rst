@@ -17,14 +17,14 @@ La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon s
 
     int array[10];
 
-Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 :
+Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 (deuxième et quatrième position du tableau) :
 
 .. code-block:: c
 
     array[1];
     array[5 - 2];
 
-L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant ``sizeof(array)`` retourne :math:`5\cdot4=20` tandis que ``sizeof(array[0])`` retourne la taille d'un seul élément :math:`4`; et donc, ``sizeof(array) / sizeof(array[0])`` est le nombre d'éléments de ce tableau, soit 5.
+L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant ``sizeof(array)`` retourne :math:`10\cdot4 = 40` tandis que ``sizeof(array[0])`` retourne la taille d'un seul élément :math:`4`; et donc, ``sizeof(array) / sizeof(array[0])`` est le nombre d'éléments de ce tableau, soit 10.
 
 .. code-block:: c
 
@@ -54,7 +54,7 @@ La preuve étant que le contenu du tableau peut être modifié à distance :
     int main(void) {
        int array[5] = {0};
        function(array);
-       assert(array[2] == 5);
+       assert(array[2] == 12);
     }
 
 Un fait remarquable est que l'opérateur ``[]`` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique :
@@ -77,7 +77,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
         .. code-block:: c
 
-            int64_t a;
+            int8_t a[50];
             for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
                 a[i] = i;
             }
@@ -363,12 +363,12 @@ En **C99**, il n'est pas possible d'initialiser un type composé à une valeur u
 Tableaux non modifiables
 ------------------------
 
-A présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé ``const`` est utilisé a cette fin.
+À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé ``const`` est utilisé a cette fin.
 
 .. code:: c
 
-   int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
-   sequence[2] = 12;
+   const int32_t sequence[6] = {4, 8, 15, 16, 23, 42};
+   sequence[2] = 12; // Interdit !
 
 Dans l'exemple ci-dessus, la seconde ligne génèrera l'erreur suivante :
 
@@ -581,6 +581,8 @@ D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon :
         'r', 0, 0, 0, 0, 0, 0, 0,
     };
 
+Notons que la valeur ``0`` est strictement identique au caractère 0 de la table ASCII ``'\0'``. La chaîne de caractère ``"mais"`` aura une taille de 5 caractères, ponctuée de la sentinelle ``\0``.
+
 Structures
 ==========
 
@@ -748,7 +750,7 @@ Il est également possible de passer une structure en paramètre d'une fonction 
 .. code-block:: c
 
     double norm(struct point p) {
-        return sqrt(p.x * p.x + p.y * p.y + p.z + p.z);
+        return sqrt(p.x * p.x + p.y * p.y + p.z * p.z);
     }
 
     int main(void) {
@@ -836,26 +838,26 @@ Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est do
 
 .. code-block:: c
 
-    struct Line lines[2];
+    struct Line lines[2]; // Chaque point est un double, codé sur 8 bytes.
+
+Ci-dessous est représenté l'offset mémoire (en bytes) à laquel est stocké chaque membre de la structure, ainsi que l'élément correspondant.
 
 .. code-block:: text
 
     0x0000 line[0].a.x
-    0x0004 line[0].a.y
-    0x0008 line[0].a.z
-    0x000C line[0].b.x
-    0x0010 line[0].b.y
-    0x0014 line[0].b.z
-    0x0018 line[1].a.x
-    0x001C line[1].a.y
-    0x0020 line[1].a.z
-    0x0024 line[1].b.x
-    0x0028 line[1].b.y
-    0x002C line[1].b.z
+    0x0008 line[0].a.y
+    0x0010 line[0].a.z
+    0x0018 line[0].b.x
+    0x0020 line[0].b.y
+    0x0028 line[0].b.z
+    0x0030 line[1].a.x
+    0x0038 line[1].a.y
+    0x0040 line[1].a.z
+    0x0048 line[1].b.x
+    0x0050 line[1].b.y
+    0x0048 line[1].b.z
 
-Néanmoins, le compilateur se réserve le droit d'optimiser l' `alignement mémoire <https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire>`__. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information.
-
-Considérons la structure suivante :
+Néanmoins dans certains cas, le compilateur se réserve le droit d'optimiser l' `alignement mémoire <https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire>`__. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Considérons par exemple la structure suivante :
 
 .. code-block:: c
 
@@ -867,29 +869,26 @@ Considérons la structure suivante :
         int8_t a[3];
     };
 
-Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bit est assez grand pour y stocker 4 bytes. Si l'on souhaite représenter la structure ci-dessus sans optimisation de la part du processeur, le casier 0 contiendra  ``c`` tandis que pour obtenir la valeur d il faudra accéder au casier 0 et au casier 1 :
+Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est assez grand pour y stocker 4 bytes. Tentons de représenter en mémoire cette structure en *little-endian*, en considérant des casiers de 32-bits :
 
 .. code-block:: text
 
-    0x0000 c    <-- data[0]
-    0x0001 d0
-    0x0002 d1
-    0x0003 d2
+     c    d             i           a
+    ┞─╀─┬─┬─┐ ┌─╀─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─╀─┬─┬─┐
+    │c│d│d│d│ │d│i│i│i│ │i│i│i│i│ │i│a│a│a│
+    │0│0│1│2│ │3│0│1│2│ │3│4│5│6│ │7│0│1│2│
+    └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+        A         B         C         D
 
-    0x0004 d3   <-- data[1]
-    0x0005 i7
-    0x0006 i6
-    0x0007 i5
+On constate que la valeur ``d`` est à cheval entre deux casiers. De même que la valeur ``i`` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peux acceuillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture ``B`` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps. 
 
-    ...
-
-Ainsi, le compilateur sera obligé de faire du zèle pour accéder à d. En admettant que notre structure peut être accédée comme un tableau on aura :
+Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellement l'accès à ``d`` pourrait s'écrire ainsi :
 
 .. code-block:: c
 
     int32_t d = (data[0] << 8) | (data[1] & 0x0F);
 
-Pour éviter ces manoeuvres, le compilateur selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
+Pour éviter ces manoeuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
 
 .. code-block:: c
 
@@ -903,10 +902,20 @@ Pour éviter ces manoeuvres, le compilateur selon l'architecture donnée, va ins
         int8_t __pad2; // Inséré par le compilateur
     };
 
-De cette manière, l'accès à ``d`` est facilité au détriment d'une perte substentielle de l'espace de stockage.
+En reprenant notre analogie de voitures, le stockage est maintenant fait comme ceci :
 
-Une solution optimale consiste à réagencer la structure initiale peut éviter la perte d'espace mémoire. La structure suivante ne sera pas modifiée par le compilateur car elle est alignée sur 32-bits :
+.. code-block:: text
 
+    ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+    │c│ │ │ │ │d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│ │
+    │0│ │ │ │ │0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│ │
+    └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+        A         B         C         D         E
+
+Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers. 
+L'accès à ``d`` est ainsi facilité au détriment d'une perte substentielle de l'espace de stockage.
+
+Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :
 .. code-block:: c
 
     struct Align
@@ -917,9 +926,17 @@ Une solution optimale consiste à réagencer la structure initiale peut éviter 
         int8_t c;
     };
 
-L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur.
+.. code-block:: text
 
-Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Studio, d'utiliser un artifice pour forcer l'alignement mémoire. L'utilisation de ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
+    ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+    │d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│c│
+    │0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│3│
+    └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+        A         B         C         D    
+
+L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure ``BitmapFileHeader`` est enregistrée avec ``fwrite(header, sizeof(BitmapFileHeader), ...)``. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte ``Wpadded`` comme une erreur critique.
+
+Pour palier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
 
 .. code-block:: c
 
@@ -930,51 +947,25 @@ Il est néanmoins possible, pour certains compilateurs comme `gcc` ou Visual Stu
         char c;
     };
 
-Elle pourrait être représentée en mémoire de la façon suivante :
+Elle serait très probablement représentée en mémoire de la facon suivante :
 
 .. code-block:: text
 
-    |   1  |  2   |   3  |   4  |
-    |------|------|------|------|
-    | a(1) | pad............... |
-    | b(1) | b(2) | b(3) | b(4) |
-    | c(1) | pad............... |
+    ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+    │a│ │ │ │ │b│b│b│b│ │c│ │ │ │
+    │0│ │ │ │ │0│1│2│3│ │0│ │ │ │
+    └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+        A         B         C    
 
-En revance si elle est décrite comme suit :
-
-.. code-block:: c
-
-    #pragma pack(2)
-
-    struct Test
-    {
-        char a;
-        int b;
-        char c;
-    };
-
-L'emprunte mémoire sera différente :
+En revance si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
 
 .. code-block:: text
 
-    |   1  |   2  |
-    |------|------|
-    | a(1) | c(1) |
-    | b(1) | b(2) |
-    | b(3) | b(4) |
-
-Enfin, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
-
-.. code-block:: text
-
-    |   1  |
-    |------|
-    | a(1) |
-    | b(1) |
-    | b(2) |
-    | b(3) |
-    | b(4) |
-    | c(1) |
+    ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+    │a│b│b│b│ │b│c│ │ │
+    │0│0│1│2│ │3│1│ │ │
+    └─┴─┴─┴─┘ └─┴─┴─┴─┘
+        A         B    
 
 Champs de bits
 ==============

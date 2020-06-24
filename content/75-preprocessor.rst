@@ -153,8 +153,8 @@ L'inclusion de fichier est simplement du remplacement de chaînes :
 
 La directive ``#include`` est principalement utilisée pour include des fichiers d'en-tête (*header*), mais rarement (jamais), des fichiers C.
 
-Définissions
-============
+Définitions
+===========
 
 #define
 -------
@@ -167,10 +167,10 @@ Les définitions sont des symboles généralement écrits en majuscule et qui so
     #    define WINDOW_SIZE 10
     #endif
 
-    int tab[SIZE];
+    int tab[WINDOW_SIZE];
 
     void init(void) {
-        for(size_t i = 0; i < SIZE; i++)
+        for(size_t i = 0; i < WINDOW_SIZE; i++)
             tab[i] = i;
     }
 
@@ -212,7 +212,7 @@ Après pré-processing on aura un comportement non désiré, car la multiplicati
 
     int a = 12;
     int b = 23;
-    int c = a + b * b + a
+    int c = a + b * a + b
 
 Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les définitions avec des parenthèses ``#define ADD (a + b)``.
 
@@ -246,7 +246,7 @@ Cette directive génère une erreur avec le texte qui suit la directive :
 .. code-block:: c
 
     #if !(KERNEL_SIZE % 2)
-    #    error Le noyau du filtre est impaire
+    #    error Le noyau du filtre est pair
     #endif
 
 Directives spéciales
