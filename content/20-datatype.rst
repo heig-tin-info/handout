@@ -26,19 +26,19 @@ Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une si
 
 .. code-block:: text
 
-    01000000 01001001 01001001 11011011
+    01000000 01001001 00001111 11011011
 
 Il pourrait s'agir :
 
 - de 4 caractères de 8-bits :
     - ``01000000`` ``@``
     - ``01001001`` ``I``
-    - ``01001001`` ``\x0f``
+    - ``00001111`` ``\x0f``
     - ``11011011`` ``Û``
 - ou de 4 nombres de 8-bits: ``64``, ``73``, ``15``, ``219``,
 - ou de deux nombres de 16-bits ``18752`` et ``56079``,
 - ou alors un seul nombre de 32-bit ``3675212096``.
-- Peut-être est-ce le nombre ``-4.033e16`` lu en *little endian*,
+- Peut-être est-ce le nombre ``-40331460896358400.000000`` lu en *little endian*,
 - ou encore ``3.141592`` lu en *big endian*.
 
 Qu'en pensez-vous ?
@@ -46,6 +46,30 @@ Qu'en pensez-vous ?
 Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective: "c'est forcément PI la bonne réponse", rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.
 
 Le typage permet de résoudre toute ambiguïté.
+
+.. code-block:: c 
+
+    int main() {
+        union {
+            uint8_t u8[4];
+            uint16_t u16[2];
+            uint32_t u32;
+            float f32;
+        } u = { 0b01000000, 0b01001001, 0b00001111, 0b11011011 };
+
+        printf("'%c', '%c', '%c', '%c'\n", u.u8[0], u.u8[1], u.u8[2], u.u8[3]);
+        printf("%hhu, %hhu, %hhu, %hhu\n", u.u8[0], u.u8[1], u.u8[2], u.u8[3]);
+        printf("%hu, %hu\n", u.u16[0], u.u16[1]);
+        printf("%u\n", u.u32);
+        printf("%f\n", u.f32);
+        u.u32 = (
+            ((u.u32 >> 24) & 0xff) | // move byte 3 to byte 0
+            ((u.u32 << 8) & 0xff0000) | // move byte 1 to byte 2
+            ((u.u32 >> 8) & 0xff00) | // move byte 2 to byte 1
+            ((u.u32 << 24) & 0xff000000) // byte 0 to byte 3
+        );
+        printf("%f\n", u.f32);
+    }
 
 .. _endianess:
 
@@ -457,7 +481,7 @@ La valeur maximale exprimable :
 
 .. math::
 
-    0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\:, \text{ffff}_{16} \\
+    0\:11111110\:11111111111111111111111_2 &= \text{7f7f}\: \text{ffff}_{16} \\
     &= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
     &≈ 2^{127} \cdot 1.9999998807 \\
     &≈ 3.4028234664 \cdot 10^{38}
@@ -691,7 +715,7 @@ Il est possible de forcer les valeurs de la manière suivante :
 
 .. code-block:: c
 
-    typedef enum {
+    typedef enum country_codes {
         CODE_SWITZERLAND=41,
         CODE_FRANCE=33,
         CODE_US=1
@@ -701,9 +725,7 @@ ou encore :
 
 .. code-block:: c
 
-    typedef enum {
-
-    typedef enum {
+    typedef enum country_codes {
         CODE_SWITZERLAND=41,
         CODE_BELGIUM=32
         CODE_FRANCE, // Sera 33...
@@ -717,7 +739,7 @@ L'utilisation d'un type énuméré peut être la suivante :
 
 .. code-block:: c
 
-    void call(enum CountryCodes code) {
+    void call(enum country_codes code) {
         switch(code) {
         case CODE_SWITZERLAND :
             printf("Calling Switzerland, please wait...\n");

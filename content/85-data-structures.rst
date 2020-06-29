@@ -111,7 +111,9 @@ Un tableau dynamique est souvent spécifié par un facteur de croissance (rien �
     buffer[2] = 'l'; // Le buffer est plein...
 
     // Augmente dynamiquemenmt la taille du buffer à 5 chars
-    *buffer = realloc(5);
+    char *tmp = realloc(buffer, 5);
+    assert(tmp != NULL);
+    buffer = tmp;
 
     // Continue de remplir le buffer
     buffer[3] = 'l';
@@ -200,7 +202,7 @@ Enfin, l'opération ``unshift`` ajoute un élément depuis le début du tableau 
 
 .. code-block:: c
 
-    for (int k = elements; k < 1; k--)
+    for (int k = elements; k >= 1; k--)
         data[k] = data[k - 1];
     data[0] = value;
 
@@ -208,7 +210,7 @@ Dans le cas ou le nombre d'éléments atteint la capacité maximum du tableau, i
 
 .. code-block:: c
 
-    if (elements > capacity) {
+    if (elements >= capacity) {
         data = realloc(data, capacity *= 2);
     }
 
@@ -285,7 +287,7 @@ Voici une implémentation possible du buffer circulaire :
 Listes chaînées
 ===============
 
-On s'aperçois vite avec les tableaux, que certaines opérations sont coûteuses. Ajouter ou supprimer un élément à la fin du tableau coûte :math:`O(1)` amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte :math:`O(n)` du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.
+On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte :math:`O(1)` amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte :math:`O(n)` du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.
 
 Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.
 
@@ -309,7 +311,7 @@ On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se su
 .. code-block:: c
 
     struct Element current = elements[4];
-    struct Element next = elements[el.index_next_element]
+    struct Element next = elements[current.index_next_element]
 
 De même, insérer une nouvelle valeur `13` après la valeur `42` est très facile:
 
@@ -322,14 +324,22 @@ De même, insérer une nouvelle valeur `13` après la valeur `42` est très faci
     }
     if (el.value != 42) abort();
 
-    // Création d'un nouvel élément
+    // Recherche d'un élément libre
+    const int length = sizeof(elements) / sizeof(elements[0]);
+    int k;
+    for (k = 0; k < length; k++) 
+        if (elements[k].index_next_element == -1)
+            break;
+    assert(k < length && elements[k].index_next_element == -1);
+
+    // Création d'un nouvel élément    
     struct Element new = (Element){
         .value = 13,
-        .index_next_element = el.index_next_element
+        .index_next_element = -1
     };
 
     // Insertion de l'élément quelque part dans le tableau
-    el.index_next_element = 34; // Rien encore à cet emplacement
+    el.index_next_element = k;
     elements[el.index_next_element] = new;
 
 Cette solution d'utiliser un lien vers l'élément suivant et s'appelle liste chaînée. Chaque élément dispose d'un lien vers l'élément suivant situé quelque part en mémoire. Les opérations d'insertion et de suppression au milieu de la chaîne sont maintenant effectuées en :math:`O(1)` contre :math:`O(n)` pour un tableau standard. En revanche l'espace nécessaire pour stocker ce tableau est doublé puisqu'il faut associer à chaque valeur le lien vers l'élément suivant.
@@ -337,7 +347,7 @@ Cette solution d'utiliser un lien vers l'élément suivant et s'appelle liste ch
 D'autre part, la solution proposée n'est pas optimale :
 
 - L'élément 0 est un cas particulier qu'il faut traiter différemment. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau. Insérer un nouvel élément en début de tableau demande de déplacer cet élément ailleurs en mémoire.
-- Le nombre d'éléments total est limité par la capacité effective du tableau, ici :math:`100 / 2 = 50` éléments.
+- Rechercher un élément libre prend du temps.
 - Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacement mémoire disponibles
 
 Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :
