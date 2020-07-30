@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>7Structures de contrôle</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="8Programmes et Processus" href="30-processus.html" />
+  <link rel="prev" title="6Types de données" href="20-datatype.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Structures de contrôle</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#sequences" class="reference internal">Séquences</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-embranchements" class="reference internal">Les embranchements</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-boucles" class="reference internal">Les boucles</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-sauts" class="reference internal">Les sauts</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">7</span>Structures de contrôle</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="20-datatype.html"
+       title="Chapitre précédent">← <span class="section-number">6</span>Types de données</a>
+  </li>
+  <li class="next">
+    <a href="30-processus.html"
+       title="Chapitre suivant"><span class="section-number">8</span>Programmes et Processus →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="structures-de-controle">
+<h1><span class="section-number">7</span>Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les structures de contrôle appartiennent aux langages de programmation dits <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structurés</a>. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :</p>
+<ol class="arabic simple">
+<li><p>Les embranchements (<code class="docutils literal notranslate"><span class="pre">branching</span></code>)</p></li>
+<li><p>Les boucles (<code class="docutils literal notranslate"><span class="pre">loops</span></code>)</p></li>
+<li><p>Les sauts (<code class="docutils literal notranslate"><span class="pre">jumps</span></code>)</p></li>
+</ol>
+<p>Ces structures de contrôles sont toujours composées de :</p>
+<ul class="simple">
+<li><p>Séquences</p></li>
+<li><p>Sélections</p></li>
+<li><p>Répétitions</p></li>
+<li><p>Appels de fonctions</p></li>
+</ul>
+<div class="section" id="sequences">
+<h2><span class="section-number">7.1</span>Séquences<a class="headerlink" href="#sequences" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En C, chaque instruction est séparée de la suivante par un point virgule <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/003B/">U+003B</a>):</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">k</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Une séquence est une suite d'instructions regroupées en un bloc matérialisé par des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>N'allez pas confondre le point virgule <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/003B/">U+003B</a>) avec le <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/037E/">U+037E</a>), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.</p>
+</div>
+</div>
+<div class="section" id="les-embranchements">
+<h2><span class="section-number">7.2</span>Les embranchements<a class="headerlink" href="#les-embranchements" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix <em>vrai</em> et un choix <em>faux</em>, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">switch</span></code></p></li>
+<li><p>L'instruction ternaire</p></li>
+</ol>
+<div class="figure align-default" id="id2">
+<img alt="../_images/branching-diagram.svg" src="../_images/branching-diagram.svg" /><p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Les embranchements s'appuient sur les séquences :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;odd</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;even</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="if-else">
+<h3><span class="section-number">7.2.1</span>if..else<a class="headerlink" href="#if-else" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">if</span></code> est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté.</p>
+<p>Les enchaînements possibles sont :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + ...</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
+</ul>
+<p>Une condition n'est pas nécessairement unique mais peut-être la concaténation logique de plusieurs conditions séparées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">((</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">110</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">210</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Remarquons qu'au passage cet exemple peut être simplifié:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">110</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">210</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notons quelques erreurs courantes :</p>
+<ul>
+<li><p>Il est courant de placer un point virgule derrière un <code class="docutils literal notranslate"><span class="pre">if</span></code>. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span> <span class="c1">// ALWAYS executed</span>
+</pre></div>
+</div>
+</li>
+<li><p>Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité <code class="docutils literal notranslate"><span class="pre">==</span></code> et non l'opérateur d'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>               <span class="c1">// set z to zero !!</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span> <span class="c1">// NEVER executed</span>
+</pre></div>
+</div>
+</li>
+<li><p>L'oubli des accolades pour déclarer un bloc d'instructions</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span>
+    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>L'instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est impaire.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire et supérieure à 500.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">5</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire, inférieur à 500 et divisible par 5.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur ne satisfait aucune condition établies.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/7/1">Exercice 7.1</a>: Et si?</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/2">Exercice 7.2</a>: D'autres si?</p>
+</div>
+<div class="section" id="switch">
+<span id="id1"></span><h3><span class="section-number">7.2.2</span><code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, l'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> peut-être utilisée :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">2</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">3</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">4</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">5</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La valeur par défaut <code class="docutils literal notranslate"><span class="pre">default</span></code> est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.</p>
+<p>La structure d'un <code class="docutils literal notranslate"><span class="pre">switch</span></code> est composée d'une condition <code class="docutils literal notranslate"><span class="pre">switch</span> <span class="pre">(condition)</span></code> suivie d'une séquence <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Les instructions de cas <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">42:</span></code> sont appelés <em>labels</em>. L'instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> termine l'exécution de la séquence <code class="docutils literal notranslate"><span class="pre">switch</span></code>.</p>
+<p>Les labels peuvent être chaînés sans instructions intermédiaires ni <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">coffee</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="nl">IRISH_COFFEE</span> <span class="p">:</span>
+        <span class="n">add_whisky</span><span class="p">();</span>
+
+    <span class="k">case</span> <span class="nl">CAPPUCCINO</span> <span class="p">:</span>
+    <span class="k">case</span> <span class="nl">MACCHIATO</span> <span class="p">:</span>
+        <span class="n">add_milk</span><span class="p">();</span>
+
+    <span class="k">case</span> <span class="nl">ESPRESSO</span> <span class="p">:</span>
+    <span class="k">case</span> <span class="nl">AMERICANO</span> <span class="p">:</span>
+        <span class="n">add_coffee</span><span class="p">();</span>
+        <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">default</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR 418: Type de café inconnu&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notons quelques observations :</p>
+<ul class="simple">
+<li><p>La structure <code class="docutils literal notranslate"><span class="pre">switch</span></code> bien qu'elle puisse toujours être remplacée par une structure <code class="docutils literal notranslate"><span class="pre">if..else</span> <span class="pre">if</span></code> est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. <a class="reference internal" href="95-philosophy.html#dry"><span class="std std-numref">Section 24.2.1</span></a>).</p></li>
+<li><p>Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement e.g. <code class="docutils literal notranslate"><span class="pre">{12,</span> <span class="pre">13,</span> <span class="pre">14,</span> <span class="pre">15}</span></code>.</p></li>
+<li><p>L'ordre des cas d'un <code class="docutils literal notranslate"><span class="pre">switch</span></code> n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="les-boucles">
+<h2><span class="section-number">7.3</span>Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span></code> .. <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+</ul>
+<div class="figure align-default" id="id5">
+<img alt="../_images/for.svg" src="../_images/for.svg" /><p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Aperçu des trois structure de boucles</span></span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="while">
+<h3><span class="section-number">7.3.1</span>while<a class="headerlink" href="#while" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La structure <code class="docutils literal notranslate"><span class="pre">while</span></code> répète une séquence <strong>tant que</strong> la condition est vraie.</p>
+<p>Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">get_weight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">420</span> <span class="cm">/* newtons */</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">add_one_kg</span><span class="p">();</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">5</span> <span class="cm">/* seconds */</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Séquentiellement une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> teste la condition, puis exécute la séquence associée.</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/3">Exercice 7.3</a>: Tant que...</p>
+</div>
+<div class="section" id="do-while">
+<h3><span class="section-number">7.3.2</span>do..while<a class="headerlink" href="#do-while" title="Lien permanent vers ce titre">¶</a></h3>
+<p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code class="docutils literal notranslate"><span class="pre">do</span></code>...<code class="docutils literal notranslate"><span class="pre">while</span></code> permet justement ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Veuillez attendre encore %d seconde(s)</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Contrairement à la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
+</div>
+<div class="section" id="for">
+<h3><span class="section-number">7.3.3</span>for<a class="headerlink" href="#for" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est un <code class="docutils literal notranslate"><span class="pre">while</span></code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span> <span class="cm">/* expression 2 */</span><span class="p">;</span> <span class="cm">/* expression 3 */</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* séquence */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Expression 1</dt><dd><p>Exécutée une seule fois à l'entrée dans la boucle, c'est l'expression d'initialisation permettant par exemple de déclarer une variable et de l'initialiser à une valeur particulière.</p>
+</dd>
+<dt>Expression 2</dt><dd><p>Condition de validité (ou de maintient de la boucle). Tant que la condition est vraie, la boucle est exécutée.</p>
+</dd>
+<dt>Expression 3</dt><dd><p>Action de fin de tour. A la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.</p>
+</dd>
+</dl>
+<p>Voici comment répéter 10x un block de code :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">something</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notons que les portions de <code class="docutils literal notranslate"><span class="pre">for</span></code> sont optionnels et que la structure suivante est strictement identique à la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(;</span> <span class="n">get_weight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">420</span> <span class="p">;)</span>
+<span class="p">{</span>
+    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/7/4">Exercice 7.4</a>: Pour quelques tours</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/5">Exercice 7.5</a>: Erreur</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/6">Exercice 7.6</a>: De un à cent</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/7">Exercice 7.7</a>: Opérateur virgule dans une boucle</p>
+</div>
+<div class="section" id="boucles-infinies">
+<h3><span class="section-number">7.3.4</span>Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> telle que :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">main_loop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Boucle principale</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(;;)</span>
+    <span class="p">{</span>
+        <span class="n">main_loop</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il y a différentes variantes de boucles infinies :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="k">do</span> <span class="p">{</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notions que l'expression <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1)</span></code> que l'on rencontre fréquemment dans des exemples est fausse syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code class="docutils literal notranslate"><span class="pre">1</span></code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1</span> <span class="pre">==</span> <span class="pre">1)</span></code> ou simplement <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(true)</span></code>.</p>
+<p>On préférera néanmoins l'écriture <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(;;)</span></code> qui ne fait pas intervenir de conditions extérieure car en effet, avant <strong>C99</strong> définir la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">_Bool</span> <span class="nb">true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c.f. <a class="reference internal" href="30-processus.html#signals"><span class="std std-numref">Section 8.1.4</span></a>). On rajoute alors une condition de sortie à la boucle principale :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="k">volatile</span> <span class="kt">bool</span> <span class="n">is_running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">dummy</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">is_running</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">sigint_handler</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">is_running</span><span class="p">)</span>
+    <span class="p">{</span>
+       <span class="cm">/* ... */</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-sauts">
+<h2><span class="section-number">7.4</span>Les sauts<a class="headerlink" href="#les-sauts" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe 4 instructions en C permettant de contrôler le déroulement de
+l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">break</span></code> interrompt la structure de contrôle en cours. Elle est valide pour :</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">do</span></code>...``while``</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">switch</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code>: saute un tour d'exécution dans une boucle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">goto</span></code>: interrompt l'exécution et saute à un label situé ailleurs dans la fonction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code></p></li>
+</ul>
+<div class="section" id="goto">
+<h3><span class="section-number">7.4.1</span><code class="docutils literal notranslate"><span class="pre">goto</span></code><a class="headerlink" href="#goto" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison car dans la très vaste majorité des cas ou vous pensez avoir besoin de <code class="docutils literal notranslate"><span class="pre">goto</span></code>, une autre solution plus élégante existe.</p>
+<p>Néanmoins, il est importante de comprendre que <code class="docutils literal notranslate"><span class="pre">goto</span></code> était dans certain langage de prorgramation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine car la plupart des processeurs ne connaissent que cette instruction souvent appellée <code class="docutils literal notranslate"><span class="pre">JUMP</span></code>. Il est par conséquent possible d'immiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code class="docutils literal notranslate"><span class="pre">if</span></code> et de <code class="docutils literal notranslate"><span class="pre">goto</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">goto</span></code> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="reference internal" href="10-foundations.html#identifiers"><span class="std std-ref">identificateur</span></a> suivi d'un <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<p>L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;time.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">parse_message</span><span class="p">(</span><span class="nb">int</span> <span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">struct</span> <span class="n">tm</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="n">NULL</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">error</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">message</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">goto</span> <span class="n">error</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">/*</span> <span class="o">...</span> <span class="o">*/</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">error</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;ERROR: Une erreur a été commise</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="continue">
+<h3><span class="section-number">7.4.2</span><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">continue</span></code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">airplane_seat</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">airplane_seat</span> <span class="o">==</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Dans cet avion il y a un siège numéro %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">airplane_seat</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">contin</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* ... */</span>
+
+    <span class="nl">contin</span> <span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="break">
+<h3><span class="section-number">7.4.3</span><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">break</span></code> peut être utilisé dans une boucle ou dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Il permet d'interrompre l'execution de la boucle ou de la structure <code class="docutils literal notranslate"><span class="pre">switch</span></code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code> (c.f. <a class="reference internal" href="#switch"><span class="std std-numref">Section 7.2.2</span></a>).</p>
+</div>
+<div class="section" id="return">
+<h3><span class="section-number">7.4.4</span><code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#return" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">return</span></code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code class="docutils literal notranslate"><span class="pre">void</span></code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span> <span class="n">password</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">password</span> <span class="o">==</span> <span class="mi">4710</span> <span class="cm">/* MacGuyver: A Retrospective 1986 */</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">open_door</span><span class="p">();</span>
+        <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="hll">        <span class="k">return</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">tries</span><span class="o">++</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">alert_security_guards</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/7/8">Exercice 7.8</a>: Faute d'erreur</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/9">Exercice 7.9</a>: Cas appropriés</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/10">Exercice 7.10</a>: Comptons sur les caractères</p>
+<p><a class="reference external" href="../exercises.html#exercise/7/11">Exercice 7.11</a>: Esperluette conditionnelle</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="20-datatype.html"
+       title="Chapitre précédent">← <span class="section-number">6</span>Types de données</a>
+  </li>
+  <li class="next">
+    <a href="30-processus.html"
+       title="Chapitre suivant"><span class="section-number">8</span>Programmes et Processus →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

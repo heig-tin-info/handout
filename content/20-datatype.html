@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>6Types de données</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="7Structures de contrôle" href="25-control-structures.html" />
+  <link rel="prev" title="5Opérateurs" href="17-operators.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Types de données</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#typage" class="reference internal">Typage</a></li>
+                
+                  <li class="toctree-l2"><a href="#stockage-et-interpretation" class="reference internal">Stockage et interprétation</a></li>
+                
+                  <li class="toctree-l2"><a href="#boutisme" class="reference internal">Boutisme</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-nombres-entiers" class="reference internal">Les nombres entiers</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-nombres-reels" class="reference internal">Les nombres réels</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-caracteres" class="reference internal">Les caractères</a></li>
+                
+                  <li class="toctree-l2"><a href="#chaine-de-caracteres" class="reference internal">Chaîne de caractères</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-booleens" class="reference internal">Les booléens</a></li>
+                
+                  <li class="toctree-l2"><a href="#enumerations" class="reference internal">Énumérations</a></li>
+                
+                  <li class="toctree-l2"><a href="#type-incomplet" class="reference internal">Type incomplet</a></li>
+                
+                  <li class="toctree-l2"><a href="#type-vide-void" class="reference internal">Type vide (void)</a></li>
+                
+                  <li class="toctree-l2"><a href="#promotion-implicite" class="reference internal">Promotion implicite</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">6</span>Types de données</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="17-operators.html"
+       title="Chapitre précédent">← <span class="section-number">5</span>Opérateurs</a>
+  </li>
+  <li class="next">
+    <a href="25-control-structures.html"
+       title="Chapitre suivant"><span class="section-number">7</span>Structures de contrôle →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="types-de-donnees">
+<h1><span class="section-number">6</span>Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="typage">
+<h2><span class="section-number">6.1</span>Typage<a class="headerlink" href="#typage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.</p>
+<p>Aussi, les langages de programmation sont dits <strong>typés</strong> lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et <strong>non typés</strong> lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages <strong>typés</strong> et heureusement C est un langage fortement typé.</p>
+<p>Les types de données ne se bornent pas qu'aux informations numériques, il existe des types plus complexes qui permettent par exemple de traiter des caractères tels que <code class="docutils literal notranslate"><span class="pre">A</span></code> ou <code class="docutils literal notranslate"><span class="pre">B</span></code>. Ce chapitre à pour objectif de familiariser le lecteur aux différents types de données disponibles en C.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Standard ISO</p>
+<p>Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme <strong>ISO 80000-2</strong> qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?</p>
+</div>
+</div>
+<div class="section" id="stockage-et-interpretation">
+<span id="storage"></span><h2><span class="section-number">6.2</span>Stockage et interprétation<a class="headerlink" href="#stockage-et-interpretation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets de bytes. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.</p>
+<p>Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une signification?</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>01000000 01001001 00001111 11011011
+</pre></div>
+</div>
+<p>Il pourrait s'agir :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>de 4 caractères de 8-bits :</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">01000000</span></code> <code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">01001001</span></code> <code class="docutils literal notranslate"><span class="pre">I</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">00001111</span></code> <code class="docutils literal notranslate"><span class="pre">\x0f</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">11011011</span></code> <code class="docutils literal notranslate"><span class="pre">Û</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>ou de 4 nombres de 8-bits: <code class="docutils literal notranslate"><span class="pre">64</span></code>, <code class="docutils literal notranslate"><span class="pre">73</span></code>, <code class="docutils literal notranslate"><span class="pre">15</span></code>, <code class="docutils literal notranslate"><span class="pre">219</span></code>,</p></li>
+<li><p>ou de deux nombres de 16-bits <code class="docutils literal notranslate"><span class="pre">18752</span></code> et <code class="docutils literal notranslate"><span class="pre">56079</span></code>,</p></li>
+<li><p>ou alors un seul nombre de 32-bit <code class="docutils literal notranslate"><span class="pre">3675212096</span></code>.</p></li>
+<li><p>Peut-être est-ce le nombre <code class="docutils literal notranslate"><span class="pre">-40331460896358400.000000</span></code> lu en <em>little endian</em>,</p></li>
+<li><p>ou encore <code class="docutils literal notranslate"><span class="pre">3.141592</span></code> lu en <em>big endian</em>.</p></li>
+</ul>
+<p>Qu'en pensez-vous ?</p>
+<p>Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective: &quot;c'est forcément PI la bonne réponse&quot;, rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.</p>
+<p>Le typage permet de résoudre toute ambiguïté.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">union</span> <span class="p">{</span>
+        <span class="kt">uint8_t</span> <span class="n">u8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+        <span class="kt">uint16_t</span> <span class="n">u16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="kt">uint32_t</span> <span class="n">u32</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">f32</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="n">b01000000</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01001001</span><span class="p">,</span> <span class="mi">0</span><span class="n">b00001111</span><span class="p">,</span> <span class="mi">0</span><span class="n">b11011011</span> <span class="p">};</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;&#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hhu, %hhu, %hhu, %hhu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hu, %hu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span>
+    <span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 3 to byte 0</span>
+        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff0000</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 1 to byte 2</span>
+        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff00</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 2 to byte 1</span>
+        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff000000</span><span class="p">)</span> <span class="c1">// byte 0 to byte 3</span>
+    <span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boutisme">
+<span id="endianess"></span><h2><span class="section-number">6.3</span>Boutisme<a class="headerlink" href="#boutisme" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-default">
+<img alt="../_images/endian.jpg" src="../_images/endian.jpg" />
+</div>
+<p>La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé <em>endianess</em>. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les oeufs à la coque par le petit bout (petit boutisme/<em>little endian</em>), la répression incite les rebelles à manger leurs oeufs par le gros bout (gros boutisme/<em>big endian</em>).</p>
+<p>Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en <em>big endian</em> alors que d'autres sont en <em>little endian</em>. C'est à dire que si une information est stockée en mémoire comme suit :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[0x40, 0x49, 0xf, 0xdb]
+</pre></div>
+</div>
+<p>Faut-il la lire de gauche à droite ou de droite à gauche? Cela vous paraît trivial, mais si cet exemple était mentionné dans un livre rédigé en arabe, quelle serait alors votre réponse ?</p>
+<p>Imaginons qu'un programme exécuté sur un microcontrôleur <em>big-endian</em> 8-bit envoie par Bluetooth la valeur <code class="docutils literal notranslate"><span class="pre">1'111'704'645</span></code>, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants: <code class="docutils literal notranslate"><span class="pre">0x42,</span> <span class="pre">0x43,</span> <span class="pre">0x44,</span> <span class="pre">0x45</span></code>. L'ordinateur qui reçoit les informations décode <code class="docutils literal notranslate"><span class="pre">1'162'101'570</span></code>. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.</p>
+</div>
+<div class="section" id="les-nombres-entiers">
+<h2><span class="section-number">6.4</span>Les nombres entiers<a class="headerlink" href="#les-nombres-entiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les nombres entiers sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des <a class="reference external" href="https://fr.wikipedia.org/wiki/Entier_relatif">entiers relatifs</a>.</p>
+<p>Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.</p>
+<div class="section" id="les-entiers-naturels">
+<h3><span class="section-number">6.4.1</span>Les entiers naturels<a class="headerlink" href="#les-entiers-naturels" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En mathématiques, un <a class="reference external" href="https://fr.wikipedia.org/wiki/Entier_naturel">entier naturel</a> est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{N} = {0, 1, 2, 3, ...}\]</div>
+<p>En informatique, ces nombres sont par conséquent <strong>non signés</strong>, et peuvent prendre des valeurs comprises entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(2^N-1\)</span> où <span class="math notranslate nohighlight">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Il faut naturellement que l'ordinateur sur lequel s'exécute le programme soit capable de supporter le nombre de bits demandé par le programmeur.</p>
+<p>En C, on nomme ce type de donnée <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> étant le dénominatif du latin <em>integer</em> signifiant &quot;entier&quot;.</p>
+<p>Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 15%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Profondeur</p></th>
+<th class="head"><p>Minimum</p></th>
+<th class="head"><p>Maximum</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8 bits</p></td>
+<td><p>0</p></td>
+<td><p>255 (<span class="math notranslate nohighlight">\(2^8 - 1\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>16 bits</p></td>
+<td><p>0</p></td>
+<td><p>65'535 (<span class="math notranslate nohighlight">\(2^{16} - 1\)</span>)</p></td>
+</tr>
+<tr class="row-even"><td><p>32 bits</p></td>
+<td><p>0</p></td>
+<td><p>4'294'967'295 (<span class="math notranslate nohighlight">\(2^{32} - 1\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>64 bits</p></td>
+<td><p>0</p></td>
+<td><p>18'446'744'073'709'551'616 (<span class="math notranslate nohighlight">\(2^{64} - 1\)</span>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Notez l'importance du <span class="math notranslate nohighlight">\(-1\)</span> dans la définition du maximum, car la valeur minimum <span class="math notranslate nohighlight">\(0\)</span> fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.</p>
+</div>
+<div class="section" id="les-entiers-relatifs">
+<h3><span class="section-number">6.4.2</span>Les entiers relatifs<a class="headerlink" href="#les-entiers-relatifs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Mathématiquement un entier relatif appartient à l'ensemble <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}\]</div>
+<p>Les entiers relatifs sont des nombres <strong>signés</strong> et donc ils peuvent être <strong>négatifs</strong>, <strong>nuls</strong> ou <strong>positifs</strong> et peuvent prendre des valeurs comprises entre <span class="math notranslate nohighlight">\(-2^{N-1}\)</span> et <span class="math notranslate nohighlight">\(+2^{N-1}-1\)</span> où <span class="math notranslate nohighlight">\(N\)</span> correspond au nombre de bits avec lesquels la valeur numérique sera stockée en mémoire. Notez l'asymétrie entre la borne positive et négative.</p>
+<p>En C on dit que ces nombres sont <code class="docutils literal notranslate"><span class="pre">signed</span></code>. Il est par conséquent correct d'écrire <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">int</span></code> bien que le préfixe <code class="docutils literal notranslate"><span class="pre">signed</span></code> soit optionnel, car le standard définit qu'un entier est par défaut signé. La raison à cela relève plus du lourd historique de C qu'à des préceptes logiques et rationnels.</p>
+<p>Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Profondeur</p></th>
+<th class="head"><p>Minimum</p></th>
+<th class="head"><p>Maximum</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8 bits</p></td>
+<td><p>-128</p></td>
+<td><p>+127</p></td>
+</tr>
+<tr class="row-odd"><td><p>16 bits</p></td>
+<td><p>-32'768</p></td>
+<td><p>+32'767</p></td>
+</tr>
+<tr class="row-even"><td><p>32 bits</p></td>
+<td><p>-2'147'483'648</p></td>
+<td><p>+2'147'483'647</p></td>
+</tr>
+</tbody>
+</table>
+<p>En mémoire ces nombres sont stockés en utilisant le <a class="reference internal" href="15-numeration.html#twos-complement"><span class="std std-ref">complément à deux</span></a> qui fait l'objet d'une section à part entière.</p>
+</div>
+<div class="section" id="les-entiers-bornes">
+<h3><span class="section-number">6.4.3</span>Les entiers bornés<a class="headerlink" href="#les-entiers-bornes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :</p>
+<ul class="simple">
+<li><p>Signé ou non signé</p></li>
+<li><p>Nombre de bits avec lesquels l'information est stockée en mémoire</p></li>
+</ul>
+<p>À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur <code class="docutils literal notranslate"><span class="pre">signed</span></code> était optionnel, le préfix <code class="docutils literal notranslate"><span class="pre">long</span></code> ne pouvait s'appliquer qu'au type <code class="docutils literal notranslate"><span class="pre">int</span></code> et <code class="docutils literal notranslate"><span class="pre">long</span></code> et la confusion entre <code class="docutils literal notranslate"><span class="pre">long</span></code> (préfixe) et <code class="docutils literal notranslate"><span class="pre">long</span></code> (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.</p>
+<div class="section" id="types-standards">
+<h4><span class="section-number">6.4.3.1</span>Types standards<a class="headerlink" href="#types-standards" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La construction d'un type entier C est la suivante :</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/ansi-integers.svg"><img alt="Entiers standardisés **C89**" src="../_images/ansi-integers.svg" width="100%" /></a>
+</div>
+<p>Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins <span class="math notranslate nohighlight">\(N\)</span> bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au <a class="reference internal" href="#standard-integers"><span class="std std-numref">Tableau 6.1</span></a>.</p>
+<span id="standard-integers"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tableau 6.1 </span><span class="caption-text">Types entiers standards</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Signe</p></th>
+<th class="head"><p>Profondeur</p></th>
+<th class="head"><p>Format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p>?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHAR_BIT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code></p></td>
+<td><p>signed</p></td>
+<td><p>au moins 8 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code></p></td>
+<td><p>unsigned</p></td>
+<td><p>au moins 8 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">short</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">int</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">short</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">short</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>signed</p></td>
+<td><p>au moins 16 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%hi</span></code></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>unsigned</p></td>
+<td><p>au moins 16 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%hu</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>unsigned</p></td>
+<td><p>au moins 32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%u</span></code></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>signed</p></td>
+<td><p>au moins 32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>unsigned</p></td>
+<td><p>au moins 32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%u</span></code></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">int</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">long</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>signed</p></td>
+<td><p>au moins 32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%li</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>unsigned</p></td>
+<td><p>au moins 32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%lu</span></code></p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">int</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">long</span> <span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>signed</p></td>
+<td><p>au moins 64 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%lli</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">int</span></code></div>
+</div>
+</td>
+<td><p>unsigned</p></td>
+<td><p>au moins 64 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%llu</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Avec l'avènement de <strong>C99</strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdint.h</span></code>. Cette bibliothèque standard offre les types suivants :</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/c99-integers.svg"><img alt="Entiers standardisés **C99**" src="../_images/c99-integers.svg" width="100%" /></a>
+</div>
+</div>
+<div class="section" id="types-reformes">
+<h4><span class="section-number">6.4.3.2</span>Types réformés<a class="headerlink" href="#types-reformes" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
+<span id="stdint"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tableau 6.2 </span><span class="caption-text">Entiers standard définis par <code class="docutils literal notranslate"><span class="pre">stdint</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Signe</p></th>
+<th class="head"><p>Profondeur</p></th>
+<th class="head"><p>Format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint8_t</span></code></p></td>
+<td><p>unsigned</p></td>
+<td><p>8 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int8_t</span></code></p></td>
+<td><p>signed</p></td>
+<td><p>8 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint16_t</span></code></p></td>
+<td><p>unsigned</p></td>
+<td><p>16 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%hu</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int16_t</span></code></p></td>
+<td><p>signed</p></td>
+<td><p>16 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%hi</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint32_t</span></code></p></td>
+<td><p>unsigned</p></td>
+<td><p>32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%u</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int32_t</span></code></p></td>
+<td><p>signed</p></td>
+<td><p>32 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint64_t</span></code></p></td>
+<td><p>unsigned</p></td>
+<td><p>64 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%llu</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int64_t</span></code></p></td>
+<td><p>signed</p></td>
+<td><p>64 bits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%lli</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>À ces types s'ajoutent les types <strong>rapides</strong> (<em>fast</em>) et <strong>minimums</strong> (<em>least</em>). Un type nommé <code class="docutils literal notranslate"><span class="pre">uint_least32_t</span></code> garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p>
+<p>Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/1">Exercice 6.1</a>: Expressions arithmétiques entières</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/2">Exercice 6.2</a>: Débordement</p>
+</div>
+<div class="section" id="modele-de-donnee">
+<h4><span class="section-number">6.4.3.3</span>Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Comme nous l'avons évoqué plus haut, la taille des entiers <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, ... n'est pas précisément définie par le standard. On sait qu'un <code class="docutils literal notranslate"><span class="pre">int</span></code> contient <strong>au moins</strong> 16-bits mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment conscensieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
+<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code class="docutils literal notranslate"><span class="pre">int</span></code> comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code class="docutils literal notranslate"><span class="pre">int</span></code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?</p>
+<p>La première solution est de toujours utiliser les types proposés par <code class="docutils literal notranslate"><span class="pre">&lt;stdint.h&gt;</span></code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-number">Tableau 6.3 </span><span class="caption-text">Modèle de données</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Modèle de donnée</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">size_t</span></code></p></th>
+<th class="head"><p>Système d'exploitation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>LP32</strong></p></td>
+<td><p>16</p></td>
+<td><p>16</p></td>
+<td><p>32</p></td>
+<td></td>
+<td><p>32</p></td>
+<td><p>Windows 16-bits, Apple Macintosh (très vieux)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ILP32</strong></p></td>
+<td><p>16</p></td>
+<td><p>32</p></td>
+<td><p>32</p></td>
+<td><p>64</p></td>
+<td><p>32</p></td>
+<td><p>Windows x86, Linux/Unix 32-bits</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LLP64</strong></p></td>
+<td><p>16</p></td>
+<td><p>32</p></td>
+<td><p>32</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> x86-64, <a class="reference external" href="https://en.wikipedia.org/wiki/MinGW">MinGW</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LP64</strong></p></td>
+<td><p>16</p></td>
+<td><p>32</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Unix">Unix</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Linux">Linux</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/MacOS">macOS</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Cygwin">Cygwin</a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ILP64</strong></p></td>
+<td><p>16</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/HAL_Computer_Systems">HAL</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/SPARC">SPARC</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SILP64</strong></p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/UNICOS">UNICOS</a> (Super ordinateur)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="les-nombres-reels">
+<h2><span class="section-number">6.5</span>Les nombres réels<a class="headerlink" href="#les-nombres-reels" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Mathématiquement, les <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el">nombres réels</a> <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la <a class="reference external" href="https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique">précision arithmétique</a> est contrainte.</p>
+<p>Au début de l'ère des ordinateurs, il n'était possible de stocker que des nombres entiers, mais
+le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La transition s'est faite progressivement, d'abord par l'apparition de la <a class="reference external" href="https://fr.wikipedia.org/wiki/Virgule_fixe">virgule fixe</a>, puis par la <a class="reference external" href="https://fr.wikipedia.org/wiki/Virgule_flottante">virgule flottante</a>.</p>
+<p>Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement né) avec le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zuse_4">Zuse's Z4</a>, du nom de son inventeur <a class="reference external" href="https://fr.wikipedia.org/wiki/Konrad_Zuse">Konrad Zuse</a>.</p>
+<div class="section" id="virgule-fixe">
+<h3><span class="section-number">6.5.1</span>Virgule fixe<a class="headerlink" href="#virgule-fixe" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+                , / 2^0     ----&gt; 83 / 1 = 83
+</pre></div>
+</div>
+<p>Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre <code class="docutils literal notranslate"><span class="pre">0b01010011</span></code> avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisé par 8 (<span class="math notranslate nohighlight">\(2^3\)</span>). On parviens alors à exprimer une grandeur réelle comportant une epartie décimale :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+          ,       / 2^3     ----&gt; 83 / 8 = 10.375
+</pre></div>
+</div>
+<p>Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens, est incapable sans information additionnelle d'interpréter correctement la position de la virgule puisque sa position n'est encodée nulle part. Et puisque la position de cette virgule est dans l'intervalle <code class="docutils literal notranslate"><span class="pre">[0..7]</span></code>, il serait possible d'utiliser trois bits supplémentaires à cette fin :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
+└─┴─┴─┴─┴─┴─┴─┴─┘
+          ┌─┬─┬─┐
+          │0│1│1│ / 2^3     ----&gt; 83 / 8 = 10.375
+          └─┴─┴─┘
+</pre></div>
+</div>
+<p>Cette solution est élégante mais demande a présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
+</div>
+<div class="section" id="virgule-flottante">
+<h3><span class="section-number">6.5.2</span>Virgule flottante<a class="headerlink" href="#virgule-flottante" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' <a class="reference external" href="https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)">exposant</a> et le reste de l'information la <a class="reference external" href="https://fr.wikipedia.org/wiki/Mantisse">mantisse</a>, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la <a class="reference external" href="https://fr.wikipedia.org/wiki/Stomatopoda">mantis shrimp</a>, une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  exp.  mantisse
+┞─┬─┬─╀─┬─┬─┬─┬─┦
+│0│1│0│1│0│0│1│1│ = 2^4 + 2^1 + 2^0 = 16 + 2 + 1 = 19
+└─┴─┴─┴─┴─┴─┴─┴─┘
+   └────────────&gt; / 2^1 ----&gt; 19 / 2 = 9.5
+</pre></div>
+</div>
+<p>Notre construction nous permet toujours d'exprimer des grandeurs réelles mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="math notranslate nohighlight">\(1\cdot2^{7}=0.0078125\)</span> et <span class="math notranslate nohighlight">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
+<p>Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> ┌ Signe 1 bit
+ │        ┌ Exposant 8 bits
+ │        │                             ┌ Mantisse 23 bits
+ ┴ ───────┴──────── ────────────────────┴──────────────────────────
+┞─╀─┬─┬─┬─┬─┬─┬─┐┌─╀─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│1│0│0│0│0││0│1│0│0│1│0│0│0││1│1│0│1│1│1│1│1││0│1│0│0│0│0│0│1│
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+</pre></div>
+</div>
+<p>Peu à peu, nous nous rapprochons du <em>Standard for Floating-Point Arithmetic</em> (<a class="reference external" href="https://fr.wikipedia.org/wiki/IEEE_754">IEEE 754</a>). La formule de base est la suivante :</p>
+<div class="math notranslate nohighlight">
+\[x = s\cdot b^e\sum_{k=1}^p f_k\cdot b^{-k},\; e_{\text{min}} \le e \le e_{\text{max}}\]</div>
+<p>Avec :</p>
+<dl class="simple">
+<dt><span class="math notranslate nohighlight">\(s\)</span></dt><dd><p>Signe (<span class="math notranslate nohighlight">\(\pm1\)</span>)</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(b\)</span></dt><dd><p>Base de l'exposant, un entier <span class="math notranslate nohighlight">\(&gt;1\)</span>.</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(e\)</span></dt><dd><p>Exposant, un entier entre <span class="math notranslate nohighlight">\(e_\text{min}\)</span> et <span class="math notranslate nohighlight">\(e_\text{max}\)</span></p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(p\)</span></dt><dd><p>Précision, nombre de digits en base <span class="math notranslate nohighlight">\(b\)</span> de la mantisse</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(f_k\)</span></dt><dd><p>Entier non négatif plus petit que la base <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</dd>
+</dl>
+<p>Etant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code class="docutils literal notranslate"><span class="pre">binary16</span></code>, <code class="docutils literal notranslate"><span class="pre">binary32</span></code> ou <code class="docutils literal notranslate"><span class="pre">binary64</span></code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés.</p>
+<p>Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (<a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_unit">FPU</a> pour <em>Floating point unit</em>) sont les suivants :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>IEEE-754</p></th>
+<th class="head"><p>Exposant</p></th>
+<th class="head"><p>Mantisse</p></th>
+<th class="head"><p>Signe</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary32</span></code></p></td>
+<td><p>8 bits</p></td>
+<td><p>23 bits</p></td>
+<td><p>1 bit</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary64</span></code></p></td>
+<td><p>11 bits</p></td>
+<td><p>52 bits</p></td>
+<td><p>1 bit</p></td>
+</tr>
+</tbody>
+</table>
+<p>Prenons le temps de faire quelques observations.</p>
+<ul class="simple">
+<li><p>Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.</p></li>
+<li><p>La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.</p></li>
+<li><p>La base ayant été fixée à 2, il est possible d'exprimer <span class="math notranslate nohighlight">\(1/1024\)</span> sans erreur de précision mais pas <span class="math notranslate nohighlight">\(1/1000\)</span>.</p></li>
+<li><p>Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a class="reference external" href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante.</p></li>
+<li><p>Bien que le standard <strong>C99</strong> définisse les types virgule flottante <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> et <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, ils ne definissent pas la précision avec lesquelles ces nombres sont exprimés car cela dépend de l'architecture du processeur utilisé.</p></li>
+</ul>
+</div>
+<div class="section" id="simple-precision">
+<h3><span class="section-number">6.5.3</span>Simple précision<a class="headerlink" href="#simple-precision" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le type <code class="docutils literal notranslate"><span class="pre">float</span></code> aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\pm\inf\)</span> lorsque l'exposant vaut <code class="docutils literal notranslate"><span class="pre">0xff</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\((-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0\)</span> lorsque la mantisse vaut <code class="docutils literal notranslate"><span class="pre">0x00000</span></code></p></li>
+</ul>
+<p>La valeur de 1.0 est encodée :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0\:01111111\:00000000000000000000000_2 &amp;= \text{3f80}\: \text{0000}_{16} \\
+&amp;= (-1)^0 \cdot 2^{127-127} \cdot \frac{(2^{23} + 0)}{2^{23}} \\
+&amp;= 2^{0} \cdot 1.0 = 1.0\\\end{split}\]</div>
+<p>La valeur maximale exprimable :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0\:11111110\:11111111111111111111111_2 &amp;= \text{7f7f}\: \text{ffff}_{16} \\
+&amp;= (-1)^0 \cdot 2^{254-127} \cdot \frac{(2^{23} + 838'607)}{2^{23}} \\
+&amp;≈ 2^{127} \cdot 1.9999998807 \\
+&amp;≈ 3.4028234664 \cdot 10^{38}\end{split}\]</div>
+<p>La valeur de <span class="math notranslate nohighlight">\(-\pi\)</span> (pi) est :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}1\:10000000\:10010010000111111011011_2 &amp;= \text{4049}\: \text{0fdb}_{16} \\
+&amp;= (-1)^1 \cdot 2^{128-127} \cdot \frac{(2^{23} + 4'788'187)}{2^{23}} \\
+&amp;≈ -1 \cdot 2^{1} \cdot 1.5707963 \\
+&amp;≈ -3.14159274101\end{split}\]</div>
+<p>Vient s'ajouter les valeurs particulières suivantes :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>0 00000000 00000000000000000000000₂ ≡ 0000 0000₁₆ ≡ 0
+0 11111111 00000000000000000000000₂ ≡ 7f80 0000₁₆ ≡ inf
+1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
+</pre></div>
+</div>
+</div>
+<div class="section" id="double-precision">
+<h3><span class="section-number">6.5.4</span>Double précision<a class="headerlink" href="#double-precision" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La double précision est similaire à la simple précision mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/3">Exercice 6.3</a>: Expressions arithmétiques flottantes</p>
+</div>
+</div>
+<div class="section" id="les-caracteres">
+<h2><span class="section-number">6.6</span>Les caractères<a class="headerlink" href="#les-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>97 ≡ 0b1100001 ≡ &#39;a&#39;
+</pre></div>
+</div>
+<p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a class="reference external" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui ANSI qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.</p>
+<div class="figure align-default" id="id7">
+<img alt="../_images/ascii-1963.svg" src="../_images/ascii-1963.svg" /><p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Table ASCII ASA X3.4 établie en 1963</span></span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.</p>
+<div class="figure align-default" id="id8">
+<img alt="../_images/ascii.svg" src="../_images/ascii.svg" /><p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Table ANSI INCITS 4-1986 (standard actuel)</span></span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres.</p>
+<p>Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
+<div class="figure align-default" id="id9">
+<img alt="../_images/latin1.svg" src="../_images/latin1.svg" /><p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</span></span><a class="headerlink" href="#id9" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Ce standard a généré durant des décénies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
+<p>Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a class="reference external" href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
+<p>Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), les coréens (한국어), les chinois avec le chinois simplifé (官话) et le chinois traditionel (官話), les japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
+<p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
+<div class="figure align-default" id="id10">
+<img alt="../_images/encoding-trends.svg" src="../_images/encoding-trends.svg" /><p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</span></span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a class="reference external" href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en <a class="reference internal" href="05-introduction.html#thompson"><span class="std std-ref">introduction</span></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code class="docutils literal notranslate"><span class="pre">ह</span></code> utilisé en Sanskrit possède la dénomination unicode <a class="reference external" href="https://unicode-table.com/en/0939/">U+0939</a> et s'encode sur 3 octets: <code class="docutils literal notranslate"><span class="pre">0xE0</span> <span class="pre">0xA4</span> <span class="pre">0xB9</span></code></p>
+<p>En programmation C, un caractère <code class="docutils literal notranslate"><span class="pre">char</span></code> ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
+<p>Voici par exemple comment déclarer une variable contenant le caractère dollar :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;$&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Attention donc au caractère <code class="docutils literal notranslate"><span class="pre">'3'</span></code> qui correspond à la grandeur hexadécimale <code class="docutils literal notranslate"><span class="pre">0x33</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;3&#39;</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chaine-de-caracteres">
+<h2><span class="section-number">6.7</span>Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une chaîne de caractères est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code class="docutils literal notranslate"><span class="pre">NUL</span></code> ou <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
+<p>La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">Hello</span></code> sera en mémoire stockée en utilisant les codes ASCII suivants.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  H   E   L   L   O  \0
+┌───┬───┬───┬───┬───┬───┐
+│ 72│101│108│108│111│ 0 │
+└───┴───┴───┴───┴───┴───┘
+
+ 0x00 01001000
+ 0x01 01100101
+ 0x02 01101100
+ 0x03 01101100
+ 0x04 01101111
+ 0x05 00000000
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/6/4">Exercice 6.4</a>: Constantes littérales caractérielles</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/5">Exercice 6.5</a>: Chaînes de formatage</p>
+</div>
+<div class="section" id="les-booleens">
+<span id="booleans"></span><h2><span class="section-number">6.8</span>Les booléens<a class="headerlink" href="#les-booleens" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code class="docutils literal notranslate"><span class="pre">true</span></code>) et <em>faux</em> (<code class="docutils literal notranslate"><span class="pre">false</span></code>) et destiné à représenter les états en logique booléenne (Nom venant de <a class="reference external" href="https://fr.wikipedia.org/wiki/George_Boole">George Boole</a> fondateur de l'algèbre éponyme).</p>
+<p>La convention est d'utiliser <code class="docutils literal notranslate"><span class="pre">1</span></code> pour mémoriser un état vrai, et <code class="docutils literal notranslate"><span class="pre">0</span></code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
+<p>Les booléens ont étés introduits formellement en C avec <strong>C99</strong> et nécessitent l'inclusion du fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdbool.h</span></code>. Avant cela le type boolean était <code class="docutils literal notranslate"><span class="pre">_Bool</span></code> et définir les états vrais et faux étaient à la charge du dévelopeur.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+
+<span class="kt">bool</span> <span class="n">is_enabled</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">has_tail</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléenes avec les prefixes <code class="docutils literal notranslate"><span class="pre">is_</span></code> ou <code class="docutils literal notranslate"><span class="pre">has_</span></code>.</p>
+<p>A titre d'exemple, si l'on souhaite stocker le genre d'un individu (male, ou femelle), on pourrait utiliser la variable <code class="docutils literal notranslate"><span class="pre">is_male</span></code>.</p>
+</div>
+<div class="section" id="enumerations">
+<h2><span class="section-number">6.9</span>Énumérations<a class="headerlink" href="#enumerations" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ce style d'écriture permet de définir un type de données contenant un
+nombre fini de valeurs. Ces valeurs sont nommées textuellement et
+définies numériquement dans le type énuméré.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">ColorCode</span> <span class="p">{</span>
+    <span class="n">COLOR_BLACK</span><span class="p">,</span> <span class="c1">// Vaut zéro par défaut</span>
+    <span class="n">COLOR_BROWN</span><span class="p">,</span>
+    <span class="n">COLOR_RED</span><span class="p">,</span>
+    <span class="n">COLOR_ORANGE</span><span class="p">,</span>
+    <span class="n">COLOR_YELLOW</span><span class="p">,</span>
+    <span class="n">COLOR_GREEN</span><span class="p">,</span>
+    <span class="n">COLOR_BLUE</span><span class="p">,</span>
+    <span class="n">COLOR_PURPLE</span><span class="p">,</span>
+    <span class="n">COLOR_GRAY</span><span class="p">,</span>
+    <span class="n">COLOR_WHITE</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Le type d'une énumération est apparenté à un entier <code class="docutils literal notranslate"><span class="pre">int</span></code>. Sans autre précisions, la première valeur vaut 0, la suivante 1, etc.</p>
+<p>Il est possible de forcer les valeurs de la manière suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">enum</span> <span class="n">country_codes</span> <span class="p">{</span>
+    <span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
+    <span class="n">CODE_FRANCE</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span>
+    <span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">}</span> <span class="n">CountryCodes</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>ou encore :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">enum</span> <span class="n">country_codes</span> <span class="p">{</span>
+    <span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
+    <span class="n">CODE_BELGIUM</span><span class="o">=</span><span class="mi">32</span>
+    <span class="n">CODE_FRANCE</span><span class="p">,</span> <span class="c1">// Sera 33...</span>
+    <span class="n">CODE_SPAIN</span><span class="p">,</span> <span class="c1">// Sera 34...</span>
+    <span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">}</span> <span class="n">CountryCodes</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter des éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.</p>
+<p>L'utilisation d'un type énuméré peut être la suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">call</span><span class="p">(</span><span class="k">enum</span> <span class="n">country_codes</span> <span class="n">code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">CODE_SWITZERLAND</span> <span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Switzerland, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">CODE_BELGIUM</span> <span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Belgium, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">CODE_FRANCE</span> <span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling France, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span> <span class="o">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;No calls to this country are allowed yet!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-incomplet">
+<h2><span class="section-number">6.10</span>Type incomplet<a class="headerlink" href="#type-incomplet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un type incomplet est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.</p>
+</div>
+<div class="section" id="type-vide-void">
+<h2><span class="section-number">6.11</span>Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le type <code class="docutils literal notranslate"><span class="pre">void</span></code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong> car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">shout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hey!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code class="docutils literal notranslate"><span class="pre">memcpy</span></code></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">src</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">void</span></code> ne peut être utilisé que dans les contextes suivants :</p>
+<ul class="simple">
+<li><p>Comme paramètre unique d'une fonction, indiquant que cette fonction n'a pas de paramètres <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">main(void)</span></code></p></li>
+<li><p>Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">display(char</span> <span class="pre">c)</span></code></p></li>
+<li><p>Comme pointeur dont le type de destination n'est pas spécifié <code class="docutils literal notranslate"><span class="pre">void*</span> <span class="pre">ptr</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="promotion-implicite">
+<h2><span class="section-number">6.12</span>Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Généralement le type <code class="docutils literal notranslate"><span class="pre">int</span></code> est de la même largeur que le bus mémoire de donnée d'un ordinateur.
+C'est à dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
+du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoire, sont au moins
+assez grand pour  contenir un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>Aussi, la plupart des types de taille inférieure à <code class="docutils literal notranslate"><span class="pre">int</span></code> sont automatiquement et implicitement promu en <code class="docutils literal notranslate"><span class="pre">int</span></code>. Le résultat de <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> lorsque <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> sont des <code class="docutils literal notranslate"><span class="pre">char</span></code> sera automatiquement un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 55%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>char</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Rightarrow\)</span></p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-even"><td><p>short</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Rightarrow\)</span></p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Rightarrow\)</span></p></td>
+<td><p>long</p></td>
+</tr>
+<tr class="row-even"><td><p>long</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Rightarrow\)</span></p></td>
+<td><p>float</p></td>
+</tr>
+<tr class="row-odd"><td><p>float</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Rightarrow\)</span></p></td>
+<td><p>double</p></td>
+</tr>
+</tbody>
+</table>
+<p>Notez qu'il n'y a pas de promotion numérique vers le type <em>short</em>. On
+passe directement à un type <em>int</em>.</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/6">Exercice 6.6</a>: Expressions mixtes</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/7">Exercice 6.7</a>: Promotion numérique</p>
+<div class="section" id="effets-du-transtypage">
+<h3><span class="section-number">6.12.1</span>Effets du transtypage<a class="headerlink" href="#effets-du-transtypage" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le changement de type forcé (transtypage) entre des variables de
+différents types engendre des effets de bord qu'il faut connaître. Lors
+d'un changement de type vers un type dont le pouvoir de représentation
+est plus important, il n'y a pas de problème. A l'inverse, on peut
+rencontrer des erreurs sur la précision ou une modification radicale de
+la valeur représentée !</p>
+<div class="section" id="transtypage-d-un-entier-en-reel">
+<h4><span class="section-number">6.12.1.1</span>Transtypage d'un entier en réel<a class="headerlink" href="#transtypage-d-un-entier-en-reel" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La conversion d'un entier (signé ou non) en réel (<em>double</em> ou <em>float</em>)
+n'a pas d'effet particulier. Le type</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">l</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">l</span><span class="p">;</span> <span class="c1">// valeur : 3 =&gt; OK</span>
+</pre></div>
+</div>
+<p>A l'exécution, la valeur de <span class="math notranslate nohighlight">\(d\)</span> sera la même que <span class="math notranslate nohighlight">\(l\)</span>.</p>
+</div>
+<div class="section" id="transtypage-d-un-reel-en-entier">
+<h4><span class="section-number">6.12.1.2</span>Transtypage d'un réel en entier<a class="headerlink" href="#transtypage-d-un-reel-en-entier" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La conversion d'un nombre réel (<em>double</em> ou <em>float</em>) en entier (signé)
+doit être étudié pour éviter tout problème. Le type entier doit être
+capable de recevoir la valeur (attention aux valeurs maxi).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 3 =&gt; perte de précision</span>
+</pre></div>
+</div>
+<p>A l'exécution, la valeur de <span class="math notranslate nohighlight">\(l\)</span> sera la partie entière de
+<span class="math notranslate nohighlight">\(d\)</span>. Il n'y a pas d'arrondi.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mh">0x12345678</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 0x5678 =&gt; changement de valeur</span>
+</pre></div>
+</div>
+<p>La variable sh (<em>short</em> sur 16 bit) ne peut contenir la valeur réelle.
+Lors du transtypage, il y a modification de la valeur ce qui conduit à
+des erreurs de calculs par la suite.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=-</span><span class="mi">123</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
+</pre></div>
+</div>
+<p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
+également à une modification de la valeur numérique.</p>
+</div>
+<div class="section" id="transtypage-d-un-double-en-float">
+<h4><span class="section-number">6.12.1.3</span>Transtypage d'un double en float<a class="headerlink" href="#transtypage-d-un-double-en-float" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
+pose un problème de précision de calcul.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
+</pre></div>
+</div>
+<p>A l'exécution, il y a une perte de précision lors de la conversion ce
+qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/8">Exercice 6.8</a>: Conversion de types</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/9">Exercice 6.9</a>: Un casting explicite</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/10">Exercice 6.10</a>: Opérateurs de relation et opérateurs logiques</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/11">Exercice 6.11</a>: Casses tête</p>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/6/12">Exercice 6.12</a>: Evaluation d'expressions</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/13">Exercice 6.13</a>: Précision des flottants</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/14">Exercice 6.14</a>: Type de donnée idoine</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/15">Exercice 6.15</a>: Construction d'expressions</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/16">Exercice 6.16</a>: Somme des entiers</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/17">Exercice 6.17</a>: Système de vision industriel</p>
+<p><a class="reference external" href="../exercises.html#exercise/6/18">Exercice 6.18</a>: Missile Patriot</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="17-operators.html"
+       title="Chapitre précédent">← <span class="section-number">5</span>Opérateurs</a>
+  </li>
+  <li class="next">
+    <a href="25-control-structures.html"
+       title="Chapitre suivant"><span class="section-number">7</span>Structures de contrôle →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

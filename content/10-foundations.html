@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>3Généralités du langage</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="4Numération" href="15-numeration.html" />
+  <link rel="prev" title="2La programmation" href="07-programming.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Généralités du langage</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#l-alphabet" class="reference internal">L'alphabet</a></li>
+                
+                  <li class="toctree-l2"><a href="#fin-de-lignes-eol" class="reference internal">Fin de lignes (EOL)</a></li>
+                
+                  <li class="toctree-l2"><a href="#mots-cles" class="reference internal">Mots clés</a></li>
+                
+                  <li class="toctree-l2"><a href="#identifiers" class="reference internal">Identificateurs</a></li>
+                
+                  <li class="toctree-l2"><a href="#variables" class="reference internal">Variables</a></li>
+                
+                  <li class="toctree-l2"><a href="#les-constantes" class="reference internal">Les constantes</a></li>
+                
+                  <li class="toctree-l2"><a href="#constantes-litterales" class="reference internal">Constantes littérales</a></li>
+                
+                  <li class="toctree-l2"><a href="#operateur-d-affectation" class="reference internal">Operateur d'affectation</a></li>
+                
+                  <li class="toctree-l2"><a href="#commentaires" class="reference internal">Commentaires</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3</span>Généralités du langage</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="07-programming.html"
+       title="Chapitre précédent">← <span class="section-number">2</span>La programmation</a>
+  </li>
+  <li class="next">
+    <a href="15-numeration.html"
+       title="Chapitre suivant"><span class="section-number">4</span>Numération →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="generalites-du-langage">
+<h1><span class="section-number">3</span>Généralités du langage<a class="headerlink" href="#generalites-du-langage" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.</p>
+<p>Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
+<div class="section" id="l-alphabet">
+<h2><span class="section-number">3.1</span>L'alphabet<a class="headerlink" href="#l-alphabet" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a class="reference external" href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+0 1 2 3 4 5 6 7 8 9
+</pre></div>
+</div>
+<p>La séparation des symboles est assurée par <a class="reference external" href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est à dire qu'ils ne sont pas directement visible ni à l'écran, ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le <a class="reference external" href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code class="docutils literal notranslate"><span class="pre">¶</span></code> pour indiquer les fin de paragraphes qui sont également des caractères non-imprimables.</p>
+<p>On nomme les caractères non-imprimables soit par leur acronyme <code class="docutils literal notranslate"><span class="pre">LF</span></code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash</em> <code class="docutils literal notranslate"><span class="pre">\n</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>LF    \n   Line feed (retour à la ligne)
+VT    \v   Vertical tab
+FF    \f   New page
+TAB   \t   Horizontal tab
+CR    \r   Carriage return (retour charriot)
+SPACE \040 Space
+</pre></div>
+</div>
+<p>La ponctuation utilise les 29 symboles graphiques suivants :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>! # % ^ &amp; * ( _ ) - + = ~ [ ] &#39; | \ ; : &quot; { } , . &lt; &gt; / ?
+</pre></div>
+</div>
+<p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> est le digraphe de <code class="docutils literal notranslate"><span class="pre">[</span></code> et <code class="docutils literal notranslate"><span class="pre">??&lt;</span></code> est le trigraphe de <code class="docutils literal notranslate"><span class="pre">{</span></code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.</p>
+<p>Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le <a class="reference external" href="https://www.ioccc.org/">The International Obfuscated C Code Contest</a> qui prime des codes les plus subtils et illisibles comme le code suivant écrit par <a class="reference external" href="https://www.ioccc.org/2015/mills2">Chris Mills</a>. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="kt">void</span> <span class="nf">e</span><span class="p">(</span>
+<span class="kt">int</span> <span class="n">L</span><span class="p">){</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="k">for</span><span class="p">(</span> <span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span>
+<span class="mi">16</span><span class="o">&gt;</span><span class="n">l</span><span class="p">;</span>                           <span class="n">o</span><span class="o">+=</span><span class="n">l</span>
+<span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span>                            <span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">o</span><span class="o">+=</span><span class="n">l</span>                     <span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="p">{</span> <span class="p">;</span> <span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span>                    <span class="n">pread</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">O</span><span class="o">+</span><span class="n">o</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;</span>
+<span class="mi">2</span><span class="p">)</span><span class="cm">/*                    */</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="n">L</span><span class="o">&gt;&gt;=</span><span class="mi">7</span><span class="o">&amp;</span><span class="n">o</span><span class="p">;</span>
+<span class="n">L</span><span class="o">%=</span><span class="mi">1</span>                     <span class="o">&lt;&lt;</span><span class="n">l</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="o">?</span><span class="mi">256</span><span class="o">-</span><span class="n">L</span><span class="o">?</span><span class="n">e</span><span class="p">(</span>
+<span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>                            <span class="p">,</span><span class="n">c</span><span class="o">||</span>
+<span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="n">c</span>                            <span class="o">=</span><span class="n">L</span><span class="p">),</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                            <span class="o">:</span><span class="p">(</span> <span class="n">O</span>
+<span class="o">+=</span><span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="o">&amp;</span><span class="mi">7</span><span class="p">)</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">o</span><span class="o">+</span><span class="n">l</span><span class="o">&gt;&gt;</span><span class="mi">3</span><span class="p">,</span><span class="n">I</span><span class="o">=</span><span class="n">L</span><span class="p">)</span><span class="o">:</span><span class="n">putchar</span><span class="p">(</span>
+    <span class="n">L</span><span class="p">);</span> <span class="p">}</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">char</span><span class="o">**</span><span class="n">o</span><span class="p">){</span>
+                <span class="k">for</span><span class="p">(</span>
+            <span class="cm">/*          ////      */</span>
+            <span class="n">open</span><span class="p">(</span><span class="mi">1</span><span class="p">[</span><span class="n">o</span><span class="p">],</span><span class="mi">0</span><span class="p">);</span> <span class="p">;</span> <span class="n">e</span><span class="p">(</span><span class="n">I</span><span class="o">++</span>
+            <span class="p">))</span>                    <span class="p">;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fin-de-lignes-eol">
+<h2><span class="section-number">3.2</span>Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À l'instar des premières machines à écrire, les <a class="reference external" href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a class="reference external" href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a class="reference external" href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (<code class="docutils literal notranslate"><span class="pre">CR</span></code>) et une nouvelle ligne (<code class="docutils literal notranslate"><span class="pre">LF</span></code>) ou en C <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>. Les premiers <a class="reference external" href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code class="docutils literal notranslate"><span class="pre">\r</span></code>. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<p>Fort heureusement depuis que Apple a migré son système sur une base <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LF</span></code> ou <code class="docutils literal notranslate"><span class="pre">\n</span></code> sur les ordinateurs POSIX comme Linux, Unix ou MacOS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CRLF</span></code> ou <code class="docutils literal notranslate"><span class="pre">\r\n</span></code> sur les ordinateurs Windows.</p></li>
+</ul>
+<p>Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (<code class="docutils literal notranslate"><span class="pre">EOL</span></code>: <em>End Of Line</em>) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/crlf.svg" src="../_images/crlf.svg" /><p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Distinction de différents caractères non-imprimables</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="mots-cles">
+<h2><span class="section-number">3.3</span>Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span>        <span class="k">do</span>           <span class="k">goto</span>         <span class="k">return</span>      <span class="k">typedef</span>       <span class="kt">_Complex</span>
+<span class="k">break</span>       <span class="kt">double</span>       <span class="k">if</span>           <span class="kt">short</span>       <span class="k">union</span>         <span class="n">_Imaginary</span>
+<span class="k">case</span>        <span class="k">else</span>         <span class="kr">inline</span>       <span class="kt">signed</span>      <span class="kt">unsigned</span>
+<span class="kt">char</span>        <span class="k">enum</span>         <span class="kt">int</span>          <span class="k">sizeof</span>      <span class="kt">void</span>
+<span class="k">const</span>       <span class="k">extern</span>       <span class="kt">long</span>         <span class="k">static</span>      <span class="k">volatile</span>
+<span class="k">continue</span>    <span class="kt">float</span>        <span class="k">register</span>     <span class="k">struct</span>      <span class="k">while</span>
+<span class="k">default</span>     <span class="k">for</span>          <span class="kr">restrict</span>     <span class="k">switch</span>      <span class="kt">_Bool</span>
+</pre></div>
+</div>
+<p>Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span>        <span class="kr">restrict</span>     <span class="kt">short</span>        <span class="kr">inline</span>
+<span class="kt">_Bool</span>       <span class="k">register</span>     <span class="k">goto</span>         <span class="n">_imaginary</span>
+<span class="kt">long</span>
+</pre></div>
+</div>
+<p>Notons que les mots clés <code class="docutils literal notranslate"><span class="pre">true</span></code> et <code class="docutils literal notranslate"><span class="pre">false</span></code> décrits à la <a class="reference internal" href="20-datatype.html#booleans"><span class="std std-numref">Section 6.8</span></a> ne sont pas standardisés en C mais ils le sont en C++.</p>
+</div>
+<div class="section" id="identifiers">
+<span id="identificateurs"></span><h2><span class="section-number">3.4</span>Identificateurs<a class="headerlink" href="#identifiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/identifier.svg" src="../_images/identifier.svg" /><p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Grammaire d'un identificateur C</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>En addition de ceci, voici quelques règles :</p>
+<ul class="simple">
+<li><p>Un identificateur ne peut pas être l'un des mots clés du langage.</p></li>
+<li><p>Les identificateurs sont sensible à la <a class="reference external" href="https://fr.wikipedia.org/wiki/Casse_(typographie)">casse</a>.</p></li>
+<li><p>Le standard C99, se réserve l'usage de tous les identificateurs débutant par <code class="docutils literal notranslate"><span class="pre">_</span></code> suivi d'une lettre majuscule ou un autre <em>underscore</em> <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+<li><p>Le standard <a class="reference external" href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, se réserve l'usage de tous les identificateurs finissant par <code class="docutils literal notranslate"><span class="pre">_t</span></code>.</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>Expression régulière</p>
+<p>Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'expression régulière suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>^[a-zA-Z_][a-zA-Z0-9_]*$
+</pre></div>
+</div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/3/1">Exercice 3.1</a>: Validité des identificateurs</p>
+</div>
+<div class="section" id="variables">
+<h2><span class="section-number">3.5</span>Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une variable est un symbole qui associe un nom <strong>identificateur</strong> à une <strong>valeur</strong>. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.</p>
+<p>Une variable est définie par :</p>
+<ul class="simple">
+<li><p>Son <strong>nom</strong> (<em>name</em>), c'est à dire l'identificateur associé au symbole.</p></li>
+<li><p>Son <strong>type</strong> (<em>type</em>), qui est la convention d'interprétation du contenu binaire en mémoire.</p></li>
+<li><p>Sa <strong>valeur</strong> (<em>value</em>), qui est le contenu interprêté connaissant son type.</p></li>
+<li><p>Son <strong>adresse</strong> (<em>address</em>) qui est l'emplacement mémoire ou la représentation binaire sera enregistrée</p></li>
+<li><p>Sa <strong>portée</strong> (<em>scope</em>) qui est la portion de code ou le symbole est défini et accessible.</p></li>
+<li><p>Sa <strong>visibilité</strong> (<em>visibility</em>) qui ne peut être que <em>public</em> en C.</p></li>
+</ul>
+<div class="section" id="declaration">
+<h3><span class="section-number">3.5.1</span>Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;€&#39;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">temperature</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">neptune_stone_height</span> <span class="o">=</span> <span class="mf">376.86</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Jarvis, il faut parfois savoir &quot;</span>
+    <span class="s">&quot;courir avant de savoir marcher.&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Il n'est pas nécessaire d'associer une valeur initiale à une variable, une déclaration peut se faire sans initialisation comme montré dans l'exemple suivant dans lequel on réserver trois variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/3/2">Exercice 3.2</a>: Affectation de variables</p>
+</div>
+<div class="section" id="convention-de-nommage">
+<h3><span class="section-number">3.5.2</span>Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il existe autant de conventions de nommage qu'il y a de développeurs mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :</p>
+<ul class="simple">
+<li><p>La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.</p></li>
+<li><p>Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguité.</p></li>
+<li><p>Le nom doit participer à l'auto-documentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.</p></li>
+</ul>
+<p>Selon les standards adoptés chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un <em>underscore</em> (<code class="docutils literal notranslate"><span class="pre">_</span></code>) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 33%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Convention</p></th>
+<th class="head"><p>Nom français</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>camelcase</em></p></td>
+<td><p>Casse de chameau</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">userLoginCount</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>snakecase</em></p></td>
+<td><p>Casse de serpent</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">user_login_count</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><em>pascalcase</em></p></td>
+<td><p>Casse de Pascal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UserLoginCount</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>kebabcase</em></p></td>
+<td><p>Casse de kebab</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">user-login-count</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variable-metasyntaxiques">
+<h3><span class="section-number">3.5.3</span>Variable métasyntaxiques<a class="headerlink" href="#variable-metasyntaxiques" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique">métasyntaxiques</a>. En français les valeurs <code class="docutils literal notranslate"><span class="pre">toto</span></code>, <code class="docutils literal notranslate"><span class="pre">titi</span></code>, <code class="docutils literal notranslate"><span class="pre">tata</span></code> et <code class="docutils literal notranslate"><span class="pre">tutu</span></code> sont régulièrement utilisées tandis qu'en anglais
+<code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>, <code class="docutils literal notranslate"><span class="pre">baz</span></code> et <code class="docutils literal notranslate"><span class="pre">qux</span></code> sont régulièrement utilisés. Les valeurs <code class="docutils literal notranslate"><span class="pre">spam</span></code>, <code class="docutils literal notranslate"><span class="pre">ham</span></code> et <code class="docutils literal notranslate"><span class="pre">eggs</span></code> sont quant à elles souvent utilisée en Python, en référence au sketch <a class="reference external" href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> des Monthy Python.</p>
+<p>Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonnance d'un problème plus spécifique.</p>
+<p>On touvera une <a class="reference external" href="http://www.catb.org/jargon/html/M/metasyntactic-variable.html">table</a> des différents noms les plus courants utilisés dans différentes langues.</p>
+</div>
+</div>
+<div class="section" id="les-constantes">
+<h2><span class="section-number">3.6</span>Les constantes<a class="headerlink" href="#les-constantes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une constante par opposition à une variable voit son contenu fixe et immutable.</p>
+<p>Formellement, une constante se déclare comme une variable mais préfixée du mot-clé <code class="docutils literal notranslate"><span class="pre">const</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">double</span> <span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">12.67</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il ne faut pas confondre la <strong>constante</strong> qui est une variable immutable, stockée en mémoire et une <strong>macro</strong> qui appartient au pré-processeur. Le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">math.h</span></code> définit par exemple la constante <code class="docutils literal notranslate"><span class="pre">M_PI</span></code> sous forme de macro.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define M_PI 3.14159265358979323846</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="constantes-litterales">
+<h2><span class="section-number">3.7</span>Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>      <span class="c1">// Grandeur valant le nombre d&#39;heures sur l&#39;horloge du Palais du Quirinal à Rome</span>
+<span class="mi">12u</span>    <span class="c1">// Grandeur non signée</span>
+<span class="mi">6l</span>     <span class="c1">// Grandeur entière signée codée sur un entier long</span>
+<span class="mi">42ul</span>   <span class="c1">// Grandeur entière non signée codée sur un entier long</span>
+<span class="mo">010</span>    <span class="c1">// Grandeur octale valant 8 en décimal</span>
+<span class="mh">0xa</span>    <span class="c1">// Grandeur hexadécimale valant 10 en décimal</span>
+<span class="mi">0</span><span class="n">b111</span>  <span class="c1">// Grandeur binaire valant 7 en décimal</span>
+<span class="mf">33.</span>    <span class="c1">// Grandeur réelle exprimée en virgule flottante</span>
+<span class="sc">&#39;0&#39;</span>    <span class="c1">// Grandeur caractère vallant 48 en décimal</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/3/3">Exercice 3.3</a>: Constances littérales</p>
+</div>
+<div class="section" id="operateur-d-affectation">
+<h2><span class="section-number">3.8</span>Operateur d'affectation<a class="headerlink" href="#operateur-d-affectation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans les exemples ci-dessus on utilise l'opérateur d'affectation pour associer une valeur à une variable.</p>
+<p>Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal <code class="docutils literal notranslate"><span class="pre">=</span></code> or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.</p>
+<p>Pour mieux saisir la nuance, considérons le programme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Mathématiquement, la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code car oui, C est un langage impératif (c.f. <a class="reference internal" href="05-introduction.html#paradigms"><span class="std std-numref">Section 1.7</span></a>). Ainsi, dans l'ordre on lit :</p>
+<ol class="arabic simple">
+<li><p>J'assigne la valeur 42 à la variable symbolisée par <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p>Puis, j'assigne la valeur de la variable <code class="docutils literal notranslate"><span class="pre">b</span></code> au contenu de <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+</ol>
+<p>Comme on ne connaît pas la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code>, avec cet exemple, on ne peut pas connaître la valeur de <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p>Certaines langages de programmation ont été sensibilisé à l'importance de cette distinction et dans les langages <strong>F#</strong>, <strong>OCaml</strong>, <strong>R</strong> ou <strong>S</strong>, l'opérateur d'affectation est <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> et une affectation pourrait s'écrire par exemple: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;-</span> <span class="pre">42</span></code> ou <code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>.</p>
+<p>En C, l'opérateur d'égalité que nous verrons plus loin s'écrit <code class="docutils literal notranslate"><span class="pre">==</span></code> (deux <code class="docutils literal notranslate"><span class="pre">=</span></code> concaténés).</p>
+<p>Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est à dire que la valeur à <strong>droite</strong> de l'opérateur est affectée à la variable située à <strong>gauche</strong> de l'opérateur.</p>
+<p>S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur <code class="docutils literal notranslate"><span class="pre">+</span></code> et dans l'exemple suivant il faut lire que <code class="docutils literal notranslate"><span class="pre">42</span></code> est assigné à <code class="docutils literal notranslate"><span class="pre">c</span></code>, que la valeur de <code class="docutils literal notranslate"><span class="pre">c</span></code> est ensuite assignée à <code class="docutils literal notranslate"><span class="pre">b</span></code> et enfin la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> est assignée à <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Nous verrons <a class="reference internal" href="17-operators.html#precedence"><span class="std std-numref">Section 5.14</span></a> que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.</p>
+<p><a class="reference external" href="../exercises.html#exercise/3/4">Exercice 3.4</a>: Affectations simples</p>
+<p><a class="reference external" href="../exercises.html#exercise/3/5">Exercice 3.5</a>: Trop d'égalités</p>
+</div>
+<div class="section" id="commentaires">
+<h2><span class="section-number">3.9</span>Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme en français et ainsi qu'illustré par la <a class="reference internal" href="#proust"><span class="std std-numref">Fig. 3.3</span></a>, il est possible d'annoter un programme avec des <strong>commentaires</strong>. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.</p>
+<div class="figure align-default" id="id8">
+<span id="proust"></span><img alt="../_images/proust.svg" src="../_images/proust.svg" /><p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Les carafes dans la Vivonne</span></span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Il existe deux manière d'écrire un commentaire en C :</p>
+<ul>
+<li><p>Les commentaires de lignes (depuis C99)</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// This is a single line comment.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Les commentaires de block</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This is a</span>
+<span class="cm">   Multi-line comment */</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Les commentaires sont parsés par le pré-processeur, aussi ils n'influencent pas le fonctionnement d'un programme mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois mais comme tout développement doit être si possible <strong>réutilisable</strong>,
+il est plus probable qu'il soit lu part d'autres développeurs.</p>
+<p>En conséquence, il est important de clarifier toute zone d'ombre lorsque que l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.</p>
+<p>D'une façon générale, les commentaires servent à expliquer <strong>pourquoi</strong> et non <strong>comment</strong>. Un bon programme devrait pouvoir se passer de commentaires mais un programme sans commentaires n'est pas
+nécessairement un bon programme.</p>
+<p>Notons que l'on ne commente jamais des portions de code et ce pour plusieurs raisons :</p>
+<ol class="arabic simple">
+<li><p>Les outils de <em>refactoring</em> ne pourront pas accéder du code commenté</p></li>
+<li><p>La syntaxe ne pourra plus être vérifiée par l'IDE</p></li>
+<li><p>Les outils de gestion de configuration (e.g. Git) devraient être utilisés à cette fin</p></li>
+</ol>
+<p>Si d'aventure vous souhaitez exclure temporairement du code de la compilation, utilisez la directive de pré-processeur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
+désactiver cette portion de code.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if 0</span><span class="c"> // TODO: Check if divisor could still be null at this point.</span>
+<span class="c">if (divisor == 0) {</span>
+<span class="c">    return -1; // Error</span>
+<span class="c">}</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>D'une manière générale l'utilisaton des commentaires ne devrait pas être utilisée pour :</p>
+<ul class="simple">
+<li><p>Désactiver temporairement une portion de code sans l'effacer.</p></li>
+<li><p>Expliquer le <strong>comment</strong> du fonctionnement du code.</p></li>
+<li><p>Faire dans le dythyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.</p></li>
+<li><p>Créer de jolies séparations telles que <code class="docutils literal notranslate"><span class="pre">/*************************/</span></code>.</p></li>
+</ul>
+<p>Exemple d'entête de fichier :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Short description of the translation unit.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Author: John Doe &lt;john@doe.com&gt;</span>
+<span class="cm"> *</span>
+<span class="cm"> * Long description of the translation unit.</span>
+<span class="cm"> *</span>
+<span class="cm"> * NOTE: Important notes about this code</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>Le format des commentaires est par essence libre au développeur mais il est généralement souhaité que :</p>
+<ul class="simple">
+<li><p>Les commentaires soient concis et précis.</p></li>
+<li><p>Les commentaires soient écrits en anglais.</p></li>
+</ul>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/3/6">Exercice 3.6</a>: Verbosité</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="07-programming.html"
+       title="Chapitre précédent">← <span class="section-number">2</span>La programmation</a>
+  </li>
+  <li class="next">
+    <a href="15-numeration.html"
+       title="Chapitre suivant"><span class="section-number">4</span>Numération →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

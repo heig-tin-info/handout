@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>15Bibliothèques</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="16Préprocesseur" href="75-preprocessor.html" />
+  <link rel="prev" title="14Pointeurs" href="60-pointers.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Bibliothèques</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#exemple-libgmp" class="reference internal">Exemple: libgmp</a></li>
+                
+                  <li class="toctree-l2"><a href="#exemple-ncurses" class="reference internal">Exemple: ncurses</a></li>
+                
+                  <li class="toctree-l2"><a href="#bibliotheques-statiques" class="reference internal">Bibliothèques statiques</a></li>
+                
+                  <li class="toctree-l2"><a href="#bibliotheques-dynamiques" class="reference internal">Bibliothèques dynamiques</a></li>
+                
+                  <li class="toctree-l2"><a href="#bibliotheques-standard" class="reference internal">Bibliothèques standard</a></li>
+                
+                  <li class="toctree-l2"><a href="#autres-bibliotheques" class="reference internal">Autres bibliothèques</a></li>
+                
+                  <li class="toctree-l2"><a href="#macos-x-library" class="reference internal">MacOS X Library</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">15</span>Bibliothèques</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="60-pointers.html"
+       title="Chapitre précédent">← <span class="section-number">14</span>Pointeurs</a>
+  </li>
+  <li class="next">
+    <a href="75-preprocessor.html"
+       title="Chapitre suivant"><span class="section-number">16</span>Préprocesseur →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="bibliotheques">
+<h1><span class="section-number">15</span>Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="figure align-default" id="id1">
+<img alt="https://upload.wikimedia.org/wikipedia/commons/4/4b/Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg" />
+<p class="caption"><span class="caption-number">Fig. 15.1 </span><span class="caption-text">Bibliothèque du Trinity College de Dublin</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> est une de ces fonctionnalités et offerte par le header <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code> faisant partie de la bibliothèque <code class="docutils literal notranslate"><span class="pre">libc6</span></code>.</p>
+<p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> etant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a class="reference external" href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
+<p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
+<p>Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
+<div class="section" id="exemple-libgmp">
+<h2><span class="section-number">15.1</span>Exemple: libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Voyons ensemble le cas de <a class="reference external" href="https://packages.debian.org/buster/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <code class="docutils literal notranslate"><span class="pre">libgmp</span></code> est disponible pour différentes architectures <code class="docutils literal notranslate"><span class="pre">amd64</span></code>, <code class="docutils literal notranslate"><span class="pre">arm64</span></code>, <code class="docutils literal notranslate"><span class="pre">s390x</span></code>, <code class="docutils literal notranslate"><span class="pre">i386</span></code>, ... Un développement sur un Raspberry-PI nécessitera <code class="docutils literal notranslate"><span class="pre">arm64</span></code> alors qu'un développement sur un PC utilisera <code class="docutils literal notranslate"><span class="pre">amd64</span></code>. En <a class="reference external" href="https://packages.debian.org/buster/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fichier d&#39;en-tête C</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">gmp</span><span class="o">.</span><span class="n">h</span>
+
+<span class="c1"># Bibliothèque compilée pour l&#39;architecture visée (ici amd64)</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libgmp</span><span class="o">.</span><span class="n">a</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libgmp</span><span class="o">.</span><span class="n">so</span>
+
+<span class="c1"># Documentation de la libgmp</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">AUTHORS</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">README</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">changelog</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">copyright</span>
+</pre></div>
+</div>
+<p>On a donc :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">gmp.h</span></code></dt><dd><p>Fichier d'en-tête à include dans un fichier source pour utiliser les fonctionnalités</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">libgmp.a</span></code></dt><dd><p>Bibliothèque <strong>statique</strong> qui contient l'implémentation en langage machine des fonctionnalités à référer au <em>linker</em> lors de la compilation</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">libgmp.so</span></code></dt><dd><p>Bibliothèque <strong>dynamique</strong> qui contient aussi l'implémentation en langage machine des fonctionnalités</p>
+</dd>
+</dl>
+<p>Imaginons que l'on souhaite bénéficier des fonctionnalités de cette bibliothèque pour le calcul d'orbites pour un satellite d'observation de Jupyter. Pour prendre en main cet <em>libary</em> on écrit ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gmp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">radix</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;19810983098510928501928599999999999990&quot;</span><span class="p">;</span>
+
+    <span class="n">mpz_t</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="n">mpz_init</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">mpz_set_ui</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">mpz_set_str</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">radix</span><span class="p">);</span>
+
+    <span class="n">mpz_out_str</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">radix</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+
+    <span class="n">mpz_add_ui</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span> <span class="c1">// Addition</span>
+
+    <span class="n">mpz_out_str</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">radix</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+
+    <span class="n">mpz_mul</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// Square</span>
+
+    <span class="n">mpz_out_str</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">radix</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+
+    <span class="n">mpz_clear</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puis on compile :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c
+<span class="go">gmp.c:1:10: fatal error: gmp.h: No such file or directory</span>
+<span class="gp">#</span>include &lt;gmp.h&gt;
+<span class="go">        ^~~~~~~</span>
+<span class="go">compilation terminated.</span>
+</pre></div>
+</div>
+<p>Aïe! La bibliothèque n'est pas installée.</p>
+<dl>
+<dt>Debian/Ubuntu</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo apt-get install libgmp-dev
+</pre></div>
+</div>
+</dd>
+<dt>Mac OS X</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> brew install gmp
+</pre></div>
+</div>
+</dd>
+<dt>Windows</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ERREUR 404</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Deuxième tentative :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c
+<span class="go">/tmp/cc2FxDSy.o: In function `main&#39;:</span>
+<span class="go">gmp.c:(.text+0x6f): undefined reference to `__gmpz_init&#39;</span>
+<span class="go">gmp.c:(.text+0x80): undefined reference to `__gmpz_set_ui&#39;</span>
+<span class="go">gmp.c:(.text+0x96): undefined reference to `__gmpz_set_str&#39;</span>
+<span class="go">gmp.c:(.text+0xb3): undefined reference to `__gmpz_out_str&#39;</span>
+<span class="go">gmp.c:(.text+0xd5): undefined reference to `__gmpz_add_ui&#39;</span>
+<span class="go">gmp.c:(.text+0xf2): undefined reference to `__gmpz_out_str&#39;</span>
+<span class="go">gmp.c:(.text+0x113): undefined reference to `__gmpz_mul&#39;</span>
+<span class="go">gmp.c:(.text+0x130): undefined reference to `__gmpz_out_str&#39;</span>
+<span class="go">gmp.c:(.text+0x146): undefined reference to `__gmpz_clear&#39;</span>
+<span class="go">collect2: error: ld returned 1 exit status</span>
+</pre></div>
+</div>
+<p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <code class="docutils literal notranslate"><span class="pre">__gmpz_add_ui</span></code>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c -lgmp
+
+<span class="gp">$</span> ./a.out
+<span class="go">19810983098510928501928599999999999990</span>
+<span class="go">19810983098510928501928600000000000002</span>
+<span class="go">392475051329485669436248957939688603493163430354043714007714400000000000004</span>
+</pre></div>
+</div>
+<p>Cette manière de faire utilise le fichier <code class="docutils literal notranslate"><span class="pre">libgmp.so</span></code> qui est la bibliothèque <strong>dynamique</strong>, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.</p>
+<p>Alternativement on peut compiler le même programme en utilisant la librairie <strong>statique</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
+</pre></div>
+</div>
+<p>c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> ~167 KiB
+<span class="gp">$</span> gcc gmp.c -l:libgmp.a
+<span class="gp">$</span> size a.out
+<span class="go">text    data     bss     dec     hex filename</span>
+<span class="go">155494     808      56  156358   262c6 ./a.out</span>
+
+<span class="gp">#</span> ~8.5 KiB
+<span class="gp">$</span> gcc gmp.c -lgmp
+<span class="gp">$</span> size a.out
+<span class="go">text    data     bss     dec     hex filename</span>
+<span class="go">2752     680      16    3448     d78 ./a.out</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemple-ncurses">
+<h2><span class="section-number">15.2</span>Exemple: ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La bibliothèque <a class="reference external" href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a class="reference external" href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a class="reference external" href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
+<p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/linux-menuconfig.png" src="../_images/linux-menuconfig.png" />
+<p class="caption"><span class="caption-number">Fig. 15.2 </span><span class="caption-text">Exemple d'interface graphique écrite avec <cite>ncurses</cite>. Ici la configuration du noyau Linux.</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ncurses.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">initscr</span><span class="p">();</span>              <span class="c1">// Start curses mode</span>
+    <span class="n">printw</span><span class="p">(</span><span class="s">&quot;hello, world&quot;</span><span class="p">);</span> <span class="c1">// Print Hello World</span>
+    <span class="n">refresh</span><span class="p">();</span>              <span class="c1">// Print it on to the real screen</span>
+    <span class="n">getch</span><span class="p">();</span>                    <span class="c1">// Wait for user input</span>
+    <span class="n">endwin</span><span class="p">();</span>               <span class="c1">// End curses mode</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La compilation n'est possible que si :</p>
+<ol class="arabic simple">
+<li><p>La bibliothèque est installée sur l'ordinateur</p></li>
+<li><p>Le lien vers la bibliothèque dynamique est mentionné à la compilation</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc ncurses-hello.c -ohello -lncurses
+</pre></div>
+</div>
+</div>
+<div class="section" id="bibliotheques-statiques">
+<h2><span class="section-number">15.3</span>Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une <em>static library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.a</span></code> sur un système POSIX (Android, Mac OS, Linux, Unix)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.lib</span></code> sous Windows</p></li>
+</ul>
+<p>Une bibliothèque statique n'est rien d'autre qu'une archive d’un ou plusieurs objets. Rappelons-le un objet est le résultat d'une compilation.</p>
+<p>Par exemple si l'on souhaite écrire une bibliothèque statique pour le <a class="reference external" href="https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage">code de César</a> on écrira un fichier source <cite>caesar.c</cite>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">caesar</span><span class="p">(</span><span class="kt">char</span> <span class="n">str</span><span class="p">[],</span> <span class="kt">unsigned</span> <span class="n">key</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">key</span> <span class="o">%=</span> <span class="mi">26</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="sc">&#39;a&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">&#39;z&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">c</span> <span class="o">+</span> <span class="n">key</span> <span class="o">&gt;</span> <span class="sc">&#39;z&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;z&#39;</span> <span class="o">+</span> <span class="sc">&#39;a&#39;</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">key</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="sc">&#39;A&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">&#39;Z&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">c</span> <span class="o">+</span> <span class="n">key</span> <span class="o">&gt;</span> <span class="sc">&#39;Z&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;Z&#39;</span> <span class="o">+</span> <span class="sc">&#39;A&#39;</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">key</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ainsi qu'un fichier d'en-tête <cite>caesar.h</cite>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Function that compute the Caesar cipher</span>
+<span class="cm"> * @param str input string</span>
+<span class="cm"> * @param key offset to add to each character</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">caesar</span><span class="p">(</span><span class="kt">char</span> <span class="n">str</span><span class="p">[],</span> <span class="kt">unsigned</span> <span class="n">key</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -c -o caesar.o caesar.c
+<span class="gp">$</span> ar rcs caesar.a caesar.o
+</pre></div>
+</div>
+<p>Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;caesar.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define KEY 13</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">caesar</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">KEY</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Et de compiler le tout. Ici on utilise <code class="docutils literal notranslate"><span class="pre">-I.</span></code> et <code class="docutils literal notranslate"><span class="pre">-L.</span></code> pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc encrypt.c -I. -L. -l:caesar.a
+</pre></div>
+</div>
+<p>La procédure sous Windows est plus compliquée et ne sera pas décrite ici.</p>
+</div>
+<div class="section" id="bibliotheques-dynamiques">
+<h2><span class="section-number">15.4</span>Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une <em>dynamic library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.so</span></code> sur un système POSIX (Android, Mac OS, Linux, Unix)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dll</span></code> sous Windows</p></li>
+</ul>
+<p>L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des <em>dll</em> localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.</p>
+<p>Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -shared -o libcaesar.so caesar.o
+</pre></div>
+</div>
+<p>Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas <strong>installer</strong> la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local <code class="docutils literal notranslate"><span class="pre">$(pwd</span> <span class="pre">.)</span></code>, en créant une <strong>variable d'environnement</strong> nommée <code class="docutils literal notranslate"><span class="pre">LIBRARY_PATH</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> gcc encrypt.c -I. -lcaesar
+</pre></div>
+</div>
+<p>Le problème est identique à l'exécution, car il faut spécifier (ici avec <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out ferrugineux
+<span class="go">sreehtvarhk</span>
+</pre></div>
+</div>
+<p>Car sinon c'est l'erreur :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out Hey?
+<span class="go">./a.out: error while loading shared libraries: libcaesar.so :</span>
+<span class="go">cannot open shared object file: No such file or directory</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bibliotheques-standard">
+<h2><span class="section-number">15.5</span>Bibliothèques standard<a class="headerlink" href="#bibliotheques-standard" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les bibliothèques standard (<a class="reference external" href="https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C">C standard library</a>) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.</p>
+<p>Le standard <strong>C99</strong> définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;assert.h&gt;</span></code></dt><dd><p>Contient la macro <code class="docutils literal notranslate"><span class="pre">assert</span></code> pour valider certains prérequis.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;complex.h&gt;</span></code></dt><dd><p>Pour manipuler les nombres complexes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;float.h&gt;</span></code></dt><dd><p>Contient les constantes qui définissent la précision des types flottants sur l'architecture cible. <code class="docutils literal notranslate"><span class="pre">float</span></code> et <code class="docutils literal notranslate"><span class="pre">double</span></code> n'ont pas besoin de cet en-tête pour être utilisés.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;limits.h&gt;</span></code></dt><dd><p>Contient les constantes qui définissent les limites des types entiers.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code></dt><dd><p>Fonctions mathématiques <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, ...</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdbool.h&gt;</span></code></dt><dd><p>Défini le type booléen et les constantes <code class="docutils literal notranslate"><span class="pre">true</span></code> et <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stddef.h&gt;</span></code></dt><dd><p>Défini certaines macros comme <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdint.h&gt;</span></code></dt><dd><p>Défini les types standard d'entiers (<code class="docutils literal notranslate"><span class="pre">int32_t</span></code>, <code class="docutils literal notranslate"><span class="pre">int_fast64_t</span></code>, ...).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></dt><dd><p>Permet l'accès aux entrées sorties standard (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">stderr</span></code>). Défini entre autre la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code></dt><dd><p>Permet l'allocation dynamique et défini <code class="docutils literal notranslate"><span class="pre">malloc</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;string.h&gt;</span></code></dt><dd><p>Manipulation des chaînes de caractères</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;time.h&gt;</span></code></dt><dd><p>Accès au fonctions lecture et de conversion de date et d'heure.</p>
+</dd>
+</dl>
+<p><a class="reference external" href="../exercises.html#exercise/15/1">Exercice 15.1</a>: Arc-cosinus</p>
+<p><a class="reference external" href="../exercises.html#exercise/15/2">Exercice 15.2</a>: Date</p>
+<div class="section" id="fonctions-d-interet">
+<h3><span class="section-number">15.5.1</span>Fonctions d'intérêt<a class="headerlink" href="#fonctions-d-interet" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code class="docutils literal notranslate"><span class="pre">sin</span></code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
+<div class="section" id="math">
+<h4><span class="section-number">15.5.1.1</span>Math<a class="headerlink" href="#math" title="Lien permanent vers ce titre">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Constantes</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">M_PI</span></code></p></td>
+<td><p>Valeur de <span class="math notranslate nohighlight">\(\pi\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">M_E</span></code></p></td>
+<td><p>Valeur de <span class="math notranslate nohighlight">\(e\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">M_SQRT1_2</span></code></p></td>
+<td><p>Valeur de <span class="math notranslate nohighlight">\(1/\sqrt(2)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fonction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(e^x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ldexp(x,n)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(x\cdot2^n\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log(x)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\log_{2}(x)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\log_{10}(x)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(x^y\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt(x)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cbrt(x)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt[3](x)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hypot(x,y)</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt(x^2 + y^2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ceil</span></code></p></td>
+<td><p>Arrondi à l'entier supérieur</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">floor</span></code></p></td>
+<td><p>Arrondi à l'entier inférieur</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="chaines-de-caracteres">
+<h4><span class="section-number">15.5.1.2</span>Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fonction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">strcopy(dst,</span> <span class="pre">src)</span></code></p></td>
+<td><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais sans nécessité de donner
+la taille de la chaîne puisqu'elle se termine par
+<code class="docutils literal notranslate"><span class="pre">\0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">memmove(dst,</span> <span class="pre">src,</span> <span class="pre">n)</span></code></p></td>
+<td><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais traite les cas
+particuliers lorsque les deux régions mémoire se
+superposent.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="types-de-donnees">
+<h4><span class="section-number">15.5.1.3</span>Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Test d'une propriété d'un caractère passé en paramètre</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fonction</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isalnum</span></code></p></td>
+<td><p>une lettre ou un chiffre</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isalpha</span></code></p></td>
+<td><p>une lettre</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iscntrl</span></code></p></td>
+<td><p>un caractère de commande</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isdigit</span></code></p></td>
+<td><p>un chiffre décimal</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isgraph</span></code></p></td>
+<td><p>un caractère imprimable ou le blanc</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">islower</span></code></p></td>
+<td><p>une lettre minuscule</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isprint</span></code></p></td>
+<td><p>un caractère imprimable (pas le blanc)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ispunct</span></code></p></td>
+<td><p>un caractère imprimable pas isalnum</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isspace</span></code></p></td>
+<td><p>un caractère d'espace blanc</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isupper</span></code></p></td>
+<td><p>une lettre majuscule</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isxdigit</span></code></p></td>
+<td><p>un chiffre hexadécimal</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="limites">
+<h4><span class="section-number">15.5.1.4</span>Limites<a class="headerlink" href="#limites" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Valeurs limites pour les entiers signés et non signés</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Constante</p></th>
+<th class="head"><p>Valeur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SCHAR\_MIN</span></code></p></td>
+<td><p>-128</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SCHAR\_MAX</span></code></p></td>
+<td><p>+127</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CHAR\_MIN</span></code></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CHAR\_MAX</span></code></p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SHRT\_MIN</span></code></p></td>
+<td><p>-32768</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SHRT\_MAX</span></code></p></td>
+<td><p>+32767</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">USHRT\_MAX</span></code></p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LONG\_MIN</span></code></p></td>
+<td><p>-2147483648</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">LONG\_MAX</span></code></p></td>
+<td><p>+2147483647</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ULONG\_MAX</span></code></p></td>
+<td><p>+4294967295</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DBL\_MAX</span></code></p></td>
+<td><p>1E+37 ou plus</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DBL\_EPSILON</span></code></p></td>
+<td><p>1E-9 ou moins</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="autres-bibliotheques">
+<h2><span class="section-number">15.6</span>Autres bibliothèques<a class="headerlink" href="#autres-bibliotheques" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>GNU C Library (<a class="reference external" href="https://www.gnu.org/software/libc/">glibc</a>)</dt><dd><ul>
+<li><p>C11</p></li>
+<li><p>POSIX.1-2008</p></li>
+<li><p>IEEE 754-2008</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="posix-c-library">
+<h3><span class="section-number">15.6.1</span>POSIX C Library<a class="headerlink" href="#posix-c-library" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la <em>toolchain</em> soit compatible <strong>C99</strong>. Il existe néanmoins toute une collection d'autres fonctions manquantes :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sharedmemory.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>La communicaton sur le réseau e.g. internet</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;arpa/inet.h&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;net/if.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Les tâches</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;thread.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Les traductions de chaînes p.ex. français vers anglais</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;iconv.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Les fonctions avancées de recherche de texte</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;regex.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Le log centralisé des messages (d'erreur)</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application <em>bare-metal</em>. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme <a class="reference external" href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> (ISO/IEC 9945).</p>
+<p>Généralement la vaste majorité des distributions Linux et Unix sont compatibles avec le standard POSIX et les bibliothèques ci-dessus seront disponibles à moins que vous ne visiez une architecture différente de celle sur laquelle s'exécute votre compilateur.</p>
+<p>Le support POSIX sous Windows (Win32) n'est malheureusement que partiel et il n'est pas standardisé.</p>
+<p>Un point d'entrée de l'API POSIX est la bibliothèque <code class="docutils literal notranslate"><span class="pre">&lt;unistd.h&gt;</span></code>.</p>
+</div>
+<div class="section" id="gnu-glibc">
+<h3><span class="section-number">15.6.2</span>GNU GLIBC<a class="headerlink" href="#gnu-glibc" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La bibliothèque portable <a class="reference external" href="https://www.gnu.org/software/gnulib/">GNULIB</a> est la bibliothèque standard référencée sous Linux par <code class="docutils literal notranslate"><span class="pre">libc6</span></code>.</p>
+</div>
+<div class="section" id="windows-c-library">
+<h3><span class="section-number">15.6.3</span>Windows C library<a class="headerlink" href="#windows-c-library" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La bibliothèque Windows <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windoes API</a> offre une interface au système de fichier, au registre windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.</p>
+<p>L'accès à cet API est offert par un unique point d'entrée <a class="reference external" href="https://en.wikipedia.org/wiki/Windows.h">windows.h</a> qui regroupe certains en-têtes standards (<code class="docutils literal notranslate"><span class="pre">&lt;stdarg.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;string.h&gt;</span></code>, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;winreg.h&gt;</span></code></dt><dd><p>Pour l'accès au registre Windows</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;wincon.h&gt;</span></code></dt><dd><p>L'accès à la console</p>
+</dd>
+</dl>
+<p>La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de <cite>LSTATUS</cite> pour la fonction <cite>RegCreateKeyExW &lt;https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw&gt;</cite> permettant de créer une entrée dans la base de registre.</p>
+<p>Un bon point d'entrée est le <a class="reference external" href="https://msdn.microsoft.com/library">Microsoft API and reference catalog</a>.</p>
+<p>Quelques observations :</p>
+<ul class="simple">
+<li><p>Officiellement Windows est compatible avec C89 (ANSI C) (c.f. <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019">C Language Reference</a>)</p></li>
+<li><p>L'API Windows n'est pas officiellement compatible avec C99, mais elle s'en approche, il n'y pas ou peu de documents expliquant les différences.</p></li>
+<li><p>Microsoft n'a aucune priorité pour développer son support C, il se focalise davantage sur C++ et C#, c'est pourquoi certains éléments du langage ne sont pas ou peu documentés.</p></li>
+<li><p>Les <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types">types standards Windows</a> différent de ceux proposés par C99. Par exemple <code class="docutils literal notranslate"><span class="pre">LONG32</span></code> remplace <code class="docutils literal notranslate"><span class="pre">int32_t</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="macos-x-library">
+<h2><span class="section-number">15.7</span>MacOS X Library<a class="headerlink" href="#macos-x-library" title="Lien permanent vers ce titre">¶</a></h2>
+<p>/usr/lib/libSystem.B.dylib</p>
+<p><a class="reference external" href="../exercises.html#exercise/15/3">Exercice 15.3</a>: Arc-cosinus</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="60-pointers.html"
+       title="Chapitre précédent">← <span class="section-number">14</span>Pointeurs</a>
+  </li>
+  <li class="next">
+    <a href="75-preprocessor.html"
+       title="Chapitre suivant"><span class="section-number">16</span>Préprocesseur →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

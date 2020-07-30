@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>9Entrées Sorties</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="10Fonctions" href="40-functions.html" />
+  <link rel="prev" title="8Programmes et Processus" href="30-processus.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Entrées Sorties</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#sorties-non-formatees" class="reference internal">Sorties non formatées</a></li>
+                
+                  <li class="toctree-l2"><a href="#sorties-formatees" class="reference internal">Sorties formatées</a></li>
+                
+                  <li class="toctree-l2"><a href="#printf" class="reference internal">printf</a></li>
+                
+                  <li class="toctree-l2"><a href="#entrees-formatees" class="reference internal">Entrées formatées</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">9</span>Entrées Sorties</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="30-processus.html"
+       title="Chapitre précédent">← <span class="section-number">8</span>Programmes et Processus</a>
+  </li>
+  <li class="next">
+    <a href="40-functions.html"
+       title="Chapitre suivant"><span class="section-number">10</span>Fonctions →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="entrees-sorties">
+<h1><span class="section-number">9</span>Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Comme nous l'avons vu (c.f. <a class="reference internal" href="30-processus.html#inputs-outputs"><span class="std std-numref">Section 8.1.3</span></a>) un programme dispose de canaux d'entrées sorties <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
+<p>La fonction phare est bien entendu <code class="docutils literal notranslate"><span class="pre">printf</span></code> pour le formatage de chaîne de caractères et <code class="docutils literal notranslate"><span class="pre">scanf</span></code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes :</p>
+<ul class="simple">
+<li><p>depuis/vers les canaux standards <code class="docutils literal notranslate"><span class="pre">printf</span></code>, <code class="docutils literal notranslate"><span class="pre">scanf</span></code></p></li>
+<li><p>depuis/vers un fichier quelconque <code class="docutils literal notranslate"><span class="pre">fprintf</span></code>, <code class="docutils literal notranslate"><span class="pre">fscanf</span></code></p></li>
+<li><p>depuis/vers une chaîne de caractères <code class="docutils literal notranslate"><span class="pre">sprintf</span></code>, <code class="docutils literal notranslate"><span class="pre">sscanf</span></code></p></li>
+</ul>
+<p>La liste citée est non exhaustive, mais largement documentée ici: <a class="reference external" href="http://man7.org/linux/man-pages/man3/stdio.3.html">&lt;stdio.h&gt;</a>.</p>
+<div class="section" id="sorties-non-formatees">
+<h2><span class="section-number">9.1</span>Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">putchar(char</span> <span class="pre">c)</span></code></dt><dd><p>Pour imprimer un caractère unique: <code class="docutils literal notranslate"><span class="pre">putchar('c')</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">puts(char[]</span> <span class="pre">str)</span></code></dt><dd><p>Pour imprimer une chaîne de caractères</p>
+</dd>
+</dl>
+<p><a class="reference external" href="../exercises.html#exercise/9/1">Exercice 9.1</a>: Mot du jour</p>
+</div>
+<div class="section" id="sorties-formatees">
+<h2><span class="section-number">9.2</span>Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code class="docutils literal notranslate"><span class="pre">123</span></code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Etape  Opération  Resultat  Reste
+1      123 / 10   12        3
+2      12 / 10    1         2
+3      1 / 10     0         1
+</pre></div>
+</div>
+<p>Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.</p>
+<p>Voici un exemple possible d'implémentation :</p>
+<div class="highlight-c notranslate" id="iota-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">^=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">^=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">^=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">start</span><span class="o">++</span><span class="p">,</span> <span class="n">end</span><span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">str</span> <span class="o">+</span> <span class="n">start</span><span class="p">,</span> <span class="n">str</span> <span class="o">+</span> <span class="n">end</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">my_itoa</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_negative</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">is_negative</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">rem</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">rem</span> <span class="o">+</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
+        <span class="n">num</span> <span class="o">/=</span> <span class="n">base</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">is_negative</span><span class="p">)</span>
+        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;-&#39;</span><span class="p">;</span>
+
+    <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+
+    <span class="n">reverse</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette implémentation pourrait être utilisée de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+    <span class="n">itoa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="printf">
+<h2><span class="section-number">9.3</span>printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifieurs débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int32_t</span> <span class="n">earth_perimeter</span> <span class="o">=</span> <span class="mi">40075</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La circonférence de la terre vaut vaut %d km&quot;</span><span class="p">,</span> <span class="n">earth_perimeter</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le standard <strong>C99</strong> défini le prototype de <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme étant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">format</span><span class="p">,</span> <span class="p">...);</span>
+</pre></div>
+</div>
+<p>Il définit que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> prend en paramètre un format suivi de <code class="docutils literal notranslate"><span class="pre">...</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme toutes celles de la même catégorie sont dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code class="docutils literal notranslate"><span class="pre">&quot;Mes</span> <span class="pre">nombres</span> <span class="pre">préférés</span> <span class="pre">sont</span> <span class="pre">%d</span> <span class="pre">et</span> <span class="pre">%d,</span> <span class="pre">mais</span> <span class="pre">surtout</span> <span class="pre">%s&quot;</span></code> demandera trois paramètres additionnels :</p>
+<p>La fonction retourne le nombre de caractères formatés ou <code class="docutils literal notranslate"><span class="pre">-1</span></code> en cas d'erreur.</p>
+<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">parameter</span></code> (optionnel)</dt><dd><p>Numéro de paramètre à utiliser</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">flags</span></code> (optionnel)</dt><dd><p>Modificateurs: préfixe, signe plus, alignement à gauche ...</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">width</span></code> (optionnel)</dt><dd><p>Nombre <strong>minimum</strong> de caractères à utiliser pour l'affichage de la sortie.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.precision</span></code> (optionnel)</dt><dd><p>Nombre <strong>minimum</strong> de caractères affichés à droite de la virgule. Essentiellement, valide pour les nombres à virgule flottante.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">length</span></code> (optionnel)</dt><dd><p>Longueur en mémoire. Indique la longueur de la représentation binaire.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt><dd><p>Type de formatage souhaité</p>
+</dd>
+</dl>
+<div class="figure align-default" id="id4">
+<img alt="../_images/formats.svg" src="../_images/formats.svg" /><p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Formatage d'un marqueur</span></span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="exemples">
+<h3><span class="section-number">9.3.1</span>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 29%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Exemple</p></th>
+<th class="head"><p>Sortie</p></th>
+<th class="head"><p>Taille</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%c&quot;,</span> <span class="pre">'c')</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%d&quot;,</span> <span class="pre">1242)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1242</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%10d&quot;,</span> <span class="pre">42)</span></code></p></td>
+<td><p>``       42``</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%07d&quot;,</span> <span class="pre">42)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0000042</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%+-5d&quot;,</span> <span class="pre">23)</span></code></p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">``</span></a>+23   ``</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%5.3f&quot;,</span> <span class="pre">314.15)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">314.100</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%*.*f&quot;,</span> <span class="pre">4,</span> <span class="pre">2,</span> <span class="pre">102.1)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">102.10</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%8x&quot;,</span> <span class="pre">3141592)</span></code></p></td>
+<td><p>`` 2fefd8``</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%s&quot;,</span> <span class="pre">&quot;Hello&quot;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Hello</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="../exercises.html#exercise/9/2">Exercice 9.2</a>: Quelque bogues bien formatés</p>
+</div>
+</div>
+<div class="section" id="entrees-formatees">
+<h2><span class="section-number">9.4</span>Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire un <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">scanf</span></code> est par exemple utilisée à cette fin :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">favorite</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quelle est votre nombre favori ? &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">favorite</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saviez-vous que votre nombre favori, %d, est %s ?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+        <span class="n">favorite</span><span class="p">,</span>
+        <span class="n">favorite</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">?</span> <span class="s">&quot;impair&quot;</span> <span class="o">:</span> <span class="s">&quot;pair&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cette fonction utilise l'entrée standard <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<span class="go">Quelle est votre nombre favori ? 2</span>
+<span class="go">Saviez-vous que votre nombre favori, 2, est pair ?</span>
+</pre></div>
+</div>
+<p>soit d'exécuter ce programme en fournissant le nécessaire à stdin :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;23&quot;</span> <span class="p">|</span> ./a.out
+<span class="go">Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?</span>
+</pre></div>
+</div>
+<p>On observe ici un comportement différent, car le retour clavier lorsque la touche <em>enter</em> est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.</p>
+<div class="section" id="scanf">
+<h3><span class="section-number">9.4.1</span>scanf<a class="headerlink" href="#scanf" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le format de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> se rapproche de <code class="docutils literal notranslate"><span class="pre">printf</span></code> mais en plus simple. Le <a class="reference external" href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipedia de <a class="reference external" href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
+<p>Cette fonction tient son origine une nouvelle fois de <a class="reference external" href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<code class="docutils literal notranslate"><span class="pre">readf</span></code>), elle est donc très ancienne.</p>
+<p>La compréhension de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
+<p>Le programme suivant lit un entier et le place dans la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>. <code class="docutils literal notranslate"><span class="pre">scanf</span></code> retourne le nombre d'assignements réussis. Ici, il n'y a qu'un <em>placeholder</em>, on s'attend naturellement à lire <code class="docutils literal notranslate"><span class="pre">1</span></code> si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si le code est exécuté avec une suite arbitraire de nombres :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>456 123 789     456 12
+456 1
+    2378
+</pre></div>
+</div>
+<p>il affichera chacun des nombres dans l'ordre d'apparition :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;&lt; EOF <span class="p">|</span> ./a.out
+<span class="go">456 123 789     456 12</span>
+<span class="go">456 1</span>
+<span class="go">    2378</span>
+<span class="go">EOF</span>
+<span class="go">1       456</span>
+<span class="go">2       123</span>
+<span class="go">3       789</span>
+<span class="go">4       456</span>
+<span class="go">5       12</span>
+<span class="go">6       456</span>
+<span class="go">7       1</span>
+<span class="go">8       2378</span>
+</pre></div>
+</div>
+<p>Voyons un exemple plus complexe (c.f. C99 §7.19.6.2-19).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">quantity</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">units</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f%20s de %20s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quant</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%*[^</span><span class="se">\n</span><span class="s">]&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">feof</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">ferror</span><span class="p">(</span><span class="n">stdin</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Lorsqu'exécuté avec ce contenu :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2 litres de lait
+-12.8degrés Celsius
+beaucoup de chance
+10.0KG de
+poussière
+100ergs d’énergie
+</pre></div>
+</div>
+<p>Le programme se déroule comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">quantity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;litres&quot;</span><span class="p">);</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s">&quot;lait&quot;</span><span class="p">);</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">quantity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">12.8</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;degrees&quot;</span><span class="p">);</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// &quot;C&quot; échoue lors du test de &quot;d&quot; (de)</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &quot;b&quot; de &quot;beaucoup&quot; échoue contre &quot;%f&quot; s&#39;attendant à un float</span>
+
+<span class="n">quantity</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;KG&quot;</span><span class="p">);</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s">&quot;poussière&quot;</span><span class="p">);</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &quot;100e&quot; échoue contre &quot;%f&quot;, car &quot;100e3&quot; serait un nombre valable</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">EOF</span><span class="p">;</span> <span class="c1">// Fin de fichier</span>
+</pre></div>
+</div>
+<p>Dans cet exemple, la boucle <code class="docutils literal notranslate"><span class="pre">do</span></code>... <code class="docutils literal notranslate"><span class="pre">while</span></code> est utilisée, car il n'est pas simplement possible de traiter le cas <code class="docutils literal notranslate"><span class="pre">while(scanf(...)</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau <code class="docutils literal notranslate"><span class="pre">feof</span></code> pour détecter si la fin du fichier est atteinte, et <code class="docutils literal notranslate"><span class="pre">ferror</span></code> pour détecter une éventuelle erreur sur le flux d'entrée.</p>
+<p>La directive <code class="docutils literal notranslate"><span class="pre">scanf(&quot;%*[^\n]&quot;);</span></code> étant un peu particulier, il peut valoir la peine de s'y attarder un peu. Le <em>flag</em> <code class="docutils literal notranslate"><span class="pre">*</span></code>, différent de <code class="docutils literal notranslate"><span class="pre">printf</span></code> indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;24 kayaks 42&quot;</span><span class="p">;</span>
+
+    <span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;%d%*s%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">24</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ensuite, <code class="docutils literal notranslate"><span class="pre">[^\n]</span></code>. Le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code>, terminé par <code class="docutils literal notranslate"><span class="pre">]</span></code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a class="reference external" href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code class="docutils literal notranslate"><span class="pre">^</span></code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code class="docutils literal notranslate"><span class="pre">scanf</span></code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code class="docutils literal notranslate"><span class="pre">C</span></code> de <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>, le pointeur de fichier est bloqué au caractère <code class="docutils literal notranslate"><span class="pre">C</span></code> et au prochain tour de boucle, <code class="docutils literal notranslate"><span class="pre">scanf</span></code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/3">Exercice 9.3</a>: scanf sur des entiers et des réels</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/4">Exercice 9.4</a>: Saisie de valeurs</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/5">Exercice 9.5</a>: Chaînes de formats</p>
+</div>
+<div class="section" id="saisie-de-chaine-de-caracteres">
+<h3><span class="section-number">9.4.2</span>Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code class="docutils literal notranslate"><span class="pre">%20s</span></code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code class="docutils literal notranslate"><span class="pre">\0</span></code>. Sinon, il y a risque de <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Râteau&quot;</span><span class="p">;</span>
+
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;jardinage&quot;</span><span class="p">;</span>
+    <span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a. %s</span><span class="se">\n</span><span class="s">b. %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<span class="go">a. jardinage</span>
+<span class="go">b. age</span>
+</pre></div>
+</div>
+<p>Ici la variable b contient <code class="docutils literal notranslate"><span class="pre">age</span></code> alors qu'elle devrait contenir <code class="docutils literal notranslate"><span class="pre">râteau</span></code>. La raison est que le mot capturé <code class="docutils literal notranslate"><span class="pre">jardinage</span></code> est trop long pour la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> qui n'est disposée à stocker que 5 caractères imprimables. Il y a donc dépassement mémoire et comme vous le constatez, le compilateur ne génère aucune erreur. La bonne méthode est donc de protéger la saisie ici avec <code class="docutils literal notranslate"><span class="pre">%5s</span></code>.</p>
+<p>En mémoire, ces deux variables sont adjacentes et naturellement <cite>a[7]</cite> est équivalent à dire <em>la septième case mémoire à partir du début de ``a``</em>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>     a[6]              b[10]
+┞─┬─┬─┬─┬─┬─┦┞─┬─┬─┬─┬─┬─┬─┬─┬─┬─┦
+│ │ │ │ │ │ ││R│â│t│e│a│u│ │ │ │ │
+└─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+</pre></div>
+</div>
+</div>
+<div class="section" id="saisie-arbitraire">
+<h3><span class="section-number">9.4.3</span>Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a class="reference external" href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Q2hvY29sYXQ&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+<span class="n">sscanf</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="s">&quot;%127[0-9A-Za-z+/]&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">output</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Dans cet exemple je capture les nombres de 0 à 9 <code class="docutils literal notranslate"><span class="pre">0-9</span></code> (10), les caractères majuscules et minuscules <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> (52), ainsi que les caractères <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/9/6">Exercice 9.6</a>: Bugs</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/7">Exercice 9.7</a>: Test de saisir correcte</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/8">Exercice 9.8</a>: Produit scalaire</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/9">Exercice 9.9</a>: Crampes de doigts</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/10">Exercice 9.10</a>: Géométrie affine</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/11">Exercice 9.11</a>: Équation de droite</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/12">Exercice 9.12</a>: Loi d'Ohm</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/13">Exercice 9.13</a>: Tour Eiffel</p>
+<p><a class="reference external" href="../exercises.html#exercise/9/14">Exercice 9.14</a>: Hyperloop</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="30-processus.html"
+       title="Chapitre précédent">← <span class="section-number">8</span>Programmes et Processus</a>
+  </li>
+  <li class="next">
+    <a href="40-functions.html"
+       title="Chapitre suivant"><span class="section-number">10</span>Fonctions →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

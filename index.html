@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>Le C pour l&#39;ingénieur</title>
+    
+      <link rel="stylesheet" href="_static/pygments.css">
+      <link rel="stylesheet" href="_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="_static/theme-vendors.js"></script>
+      <script src="_static/theme.js" defer></script>
+    
+    <link rel="icon" href="_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Recherche" href="search.html" />
+  <link rel="next" title="1Introduction" href="content/05-introduction.html" />
+    <link href="_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="#" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="content/05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="content/95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    
+    <li>Le C pour l'ingénieur</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="next">
+    <a href="content/05-introduction.html"
+       title="Chapitre suivant"><span class="section-number">1</span>Introduction →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="le-c-pour-l-ingenieur">
+<h1>Le C pour l'ingénieur<a class="headerlink" href="#le-c-pour-l-ingenieur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cet ouvrage est destiné aux étudiants de première année Bachelor <a class="reference external" href="http://heig-vd.ch">HEIG-VD</a>, département TIN et filières Génie électrique. Il est une introduction à la programmation en C. Il couvre la matière vue durant le cycle des cours <a class="reference internal" href="appendix/70-unit.html#info1"><span class="std std-ref">Info1</span></a> et <a class="reference internal" href="appendix/70-unit.html#info2"><span class="std std-ref">Info2</span></a>.</p>
+<p>Le contenu de ce cours est calqué sur les fiches d'unités de cours et de modules suivantes :</p>
+<ul class="simple">
+<li><p>Module <strong>InfoMicro</strong> (<code class="docutils literal notranslate"><span class="pre">InfoMicro</span></code>)</p></li>
+<li><p>Unité <strong>Informatique 1</strong> (<a class="reference internal" href="appendix/70-unit.html#info1"><span class="std std-ref">Info1</span></a>)</p></li>
+<li><p>Unité <strong>Informatique 2</strong> (<a class="reference internal" href="appendix/70-unit.html#info2"><span class="std std-ref">Info2</span></a>)</p></li>
+</ul>
+<p>La version actuelle : 0.2.5-5-g751ef44</p>
+<p>Date : juil. 30, 2020</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contenu</span></span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/05-introduction.html">1  Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#historique">1.1  Historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#standardisation">1.2  Standardisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#environnement-de-developpement">1.3  Environnement de développement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#l-anglais">1.4  L'Anglais</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#apprendre-a-pecher">1.5  Apprendre à pêcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#programmation-texte-structuree">1.6  Programmation texte structurée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#les-paradigmes-de-programmation">1.7  Les paradigmes de programmation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#cycle-de-developpement">1.8  Cycle de développement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#cycle-de-compilation">1.9  Cycle de compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#une-affaire-de-consensus">1.10  Une affaire de consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/05-introduction.html#hello-world">1.11  Hello World!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/07-programming.html">2  La programmation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#algorithmique">2.1  Algorithmique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#programmation">2.2  Programmation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#calculateur">2.3  Calculateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#ordinateur">2.4  Ordinateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#historique">2.5  Historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07-programming.html#fonctionnement-de-l-ordinateur">2.6  Fonctionnement de l'ordinateur</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/10-foundations.html">3  Généralités du langage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#l-alphabet">3.1  L'alphabet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#fin-de-lignes-eol">3.2  Fin de lignes (EOL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#mots-cles">3.3  Mots clés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#identifiers">3.4  Identificateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#variables">3.5  Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#les-constantes">3.6  Les constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#constantes-litterales">3.7  Constantes littérales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#operateur-d-affectation">3.8  Operateur d'affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/10-foundations.html#commentaires">3.9  Commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/15-numeration.html">4  Numération</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/15-numeration.html#bases">4.1  Bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/15-numeration.html#entiers-relatifs">4.2  Entiers relatifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/15-numeration.html#operations-logiques">4.3  Opérations logiques</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/17-operators.html">5  Opérateurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-relationnels">5.1  Opérateurs relationnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-arithmetiques">5.2  Opérateurs arithmétiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-bit-a-bit">5.3  Opérateurs bit à bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-d-affectation">5.4  Opérateurs d'affectation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-logiques">5.5  Opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateurs-d-incrementation">5.6  Opérateurs d'incrémentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateur-ternaire">5.7  Opérateur ternaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateur-de-transtypage">5.8  Opérateur de transtypage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateur-sequentiel">5.9  Opérateur séquentiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#operateur-sizeof">5.10  Opérateur sizeof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#les-operateurs-logiques">5.11  Les opérateurs logiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#les-operateurs-bit-a-bit">5.12  Les opérateurs bit-à-bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#les-operateurs-d-incrementation-et-de-decrementation">5.13  Les opérateurs d'incrémentation (++) et de décrémentation (--)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#priorite-des-operateurs">5.14  Priorité des opérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#valeurs-gauche">5.15  Valeurs gauche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/17-operators.html#optimisation">5.16  Optimisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/20-datatype.html">6  Types de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#typage">6.1  Typage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#stockage-et-interpretation">6.2  Stockage et interprétation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#boutisme">6.3  Boutisme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#les-nombres-entiers">6.4  Les nombres entiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#les-nombres-reels">6.5  Les nombres réels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#les-caracteres">6.6  Les caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#chaine-de-caracteres">6.7  Chaîne de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#les-booleens">6.8  Les booléens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#enumerations">6.9  Énumérations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#type-incomplet">6.10  Type incomplet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#type-vide-void">6.11  Type vide (<em>void</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/20-datatype.html#promotion-implicite">6.12  Promotion implicite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/25-control-structures.html">7  Structures de contrôle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/25-control-structures.html#sequences">7.1  Séquences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/25-control-structures.html#les-embranchements">7.2  Les embranchements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/25-control-structures.html#les-boucles">7.3  Les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/25-control-structures.html#les-sauts">7.4  Les sauts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/30-processus.html">8  Programmes et Processus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/30-processus.html#qu-est-ce-qu-un-programme">8.1  Qu'est-ce qu'un programme?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/30-processus.html#arguments-et-options">8.2  Arguments et options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/30-processus.html#fonction-main">8.3  Fonction main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/30-processus.html#entrees-sorties-standards">8.4  Entrées sorties standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/30-processus.html#boucle-d-attente">8.5  Boucle d'attente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/35-stdio.html">9  Entrées Sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/35-stdio.html#sorties-non-formatees">9.1  Sorties non formatées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/35-stdio.html#sorties-formatees">9.2  Sorties formatées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/35-stdio.html#printf">9.3  printf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/35-stdio.html#entrees-formatees">9.4  Entrées formatées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/40-functions.html">10  Fonctions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#conventions-d-appel">10.1  Conventions d'appel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#prototype">10.2  Prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#syntaxe">10.3  Syntaxe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#parametres">10.4  Paramètres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#recursion">10.5  Récursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/40-functions.html#memoisation">10.6  Mémoïsation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/45-composite-datatypes.html">11  Types composites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#tableaux">11.1  Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#chaines-de-caracteres">11.2  Chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#structures">11.3  Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#champs-de-bits">11.4  Champs de bits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#unions">11.5  Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#creation-de-type">11.6  Création de type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/45-composite-datatypes.html#compound-literals">11.7  Compound Literals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/50-files.html">12  Les  fichiers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#systeme-de-fichiers">12.1  Système de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#format-d-un-fichier">12.2  Format d'un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#ouverture-d-un-fichier">12.3  Ouverture d'un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#navigation-dans-un-fichier">12.4  Navigation dans un fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#lecture-ecriture">12.5  Lecture / Écriture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#buffer-de-fichier">12.6  Buffer de fichier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#fichiers-et-flux">12.7  Fichiers et Flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/50-files.html#formats-de-serialisation">12.8  Formats de sérialisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/55-memory-management.html">13  Gestion de la mémoire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#allocation-statique">13.1  Allocation statique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#allocation-dynamique">13.2  Allocation dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#memoire-de-programme">13.3  Mémoire de programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#la-pile">13.4  La pile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#allocation-dynamique-sur-le-tas">13.5  Allocation dynamique sur le tas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#variables-automatiques">13.6  Variables automatiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/55-memory-management.html#fragmentation-memoire">13.7  Fragmentation mémoire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/60-pointers.html">14  Pointeurs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#pointeur-simple">14.1  Pointeur simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#arithmetique-de-pointeurs">14.2  Arithmétique de pointeurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#pointeur-et-chaines-de-caracteres">14.3  Pointeur et chaînes de caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#structures-et-pointeurs">14.4  Structures et pointeurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#transtypage-de-pointeurs-cast">14.5  Transtypage de pointeurs (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#pointeurs-de-fonctions">14.6  Pointeurs de fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#la-regle-gauche-droite">14.7  La règle gauche-droite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#initialisation-par-transtypage">14.8  Initialisation par transtypage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/60-pointers.html#enchevetrement-ou-aliasing">14.9  Enchevêtrement ou <em>Aliasing</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/70-standard-library.html">15  Bibliothèques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#exemple-libgmp">15.1  Exemple: libgmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#exemple-ncurses">15.2  Exemple: ncurses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#bibliotheques-statiques">15.3  Bibliothèques statiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#bibliotheques-dynamiques">15.4  Bibliothèques dynamiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#bibliotheques-standard">15.5  Bibliothèques standard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#autres-bibliotheques">15.6  Autres bibliothèques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/70-standard-library.html#macos-x-library">15.7  MacOS X Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/75-preprocessor.html">16  Préprocesseur</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#phases-de-traduction">16.1  Phases de traduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#extensions-des-fichiers">16.2  Extensions des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#inclusion-de-fichiers">16.3  Inclusion de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#definitions">16.4  Définitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#macros">16.5  Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#debogage">16.6  Debogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#caractere-d-echappement">16.7  Caractère d'échappement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#id1">16.8  Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#directives-conditionnelles">16.9  Directives conditionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/75-preprocessor.html#commentaires">16.10  Commentaires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/77-algorithms.html">17  Algorithmes et conception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#complexite-d-un-algorithme">17.1  Complexité d'un algorithme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#machines-d-etats">17.2  Machines d'états</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#diagrammes-visuels">17.3  Diagrammes visuels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#recursivite">17.4  Récursivité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#programmation-dynamique">17.5  Programmation dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#algorithmes-de-tris">17.6  Algorithmes de tris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/77-algorithms.html#type-d-algorithmes">17.7  Type d'algorithmes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/78-translation-units.html">18  Compilation séparée</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/78-translation-units.html#translation-unit">18.1  Translation unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/78-translation-units.html#diviser-pour-mieux-regner">18.2  Diviser pour mieux régner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/78-translation-units.html#module-logiciel">18.3  Module logiciel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/78-translation-units.html#compilation-avec-assemblage-differe">18.4  Compilation avec assemblage différé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/78-translation-units.html#fichiers-d-en-tete-header">18.5  Fichiers d'en-tête (<em>header</em>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/80-scopes.html">19  Portée et visibilité</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/80-scopes.html#espace-de-nommage">19.1  Espace de nommage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/80-scopes.html#portee">19.2  Portée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/80-scopes.html#visibilite">19.3  Visibilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/80-scopes.html#qualificatif-de-type">19.4  Qualificatif de type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/82-testing.html">20  Qualité et Testabilité</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/82-testing.html#hacking">20.1  Hacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/82-testing.html#tests-unitaires">20.2  Tests unitaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/82-testing.html#tests-fonctionnels">20.3  Tests fonctionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/82-testing.html#framework-de-tests">20.4  Framework de tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/85-data-structures.html">21  Structures de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#types-de-donnees-abstraits">21.1  Types de données abstraits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#tableau-dynamique">21.2  Tableau dynamique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#buffer-circulaire">21.3  Buffer circulaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#listes-chainees">21.4  Listes chaînées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#liste-doublement-chainee">21.5  Liste doublement chaînée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#liste-chainee-deroulee-unrolled-linked-list">21.6  Liste chaînée déroulée (Unrolled linked list)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#arbre-binaire-de-recherche">21.7  Arbre binaire de recherche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#heap">21.8  Heap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#queue-prioritaire">21.9  Queue prioritaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#tableau-de-hachage">21.10  Tableau de Hachage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#piles-ou-lifo-last-in-first-out">21.11  Piles ou LIFO (<em>Last In First Out</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#queues-ou-fifo-first-in-first-out">21.12  Queues ou FIFO (<em>First In First Out</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/85-data-structures.html#performances">21.13  Performances</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/90-advanced-topics.html">22  Avancé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#points-de-sequences">22.1  Points de séquences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#complement-sur-les-variables-initialisees">22.2  Complément sur les variables initialisées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#binutils">22.3  Binutils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#format-q">22.4  Format Q</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#memoire-partagee">22.5  Mémoire partagée</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/90-advanced-topics.html#collecteur-de-dechets-garbage-collector">22.6  Collecteur de déchets (<em>garbage collector</em>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/92-traps.html">23  Pièges</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/92-traps.html#preprocesseur">23.1  Préprocesseur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/92-traps.html#erreurs-de-syntaxe">23.2  Erreurs de syntaxe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content/95-philosophy.html">24  Philosophie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/95-philosophy.html#rasoir-d-ockham">24.1  Rasoir d'Ockham</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/95-philosophy.html#principes-de-programmation">24.2  Principes de programmation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/95-philosophy.html#zen-de-python">24.3  Zen de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/95-philosophy.html#the-code-taste">24.4  The code taste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/95-philosophy.html#l-odeur-du-code">24.5  L'odeur du code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Annexes</span></span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix/10-vscode.html">A  Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/20-grammar.html">B  Grammaire C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/30-bash.html">C  Ligne de commande</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/30-bash.html#pipe">C.1  Pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/40-development.html">D  Environnement de développement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/70-unit.html">E  Fiches d'unités</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/70-unit.html#informatique-1">E.1  Informatique 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/70-unit.html#informatique-2">E.2  Informatique 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/70-unit.html#modalites-d-evalutation-et-de-validation">E.3  Modalités d'évalutation et de validation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/80-laboratories.html">F  Laboratoires</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/80-laboratories.html#protocole">F.1  Protocole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/80-laboratories.html#evaluation">F.2  Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/80-laboratories.html#directives">F.3  Directives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/80-laboratories.html#format-de-rendu">F.4  Format de rendu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/80-laboratories.html#anatomie-d-un-travail-pratique">F.5  Anatomie d'un travail pratique</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/88-summary.html">G  Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#introduction">G.1  Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#cycle-de-developpement">G.2  Cycle de développement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#cycle-de-compilation">G.3  Cycle de compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#make">G.4  Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#linux-posix">G.5  Linux/POSIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#diagramme-de-flux">G.6  Diagramme de flux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#caracteres-non-imprimables">G.7  Caractères non imprimables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#fin-de-lignes">G.8  Fin de lignes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#identificateurs">G.9  Identificateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#variable">G.10  Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#constantes-litterales">G.11  Constantes littérales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#commentaires">G.12  Commentaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#fonction-main">G.13  Fonction main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#valeur-gauche">G.14  Valeur gauche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#caracteres">G.15  Caractères</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#chaine-de-caractere">G.16  Chaîne de caractère</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#booleens">G.17  Booléens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#promotion-implicite">G.18  Promotion implicite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#transtypage">G.19  Transtypage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#sequence">G.20  Séquence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#si-sinon">G.21  Si, sinon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#si-sinon-si-sinon">G.22  Si, sinon si, sinon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#boucle-for">G.23  Boucle For</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#boucle-while">G.24  Boucle While</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#printf">G.25  <code class="docutils literal notranslate"><span class="pre">printf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#masque-binaire">G.26  Masque binaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/88-summary.html#permuter-deux-variables-sans-valeur-intermediaire">G.27  Permuter deux variables sans valeur intermédiaire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/99-colophon.html">H  Colophon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/99-colophon.html#sources">H.1  Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/99-colophon.html#conventions">H.2  Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/99-colophon.html#references">H.3  Références</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="autre">
+<h2>Autre<a class="headerlink" href="#autre" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="exercises.html#exercises"><span class="std std-ref">Exercices</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="content/05-introduction.html"
+       title="Chapitre suivant"><span class="section-number">1</span>Introduction →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

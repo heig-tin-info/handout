@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>23Pièges</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="24Philosophie" href="95-philosophy.html" />
+  <link rel="prev" title="22Avancé" href="90-advanced-topics.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Pièges</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#preprocesseur" class="reference internal">Préprocesseur</a></li>
+                
+                  <li class="toctree-l2"><a href="#erreurs-de-syntaxe" class="reference internal">Erreurs de syntaxe</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">23</span>Pièges</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="90-advanced-topics.html"
+       title="Chapitre précédent">← <span class="section-number">22</span>Avancé</a>
+  </li>
+  <li class="next">
+    <a href="95-philosophy.html"
+       title="Chapitre suivant"><span class="section-number">24</span>Philosophie →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="pieges">
+<h1><span class="section-number">23</span>Pièges<a class="headerlink" href="#pieges" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce chapitre traite des pièges les plus courants dans lesquels l'apprenti programmeur ne manquera pas de tomber. Le C est un langage puissant, mais potentiellement dangereux, car il permet d'opérer à très bas niveau, ce qui peut occasionner des bogues retors à l'exécution.</p>
+<div class="section" id="preprocesseur">
+<h2><span class="section-number">23.1</span>Préprocesseur<a class="headerlink" href="#preprocesseur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Rappelons-le, les macros sont des simples remplacements de chaînes de caractères intervenant avant la compilation.</p>
+<div class="section" id="macro-avec-parametre">
+<h3><span class="section-number">23.1.1</span>Macro avec paramètre<a class="headerlink" href="#macro-avec-parametre" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le préprocesseur interprète une macro avec paramètres que si la parenthèse ouvrante suit directement et sans espace le nom de la macro. Ainsi considérant cet exemple :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define f (x) ((x) + 1)</span>
+
+<span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Le préprocesseur génère ceci et le compilateur retournera une erreur du type <code class="docutils literal notranslate"><span class="pre">identification</span> <span class="pre">x</span> <span class="pre">non</span> <span class="pre">déclaré</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Observations :</p>
+<ul class="simple">
+<li><p>Ne jamais mettre d'espace entre le nom d'une macro et ses paramètres.</p></li>
+<li><p>Être toujours prêt à mettre en doute le code généré par une macro.</p></li>
+</ul>
+</div>
+<div class="section" id="parametres-de-macro-non-proteges">
+<h3><span class="section-number">23.1.2</span>Paramètres de macro non protégés<a class="headerlink" href="#parametres-de-macro-non-proteges" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On ne le répètera jamais assez: une macro est un remplacement de chaîne effectué par le préprocesseur. Donc écrire <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">m(x)</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">m(2</span> <span class="pre">+</span> <span class="pre">5)</span></code> sera remplacé en <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">2</span></code>.</p>
+<p>Quel sera le problème dans le cas suivant ?</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ABS(x) x &gt;= 0 ? x: -x</span>
+
+<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ABS</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">8</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Plus difficile, quel serait le problème ici :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ERROR(str) printf(&quot;Erreur: %s\r\n&quot;, str); log(str);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ERROR</span><span class="p">(</span><span class="s">&quot;Zero division&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Observations :</p>
+<ul>
+<li><p>Toujours protéger les paramètres des macros avec des parenthèses</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x): -(x))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Toujours protéger une macro à plusieurs instructions par une boucle vide :</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ERROR(str) do { \</span>
+<span class="cp">    printf(&quot;Erreur: %s\r\n&quot;, str); \</span>
+<span class="cp">    log(str); \</span>
+<span class="cp">} while (0)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="pre-post-incrementation-avec-une-macro">
+<h3><span class="section-number">23.1.3</span>Pré/Post incrémentation avec une macro<a class="headerlink" href="#pre-post-incrementation-avec-une-macro" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On pourrait se dire qu'avec toutes les précautions prises, il n'y aura plus d'ennuis possibles. Or, les post/pré incréments peuvent encore poser problème.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
+
+<span class="k">return</span> <span class="n">ABS</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On peut constater que x sera post-incrémenté deux fois au lieu d'une :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ABS(x) ((x) &gt;= 0 ? (x) : -(x))</span>
+
+<span class="k">return</span> <span class="p">((</span><span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="o">:</span> <span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Observations :</p>
+<ul class="simple">
+<li><p>Éviter l'utilisation de la pre/post incrémentation/décrémentation dans l'appel de macros.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="erreurs-de-syntaxe">
+<h2><span class="section-number">23.2</span>Erreurs de syntaxe<a class="headerlink" href="#erreurs-de-syntaxe" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="confusion-et">
+<h3><span class="section-number">23.2.1</span>Confusion = et ==<a class="headerlink" href="#confusion-et" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L'erreur est si vite commise, mais souvent fatale :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;o&#39;</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L'effet contre-intuitif est que le test retourne toujours VRAI, car <code class="docutils literal notranslate"><span class="pre">'o'</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. Ajoutons que la valeur de <code class="docutils literal notranslate"><span class="pre">c</span></code> est modifié au passage.</p>
+<p>Observations :</p>
+<ul class="simple">
+<li><p>Pour éviter toute ambiguïté, éviter les affectations dans les structures conditionnelles.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">23.2.2</span>Confusion &amp; et &amp;&amp;<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Confondre le ET logique et le ET binaire est courant. Dans l'exemple suivant, le <code class="docutils literal notranslate"><span class="pre">if</span></code> n'est jamais exécuté:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0xA</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0x5</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ecriture-deroutante">
+<h3><span class="section-number">23.2.3</span>Écriture déroutante<a class="headerlink" href="#ecriture-deroutante" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Selon la table de précédences on aura <code class="docutils literal notranslate"><span class="pre">i--</span></code> calculé en premier suivi de <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">-j</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="o">----</span><span class="n">j</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Observations :</p>
+<ul class="simple">
+<li><p>Éviter les formes ambigües d'écriture</p></li>
+<li><p>Favoriser la précédence explicite en utilisant des parenthèses</p></li>
+<li><p>Séparez vos opérations par des espaces pour plus de lisibilité: <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">i--</span> <span class="pre">-</span> <span class="pre">-j</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="point-virgule">
+<h3><span class="section-number">23.2.4</span>Point virgule<a class="headerlink" href="#point-virgule" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L'erreur typique suivante est arrivée à tout programmeur débutant. Le <code class="docutils literal notranslate"><span class="pre">;</span></code> placé après le test <code class="docutils literal notranslate"><span class="pre">if</span></code> agis comme une instruction nulle si bien que la fusée sera lancée à tous les coups :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">countdown</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">launch_rocket</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Le même type d'erreur peut apparaître avec une boucle, ici causant une boucle infinie :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">{</span>
+    <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="90-advanced-topics.html"
+       title="Chapitre précédent">← <span class="section-number">22</span>Avancé</a>
+  </li>
+  <li class="next">
+    <a href="95-philosophy.html"
+       title="Chapitre suivant"><span class="section-number">24</span>Philosophie →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

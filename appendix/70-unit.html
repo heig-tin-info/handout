@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>5Fiches d&#39;unités</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="6Laboratoires" href="80-laboratories.html" />
+  <link rel="prev" title="4Environnement de développement" href="40-development.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../content/05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/45-composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/50-files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/78-translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/85-data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Fiches d'unités</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#informatique-1" class="reference internal">Informatique 1</a></li>
+                
+                  <li class="toctree-l2"><a href="#informatique-2" class="reference internal">Informatique 2</a></li>
+                
+                  <li class="toctree-l2"><a href="#modalites-d-evalutation-et-de-validation" class="reference internal">Modalités d'évalutation et de validation</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">5</span>Fiches d'unités</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="40-development.html"
+       title="Chapitre précédent">← <span class="section-number">4</span>Environnement de développement</a>
+  </li>
+  <li class="next">
+    <a href="80-laboratories.html"
+       title="Chapitre suivant"><span class="section-number">6</span>Laboratoires →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="fiches-d-unites">
+<h1><span class="section-number">E</span>Fiches d'unités<a class="headerlink" href="#fiches-d-unites" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="informatique-1">
+<span id="info1"></span><h2><span class="section-number">E.1</span>Informatique 1<a class="headerlink" href="#informatique-1" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version formelle et étendue de la fiche d&#39;unité de cours disponible sur GAPS</span>
+<span class="c1"># http://gaps.heig-vd.ch/public/fiches/uv/uv.php?id=5637</span>
+<span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Informatique 1</span>
+    <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info1</span>
+    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5637</span>
+<span class="nt">domain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingénierie et Architecture</span>
+<span class="nt">filière</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Génie électrique</span>
+<span class="nt">orientation</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Électronique et Automatisation industrielle</span>
+    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EAI</span>
+<span class="nt">formation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Plein temps</span>
+<span class="nt">validityDate</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2018-2019</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2019-2020</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">François Birling</span>
+<span class="nt">charge</span><span class="p">:</span>
+    <span class="nt">academicHours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150</span>
+    <span class="nt">inClassAcademicHours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">96</span>
+<span class="nt">planning</span><span class="p">:</span>
+    <span class="nt">s1</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="c1"># 48</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Introduction.</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Aperçu du fonctionnement de l&#39;ordinateur.</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Codage de l&#39;information</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Présentation du langage C</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types de données de base</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Variables</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Constantes</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Opérateurs</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Entrées et sorties console</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Structures de contrôle</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Branchements</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Boucles</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fonctions</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types avanceés</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Tableaux</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Structures</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Chaînes de caractères</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Introduction à l&#39;analyse et à la conception</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Controle continu et corrections</span>
+        <span class="nt">laboratory</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Environnement de travail (réseau informatique)</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Outils bureautique</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Environnement de développement intégré</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Installation</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Configuration</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Édition</span>
+                    <span class="l l-Scalar l-Scalar-Plain">- Compilation</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Dialogues utilisateurs</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Utilisation des structures de contrôle.</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Type de données composés</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mini projet.</span>
+<span class="nt">prerequisites</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">L&#39;étudiant-e doit connaître et savoir utiliser les notions suivantes</span>
+        <span class="no">- utilisation d&#39;un système d&#39;exploitation, notamment la gestion de fichiers</span>
+        <span class="no">- bases des outils de bureautique.</span>
+    <span class="no">L&#39;unité préparatoire d&#39;informatique UPI permet d&#39;acquérir ces connaissances.</span>
+    <span class="no">Conditions pour la programmation automatique de cette unité :</span>
+    <span class="no">L&#39;étudiant-e doit avoir obtenu une note supérieure ou égale à la limite de compensation dans les unités :</span>
+    <span class="no">néant. L&#39;étudiant-e doit avoir suivi ou suivre en parallèle les unités : néant.</span>
+<span class="nt">goals</span><span class="p">:</span>
+    <span class="nt">classroom</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Expliquer les principes généraux de représentation de l&#39;information dans les ordinateurs.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Décrire la marche à suivre et les outils nécessaires pour créer un programme.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Citer les éléments du langage C utilisés couramment pour écrire des programmes.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Choisir le type de données simple approprié pour représenter les informations du monde réel.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir et programmer un dialogue opérateur en mode console, formater un affichage pour le rendre lisible.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Calculer la valeur d&#39;une expression construite avec différents opérateurs du langage C et en déterminer le type.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Choisir la structure de contrôle appropriée pour résoudre un problème algorithmique simple.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir et implanter un algorithme imbriquant jusqu&#39;à 3 niveaux de structure de contrôle.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Créer une fonction utilisant le passage de paramètres par valeur, par adresse et/ou le retour d&#39;un résultat.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Construire et utiliser un type de données composé (tableau, structure).</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Utiliser les principales fonctions des bibliothèques `math.h` et `string.h`</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Corriger la présentation, les erreurs de syntaxe et de sémantique dans un programme fourni.</span>
+    <span class="nt">laboratory</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Installer et configurer un environnement de développement intégré (EDI) pour le langage C.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Créer des programmes avec un EDI (éditer un code source, le compiler, le tester, le déverminer).</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Créer un programme gérant un menu en mode console et affichant des résultats sous forme tabulaire.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mettre au point itérativement un programme pour atteindre un fonctionnement fiable et ergonomique.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Comprendre un cahier des charges, identifier et clarifier les exigences importantes, et s&#39;y conformer.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Analyser de manière autonome les problèmes rencontrés et formuler une question précise.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Livrer un logiciel de façon professionnelle (organisation des livrables, gestion des exigences et du délai).</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Citer des applications pratiques de la programmation en relation avec ses futurs débouchés professionnels.</span>
+<span class="nt">plan</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Numération</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Bases (système décimal, hexadécimal, octal, binaire)</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Conversion de bases</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Complément à un</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Complément à deux</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Arithmétique binaire (et, ou, ou exclusif, négation)</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Processus de développement</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Outils</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Environnement intégré (IDE)</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Compilateur (*compiler*)</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Chaîne de développement (*toolchain*)</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Cycle de développement</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Cycle de compilation</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Installation d&#39;un environnement de développement</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Programmes et processus</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Généralités du langage C</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Séquences</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Embranchements (if, switch)</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Boucles (while, do..while, for)</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Sauts (break, continue, return, goto)</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types de données</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Typage</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Stockage des données en mémoire</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Entiers naturels</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Entiers relatifs</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Nombres réels (virgule flottante)</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Caractères</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Table ASCII</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Chaînes de caractères</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Booléens</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Interaction utilisateur en mode console</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Entrée standard</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Sortie standard</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Sortie d&#39;erreur standard</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Questions/Réponses avec `printf` et `scanf`</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Formater un résultat sous forme tabulée et lisible</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Menu (choix multiples)</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Opérateurs</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Opérateurs du langage C</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Priorité des opérateurs</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Expressions</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Promotion et promotion implicite</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Conception</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Choix des structures de controles adaptées à des problèmes</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Algorithmes simple (min, max, moyenne, ...)</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Manipulation de chaînes</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Manipulation de tableaux</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Manipulation de bits</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Algorithmie</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Complexité d&#39;un algorithme</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Exemples d&#39;algorithmes</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Algorithmes de tri (tri à bulle)</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fonctions</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Passage par valeur et par adresse</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Utilisation de la valeur de retour</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Prototypes de fonctions</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types de données composées</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Structures</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Unions</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Tableaux</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Énumérations</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Bibliothèques standard</span>
+    <span class="l l-Scalar l-Scalar-Plain">- &lt;math.h&gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Fonctions trigonométriques</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Exponentielle</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Logarithme</span>
+    <span class="l l-Scalar l-Scalar-Plain">- &lt;string.h&gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Comparaison de chaînes de caractères</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Concaténation de chaînes de caractères</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Copie de chaînes de caractères</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Longueur d&#39;une chaîne de caractères</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Recherche d&#39;une sous-chaîne dans une chaîne de caractères</span>
+    <span class="l l-Scalar l-Scalar-Plain">- &lt;stdio.h&gt;</span>
+      <span class="l l-Scalar l-Scalar-Plain">- printf</span>
+      <span class="l l-Scalar l-Scalar-Plain">- scanf</span>
+      <span class="l l-Scalar l-Scalar-Plain">- putchar</span>
+      <span class="l l-Scalar l-Scalar-Plain">- getchar</span>
+      <span class="l l-Scalar l-Scalar-Plain">- puts</span>
+      <span class="l l-Scalar l-Scalar-Plain">- gets</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Structure du code</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Corriger les erreurs de syntaxes</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Corriger les erreurs sémantiques</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Indentation du code</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Commentaires</span>
+</pre></div>
+</div>
+<div class="section" id="pannification-du-semestre">
+<h3><span class="section-number">E.1.1</span>Pannification du semestre<a class="headerlink" href="#pannification-du-semestre" title="Lien permanent vers ce titre">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 34%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Semaine</p></th>
+<th class="head"><p>Académique</p></th>
+<th class="head"><p>Cours</p></th>
+<th class="head"><p>Labo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>38</p></td>
+<td><p>1</p></td>
+<td><p>Introduction</p></td>
+<td><p>00 Familiarisation</p></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>2</p></td>
+<td><p>Numération</p></td>
+<td><p>01 Premier pas en C</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>3</p></td>
+<td><p>Fondements du C</p></td>
+<td><p>02 Équation Quadratique</p></td>
+</tr>
+<tr class="row-odd"><td><p>41</p></td>
+<td><p>4</p></td>
+<td><p>Variables, opérateurs</p></td>
+<td><p>03 Fléchettes</p></td>
+</tr>
+<tr class="row-even"><td><p>42</p></td>
+<td><p>5</p></td>
+<td colspan="2"><p>Types, entrées Sorties    | 04 Nombre d'Armstrong</p></td>
+</tr>
+<tr class="row-odd"><td><p>43</p></td>
+<td colspan="3"><p>Vacances d'automne</p></td>
+</tr>
+<tr class="row-even"><td><p>44</p></td>
+<td><p>6</p></td>
+<td><p>Entrées sorties</p></td>
+<td><p>05 Pneus</p></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>7</p></td>
+<td><p>TE1</p></td>
+<td><p>06 Tables Multiplications</p></td>
+</tr>
+<tr class="row-even"><td><p>46</p></td>
+<td><p>8</p></td>
+<td><p>Structure de contrôles</p></td>
+<td><p>07 Chaînes</p></td>
+</tr>
+<tr class="row-odd"><td><p>47</p></td>
+<td><p>9</p></td>
+<td><p>Fonctions</p></td>
+<td><p>08 Monte-Carlo</p></td>
+</tr>
+<tr class="row-even"><td><p>48</p></td>
+<td><p>10</p></td>
+<td><p>Tableaux et structures</p></td>
+<td rowspan="2"><p>09 Sudoku</p></td>
+</tr>
+<tr class="row-odd"><td><p>49</p></td>
+<td><p>11</p></td>
+<td><p>Programmes et processus</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>12</p></td>
+<td><p>Algorithmique</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>51</p></td>
+<td><p>13</p></td>
+<td><p>Pointeurs</p></td>
+<td><p>10 Galton</p></td>
+</tr>
+<tr class="row-even"><td><p>52</p></td>
+<td colspan="3" rowspan="2"><p>Vacances de Noël</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>14</p></td>
+<td><p>Ergonomie et dialogues</p></td>
+<td rowspan="3"><p>12 Tableau des scores</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>15</p></td>
+<td><p>TE2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>16</p></td>
+<td><p>Exercices de révision</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td colspan="3"><p>Préparation Examens</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td colspan="3"><p>Examens</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td colspan="3"><p>Relâches</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="informatique-2">
+<span id="info2"></span><h2><span class="section-number">E.2</span>Informatique 2<a class="headerlink" href="#informatique-2" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version formelle et étendue de la fiche d&#39;unité de cours disponible sur GAPS</span>
+<span class="c1"># http://gaps.heig-vd.ch/public/fiches/uv/uv.php?id=5638</span>
+<span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Informatique 2</span>
+    <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info2</span>
+    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5638</span>
+<span class="nt">domain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingénierie et Architecture</span>
+<span class="nt">filière</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Génie électrique</span>
+<span class="nt">orientation</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Électronique et Automatisation industrielle</span>
+    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EAI</span>
+<span class="nt">formation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Plein temps</span>
+<span class="nt">validityDate</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2018-2019</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2019-2020</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">François Birling</span>
+<span class="nt">charge</span><span class="p">:</span>
+    <span class="nt">academicHours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
+    <span class="nt">inClassAcademicHours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="nt">planning</span><span class="p">:</span>
+    <span class="nt">s1</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="c1"># 48</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Préprocesseur</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Classes de stockage</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Conception de type de données abstraits simples</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Création de bibliothèques</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Pointeurs</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Allocation dynamique</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Implémentation des listes</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Queues et piles basée sur les tableaux</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Type de données récursifs, queues et piles</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fichiers binaires et textes</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Contrôles continus</span>
+        <span class="nt">laboratory</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mise en oeuvre de type de données composées (structures, tableaux multidimensionnels)</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Lecture et écriture de fichiers texte et binaire en mode séquentiel</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mise en oeuvre de l&#39;allocation dynamique de mémoire</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Compilation séparée et implémentation de bibliothèques</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Implémentation de types de données abstraits, type simple, liste tableau</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Implémentation de types de données abstraits, file, pile</span>
+            <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">chapters</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mini-projet</span>
+<span class="nt">prerequisites</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">L&#39;étudiant-e doit connaître et savoir utiliser les notions suivantes</span>
+        <span class="no">- base de la programmation, types de base, structures de contrôle et sous-programmes</span>
+        <span class="no">- bases des outils de bureautique.</span>
+    <span class="no">L&#39;unité d&#39;enseignement APR1 (analyse et programmation) permet d&#39;acquérir ces connaissances</span>
+
+<span class="nt">goals</span><span class="p">:</span>
+    <span class="nt">class</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Décomposer un algorithme selon l&#39;approche descendante (raffinage successif) et ascendante.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Décomposer une application de complexité moyenne en algorithmes élémentaires.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir un type de données abstrait simple et les fonctions pour le manipuler.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Ecrire un programme qui lit ou écrit un fichier au format binaire, texte.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mettre en oeuvre l&#39;allocation dynamique de mémoire pour créer des tableaux dimensionnés à</span>
+<span class="l l-Scalar l-Scalar-Plain">l&#39;exécution.</span>
+        <span class="l l-Scalar l-Scalar-Plain">- Définir et manipuler un type de données récursif (liste chaînée).</span>
+        <span class="l l-Scalar l-Scalar-Plain">- Mettre en oeuvre des champs de bits et des unions pour manipuler des bits dans un masque binaire.</span>
+    <span class="l l-Scalar l-Scalar-Plain">laboratory</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Programmer une bibliothèque de fonctions de qualité professionnelle (et l&#39;utiliser).</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Programmer et mettre au point des algorithmes de complexité moyenne.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Réaliser une application de taille et de complexité moyennes, mêlant différents aspects de la</span>
+<span class="l l-Scalar l-Scalar-Plain">programmation.</span>
+
+<span class="nt">plan</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Algorithmie</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Raffinage successif</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Décomposition en éléments fonctionnels simples</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Conception d&#39;algorithmes de complexité moyenne</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types composés</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Manipulation d&#39;une structure</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Passage par copie et référence</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Bibliothèque</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Concevoir une bibliothèque statique</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Utilisation d&#39;une bibliothèque statique dans un programme</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fichiers</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Types de fichiers</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Binaire</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Textes</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Données tabulées</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Données indexées</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Système de fichier</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Arborescence</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Dossiers</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Chemins relatifs et absolus</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Manipulation de fichiers</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Pointeur de fichier (ftell, fseek)</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Lecture (fread, fscanf)</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Écriture (fwrite, fprintf)</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Gestion de la mémoire</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Pointeurs</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Règle gauche droite</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Allocation dynamique</span>
+      <span class="l l-Scalar l-Scalar-Plain">- malloc</span>
+      <span class="l l-Scalar l-Scalar-Plain">- calloc</span>
+      <span class="l l-Scalar l-Scalar-Plain">- free</span>
+      <span class="l l-Scalar l-Scalar-Plain">- Création de tableaux dynamiques</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Types de données récursifs</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Liste simplement chaînée</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Liste doublement chaînée</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Alignement mémoire</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Unions</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Champs de bits</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Livraison</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Préparer le code à la livraison</span>
+    <span class="l l-Scalar l-Scalar-Plain">- Construire une bibliothèque documentée</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">E.2.1</span>Pannification du semestre<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 34%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Semaine</p></th>
+<th class="head"><p>Académique</p></th>
+<th class="head"><p>Cours</p></th>
+<th class="head"><p>Labo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1</p></td>
+<td><p>Introduction</p></td>
+<td><p>GitHub - WSL</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>Fichiers</p></td>
+<td><p>Proust (partie 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>3</p></td>
+<td><p>Allocation dynamique</p></td>
+<td><p>Proust (partie 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>4</p></td>
+<td><p>Allocation dynamique</p></td>
+<td><p>Météo (partie 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>5</p></td>
+<td><p>Compilation séparée</p></td>
+<td><p>Météo (partie 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>6</p></td>
+<td><p>Préprocesseur</p></td>
+<td><p>Tableau Dynamique (1/2)</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>7</p></td>
+<td><p>Unions, champs de bits</p></td>
+<td><p>Tableau Dynamique (2/2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>8</p></td>
+<td><p>Usage bibliothèques</p></td>
+<td><p>Révision TE1</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td colspan="3"><p>Vacances de Pâques</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>9</p></td>
+<td><p>TE1</p></td>
+<td><p>GMP</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>10</p></td>
+<td><p>Algorithmique Big-O</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>11</p></td>
+<td><p>Tris</p></td>
+<td><p>Quick-Sort / Merge-Sort</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>12</p></td>
+<td><p>Queues et piles</p></td>
+<td><p>Révision TE2</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>13</p></td>
+<td><p>Sockets</p></td>
+<td><p>Labo Test</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>14</p></td>
+<td><p>TE2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>15</p></td>
+<td><p>Arbres binaires</p></td>
+<td><p>BST</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>16</p></td>
+<td><p>Exercices de révision</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td colspan="3"><p>Préparation Examens</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td colspan="3"><p>Examens</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="modalites-d-evalutation-et-de-validation">
+<h2><span class="section-number">E.3</span>Modalités d'évalutation et de validation<a class="headerlink" href="#modalites-d-evalutation-et-de-validation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le cours se composent de :</p>
+<ul class="simple">
+<li><p>Travaux écrits notés (coefficient 100%)</p></li>
+<li><p>Quiz notés ou non (coefficient 10% ou 0%)</p></li>
+<li><p>Séries d'exercices</p></li>
+<li><p>Travaux pratiques, 2 à 3 labos notés (laboratoires)</p></li>
+<li><p>Labo test noté comptabilisé comme un labo</p></li>
+</ul>
+<p>La note finale est donnée par l'expression :</p>
+<div class="math notranslate nohighlight">
+\[\text{final} =
+\frac{
+\sum\limits_{t=1}^\text{T}{\text{TE}_t} +
+10\% \cdot \sum\limits_{q=1}^\text{Q}{\text{Quiz}_q}
+}{
+4 \cdot (\text{T} + 10\% \cdot \text{Q})
+}
++
+\frac{1}{4 L}
+\sum\limits_{l=1}^L
+\text{Labo}_l
++
+\frac{1}{2}
+\text{Exam}\]</div>
+<p>L'equivalent en C :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define QUIZ_WEIGHT (.1) </span><span class="c1">// Percent</span>
+<span class="cp">#define EXAM_WEIGHT (.5) </span><span class="c1">// Percent</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">notes</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">values</span><span class="p">[];</span>
+<span class="p">}</span> <span class="n">Notes</span><span class="p">;</span>
+
+<span class="kt">float</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Notes</span> <span class="o">*</span><span class="n">notes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">notes</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">notes</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">mark</span><span class="p">(</span><span class="n">Notes</span> <span class="n">tes</span><span class="p">,</span> <span class="n">Notes</span> <span class="n">quizzes</span><span class="p">,</span> <span class="n">Notes</span> <span class="n">labs</span><span class="p">,</span> <span class="kt">float</span> <span class="n">exam</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+    <span class="n">sum</span><span class="p">(</span><span class="n">tes</span><span class="p">)</span> <span class="o">+</span> <span class="n">QUIZ_WEIGHT</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">quizzes</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">EXAM_WEIGHT</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">tes</span><span class="p">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">QUIZ_WEIGHT</span> <span class="o">*</span> <span class="n">quizzes</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">EXAM_WEIGHT</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">labs</span><span class="p">)</span> <span class="o">/</span> <span class="n">labs</span><span class="p">.</span><span class="n">size</span> <span class="o">+</span>
+        <span class="n">EXAM_WEIGHT</span> <span class="o">*</span> <span class="n">exam</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Les règles sont :</p>
+<ul class="simple">
+<li><p>En cas d'absence à un quiz, la note de 1.0 est donnée.</p></li>
+<li><p>En cas de plagiat, le <a class="reference external" href="https://fr.wikipedia.org/wiki/Dilemme_du_prisonnier#:~:text=Le%20dilemme%20du%20prisonnier%2C%20%C3%A9nonc%C3%A9,est%20jou%C3%A9%20qu'une%20fois.">dilemme du prisionnier</a> s'applique.</p></li>
+<li><p>Le quiz le plus mauvais ne compte pas.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="40-development.html"
+       title="Chapitre précédent">← <span class="section-number">4</span>Environnement de développement</a>
+  </li>
+  <li class="next">
+    <a href="80-laboratories.html"
+       title="Chapitre suivant"><span class="section-number">6</span>Laboratoires →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
