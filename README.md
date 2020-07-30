@@ -1,12 +1,12 @@
 # Polycopié d'informatique
 
-[![Build Status](https://travis-ci.org/heig-vd-tin/info-handout.svg?branch=master)](https://travis-ci.org/heig-vd-tin/info-handout)
+[![Build Status](https://travis-ci.org/heig-tin-info/info-handout.svg?branch=master)](https://travis-ci.org/heig-tin-info/info-handout)
 
 Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
 
-- PDF (voir [releases](https://github.com/heig-vd-tin/info-handout/releases))
-- HTML (https://heig-vd-tin.github.io/info-handout/)
-- Manpage (voir [releases](https://github.com/heig-vd-tin/info-handout/releases))
+- PDF (voir [releases](https://github.com/heig-tin-info/info-handout/releases))
+- HTML (https://heig-tin-info.github.io/handout/)
+- Manpage (voir [releases](https://github.com/heig-tin-info/info-handout/releases))
 
 ## Install
 
