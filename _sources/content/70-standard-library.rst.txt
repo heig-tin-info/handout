@@ -2,7 +2,7 @@
 Bibliothèques
 ==============
 
-.. figure:: https://upload.wikimedia.org/wikipedia/commons/4/4b/Long_Room_Interior,_Trinity_College_Dublin,_Ireland_-_Diliff.jpg
+.. figure:: ../assets/images/library.*
 
     Bibliothèque du Trinity College de Dublin
 
