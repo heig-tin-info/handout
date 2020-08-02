@@ -1,6 +1,9 @@
 # Polycopié d'informatique
 
-![Build Status](https://github.com/heig-tin-info/handout/workflows/ci/badge.svg)
+![.github/workflows/ci.yml](https://github.com/heig-tin-info/handout/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
+
+![version](https://img.shields.io/github/v/release/heig-tin-info/handout)
+![downloads](https://img.shields.io/github/downloads/heig-tin-info/handout/latest/total)
 
 Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
 
