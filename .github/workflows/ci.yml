@@ -4,6 +4,7 @@ on:
       - master
 jobs:
   build:
+    name: Build Project
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -33,6 +34,8 @@ jobs:
           path: |
             _build/html
   deploy:
+    name: Deploy on GH-Pages
+    needs: build
     runs-on: ubuntu-latest
     if: contains(github.ref, 'master')
     steps:
@@ -47,6 +50,8 @@ jobs:
           BRANCH: gh-pages
           FOLDER: _build/html
   release:
+    name: Create Release
+    needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
