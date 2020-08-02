@@ -45,9 +45,9 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
+          path: ~/download/html
           name: html
-      - run: ls -al
-      - run: ls -al _build/html
+      - run: ls -al ~/download/html
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Deploy to GitHub Pages
@@ -55,7 +55,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           BRANCH: gh-pages
-          FOLDER: _build/html
+          FOLDER: ~/download/html
   release:
     name: Create Release
     needs: build
@@ -76,10 +76,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: man
+          path: ~/download/
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
           name: pdf
+          path: ~/download/
       - name: Upload Handout
         id: upload-pdf-handout
         uses: actions/upload-release-asset@v1
@@ -87,7 +89,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./_build/latex/main.pdf
+          asset_path: ~/download/main.pdf
           asset_name: handout.pdf
           asset_content_type: application/pdf
       - name: Upload Manpage
@@ -97,6 +99,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./_build/man/info.1
+          asset_path: ~/download/info.1
           asset_name: info.1
           asset_content_type: text/plain

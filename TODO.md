@@ -36,6 +36,22 @@
 - [ ] LaTeX pygments style
 - [ ] Reduce PDF size (should be much smaller!)
 
+## Exercices
+
+- Chaque chapitre à des exercices:
+
+```
+Exercice 3.8
+
+...
+
+> Voir solution...(html only)
+```
+
+- La version PDF à une section "Solution des exercices"
+- Sous section "Solutions du chapitre 8"
+- Puis "Exercice 8.2"
+
 ## Sphinx
 
 ### Custom section numbering
