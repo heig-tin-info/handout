@@ -5,9 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
+        with:
+          submodules: true
       - name: Build
         run: make all
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            _build/latex/main.pdf
+            _build/man/info.1
       - name: Deploy to GitHub Pages
         uses: Cecilapp/GitHub-Pages-deploy@master
         env:
