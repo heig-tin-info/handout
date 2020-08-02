@@ -49,6 +49,8 @@ html_css_files = [
 
 numfig = True
 
+pygments_style = "colorful"
+
 latex_additional_files = [
     '_templates/manual.cls',
     '_templates/sphinx.sty',
@@ -121,7 +123,6 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 }
 
 latex_logo = '_artifacts/heig-vd.pdf'
-
 
 man_pages = [
     ('index', 'info', None, author, 1)

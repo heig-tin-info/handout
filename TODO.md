@@ -33,6 +33,7 @@
 - [ ] Build from GitHub Actions
 - [ ] Index at the end of document?
 - [ ] Exercice thing...
+- [ ] LaTeX pygments style
 
 .. only:: comment
 
