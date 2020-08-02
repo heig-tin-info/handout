@@ -34,7 +34,7 @@ jobs:
             _build/html
   deploy:
     runs-on: ubuntu-latest
-    if: contains(github.ref, "master")
+    if: contains(github.ref, 'master')
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2
