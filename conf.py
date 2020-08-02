@@ -52,10 +52,14 @@ numfig = True
 pygments_style = "colorful"
 
 latex_additional_files = [
-    '_templates/manual.cls',
     '_templates/sphinx.sty',
-    '_templates/latexmkrc'
+    '_templates/latexmkrc',
+    '_templates/sphinxmanual.cls'
 ]
+
+latex_docclass = {
+    'manual': 'manual'
+}
 
 latex_documents = [
     ('index', 'main.tex', None , author, 'manual')
@@ -65,6 +69,7 @@ latex_engine = 'xelatex'
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '12pt',
+    'wrapperclass': 'manual',
     'babel': r'\usepackage[french]{babel}',
     'inputenc': '',
     'utf8extra': '',
