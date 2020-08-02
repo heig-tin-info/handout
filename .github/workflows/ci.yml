@@ -45,7 +45,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
-          path: ~/download/html
+          path: .dist/html
           name: html
       - run: ls -al ~/download/html
       - name: Checkout repository
@@ -55,7 +55,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           BRANCH: gh-pages
-          FOLDER: ~/download/html
+          FOLDER: .dist/html
   release:
     name: Create Release
     needs: build
