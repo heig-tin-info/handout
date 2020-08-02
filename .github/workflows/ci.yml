@@ -21,18 +21,21 @@ jobs:
           name: pdf
           path: |
             _build/latex/main.pdf
+          if-no-files-found: error
       - name: Upload man-page
         uses: actions/upload-artifact@v2
         with:
           name: man
           path: |
             _build/man/info.1
+          if-no-files-found: error
       - name: Upload html
         uses: actions/upload-artifact@v2
         with:
           name: html
           path: |
             _build/html
+          if-no-files-found: error
   deploy:
     name: Deploy on GH-Pages
     needs: build
@@ -45,7 +48,7 @@ jobs:
           name: html
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.5.9
-        env:
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           BRANCH: gh-pages
           FOLDER: _build/html
