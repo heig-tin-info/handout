@@ -35,6 +35,18 @@
 - [ ] Exercice thing...
 - [ ] LaTeX pygments style
 - [ ] Reduce PDF size (should be much smaller!)
+- [ ] Glossaire
+
+## Index
+
+Lien dans les index:
+
+```
+Compilation, 145
+   - séparée, 122, 291
+   - erreurs, 111
+
+```
 
 ## Exercices
 
