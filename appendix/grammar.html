@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>2Grammaire C</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="3Ligne de commande" href="bash.html" />
+  <link rel="prev" title="1Visual Studio Code" href="vscode.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../content/introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Grammaire C</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#grammaire-c" class="reference internal">Grammaire C</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2</span>Grammaire C</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="vscode.html"
+       title="Chapitre précédent">← <span class="section-number">1</span>Visual Studio Code</a>
+  </li>
+  <li class="next">
+    <a href="bash.html"
+       title="Chapitre suivant"><span class="section-number">3</span>Ligne de commande →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="grammaire-c">
+<h1><span class="section-number">B</span>Grammaire C<a class="headerlink" href="#grammaire-c" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="https://fr.wikipedia.org/wiki/Yacc_(logiciel)">Yacc</a> (<em>Yet Another COmpiler-Compiler</em>) est un logiciel utilisé pour écrire des analyseur syntaxique de code. Il prend en entrée une grammaire.</p>
+<p>Parce que les informaticiens ont de l'humour, Yacc à son pendant GNU <a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Bison">Bison</a> plus récent (1985) mais toujours activement développé.</p>
+<p>Voici à titre d'information la définition formelle du langage C99 :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%token IDENTIFIER CONSTANT STRING_LITERAL SIZEOF
+%token PTR_OP INC_OP DEC_OP LEFT_OP RIGHT_OP LE_OP GE_OP EQ_OP NE_OP
+%token AND_OP OR_OP MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN ADD_ASSIGN
+%token SUB_ASSIGN LEFT_ASSIGN RIGHT_ASSIGN AND_ASSIGN
+%token XOR_ASSIGN OR_ASSIGN TYPE_NAME
+
+%token TYPEDEF EXTERN STATIC AUTO REGISTER INLINE RESTRICT
+%token CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE CONST VOLATILE VOID
+%token BOOL COMPLEX IMAGINARY
+%token STRUCT UNION ENUM ELLIPSIS
+
+%token CASE DEFAULT IF ELSE SWITCH WHILE DO FOR GOTO CONTINUE BREAK RETURN
+
+%start translation_unit
+%%
+
+primary_expression
+	: IDENTIFIER
+	| CONSTANT
+	| STRING_LITERAL
+	| &#39;(&#39; expression &#39;)&#39;
+	;
+
+postfix_expression
+	: primary_expression
+	| postfix_expression &#39;[&#39; expression &#39;]&#39;
+	| postfix_expression &#39;(&#39; &#39;)&#39;
+	| postfix_expression &#39;(&#39; argument_expression_list &#39;)&#39;
+	| postfix_expression &#39;.&#39; IDENTIFIER
+	| postfix_expression PTR_OP IDENTIFIER
+	| postfix_expression INC_OP
+	| postfix_expression DEC_OP
+	| &#39;(&#39; type_name &#39;)&#39; &#39;{&#39; initializer_list &#39;}&#39;
+	| &#39;(&#39; type_name &#39;)&#39; &#39;{&#39; initializer_list &#39;,&#39; &#39;}&#39;
+	;
+
+argument_expression_list
+	: assignment_expression
+	| argument_expression_list &#39;,&#39; assignment_expression
+	;
+
+unary_expression
+	: postfix_expression
+	| INC_OP unary_expression
+	| DEC_OP unary_expression
+	| unary_operator cast_expression
+	| SIZEOF unary_expression
+	| SIZEOF &#39;(&#39; type_name &#39;)&#39;
+	;
+
+unary_operator
+	: &#39;&amp;&#39;
+	| &#39;*&#39;
+	| &#39;+&#39;
+	| &#39;-&#39;
+	| &#39;~&#39;
+	| &#39;!&#39;
+	;
+
+cast_expression
+	: unary_expression
+	| &#39;(&#39; type_name &#39;)&#39; cast_expression
+	;
+
+multiplicative_expression
+	: cast_expression
+	| multiplicative_expression &#39;*&#39; cast_expression
+	| multiplicative_expression &#39;/&#39; cast_expression
+	| multiplicative_expression &#39;%&#39; cast_expression
+	;
+
+additive_expression
+	: multiplicative_expression
+	| additive_expression &#39;+&#39; multiplicative_expression
+	| additive_expression &#39;-&#39; multiplicative_expression
+	;
+
+shift_expression
+	: additive_expression
+	| shift_expression LEFT_OP additive_expression
+	| shift_expression RIGHT_OP additive_expression
+	;
+
+relational_expression
+	: shift_expression
+	| relational_expression &#39;&lt;&#39; shift_expression
+	| relational_expression &#39;&gt;&#39; shift_expression
+	| relational_expression LE_OP shift_expression
+	| relational_expression GE_OP shift_expression
+	;
+
+equality_expression
+	: relational_expression
+	| equality_expression EQ_OP relational_expression
+	| equality_expression NE_OP relational_expression
+	;
+
+and_expression
+	: equality_expression
+	| and_expression &#39;&amp;&#39; equality_expression
+	;
+
+exclusive_or_expression
+	: and_expression
+	| exclusive_or_expression &#39;^&#39; and_expression
+	;
+
+inclusive_or_expression
+	: exclusive_or_expression
+	| inclusive_or_expression &#39;|&#39; exclusive_or_expression
+	;
+
+logical_and_expression
+	: inclusive_or_expression
+	| logical_and_expression AND_OP inclusive_or_expression
+	;
+
+logical_or_expression
+	: logical_and_expression
+	| logical_or_expression OR_OP logical_and_expression
+	;
+
+conditional_expression
+	: logical_or_expression
+	| logical_or_expression &#39;?&#39; expression &#39;:&#39; conditional_expression
+	;
+
+assignment_expression
+	: conditional_expression
+	| unary_expression assignment_operator assignment_expression
+	;
+
+assignment_operator
+	: &#39;=&#39;
+	| MUL_ASSIGN
+	| DIV_ASSIGN
+	| MOD_ASSIGN
+	| ADD_ASSIGN
+	| SUB_ASSIGN
+	| LEFT_ASSIGN
+	| RIGHT_ASSIGN
+	| AND_ASSIGN
+	| XOR_ASSIGN
+	| OR_ASSIGN
+	;
+
+expression
+	: assignment_expression
+	| expression &#39;,&#39; assignment_expression
+	;
+
+constant_expression
+	: conditional_expression
+	;
+
+declaration
+	: declaration_specifiers &#39;;&#39;
+	| declaration_specifiers init_declarator_list &#39;;&#39;
+	;
+
+declaration_specifiers
+	: storage_class_specifier
+	| storage_class_specifier declaration_specifiers
+	| type_specifier
+	| type_specifier declaration_specifiers
+	| type_qualifier
+	| type_qualifier declaration_specifiers
+	| function_specifier
+	| function_specifier declaration_specifiers
+	;
+
+init_declarator_list
+	: init_declarator
+	| init_declarator_list &#39;,&#39; init_declarator
+	;
+
+init_declarator
+	: declarator
+	| declarator &#39;=&#39; initializer
+	;
+
+storage_class_specifier
+	: TYPEDEF
+	| EXTERN
+	| STATIC
+	| AUTO
+	| REGISTER
+	;
+
+type_specifier
+	: VOID
+	| CHAR
+	| SHORT
+	| INT
+	| LONG
+	| FLOAT
+	| DOUBLE
+	| SIGNED
+	| UNSIGNED
+	| BOOL
+	| COMPLEX
+	| IMAGINARY
+	| struct_or_union_specifier
+	| enum_specifier
+	| TYPE_NAME
+	;
+
+struct_or_union_specifier
+	: struct_or_union IDENTIFIER &#39;{&#39; struct_declaration_list &#39;}&#39;
+	| struct_or_union &#39;{&#39; struct_declaration_list &#39;}&#39;
+	| struct_or_union IDENTIFIER
+	;
+
+struct_or_union
+	: STRUCT
+	| UNION
+	;
+
+struct_declaration_list
+	: struct_declaration
+	| struct_declaration_list struct_declaration
+	;
+
+struct_declaration
+	: specifier_qualifier_list struct_declarator_list &#39;;&#39;
+	;
+
+specifier_qualifier_list
+	: type_specifier specifier_qualifier_list
+	| type_specifier
+	| type_qualifier specifier_qualifier_list
+	| type_qualifier
+	;
+
+struct_declarator_list
+	: struct_declarator
+	| struct_declarator_list &#39;,&#39; struct_declarator
+	;
+
+struct_declarator
+	: declarator
+	| &#39;:&#39; constant_expression
+	| declarator &#39;:&#39; constant_expression
+	;
+
+enum_specifier
+	: ENUM &#39;{&#39; enumerator_list &#39;}&#39;
+	| ENUM IDENTIFIER &#39;{&#39; enumerator_list &#39;}&#39;
+	| ENUM &#39;{&#39; enumerator_list &#39;,&#39; &#39;}&#39;
+	| ENUM IDENTIFIER &#39;{&#39; enumerator_list &#39;,&#39; &#39;}&#39;
+	| ENUM IDENTIFIER
+	;
+
+enumerator_list
+	: enumerator
+	| enumerator_list &#39;,&#39; enumerator
+	;
+
+enumerator
+	: IDENTIFIER
+	| IDENTIFIER &#39;=&#39; constant_expression
+	;
+
+type_qualifier
+	: CONST
+	| RESTRICT
+	| VOLATILE
+	;
+
+function_specifier
+	: INLINE
+	;
+
+declarator
+	: pointer direct_declarator
+	| direct_declarator
+	;
+
+
+direct_declarator
+	: IDENTIFIER
+	| &#39;(&#39; declarator &#39;)&#39;
+	| direct_declarator &#39;[&#39; type_qualifier_list assignment_expression &#39;]&#39;
+	| direct_declarator &#39;[&#39; type_qualifier_list &#39;]&#39;
+	| direct_declarator &#39;[&#39; assignment_expression &#39;]&#39;
+	| direct_declarator &#39;[&#39; STATIC type_qualifier_list assignment_expression &#39;]&#39;
+	| direct_declarator &#39;[&#39; type_qualifier_list STATIC assignment_expression &#39;]&#39;
+	| direct_declarator &#39;[&#39; type_qualifier_list &#39;*&#39; &#39;]&#39;
+	| direct_declarator &#39;[&#39; &#39;*&#39; &#39;]&#39;
+	| direct_declarator &#39;[&#39; &#39;]&#39;
+	| direct_declarator &#39;(&#39; parameter_type_list &#39;)&#39;
+	| direct_declarator &#39;(&#39; identifier_list &#39;)&#39;
+	| direct_declarator &#39;(&#39; &#39;)&#39;
+	;
+
+pointer
+	: &#39;*&#39;
+	| &#39;*&#39; type_qualifier_list
+	| &#39;*&#39; pointer
+	| &#39;*&#39; type_qualifier_list pointer
+	;
+
+type_qualifier_list
+	: type_qualifier
+	| type_qualifier_list type_qualifier
+	;
+
+
+parameter_type_list
+	: parameter_list
+	| parameter_list &#39;,&#39; ELLIPSIS
+	;
+
+parameter_list
+	: parameter_declaration
+	| parameter_list &#39;,&#39; parameter_declaration
+	;
+
+parameter_declaration
+	: declaration_specifiers declarator
+	| declaration_specifiers abstract_declarator
+	| declaration_specifiers
+	;
+
+identifier_list
+	: IDENTIFIER
+	| identifier_list &#39;,&#39; IDENTIFIER
+	;
+
+type_name
+	: specifier_qualifier_list
+	| specifier_qualifier_list abstract_declarator
+	;
+
+abstract_declarator
+	: pointer
+	| direct_abstract_declarator
+	| pointer direct_abstract_declarator
+	;
+
+direct_abstract_declarator
+	: &#39;(&#39; abstract_declarator &#39;)&#39;
+	| &#39;[&#39; &#39;]&#39;
+	| &#39;[&#39; assignment_expression &#39;]&#39;
+	| direct_abstract_declarator &#39;[&#39; &#39;]&#39;
+	| direct_abstract_declarator &#39;[&#39; assignment_expression &#39;]&#39;
+	| &#39;[&#39; &#39;*&#39; &#39;]&#39;
+	| direct_abstract_declarator &#39;[&#39; &#39;*&#39; &#39;]&#39;
+	| &#39;(&#39; &#39;)&#39;
+	| &#39;(&#39; parameter_type_list &#39;)&#39;
+	| direct_abstract_declarator &#39;(&#39; &#39;)&#39;
+	| direct_abstract_declarator &#39;(&#39; parameter_type_list &#39;)&#39;
+	;
+
+initializer
+	: assignment_expression
+	| &#39;{&#39; initializer_list &#39;}&#39;
+	| &#39;{&#39; initializer_list &#39;,&#39; &#39;}&#39;
+	;
+
+initializer_list
+	: initializer
+	| designation initializer
+	| initializer_list &#39;,&#39; initializer
+	| initializer_list &#39;,&#39; designation initializer
+	;
+
+designation
+	: designator_list &#39;=&#39;
+	;
+
+designator_list
+	: designator
+	| designator_list designator
+	;
+
+designator
+	: &#39;[&#39; constant_expression &#39;]&#39;
+	| &#39;.&#39; IDENTIFIER
+	;
+
+statement
+	: labeled_statement
+	| compound_statement
+	| expression_statement
+	| selection_statement
+	| iteration_statement
+	| jump_statement
+	;
+
+labeled_statement
+	: IDENTIFIER &#39;:&#39; statement
+	| CASE constant_expression &#39;:&#39; statement
+	| DEFAULT &#39;:&#39; statement
+	;
+
+compound_statement
+	: &#39;{&#39; &#39;}&#39;
+	| &#39;{&#39; block_item_list &#39;}&#39;
+	;
+
+block_item_list
+	: block_item
+	| block_item_list block_item
+	;
+
+block_item
+	: declaration
+	| statement
+	;
+
+expression_statement
+	: &#39;;&#39;
+	| expression &#39;;&#39;
+	;
+
+selection_statement
+	: IF &#39;(&#39; expression &#39;)&#39; statement
+	| IF &#39;(&#39; expression &#39;)&#39; statement ELSE statement
+	| SWITCH &#39;(&#39; expression &#39;)&#39; statement
+	;
+
+iteration_statement
+	: WHILE &#39;(&#39; expression &#39;)&#39; statement
+	| DO statement WHILE &#39;(&#39; expression &#39;)&#39; &#39;;&#39;
+	| FOR &#39;(&#39; expression_statement expression_statement &#39;)&#39; statement
+	| FOR &#39;(&#39; expression_statement expression_statement expression &#39;)&#39; statement
+	| FOR &#39;(&#39; declaration expression_statement &#39;)&#39; statement
+	| FOR &#39;(&#39; declaration expression_statement expression &#39;)&#39; statement
+	;
+
+jump_statement
+	: GOTO IDENTIFIER &#39;;&#39;
+	| CONTINUE &#39;;&#39;
+	| BREAK &#39;;&#39;
+	| RETURN &#39;;&#39;
+	| RETURN expression &#39;;&#39;
+	;
+
+translation_unit
+	: external_declaration
+	| translation_unit external_declaration
+	;
+
+external_declaration
+	: function_definition
+	| declaration
+	;
+
+function_definition
+	: declaration_specifiers declarator declaration_list compound_statement
+	| declaration_specifiers declarator compound_statement
+	;
+
+declaration_list
+	: declaration
+	| declaration_list declaration
+	;
+
+
+%%
+#include &lt;stdio.h&gt;
+
+extern char yytext[];
+extern int column;
+
+void yyerror(char const *s)
+{
+	fflush(stdout);
+	printf(&quot;\n%*s\n%*s\n&quot;, column, &quot;^&quot;, column, s);
+}
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="vscode.html"
+       title="Chapitre précédent">← <span class="section-number">1</span>Visual Studio Code</a>
+  </li>
+  <li class="next">
+    <a href="bash.html"
+       title="Chapitre suivant"><span class="section-number">3</span>Ligne de commande →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

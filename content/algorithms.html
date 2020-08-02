@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>17Algorithmes et conception</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="18Compilation séparée" href="translation-units.html" />
+  <link rel="prev" title="16Préprocesseur" href="preprocessor.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Algorithmes et conception</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#complexite-d-un-algorithme" class="reference internal">Complexité d'un algorithme</a></li>
+                
+                  <li class="toctree-l2"><a href="#machines-d-etats" class="reference internal">Machines d'états</a></li>
+                
+                  <li class="toctree-l2"><a href="#diagrammes-visuels" class="reference internal">Diagrammes visuels</a></li>
+                
+                  <li class="toctree-l2"><a href="#recursivite" class="reference internal">Récursivité</a></li>
+                
+                  <li class="toctree-l2"><a href="#programmation-dynamique" class="reference internal">Programmation dynamique</a></li>
+                
+                  <li class="toctree-l2"><a href="#algorithmes-de-tris" class="reference internal">Algorithmes de tris</a></li>
+                
+                  <li class="toctree-l2"><a href="#type-d-algorithmes" class="reference internal">Type d'algorithmes</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">17</span>Algorithmes et conception</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="preprocessor.html"
+       title="Chapitre précédent">← <span class="section-number">16</span>Préprocesseur</a>
+  </li>
+  <li class="next">
+    <a href="translation-units.html"
+       title="Chapitre suivant"><span class="section-number">18</span>Compilation séparée →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="algorithmes-et-conception">
+<span id="algorithms"></span><h1><span class="section-number">17</span>Algorithmes et conception<a class="headerlink" href="#algorithmes-et-conception" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.</p>
+<p>Un algorithme peut être également considéré comme étant n'importe quelle séquence d'opérations pouvant être simulées par un système <a class="reference external" href="https://fr.wikipedia.org/wiki/Turing-complet">Turing-complet</a>. Un système est déclaré Turing-complet s'il peut simuler n'importe quelle <a class="reference external" href="https://fr.wikipedia.org/wiki/Machine_de_Turing">machine de Turing</a>. For heureusement, le langage C est Turing-complet puisqu'il possède tous les ingrédients nécessaires à la simulation de ces machines, soit compter, comparer, lire, écrire...</p>
+<p>Dans le cas qui concerne cet ouvrage, un algorithme est une recette exprimée en une liste d'instructions et permettant de résoudre un problème informatique. Cette recette contient à peu de choses près les éléments programmatiques que nous avons déjà entre aperçus: des structures de contrôle, des variables, etc.</p>
+<p>Généralement un algorithme peut être exprimé graphiquement en utilisant un organigramme (<em>flowchart</em>) ou un structogramme (<em>Nassi-Shneiderman diagram</em>) afin de s'affranchir du langage de programmation cible.</p>
+<p>La <strong>conception</strong> aussi appelée <a class="reference external" href="https://fr.wikipedia.org/wiki/Architecture_logicielle">Architecture logicielle</a> est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.</p>
+<p>Pour être qualifié d'algorithme certaines propriété doivent être respectées :</p>
+<ol class="arabic simple">
+<li><p><strong>Entrées</strong>, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.</p></li>
+<li><p><strong>Sorties</strong>, un algorithme doit posséder au moins une sortie.</p></li>
+<li><p><strong>Rigueur</strong>, chaque étape d'un algorithme doit être claire et bien définie.</p></li>
+<li><p><strong>Finitude</strong>, un algorithme doit comporté un nombre fini d'étapes.</p></li>
+<li><p><strong>Répétable</strong>, un algorithme doit fournir un résultat répétable.</p></li>
+</ol>
+<div class="section" id="complexite-d-un-algorithme">
+<h2><span class="section-number">17.1</span>Complexité d'un algorithme<a class="headerlink" href="#complexite-d-un-algorithme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs :</p>
+<ul class="simple">
+<li><p>La complexité en temps</p></li>
+<li><p>La complexité en mémoire</p></li>
+</ul>
+<p>Pour l'un, l'idée est de savoir combine de temps CPU consomme un algorithme. Pour l'autre, on s'intéresse à l'utilisation de mémoire tampon.</p>
+<p>La complexité en temps et en mémoire d'un algorithme est souvent exprimée en utilisant la notation en O (<em>big O notation</em>). Par exemple, la complexité en temps d'un algorithme qui demanderait 10 étapes pour être résolu s'écrirait :</p>
+<div class="math notranslate nohighlight">
+\[O(10)\]</div>
+<p>Un algorithme qui ferait une recherche dichotomique sur un tableau de <span class="math notranslate nohighlight">\(n\)</span> éléments à une complexité <span class="math notranslate nohighlight">\(O(log(n))\)</span>.</p>
+<p>Quelques points à retenir :</p>
+<ul class="simple">
+<li><p>La complexité d'un algorithme considère toujours le cas le moins favorable.</p></li>
+<li><p>Le meilleur algorithme est celui qui présente le meilleur compromis entre sa complexité en temps et sa complexité en mémoire.</p></li>
+</ul>
+<p>À titre d'exemple, le programme suivant qui se charge de remplacer les valeurs paires d'un tableau par un 0 et les valeurs impaires par un 1 à une complexité en temps de <span class="math notranslate nohighlight">\(O(n)\)</span> où <cite>n</cite> est le
+nombre d'éléments du tableau.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">discriminate</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>D'une manière générale, la plupart des algorithmes que l'ingénieur écrira appartiendront à ces
+catégories exprimées du meilleur au plus mauvais :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 24%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Complexité</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(n = 100000\)</span></p></th>
+<th class="head"><p>i7 (100'000 MIPS)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(O(log(n))\)</span></p></td>
+<td><p>11</p></td>
+<td><p>0.11 ns</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p>100'000</p></td>
+<td><p>1 us</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(O(n log(n))\)</span></p></td>
+<td><p>1'100'000</p></td>
+<td><p>11 us</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(O(n^2)\)</span></p></td>
+<td><p>10'000'000'000</p></td>
+<td><p>100 ms (un battement de cil)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(O(2^n)\)</span></p></td>
+<td><p>très très grand</p></td>
+<td><p>Le soleil devenu géante rouge
+aura ingurgité la terre</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(O(n!)\)</span></p></td>
+<td><p>trop trop grand</p></td>
+<td><p>La galaxie ne sera plus que poussière</p></td>
+</tr>
+</tbody>
+</table>
+<p>Les différentes complexité peuvent être résumées sur la figure suivante :</p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/complexity.svg" src="../_images/complexity.svg" /><p class="caption"><span class="caption-number">Fig. 17.1 </span><span class="caption-text">Différentes complexités d'algorithmes</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Un algorithme en <span class="math notranslate nohighlight">\(O(n^2)\)</span>, doit éveiller chez le développeur la volonté de voir s'il n'y a pas moyen d'optimiser l'algorithme en réduisant sa complexité, souvent on s'aperçoit qu'un algorithme peut être optimisé et s'intéresser à sa complexité est un excellent point d'entrée.</p>
+<p>Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">MAX_INT</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">MIN_INT</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">min</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">MAX_INT</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">MIN_INT</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">min</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/17/1">Exercice 17.1</a>: </p>
+<p><a class="reference external" href="../exercises.html#exercise/17/2">Exercice 17.2</a>: L'entier manquant</p>
+</div>
+<div class="section" id="machines-d-etats">
+<h2><span class="section-number">17.2</span>Machines d'états<a class="headerlink" href="#machines-d-etats" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="diagrammes-visuels">
+<h2><span class="section-number">17.3</span>Diagrammes visuels<a class="headerlink" href="#diagrammes-visuels" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Diagrammes en flux</p></li>
+<li><p>Structogrammes</p></li>
+<li><p>Diagramme d'activités</p></li>
+</ul>
+</div>
+<div class="section" id="recursivite">
+<h2><span class="section-number">17.4</span>Récursivité<a class="headerlink" href="#recursivite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9">récursivité</a> est une autoréférence. Il peut s'agit en C d'une fonction qui s'appelle elle-même.</p>
+<p><a class="reference external" href="../exercises.html#exercise/17/3">Exercice 17.3</a>: La plus petite différence</p>
+</div>
+<div class="section" id="programmation-dynamique">
+<h2><span class="section-number">17.5</span>Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="algorithmes-de-tris">
+<h2><span class="section-number">17.6</span>Algorithmes de tris<a class="headerlink" href="#algorithmes-de-tris" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="heap-sort">
+<h3><span class="section-number">17.6.1</span>Heap Sort<a class="headerlink" href="#heap-sort" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  1   2       3                  4
+┞──╀──┬──╀──┬──┬──┬──╀──┬──┬──┬──┬──┬──┬──┬──┦
+│ 8│ 4│12│20│ 6│42│14│11│ 3│35│ 7│ 9│11│50│16│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┘
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             8
+             |
+         ----+----
+       /           \
+      4            12
+     --            --
+   /    \        /    \
+  20     6      42    14
+ / \    / \    / \   /  \
+11  3  35  7  9  11 50  16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="type-d-algorithmes">
+<h2><span class="section-number">17.7</span>Type d'algorithmes<a class="headerlink" href="#type-d-algorithmes" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="algorithmes-en-ligne-incremental">
+<h3><span class="section-number">17.7.1</span>Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un algorithme incrémental ou <a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est à dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
+<p>Un exemple typique est le <a class="reference external" href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretient s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
+<p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="math notranslate nohighlight">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que toutes ceux/celles du premier échantillon.</p>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/17/4">Exercice 17.4</a>: Intégrateur de Kahan</p>
+<p><a class="reference external" href="../exercises.html#exercise/17/5">Exercice 17.5</a>: Robot aspirateur affamé</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="preprocessor.html"
+       title="Chapitre précédent">← <span class="section-number">16</span>Préprocesseur</a>
+  </li>
+  <li class="next">
+    <a href="translation-units.html"
+       title="Chapitre suivant"><span class="section-number">18</span>Compilation séparée →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

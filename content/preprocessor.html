@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>16Préprocesseur</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="17Algorithmes et conception" href="algorithms.html" />
+  <link rel="prev" title="15Bibliothèques" href="standard-library.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Préprocesseur</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#phases-de-traduction" class="reference internal">Phases de traduction</a></li>
+                
+                  <li class="toctree-l2"><a href="#extensions-des-fichiers" class="reference internal">Extensions des fichiers</a></li>
+                
+                  <li class="toctree-l2"><a href="#inclusion-de-fichiers" class="reference internal">Inclusion de fichiers</a></li>
+                
+                  <li class="toctree-l2"><a href="#definitions" class="reference internal">Définitions</a></li>
+                
+                  <li class="toctree-l2"><a href="#macros" class="reference internal">Macros</a></li>
+                
+                  <li class="toctree-l2"><a href="#debogage" class="reference internal">Debogage</a></li>
+                
+                  <li class="toctree-l2"><a href="#caractere-d-echappement" class="reference internal">Caractère d'échappement</a></li>
+                
+                  <li class="toctree-l2"><a href="#id1" class="reference internal">Macros</a></li>
+                
+                  <li class="toctree-l2"><a href="#directives-conditionnelles" class="reference internal">Directives conditionnelles</a></li>
+                
+                  <li class="toctree-l2"><a href="#commentaires" class="reference internal">Commentaires</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">16</span>Préprocesseur</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="standard-library.html"
+       title="Chapitre précédent">← <span class="section-number">15</span>Bibliothèques</a>
+  </li>
+  <li class="next">
+    <a href="algorithms.html"
+       title="Chapitre suivant"><span class="section-number">17</span>Algorithmes et conception →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="preprocesseur">
+<h1><span class="section-number">16</span>Préprocesseur<a class="headerlink" href="#preprocesseur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Comme nous l'avons vu en introduction (c.f. <a class="reference internal" href="introduction.html#structured-text"><span class="std std-numref">Section 1.6</span></a>), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
+<p>Le coeur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (<code class="docutils literal notranslate"><span class="pre">#</span></code>), <em>hash</em> en anglais et utilisé récemment comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (<code class="docutils literal notranslate"><span class="pre">♯</span></code>) présent sur les pavés numériques de téléphone.</p>
+<p>Le vocabulaire du préprocesseur est le suivant :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">#include</span></code></dt><dd><p>Inclu un fichier dans le fichier courant</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#define</span></code></dt><dd><p>Crée une définition (Macro)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#undef</span></code></dt><dd><p>Détruis une définition existante</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">defined</span></code> ou <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code></dt><dd><p>Teste si une définition existe</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#if</span></code> .. <code class="docutils literal notranslate"><span class="pre">#elif</span></code> .. <code class="docutils literal notranslate"><span class="pre">#else</span></code> .. <code class="docutils literal notranslate"><span class="pre">#endif</span></code></dt><dd><p>Test conditionnel (similaire à l'instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> du langage C)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#</span></code></dt><dd><p>Opérateur de conversion en chaîne de caractères</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">##</span></code></dt><dd><p>Opérateur de concaténation de chaînes</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#error</span> <span class="pre">&quot;error</span> <span class="pre">message&quot;</span></code></dt><dd><p>Génère une erreur</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#pragma</span></code></dt><dd><p>Directive spécifique au compilateur.</p>
+</dd>
+</dl>
+<p>Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Prenons l'exemple d'une lettre générique d'un cabinet dentaire :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#ifdef FEMALE
+#    define NAME Madame
+#else
+#    define NAME Monsieur
+#endif
+Bonjour NAME,
+
+Veuillez noter votre prochain rendez-vous le DATE, à HOUR heure.
+
+Veuillez agréer, NAME, nos meilleures salutations,
+
+#ifdef IS_BOSS
+Le directeur
+#elif defined IS_ASSISTANT
+La secrétaire du directeur
+#elif defined OWNER_NAME
+OWNER_NAME
+#else
+#    error &quot;Lettre sans signature&quot;
+#endif
+</pre></div>
+</div>
+<p>Il est possible d'appeler le préprocesseur directement avec l'option <code class="docutils literal notranslate"><span class="pre">-E</span></code>. Des directives <code class="docutils literal notranslate"><span class="pre">define</span></code> peuvent être renseignées depuis la ligne de commande :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -xc -E test.txt <span class="se">\</span>
+    -DDATE<span class="o">=</span><span class="m">22</span> -DHOUR<span class="o">=</span><span class="m">9</span>:00 <span class="se">\</span>
+    -DFEMALE <span class="se">\</span>
+    -DOWNER_NAME<span class="o">=</span><span class="s2">&quot;Adam&quot;</span> -DPOSITION<span class="o">=</span>employee
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
+<span class="go">Bonjour Madame,</span>
+
+<span class="go">Veuillez noter votre prochain rendez-vous le 22, à 9:00 heure.</span>
+
+<span class="go">Veuillez agréer, Madame, nos meilleures salutations,</span>
+
+<span class="go">Adam</span>
+</pre></div>
+</div>
+<p>Notez que les instructions du préprocesseur (à l'exception des opérateurs de concaténation de conversion en chaîne de caractère) sont des instructions de ligne (<em>line-wise</em>), et doivent se terminer par un caractère de fin de ligne.</p>
+<div class="section" id="phases-de-traduction">
+<h2><span class="section-number">16.1</span>Phases de traduction<a class="headerlink" href="#phases-de-traduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le standard décrit 4 phases de pré-processing :</p>
+<ol class="arabic simple">
+<li><p>Remplacement des caractères spéciaux, décodage des trigraphes, traitement des fin de lignes.</p></li>
+<li><p>Fusionne les lignes utilisant un retour virtuel <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p></li>
+<li><p>Supprime les commentaires, décompose les symboles du préprocesseur</p></li>
+<li><p>Exécute les directives du préprocesseur (<code class="docutils literal notranslate"><span class="pre">#define</span></code> et <code class="docutils literal notranslate"><span class="pre">#include</span></code>)</p></li>
+</ol>
+</div>
+<div class="section" id="extensions-des-fichiers">
+<h2><span class="section-number">16.2</span>Extensions des fichiers<a class="headerlink" href="#extensions-des-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">.h</span></code></dt><dd><p>Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions, ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.c</span></code></dt><dd><p>Fichier source C comportant les implémentations de fonction et les variables globales. Ce fichier sera soumis au préprocesseur.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.i</span></code></dt><dd><p>Fichier source C qui ne sera pas soumis au préprocesseur: <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-E</span> <span class="pre">-o</span> <span class="pre">foo.i</span> <span class="pre">foo.c</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.s</span></code></dt><dd><p>Fichier assembleur non soumis au préprocesseur.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.S</span></code></dt><dd><p>Fichier assembleur soumis au préprocesseur. Notons toutefois que cette convention n'est pas  applicable sous Windows, car le système de fichier n'est pas sensible à la casse.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="inclusion-de-fichiers">
+<h2><span class="section-number">16.3</span>Inclusion de fichiers<a class="headerlink" href="#inclusion-de-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="include">
+<h3><span class="section-number">16.3.1</span>#include<a class="headerlink" href="#include" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La directive include peut prendre deux formes, l'inclusion locale et l'inclusion globale. Il s'agit d'ailleurs de l'une des questions les plus posées (c.f. <a class="reference external" href="https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename">cette question</a>.).</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;filename&gt;</span></code></dt><dd><p>Le préprocesseur va chercher le chemin du fichier à inclure dans les chemins de l'implémentation.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;filename&quot;</span></code></dt><dd><p>Le préprocesseur cherche le chemin du fichier à partir du chemin courant et les chemins donnés par les des directives <code class="docutils literal notranslate"><span class="pre">-I</span></code>.</p>
+</dd>
+</dl>
+<p>L'inclusion de fichier est simplement du remplacement de chaînes :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;Ce début de phrase est ici&quot;</span> &gt; head.h
+<span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;, mais cette fin est là.&quot;</span> &gt; tail.h
+<span class="gp">$</span> <span class="nb">echo</span> -e <span class="s1">&#39;#include &quot;head.h&quot;\n#include &quot;tail.h&quot;\n&#39;</span> &gt; main.c
+<span class="gp">$</span> gcc -E main.c -o-
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp">#</span> <span class="m">31</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
+<span class="gp">#</span> <span class="m">32</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;head.h&quot;</span> <span class="m">1</span>
+<span class="go">Ce début de phrase est ici</span>
+<span class="gp">#</span> <span class="m">2</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
+<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;tail.h&quot;</span> <span class="m">1</span>
+<span class="go">, mais cette fin est là.</span>
+<span class="gp">#</span> <span class="m">3</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
+</pre></div>
+</div>
+<p>La directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> est principalement utilisée pour include des fichiers d'en-tête (<em>header</em>), mais rarement (jamais), des fichiers C.</p>
+</div>
+</div>
+<div class="section" id="definitions">
+<h2><span class="section-number">16.4</span>Définitions<a class="headerlink" href="#definitions" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="define">
+<h3><span class="section-number">16.4.1</span>#define<a class="headerlink" href="#define" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les définitions sont des symboles généralement écrits en majuscule et qui sont remplacés par le préprocesseur. Ces définitions peuvent être utiles pour définir des constantes globales qui sont définies à la compilation :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef WINDOW_SIZE</span>
+<span class="cp">#    define WINDOW_SIZE 10</span>
+<span class="cp">#endif</span>
+
+<span class="kt">int</span> <span class="n">tab</span><span class="p">[</span><span class="n">WINDOW_SIZE</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">WINDOW_SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il est ainsi possible de définir la taille du tableau à la compilation avec :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc main.c -DWINDOW_SIZE<span class="o">=</span><span class="m">42</span>
+</pre></div>
+</div>
+<p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. <strong>C'est une remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MAIN int main(</span>
+<span class="cp">#define BEGIN ) {</span>
+<span class="cp">#define END return 0; }</span>
+<span class="cp">#define EOF &quot;\n&quot;</span>
+
+<span class="n">MAIN</span>
+<span class="n">BEGIN</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span> <span class="n">EOF</span><span class="p">);</span>
+<span class="n">END</span>
+</pre></div>
+</div>
+<p>On relèvera qu'il est aussi possible de commettre certaines erreurs :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ADD a + b</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">ADD</span> <span class="o">*</span> <span class="n">ADD</span>
+</pre></div>
+</div>
+<p>Après pré-processing on aura un comportement non désiré, car la multiplication est plus prioritaire que l'addition.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ADD a + b</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>Pour se prémunir contre ces éventuelles coquilles, on protègera toujours les définitions avec des parenthèses <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">ADD</span> <span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span></code>.</p>
+</div>
+<div class="section" id="undef">
+<h3><span class="section-number">16.4.2</span>#undef<a class="headerlink" href="#undef" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un symbole défini soit par la ligne de commande <code class="docutils literal notranslate"><span class="pre">-DFOO=1</span></code>, soit par la directive <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">FOO</span> <span class="pre">1</span></code> ne peut pas être redéfini. C'est pourquoi il est possible d'utiliser <code class="docutils literal notranslate"><span class="pre">#undef</span></code> pour supprimer une directive préprocesseur :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef FOO</span>
+<span class="cp">#   undef FOO</span>
+<span class="cp">#endif</span>
+<span class="cp">#define FOO 1</span>
+</pre></div>
+</div>
+<p>Généralement on évitera de faire appel à <code class="docutils literal notranslate"><span class="pre">#undef</span></code> car le bon programmeur aura forcé la définition d'une directive en amont pour contraindre le développement en aval.</p>
+</div>
+</div>
+<div class="section" id="macros">
+<h2><span class="section-number">16.5</span>Macros<a class="headerlink" href="#macros" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On appel <strong>macro</strong> une fonction définie au niveau du préprocesseur.</p>
+</div>
+<div class="section" id="debogage">
+<h2><span class="section-number">16.6</span>Debogage<a class="headerlink" href="#debogage" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="error">
+<h3><span class="section-number">16.6.1</span>#error<a class="headerlink" href="#error" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette directive génère une erreur avec le texte qui suit la directive :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if !(KERNEL_SIZE % 2)</span>
+<span class="cp">#    error Le noyau du filtre est pair</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="directives-speciales">
+<h3><span class="section-number">16.6.2</span>Directives spéciales<a class="headerlink" href="#directives-speciales" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le standard définit certains symboles utiles pour le débogage :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">__LINE__</span></code></dt><dd><p>Est remplacé par le numéro de la ligne sur laquelle est placé ce symbole</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__FILE__</span></code></dt><dd><p>Est remplacé par le nom du fichier sur lequel est placé ce symbole</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__func__</span></code></dt><dd><p>Est remplacé par le nom de la fonction du bloc dans lequel la directive se trouve</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__STDC__</span></code></dt><dd><p>Est remplacé par 1 pour indiquer que l'implémentation est compatible avec C90</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__DATE__</span></code></dt><dd><p>Est remplacé par la date sous la forme <code class="docutils literal notranslate"><span class="pre">&quot;Mmm</span> <span class="pre">dd</span> <span class="pre">yyyy&quot;</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__TIME__</span></code></dt><dd><p>Est remplacé par l'heure au moment du pr-processing <code class="docutils literal notranslate"><span class="pre">&quot;hh:mm:ss&quot;</span></code></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="caractere-d-echappement">
+<h2><span class="section-number">16.7</span>Caractère d'échappement<a class="headerlink" href="#caractere-d-echappement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'anti-slash (<code class="docutils literal notranslate"><span class="pre">backslash</span></code>) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TRACE printf(&quot;Le programme est passé &quot; \</span>
+<span class="cp">    &quot; dans le fichier %s&quot; \</span>
+<span class="cp">    &quot; ligne %d\n&quot;, \</span>
+<span class="cp">    __FILE__, __LINE__);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">16.8</span>Macros<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une macro est une définition qui prend des arguments en paramètre :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MIN(x, y) ((x) &lt; (y) ? (x) : (y))</span>
+</pre></div>
+</div>
+<p>De la même manière que pour les définissions simple, il s'agit d'un remplacement de chaîne :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat test.c
+<span class="gp">#</span>define MIN<span class="o">(</span>x, y<span class="o">)</span> <span class="o">((</span>x<span class="o">)</span> &lt; <span class="o">(</span>y<span class="o">)</span> ? <span class="o">(</span>x<span class="o">)</span> : <span class="o">(</span>y<span class="o">))</span>
+
+<span class="go">int main(void) {</span>
+<span class="go">    return MIN(23, 12);</span>
+<span class="go">}</span>
+
+<span class="gp">$</span> gcc -E test.c -o-
+<span class="go">int main(void) {</span>
+<span class="go">    return ((23) &lt; (12) ? (23) : (12));</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat test.c
+<span class="gp">#</span>define ADD <span class="o">(</span>x, y<span class="o">)</span> <span class="o">((</span>x<span class="o">)</span> + <span class="o">(</span>y<span class="o">))</span>
+
+<span class="go">int main(void) {</span>
+<span class="go">    return ADD(23, 12);</span>
+<span class="go">}</span>
+
+<span class="gp">$</span> gcc -E test.c -o-
+<span class="go">int main(void) {</span>
+<span class="go">    return (x, y) ((x) + (y))(23, 12);</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="directives-conditionnelles">
+<h2><span class="section-number">16.9</span>Directives conditionnelles<a class="headerlink" href="#directives-conditionnelles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les directives <code class="docutils literal notranslate"><span class="pre">#if</span></code>, <code class="docutils literal notranslate"><span class="pre">#else</span></code>, <code class="docutils literal notranslate"><span class="pre">#elif</span></code> et <code class="docutils literal notranslate"><span class="pre">#endif</span></code> sont utiles pour rendre conditionnelle une section de code. Cela peut être utilisé pour définir une structure selon le boutisme de l'architecture cible :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef BIG_ENDIAN</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">header</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">body</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tail</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Dataframe</span><span class="p">;</span>
+<span class="cp">#else</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">tail</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">body</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">header</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Dataframe</span><span class="p">;</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<div class="section" id="desactivation-de-code">
+<h3><span class="section-number">16.9.1</span>Désactivation de code<a class="headerlink" href="#desactivation-de-code" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On voit souvent des développeurs commenter des sections de code pour le débogage. Cette pratique n'est pas recommandée, car les outils de <a class="reference external" href="https://en.wikipedia.org/wiki/Code_refactoring">refactoring</a> (réusinage de code), ne parviendront pas à interpréter le code en commentaire jugeant qu'il ne s'agit pas de code, mais de texte insignifiant. Une méthode plus robuste et plus sure consiste à utiliser une directive conditionnelle :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if 0</span><span class="c"> // TODO: Check if this code is still required.</span>
+<span class="c">if (x &lt; 0) {</span>
+<span class="c">    x = 0;</span>
+<span class="c">}</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="include-guard">
+<h3><span class="section-number">16.9.2</span>Include guard<a class="headerlink" href="#include-guard" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La protection des fichiers d'en-tête permet d'éviter d'inclure un fichier s'il a déjà été inclus.</p>
+<p>Imaginons que la constante <code class="docutils literal notranslate"><span class="pre">M_PI</span></code> soit définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define M_PI        3.14159265358979323846</span>
+</pre></div>
+</div>
+<p>Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur génèrera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MATH_H</span>
+<span class="cp">#define MATH_H</span>
+
+<span class="p">...</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>Si le fichier a déjà été inclus, la définition <code class="docutils literal notranslate"><span class="pre">MATH_H</span></code> sera déjà déclarée et le fichier d'en-tête ne sera pas réinclus.</p>
+<p>On préfèrera utiliser la directive <a class="reference external" href="https://en.wikipedia.org/wiki/Pragma_once">#pragma once</a> qui est plus simple à l'usage et évite une collision de nom. Néanmoins et bien que cette directive ne soit pas standardisée par l'ISO, elle est compatible avec la très grande majorité des compilateurs C.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="commentaires">
+<h2><span class="section-number">16.10</span>Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les commentaires C du type :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Blabla</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Le corbeau et le renard.</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur.</p>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/16/1">Exercice 16.1</a>: is_octal</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="standard-library.html"
+       title="Chapitre précédent">← <span class="section-number">15</span>Bibliothèques</a>
+  </li>
+  <li class="next">
+    <a href="algorithms.html"
+       title="Chapitre suivant"><span class="section-number">17</span>Algorithmes et conception →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

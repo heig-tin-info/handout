@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>2La programmation</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="3Généralités du langage" href="foundations.html" />
+  <link rel="prev" title="1Introduction" href="introduction.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">La programmation</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#algorithmique" class="reference internal">Algorithmique</a></li>
+                
+                  <li class="toctree-l2"><a href="#programmation" class="reference internal">Programmation</a></li>
+                
+                  <li class="toctree-l2"><a href="#calculateur" class="reference internal">Calculateur</a></li>
+                
+                  <li class="toctree-l2"><a href="#ordinateur" class="reference internal">Ordinateur</a></li>
+                
+                  <li class="toctree-l2"><a href="#historique" class="reference internal">Historique</a></li>
+                
+                  <li class="toctree-l2"><a href="#fonctionnement-de-l-ordinateur" class="reference internal">Fonctionnement de l'ordinateur</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2</span>La programmation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="introduction.html"
+       title="Chapitre précédent">← <span class="section-number">1</span>Introduction</a>
+  </li>
+  <li class="next">
+    <a href="foundations.html"
+       title="Chapitre suivant"><span class="section-number">3</span>Généralités du langage →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="la-programmation">
+<h1><span class="section-number">2</span>La programmation<a class="headerlink" href="#la-programmation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="figure align-default" id="id1">
+<img alt="../_images/eniac.jpg" src="../_images/eniac.jpg" />
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">L'un des premiers ordinateurs: l'Eniac</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.</p>
+<p id="index-0"><strong>Algorithmique et Programmation</strong>, il y donc deux questions à éclairer :</p>
+<ul class="simple">
+<li><p>Qu'est-ce que l'algorithmique ?</p></li>
+<li><p>Qu'est-ce que la programmation ?</p></li>
+</ul>
+<div class="section" id="algorithmique">
+<h2><span class="section-number">2.1</span>Algorithmique<a class="headerlink" href="#algorithmique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'algorithmique et non l'<em>algorithmie</em>, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme">algorithmes</a>. Nous verrons l'algorithmique plus en détail dans le chapitre <a class="reference internal" href="algorithms.html#algorithms"><span class="std std-numref">Section 17</span></a>. Retenons pour l'heure que l'algorithmique intervient tous les jours :</p>
+<ul class="simple">
+<li><p>dans une recette de cuisine,</p></li>
+<li><p>le tissage de tapis persans,</p></li>
+<li><p>les casse-tête (<a class="reference external" href="https://fr.wikipedia.org/wiki/Rubik%27s_Cube">Rubik's Cube</a>),</p></li>
+<li><p>les tactiques sportives,</p></li>
+<li><p>les procédures administratives.</p></li>
+</ul>
+<p>Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">algorithme d'Euclide</a> datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le <a class="reference external" href="https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur">plus grand commun diviseur</a> (PGCD). Voici la description de l'algorithme :</p>
+<div class="figure align-default" id="id2">
+<span id="index-1"></span><img alt="../_images/euclide-gcd.svg" src="../_images/euclide-gcd.svg" /><p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Algorithme de calcul du PGCD d'Euclide.</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/2/1">Exercice 2.1</a>: Algorithme d'Euclide</p>
+</div>
+<div class="section" id="programmation">
+<h2><span class="section-number">2.2</span>Programmation<a class="headerlink" href="#programmation" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-2">La machine Jacquard est un <a class="reference external" href="https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser">métier à tisser</a> mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/loom.jpg"><img alt="../_images/loom.jpg" src="../_images/loom.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Mécanisme Jacquard au Musée des arts et métiers de Paris.</span></span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p id="index-3">Les cartes perforées contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts">Révolte des canuts</a> en 1831.</p>
+<p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_informatique">programmation</a> définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.</p>
+<p id="index-4">Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en <a class="reference external" href="https://fr.wikipedia.org/wiki/H%C3%A9raldique">héraldique</a> et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique à son langage parfois obscure et celui qui le maitrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Écartelé, en 1 et 4 :
+    coupé et parti en 3,
+        au premier fascé de gueules et d&#39;argent,
+        au deuxième d&#39;azur semé de lys d&#39;or
+            et au lambel de gueules,
+        au troisième d&#39;argent à la croix potencée d&#39;or,
+            cantonnée de quatre croisettes du même,
+        au quatrième d&#39;or aux quatre pals de gueules,
+        au cinquième d&#39;azur semé de lys d&#39;or
+            et à la bordure de gueules,
+        au sixième d&#39;azur au lion contourné d&#39;or,
+            armé,
+            lampassé et couronné de gueules,
+        au septième d&#39;or au lion de sable,
+            armé,
+            lampassé de gueules,
+        au huitième d&#39;azur semé de croisettes d&#39;or
+            et aux deux bar d&#39;or.
+    Sur le tout d&#39;or à la bande de gueules
+        chargé de trois alérions d&#39;argent
+    le tout brisé d&#39;un lambel de gueules ;
+        en 2 et 3 contre-écartelé en 1 et 4 d&#39;azur,
+        à l&#39;aigle d&#39;argent, becquée,
+        languée et couronnée d&#39;or et en 2 et 3 d&#39;azur,
+        à trois fleurs de lys d&#39;or,
+        à la bordure endentée de gueules et d&#39;or.
+</pre></div>
+</div>
+<p id="index-5">Notons que <em>de gueules</em> signifie <em>rouge</em>. Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse">drapeau suisse</a> est donc <em>de gueules, à la croix alésée d'argent</em>.</p>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2a/Armoiries_ducs_de_Mayenne.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2a/Armoiries_ducs_de_Mayenne.svg" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Armoiries_ducs_de_Mayenne.svg" width="200px" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Armoiries des ducs de Mayenne</span></span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="calculateur">
+<h2><span class="section-number">2.3</span>Calculateur<a class="headerlink" href="#calculateur" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-6">Un calculateur du latin <em>calculare</em>: calculer avec des cailloux, originellement appelé <a class="reference external" href="https://fr.wikipedia.org/wiki/Abaque_(calcul)">abaque</a> était un dispositif permettant de faciliter les calculs mathématiques.</p>
+<p>Les <a class="reference external" href="https://fr.wikipedia.org/wiki/Os_d%27Ishango">os d'Ishango</a> datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.</p>
+<p>Si les anglophones ont détourné le verbe <em>compute</em> (calculer) en un nom <em>computer</em>, un ordinateur est généralement plus qu'un simple calculateur car même une calculatrice de poche doit gérer en plus des calculs :</p>
+<ul class="simple">
+<li><p>l'interface de saisie (pavé numérique);</p></li>
+<li><p>l'affichage du résultat (écran à cristaux liquide).</p></li>
+</ul>
+</div>
+<div class="section" id="ordinateur">
+<span id="index-7"></span><h2><span class="section-number">2.4</span>Ordinateur<a class="headerlink" href="#ordinateur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f <a class="reference external" href="http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html">2014: 100 ans d'IBM en France</a>).</p>
+<blockquote>
+<div><p>« Le 16 IV 1955
+Cher Monsieur,
+Que diriez-vous d’ordinateur? C’est un mot correctement formé, qui se trouve même dans le Littré comme adjectif désignant Dieu qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe ordiner, un nom d’action ordination. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.</p>
+<p>Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.</p>
+<p>En relisant les brochures que vous m’avez données, je vois que plusieurs de vos appareils sont désignés par des noms d’agent féminins (trieuse, tabulatrice). Ordinatrice serait parfaitement possible et aurait même l’avantage de séparer plus encore votre machine du vocabulaire de la théologie. Il y a possibilité aussi d’ajouter à un nom d’agent un complément : ordinatrice d’éléments complexes ou un élément de composition, par exemple : sélecto-systémateur. Sélecto-ordinateur a l’inconvénient de deux o en hiatus, comme électro-ordonnatrice.</p>
+<p>Il me semble que je pencherais pour ordonnatrice électronique. Je souhaite que ces suggestions stimulent, orientent vos propres facultés d’invention. N’hésitez pas à me donner un coup de téléphone si vous avez une idée qui vous paraisse requérir l’avis d’un philologue.</p>
+<p>Vôtre
+Jacques Perret »</p>
+</div></blockquote>
+</div>
+<div class="section" id="historique">
+<h2><span class="section-number">2.5</span>Historique<a class="headerlink" href="#historique" title="Lien permanent vers ce titre">¶</a></h2>
+<dl class="simple">
+<dt>87 av. J.-C.</dt><dd><p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/Machine_d%27Anticyth%C3%A8re">machine d'Anticythère</a> considéré comme le premier calculateur analogique pour positions astronomiques.</p>
+</dd>
+<dt>1642</dt><dd><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Pascaline">La pascaline</a>: machine d'arithmétique de Blaise Pascal, première machine à calculer</p>
+</dd>
+</dl>
+<dl class="simple" id="index-8">
+<dt>1834</dt><dd><p>Machine à calculer programmable de Charles Babbage</p>
+</dd>
+</dl>
+<dl class="simple" id="index-9">
+<dt>1937</dt><dd><p>l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Harvard_Mark_I">Automatic Sequence Controlled Calculator Mark I</a> d'IBM, le premier grand calculateur numérique.</p>
+<ul class="simple">
+<li><p>4500 kg</p></li>
+<li><p>6 secondes par multiplication à 23 chiffres décimaux</p></li>
+<li><p>Cartes perforées</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple" id="index-10">
+<dt>1950</dt><dd><p>L'ENIAC, de Presper Eckert et John William Mauchly</p>
+<ul class="simple">
+<li><p>160 kW</p></li>
+<li><p>100 kHz</p></li>
+<li><p>Tubes à vide</p></li>
+<li><p>100'000 additions/seconde</p></li>
+<li><p>357 multiplications/seconde</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple" id="index-11">
+<dt>1965</dt><dd><p>Premier ordinateur à circuits intégrés, le <a class="reference external" href="https://fr.wikipedia.org/wiki/PDP-8">PDP-8</a></p>
+<ul class="simple">
+<li><p>12 bits</p></li>
+<li><p>mémoire de 4096 mots</p></li>
+<li><p>Temps de cycle de 1.5 µs</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Fortran">Fortran</a> et BASIC</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple" id="index-12">
+<dt>2018</dt><dd><p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Summit_(superordinateur)">Behold Summit</a> est un superordinateur construit par IBM.</p>
+<ul class="simple">
+<li><p>200'000'000'000'000'000 multiplications par seconde</p></li>
+<li><p>simple ou double précision</p></li>
+<li><p>14.668 GFlops/watt</p></li>
+<li><p>600 GiB de mémoire RAM</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="fonctionnement-de-l-ordinateur">
+<h2><span class="section-number">2.6</span>Fonctionnement de l'ordinateur<a class="headerlink" href="#fonctionnement-de-l-ordinateur" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="machine-de-turing">
+<h3><span class="section-number">2.6.1</span>Machine de Turing<a class="headerlink" href="#machine-de-turing" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference external" href="../exercises.html#exercise/2/2">Exercice 2.2</a>: Alain Turing</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="introduction.html"
+       title="Chapitre précédent">← <span class="section-number">1</span>Introduction</a>
+  </li>
+  <li class="next">
+    <a href="foundations.html"
+       title="Chapitre suivant"><span class="section-number">3</span>Généralités du langage →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

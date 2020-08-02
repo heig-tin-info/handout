@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>14Pointeurs</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="15Bibliothèques" href="standard-library.html" />
+  <link rel="prev" title="13Gestion de la mémoire" href="memory-management.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Pointeurs</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#pointeur-simple" class="reference internal">Pointeur simple</a></li>
+                
+                  <li class="toctree-l2"><a href="#arithmetique-de-pointeurs" class="reference internal">Arithmétique de pointeurs</a></li>
+                
+                  <li class="toctree-l2"><a href="#pointeur-et-chaines-de-caracteres" class="reference internal">Pointeur et chaînes de caractères</a></li>
+                
+                  <li class="toctree-l2"><a href="#structures-et-pointeurs" class="reference internal">Structures et pointeurs</a></li>
+                
+                  <li class="toctree-l2"><a href="#transtypage-de-pointeurs-cast" class="reference internal">Transtypage de pointeurs (cast)</a></li>
+                
+                  <li class="toctree-l2"><a href="#pointeurs-de-fonctions" class="reference internal">Pointeurs de fonctions</a></li>
+                
+                  <li class="toctree-l2"><a href="#la-regle-gauche-droite" class="reference internal">La règle gauche-droite</a></li>
+                
+                  <li class="toctree-l2"><a href="#initialisation-par-transtypage" class="reference internal">Initialisation par transtypage</a></li>
+                
+                  <li class="toctree-l2"><a href="#enchevetrement-ou-aliasing" class="reference internal">Enchevêtrement ou Aliasing</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">14</span>Pointeurs</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="memory-management.html"
+       title="Chapitre précédent">← <span class="section-number">13</span>Gestion de la mémoire</a>
+  </li>
+  <li class="next">
+    <a href="standard-library.html"
+       title="Chapitre suivant"><span class="section-number">15</span>Bibliothèques →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="pointeurs">
+<span id="pointers"></span><h1><span class="section-number">14</span>Pointeurs<a class="headerlink" href="#pointeurs" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="https://fr.wikiquote.org/wiki/Le_Jour_de_gloire">Attention les vélos</a>, on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les <a class="reference external" href="https://fr.wikipedia.org/wiki/Pointeur_(programmation)">pointeurs</a>.</p>
+<p>Les pointeurs sont des <strong>variables</strong> qui, au lieu de stocker une valeur, stockent une <strong>adresse mémoire</strong>. Dans quel but me direz-vous ? Pour créer des indirections, simplifier l'exécution du code.</p>
+<p>Prenons un exemple concret. Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Vicomte_de_Valmont">Vicomte de Valmont</a> décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">lettre</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Cette variable <code class="docutils literal notranslate"><span class="pre">lettre</span></code> est dès lors enregistrée en mémoire à l'adresse <code class="docutils literal notranslate"><span class="pre">0x12345abc</span></code> qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.</p>
+<p>Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire à fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.</p>
+<p>Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de <em>64-bits</em> il n'arrive à mémoriser que 8 caractères <code class="docutils literal notranslate"><span class="pre">Chère</span> <span class="pre">Ma</span></code>. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son <a class="reference external" href="https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau">tout nickelé</a> jusqu'à ce que toute la lettre ait été retranscrite.</p>
+<p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteil :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">valmont_mailbox</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">merteil_mailbox</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>La canicule n'étant pas finie, et cette physique discutable ne pouvant être déjouée, la marquise décide de résoudre le problème et se rends à <a class="reference external" href="https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos">Tarente</a> (un très mauvais choix par jour de canicule) et formule sa réponse sur le mur sud du Castello Aragonese ayant préalablement pris soin de noter la position GPS du mur avec exactitude (<code class="docutils literal notranslate"><span class="pre">0x30313233</span></code>):</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">castello_wall</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Cher Vicomte, ...&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">gps_position</span><span class="p">)[]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">castello_wall</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont ce simple mot: <code class="docutils literal notranslate"><span class="pre">0x30313233</span></code>. Le facteur parvient sans mal à mémoriser les 4 octets du message.</p>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">gps_position</span></code> ne contient donc pas le message, mais seulement l'adresse mémoire de ce message. Il s'agit ici d'un <strong>pointeur sur un tableau de caractères</strong>.</p>
+<p>Entre temps, le vicomte qui est paresseux s'est équipé d'un téléscripteur capable d'exécuter du code C et il parvient à lire le message de sa complice la marquise.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">gps_position</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>S'il avait oublié l'astérisque (<code class="docutils literal notranslate"><span class="pre">*</span></code>, <a class="reference external" href="https://unicode-table.com/en/002A/">U+002A</a>) dans cette dernière ligne il n'aurait pas vu le message espéré, mais simplement <code class="docutils literal notranslate"><span class="pre">0123</span></code> qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).</p>
+<p>L'astérisque agit donc comme un <strong>déréférencement</strong>, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.</p>
+<p>Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <a class="reference external" href="https://unicode-table.com/en/0026/">U+0026</a>): <code class="docutils literal notranslate"><span class="pre">&amp;castello_wall</span></code>, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par <strong>l'adresse de</strong>. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.</p>
+<p>Il manque encore une chose, il y a aussi une astérisque sur <code class="docutils literal notranslate"><span class="pre">(*gps_position)[]</span></code>. Cela vaudrait-il dire qu’on déréférence la position gps pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?</p>
+<p>Notons qu'il y a plusieurs interprétations de l'astérisque en C :</p>
+<ul class="simple">
+<li><p>Opérateur de multiplication: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></p></li>
+<li><p>Déréférencement d'un pointeur: <code class="docutils literal notranslate"><span class="pre">*ptr</span></code></p></li>
+<li><p>Déclaration d'un pointeur: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">ptr</span></code></p></li>
+</ul>
+<p>Donc ici, on déclare un pointeur. En appliquant la règle gauche-droite que l'on verra plus bas :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">gps_position</span><span class="p">)[]</span>
+       <span class="o">^^^^^^^^^^^^</span>        <span class="mf">1.</span> <span class="n">gps_position</span> <span class="n">est</span>
+                   <span class="o">^</span>       <span class="mf">2.</span> <span class="p">...</span>
+      <span class="o">^</span>                    <span class="mf">3.</span> <span class="n">un</span> <span class="n">pointeur</span> <span class="n">sur</span>
+                    <span class="o">^^</span>     <span class="mf">4.</span> <span class="n">un</span> <span class="n">tableau</span> <span class="n">de</span>
+<span class="o">^^^^</span>                       <span class="mf">5.</span> <span class="n">caractères</span>
+                           <span class="mf">6.</span> <span class="n">PROFIT</span><span class="p">...</span>
+</pre></div>
+</div>
+<p>Résumons :</p>
+<ul class="simple">
+<li><p>Un pointeur est une <strong>variable</strong></p></li>
+<li><p>Il contient une <strong>adresse mémoire</strong></p></li>
+<li><p>Il peut être <strong>déréférencé</strong> pour en obtenir la valeur de l'élément qu'il pointe</p></li>
+<li><p><strong>L'adresse d'une variable</strong> peut être obtenue avec une esperluette</p></li>
+</ul>
+<div class="section" id="pointeur-simple">
+<h2><span class="section-number">14.1</span>Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'asterix <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>La valeur <code class="docutils literal notranslate"><span class="pre">NULL</span></code> corresponds à l'adresse nulle <code class="docutils literal notranslate"><span class="pre">0x00000000</span></code>. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.</p>
+<p>À tout moment la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">boiling</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">freezing</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">?</span> <span class="o">&amp;</span><span class="nl">boiling</span> <span class="p">:</span> <span class="o">&amp;</span><span class="n">freezing</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lorsque nous avions vu les tableaux, nous écrivions :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Vous ne le saviez pas, mais 𝄽 <em>plot twist</em> 𝄽 la variable <code class="docutils literal notranslate"><span class="pre">array</span></code> est un pointeur, et la preuve est que <code class="docutils literal notranslate"><span class="pre">array</span></code> peut être déréférencé:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">array</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La différence entre un <strong>tableau</strong> et un <strong>pointeur</strong> est la suivante :</p>
+<ul class="simple">
+<li><p>Il n'est pas possible d'assigner une adresse à un tableau</p></li>
+<li><p>Il n'est pas possible d'assigner des valeurs à un pointeur</p></li>
+</ul>
+<p>D'ailleurs, l'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> n'est rien d'autre qu'un sucre syntaxique :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">==</span> <span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arithmetique-de-pointeurs">
+<h2><span class="section-number">14.2</span>Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Fondamentalement un pointeur est une variable qui contient un <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_ordinal">ordinal</a>, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Le vif zéphyr jubile sur les kumquats du clown gracieux&quot;</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">str</span><span class="p">;</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span> <span class="n">ptr</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Imaginons que l'on souhaite représenter le carré magique suivant :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌───┬───┬───┐
+│ 4 │ 9 │ 2 │
+├───┼───┼───┤
+│ 3 │ 5 │ 7 │
+├───┼───┼───┤
+│ 8 │ 1 │ 6 │
+└───┴───┴───┘
+</pre></div>
+</div>
+<p>On peut le représenter en mémoire linéairement et utiliser de l'arithmétique de pointeur pour le dessiner :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">magic</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;492&quot;</span> <span class="s">&quot;357&quot;</span> <span class="s">&quot;816&quot;</span><span class="p">;</span>
+
+<span class="kt">char</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">magic</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">putchar</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">ptr</span> <span class="o">+</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">col</span><span class="p">));</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Mais ? N'est-ce pas là ce que fait le compilateur lorsque l'adresse les éléments d'un tableau multi dimensionnel ?</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">magic</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;792&quot;</span><span class="p">,</span> <span class="s">&quot;357&quot;</span><span class="p">,</span> <span class="s">&quot;816&quot;</span><span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">putchar</span><span class="p">(</span><span class="n">magic</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Oui très exactement, les deux codes sont similaires, mais l'un est plus élégant que l'autre, lequel d'après vous ?</p>
+<p>L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Élement</p></th>
+<th class="head"><p>Premier</p></th>
+<th class="head"><p>Deuxième</p></th>
+<th class="head"><p>Troisième</p></th>
+<th class="head"><p>n ième</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Accès tableau</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[0]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[1]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[2]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[n</span> <span class="pre">-</span> <span class="pre">1]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Accès pointeur</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(a</span> <span class="pre">+</span> <span class="pre">1)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(a</span> <span class="pre">+</span> <span class="pre">2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(a</span> <span class="pre">+</span> <span class="pre">n</span> <span class="pre">-</span> <span class="pre">1)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>De même, l'exercice peut être répété avec des tabelaux à deux dimensions :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Élement</p></th>
+<th class="head"><p>Premier</p></th>
+<th class="head"><p>Deuxième</p></th>
+<th class="head"><p>n ligne m colonne</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Accès tableau</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[0][0]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[1][1]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a[n</span> <span class="pre">-</span> <span class="pre">1][m</span> <span class="pre">-</span> <span class="pre">1]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Accès pointeur</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(*(a+0)+0)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(*(a+1)+1)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*(*(a+i-1)+j-1)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pointeur-et-chaines-de-caracteres">
+<h2><span class="section-number">14.3</span>Pointeur et chaînes de caractères<a class="headerlink" href="#pointeur-et-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">conjonctions</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;mais&quot;</span><span class="p">,</span> <span class="s">&quot;ou&quot;</span><span class="p">,</span> <span class="s">&quot;est&quot;</span><span class="p">,</span> <span class="s">&quot;donc&quot;</span><span class="p">,</span> <span class="s">&quot;or&quot;</span><span class="p">,</span> <span class="s">&quot;ni&quot;</span><span class="p">,</span> <span class="s">&quot;car&quot;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id1">
+<img alt="../_images/ptrstr.svg" src="../_images/ptrstr.svg" /><p class="caption"><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Pointeur sur une chaîne de caractère</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Cette structure est très exactement la même que pour les arguments transmis à la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>: la définition <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*argv[]</span></code>.</p>
+</div>
+<div class="section" id="structures-et-pointeurs">
+<h2><span class="section-number">14.4</span>Structures et pointeurs<a class="headerlink" href="#structures-et-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="initialisation-d-un-pointeur-sur-une-structure">
+<h3><span class="section-number">14.4.1</span>Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>De la même manière qu'avec les types standards, on peut définir un
+pointeur sur une structure de donnée.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+
+  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">jour</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">mois</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">annee</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="n">sDate</span><span class="p">,</span> <span class="o">*</span><span class="n">pDate</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>L'exemple précédent définit un type de donnée <em>sDate</em> ainsi qu'un
+pointeur sur le même type de donnée : <em>pDate</em>. On pourrait donc
+initialiser un pointeur sur une structure de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sDate</span> <span class="n">date_depart</span><span class="p">;</span>
+<span class="n">pDate</span> <span class="n">p</span><span class="p">;</span>            <span class="c1">// pointeur sur un type sDate</span>
+
+<span class="n">p</span><span class="o">=&amp;</span><span class="n">date_depart</span><span class="p">;</span>     <span class="c1">// initialisation du pointeur sur un type structuré</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-d-un-pointeur-sur-une-structure">
+<h3><span class="section-number">14.4.2</span>Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On a vu que les champs d'une structure sont accessibles au travers du
+<span class="math notranslate nohighlight">\(.\)</span> faisant la liaison entre la variable et le champs. Cela est
+valable si la variable est du type structuré. Si la variable est du type
+pointeur sur une structure, on remplacera le <span class="math notranslate nohighlight">\(.\)</span> par <span class="math notranslate nohighlight">\(-&gt;\)</span>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sDate</span> <span class="n">date_depart</span><span class="p">;</span>
+<span class="n">pDate</span> <span class="n">p</span><span class="p">;</span>            <span class="c1">// pointeur sur un type sDate</span>
+
+<span class="n">p</span><span class="o">=&amp;</span><span class="n">date_depart</span><span class="p">;</span>     <span class="c1">// initialisation du pointeur sur un type structuré</span>
+
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">jour</span><span class="o">=</span><span class="mi">29</span><span class="p">;</span>         <span class="c1">// accès aux champs de la structure</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">mois</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>         <span class="c1">// depuis  un pointeur</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">annee</span><span class="o">=</span><span class="mi">1964</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-d-un-pointeur-recursif-sur-une-structure">
+<h3><span class="section-number">14.4.3</span>Utilisation d'un pointeur récursif sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-recursif-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsqu'on utilise des listes chaînées, on a besoin de créer une
+structure contenant des données ainsi qu'un pointeur sur un élément
+précédent et un autre sur l'élément suivant. Ces pointeurs sont du même
+type que la structure dans laquelle ils sont déclarés et cela impose un
+style d'écriture spécifique :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">sElement</span> <span class="p">{</span>
+
+  <span class="k">struct</span> <span class="n">sElement</span> <span class="o">*</span><span class="n">precedent</span><span class="p">;</span> <span class="c1">// pointeur sur l&#39;élément précédent</span>
+  <span class="k">struct</span> <span class="n">sElement</span> <span class="o">*</span><span class="n">suivant</span><span class="p">;</span>   <span class="c1">// pointeur sur l&#39;élément suivant</span>
+
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">data</span><span class="p">;</span>  <span class="c1">// donnée de la liste chaînée</span>
+
+<span class="p">}</span> <span class="n">sElement</span><span class="p">,</span> <span class="o">*</span><span class="n">pElement</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Exemple d'utilisation :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sElement</span> <span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// 3 éléments dans la liste</span>
+
+<span class="c1">// premier élément de la liste</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">precedent</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">suivant</span>   <span class="o">=</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">// second élément de la liste</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">precedent</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">suivant</span>   <span class="o">=</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="c1">// troisième élément de la liste</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">precedent</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">suivant</span>   <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pointeurs-et-parametres-de-fonctions">
+<h3><span class="section-number">14.4.4</span>Pointeurs et paramètres de fonctions<a class="headerlink" href="#pointeurs-et-parametres-de-fonctions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les fonctions comportent une liste de paramètres permettant de retourner
+une information au programme appelant. Il est souvent indispensable de
+pouvoir fournir à une fonction des paramètres qu'elle peut modifier lors
+de son exécution. Pour se faire, on passera par l'utilisation de
+pointeurs.</p>
+</div>
+<div class="section" id="parametres-sous-la-forme-de-pointeurs">
+<h3><span class="section-number">14.4.5</span>Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le prototype d'une fonction recevant un (ou plusieurs) pointeurs s'écrit
+de la manière suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">type</span> <span class="nf">fonction</span><span class="p">(</span><span class="n">type</span> <span class="o">*</span> <span class="n">param</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Cette fonction reçoit un paramètre (<em>param</em>) qui est un pointeur sur un
+type particulier.</p>
+<p>Exemple de prototype :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">calcul</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span> <span class="n">pres</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La fonction <em>calcul</em> prend 2 paramètres. Le premier (<em>x</em>) est du type
+double. Le second (<em>pres</em>) est un pointeur sur un double. Il sera donc
+possible, lors de l'appel de la fonction, de lui donner l'adresse d'une
+variable dans laquelle la fonction placera le résultat du calcul.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">calcul</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span> <span class="n">pres</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="o">*</span><span class="n">pres</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mf">2.</span><span class="p">;</span>  <span class="c1">// calcul du double de x</span>
+                  <span class="c1">// place le resultat à l&#39;adresse pres</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>       <span class="c1">// code retour = 0 (int)</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kt">double</span> <span class="n">valeur</span> <span class="o">=</span> <span class="mf">7.</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">code_ret</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">code_ret</span><span class="o">=</span><span class="n">calcul</span> <span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
+  <span class="c1">// r vaut maintenant 14.</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lors de l'appel d'une fonction recevant un pointeur comme paramètre, on
+placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
+</div>
+</div>
+<div class="section" id="transtypage-de-pointeurs-cast">
+<h2><span class="section-number">14.5</span>Transtypage de pointeurs (cast)<a class="headerlink" href="#transtypage-de-pointeurs-cast" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le <code class="docutils literal notranslate"><span class="pre">cast</span></code> de pointeur s'avère nécessaire lorsqu'un pointeur du type <code class="docutils literal notranslate"><span class="pre">void</span></code> est déclaré, comme c'est le cas pour la fonction de copie mémoire <code class="docutils literal notranslate"><span class="pre">memcpy</span></code>. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;Mind the gap, please!&quot;</span><span class="p">;</span>
+
+<span class="nb">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+
+<span class="n">struct</span> <span class="p">{</span> <span class="nb">int</span> <span class="n">a</span><span class="p">;</span> <span class="n">char</span> <span class="n">b</span><span class="p">;</span> <span class="nb">float</span> <span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">}</span> <span class="n">elements</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Il faudrait donc autant de fonction <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie <code class="docutils literal notranslate"><span class="pre">void</span></code> et qui permet sans autre :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+
+<span class="n">ptr</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span>
+<span class="n">ptr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+<span class="n">ptr</span> <span class="o">=</span> <span class="n">elements</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Que pensez-vous que <code class="docutils literal notranslate"><span class="pre">sizeof(void)</span></code> devrait retourner ? Formellement ceci devrait mener à une erreur de compilation, car <code class="docutils literal notranslate"><span class="pre">void</span></code> n'a pas de substance, et donc aucune taille associée. Néanmoins <code class="docutils literal notranslate"><span class="pre">gcc</span></code> est très permissif de base et (à ma <a class="reference external" href="https://stackoverflow.com/questions/1666224/what-is-the-size-of-void">grande surprise</a>), il ne génère par défaut ni <em>warning</em>, ni erreurs sans l'option <code class="docutils literal notranslate"><span class="pre">-Wpointer-arith</span></code> sur laquelle nous aurons tout le loisir de revenir.</p>
+<p>L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le plus souvent, de la balayer grâce à l'arithmétique de pointeurs. Notre fonction de copie mémoire doit en somme pouvoir parcourir toute la région mémoire de source et de destination et de ce fait incrémenter le pointeur. Mais, n'ayant aucune taille l'arithmétique de pointeur n'est pas autorisée avec le pointeur <code class="docutils literal notranslate"><span class="pre">void</span></code> et nous voilà bien avancés, notre pointeur ne nous est guère d'usage que son utilité éponyme: rien.</p>
+<p>Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen de s'en sortir par une pirouette programmatique dans laquelle je déclare un nouveau pointeur du type char auquel j'associe la valeur de ptr par un <strong>cast explicite</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="o">*</span><span class="n">iptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">ptr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Dès lors, l'arithmétique est redevient possible <code class="docutils literal notranslate"><span class="pre">iptr++</span></code>. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*ptr</span> <span class="pre">=</span> <span class="pre">(char*)elements;</span></code> directement et sans détour, mais ceci aurait alors mené à ce prototype-ci :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="o">*</span><span class="n">memcpy</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55 :</p>
+<blockquote>
+<div><p>A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.</p>
+</div></blockquote>
+<p>Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur <code class="docutils literal notranslate"><span class="pre">void</span></code>. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message autodocumenté du code.</p>
+<p>Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">memcpy</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">char</span><span class="o">*</span> <span class="n">csrc</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+    <span class="n">char</span><span class="o">*</span> <span class="n">cdest</span> <span class="o">=</span> <span class="n">dest</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">cdest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">csrc</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Où plus concis :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">memcpy</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">((</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">dst</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="n">src</span><span class="p">)[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Or, rien de tout ceci n'est juste. <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)">Thomas l'apôtre</a>, et ne me croyez pas ? Alors, digressons et essayons :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;La Broye c&#39;est fantastique!&quot;</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)];</span>
+
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %s&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On observe qu'il n'y a aucun appel de fonction à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> comme c'est le cas pour <code class="docutils literal notranslate"><span class="pre">printf</span></code> (<code class="docutils literal notranslate"><span class="pre">bl</span> <span class="pre">printf</span></code>). La copie tient place en 6 instructions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>main :
+    // Entry
+    str     lr, [sp, #-4]!
+    sub     sp, sp, #60
+
+    // Inline memcpy
+    mov     ip, sp                  // Destination address
+    add     lr, sp, #28             // Source address (char b located 28 octets after a)
+
+    ldmia   lr!, {r0, r1, r2, r3}   // Load 4 x 32-bits
+    stmia   ip!, {r0, r1, r2, r3}   // Store 4 x 32-bits
+
+    ldm     lr, {r0, r1, r2}        // Load 3 x 32-bits
+    stm     ip, {r0, r1, r2}        // Store 3 x 32-bits
+
+    // Display (printf)
+    add     r2, sp, #28
+    mov     r1, sp
+    ldr     r0, .L4
+    bl      printf
+
+    // Exit
+    mov     r0, #0
+    add     sp, sp, #60
+    ldr     pc, [sp], #4
+.L4 :
+    .word   .LC0
+.LC0 :
+    .ascii  &quot;La Broye c&#39;est fantastique!\000&quot;
+</pre></div>
+</div>
+<p>Vous pouvez jouer avec cet exemple <a class="reference external" href="https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4">ici</a>.</p>
+</div>
+<div class="section" id="pointeurs-de-fonctions">
+<h2><span class="section-number">14.6</span>Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
+<p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">map</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)(</span><span class="kt">int</span><span class="p">),</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">array</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+
+    <span class="n">map</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">is_odd</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Avec la règle gauche droite on parvient à décortiquer la déclaration :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span>
+      <span class="o">^^^^^^^^</span>        <span class="n">callback</span> <span class="n">is</span>
+              <span class="o">^</span>
+     <span class="o">^</span>                <span class="n">a</span> <span class="n">pointer</span> <span class="n">on</span>
+               <span class="o">^^^^^</span>  <span class="n">a</span> <span class="n">function</span> <span class="n">taking</span> <span class="n">an</span> <span class="kt">int</span>
+<span class="o">^^^</span>                   <span class="n">and</span> <span class="n">returning</span> <span class="n">an</span> <span class="kt">int</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-regle-gauche-droite">
+<h2><span class="section-number">14.7</span>La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cette <a class="reference external" href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs.</p>
+<p>Il faut tout d'abord lire :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 47%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbole</p></th>
+<th class="head"><p>Traduction</p></th>
+<th class="head"><p>Direction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code>
+<code class="docutils literal notranslate"><span class="pre">[]</span></code>
+<code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pointeur</span> <span class="pre">sur</span></code>
+<code class="docutils literal notranslate"><span class="pre">tableau</span> <span class="pre">de</span></code>
+<code class="docutils literal notranslate"><span class="pre">fonction</span> <span class="pre">retournant</span></code></p></td>
+<td><p>Toujours à gauche
+Toujours à droite
+Toujours à droite</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="premiere-etape">
+<h3><span class="section-number">14.7.1</span>Première étape<a class="headerlink" href="#premiere-etape" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Trouver l'identifiant et se dire <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span></code>.</p>
+</div>
+<div class="section" id="deuxieme-etape">
+<h3><span class="section-number">14.7.2</span>Deuxième étape<a class="headerlink" href="#deuxieme-etape" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Chercher le symbole à droite de l'identifiant. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">()</span></code>, vous savez que cet identifiant est une fonction et vous avez <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">fonction</span> <span class="pre">retournant</span></code>. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">[]</span></code> vous dites alors <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span></code>. Continuez à droite jusqu'à ce que vous êtes à court de symboles, <strong>OU</strong> que vous trouvez une parenthèse fermante <code class="docutils literal notranslate"><span class="pre">)</span></code>.</p>
+</div>
+<div class="section" id="troisieme-etape">
+<h3><span class="section-number">14.7.3</span>Troisième étape<a class="headerlink" href="#troisieme-etape" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme <code class="docutils literal notranslate"><span class="pre">int</span></code>. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à <strong>gauche</strong> jusqu'à ce que vous êtes à court de symboles <strong>OU</strong> que vous rencontrez une parenthèse ouvrante <code class="docutils literal notranslate"><span class="pre">(</span></code>.</p>
+<p>Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.</p>
+</div>
+<div class="section" id="exemples">
+<h3><span class="section-number">14.7.4</span>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Trouver l'identifiant: <code class="docutils literal notranslate"><span class="pre">p</span></code>: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">est</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
+     <span class="o">^</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Se déplacer à <strong>droite</strong>: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
+      <span class="o">^^</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Se déplacer à <strong>gauche</strong>: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span> <span class="pre">pointeurs</span> <span class="pre">sur</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
+    <span class="o">^</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Continuer à <strong>gauche</strong>: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span> <span class="pre">pointeurs</span> <span class="pre">sur</span> <span class="pre">un</span> <span class="pre">int</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
+<span class="o">^^^</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="cdecl">
+<h3><span class="section-number">14.7.5</span>cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il existe un programme nommé <a class="reference external" href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cdecl <span class="s1">&#39;char (*(*x[3])())[5]&#39;</span>
+<span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
+</pre></div>
+</div>
+<p>Une version en-ligne est également <a class="reference external" href="https://cdecl.org/">disponible</a>.</p>
+</div>
+</div>
+<div class="section" id="initialisation-par-transtypage">
+<h2><span class="section-number">14.8</span>Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span> <span class="p">{</span> <span class="kt">char</span> <span class="n">a</span><span class="p">;</span> <span class="kt">char</span> <span class="n">b</span><span class="p">;</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="kt">char</span> <span class="n">d</span><span class="p">;</span> <span class="p">}){</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">};</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">vector</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">data</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enchevetrement-ou-aliasing">
+<h2><span class="section-number">14.9</span>Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Travailler avec les pointeurs demande une attention particulière à tous
+les problème d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
+une même région mémoire.</p>
+<p>Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">memory_move</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">dst</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">src</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ce code est très simple mais il peut poser problème selon les cas. Imaginons que l'on dispose d'un tableau simple de dix éléments et de deux pointeurs <code class="docutils literal notranslate"><span class="pre">*src</span></code> et <code class="docutils literal notranslate"><span class="pre">*dst</span></code>. Pour déplacer la région du tableau de 4 éléments vers la droite. On se dirait que le code suivant pourrait fonctionner :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│2│3│4│5│6│7│8│9│
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+ ^*src ^*dst
+      ┌─┬─┬─┬─┬─┬─┬─┐
+      │0│1│2│3│4│5│6│
+      └─┴─┴─┴─┴─┴─┴─┘
+       ↓ ↓ ↓ ↓ ↓ ↓ ↓
+┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│2│0│1│2│3│4│5│6│
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+</pre></div>
+</div>
+<p>Naïvement l'exécution suivante devrait fonctionner, mais les deux pointeurs source et destination s'enchevêtrent et le résultat n'est pas celui escompté.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">src</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">dst</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="n">memory_move</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│2│3│4│5│6│7│8│9│ Tableau d&#39;origine
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│2│0│1│2│0│1│2│0│ Opération avec `memory_move`
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│0│1│2│0│1│2│3│4│5│6│ Opération avec `memmove` (fonction standard)
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+</pre></div>
+</div>
+<p>Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoire qui s'enchevêtrent. En revanche, la fonction standard <code class="docutils literal notranslate"><span class="pre">memmove</span></code> de <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.</p>
+<p>Notons que sa fonction voisine <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> ne dois <strong>jamais</strong> être utilisée en cas d'<em>aliasing</em>. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple <code class="docutils literal notranslate"><span class="pre">memory_move</span></code>. Le standard <strong>C99</strong> ne défini pas le comportement de <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> pour des pointeurs qui se chevauchent.</p>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/14/1">Exercice 14.1</a>: Esperluettes cascadées</p>
+<p><a class="reference external" href="../exercises.html#exercise/14/2">Exercice 14.2</a>: Passage par adresse</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="memory-management.html"
+       title="Chapitre précédent">← <span class="section-number">13</span>Gestion de la mémoire</a>
+  </li>
+  <li class="next">
+    <a href="standard-library.html"
+       title="Chapitre suivant"><span class="section-number">15</span>Bibliothèques →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>24Philosophie</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="1Visual Studio Code" href="../appendix/vscode.html" />
+  <link rel="prev" title="23Pièges" href="traps.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Philosophie</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#rasoir-d-ockham" class="reference internal">Rasoir d'Ockham</a></li>
+                
+                  <li class="toctree-l2"><a href="#principes-de-programmation" class="reference internal">Principes de programmation</a></li>
+                
+                  <li class="toctree-l2"><a href="#zen-de-python" class="reference internal">Zen de Python</a></li>
+                
+                  <li class="toctree-l2"><a href="#the-code-taste" class="reference internal">The code taste</a></li>
+                
+                  <li class="toctree-l2"><a href="#l-odeur-du-code" class="reference internal">L'odeur du code</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">24</span>Philosophie</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="traps.html"
+       title="Chapitre précédent">← <span class="section-number">23</span>Pièges</a>
+  </li>
+  <li class="next">
+    <a href="../appendix/vscode.html"
+       title="Chapitre suivant"><span class="section-number">1</span>Visual Studio Code →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="philosophie">
+<h1><span class="section-number">24</span>Philosophie<a class="headerlink" href="#philosophie" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur, les vaudois l'appelant parfois: <strong>le bon sens paysan</strong> comme l'aurait sans doute confirmé feu <a class="reference external" href="https://fr.wikipedia.org/wiki/Jean_Villard">Jean Villard dit Gilles</a>.</p>
+<div class="section" id="rasoir-d-ockham">
+<span id="ockham"></span><h2><span class="section-number">24.1</span>Rasoir d'Ockham<a class="headerlink" href="#rasoir-d-ockham" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-default">
+<img alt="../_images/razor.jpg" src="../_images/razor.jpg" />
+</div>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham">rasoir d'Ockham</a> expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise <a class="reference external" href="https://en.wikipedia.org/wiki/Les_Shadoks">Shadok</a>: &quot;Pourquoi faire simple quand on peut faire compliqué ?&quot;</p>
+<p>En philosophie un <a class="reference external" href="https://fr.wikipedia.org/wiki/Rasoir_(philosophie)">rasoir</a> est un principe qui permet de <em>raser</em> des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.</p>
+<p>Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple quelque soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.</p>
+</div>
+<div class="section" id="principes-de-programmation">
+<h2><span class="section-number">24.2</span>Principes de programmation<a class="headerlink" href="#principes-de-programmation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="dry">
+<span id="id1"></span><h3><span class="section-number">24.2.1</span>DRY<a class="headerlink" href="#dry" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Ne vous répétez pas</strong> (<em>Don't Repeat Yourself</em>)! Je répète, <strong>ne vous répétez pas</strong>! Il s'agit d'une philosophie de développement logiciel évitant la <a class="reference external" href="https://fr.wikipedia.org/wiki/Duplication_de_code">redondance de code</a>. L'excellent livre <a class="reference external" href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a> de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :</p>
+<blockquote>
+<div><p>Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.</p>
+</div></blockquote>
+<p>En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">C</kbd> suivi de <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">V</kbd>. Dupliquer du code et quelque soit l'envergure de texte concerné est <strong>toujours</strong> une mauvaise pratique, car c'est le plus souvent le signe d'un <a class="reference external" href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a> qui indique que le code peut être simplifié et optimisé.</p>
+</div>
+<div class="section" id="kiss">
+<h3><span class="section-number">24.2.2</span>KISS<a class="headerlink" href="#kiss" title="Lien permanent vers ce titre">¶</a></h3>
+<p><a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Il est similaire au rasoir d'Ockham, mais grandement plus commun en informatique. Énoncé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
+</div>
+<div class="section" id="yagni">
+<h3><span class="section-number">24.2.3</span>YAGNI<a class="headerlink" href="#yagni" title="Lien permanent vers ce titre">¶</a></h3>
+<p>YAGNI est un anglicisme de <em>you ain't gonna need it</em> qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (<a class="reference external" href="https://fr.wikipedia.org/wiki/Extreme_programming">Extreme Programming</a>) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.</p>
+<p>Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.</p>
+</div>
+<div class="section" id="ssot">
+<h3><span class="section-number">24.2.4</span>SSOT<a class="headerlink" href="#ssot" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce principe tient son acronyme de <a class="reference external" href="https://en.wikipedia.org/wiki/Single_source_of_truth">single source of truth</a>. Il adresse principalement un défaut de conception relatif aux métadonnées que peuvent être les paramètres d'un algorithme, le modèle d'une base de données ou la méthode usitée d'un programme à collecter des données.</p>
+<p>Un programme qui respecte ce principe évite la duplication des données. Des défauts courants de conception sont :</p>
+<ul class="simple">
+<li><p>Indiquer le nom d'un fichier source dans le fichier source</p></li>
+<li><p>Stocker la même image, le même document dans différents formats</p></li>
+<li><p>Stocker dans une base de données le nom <em>Doe</em>, prénom <em>John</em> ainsi que le nom complet <em>John Doe</em></p></li>
+<li><p>Avoir un commentaire C du type: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">height</span> <span class="pre">=</span> <span class="pre">206;</span> <span class="pre">//</span> <span class="pre">Size</span> <span class="pre">of</span> <span class="pre">Hafþór</span> <span class="pre">Júlíus</span> <span class="pre">Björnsson</span> <span class="pre">which</span> <span class="pre">is</span> <span class="pre">205</span> <span class="pre">cm</span></code> (deux sources de vérités contradictoires)</p></li>
+<li><p>Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="zen-de-python">
+<h2><span class="section-number">24.3</span>Zen de Python<a class="headerlink" href="#zen-de-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python est un langage de programmation qui devient très populaire, il est certes moins performant que C, mais il se veut être de très haut niveau.</p>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> est un ensemble de 19 principes publiés en 1999 par Tim Peters. Largement accepté par la communauté de développeurs et il est connu sous le nom de <strong>PEP 20</strong>.</p>
+<p>Voici le texte original anglais :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one—and preferably only one—obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than right now.[n 1]
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea—let&#39;s do more of those!
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-code-taste">
+<h2><span class="section-number">24.4</span>The code taste<a class="headerlink" href="#the-code-taste" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans une <a class="reference external" href="https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux">conférence</a> TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé <em>code taste</em> traduisible par <em>avoir du goût pour le code</em>.</p>
+<p>Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="n">Entry</span><span class="o">*</span> <span class="n">entry</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Entry</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">Entry</span><span class="o">*</span> <span class="n">walk</span> <span class="o">=</span> <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">walk</span> <span class="o">!=</span> <span class="n">entry</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">walk</span><span class="p">;</span>
+        <span class="n">walk</span> <span class="o">=</span> <span class="n">walk</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">prev</span><span class="p">)</span>
+        <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il répondit que ce code est de mauvais goût, qu'il est <em>vilain</em> et <em>moche</em>, car ce test placé après la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code <em>sent</em>, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.</p>
+<p>Enlever un élément d'une liste chaînée nécessite de traiter deux cas :</p>
+<ul class="simple">
+<li><p>Si l'élément est au début de la liste, il faut modifier <code class="docutils literal notranslate"><span class="pre">head</span></code></p></li>
+<li><p>Sinon il faut modifier l'élément précédent <code class="docutils literal notranslate"><span class="pre">prev-&gt;next</span></code></p></li>
+</ul>
+<p>Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="n">Entry</span><span class="o">*</span> <span class="n">entry</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Entry</span><span class="o">**</span> <span class="n">indirect</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">((</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span> <span class="o">!=</span> <span class="n">entry</span><span class="p">)</span>
+        <span class="n">indirect</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+    <span class="o">*</span><span class="n">indirect</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La fonction originale de 10 lignes de code a été réduite à 4 lignes et bien que le nombre de lignes compte moins que la lisibilité du code, cette nouvelle implémentation élimine le traitement des cas d'exception en utilisant un adressage indirect beaucoup plus élégant.</p>
+<p>Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur <a class="reference external" href="https://medium.com/&#64;bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a">Medium</a>. Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span><span class="p">;</span> <span class="o">++</span><span class="n">row</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span><span class="p">;</span> <span class="o">++</span><span class="n">col</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Top Edge</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Left Edge</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="n">GRID_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Right Edge</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">GRID_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Bottom Edge</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On constate plusieurs fautes de goût :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GRID_SIZE</span></code> pourrait être différent de la réelle taille de <code class="docutils literal notranslate"><span class="pre">grid</span></code></p></li>
+<li><p>Les valeurs d'initialisation sont dupliquées</p></li>
+<li><p>La complexité de l'algorithme est de <span class="math notranslate nohighlight">\(O(n^2)\)</span> alors que l'on ne s'intéresse qu'à la bordure du tableau.</p></li>
+</ul>
+<p>Voici une solution plus élégante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">size_t</span> <span class="n">length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">init</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// Edges initialisation</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">init</span><span class="p">;</span> <span class="c1">// Top and Left</span>
+    <span class="n">grid</span><span class="p">[</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">init</span><span class="p">;</span> <span class="c1">// Bottom and Right</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-odeur-du-code">
+<span id="code-smell"></span><h2><span class="section-number">24.5</span>L'odeur du code<a class="headerlink" href="#l-odeur-du-code" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un code <em>sent</em> si certains indicateurs sont au rouge. On appelle ces indicateurs des <a class="reference external" href="https://fr.wikipedia.org/wiki/Antipattern">antipatterns</a>. Voici quelques indicateurs les plus courants :</p>
+<ul>
+<li><p><strong>Mastodonte</strong> Une fonction est plus longue qu'un écran de haut (~50 lignes)</p></li>
+<li><p>Un fichier est plus long que <strong>1000 lignes</strong>.</p></li>
+<li><p><strong>Ligne Dieu</strong>, une ligne beaucoup trop longue et <em>de facto</em> illisible.</p></li>
+<li><dl>
+<dt>Une fonction à plus de <strong>trois</strong> paramètres</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">with_milk</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">cow_milk</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number_of_sugars</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p><strong>Copier coller</strong>, du code est dupliqué</p></li>
+<li><dl>
+<dt>Les commentaires expliquent le comment du code et non le pourquoi</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
+<span class="kt">double</span> <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">cst</span><span class="p">);</span>
+<span class="n">u</span> <span class="o">/=</span> <span class="mf">1.11123445143</span><span class="p">;</span> <span class="c1">// division par une constante inférieure à 2</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">exception</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Usage de <code class="docutils literal notranslate"><span class="pre">goto</span></code></dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">end</span><span class="p">;</span>
+<span class="nl">happy</span><span class="p">:</span>
+    <span class="n">happy</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">goto</span> <span class="n">sad</span><span class="p">;</span>
+<span class="nl">sad</span><span class="p">:</span>
+    <span class="n">sad</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">goto</span> <span class="n">happy</span><span class="p">;</span>
+<span class="nl">end</span><span class="p">:</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Plusieurs variables avec des noms très similaires</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">advice</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">advise</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p><strong>Action à distance</strong> par l'emploi immodéré de variables globales</p></li>
+<li><p><strong>Ancre de bateau</strong>, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p></li>
+<li><p><strong>Cyclomatisme aigu</strong>, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p></li>
+<li><dl>
+<dt><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">finished</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p><strong>Objet divin</strong> quand un composant logiciel assure trop de fonctions essentielles (KISS)</p></li>
+<li><p><strong>Coulée de lave</strong> lorsqu'un code immature est mis en production</p></li>
+<li><p><strong>Chirurgie au fusil de chasse</strong> quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code (<a class="reference external" href="https://en.wikipedia.org/wiki/Shotgun_surgery">Shotgun surgery</a>).</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="traps.html"
+       title="Chapitre précédent">← <span class="section-number">23</span>Pièges</a>
+  </li>
+  <li class="next">
+    <a href="../appendix/vscode.html"
+       title="Chapitre suivant"><span class="section-number">1</span>Visual Studio Code →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

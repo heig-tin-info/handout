@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>19Portée et visibilité</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="20Qualité et Testabilité" href="testing.html" />
+  <link rel="prev" title="18Compilation séparée" href="translation-units.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Portée et visibilité</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#espace-de-nommage" class="reference internal">Espace de nommage</a></li>
+                
+                  <li class="toctree-l2"><a href="#portee" class="reference internal">Portée</a></li>
+                
+                  <li class="toctree-l2"><a href="#visibilite" class="reference internal">Visibilité</a></li>
+                
+                  <li class="toctree-l2"><a href="#qualificatif-de-type" class="reference internal">Qualificatif de type</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">19</span>Portée et visibilité</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="translation-units.html"
+       title="Chapitre précédent">← <span class="section-number">18</span>Compilation séparée</a>
+  </li>
+  <li class="next">
+    <a href="testing.html"
+       title="Chapitre suivant"><span class="section-number">20</span>Qualité et Testabilité →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="portee-et-visibilite">
+<h1><span class="section-number">19</span>Portée et visibilité<a class="headerlink" href="#portee-et-visibilite" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce chapitre se concentre sur quatre caractéristiques d'une variable :</p>
+<ul class="simple">
+<li><p>La portée</p></li>
+<li><p>La visibilité</p></li>
+<li><p>La durée de vie</p></li>
+<li><p>Son qualificatif de type</p></li>
+</ul>
+<p>Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible, et de quelle manière</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/visibility.jpg" src="../_images/visibility.jpg" />
+<p class="caption"><span class="caption-number">Fig. 19.1 </span><span class="caption-text">Brouillard matinal sur le <a class="reference external" href="https://fr.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a>, San Francisco.</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="section" id="espace-de-nommage">
+<h2><span class="section-number">19.1</span>Espace de nommage<a class="headerlink" href="#espace-de-nommage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'espace de nommage ou <code class="docutils literal notranslate"><span class="pre">namespace</span></code> est un concept différent de celui existant dans d'autres langages tel que C++. Le standard <strong>C99</strong> décrit 4 types possibles pour un identifiant :</p>
+<ul class="simple">
+<li><p>fonction et <em>labels</em></p></li>
+<li><p>noms de structures (<code class="docutils literal notranslate"><span class="pre">struct</span></code>), d'unions (<code class="docutils literal notranslate"><span class="pre">union</span></code>), d'énumération (<code class="docutils literal notranslate"><span class="pre">enum</span></code>),</p></li>
+<li><p>identifiants</p></li>
+</ul>
+</div>
+<div class="section" id="portee">
+<h2><span class="section-number">19.2</span>Portée<a class="headerlink" href="#portee" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La portée ou <a class="reference external" href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a> décrit jusqu'à où une variable est accessible.</p>
+<p>Une variable est <strong>globale</strong>, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">global_variable</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Une variable est <strong>locale</strong> si elle est déclarée à l'intérieur d'un bloc, ou à l'intérieur d'une fonction. Elle sera ainsi visible de sa déclaration jusqu'à la fin du bloc courant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Valide</span>
+    <span class="p">}</span>
+
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="c1">// Invalide, `i` n&#39;est plus visible.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="variable-shadowing">
+<h3><span class="section-number">19.2.1</span>Variable shadowing<a class="headerlink" href="#variable-shadowing" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On dit qu'une variable est <em>shadowed</em> ou <em>masquée</em> si sa déclaration masque une variable préalablement déclarée :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// Accès à `i` courant et non à `i = 23`</span>
+<span class="p">}</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// Accès à `i = 23`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="visibilite">
+<h2><span class="section-number">19.3</span>Visibilité<a class="headerlink" href="#visibilite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Selon l'endoit où est déclaré une variable, elle ne sera pas nécessairement visible partout ailleurs. Une variable <strong>locale</strong> n'est accessible qu'à partir de sa déclaration et jusqu'à la fin du bloc dans laquelle elle est déclarée.</p>
+<p>L'exemple suivant montre la visibilité de plusieurs variables :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                  //   a
+void foo(int a) { //   ┬ b
+    int b;        //   │ ┬
+    ...           //   │ │
+    {             //   │ │ c
+       int c;     //   │ │ ┬
+       ...        //   │ │ │ d
+       int d;     //   │ │ │ ┬
+       ...        //   │ │ │ │
+    }             //   │ │ ┴ ┴
+    ...           //   │ │
+}                 //   ┴ ┴
+</pre></div>
+</div>
+<p>Une variable déclarée globalement, c'est à dire en dehors d'une fonction à une durée de vie sur l'entier du module (<em>translation unit</em>) quelque soit l'endroit ou elle est déclarée, en revanche elle n'est visible que depuis l'endroit ou elle est déclarée. Les deux variables <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> sont globales au module, c'est à dire qu'elle peuvent être accédées depuis n'importe quelle fonction contenu dans ce module.</p>
+<p>En revanche la variable <code class="docutils literal notranslate"><span class="pre">j</span></code>, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis <code class="docutils literal notranslate"><span class="pre">main</span></code> car elle n'est pas visible.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+                             //  i
+int i;                       //  ┬
+                             //  │
+int main() {                 //  │
+    printf(&quot;%d %d\n&quot;, i, j); //  │
+}                            //  │
+                             //  │ j
+int j;                       //  ┴ ┬
+</pre></div>
+</div>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">extern</span></code> permet non pas de déclarer la variable <code class="docutils literal notranslate"><span class="pre">j</span></code> mais de renseigner le compilateur qu'il existe <em>ailleurs</em> une variable <code class="docutils literal notranslate"><span class="pre">j</span></code>. C'est ce que l'on appelle une déclaration avancée ou <em>forward-declaration</em>. Dans ce cas, bien que <code class="docutils literal notranslate"><span class="pre">j</span></code> soit déclaré après la fonction principale, elle est maintenant visible.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+                        <span class="c1">// j</span>
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>           <span class="c1">// ┬   Déclaration en amont de `j`</span>
+                        <span class="c1">// │</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>            <span class="c1">// │</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>  <span class="c1">// │</span>
+<span class="p">}</span>                       <span class="c1">// │</span>
+                        <span class="c1">// │</span>
+<span class="kt">int</span> <span class="n">j</span><span class="p">;</span>                  <span class="c1">// │</span>
+                        <span class="c1">// │</span>
+</pre></div>
+</div>
+<p>Une particularité en C est que tout symbol global (variable ou fonction) ont une accessibilité transversale. C'est à dire que dans le cas de la compilation séparée, une variable déclarée dans un fichier, peut être accédée depuis un autre fichier, il en va de même pour les fonctions.</p>
+<p>L'exemple suivant implique deux fichiers <code class="docutils literal notranslate"><span class="pre">foo.c</span></code> et <code class="docutils literal notranslate"><span class="pre">main.c</span></code>. Dans l'un deux symbols sont déclarés, une variable et une fonction.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// foo.c</span>
+
+<span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">do_foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Foo does...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Depuis le programme principal, il est possible d'accéder à symboles à condition de renseigner sur le prototype de la fonction et l'existence de la variable :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.c</span>
+
+<span class="k">extern</span> <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">do_foo</span><span class="p">();</span> <span class="c1">// Non obligatoire</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">foo</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans le cas ou l'on voudrait restreindre l'accessibilité d'une variable au module dans lequel elle est déclarée, l'usage du mot clé <code class="docutils literal notranslate"><span class="pre">static</span></code> s'impose.</p>
+<p>En écrivant <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">foo;</span></code> dans <code class="docutils literal notranslate"><span class="pre">foo.c</span></code>, la variable n'est plus accessible en dehors du module même avec une déclaration en avance. On dit que sa portée est réduite au module.</p>
+</div>
+<div class="section" id="qualificatif-de-type">
+<h2><span class="section-number">19.4</span>Qualificatif de type<a class="headerlink" href="#qualificatif-de-type" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les variables en C peuvent être crées de différentes manières. Selon la manière dont elle pourront être utilisées, il est courant de les classer en catégories.</p>
+<p>Une classe de stockage peut être implicite à une déclaration de variable ou explicite, en ajoutant un attribut devant la déclaration de celle-ci.</p>
+<div class="section" id="auto">
+<h3><span class="section-number">19.4.1</span><code class="docutils literal notranslate"><span class="pre">auto</span></code><a class="headerlink" href="#auto" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette classe est utilisée par défaut lorsqu'aucune autre classe
+n'est précisée. Les variables automatiques sont visibles uniquement dans
+le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (<em>stack</em>) mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">type</span> <span class="n">identificateur</span> <span class="o">=</span> <span class="n">valeur_initiale</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour les variables automatiques, le mot-clé <em>auto</em> n'est pas
+obligatoire, et n'est pas recommandé en <strong>C99</strong> car son utilisation est implicite.</p>
+</div>
+<div class="section" id="register">
+<h3><span class="section-number">19.4.2</span><code class="docutils literal notranslate"><span class="pre">register</span></code><a class="headerlink" href="#register" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.</p>
+<p>Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable <code class="docutils literal notranslate"><span class="pre">i</span></code> utilisée dans les boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> était déclarées <code class="docutils literal notranslate"><span class="pre">register</span> <span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span></code>. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis <strong>C99</strong>.</p>
+</div>
+<div class="section" id="const">
+<h3><span class="section-number">19.4.3</span><code class="docutils literal notranslate"><span class="pre">const</span></code><a class="headerlink" href="#const" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ce mot clé rends une déclaration non modifiable par le programme lui même. Néanmoins il ne s'agit pas de constantes au sens strict du terme car une variable de type <code class="docutils literal notranslate"><span class="pre">const</span></code> pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.</p>
+</div>
+<div class="section" id="static">
+<h3><span class="section-number">19.4.4</span><code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#static" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Elle permet de déclarer des variables dont le contenu est
+préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
+<p>Elles ne sont donc initialisées qu'une seule fois. L'exemple suivant est une fonction qui retourne à chaque fois une valeur différente, incrémentée de 1. La variable <code class="docutils literal notranslate"><span class="pre">i</span></code> agit ici comme une variable globale, elle n'est initialisée qu'une seule fois à 0 et donc s'incrémente d'appel en appel. En revanche, elle n'est pas accessible en dehors de la fonction; c'est donc une variable locale.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">iterate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il n'est pas rare de voir des variables globales, ou des fonctions précédées du mot clé <code class="docutils literal notranslate"><span class="pre">static</span></code>. Ces variables sont dites <em>statiques au module</em>. Elle ne sont donc pas accessibles depuis un autre module (<em>translation unit</em>)</p>
+<p>La fonction suivante est <em>statique</em> au module dans lequel elle est déclarée. Il ne sera donc pas possible d'y accéder depuis un autre fichier C.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="volatile">
+<h3><span class="section-number">19.4.5</span><code class="docutils literal notranslate"><span class="pre">volatile</span></code><a class="headerlink" href="#volatile" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.</p>
+<p>L'usage de cette classe de stockage réduit les performances d'un programme puisque qu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation</p>
+</div>
+<div class="section" id="extern">
+<h3><span class="section-number">19.4.6</span><code class="docutils literal notranslate"><span class="pre">extern</span></code><a class="headerlink" href="#extern" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> mais s'attends à ce que cette variable ait été déclarée dans un autre fichier.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="restrict">
+<h3><span class="section-number">19.4.7</span><code class="docutils literal notranslate"><span class="pre">restrict</span></code><a class="headerlink" href="#restrict" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En C, le mot clé <code class="docutils literal notranslate"><span class="pre">restrict</span></code>, apparu avec <strong>C99</strong>, es utililsé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui même (p. ex: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">+</span> <span class="pre">1</span></code>).</p>
+<p>En d'autres termes, le qualificatif indique au compilateur que deux pointeurs différents ne peuvent pas pointer sur les même régions mémoire.</p>
+<p>Prenons l'exemple simple d'une fonction qui met à jour deux pointeurs avec une valeur passée en paramètre :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">update_ptr</span><span class="p">(</span><span class="kt">size_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">size_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="k">const</span> <span class="kt">size_t</span> <span class="o">*</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">+=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">+=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le compilateur, n'ayant aucune information sur les pointeurs fournis, ne peut faire aucune hypothèse d'optimisation. En effet, ces deux pointeurs <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ainsi que <code class="docutils literal notranslate"><span class="pre">value</span></code> pourraient très bien pointer sur la même région mémoire, et dans ce cas <code class="docutils literal notranslate"><span class="pre">*a</span> <span class="pre">+=</span> <span class="pre">*value</span></code> aurait pour effet d'incrémenter <code class="docutils literal notranslate"><span class="pre">value</span></code>. En revanche, dans le cas ou la fonction est déclarée de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">update_ptr</span><span class="p">(</span><span class="kt">size_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">a</span><span class="p">,</span> <span class="kt">size_t</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">b</span><span class="p">,</span> <span class="k">const</span> <span class="kt">size_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">+=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">+=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>le compilateur est informé qu'il peut faire l'hypothèse que les trois pointeurs fournis en paramètres sont indépendant les uns des autres. Dans ce cas il peut optimiser le code. Voir <a class="reference external" href="https://en.wikipedia.org/wiki/Restrict">restrict</a> sur Wikipedia pour plus de détails.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="translation-units.html"
+       title="Chapitre précédent">← <span class="section-number">18</span>Compilation séparée</a>
+  </li>
+  <li class="next">
+    <a href="testing.html"
+       title="Chapitre suivant"><span class="section-number">20</span>Qualité et Testabilité →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

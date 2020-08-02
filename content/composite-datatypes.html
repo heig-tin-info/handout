@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>11Types composites</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="12Les fichiers" href="files.html" />
+  <link rel="prev" title="10Fonctions" href="functions.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Types composites</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#tableaux" class="reference internal">Tableaux</a></li>
+                
+                  <li class="toctree-l2"><a href="#chaines-de-caracteres" class="reference internal">Chaînes de caractères</a></li>
+                
+                  <li class="toctree-l2"><a href="#structures" class="reference internal">Structures</a></li>
+                
+                  <li class="toctree-l2"><a href="#champs-de-bits" class="reference internal">Champs de bits</a></li>
+                
+                  <li class="toctree-l2"><a href="#unions" class="reference internal">Unions</a></li>
+                
+                  <li class="toctree-l2"><a href="#creation-de-type" class="reference internal">Création de type</a></li>
+                
+                  <li class="toctree-l2"><a href="#compound-literals" class="reference internal">Compound Literals</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">11</span>Types composites</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="functions.html"
+       title="Chapitre précédent">← <span class="section-number">10</span>Fonctions</a>
+  </li>
+  <li class="next">
+    <a href="files.html"
+       title="Chapitre suivant"><span class="section-number">12</span>Les  fichiers →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="types-composites">
+<h1><span class="section-number">11</span>Types composites<a class="headerlink" href="#types-composites" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="tableaux">
+<span id="index-0"></span><h2><span class="section-number">11.1</span>Tableaux<a class="headerlink" href="#tableaux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les <a class="reference external" href="https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)">tableaux</a> (<em>arrays</em>) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.</p>
+<p>L'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :</p>
+<p>La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Par la suite il est possible d'accéder aux différents éléments ici l'élément 1 et 3 (deuxième et quatrième position du tableau) :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">array</span><span class="p">[</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>L'opérateur <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> permet d'obtenir la taille d'un tableau en mémoire, mais attention, c'est la taille du tableau et non le nombre d'éléments qui est retourné. Dans l'exemple suivant <code class="docutils literal notranslate"><span class="pre">sizeof(array)</span></code> retourne <span class="math notranslate nohighlight">\(10\cdot4 = 40\)</span> tandis que <code class="docutils literal notranslate"><span class="pre">sizeof(array[0])</span></code> retourne la taille d'un seul élément <span class="math notranslate nohighlight">\(4\)</span>; et donc, <code class="docutils literal notranslate"><span class="pre">sizeof(array)</span> <span class="pre">/</span> <span class="pre">sizeof(array[0])</span></code> est le nombre d'éléments de ce tableau, soit 10.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span> <span class="nf">array</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="kt">size_t</span> <span class="n">length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>L'index d'un tableau commence toujours à <strong>0</strong> et par conséquent l'index maximum d'un tableau de 5 éléments sera 4. Il est donc fréquent dans une boucle d'utiliser <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> et non <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section <a class="reference internal" href="pointers.html#pointers"><span class="std std-numref">Section 14</span></a>. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seul une <strong>référence</strong> sur ce tableau est passée.</p>
+<p>La preuve étant que le contenu du tableau peut être modifié à distance :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">function</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="p">{</span>
+   <span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+   <span class="n">function</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+   <span class="n">assert</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Un fait remarquable est que l'opérateur <code class="docutils literal notranslate"><span class="pre">[]</span></code> est commutatif. En effet, l'opérateur <em>crochet</em> est un sucre syntaxique :</p>
+<p>Et cela fonctionne même avec les tableaux à plusieurs dimensions :</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/1">Exercice 11.1</a>: Assignation</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/2">Exercice 11.2</a>: Première position</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/3">Exercice 11.3</a>: Déclarations de tableaux</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/4">Exercice 11.4</a>: Comparaisons</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/5">Exercice 11.5</a>: Le plus grand et le plus petit</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/6">Exercice 11.6</a>: L'index magique</p>
+<div class="section" id="initialisation">
+<h3><span class="section-number">11.1.1</span>Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableaux. La déclaration suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">even</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>contient 6 entiers, chacuns d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.</p>
+<p>Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (<code class="docutils literal notranslate"><span class="pre">even[4]</span></code>), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu il faut initialiser le tableau, soit affecter des valeurs pour chaque indice :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Cette écriture n'est certainement pas la plus optimisée car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Dans cette dernière écriture, il existe une redondance d'information. La partie d'initialisation <code class="docutils literal notranslate"><span class="pre">{4,</span> <span class="pre">8,</span> <span class="pre">15,</span> <span class="pre">16,</span> <span class="pre">23,</span> <span class="pre">42}</span></code> comporte six éléments et le tableau est déclaré avec six éléments <code class="docutils literal notranslate"><span class="pre">[6]</span></code>. Pour éviter une double source de vérité, il est ici possible d'omettre la taille du tableau :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Notons que dans premier de ces deux cas, si un nombre inférieur à 6 éléments est initialisé, les autrs éléments seront initializés à <strong>zéro</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span> <span class="cm">/* le reste vaudra zéro */</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>Il est également possible d'initialiser un tableau de façon explicite en utilisant une notation plus spécifique :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mi">42</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Et naturellement il est possible d'omettre certaines valeurs, lesquelles seront initialisées à zéro par défaut. Dans l'exemple suivant les valeurs aux indices 1 à 4 vaudront zéro.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mi">42</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Notons que lorsque que la notation <code class="docutils literal notranslate"><span class="pre">[]=</span></code> est utilisée, les valeurs qui suivent seront positionnées aux indices suivants :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Dans l'exemple ci-dessus <code class="docutils literal notranslate"><span class="pre">sequence[2]</span></code> vaudra zéro.</p>
+<p>Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé après sa déclaration. L'exemple suivant ne fonctionne pas :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+<span class="c1">// Erreur: l&#39;initialisation tardive n&#39;est pas autorisée.</span>
+<span class="n">array</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialisation-a-zero">
+<h3><span class="section-number">11.1.2</span>Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Enfin, un sucre syntaxique <code class="docutils literal notranslate"><span class="pre">{0}</span></code> permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisées à zéro si non mentionnées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. <a class="reference internal" href="memory-management.html#memory-management"><span class="std std-numref">Section 13</span></a>) les variables globales sont placées dans le segment mémoire <code class="docutils literal notranslate"><span class="pre">.bss</span></code> et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.</p>
+</div>
+<div class="section" id="initialization-a-une-valeur-particuliere">
+<h3><span class="section-number">11.1.3</span>Initialization à une valeur particulière<a class="headerlink" href="#initialization-a-une-valeur-particuliere" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cette écriture n'est pas normalisée <strong>C99</strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span> <span class="mi">0</span> <span class="p">...</span> <span class="mi">1023</span> <span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>En <strong>C99</strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tableaux-non-modifiables">
+<h3><span class="section-number">11.1.4</span>Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Lien permanent vers ce titre">¶</a></h3>
+<p>À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé <code class="docutils literal notranslate"><span class="pre">const</span></code> est utilisé a cette fin.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+<span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// Interdit !</span>
+</pre></div>
+</div>
+<p>Dans l'exemple ci-dessus, la seconde ligne génèrera l'erreur suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>error: assignment of read-only location ‘sequence[2]’
+</pre></div>
+</div>
+<p>Notons que lors de l'utilisation de pointeurs, il serait possible, de façon détournée, de modifier ce tableau malgré tout :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Dans ce cas, ce n'est pas une erreur mais une alerte du compilateur qui survient :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>warning: initialization discards ‘const’ qualifier from pointer
+target type [-Wdiscarded-qualifiers]
+</pre></div>
+</div>
+</div>
+<div class="section" id="tableaux-multi-dimensionnels">
+<h3><span class="section-number">11.1.5</span>Tableaux multi-dimensionnels<a class="headerlink" href="#tableaux-multi-dimensionnels" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du <em>tic-tac-toe</em> ou morpion, il faudra une grille de 3x3.</p>
+<p>Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">game</span><span class="p">[</span><span class="n">row</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;x&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Néanmoins, cette écriture n'est pas pratique et le langage C dispose du nécessaire pour alléger l'écriture. La grille de jeu sera simplement initialisée comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Jouer <code class="docutils literal notranslate"><span class="pre">x</span></code> au centre équivaut à écrire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;x&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>De la même façon il est possible de définir structure tri-dimensionnelles :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">volume</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">8</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>L'initialisation des tableaux multi-dimensionnel est très similaire au tableaux standards mais il est possible d'utiliser plusieurs niveau d'accolades.</p>
+<p>Ainsi le jeu de morpion suivant :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> o | x | x
+---+---+---
+ x | o | o
+---+---+---
+ x | o | x
+</pre></div>
+</div>
+<p>Peut s'initialiser comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">},</span> <span class="p">{</span><span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">},</span> <span class="p">{</span><span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>Notons que l'écriture suivante est similaire, car un tableau multidimensionnel est toujours représenté en mémoire de façon linéaire, comme un tableau à une dimension :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../exercises.html#exercise/11/7">Exercice 11.7</a>: Détectives privés</p>
+<p><a class="reference external" href="../exercises.html#exercise/11/8">Exercice 11.8</a>: Pot de peinture</p>
+</div>
+</div>
+<div class="section" id="chaines-de-caracteres">
+<h2><span class="section-number">11.2</span>Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacuns représentant un caractère ASCII spécifique. La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello</span></code> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
+<p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;hello, world!&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Le compilateur ajoutera automatiquement un caractère de terminaison <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> à la fin de la chaîne. Pour comprendre l'utilité, imaginons une fonction qui permet de compter la longueur de la chaîne. Elle aurait comme prototype ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]);</span>
+</pre></div>
+</div>
+<p>On peut donc lui passer un tableau dont la taille n'est pas définie et par conséquent, il n'est pas possible de connaître la taille de la chaîne passée sans le bénéfice d'une sentinelle.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">len</span><span class="o">++</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="k">return</span> <span class="n">len</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une chaîne de caractère est donc strictement identique à un tableau de <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
+<p>Ainsi une chaîne de caractère est initialisée comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Pulp Fiction&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>La taille de ce tableau sera donc de 12 caractères plus une sentinelle <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> insérée automatiquement. Cette écriture est donc identique à :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sc">&#39;P&#39;</span><span class="p">,</span> <span class="sc">&#39;u&#39;</span><span class="p">,</span> <span class="sc">&#39;l&#39;</span><span class="p">,</span> <span class="sc">&#39;p&#39;</span><span class="p">,</span> <span class="sc">&#39; &#39;</span><span class="p">,</span> <span class="sc">&#39;F&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="sc">&#39;t&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="tableaux-de-chaines-de-caracteres">
+<h3><span class="section-number">11.2.1</span>Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;mais&quot;</span><span class="p">,</span> <span class="s">&quot;ou&quot;</span><span class="p">,</span> <span class="s">&quot;est&quot;</span><span class="p">,</span> <span class="s">&quot;donc&quot;</span><span class="p">,</span> <span class="s">&quot;or&quot;</span><span class="p">,</span> <span class="s">&quot;ni&quot;</span><span class="p">,</span> <span class="s">&quot;car&quot;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Il est ici nécessaire de définir la taille de la seconde dimension, comme pour les tableaux. C'est à dire que la variable <code class="docutils literal notranslate"><span class="pre">conjunctions</span></code> aura une taille de 7x10 caractères et le contenu mémoire de <code class="docutils literal notranslate"><span class="pre">conjunctions[1]</span></code> sera équivalent à :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;u&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>D'ailleurs, ce tableau aurait pu être initialisé d'une tout autre façon :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sc">&#39;m&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;s&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;u&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="sc">&#39;s&#39;</span><span class="p">,</span> <span class="sc">&#39;t&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">,</span>
+    <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">,</span>
+    <span class="sc">&#39;r&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Notons que la valeur <code class="docutils literal notranslate"><span class="pre">0</span></code> est strictement identique au caractère 0 de la table ASCII <code class="docutils literal notranslate"><span class="pre">'\0'</span></code>. La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">&quot;mais&quot;</span></code> aura une taille de 5 caractères, ponctuée de la sentinelle <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
+</div>
+</div>
+<div class="section" id="structures">
+<h2><span class="section-number">11.3</span>Structures<a class="headerlink" href="#structures" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type <code class="docutils literal notranslate"><span class="pre">struct</span></code> a été dérivé de <code class="docutils literal notranslate"><span class="pre">ALGOL</span> <span class="pre">68</span></code>. Il est également utilisé en C++ et est similaire à une classe.</p>
+<p>Il faut voir une structure comme un container à variables qu'il est possible de véhiculer comme un tout.</p>
+<p>La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un bloc de code avec trois variables locales déclarées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>En utilisant le mot-clé <code class="docutils literal notranslate"><span class="pre">struct</span></code> devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à <code class="docutils literal notranslate"><span class="pre">x</span></code> puisqu'il n'existe pas de variable <code class="docutils literal notranslate"><span class="pre">x</span></code>. En revanche, un nouveau container contenant trois variable est défini, mais pas encore déclaré.</p>
+<p>La structure ainsi déclarée n'est pas très utile telle quelle, en revanche elle peut-être utilisée pour déclarer une variable de type <code class="docutils literal notranslate"><span class="pre">struct</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">point</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A présent on a déclaré une variable <code class="docutils literal notranslate"><span class="pre">point</span></code> de type <code class="docutils literal notranslate"><span class="pre">struct</span></code> contenant trois éléments de type <code class="docutils literal notranslate"><span class="pre">double</span></code>. L'affectaction d'une valeur à cette variable utilise l'opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">3060426.957</span><span class="p">;</span>
+<span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">3192003.220</span><span class="p">;</span>
+<span class="n">point</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">4581359.381</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Comme <code class="docutils literal notranslate"><span class="pre">point</span></code> n'est pas une primitive standard mais un container à primitive, il n'est pas correct d'écrire <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">=</span> <span class="pre">12</span></code>. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.</p>
+<p>Ces coordonnées sont un clin d'oeil aux <a class="reference external" href="https://fr.wikipedia.org/wiki/Pierres_du_Niton">Pierres du Niton</a> qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour <a class="reference external" href="https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre">Axel Lidenbrock</a> et son fulmicoton.</p>
+<div class="section" id="structures-nommees">
+<h3><span class="section-number">11.3.1</span>Structures nommées<a class="headerlink" href="#structures-nommees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L'écriture que l'on a vu initialement <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">};</span></code> est appelée structure annonyme, c'est à dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">nom;</span></code>. Néanmoins la structure est toujours annonyme.</p>
+<p>Le langage C prévoit la possibilté de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé <code class="docutils literal notranslate"><span class="pre">struct</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Pour ne pas confondre un nom de structure avec un nom de variable, on préférera un identificateur en capitales ou en écriture <em>camel-case</em>. Maintenant qu'elle est nommée, il est possible de déclarer plusieurs variables de ce type ailleurs dans le code :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">struct</span> <span class="n">Point</span> <span class="n">bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Dans cet exemple, on déclare deux variables <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> de type <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code>. Il est donc possible d'accéder à <code class="docutils literal notranslate"><span class="pre">foo.x</span></code> ou <code class="docutils literal notranslate"><span class="pre">bar.z</span></code>.</p>
+<p>Rien n'empêche de déclarer une structure nommée et d'également déclarer une variable par la même occasion :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">struct</span> <span class="n">Point</span> <span class="n">bar</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est à dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">point</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">x</span><span class="p">;</span> <span class="kt">double</span> <span class="n">y</span><span class="p">;</span> <span class="kt">double</span> <span class="n">z</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
+<span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">11.3.2</span>Initialisation<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> mais avec l'opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> serait identique à un tableau de trois <code class="docutils literal notranslate"><span class="pre">double</span></code> et par conséquent l'initialisation suivante est possible :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">3060426.957</span><span class="p">,</span> <span class="mf">3192003.220</span><span class="p">,</span> <span class="mf">4581359.381</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>Néanmoins on préfèrera la notation suivante, équivalente :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mf">3060426.957</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mf">3192003.220</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mf">4581359.381</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la même manière qu'un tableau, il est possible d'initialiser une structure à zéro avec <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">{0};</span></code>.</p>
+<p>Il faut savoir que <strong>C99</strong> restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.</p>
+<p>Notons que des stuctures comportant des types différents peuvent aussi être initialisée de la même manière :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Product</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="p">;</span> <span class="c1">// Grams</span>
+    <span class="kt">double</span> <span class="n">price</span><span class="p">;</span> <span class="c1">// Swiss francs</span>
+    <span class="kt">int</span> <span class="n">category</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Product</span> <span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">321</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s">&quot;Pomme Golden&quot;</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tableaux-de-structures">
+<h3><span class="section-number">11.3.3</span>Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code class="docutils literal notranslate"><span class="pre">char</span></code> ou <code class="docutils literal notranslate"><span class="pre">double</span></code> peut donc être fait avec <code class="docutils literal notranslate"><span class="pre">struct</span></code>. Et donc, il est aussi possibel de déclarer un tableau de structures. Ici donnons l'exemple d'un tableaux de points initialisés :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
+    <span class="p">{.</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
+    <span class="p">{.</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Assigner une nouvelle valeur à un point est facile :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">point</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structures-en-parametres">
+<h3><span class="section-number">11.3.4</span>Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="nf">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(),</span>
+        <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(),</span>
+        <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span>
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il est également possible de passer une structure en paramètre d'une fonction :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">norm</span><span class="p">(</span><span class="k">struct</span> <span class="n">point</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">z</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">12.54</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8.12</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.68</span> <span class="p">};</span>
+
+    <span class="kt">double</span> <span class="n">n</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (<em>stack</em>) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="k">struct</span> <span class="n">Point</span> <span class="n">m</span><span class="p">,</span> <span class="k">struct</span> <span class="n">Point</span> <span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">n</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%g, %g</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le résultat affiché sera <code class="docutils literal notranslate"><span class="pre">0.0,</span> <span class="pre">1.0</span></code>. Seul la seconde valeur est modifiée.</p>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">.</span></code> car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire <code class="docutils literal notranslate"><span class="pre">p-&gt;x</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">(*p).x</span></code></p>
+</div>
+</div>
+<div class="section" id="structures-flexibles">
+<h3><span class="section-number">11.3.5</span>Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Introduit avec C99, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Vector</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span> <span class="c1">// name of the vector</span>
+    <span class="kt">size_t</span> <span class="n">len</span><span class="p">;</span> <span class="c1">// length of the vector</span>
+    <span class="kt">double</span> <span class="n">array</span><span class="p">[];</span> <span class="c1">// flexible array member</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Cette écriture permet par exemple de réserver un espace mémoire plus grand que la structure de base, et d'utiliser le reste de l'espace domme tableau flexible.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">vector</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+<span class="n">strcpy</span><span class="p">(</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Mon vecteur&quot;</span><span class="p">);</span>
+<span class="n">vector</span><span class="o">-&gt;</span><span class="n">len</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">-</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">4</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vector</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">vector</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">...</span>
+</pre></div>
+</div>
+<p>Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.</p>
+</div>
+<div class="section" id="structure-de-structures">
+<h3><span class="section-number">11.3.6</span>Structure de structures<a class="headerlink" href="#structure-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On comprends aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.</p>
+<p>Nous déclarons ici une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Line</span></code> composée de <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>L'accès à ces différentes valeurs s'effectue de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="n">line</span> <span class="o">=</span> <span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span><span class="p">,</span> <span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">33</span><span class="p">};</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%g, %g&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alignement-memoire">
+<h3><span class="section-number">11.3.7</span>Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
+</pre></div>
+</div>
+<p>Ci-dessous est représenté l'offset mémoire (en bytes) à laquel est stocké chaque membre de la structure, ainsi que l'élément correspondant.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0x0000 line[0].a.x
+0x0008 line[0].a.y
+0x0010 line[0].a.z
+0x0018 line[0].b.x
+0x0020 line[0].b.y
+0x0028 line[0].b.z
+0x0030 line[1].a.x
+0x0038 line[1].a.y
+0x0040 line[1].a.z
+0x0048 line[1].b.x
+0x0050 line[1].b.y
+0x0048 line[1].b.z
+</pre></div>
+</div>
+<p>Néanmoins dans certains cas, le compilateur se réserve le droit d'optimiser l' <a class="reference external" href="https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire">alignement mémoire</a>. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Considérons par exemple la structure suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">NoAlign</span>
+<span class="p">{</span>
+    <span class="kt">int8_t</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int32_t</span> <span class="n">d</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est assez grand pour y stocker 4 bytes. Tentons de représenter en mémoire cette structure en <em>little-endian</em>, en considérant des casiers de 32-bits :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> c    d             i           a
+┞─╀─┬─┬─┐ ┌─╀─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─╀─┬─┬─┐
+│c│d│d│d│ │d│i│i│i│ │i│i│i│i│ │i│a│a│a│
+│0│0│1│2│ │3│0│1│2│ │3│4│5│6│ │7│0│1│2│
+└─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+    A         B         C         D
+</pre></div>
+</div>
+<p>On constate que la valeur <code class="docutils literal notranslate"><span class="pre">d</span></code> est à cheval entre deux casiers. De même que la valeur <code class="docutils literal notranslate"><span class="pre">i</span></code> est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des <em>bus mémoire</em>, ils sont l'analogie d'une autoroute qui ne peux acceuillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture <code class="docutils literal notranslate"><span class="pre">B</span></code> pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps.</p>
+<p>Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellement l'accès à <code class="docutils literal notranslate"><span class="pre">d</span></code> pourrait s'écrire ainsi :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x0F</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Pour éviter ces manoeuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (<em>padding</em>) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Align</span>
+<span class="p">{</span>
+    <span class="kt">int8_t</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">__pad1</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// Inséré par le compilateur</span>
+    <span class="kt">int32_t</span> <span class="n">d</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="kt">int8_t</span> <span class="n">__pad2</span><span class="p">;</span> <span class="c1">// Inséré par le compilateur</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>En reprenant notre analogie de voitures, le stockage est maintenant fait comme ceci :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+│c│ │ │ │ │d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│ │
+│0│ │ │ │ │0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│ │
+└─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+    A         B         C         D         E
+</pre></div>
+</div>
+<p>Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers.
+L'accès à <code class="docutils literal notranslate"><span class="pre">d</span></code> est ainsi facilité au détriment d'une perte substentielle de l'espace de stockage.</p>
+<p>Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Align</span>
+<span class="p">{</span>
+    <span class="kt">int32_t</span> <span class="n">d</span><span class="p">;</span>
+    <span class="kt">int64_t</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="kt">int8_t</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+│d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│c│
+│0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│3│
+└─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+    A         B         C         D
+</pre></div>
+</div>
+<p>L'option <code class="docutils literal notranslate"><span class="pre">-Wpadded</span></code> de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure <code class="docutils literal notranslate"><span class="pre">BitmapFileHeader</span></code> est enregistrée avec <code class="docutils literal notranslate"><span class="pre">fwrite(header,</span> <span class="pre">sizeof(BitmapFileHeader),</span> <span class="pre">...)</span></code>. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte <code class="docutils literal notranslate"><span class="pre">Wpadded</span></code> comme une erreur critique.</p>
+<p>Pour palier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">pack</span></code> permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Test</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Elle serait très probablement représentée en mémoire de la facon suivante :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+│a│ │ │ │ │b│b│b│b│ │c│ │ │ │
+│0│ │ │ │ │0│1│2│3│ │0│ │ │ │
+└─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
+    A         B         C
+</pre></div>
+</div>
+<p>En revance si elle est décrite en utilisant un <em>packing</em> sur 8-bits, avec <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">pack(1)</span></code> on aura l'alignement mémoire suivant :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
+│a│b│b│b│ │b│c│ │ │
+│0│0│1│2│ │3│1│ │ │
+└─┴─┴─┴─┘ └─┴─┴─┴─┘
+    A         B
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="champs-de-bits">
+<h2><span class="section-number">11.4</span>Champs de bits<a class="headerlink" href="#champs-de-bits" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les champs de bits sont des structures dont une information supplémentaire est ajoutée: le nombre de bits utilisés.</p>
+<p>Prenons l'exemple du <a class="reference external" href="http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf">module I2C</a> du microcontrôleur TMS320F28335. Le registre <code class="docutils literal notranslate"><span class="pre">I2CMDR</span></code> décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">I2CMDR</span> <span class="p">{</span>
+    <span class="nb">int</span>  <span class="n">bc</span>  <span class="p">:</span><span class="mi">3</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">fdf</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">stb</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">irs</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">dlb</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">rm</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">xa</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">trx</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">mst</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">stp</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">_reserved</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">stt</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">free</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nb">bool</span> <span class="n">nackmod</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Activer le bit <code class="docutils literal notranslate"><span class="pre">stp</span></code> (bit numéro 12) devient une opération triviale :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">I2CMDR</span> <span class="n">i2cmdr</span><span class="p">;</span>
+
+<span class="n">i2cmdr</span><span class="p">.</span><span class="n">stp</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Alors qu'elle demanderait une manipulation de bit sinon :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i2cmdr</span><span class="p">;</span>
+
+<span class="n">i2cmdr</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Notons que les champs de bits, ainsi que les structures seront déclarées différemment selon que l'architecture cible est <em>little-endian</em> ou <em>big-endian</em>.</p>
+</div>
+<div class="section" id="unions">
+<h2><span class="section-number">11.5</span>Unions<a class="headerlink" href="#unions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une <a class="reference external" href="https://en.wikipedia.org/wiki/Union_type">union</a> est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au <a class="reference internal" href="datatype.html#storage"><span class="std std-numref">Section 6.2</span></a> nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="k">union</span> <span class="n">Mixed</span>
+<span class="p">{</span>
+    <span class="kt">int32_t</span> <span class="n">signed32</span><span class="p">;</span>
+    <span class="kt">uint32_t</span> <span class="n">unsigned32</span><span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">signed8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+    <span class="kt">int16_t</span> <span class="n">signed16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="kt">float</span> <span class="n">float32</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">union</span> <span class="n">Mixed</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">.</span><span class="n">signed8</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="n">b11011011</span><span class="p">,</span> <span class="mi">0</span><span class="n">b0100100</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01001001</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01000000</span><span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="n">printf</span><span class="p">(</span>
+        <span class="s">&quot;int32_t</span><span class="se">\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="s">&quot;uint32_t</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="s">&quot;char</span><span class="se">\t</span><span class="s">%c, %c, %c, %c</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="s">&quot;short</span><span class="se">\t</span><span class="s">%hu, %hu</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="s">&quot;float</span><span class="se">\t</span><span class="s">%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">signed32</span><span class="p">,</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">unsigned32</span><span class="p">,</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">signed8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="p">.</span><span class="n">signed8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">m</span><span class="p">.</span><span class="n">signed8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">m</span><span class="p">.</span><span class="n">signed8</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">signed16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="p">.</span><span class="n">signed16</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">float32</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Les unions sont très utilisées en combinaison avec des champs de bits. Pour reprendre l'exemple du champ de bit évoqué plus haut, on peut souhaiter accéder au registre soit sous la forme d'un entier 16-bits soit via chacun de ses bits indépendamment.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="n">i2cmdr</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="p">{</span>
+        <span class="kt">int</span>  <span class="nl">bc</span>  <span class="p">:</span><span class="mi">3</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">fdf</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">stb</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">irs</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">dlb</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">rm</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">xa</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">trx</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">mst</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">stp</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">_reserved</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">stt</span>  <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">free</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nl">nackmod</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">bits</span><span class="p">;</span>
+    <span class="kt">uint16_t</span> <span class="n">all</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creation-de-type">
+<h2><span class="section-number">11.6</span>Création de type<a class="headerlink" href="#creation-de-type" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">typedef</span></code> permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe <code class="docutils literal notranslate"><span class="pre">struct</span></code>), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.</p>
+<p>L'exemple suivant déclare un type <code class="docutils literal notranslate"><span class="pre">Point</span></code> et un prototype de fonction permettant l'addition de deux points.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Point</span><span class="p">;</span>
+
+<span class="n">Point</span> <span class="nf">add</span><span class="p">(</span><span class="n">Point</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compound-literals">
+<h2><span class="section-number">11.7</span>Compound Literals<a class="headerlink" href="#compound-literals" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Naïvement traduit en <em>litéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé &quot;à la volée&quot; utilisé de la même façon que les transtypages.</p>
+<p>Reprenons notre structure Point <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> vue plus haut. Si l'on souhaite changer la valeur du point <code class="docutils literal notranslate"><span class="pre">p</span></code> il faudrait on pourrait écrire ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// Déclaré plus haut</span>
+
+<span class="c1">// ...</span>
+
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notons que passer par une variable intermédiaire <code class="docutils literal notranslate"><span class="pre">q</span></code> n'est pas très utile. Il serait préférable d'écrire ceci :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Néanmoins cette écriture mènera à une erreur de compilation car le compilateur cherchera à déterminer le type de l'expression <code class="docutils literal notranslate"><span class="pre">{.x=1,</span> <span class="pre">.y=2,</span> <span class="pre">.z=3}</span></code>. Il est alors essentiel d'utiliser la notation suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">Point</span><span class="p">){.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Cette notation de litéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction <code class="docutils literal notranslate"><span class="pre">foo</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">foo</span><span class="p">((</span><span class="kt">int</span> <span class="p">[]){</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><a class="reference external" href="../exercises.html#exercise/11/9">Exercice 11.9</a>: Mendeleïev</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="functions.html"
+       title="Chapitre précédent">← <span class="section-number">10</span>Fonctions</a>
+  </li>
+  <li class="next">
+    <a href="files.html"
+       title="Chapitre suivant"><span class="section-number">12</span>Les  fichiers →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

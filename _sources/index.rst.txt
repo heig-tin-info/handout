@@ -29,7 +29,30 @@ Date : |today|
     :caption: Table des matières
     :glob:
 
-    content/*
+    content/introduction
+    content/programming
+    content/foundations
+    content/numeration
+    content/operators
+    content/datatype
+    content/control-structures
+    content/processus
+    content/stdio
+    content/functions
+    content/composite-datatypes
+    content/files
+    content/memory-management
+    content/pointers
+    content/standard-library
+    content/preprocessor
+    content/algorithms
+    content/translation-units
+    content/scopes
+    content/testing
+    content/data-structures
+    content/advanced-topics
+    content/traps
+    content/philosophy
 
 .. appendix::
     :numbered:
@@ -37,7 +60,13 @@ Date : |today|
     :caption: Annexes
     :glob:
 
-    appendix/*
+    appendix/vscode
+    appendix/grammar
+    appendix/bash
+    appendix/development
+    appendix/unit
+    appendix/laboratories
+    appendix/summary
 
 .. raw:: latex
 
