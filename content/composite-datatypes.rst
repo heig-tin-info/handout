@@ -880,7 +880,7 @@ Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
         A         B         C         D
 
-On constate que la valeur ``d`` est à cheval entre deux casiers. De même que la valeur ``i`` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peux acceuillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture ``B`` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps. 
+On constate que la valeur ``d`` est à cheval entre deux casiers. De même que la valeur ``i`` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peux acceuillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture ``B`` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps.
 
 Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellement l'accès à ``d`` pourrait s'écrire ainsi :
 
@@ -912,10 +912,11 @@ En reprenant notre analogie de voitures, le stockage est maintenant fait comme c
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
         A         B         C         D         E
 
-Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers. 
+Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers.
 L'accès à ``d`` est ainsi facilité au détriment d'une perte substentielle de l'espace de stockage.
 
 Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :
+
 .. code-block:: c
 
     struct Align
@@ -926,13 +927,15 @@ Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaq
         int8_t c;
     };
 
+
 .. code-block:: text
 
     ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐ ┌─┬─┬─┬─┐
     │d│d│d│d│ │i│i│i│i│ │i│i│i│i│ │a│a│a│c│
     │0│1│2│3│ │0│1│2│3│ │4│5│6│7│ │0│1│2│3│
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
-        A         B         C         D    
+        A         B         C         D
+
 
 L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure ``BitmapFileHeader`` est enregistrée avec ``fwrite(header, sizeof(BitmapFileHeader), ...)``. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte ``Wpadded`` comme une erreur critique.
 
@@ -955,7 +958,7 @@ Elle serait très probablement représentée en mémoire de la facon suivante :
     │a│ │ │ │ │b│b│b│b│ │c│ │ │ │
     │0│ │ │ │ │0│1│2│3│ │0│ │ │ │
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
-        A         B         C    
+        A         B         C
 
 En revance si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
 
@@ -965,7 +968,7 @@ En revance si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pr
     │a│b│b│b│ │b│c│ │ │
     │0│0│1│2│ │3│1│ │ │
     └─┴─┴─┴─┘ └─┴─┴─┴─┘
-        A         B    
+        A         B
 
 Champs de bits
 ==============

@@ -214,6 +214,7 @@ Un algorithme incrémental ou `online <https://fr.wikipedia.org/wiki/Algorithme_
 Un exemple typique est le `problème de la secrétaire <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire>`__. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretient s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.
 
 La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de :math:`1/e`. Ensuite il suffit d'attendre un ou une candidate meilleure que toutes ceux/celles du premier échantillon.
+
 -----
 
 .. exercise:: Intégrateur de Kahan

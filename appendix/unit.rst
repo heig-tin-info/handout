@@ -7,7 +7,7 @@ Fiches d'unités
 Informatique 1
 ==============
 
-.. literalinclude:: ../info1.yaml
+.. literalinclude:: ../units/info1.yaml
     :language: yaml
 
 Pannification du semestre
@@ -66,7 +66,7 @@ Pannification du semestre
 Informatique 2
 ==============
 
-.. literalinclude:: ../info2.yaml
+.. literalinclude:: ../units/info2.yaml
     :language: yaml
 
 Pannification du semestre

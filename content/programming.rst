@@ -47,8 +47,6 @@ Programmation
 =============
 
 .. index:: Joseph Marie Jacquard, 1801, Carte perforée
-.. index:: Jacquard
-    see: Joseph Marie Jacquard
 
 La machine Jacquard est un `métier à tisser <https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser>`__ mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 

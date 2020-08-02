@@ -122,7 +122,7 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 '''
 }
 
-latex_logo = '_artifacts/heig-vd.pdf'
+latex_logo = 'assets/images/heig-vd.pdf'
 
 man_pages = [
     ('index', 'info', None, author, 1)
