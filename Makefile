@@ -6,7 +6,7 @@ SPHINXBUILD ?= sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
 
-DOCKER_IMAGE = nowox/latex:2.0
+DOCKER_IMAGE = "nowox/latex:2.0"
 DOCKER = docker run -v "$$(pwd -P):/srv" -w/srv $(DOCKER_IMAGE)
 
 all: html man pdf
@@ -32,7 +32,7 @@ $(ARTIFACTS_DIR)/heig-vd.pdf:
 artifacts: $(ARTIFACTS_DIR)/heig-vd.pdf
 
 pull:
-    docker pull $(DOCKER_IMAGE)
+	docker pull $(DOCKER_IMAGE)
 
 clean:
 	$(RM) -rf _build _static
