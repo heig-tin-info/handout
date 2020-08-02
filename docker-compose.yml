@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  latex:
+    image: nowox/latex:2.0
+    container_name: latexmk
+    volumes:
+      - .:/home/latex
+    working_dir: /home/latex

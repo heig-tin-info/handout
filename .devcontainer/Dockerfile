@@ -1,1 +1,1 @@
-FROM nowox/latex:1.2
+FROM nowox/latex:2.0

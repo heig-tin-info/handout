@@ -43,10 +43,13 @@ Date : |today|
 
     appendix/*
 
+.. raw:: latex
 
+    \backmatter
+    \listoffigures
+    \listoftables
 
-Autre
-=====
+.. toctree::
 
-* :ref:`genindex`
-* :ref:`exercises`
+    backmatter/bibliography.rst
+    backmatter/colophon.rst

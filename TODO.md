@@ -24,6 +24,30 @@
   - [ ] Navlink header: Contenu, Exercices, Annexes,
 - [ ] §3.3.3 ou exclusif : symbole ^ dans l'entête du tableau
 - [ ] §3.3.4 complément à un : symbole ~ dans l'entête du tableau
+- [ ] Remplacer "Notes" par "Préambule"
+- [ ] Page d'accueil LateX
+- [ ] Hint/Note...
+- [ ] Table captions
+- [ ] Article 12
+- [ ] Enumeration vilaine (indentation)
+- [ ] Color links
+- [ ] Exercice (environment exercice)
+- [ ] Code fond grisé, coloration syntaxique
+- [ ] Index
+- [ ] Bibliograhie
+- [ ] Solutions des exercices
+- [ ] Page paires titre livre en haut, page impaires chapitre, droite page
+- [ ] Organisationd de l'ouvrage, conventions d'ecriture
+- [ ] Logo C pour l'ingénieur : Atome, outil chirurgical
+- [ ] Taille des figures
+- [x] Table des figures
+- [x] Table des tables
+
+- [ ] 55 memory management:62
+.. only:: comment
+
+    .. _fig_allocation:
+    .. figure:: ../assets/figures/dist/memory/malloc.*
 
 # Propositions
 
