@@ -5,6 +5,8 @@ Types de données
 Typage
 ======
 
+.. index:: typage
+
 Inhérent au fonctionnement interne de l'ordinateur, un langage de programmation s'abstrait plus ou moins du mode de stockage interne des données telles qu'elles sont enregistrées dans la mémoire. De la même manière que dans la vie réelle, il n'est pas possible de rendre de la monnaie à un vendeur à moins d'un cinquième de centime près, il n'est pas possible pour un ordinateur de stocker des informations numériques avec une précision infinie.
 
 Aussi, les langages de programmation sont dits **typés** lorsqu'ils confient au programmeur la responsabilité de choisir comment une information sera stockée en mémoire, et **non typés** lorsque ce choix est implicite. Chacun des langages à ses avantages et ses inconvénients et pour reprendre l'exemple du rendu de monnaie, il serait ennuyant d'autoriser d'enregistrer des informations financières avec une précision meilleure qu'une pièce de cinq centimes, car il serait alors impossible à un caissier de rendre la monnaie correctement. Dans cette situation on préférera les langages **typés** et heureusement C est un langage fortement typé.
@@ -13,7 +15,9 @@ Les types de données ne se bornent pas qu'aux informations numériques, il exis
 
 .. note:: Standard ISO
 
-   Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme **ISO 80000-2** qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?
+    .. index:: ISO 80000-2
+
+    Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  internationaux. Ainsi afin d'éviter le crash malheureux d'une fusée causé par la mésentente de deux ingénieurs de différents pays, il existe la norme **ISO 80000-2** qui définit précisément ce qu'est un entier, s'il doit inclure ou non le zéro, que sont les nombres réels, etc. Bien entendu les compilateurs, s'ils sont bien faits, cherchent à respecter au mieux ces normes internationales, et vous ?
 
 .. _storage:
 
@@ -47,7 +51,7 @@ Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type
 
 Le typage permet de résoudre toute ambiguïté.
 
-.. code-block:: c 
+.. code-block:: c
 
     int main() {
         union {
@@ -78,6 +82,8 @@ Boutisme
 
 .. figure:: ../assets/images/endian.*
 
+.. index:: boutisme, endianess, little endian, big endian
+
 La hantise de l'ingénieur bas-niveau c'est le boutisme aussi appelé *endianess*. Ce terme étrange a été popularisé par l'informaticien Dany Cohen en référence aux Voyages de Gulliver de Jonathan Swift. Dans ce conte les habitants de Lilliput refusent d'obéir à un décret obligeant à manger les oeufs à la coque par le petit bout (petit boutisme/*little endian*), la répression incite les rebelles à manger leurs oeufs par le gros bout (gros boutisme/*big endian*).
 
 Aujourd'hui encore, il existe des microprocesseurs qui fonctionnent en *big endian* alors que d'autres sont en *little endian*. C'est à dire que si une information est stockée en mémoire comme suit :
@@ -93,12 +99,14 @@ Imaginons qu'un programme exécuté sur un microcontrôleur *big-endian* 8-bit e
 Les nombres entiers
 ===================
 
-Les nombres entiers sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des `entiers relatifs <https://fr.wikipedia.org/wiki/Entier_relatif>`__.
+Les :index:`nombres entiers` sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des `entiers relatifs <https://fr.wikipedia.org/wiki/Entier_relatif>`__.
 
 Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.
 
 Les entiers naturels
 --------------------
+
+.. index:: entiers naturels
 
 En mathématiques, un `entier naturel <https://fr.wikipedia.org/wiki/Entier_naturel>`__ est un nombre positif ou nul. Chaque nombre à un successeur unique et peut s'écrire avec une suite finie de chiffres en notation décimale positionnelle, et donc sans signe et sans virgule. L'ensemble des entiers naturels est défini de la façon suivante :
 
@@ -129,7 +137,7 @@ Notez l'importance du :math:`-1` dans la définition du maximum, car la valeur m
 Les entiers relatifs
 --------------------
 
-Mathématiquement un entier relatif appartient à l'ensemble :math:`\mathbb{Z}`:
+Mathématiquement un :index:`entier relatif` appartient à l'ensemble :math:`\mathbb{Z}`:
 
 .. math::
 
@@ -363,6 +371,8 @@ Le premier ordinateur avec une capacité de calcul en virgule flottante date de 
 Virgule fixe
 ------------
 
+.. index:: virgule fixe
+
 Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facilement que bien qu'il s'agisse d'un nombre entier, une virgule pourrait être ajoutée au bit zéro sans en modifier sa signification.
 
 .. code-block::
@@ -396,6 +406,10 @@ Cette solution est élégante mais demande a présent 11-bits contre 8-bits init
 
 Virgule flottante
 -----------------
+
+.. index:: virgule flottante
+
+.. index:: mantisse, exposant
 
 Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' `exposant <https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)>`__ et le reste de l'information la `mantisse <https://fr.wikipedia.org/wiki/Mantisse>`__, qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la `mantis shrimp <https://fr.wikipedia.org/wiki/Stomatopoda>`__, une quille ou crevette mante boxeuse aux couleurs particulièrement chatoyantes).
 
@@ -463,7 +477,9 @@ Prenons le temps de faire quelques observations.
 Simple précision
 ----------------
 
-Le type ``float`` aussi dit à précision simple utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
+.. index:: float
+
+Le type ``float`` aussi dit à :index:`précision simple` utilise un espace de stockage de 32-bits organisé en 1 bit de signe, 8 bits pour l'exposant et 23 bits pour la mantisse. Les valeurs pouvant être exprimées sont de :
 
 - :math:`\pm\inf` lorsque l'exposant vaut ``0xff``
 - :math:`(-1)^{\text{sign}}\cdot2^{\text{exp} - 127}\cdot1.\text{significand}`
@@ -526,13 +542,15 @@ La double précision est similaire à la simple précision mais avec une mantiss
 Les caractères
 ==============
 
+.. index:: caractère
+
 Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement représentés par des grandeurs exprimées sur 1 octet (8-bits):
 
 .. code-block::
 
     97 ≡ 0b1100001 ≡ 'a'
 
-Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'`ASA <https://fr.wikipedia.org/wiki/American_National_Standards_Institute>`__, l'*American Standards Association* aujourd'hui ANSI qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
+Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'`ASA <https://fr.wikipedia.org/wiki/American_National_Standards_Institute>`__, l'*American Standards Association* aujourd'hui :index:`ANSI` qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
 .. figure:: ../assets/figures/dist/encoding/ascii-1963.*
 
@@ -545,6 +563,8 @@ Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas le
     Table ANSI INCITS 4-1986 (standard actuel)
 
 Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres.
+
+.. index:: ISO/IEC 8859, latin1
 
 Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
@@ -563,6 +583,8 @@ Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du 
 .. figure:: ../assets/figures/dist/encoding/encoding-trends.*
 
     Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
+
+.. index:: UTF-8
 
 L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__, dont nous avons déjà parlé en :ref:`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère ``ह`` utilisé en Sanskrit possède la dénomination unicode :unicode:`U+0939` et s'encode sur 3 octets: ``0xE0 0xA4 0xB9``
 
@@ -589,7 +611,7 @@ Attention donc au caractère ``'3'`` qui correspond à la grandeur hexadécimale
 Chaîne de caractères
 ====================
 
-Une chaîne de caractères est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
+Une :index:`chaîne de caractères` est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
 
 La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les codes ASCII suivants.
 
@@ -673,7 +695,7 @@ Un `booléen <https://fr.wikipedia.org/wiki/Bool%C3%A9en>`__ est un type de donn
 
 La convention est d'utiliser ``1`` pour mémoriser un état vrai, et ``0`` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les booléens ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête ``stdbool.h``. Avant cela le type boolean était ``_Bool`` et définir les états vrais et faux étaient à la charge du dévelopeur.
+Les :index:`booléens` ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête ``stdbool.h``. Avant cela le type boolean était ``_Bool`` et définir les états vrais et faux étaient à la charge du dévelopeur.
 
 .. code-block:: c
 
@@ -758,10 +780,12 @@ L'utilisation d'un type énuméré peut être la suivante :
 Type incomplet
 ==============
 
-Un type incomplet est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
+Un :index:`type incomplet` est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
 
 Type vide (*void*)
 ==================
+
+.. index:: void
 
 Le type ``void`` est particulier. Il s'agit d'un type dit **incomplet** car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 

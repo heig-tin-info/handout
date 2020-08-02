@@ -56,7 +56,7 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
-         Contenu
+         Table des matières
       </a>
     </div>
   
@@ -64,6 +64,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
       </a>
     </div>
   
@@ -86,7 +93,7 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
-         Contenu
+         Table des matières
       </a>
     </div>
   
@@ -94,6 +101,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
       </a>
     </div>
   
@@ -116,7 +130,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
       </p>
       <ul class="current">
         
@@ -351,7 +365,22 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
 
             
           </li>
@@ -390,20 +419,20 @@
             
   <div class="section" id="operateurs">
 <h1><span class="section-number">5</span>Opérateurs<a class="headerlink" href="#operateurs" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Un opérateur applique une opération à une (opérateur unitaire), deux ou trois (ternaire) entrées.</p>
+<p>Un <span class="target" id="index-0"></span>opérateur applique une opération à une (opérateur unitaire), deux ou trois (<span class="target" id="index-1"></span>ternaire) entrées.</p>
 <div class="figure align-default" id="id3">
-<img alt="../_images/alu.svg" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (ALU) composées de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/alu.svg" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composées de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Un opérateur possède plusieurs propriétés :</p>
 <dl class="simple">
-<dt>Une priorité</dt><dd><p>La multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code> est plus prioritaire que l'addition <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
+<dt>Une <span class="target" id="index-3"></span>priorité</dt><dd><p>La multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code> est plus prioritaire que l'addition <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 </dd>
-<dt>Une associativité</dt><dd><p>L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
+<dt>Une <span class="target" id="index-4"></span>associativité</dt><dd><p>L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
 </dd>
-<dt>Un point de séquence</dt><dd><p>Certains opérateurs comme <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">,</span></code> possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus grande que 12, le test <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> ne sera jamais effectué. L'opérateur <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<dt>Un <span class="target" id="index-5"></span>point de séquence</dt><dd><p>Certains opérateurs comme <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">,</span></code> possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus grande que 12, le test <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> ne sera jamais effectué. L'opérateur <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
 </dd>
 </dl>
 <div class="section" id="operateurs-relationnels">
@@ -963,7 +992,7 @@ le type ayant le plus grand pouvoir de représentation</p></li>
 </div>
 <div class="section" id="valeurs-gauche">
 <h2><span class="section-number">5.15</span>Valeurs gauche<a class="headerlink" href="#valeurs-gauche" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une valeur gauche (<em>lvalue</em>) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
+<p>Une <span class="target" id="index-6"></span>valeur gauche (<em>lvalue</em>) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>    <span class="c1">// (1)</span>
@@ -991,7 +1020,7 @@ le type ayant le plus grand pouvoir de représentation</p></li>
 </div>
 <div class="section" id="optimisation">
 <h2><span class="section-number">5.16</span>Optimisation<a class="headerlink" href="#optimisation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code class="docutils literal notranslate"><span class="pre">-O2</span></code> sous <code class="docutils literal notranslate"><span class="pre">gcc</span></code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
+<p id="index-7">Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code class="docutils literal notranslate"><span class="pre">-O2</span></code> sous <code class="docutils literal notranslate"><span class="pre">gcc</span></code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
 <p>Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
@@ -1026,7 +1055,7 @@ le type ayant le plus grand pouvoir de représentation</p></li>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    Mis à jour le 02 août 2020 (version 0.2.7-13-g79c7d4d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

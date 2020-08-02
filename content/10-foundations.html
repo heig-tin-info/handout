@@ -56,7 +56,7 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
-         Contenu
+         Table des matières
       </a>
     </div>
   
@@ -64,6 +64,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
       </a>
     </div>
   
@@ -86,7 +93,7 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
-         Contenu
+         Table des matières
       </a>
     </div>
   
@@ -94,6 +101,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         le c pour l'ingénieur
       </a>
     </div>
   
@@ -116,7 +130,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
       </p>
       <ul class="current">
         
@@ -337,7 +351,22 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
 
             
           </li>
@@ -379,8 +408,8 @@
 <p>Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.</p>
 <p>Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
 <div class="section" id="l-alphabet">
-<h2><span class="section-number">3.1</span>L'alphabet<a class="headerlink" href="#l-alphabet" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a class="reference external" href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
+<span id="index-0"></span><h2><span class="section-number">3.1</span>L'alphabet<a class="headerlink" href="#l-alphabet" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-1">Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a class="reference external" href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 a b c d e f g h i j k l m n o p q r s t u v w x y z
 0 1 2 3 4 5 6 7 8 9
@@ -388,7 +417,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 </div>
 <p>La séparation des symboles est assurée par <a class="reference external" href="https://fr.wikipedia.org/wiki/Espace_(typographie)">une espace</a>, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est à dire qu'ils ne sont pas directement visible ni à l'écran, ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le <a class="reference external" href="https://fr.wikipedia.org/wiki/Pied-de-mouche">pied-de-mouche</a> <code class="docutils literal notranslate"><span class="pre">¶</span></code> pour indiquer les fin de paragraphes qui sont également des caractères non-imprimables.</p>
 <p>On nomme les caractères non-imprimables soit par leur acronyme <code class="docutils literal notranslate"><span class="pre">LF</span></code> pour <em>Line Feed</em> ou soit par leur convention C échappée par un <em>backslash</em> <code class="docutils literal notranslate"><span class="pre">\n</span></code>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>LF    \n   Line feed (retour à la ligne)
+<div class="highlight-text notranslate" id="index-2"><div class="highlight"><pre><span></span>LF    \n   Line feed (retour à la ligne)
 VT    \v   Vertical tab
 FF    \f   New page
 TAB   \t   Horizontal tab
@@ -400,7 +429,7 @@ SPACE \040 Space
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>! # % ^ &amp; * ( _ ) - + = ~ [ ] &#39; | \ ; : &quot; { } , . &lt; &gt; / ?
 </pre></div>
 </div>
-<p>Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> est le digraphe de <code class="docutils literal notranslate"><span class="pre">[</span></code> et <code class="docutils literal notranslate"><span class="pre">??&lt;</span></code> est le trigraphe de <code class="docutils literal notranslate"><span class="pre">{</span></code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.</p>
+<p id="index-3">Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> est le digraphe de <code class="docutils literal notranslate"><span class="pre">[</span></code> et <code class="docutils literal notranslate"><span class="pre">??&lt;</span></code> est le trigraphe de <code class="docutils literal notranslate"><span class="pre">{</span></code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.</p>
 <p>Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le <a class="reference external" href="https://www.ioccc.org/">The International Obfuscated C Code Contest</a> qui prime des codes les plus subtils et illisibles comme le code suivant écrit par <a class="reference external" href="https://www.ioccc.org/2015/mills2">Chris Mills</a>. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="kt">void</span> <span class="nf">e</span><span class="p">(</span>
 <span class="kt">int</span> <span class="n">L</span><span class="p">){</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="k">for</span><span class="p">(</span> <span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span>
@@ -423,8 +452,8 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="fin-de-lignes-eol">
-<h2><span class="section-number">3.2</span>Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À l'instar des premières machines à écrire, les <a class="reference external" href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a class="reference external" href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a class="reference external" href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (<code class="docutils literal notranslate"><span class="pre">CR</span></code>) et une nouvelle ligne (<code class="docutils literal notranslate"><span class="pre">LF</span></code>) ou en C <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>. Les premiers <a class="reference external" href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code class="docutils literal notranslate"><span class="pre">\r</span></code>. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<span id="index-4"></span><h2><span class="section-number">3.2</span>Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent vers ce titre">¶</a></h2>
+<p id="index-5">À l'instar des premières machines à écrire, les <a class="reference external" href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a class="reference external" href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a class="reference external" href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (<code class="docutils literal notranslate"><span class="pre">CR</span></code>) et une nouvelle ligne (<code class="docutils literal notranslate"><span class="pre">LF</span></code>) ou en C <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>. Les premiers <a class="reference external" href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code class="docutils literal notranslate"><span class="pre">\r</span></code>. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>Fort heureusement depuis que Apple a migré son système sur une base <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">LF</span></code> ou <code class="docutils literal notranslate"><span class="pre">\n</span></code> sur les ordinateurs POSIX comme Linux, Unix ou MacOS</p></li>
@@ -438,7 +467,7 @@ SPACE \040 Space
 <div class="section" id="mots-cles">
 <h2><span class="section-number">3.3</span>Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span>        <span class="k">do</span>           <span class="k">goto</span>         <span class="k">return</span>      <span class="k">typedef</span>       <span class="kt">_Complex</span>
+<div class="highlight-c notranslate" id="index-6"><div class="highlight"><pre><span></span><span class="k">auto</span>        <span class="k">do</span>           <span class="k">goto</span>         <span class="k">return</span>      <span class="k">typedef</span>       <span class="kt">_Complex</span>
 <span class="k">break</span>       <span class="kt">double</span>       <span class="k">if</span>           <span class="kt">short</span>       <span class="k">union</span>         <span class="n">_Imaginary</span>
 <span class="k">case</span>        <span class="k">else</span>         <span class="kr">inline</span>       <span class="kt">signed</span>      <span class="kt">unsigned</span>
 <span class="kt">char</span>        <span class="k">enum</span>         <span class="kt">int</span>          <span class="k">sizeof</span>      <span class="kt">void</span>
@@ -457,12 +486,12 @@ SPACE \040 Space
 </div>
 <div class="section" id="identifiers">
 <span id="identificateurs"></span><h2><span class="section-number">3.4</span>Identificateurs<a class="headerlink" href="#identifiers" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :</p>
+<p id="index-7">Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :</p>
 <div class="figure align-default" id="id2">
 <img alt="../_images/identifier.svg" src="../_images/identifier.svg" /><p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Grammaire d'un identificateur C</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>En addition de ceci, voici quelques règles :</p>
-<ul class="simple">
+<ul class="simple" id="index-8">
 <li><p>Un identificateur ne peut pas être l'un des mots clés du langage.</p></li>
 <li><p>Les identificateurs sont sensible à la <a class="reference external" href="https://fr.wikipedia.org/wiki/Casse_(typographie)">casse</a>.</p></li>
 <li><p>Le standard C99, se réserve l'usage de tous les identificateurs débutant par <code class="docutils literal notranslate"><span class="pre">_</span></code> suivi d'une lettre majuscule ou un autre <em>underscore</em> <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
@@ -479,10 +508,10 @@ SPACE \040 Space
 <p><a class="reference external" href="../exercises.html#exercise/3/1">Exercice 3.1</a>: Validité des identificateurs</p>
 </div>
 <div class="section" id="variables">
-<h2><span class="section-number">3.5</span>Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-9"></span><h2><span class="section-number">3.5</span>Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une variable est un symbole qui associe un nom <strong>identificateur</strong> à une <strong>valeur</strong>. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.</p>
 <p>Une variable est définie par :</p>
-<ul class="simple">
+<ul class="simple" id="index-10">
 <li><p>Son <strong>nom</strong> (<em>name</em>), c'est à dire l'identificateur associé au symbole.</p></li>
 <li><p>Son <strong>type</strong> (<em>type</em>), qui est la convention d'interprétation du contenu binaire en mémoire.</p></li>
 <li><p>Sa <strong>valeur</strong> (<em>value</em>), qui est le contenu interprêté connaissant son type.</p></li>
@@ -491,7 +520,7 @@ SPACE \040 Space
 <li><p>Sa <strong>visibilité</strong> (<em>visibility</em>) qui ne peut être que <em>public</em> en C.</p></li>
 </ul>
 <div class="section" id="declaration">
-<h3><span class="section-number">3.5.1</span>Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-11"></span><h3><span class="section-number">3.5.1</span>Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;€&#39;</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">temperature</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
@@ -695,7 +724,7 @@ désactiver cette portion de code.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 30 juil. 2020 (version 0.2.5-5-g751ef44).
+    Mis à jour le 02 août 2020 (version 0.2.7-13-g79c7d4d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
