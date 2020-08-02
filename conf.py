@@ -94,7 +94,7 @@ latex_elements = {
 \newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
 height from=1.3cm to 16cm,%
 overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
-    \includegraphics[width=2em]{../../icons/hint.pdf}}; }}
+    \includegraphics[width=2em]{../../assets/icons/hint.pdf}}; }}
 
 \renewenvironment{sphinxnote}[1]
     {\begin{hint}{#1}}
