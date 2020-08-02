@@ -1,6 +1,6 @@
 # Polycopié d'informatique
 
-[![Build Status](https://travis-ci.org/heig-tin-info/info-handout.svg?branch=master)](https://travis-ci.org/heig-tin-info/info-handout)
+![Build Status](https://github.com/heig-tin-info/handout/workflows/ci/badge.svg)
 
 Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en formats:
 
