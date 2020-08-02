@@ -46,6 +46,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: html
+      - run: ls -al
+      - run: ls -al _build/html
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Deploy to GitHub Pages
