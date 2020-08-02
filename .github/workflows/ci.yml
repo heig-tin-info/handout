@@ -42,19 +42,20 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.ref, 'master')
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
-          path: .dist/html
+          path: html
           name: html
-      - name: Checkout repository
-        uses: actions/checkout@v1
+      - run: ls -al html
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           BRANCH: gh-pages
-          FOLDER: .dist/html
+          FOLDER: html
   release:
     name: Create Release
     needs: build
