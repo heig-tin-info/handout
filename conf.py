@@ -53,7 +53,7 @@ pygments_style = "colorful"
 
 latex_additional_files = [
     '_templates/sphinx.sty',
-    '_templates/latexmkrc',
+    #'_templates/latexmkrc',
 ]
 
 latex_docclass = {
@@ -63,6 +63,8 @@ latex_docclass = {
 latex_documents = [
     ('index', 'main.tex', None , author, 'manual')
 ]
+
+latex_use_xindy = False
 
 latex_engine = 'xelatex'
 latex_elements = {
