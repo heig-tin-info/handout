@@ -1,0 +1,37 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+      - name: Build Docker Image
+        run: make pull
+      - name: Build
+        run: make
+      - uses: actions/upload-artifact@v2
+        with:
+          name: handouts
+          path: |
+            _build/latex/main.pdf
+            _build/man/info.1
+            _build/html
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v2
+        with:
+          name: handouts
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          BRANCH: gh-pages
+          FOLDER: _build/html
+

@@ -34,18 +34,7 @@
 - [ ] Index at the end of document?
 - [ ] Exercice thing...
 - [ ] LaTeX pygments style
-
-.. only:: comment
-
-    .. _fig_allocation:
-    .. figure:: ../assets/figures/dist/memory/malloc.*
-
-# Propositions
-
-- Examen
-  - Mettre à disposition de l'étudiant un laptop pas cher avec un éditeur de texte basic (pas de réseau)
-  - Facilite le rendu d'examen, facilite la correction
-  - Eviter les scanf....
+- [ ] Reduce PDF size (should be much smaller!)
 
 ## Sphinx
 
