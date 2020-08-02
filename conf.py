@@ -62,6 +62,8 @@ latex_engine = 'xelatex'
 latex_elements = {
     'papersize': 'a4paper',
     'babel': '\\usepackage[french]{babel}',
+    'inputenc': '',
+    'utf8extra': '',
     'fontpkg': '',
     'fncychap': '',
     'preamble': '''
@@ -69,6 +71,8 @@ latex_elements = {
         \\definecolor{TitleColor}{rgb}{0,0,0}
         \\definecolor{InnerLinkColor}{rgb}{0,0,0}
 
+        \usepackage{fontspec}
+        \setmonofont{DejaVu Sans Mono}
     '''
 }
 

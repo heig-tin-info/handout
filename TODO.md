@@ -1,6 +1,7 @@
 # TO-DO list
 
 - [ ] Sphinx
+  - [ ] Missing character from _build/latex/main.log (japanese/korean)
   - [ ] List figures
   - [ ] Bibliography
   - [ ] Center les tables

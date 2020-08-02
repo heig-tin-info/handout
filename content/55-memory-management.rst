@@ -59,8 +59,10 @@ Lorsqu'un programme à besoin de mémoire, il peut générer un appel système p
 
 L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
-.. _fig_allocation:
 .. figure:: ../assets/figures/dist/memory/malloc.*
+    :name: fig-allocation
+
+    Allocation et libération mémoire
 
 Mémoire de programme
 ====================
@@ -279,7 +281,7 @@ Jadis, le mot clé ``register`` était utiliser pour forcer le compilateur à pl
 Fragmentation mémoire
 =====================
 
-On peut observer à la figure :numref:`fig_allocation` qu'après un appel successif de ``malloc`` et de ``free`` des espaces mémoires non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
+On peut observer à la figure :numref:`fig-allocation` qu'après un appel successif de ``malloc`` et de ``free`` des espaces mémoires non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
 
 Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (``free``), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.
 
