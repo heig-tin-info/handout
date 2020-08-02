@@ -2,12 +2,16 @@
 Numération
 ==========
 
+.. index:: numération
+
 La numération désigne le mode de représentation des nombres (e.g. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimale ou vicésimale), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est importante pour l'ingénieur développeur car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
 
 Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.
 
 Bases
 =====
+
+.. index:: base
 
 Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composé de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
@@ -24,6 +28,8 @@ Sans cette connaissance à priori du système de numération utilisé, il vous e
 
 Système décimal
 ---------------
+
+.. index:: système décimal
 
 Le système décimal est le système de numération utilisant la base dix et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas, par exemple les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation Maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques trace en français avec la dénomination *quatre-vingt*.
 
@@ -50,6 +56,8 @@ La base dix n'est pas utilsée dans les ordinateurs car elle nécessite la manip
 
 Système binaire
 ---------------
+
+.. index:: binaire
 
 Le système binaire est similaire au système décimal mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs emprunté au système indo-arabe :
 
@@ -81,6 +89,8 @@ Un nombre binaire peut être également décomposé en puissances successives :
 
 Système octal
 -------------
+
+.. index:: octal
 
 Inventé par Charles XII de Suède, le système de numération octal utilise 8 symboles emprunté au système indo-arabe. Il pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
 
@@ -119,6 +129,8 @@ Il est également possible de faire référence à un caractère en utilsant l'�
 Système hexadécimal
 -------------------
 
+.. index:: hexadécimal
+
 Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres.
 
 .. code-block:: text
@@ -136,6 +148,8 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 .. code-block:: text
 
     0101'1110'0001₂ = 5E1₁₆
+
+.. index:: quadruplets
 
 L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplications :
 
@@ -174,6 +188,8 @@ L'ingénieur doit connaître la correspondance hexadécimale de tous les quadrup
 +------------+-------------+--------+---------+
 | ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
 +------------+-------------+--------+---------+
+
+.. index:: albatros
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme ``hexdump``
 pour lister le contenu hexadécimal de son fichier :
@@ -333,12 +349,16 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 Entiers relatifs
 ================
 
+.. index:: Entiers relatifs
+
 Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives.
 
 Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les variables c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
 Bit de signe
 ------------
+
+.. index:: Bit de signe
 
 On peut se réserver un bit de signe, par exemple le 8\ :sup:`ième` bit d'un ``char``.
 
@@ -378,6 +398,8 @@ En résumé, la solution utilsant un bit de signe pose deux problèmes :
 
 Complément à un
 ---------------
+
+.. index:: Complément à un, CDC6600
 
 Le **complément à un** est une methode plus maline utilisée dans les premiers ordinateurs comme le `CDC 6600 <https://fr.wikipedia.org/wiki/Control_Data_6600>`__ (1964) ou le `UNIVAC 1107 <https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series#1107>`__ (1962). Il existe également un bit de signe mais il est implicite.
 
@@ -450,7 +472,7 @@ En résumé, la méthode du complément à 1 :
 Complément à deux
 -----------------
 
-Le complément à deux n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
+Le :index:`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
 1. Calculer le complément à un du nombre d'entrée.
 2. Ajouter 1 au résultat.
@@ -486,7 +508,9 @@ Opérations logiques
 Opérations bit à bit
 --------------------
 
-Les opérations bit-à-bit (*bitwise*) disponibles en C sont les suivantes :
+..index:: bitwise
+
+Les :index:`opérations bit-à-bit` (*bitwise*) disponibles en C sont les suivantes :
 
 +-----------+-------------------+---------------------------------+
 | Opérateur | Description       | Exemple                         |
@@ -645,6 +669,8 @@ En arithmétique binaire, c'est exactement la même chose :
 Lois de De Morgan
 -----------------
 
+.. index:: De Morgan
+
 Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors eprimer que :
 
 .. code-block::
@@ -686,6 +712,8 @@ En logique booléenne on exprime la négation par une bar p.ex. :math:`\bar{P}`.
 Arrondi
 -------
 
+.. index:: arrondi, rounding, truncate
+
 En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exaustive :
 
 - **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
@@ -703,7 +731,6 @@ Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathémat
 .. note::
 
     En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre intuitive car ``round(3.5)`` donne 4 mais ``round(4.5)`` donne 4 aussi.
-
 
 ----
 

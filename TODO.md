@@ -2,7 +2,6 @@
 
 - [ ] Sphinx
   - [ ] Missing character from _build/latex/main.log (japanese/korean)
-  - [ ] List figures
   - [ ] Bibliography
   - [ ] Center les tables
   - [ ] Rename source file with ascending order
@@ -40,10 +39,9 @@
 - [ ] Organisationd de l'ouvrage, conventions d'ecriture
 - [ ] Logo C pour l'ingénieur : Atome, outil chirurgical
 - [ ] Taille des figures
-- [x] Table des figures
-- [x] Table des tables
+- [ ] Index italique et références
+- [ ] Build from GitHub Actions
 
-- [ ] 55 memory management:62
 .. only:: comment
 
     .. _fig_allocation:

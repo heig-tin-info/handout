@@ -8,6 +8,7 @@ La programmation
 
 Il ne serait pas raisonnable de vous enseigner la programmation C sans au préalable définir ce qu'est la programmation et quelle est son origine. La programmation intervient après une étape plus générale impliquant un ou plusieurs algorithmes.
 
+.. index:: algorithmique, programmation
 
 **Algorithmique et Programmation**, il y donc deux questions à éclairer :
 
@@ -27,6 +28,8 @@ L'algorithmique et non l'*algorithmie*, est la science qui étudie la production
 
 Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l'`algorithme d'Euclide <https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`__ datant probablement de 300 av. J.-C. est un algorithme permettant de déterminer le `plus grand commun diviseur <https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur>`__ (PGCD). Voici la description de l'algorithme :
 
+.. index:: pgcd, Euclide
+
 .. figure:: ../assets/figures/dist/algorithm/euclide-gcd.*
 
     Algorithme de calcul du PGCD d'Euclide.
@@ -43,6 +46,10 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 Programmation
 =============
 
+.. index:: Joseph Marie Jacquard, 1801, Carte perforée
+.. index:: Jacquard
+    see: Joseph Marie Jacquard
+
 La machine Jacquard est un `métier à tisser <https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser>`__ mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/b/b6/Jacquard_loom_p1040320.jpg
@@ -50,9 +57,13 @@ La machine Jacquard est un `métier à tisser <https://fr.wikipedia.org/wiki/M%C
 
     Mécanisme Jacquard au Musée des arts et métiers de Paris.
 
+.. index:: Révolte des canuts, canuts
+
 Les cartes perforées contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. L'automatisation d'un travail qui jadis était effectué manuellement causa une vague de chômage menant à la `Révolte des canuts <https://fr.wikipedia.org/wiki/R%C3%A9volte_des_canuts>`__ en 1831.
 
 La `programmation <https://fr.wikipedia.org/wiki/Programmation_informatique>`__ définit toute activité menant à l'écriture de programmes. En informatique, un programme est un ensemble ordonné d'instructions codées avec un langage donné et décrivant les étapes menant à la solution d'un problème. Il s'agit le plus souvent d'une écriture formelle d'un algorithme.
+
+.. index:: héraldique
 
 Les informaticiens-tisserands responsables de la création des cartes perforées auraient pu se poser la question de comment simplifier leur travail en créant un langage formel pour créer des motifs complexes et dont les composants de base se répètent d'un travail à l'autre. Prenons l'exemple d'un ouvrier spécialisé en `héraldique <https://fr.wikipedia.org/wiki/H%C3%A9raldique>`__ et devant créer des motifs complexes de blasons. Nul n'est sans savoir que l'héraldique à son langage parfois obscure et celui qui le maitrise voudrait par exemple l'utiliser au lieu de manuellement percer les cartes pour chaque point de couture. Ainsi l'anachronique informaticien-tisserand souhaitant tisser le motif des armoiries duc de Mayenne (c.f. figure ci-dessous) aurait sans doute rédigé un programme informatique en utilisant sa langue. Le programme aurait pu ressembler à ceci :
 
@@ -85,6 +96,8 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
             à trois fleurs de lys d'or,
             à la bordure endentée de gueules et d'or.
 
+.. index:: de gueules
+
 Notons que *de gueules* signifie *rouge*. Le `drapeau suisse <https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse>`__ est donc *de gueules, à la croix alésée d'argent*.
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/2/2a/Armoiries_ducs_de_Mayenne.svg
@@ -95,6 +108,8 @@ Notons que *de gueules* signifie *rouge*. Le `drapeau suisse <https://fr.wikiped
 Calculateur
 ===========
 
+.. index:: calculateur, abaque
+
 Un calculateur du latin *calculare*: calculer avec des cailloux, originellement appelé `abaque <https://fr.wikipedia.org/wiki/Abaque_(calcul)>`__ était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les `os d'Ishango <https://fr.wikipedia.org/wiki/Os_d%27Ishango>`__ datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
@@ -103,6 +118,8 @@ Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *compu
 
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).
+
+.. index:: ordinateur
 
 Ordinateur
 ==========
@@ -131,8 +148,12 @@ Historique
 1642
     `La pascaline <https://fr.wikipedia.org/wiki/Pascaline>`__: machine d'arithmétique de Blaise Pascal, première machine à calculer
 
+.. index:: 1834
+
 1834
     Machine à calculer programmable de Charles Babbage
+
+.. index:: 1937
 
 1937
     l'`Automatic Sequence Controlled Calculator Mark I <https://fr.wikipedia.org/wiki/Harvard_Mark_I>`__ d'IBM, le premier grand calculateur numérique.
@@ -140,6 +161,8 @@ Historique
     - 4500 kg
     - 6 secondes par multiplication à 23 chiffres décimaux
     - Cartes perforées
+
+.. index:: 1950
 
 1950
     L'ENIAC, de Presper Eckert et John William Mauchly
@@ -150,6 +173,8 @@ Historique
     - 100'000 additions/seconde
     - 357 multiplications/seconde
 
+.. index:: 1965
+
 1965
     Premier ordinateur à circuits intégrés, le `PDP-8 <https://fr.wikipedia.org/wiki/PDP-8>`__
 
@@ -157,6 +182,8 @@ Historique
     - mémoire de 4096 mots
     - Temps de cycle de 1.5 µs
     - `Fortran <https://fr.wikipedia.org/wiki/Fortran>`__ et BASIC
+
+.. index:: 2018, Behold Summit
 
 2018
     Le `Behold Summit <https://fr.wikipedia.org/wiki/Summit_(superordinateur)>`__ est un superordinateur construit par IBM.

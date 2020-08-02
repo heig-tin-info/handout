@@ -48,6 +48,7 @@ Date : |today|
     \backmatter
     \listoffigures
     \listoftables
+    \printindex
 
 .. toctree::
 

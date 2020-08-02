@@ -66,6 +66,7 @@ latex_elements = {
     'utf8extra': '',
     'fontpkg': '',
     'fncychap': '',
+    'printindex': r'\footnotesize\raggedright\printindex',
     'preamble': '''
         % Disable the ugly colouring of titles. Why does Sphinx do this?
         \\definecolor{TitleColor}{rgb}{0,0,0}

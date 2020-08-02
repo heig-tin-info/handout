@@ -9,14 +9,27 @@ Historique
 
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__.
 
+.. index:: Ken Thompson
+.. index:: Thompson
+.. index:: 1972
+
 Le langage C a été inventé en 1972 par `Brian Kernighan <https://fr.wikipedia.org/wiki/Brian_Kernighan>`__ et `Dennis Ritchie <https://fr.wikipedia.org/wiki/Dennis_Ritchie>`__. Ils sont les concepteurs du système d'exploitation `UNIX <https://fr.wikipedia.org/wiki/Unix>`__ et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec `Bjarne Stroustrup <https://fr.wikipedia.org/wiki/Bjarne_Stroustrup>`__ qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.
+
+.. index:: Kernighan
+.. index:: Brian Kernighan
+.. index:: 1985
 
 Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI. L'année suivante le comité ISO ratifie le standard *ISO/IEC 9899:1990* communément appelé **C90**.
 
+.. index:: 1989
+.. index:: C90
+
 Les années se succèdent et le standard évolue pour soit corriger certaines de ses faiblesses soit pour apporter de nouvelles fonctionnalités.
 
-Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés, car il
-allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
+Cinquante ans plus tard, C est toujours l'un des langages de programmation les plus utilisés, car il allie une bonne vision de haut niveau tout en permettant des manipulations de très bas niveau, de fait il est un langage de choix pour les applications embarquées à microcontrôleurs, ou lorsque l'optimisation du code est nécessaire pour obtenir de bonnes performances tels que les noyaux des systèmes d'exploitation comme le noyau Linux (Kernel) ou le noyau Windows.
+
+.. index:: Kernel
+.. index:: noyau
 
 Il faut retenir que C est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
 
@@ -24,10 +37,15 @@ Il faut retenir que C est un langage simple et efficace. Votre machine à café,
 
     Les pères fondateurs du C
 
+.. index:: standardisation
+
 Standardisation
 ===============
 
 Vous l'aurez compris à lecture de cette introduction, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
+
+.. index:: 2019
+.. index:: C99
 
 Le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
 
@@ -54,6 +72,9 @@ Le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open
 .. _iso9899_2011: https://www.iso.org/standard/57853.html
 .. _iso9899_2018: https://www.iso.org/standard/74528.html
 
+.. index:: C18
+.. index:: C11
+
 En substance, **C18** n'apporte pas de nouvelles fonctionnalités au langage, mais vise à clarifier de nombreuses zones d'ombres laissées par **C11**.
 
 **C11** apporte peu de grands changements fondamentaux pour le développement sur microcontrôleur par rapport à **C99** et ce dernier reste de facto le standard qu'il est souhaité de respecter dans l'industrie.
@@ -77,7 +98,11 @@ Environnement de développement
 
 Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les *smartphones* disposent aujourd'hui d'une fonctionnalité de suggestion automatique de mots; les éditeurs de texte orienté programmation disposent de fonctionnalités similaires qui complètent automatiquement le code selon le contexte.
 
+.. index:: compilateur
+
 Un autre composant essentiel de l'environnement de développement est le **compilateur**. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le **code** écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un *smartphone*, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.
+
+.. index:: toolchain
 
 L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée **toolchain**.
 
@@ -91,23 +116,37 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 
 À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
 
+.. index:: Visual Studio
+
 `Microsoft Visual Studio <https://visualstudio.microsoft.com/>`__
     Un **IDE** très puissant disponible sous Microsoft Windows exclusivement. Il supporte de nombreux langages de programmation comme C, C++, C# ou Python.
+
+.. index:: Code::Blocks
 
 `Code::Blocks <http://www.codeblocks.org/>`__
     Un **IDE** libre et multi plate-forme pour C et C++, une solution simple pour développer rapidement.
 
-`Microsoft Visual Studio Code (Vs Code) <https://code.visualstudio.com/>`__
+.. index:: VsCode
+
+`Microsoft Visual Studio Code (VsCode) <https://code.visualstudio.com/>`__
     Un **éditeur de code** *open-source* multi plates-formes disponible sur Windows, MacOS et Linux.
+
+.. index:: GCC
 
 `GCC <https://gcc.gnu.org/>`__
     Un **compilateur** *open-source* utilisé sous Linux et MacOS.
 
+.. index:: CLANG
+
 `CLANG <https://clang.llvm.org/>`__
     Un **compilateur** *open-source* gagnant en popularité, une alternative à GCC.
 
+.. index:: Vim
+
 `Vim <https://www.vim.org/>`__
     Un **éditeur de code** *open-source* multi-usage à la courbe d'apprentissage très raide et installé par défaut sur la plupart des distributions Unix/Linux. Il est l'évolution de *ed*, puis *ex* puis *vi* puis *vim*.
+
+.. index:: Ed
 
 `Ed <https://en.wikipedia.org/wiki/Ed_(text_editor)>`__
     Prononcé /iːdiː/ (hidi), il s'agit du tout premier éditeur de texte développé en 1969 faisant parti des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscure dans son fonctionnement mais bientôt 50 ans après, il fait toujours parti de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
@@ -120,10 +159,14 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 
         `Eclipse <https://www.eclipse.org/ide/>`__ est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
 
+.. index:: anglais
+
 L'Anglais
 =========
 
 En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
+
+.. index:: feu d'artifice
 
 Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning* car si l'un est la traduction ad-hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
 
@@ -151,6 +194,9 @@ https://linux.die.net/man/
 
         Seriez-vous capable de répondre à une question posée?
 
+.. index:: apprendre
+.. index:: pêcher
+
 Apprendre à pêcher
 ==================
 
@@ -168,6 +214,9 @@ Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le dévelo
 
 Programmation texte structurée
 ==============================
+
+.. index:: alphabet
+.. index:: grammaire
 
 Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un **vocabulaire**, une **grammaire** et se compose d'un **alphabet**.
 
@@ -197,6 +246,7 @@ Où les ``<>`` sont des marques substitutives (`placeholder <https://fr.wikipedi
 
 Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un méta-langage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peu ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
 
+.. index:: paradigme
 .. _paradigms:
 
 Les paradigmes de programmation
@@ -209,6 +259,10 @@ Certains paradigmes sont plus adaptés que d'autres à la résolution de certain
 Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C.
 
 Ce qu'il est essentiel de retenir c'est qu'un langage de programmation peut aisément être substitué par un autre pour autant qu'ils s'appuient sur les mêmes paradigmes.
+
+.. index:: programmation impérative
+.. index:: programmation structurée
+.. index:: programmation procédurale
 
 Le langage C répond aux paradigmes suivants :
 
@@ -223,8 +277,12 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 
 Des langages de plus haut niveau comme Python ou C# apportent d'avantages de paradigmes comme la `programmation réflective <https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>`__.
 
+.. index:: cycle de développement
+
 Cycle de développement
 ======================
+
+.. index:: transcription
 
 Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le `Cycle en V <https://fr.wikipedia.org/wiki/Cycle_en_V>`__ ou le `modèle en cascade <https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade>`__. Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
 
@@ -262,6 +320,8 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exé
 
 Voyons plus en détail chacune de ces étapes.
 
+.. index:: préprocesseur
+
 Préprocesseur (*pre-processing*)
 ---------------------------------
 
@@ -279,6 +339,8 @@ Avec ``gcc`` il est possible de demander que l'exécution du préprocesseur en u
 
     Processus de pré-processing
 
+.. index:: build
+
 Compilation (*build*)
 ---------------------
 
@@ -289,6 +351,8 @@ Avec ``gcc`` il est possible de ne demander que l'assemblage d'un code avec l'op
 .. figure:: ../assets/figures/dist/toolchain/assembly.*
 
 .. figure:: ../assets/figures/dist/toolchain/build.*
+
+.. index:: link
 
 Édition de liens (*link*)
 -------------------------
@@ -305,15 +369,22 @@ En informatique comme dans la société humaine, il y a les religieux, les pros�
 
 Citons par exemple les `guerres d'éditeurs <https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs>`__ qui date des années 1970 et qui opposent les défenseurs de l'éditeur ``vi`` aux inconditionnels d'``emacs``. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est, à force d'habitudes.
 
+.. index:: Maslow
+
 S'enterrer dans une zone de confort renforce le biais du `Marteau de Maslow <https://everlaab.com/marteau-de-maslow/>`__, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est, essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
 
 Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
 
 La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au `biais d'attention <https://en.wikipedia.org/wiki/Attentional_bias>`__. Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.
 
+.. index:: Néo, Matrix
+.. index:: ligature
+
 Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le ``ﬁ`` est infiniment plus lisible que ``fi``. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si chère et que l'important n'est plus la forme, mais le fond. Vous aurez comme `Néo <https://fr.wikipedia.org/wiki/Neo_(Matrix)>`__, libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.
 
 En somme, restez ouvert aux autres points de vues, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire `le code source <https://github.com/bitcoin/bitcoin>`__, vous aimez Linux, plongez-vous dans le code source du `kernel <https://github.com/torvalds/linux>`__, certains collègues ou amis vous ont parlé de Git, allez voir ses `entrailles <https://github.com/git/git>`__... Oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?
+
+.. index:: hello, world!
 
 .. _hello:
 
@@ -360,12 +431,16 @@ A présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compi
 
 Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.
 
+.. index:: ls
+
 On s'attends donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme `ls <https://fr.wikipedia.org/wiki/Ls>`__ pour le vérifier
 
 .. code-block:: console
 
     $ ls
     hello.c       a.out
+
+.. index:: a.out
 
 Très bien ! A présent, exécutons le programme en prenant soin de préfixer le nom par ``./`` car étant un programme local ``a.out`` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé ``ls`` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité tout programme local doit être explicitement nommé.
 

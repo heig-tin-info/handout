@@ -2,11 +2,11 @@
 Opérateurs
 ==========
 
-Un opérateur applique une opération à une (opérateur unitaire), deux ou trois (ternaire) entrées.
+Un :index:`opérateur` applique une opération à une (opérateur unitaire), deux ou trois (:index:`ternaire`) entrées.
 
 .. figure:: ../assets/figures/dist/processor/alu.*
 
-    Unité de calcul arithmétique (ALU) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
+    Unité de calcul arithmétique (:index:`ALU`) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 
 .. code-block:: c
 
@@ -14,13 +14,13 @@ Un opérateur applique une opération à une (opérateur unitaire), deux ou troi
 
 Un opérateur possède plusieurs propriétés :
 
-Une priorité
+Une :index:`priorité`
     La multiplication ``*`` est plus prioritaire que l'addition ``+``
 
-Une associativité
+Une :index:`associativité`
     L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier
 
-Un point de séquence
+Un :index:`point de séquence`
     Certains opérateurs comme ``&&``, ``||``, ``?`` ou ``,`` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression ``i < 12 && j > 2`` la valeur de ``i`` est plus grande que 12, le test ``j > 2`` ne sera jamais effectué. L'opérateur ``&&`` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation ``=``.
 
 Opérateurs relationnels
@@ -516,7 +516,7 @@ La **promotion** est l'action de promouvoir un type de donnée en un autre type 
 Valeurs gauche
 ==============
 
-Une valeur gauche (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
+Une :index:`valeur gauche` (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
 
 .. code-block:: c
 
@@ -541,6 +541,8 @@ Voici quelques exemples de valeurs gauche :
 
 Optimisation
 ============
+
+.. index:: -O2
 
 Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec ``-O2`` sous ``gcc``), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.
 

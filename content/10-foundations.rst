@@ -6,8 +6,12 @@ Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il tr
 
 Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
 
+.. index:: alphabet
+
 L'alphabet
 ==========
+
+.. index:: Chiffres arabes
 
 Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 `chiffres indo-arabes <https://fr.wikipedia.org/wiki/Chiffres_arabes>`__ :
 
@@ -20,6 +24,8 @@ Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 car
 La séparation des symboles est assurée par `une espace <https://fr.wikipedia.org/wiki/Espace_(typographie)>`__, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est à dire qu'ils ne sont pas directement visible ni à l'écran, ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le `pied-de-mouche <https://fr.wikipedia.org/wiki/Pied-de-mouche>`__ ``¶`` pour indiquer les fin de paragraphes qui sont également des caractères non-imprimables.
 
 On nomme les caractères non-imprimables soit par leur acronyme ``LF`` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* ``\n``:
+
+.. index:: LF, VT, FF, TAB, CR
 
 .. code-block:: text
 
@@ -35,6 +41,8 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 .. code-block:: text
 
     ! # % ^ & * ( _ ) - + = ~ [ ] ' | \ ; : " { } , . < > / ?
+
+.. index:: trigraphes, digraphes
 
 Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
 
@@ -60,8 +68,12 @@ Retenez que C peut être un langage extrèmement cryptique tant il est permissif
                 open(1[o],0); ; e(I++
                 ))		      ;}
 
+.. index:: EOL
+
 Fin de lignes (EOL)
 ===================
+
+.. index:: téléscripteurs
 
 À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatibles <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
 
@@ -81,6 +93,8 @@ Mots clés
 
 Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
 
+.. index:: auto, do, goto, return, typedef, _Complex , break, double, if, short, union, _Imaginary , case, else, inline, signed, unsigned , char, enum, int, sizeof, void , const, extern, long, static, volatile , continue, float, register, struct, while , default, for, restrict, switch, _Bool
+
 .. code-block:: c
 
     auto        do           goto         return      typedef       _Complex
@@ -90,7 +104,6 @@ Le langage de programmation C tel que défini par C11 comporte environ 37 mots c
     const       extern       long         static      volatile
     continue    float        register     struct      while
     default     for          restrict     switch      _Bool
-
 
 Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
@@ -107,6 +120,8 @@ Notons que les mots clés ``true`` et ``false`` décrits à la :numref:`booleans
 Identificateurs
 ===============
 
+.. index:: identificateur
+
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :
 
 .. figure:: ../assets/figures/dist/grammar/identifier.*
@@ -114,6 +129,8 @@ Un identificateur est une séquence de caractères représentant une entité du 
     Grammaire d'un identificateur C
 
 En addition de ceci, voici quelques règles :
+
+.. index:: casse
 
 - Un identificateur ne peut pas être l'un des mots clés du langage.
 - Les identificateurs sont sensible à la `casse <https://fr.wikipedia.org/wiki/Casse_(typographie)>`__.
@@ -166,6 +183,8 @@ En addition de ceci, voici quelques règles :
         #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
         #. ``INT`` **valide**
 
+.. index:: variable
+
 Variables
 =========
 
@@ -173,12 +192,16 @@ Une variable est un symbole qui associe un nom **identificateur** à une **valeu
 
 Une variable est définie par :
 
+.. index:: visibilité, type, valeur, portée
+
 - Son **nom** (*name*), c'est à dire l'identificateur associé au symbole.
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
 - Sa **valeur** (*value*), qui est le contenu interprêté connaissant son type.
 - Son **adresse** (*address*) qui est l'emplacement mémoire ou la représentation binaire sera enregistrée
 - Sa **portée** (*scope*) qui est la portion de code ou le symbole est défini et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
+
+.. index:: déclaration
 
 Déclaration
 -----------
