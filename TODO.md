@@ -34,18 +34,35 @@
 - [ ] Index at the end of document?
 - [ ] Exercice thing...
 - [ ] LaTeX pygments style
+- [ ] Reduce PDF size (should be much smaller!)
+- [ ] Glossaire
 
-.. only:: comment
+## Index
 
-    .. _fig_allocation:
-    .. figure:: ../assets/figures/dist/memory/malloc.*
+Lien dans les index:
 
-# Propositions
+```
+Compilation, 145
+   - séparée, 122, 291
+   - erreurs, 111
 
-- Examen
-  - Mettre à disposition de l'étudiant un laptop pas cher avec un éditeur de texte basic (pas de réseau)
-  - Facilite le rendu d'examen, facilite la correction
-  - Eviter les scanf....
+```
+
+## Exercices
+
+- Chaque chapitre à des exercices:
+
+```
+Exercice 3.8
+
+...
+
+> Voir solution...(html only)
+```
+
+- La version PDF à une section "Solution des exercices"
+- Sous section "Solutions du chapitre 8"
+- Puis "Exercice 8.2"
 
 ## Sphinx
 

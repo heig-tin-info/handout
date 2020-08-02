@@ -52,7 +52,7 @@ Programmation
 
 La machine Jacquard est un `métier à tisser <https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser>`__ mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-.. figure:: https://upload.wikimedia.org/wikipedia/commons/b/b6/Jacquard_loom_p1040320.jpg
+.. figure:: ../assets/images/loom.*
     :width: 600px
 
     Mécanisme Jacquard au Musée des arts et métiers de Paris.

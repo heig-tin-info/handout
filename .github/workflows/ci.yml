@@ -1,0 +1,107 @@
+on:
+  push:
+    branches:
+      - master
+  create:
+    tags:
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+      - name: Build Docker Image
+        run: make pull
+      - name: Build
+        run: make
+      - name: Upload handout
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf
+          path: |
+            _build/latex/main.pdf
+          if-no-files-found: error
+      - name: Upload man-page
+        uses: actions/upload-artifact@v2
+        with:
+          name: man
+          path: |
+            _build/man/info.1
+          if-no-files-found: error
+      - name: Upload html
+        uses: actions/upload-artifact@v2
+        with:
+          name: html
+          path: |
+            _build/html
+          if-no-files-found: error
+  deploy:
+    name: Deploy on GH-Pages
+    needs: build
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'master')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: html
+          name: html
+      - run: ls -al html
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          BRANCH: gh-pages
+          FOLDER: html
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: man
+          path: dist/
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: pdf
+          path: dist/
+      - name: Upload Handout
+        id: upload-pdf-handout
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: dist/main.pdf
+          asset_name: handout.pdf
+          asset_content_type: application/pdf
+      - name: Upload Manpage
+        id: upload-manpage
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: dist/info.1
+          asset_name: info.1
+          asset_content_type: text/plain
