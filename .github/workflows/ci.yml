@@ -47,7 +47,6 @@ jobs:
         with:
           path: .dist/html
           name: html
-      - run: ls -al ~/download/html
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Deploy to GitHub Pages
