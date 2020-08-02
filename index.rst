@@ -1,15 +1,11 @@
 
-.. raw:: latex
-
-    \frontmatter
-
 =====================
 Le C pour l'ingénieur
 =====================
 
 .. raw:: latex
 
-    \section*{Notes}
+    \section*{Préambule}
 
 Cet ouvrage est destiné aux étudiants de première année Bachelor `HEIG-VD <http://heig-vd.ch>`__, département TIN et filières Génie électrique. Il est une introduction à la programmation en C. Il couvre la matière vue durant le cycle des cours :ref:`Info1 <info1>` et :ref:`Info2 <info2>`.
 
@@ -30,7 +26,7 @@ Date : |today|
 .. toctree::
     :numbered:
     :maxdepth: 2
-    :caption: Contenu
+    :caption: Table des matières
     :glob:
 
     content/*

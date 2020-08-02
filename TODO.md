@@ -3,7 +3,6 @@
 - [ ] Sphinx
   - [ ] Missing character from _build/latex/main.log (japanese/korean)
   - [ ] Bibliography
-  - [ ] Center les tables
   - [ ] Rename source file with ascending order
   - [ ] Display code-block with filename like https://docs.travis-ci.com/user/deployment/releases/
   - [ ] Code
@@ -15,7 +14,6 @@
   - [ ] Menu déroulant pour toc-tree
 - [ ] Custom
   - [ ] Rendu de la fiche d'unité
-- [ ] Make LaTeX work flawlessly
 - [ ] Advanced
   - [ ] Keep track of the hyperlinked used
 - [ ] Bugs
@@ -23,14 +21,10 @@
   - [ ] Navlink header: Contenu, Exercices, Annexes,
 - [ ] §3.3.3 ou exclusif : symbole ^ dans l'entête du tableau
 - [ ] §3.3.4 complément à un : symbole ~ dans l'entête du tableau
-
 - [ ] Page d'accueil LateX
-- [ ] Table captions
 - [ ] Article 12
 - [ ] Enumeration vilaine (indentation)
-- [ ] Color links
 - [ ] Exercice (environment exercice)
-- [ ] Bibliograhie
 - [ ] Solutions des exercices
 - [ ] Organisationd de l'ouvrage, conventions d'ecriture
 - [ ] Logo C pour l'ingénieur : Atome, outil chirurgical
@@ -38,6 +32,7 @@
 - [ ] Index italique et références
 - [ ] Build from GitHub Actions
 - [ ] Index at the end of document?
+- [ ] Exercice thing...
 
 .. only:: comment
 

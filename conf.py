@@ -18,6 +18,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     'sphinx.ext.todo',
+#    'sphinxcontrib.bibtex',
     'sphinxcontrib.rsvgconverter',
     'exercices',
     'unicode',
@@ -61,12 +62,14 @@ latex_documents = [
 latex_engine = 'xelatex'
 latex_elements = {
     'papersize': 'a4paper',
-    'babel': '\\usepackage[french]{babel}',
+    'pointsize': '12pt',
+    'babel': r'\usepackage[french]{babel}',
     'inputenc': '',
     'utf8extra': '',
     'fontpkg': '',
     'fncychap': '',
-    'printindex': r'\footnotesize\raggedright\printindex',
+    'printindex': '',
+    'maketitle': r'\maketitle',
     'preamble': r'''
 
 % Disable the ugly colouring of titles. Why does Sphinx do this?
@@ -107,11 +110,13 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
   \fancyfoot{}
   \fancyhead{}
   \fancyhead[LE,RO]{{\thepage}}
-  \fancyhead[CO]{{\@title}}
-  \fancyhead[CE]{{\nouppercase{\rightmark}}}
+  \fancyhead[CO]{\uppercase{Le C pour l'ingénieur}}
+  \fancyhead[CE]{\leftmark}
   \renewcommand{\headrulewidth}{0.2pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
 \makeatother
+
 '''
 }
 
