@@ -52,8 +52,7 @@ numfig = True
 pygments_style = "colorful"
 
 latex_additional_files = [
-    '_templates/sphinx.sty',
-    #'_templates/latexmkrc',
+    '_templates/sphinx.sty'
 ]
 
 latex_docclass = {
@@ -88,9 +87,11 @@ latex_elements = {
 \setmonofont{DejaVu Sans Mono}
 
 \usepackage{colortbl}
+\usepackage{emptypage}
 \usepackage{xcolor,graphicx}
 \usepackage[xparse,skins,breakable]{tcolorbox}
 
+\newcommand\documentTitle{Le C pour l'ingénieur}
 \newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
 height from=1.3cm to 16cm,%
 overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
@@ -112,16 +113,37 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 }
 
 % Define header and footers
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{\uppercase\expandafter{\documentTitle}}
+\fancyhead[CO]{\leftmark}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Chapter pages
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyfoot{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Redefine to remove the buggy pagenumbering
 \makeatletter
-\fancypagestyle{normal}{
-  \fancyhf{}
-  \fancyfoot{}
-  \fancyhead{}
-  \fancyhead[LE,RO]{{\thepage}}
-  \fancyhead[CO]{\uppercase{Le C pour l'ingénieur}}
-  \fancyhead[CE]{\leftmark}
-  \renewcommand{\headrulewidth}{0.2pt}
-  \renewcommand{\footrulewidth}{0pt}
+\renewcommand{\sphinxtableofcontents}{%
+  %\pagenumbering{roman}% <-- Not wanted
+  \begingroup
+    \parskip \z@skip
+    \sphinxtableofcontentshook
+    \tableofcontents
+  \endgroup
+  % before resetting page counter, let's do the right thing.
+  \if@openright\cleardoublepage\else\clearpage\fi
+  %\pagenumbering{arabic}% <-- Not wanted
 }
 \makeatother
 
