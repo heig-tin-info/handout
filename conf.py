@@ -147,6 +147,10 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 }
 \makeatother
 
+% Index does not use ttfamily, make bigletters bold
+\def\sphinxstyleindexentry   #1{#1}
+\def\sphinxstyleindexlettergroup #1%
+    {{\Large\textbf{#1}}\nopagebreak\vspace{1mm}}
 '''
 }
 
