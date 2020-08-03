@@ -132,6 +132,10 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
     \renewcommand{\footrulewidth}{0pt}
 }
 
+% Better looking descriptions... leftmargin must be tweaked if needed...
+\usepackage{enumitem}
+\setlist[description]{labelindent=0pt,style=multiline,leftmargin=4cm}
+
 % Redefine to remove the buggy pagenumbering
 \makeatletter
 \renewcommand{\sphinxtableofcontents}{%
