@@ -155,10 +155,61 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 \def\sphinxstyleindexentry   #1{#1}
 \def\sphinxstyleindexlettergroup #1%
     {{\Large\textbf{#1}}\nopagebreak\vspace{1mm}}
+
+% Maketitle
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\def\department{Département des Techniques de l'Ingénieur (TIN)}
+
+\makeatletter
+\def\maketitle{                   % Prints the title page
+\thispagestyle{empty}
+\begin{textblock}{20}(10,10)
+%    \includegraphics[height=2.5cm]{heig-vd-small.pdf}
+\end{textblock}
+\vspace{7cm}
+\begin{center}
+  {\huge
+  \lineskip 10ex
+  \bfseries\@title\par}                  %% The Title
+  \vskip0pt plus1fill\relax
+  %\rule{75mm}{0.5pt}
+  \vspace{3cm}
+  \Large
+  Cours d'informatique pour étudiants Bachelor première année
+  \par
+  \emph{\department}
+  \par
+  \vspace{2cm}
+  \vskip0pt plus2fill\relax
+  \emph{par}
+  \par%\vskip0pt plus2fill\relax
+  \@author                      %% Author
+  \par\vskip0pt plus1fill\relax
+  \par
+  \py@release
+  %% \rule{37.5mm}{0.5pt}
+\end{center}
+\vspace{5cm}
+
+\vskip0pt plus1fill\relax
+
+\begin{center}
+  \large
+  \par\vskip0pt plus2fill\relax
+  Haute École d'Ingénierie et de Gestion du canton de Vaud\\
+  Route de Cheseaux, CH-1400 Yverdon-les-Bains, Suisse
+  \par%\vskip0pt plus2fill\relax
+  \today                       %% Year
+  \par
+\end{center}
+\mbox{}\relax}
+\makeatother
 '''
 }
 
-latex_logo = 'assets/images/heig-vd.pdf'
+latex_logo = 'assets/images/heig-vd-small.pdf'
 
 man_pages = [
     ('index', 'info', None, author, 1)

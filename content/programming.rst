@@ -98,7 +98,7 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
 
 Notons que *de gueules* signifie *rouge*. Le `drapeau suisse <https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse>`__ est donc *de gueules, à la croix alésée d'argent*.
 
-.. figure:: https://upload.wikimedia.org/wikipedia/commons/2/2a/Armoiries_ducs_de_Mayenne.svg
+.. figure:: ../assets/images/armoiries.*
     :width: 200px
 
     Armoiries des ducs de Mayenne
