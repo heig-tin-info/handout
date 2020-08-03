@@ -49,23 +49,25 @@ Vous l'aurez compris à lecture de cette introduction, le langage C possède un 
 
 Le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
 
-+-------------------+--------------------------------------+--------+
-| Notation courte   | Standard international               | Date   |
-+===================+======================================+========+
-| C                 | n/a                                  | 1972   |
-+-------------------+--------------------------------------+--------+
-| K&R C             | n/a                                  | 1978   |
-+-------------------+--------------------------------------+--------+
-| C89 (ANSI C)      | ANSI X3.159-1989                     | 1989   |
-+-------------------+--------------------------------------+--------+
-| C90               | `ISO/IEC 9899:1990 <iso9899_1990>`__ | 1990   |
-+-------------------+--------------------------------------+--------+
-| C99               | `ISO/IEC 9899:1999 <iso9899_1999>`__ | 1999   |
-+-------------------+--------------------------------------+--------+
-| C11               | `ISO/IEC 9899:2011 <iso9899_2011>`__ | 2011   |
-+-------------------+--------------------------------------+--------+
-| C17/C18           | `ISO/IEC 9899:2018 <iso9899_2018>`__ | 2018   |
-+-------------------+--------------------------------------+--------+
+.. table:: Normes internationales du language C
+
+    +-------------------+--------------------------------------+--------+
+    | Notation courte   | Standard international               | Date   |
+    +===================+======================================+========+
+    | C                 | n/a                                  | 1972   |
+    +-------------------+--------------------------------------+--------+
+    | K&R C             | n/a                                  | 1978   |
+    +-------------------+--------------------------------------+--------+
+    | C89 (ANSI C)      | ANSI X3.159-1989                     | 1989   |
+    +-------------------+--------------------------------------+--------+
+    | C90               | `ISO/IEC 9899:1990 <iso9899_1990>`__ | 1990   |
+    +-------------------+--------------------------------------+--------+
+    | C99               | `ISO/IEC 9899:1999 <iso9899_1999>`__ | 1999   |
+    +-------------------+--------------------------------------+--------+
+    | C11               | `ISO/IEC 9899:2011 <iso9899_2011>`__ | 2011   |
+    +-------------------+--------------------------------------+--------+
+    | C17/C18           | `ISO/IEC 9899:2018 <iso9899_2018>`__ | 2018   |
+    +-------------------+--------------------------------------+--------+
 
 .. _iso9899_1990: https://www.iso.org/standard/17782.html
 .. _iso9899_1999: https://www.iso.org/standard/29237.html
@@ -350,7 +352,11 @@ Avec ``gcc`` il est possible de ne demander que l'assemblage d'un code avec l'op
 
 .. figure:: ../assets/figures/dist/toolchain/assembly.*
 
+    Assemblage d'un programme C pré-processé en assembleur
+
 .. figure:: ../assets/figures/dist/toolchain/build.*
+
+    Traduction d'un programme C pré-processé en objet binaire
 
 .. index:: link
 
@@ -361,6 +367,8 @@ La phase d'édition de liens permet de rassembler le fichier binaire issu de la 
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
 .. figure:: ../assets/figures/dist/toolchain/link.*
+
+    Édition des liens de plusieurs objets
 
 Une affaire de consensus
 ========================

@@ -119,6 +119,8 @@ La figure suivante résume les différentes étapes de GCC. Les pointillés indi
 
 .. figure:: ../assets/figures/dist/toolchain/gcc.*
 
+    Étapes intermédiaires de compilation avec GCC
+
 Notons que ces étapes existent quelque soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).
 
 Notons que généralement, seul deux étapes de GCC sont utilisées :

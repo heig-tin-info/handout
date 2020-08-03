@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -332,33 +318,6 @@
 
         
           <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
 
             
           </li>
@@ -615,14 +574,14 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>Vous avez déjà vu les flux au chapitre précédant, et les sockets ne font pas partie de ce cours d'introduction.</p>
 <p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
 <p>C'est principalement l'appel système <code class="docutils literal notranslate"><span class="pre">mmap</span></code> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>void *mmap(
-    void *addr,
-    size_t length, // Taille en byte de l&#39;espace mémoire
-    int prot,      // Protection d&#39;accès (lecture, écriture, exécution)
-    int flags,     // Attributs (partagé, privé, anonyme...)
-    int fd,
-    int offset
-);
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">mmap</span><span class="p">(</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">length</span><span class="p">,</span> <span class="c1">// Size in bytes</span>
+    <span class="kt">int</span> <span class="n">prot</span><span class="p">,</span>      <span class="o">//</span> <span class="n">Access</span> <span class="n">protection</span> <span class="p">(</span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="o">/</span><span class="n">execute</span><span class="p">)</span>
+    <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span>     <span class="c1">// Attributs (shared/private/anonymous...)</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">offset</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 <p>Voici un exemple permettant de réserver un espace partagé en écriture et en lecture entre deux processus :</p>
@@ -767,7 +726,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

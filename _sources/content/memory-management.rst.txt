@@ -287,6 +287,8 @@ Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cour
 
 .. figure:: ../assets/figures/dist/memory/fragmentation.*
 
+    Fragmentation mémoire
+
 Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire est malvenue. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : `éteindre puis redémarrer <https://www.youtube.com/watch?v=nn2FB1P_Mn8>`__.
 
 MMU
@@ -301,6 +303,8 @@ La programmation sur de petites architectures matérielles (microcontrôleurs, D
 Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques proriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
 
 .. figure:: ../assets/figures/dist/memory/mmu.*
+
+    Mémoire virtuelle
 
 Erreurs de segmentation (*segmentation fault*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

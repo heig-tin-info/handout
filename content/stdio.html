@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -333,33 +319,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
-
-            
-          </li>
-
-        
       </ul>
     </div>
   
@@ -527,11 +486,12 @@
 </div>
 <div class="section" id="exemples">
 <h3><span class="section-number">9.3.1</span>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formattage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
-<col style="width: 57%" />
-<col style="width: 29%" />
-<col style="width: 14%" />
+<col style="width: 55%" />
+<col style="width: 32%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Exemple</p></th>
@@ -541,39 +501,39 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%c&quot;,</span> <span class="pre">'c')</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">c</span></code></p></td>
 <td><p>1</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%d&quot;,</span> <span class="pre">1242)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">1242</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">1242</span></code></p></td>
 <td><p>4</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%10d&quot;,</span> <span class="pre">42)</span></code></p></td>
-<td><p>``       42``</p></td>
+<td><p>:code:`       42`</p></td>
 <td><p>10</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%07d&quot;,</span> <span class="pre">42)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">0000042</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">0000042</span></code></p></td>
 <td><p>7</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%+-5d&quot;,</span> <span class="pre">23)</span></code></p></td>
-<td><p><a href="#id1"><span class="problematic" id="id2">``</span></a>+23   ``</p></td>
+<td><p>:code:<a href="#id1"><span class="problematic" id="id2">`</span></a>+23   `</p></td>
 <td><p>6</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%5.3f&quot;,</span> <span class="pre">314.15)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">314.100</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">314.100</span></code></p></td>
 <td><p>7</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%*.*f&quot;,</span> <span class="pre">4,</span> <span class="pre">2,</span> <span class="pre">102.1)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">102.10</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">102.10</span></code></p></td>
 <td><p>7</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%8x&quot;,</span> <span class="pre">3141592)</span></code></p></td>
-<td><p>`` 2fefd8``</p></td>
+<td><p>:code:` 2fefd8`</p></td>
 <td><p>6</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">printf(&quot;%s&quot;,</span> <span class="pre">&quot;Hello&quot;)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">Hello</span></code></p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">Hello</span></code></p></td>
 <td><p>5</p></td>
 </tr>
 </tbody>
@@ -773,7 +733,7 @@ poussière
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

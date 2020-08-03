@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -334,33 +320,6 @@
 
         
           <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
 
             
           </li>
@@ -629,8 +588,9 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
 <h2><span class="section-number">13.7</span>Fragmentation mémoire<a class="headerlink" href="#fragmentation-memoire" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On peut observer à la figure <a class="reference internal" href="#fig-allocation"><span class="std std-numref">Fig. 13.1</span></a> qu'après un appel successif de <code class="docutils literal notranslate"><span class="pre">malloc</span></code> et de <code class="docutils literal notranslate"><span class="pre">free</span></code> des espaces mémoires non utilisés peuvent apparaître entre des régions utilisées. Ces <em>trous</em> sont appelés fragmentation mémoire.</p>
 <p>Dans la figure suivante, on suit l'évolution de l'utilisation du <em>heap</em> au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (<code class="docutils literal notranslate"><span class="pre">free</span></code>), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.</p>
-<div class="figure align-default">
-<img alt="../_images/fragmentation.svg" src="../_images/fragmentation.svg" /></div>
+<div class="figure align-default" id="id2">
+<img alt="../_images/fragmentation.svg" src="../_images/fragmentation.svg" /><p class="caption"><span class="caption-number">Fig. 13.3 </span><span class="caption-text">Fragmentation mémoire</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire est malvenue. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : <a class="reference external" href="https://www.youtube.com/watch?v=nn2FB1P_Mn8">éteindre puis redémarrer</a>.</p>
 <div class="section" id="mmu">
 <h3><span class="section-number">13.7.1</span>MMU<a class="headerlink" href="#mmu" title="Lien permanent vers ce titre">¶</a></h3>
@@ -638,8 +598,9 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
 <p>En pratique l'espace de mémoire virtuelle est toujours beaucoup plus grand que l'espace physique. Cela permet de s'affranchir dans une large mesure de problèmes de fragmentation car si l'espace virtuel est suffisament grand, il y aura statistiquement plus de chance d'y trouver un emplacement non utilisé.</p>
 <p>La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possèdent pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanisme comme les <em>memory pool</em>.</p>
 <p>Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (<em>Physical Pages</em> ou <strong>PP</strong>). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques proriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (<em>virtual page</em> <strong>VP</strong>).</p>
-<div class="figure align-default">
-<img alt="../_images/mmu.svg" src="../_images/mmu.svg" /></div>
+<div class="figure align-default" id="id3">
+<img alt="../_images/mmu.svg" src="../_images/mmu.svg" /><p class="caption"><span class="caption-number">Fig. 13.4 </span><span class="caption-text">Mémoire virtuelle</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="section" id="erreurs-de-segmentation-segmentation-fault">
 <h4><span class="section-number">13.7.1.1</span>Erreurs de segmentation (<em>segmentation fault</em>)<a class="headerlink" href="#erreurs-de-segmentation-segmentation-fault" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Lorsqu'un programme tente d'accéder à un espace mémoire qui n'est pas mappé dans la MMU, ou que cet espace mémoire ne permet pas le type d'accès souhaité : par exemple une écriture dans une page en lecture seule. Le système d'exploitation tue le processus avec une erreur <em>Segmentation Fault</em>. C'est la raison pour laquelle, il n'est pas systématique d'avoir une erreur de segmentation en cas de jarinage mémoire. Tant que les valeurs modifées sont localisées au sein d'un bloc mémoire autorisé, il n'y aura pas d'erreur.</p>
@@ -669,7 +630,7 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

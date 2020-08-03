@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -343,33 +329,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
-
-            
-          </li>
-
-        
       </ul>
     </div>
   
@@ -534,7 +493,8 @@
 </div>
 <p>Oui très exactement, les deux codes sont similaires, mais l'un est plus élégant que l'autre, lequel d'après vous ?</p>
 <p>L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tableau 14.1 </span><span class="caption-text">Arithmétique sur tableau unidimensionnel</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 13%" />
@@ -565,8 +525,9 @@
 </tr>
 </tbody>
 </table>
-<p>De même, l'exercice peut être répété avec des tabelaux à deux dimensions :</p>
-<table class="docutils align-default">
+<p>De même, l'exercice peut être répété avec des tableaux à deux dimensions :</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Tableau 14.2 </span><span class="caption-text">Arithmétique sur tableau bidimensionnel</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 24%" />
@@ -601,8 +562,8 @@
 <span class="p">};</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="id1">
-<img alt="../_images/ptrstr.svg" src="../_images/ptrstr.svg" /><p class="caption"><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Pointeur sur une chaîne de caractère</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/ptrstr.svg" src="../_images/ptrstr.svg" /><p class="caption"><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Pointeur sur une chaîne de caractère</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Cette structure est très exactement la même que pour les arguments transmis à la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>: la définition <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*argv[]</span></code>.</p>
 </div>
@@ -870,7 +831,8 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <h2><span class="section-number">14.7</span>La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette <a class="reference external" href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs.</p>
 <p>Il faut tout d'abord lire :</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Tableau 14.3 </span><span class="caption-text">Règles gauche droite</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 47%" />
@@ -883,15 +845,17 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code>
-<code class="docutils literal notranslate"><span class="pre">[]</span></code>
-<code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">pointeur</span> <span class="pre">sur</span></code>
-<code class="docutils literal notranslate"><span class="pre">tableau</span> <span class="pre">de</span></code>
-<code class="docutils literal notranslate"><span class="pre">fonction</span> <span class="pre">retournant</span></code></p></td>
-<td><p>Toujours à gauche
-Toujours à droite
-Toujours à droite</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pointeur</span> <span class="pre">sur</span></code></p></td>
+<td><p>Toujours à gauche</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tableau</span> <span class="pre">de</span></code></p></td>
+<td><p>Toujours à droite</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fonction</span> <span class="pre">retournant</span></code></p></td>
+<td><p>Toujours à droite</p></td>
 </tr>
 </tbody>
 </table>
@@ -1038,7 +1002,7 @@ une même région mémoire.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

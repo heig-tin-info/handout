@@ -251,9 +251,9 @@ C'est principalement l'appel système ``mmap`` qui est utilisé. Il permet de ma
 
     void *mmap(
         void *addr,
-        size_t length, // Taille en byte de l'espace mémoire
-        int prot,      // Protection d'accès (lecture, écriture, exécution)
-        int flags,     // Attributs (partagé, privé, anonyme...)
+        size_t length, // Size in bytes
+        int prot,      // Access protection (read/write/execute)
+        int flags,     // Attributs (shared/private/anonymous...)
         int fd,
         int offset
     );

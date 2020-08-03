@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -344,33 +330,6 @@
 
         
           <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
 
             
           </li>
@@ -704,15 +663,16 @@
 </tbody>
 </table>
 <p>Avec l'avènement de <strong>C99</strong>, une meilleure cohésion des types a été proposée dans le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdint.h</span></code>. Cette bibliothèque standard offre les types suivants :</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/c99-integers.svg"><img alt="Entiers standardisés **C99**" src="../_images/c99-integers.svg" width="100%" /></a>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/c99-integers.svg"><img alt="Entiers standardisés **C99**" src="../_images/c99-integers.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Flux de construction d'un entier standardisé</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="types-reformes">
 <h4><span class="section-number">6.4.3.2</span>Types réformés<a class="headerlink" href="#types-reformes" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
-<span id="stdint"></span><table class="docutils align-default" id="id2">
-<caption><span class="caption-number">Tableau 6.2 </span><span class="caption-text">Entiers standard définis par <code class="docutils literal notranslate"><span class="pre">stdint</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<span id="stdint"></span><table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Tableau 6.2 </span><span class="caption-text">Entiers standard définis par <code class="docutils literal notranslate"><span class="pre">stdint</span></code></span><a class="headerlink" href="#id3" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 12%" />
@@ -779,8 +739,8 @@
 <p>Comme nous l'avons évoqué plus haut, la taille des entiers <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, ... n'est pas précisément définie par le standard. On sait qu'un <code class="docutils literal notranslate"><span class="pre">int</span></code> contient <strong>au moins</strong> 16-bits mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment conscensieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
 <p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code class="docutils literal notranslate"><span class="pre">int</span></code> comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code class="docutils literal notranslate"><span class="pre">int</span></code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code class="docutils literal notranslate"><span class="pre">&lt;stdint.h&gt;</span></code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :</p>
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-number">Tableau 6.3 </span><span class="caption-text">Modèle de données</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-number">Tableau 6.3 </span><span class="caption-text">Modèle de données</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 11%" />
@@ -1007,24 +967,24 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </pre></div>
 </div>
 <p>Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'<a class="reference external" href="https://fr.wikipedia.org/wiki/American_National_Standards_Institute">ASA</a>, l'<em>American Standards Association</em> aujourd'hui <span class="target" id="index-12"></span>ANSI qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.</p>
-<div class="figure align-default" id="id7">
-<img alt="../_images/ascii-1963.svg" src="../_images/ascii-1963.svg" /><p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Table ASCII ASA X3.4 établie en 1963</span></span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id8">
+<img alt="../_images/ascii-1963.svg" src="../_images/ascii-1963.svg" /><p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Table ASCII ASA X3.4 établie en 1963</span></span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.</p>
-<div class="figure align-default" id="id8">
-<img alt="../_images/ascii.svg" src="../_images/ascii.svg" /><p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Table ANSI INCITS 4-1986 (standard actuel)</span></span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id9">
+<img alt="../_images/ascii.svg" src="../_images/ascii.svg" /><p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Table ANSI INCITS 4-1986 (standard actuel)</span></span><a class="headerlink" href="#id9" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres.</p>
 <p id="index-13">Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
-<div class="figure align-default" id="id9">
-<img alt="../_images/latin1.svg" src="../_images/latin1.svg" /><p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</span></span><a class="headerlink" href="#id9" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id10">
+<img alt="../_images/latin1.svg" src="../_images/latin1.svg" /><p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</span></span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Ce standard a généré durant des décénies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a class="reference external" href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
 <p>Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), les coréens (한국어), les chinois avec le chinois simplifé (官话) et le chinois traditionel (官話), les japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
-<div class="figure align-default" id="id10">
-<img alt="../_images/encoding-trends.svg" src="../_images/encoding-trends.svg" /><p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</span></span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id11">
+<img alt="../_images/encoding-trends.svg" src="../_images/encoding-trends.svg" /><p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008</span></span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p id="index-14">L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a class="reference external" href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en <a class="reference internal" href="introduction.html#thompson"><span class="std std-ref">introduction</span></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code class="docutils literal notranslate"><span class="pre">ह</span></code> utilisé en Sanskrit possède la dénomination unicode <a class="reference external" href="https://unicode-table.com/en/0939/">U+0939</a> et s'encode sur 3 octets: <code class="docutils literal notranslate"><span class="pre">0xE0</span> <span class="pre">0xA4</span> <span class="pre">0xB9</span></code></p>
 <p>En programmation C, un caractère <code class="docutils literal notranslate"><span class="pre">char</span></code> ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
@@ -1285,7 +1245,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

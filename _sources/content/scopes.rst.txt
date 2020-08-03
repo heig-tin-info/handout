@@ -160,6 +160,8 @@ Une classe de stockage peut être implicite à une déclaration de variable ou e
 ``auto``
 --------
 
+.. index:: auto
+
 Cette classe est utilisée par défaut lorsqu'aucune autre classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
 le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (*stack*) mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.
@@ -174,6 +176,8 @@ obligatoire, et n'est pas recommandé en **C99** car son utilisation est implici
 ``register``
 ------------
 
+.. index:: register
+
 Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.
 
 Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable ``i`` utilisée dans les boucles ``for`` était déclarées ``register int i = 0;``. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis **C99**.
@@ -181,10 +185,14 @@ Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de 
 ``const``
 ---------
 
+.. index:: const
+
 Ce mot clé rends une déclaration non modifiable par le programme lui même. Néanmoins il ne s'agit pas de constantes au sens strict du terme car une variable de type ``const`` pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.
 
 ``static``
 ----------
+
+.. index:: static
 
 Elle permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.
@@ -209,12 +217,16 @@ La fonction suivante est *statique* au module dans lequel elle est déclarée. I
 ``volatile``
 ------------
 
+.. index:: volatile
+
 Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.
 
 L'usage de cette classe de stockage réduit les performances d'un programme puisque qu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation
 
 ``extern``
 ----------
+
+.. index:: extern
 
 Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable ``foo`` mais s'attends à ce que cette variable ait été déclarée dans un autre fichier.
 
@@ -224,6 +236,8 @@ Cette classe est utilisée pour signaler que la variable ou la fonction associé
 
 ``restrict``
 ------------
+
+.. index:: restrict
 
 En C, le mot clé ``restrict``, apparu avec **C99**, es utililsé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui même (p. ex: ``p + 1``).
 

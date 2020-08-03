@@ -129,24 +129,30 @@ Lorsque le nombre d'éléments du tableau devient inférieur du facteur de crois
 Anatomie
 --------
 
+.. index:: tableau dynamique, tête, queue, head, tail
+
 Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la **tête** ou *head* et la fin du tableau sa **queue** ou *tail*. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau la complexité n'est pas la même.
 
 Nous définirons par la suite le vocabulaire suivant:
 
-==============================================  ===============
-  Action                                        Terme technique
-==============================================  ===============
-Ajout d'un élément à la tête du tableau         `unshift`
-Ajout d'un élément à la queue du tableau        `push`
-Suppression d'un élément à la tête du tableau   `shift`
-Suppression d'un élément à la queue du tableau  `pop`
-==============================================  ===============
+.. table:: Vocabulaire des actions sur un tableau dynamique
+
+    ==============================================  ===============
+    Action                                          Terme technique
+    ==============================================  ===============
+    Ajout d'un élément à la tête du tableau         `unshift`
+    Ajout d'un élément à la queue du tableau        `push`
+    Suppression d'un élément à la tête du tableau   `shift`
+    Suppression d'un élément à la queue du tableau  `pop`
+    ==============================================  ===============
 
 Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).
 
 Un tableau dynamique peut être représenté par la figure suivante :
 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array.*
+
+    Tableau dynamique
 
 Un espace mémoire est réservé dynamiquement sur le tas. Comme ``malloc`` ne retourne pas la taille de l'espace mémoire alloué mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 ``int32_t`` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par ``malloc`` n'est généralement pas vide mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un d'autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
 
@@ -157,18 +163,26 @@ Les composants de cette structure de donnée sont donc :
 - Un pointeur sur un entier ``int *`` contenant l'adresse mémoire de l'espace alloué par ``malloc``.
 - Un espace mémoire alloué par ``malloc`` et contenant des données.
 
+.. index:: pop
+
 L'opération ``pop`` retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.
 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array-pop.*
+
+    Suppression d'un élément dans un tableau dynamique
 
 .. code-block:: c
 
     if (elements <= 0) exit(EXIT_FAILURE);
     int value = data[--elements];
 
+.. index:: push
+
 L'opération ``push`` ajoute un élément à la fin du tableau.
 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array-push.*
+
+    Ajout d'un élément dans un tableau dynamique
 
 .. code-block:: c
 
@@ -178,6 +192,8 @@ L'opération ``push`` ajoute un élément à la fin du tableau.
 L'opération ``shift`` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.
 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array-shift.*
+
+    Suppression du premier élément dans un tableau dynamique
 
 .. code-block:: c
 
@@ -196,9 +212,13 @@ Une optimisation peut être faite en déplacant le pointeur de donnée de 1 perm
     data++;
     capacity--;
 
+.. index:: unshift
+
 Enfin, l'opération ``unshift`` ajoute un élément depuis le début du tableau :
 
 .. figure:: ../assets/figures/dist/data-structure/dyn-array-unshift.*
+
+    Ajout d'un élément en début d'un tableau dynamique
 
 .. code-block:: c
 
@@ -217,7 +237,7 @@ Dans le cas ou le nombre d'éléments atteint la capacité maximum du tableau, i
 Buffer circulaire
 ==================
 
-Un tampon circulaire est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
+Un :index:`tampon circulaire` aussi appelé :index:`buffer circulaire` ou :index:`ring buffer` en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
 
 Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.
 
@@ -226,6 +246,8 @@ Pour permettre la circulation, les indices sont calculés modulo la taille du bu
 Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :
 
 .. figure:: ../assets/figures/dist/data-structure/ring.*
+
+    Exemple d'un tampon circulaire
 
 Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur ``%`` en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, ``-2 % 5`` devrait donner ``3``, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est ``-2``. Le modulo vrai, mathématiquement correct peut être calculé ainsi :
 
@@ -287,6 +309,8 @@ Voici une implémentation possible du buffer circulaire :
 Listes chaînées
 ===============
 
+.. index:: liste chaînée
+
 On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte :math:`O(1)` amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte :math:`O(n)` du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.
 
 Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.
@@ -305,6 +329,8 @@ Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque él
 Considérons les dix premiers éléments de la séquence de nombre `A130826 <https://oeis.org/A130826>`__ dans un tableau statique. Ensuite répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
 
 .. figure:: ../assets/figures/dist/data-structure/static-linked-list.*
+
+    Construction d'une liste chaîne à l'aide d'un tableau
 
 On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
 
@@ -327,12 +353,12 @@ De même, insérer une nouvelle valeur `13` après la valeur `42` est très faci
     // Recherche d'un élément libre
     const int length = sizeof(elements) / sizeof(elements[0]);
     int k;
-    for (k = 0; k < length; k++) 
+    for (k = 0; k < length; k++)
         if (elements[k].index_next_element == -1)
             break;
     assert(k < length && elements[k].index_next_element == -1);
 
-    // Création d'un nouvel élément    
+    // Création d'un nouvel élément
     struct Element new = (Element){
         .value = 13,
         .index_next_element = -1
@@ -364,17 +390,19 @@ Les listes chaînées réduisent la complexité liée à la manipulation d'élé
 
 Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.
 
-+----------------------+--------------+--------------+-------------------+--------------+
-| Structure de donnée  |   Pire cas   |              |                   |              |
-|                      +--------------+--------------+----------------------------------+
-|                      |  Insertion   | Suppression  |     Recherche     |              |
-|                      +--------------+--------------+-------------------+--------------+
-|                      |              |              |       Trié        |   Pas trié   |
-+======================+==============+==============+===================+==============+
-| Tableau, pile, queue | :math:`O(n)` | :math:`O(n)` | :math:`O(log(n))` | :math:`O(n)` |
-+----------------------+--------------+--------------+-------------------+--------------+
-| Liste chaînée simple | :math:`O(1)` | :math:`O(1)` | :math:`O(n)`      | :math:`O(n)` |
-+----------------------+--------------+--------------+-------------------+--------------+
+.. table:: Coût des opérations dans des structures de données récursives
+
+    +----------------------+--------------+--------------+-------------------+--------------+
+    | Structure de donnée  |   Pire cas   |              |                   |              |
+    |                      +--------------+--------------+----------------------------------+
+    |                      |  Insertion   | Suppression  |     Recherche     |              |
+    |                      +--------------+--------------+-------------------+--------------+
+    |                      |              |              |       Trié        |   Pas trié   |
+    +======================+==============+==============+===================+==============+
+    | Tableau, pile, queue | :math:`O(n)` | :math:`O(n)` | :math:`O(log(n))` | :math:`O(n)` |
+    +----------------------+--------------+--------------+-------------------+--------------+
+    | Liste chaînée simple | :math:`O(1)` | :math:`O(1)` | :math:`O(n)`      | :math:`O(n)` |
+    +----------------------+--------------+--------------+-------------------+--------------+
 
 Liste simplement chaînée (*linked-list*)
 ----------------------------------------
@@ -389,6 +417,7 @@ Il est indispensable de bien identifier le dernier élément de la liste grâce 
 
 .. figure:: ../assets/figures/dist/data-structure/list.*
 
+    Liste chaînée simple
 
 .. code-block:: c
 
@@ -469,14 +498,18 @@ Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lo
 
 .. figure:: ../assets/figures/dist/data-structure/loop.*
 
+    Boucle dans une liste chaînée
+
 La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?
 
 Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé *algorithme du lièvre et de la tortue*. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.
 
-.. index:: Floyd
+.. index:: Floyd, Robert Floyd, lièvre, tortue
 
 .. figure:: ../assets/figures/dist/data-structure/floyd.*
+
+    Algorithme de détection de cycle de Robert W. Floyd
 
 .. code-block:: c
 
@@ -652,18 +685,24 @@ La structure de donnée ``heap`` aussi nommée tas ne doit pas être confondue a
 
 Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :
 
-================  ======================  ======================
-Cible             Début à 0               Début à 1
-================  ======================  ======================
-Enfant de gauche  :math:`2*k  + 1`        :math:`2 * k`
-Enfant de droite  :math:`2*k  + 2`        :math:`2 * k + 1`
-Parent            :math:`floor(k-1) / 2`  :math:`floor(k) / 2`
-================  ======================  ======================
+.. table:: Opération d'accès à un élément d'un *heap*
+
+    ================  ======================  ======================
+    Cible             Début à 0               Début à 1
+    ================  ======================  ======================
+    Enfant de gauche  :math:`2*k  + 1`        :math:`2 * k`
+    Enfant de droite  :math:`2*k  + 2`        :math:`2 * k + 1`
+    Parent            :math:`floor(k-1) / 2`  :math:`floor(k) / 2`
+    ================  ======================  ======================
 
 .. figure:: ../assets/figures/dist/data-structure/heap.*
 
+    Représentation d'un *heap*
+
 Queue prioritaire
 =================
+
+.. index:: queue prioritaire
 
 Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.
 
@@ -710,6 +749,8 @@ Les tableaux de hachage (*Hash Table*) sont une structure particulière dans laq
 L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :
 
 .. figure:: ../assets/figures/dist/data-structure/hash-linear.*
+
+    Tableau de hashage simple
 
 Si l'on cherche l'indice correspondant à ``Ada``, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans ce exemple considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
 
@@ -783,7 +824,9 @@ Cette `vidéo <https://www.youtube.com/watch?v=KyUTuwz_b7Q>`__ YouTube explique 
 Collisions
 ----------
 
-Lorsque la fonction de hachage est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
+.. index:: collision
+
+Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
 
 .. code-block:: text
 
@@ -836,7 +879,7 @@ Dans ce cas exagéré, la fonction de hachage pourrait être la suivante :
 Facteur de charge
 -----------------
 
-Le facteur de charge d'une table de hachage est donné par la relation :
+Le :index:`facteur de charge` d'une table de hachage est donné par la relation :
 
 .. math::
 
@@ -849,9 +892,11 @@ Certains algorithmes permettent de redimensionner dynamiquement la table de hach
 Chaînage
 --------
 
-Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
+Le :index:`chaînage` ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
 .. figure:: ../assets/figures/dist/data-structure/hash-table.*
+
+    Chaînage d'une table de hashage
 
 Fonction de hachage
 -------------------
@@ -1090,16 +1135,18 @@ Les arbres binaires ont une structure qui permet naturellement la dichotomique. 
 
 Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :
 
-=============  ==========  ===========  ========  ==========  ========  =========
-    Action              Tableau           Liste    Buffer     Arbre     Hash Map
--------------  -----------------------  --------  ----------  --------  ---------
-` `            Statique    Dynamique    chaînée   circulaire
-=============  ==========  ===========  ========  ==========  ========  =========
-Indexing       1            1           n           1         log n     1
-Unshift/Shift  n            n           1           1         log n     n
-Push/Pop       1            1 amorti    1           1         log n     1
-Insert/Delete  n            n           1           n         log n     n
-Search         n            n           n           n         log n     1
-Sort           n log n      n log n     n log n     n log n   1         *n/a*
-=============  ==========  ===========  ========  ==========  ========  =========
+.. table:: Comparaison des performances des structure récursives
+
+    =============  ==========  ===========  ========  ==========  ========  =========
+        Action             Tableau          Liste     Buffer      Arbre     Hash Map
+    -------------  -----------------------  --------  ----------  --------  ---------
+    Nom            Statique    Dynamique    chaînée   circulaire  binaire   linéaire
+    =============  ==========  ===========  ========  ==========  ========  =========
+    Indexing       1            1           n         1           log n     1
+    Unshift/Shift  n            n           1         1           log n     n
+    Push/Pop       1            1 amorti    1         1           log n     1
+    Insert/Delete  n            n           1         n           log n     n
+    Search         n            n           n         n           log n     1
+    Sort           n log n      n log n     n log n   n log n     1         *n/a*
+    =============  ==========  ===========  ========  ==========  ========  =========
 

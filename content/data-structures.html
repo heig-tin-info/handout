@@ -65,13 +65,6 @@
       </a>
     </div>
   
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
-      </a>
-    </div>
-  
 
 
 
@@ -99,13 +92,6 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
          Annexes
-      </a>
-    </div>
-  
-    <div class="nav-item">
-      <a href="../index.html#le-c-pour-l-ingenieur"
-         class="nav-link ">
-         le c pour l'ingénieur
       </a>
     </div>
   
@@ -351,33 +337,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/summary.html" class="reference internal ">Résumé</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">le c pour l'ingénieur</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/colophon.html" class="reference internal ">Colophon</a>
-
-            
-          </li>
-
-        
       </ul>
     </div>
   
@@ -463,7 +422,7 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// Hacked this !</span>
 </pre></div>
 </div>
-<p>Pour s'en protéger on a recours à la compilation séparée (voir chapitre <a href="#id2"><span class="problematic" id="id3">TranslationUnits__</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
+<p>Pour s'en protéger on a recours à la compilation séparée (voir chapitre <a href="#id19"><span class="problematic" id="id20">TranslationUnits__</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Foo</span> <span class="n">Foo</span><span class="p">;</span>
@@ -517,9 +476,10 @@
 <p>Lorsque le nombre d'éléments du tableau devient inférieur du facteur de croissance à la taille effective du tableau, il est possible de faire l'opération inverse, c'est-à-dire réduire la taille allouée. En pratique cette opération est rarement implémentée, car peu efficace (c.f. <a class="reference external" href="https://stackoverflow.com/a/60827815/2612235">cette</a> réponse sur stackoverflow).</p>
 <div class="section" id="anatomie">
 <h3><span class="section-number">21.2.1</span>Anatomie<a class="headerlink" href="#anatomie" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> ou <em>head</em> et la fin du tableau sa <strong>queue</strong> ou <em>tail</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau la complexité n'est pas la même.</p>
+<p id="index-0">Un tableau dynamique est représenté en mémoire comme un contenu séquentiel qui possède un début et une fin. On appelle son début la <strong>tête</strong> ou <em>head</em> et la fin du tableau sa <strong>queue</strong> ou <em>tail</em>. Selon que l'on souhaite ajouter des éléments au début ou à la fin du tableau la complexité n'est pas la même.</p>
 <p>Nous définirons par la suite le vocabulaire suivant:</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Tableau 21.1 </span><span class="caption-text">Vocabulaire des actions sur un tableau dynamique</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 75%" />
 <col style="width: 25%" />
@@ -546,8 +506,9 @@
 </table>
 <p>Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer un élément depuis la tête du tableau, car il est nécessaire ensuite de déplacer chaque élément (l'élément 0 devient l'élément 1, l'élément 1 devient l'élément 2...).</p>
 <p>Un tableau dynamique peut être représenté par la figure suivante :</p>
-<div class="figure align-default">
-<img alt="../_images/dyn-array.svg" src="../_images/dyn-array.svg" /></div>
+<div class="figure align-default" id="id2">
+<img alt="../_images/dyn-array.svg" src="../_images/dyn-array.svg" /><p class="caption"><span class="caption-number">Fig. 21.1 </span><span class="caption-text">Tableau dynamique</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code class="docutils literal notranslate"><span class="pre">malloc</span></code> ne retourne pas la taille de l'espace mémoire alloué mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code class="docutils literal notranslate"><span class="pre">int32_t</span></code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> n'est généralement pas vide mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un d'autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
 <p>Les composants de cette structure de donnée sont donc :</p>
 <ul class="simple">
@@ -556,23 +517,26 @@
 <li><p>Un pointeur sur un entier <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span></code> contenant l'adresse mémoire de l'espace alloué par <code class="docutils literal notranslate"><span class="pre">malloc</span></code>.</p></li>
 <li><p>Un espace mémoire alloué par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> et contenant des données.</p></li>
 </ul>
-<p>L'opération <code class="docutils literal notranslate"><span class="pre">pop</span></code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
-<div class="figure align-default">
-<img alt="../_images/dyn-array-pop.svg" src="../_images/dyn-array-pop.svg" /></div>
+<p id="index-1">L'opération <code class="docutils literal notranslate"><span class="pre">pop</span></code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/dyn-array-pop.svg" src="../_images/dyn-array-pop.svg" /><p class="caption"><span class="caption-number">Fig. 21.2 </span><span class="caption-text">Suppression d'un élément dans un tableau dynamique</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">elements</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>L'opération <code class="docutils literal notranslate"><span class="pre">push</span></code> ajoute un élément à la fin du tableau.</p>
-<div class="figure align-default">
-<img alt="../_images/dyn-array-push.svg" src="../_images/dyn-array-push.svg" /></div>
+<p id="index-2">L'opération <code class="docutils literal notranslate"><span class="pre">push</span></code> ajoute un élément à la fin du tableau.</p>
+<div class="figure align-default" id="id4">
+<img alt="../_images/dyn-array-push.svg" src="../_images/dyn-array-push.svg" /><p class="caption"><span class="caption-number">Fig. 21.3 </span><span class="caption-text">Ajout d'un élément dans un tableau dynamique</span></span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&gt;=</span> <span class="n">capacity</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>L'opération <code class="docutils literal notranslate"><span class="pre">shift</span></code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.</p>
-<div class="figure align-default">
-<img alt="../_images/dyn-array-shift.svg" src="../_images/dyn-array-shift.svg" /></div>
+<div class="figure align-default" id="id5">
+<img alt="../_images/dyn-array-shift.svg" src="../_images/dyn-array-shift.svg" /><p class="caption"><span class="caption-number">Fig. 21.4 </span><span class="caption-text">Suppression du premier élément dans un tableau dynamique</span></span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">capacity</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
@@ -587,9 +551,10 @@
 <span class="n">capacity</span><span class="o">--</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Enfin, l'opération <code class="docutils literal notranslate"><span class="pre">unshift</span></code> ajoute un élément depuis le début du tableau :</p>
-<div class="figure align-default">
-<img alt="../_images/dyn-array-unshift.svg" src="../_images/dyn-array-unshift.svg" /></div>
+<p id="index-3">Enfin, l'opération <code class="docutils literal notranslate"><span class="pre">unshift</span></code> ajoute un élément depuis le début du tableau :</p>
+<div class="figure align-default" id="id6">
+<img alt="../_images/dyn-array-unshift.svg" src="../_images/dyn-array-unshift.svg" /><p class="caption"><span class="caption-number">Fig. 21.5 </span><span class="caption-text">Ajout d'un élément en début d'un tableau dynamique</span></span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">elements</span><span class="p">;</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">--</span><span class="p">)</span>
     <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
 <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
@@ -605,12 +570,13 @@
 </div>
 <div class="section" id="buffer-circulaire">
 <h2><span class="section-number">21.3</span>Buffer circulaire<a class="headerlink" href="#buffer-circulaire" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un tampon circulaire est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (<em>tail</em>) et l'un sur le premier élément (<em>head</em>).</p>
+<p>Un <span class="target" id="index-4"></span>tampon circulaire aussi appelé <span class="target" id="index-5"></span>buffer circulaire ou <span class="target" id="index-6"></span>ring buffer en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (<em>tail</em>) et l'un sur le premier élément (<em>head</em>).</p>
 <p>Lorsqu'un élément est supprimé du buffer, le pointeur de fin est incrémenté. Lorsqu'un élément est ajouté, le pointeur de début est incrémenté.</p>
 <p>Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.</p>
 <p>Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :</p>
-<div class="figure align-default">
-<img alt="../_images/ring.svg" src="../_images/ring.svg" /></div>
+<div class="figure align-default" id="id7">
+<img alt="../_images/ring.svg" src="../_images/ring.svg" /><p class="caption"><span class="caption-number">Fig. 21.6 </span><span class="caption-text">Exemple d'un tampon circulaire</span></span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur <code class="docutils literal notranslate"><span class="pre">%</span></code> en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, <code class="docutils literal notranslate"><span class="pre">-2</span> <span class="pre">%</span> <span class="pre">5</span></code> devrait donner <code class="docutils literal notranslate"><span class="pre">3</span></code>, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est <code class="docutils literal notranslate"><span class="pre">-2</span></code>. Le modulo vrai, mathématiquement correct peut être calculé ainsi :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">A</span> <span class="o">%</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
 </pre></div>
@@ -665,7 +631,7 @@
 </div>
 <div class="section" id="listes-chainees">
 <h2><span class="section-number">21.4</span>Listes chaînées<a class="headerlink" href="#listes-chainees" title="Lien permanent vers ce titre">¶</a></h2>
-<p>On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="math notranslate nohighlight">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="math notranslate nohighlight">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
+<p id="index-7">On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="math notranslate nohighlight">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="math notranslate nohighlight">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
 <p>Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.</p>
 <p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="p">{</span>
@@ -677,8 +643,9 @@
 </pre></div>
 </div>
 <p>Considérons les dix premiers éléments de la séquence de nombre <a class="reference external" href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite répartissons ces valeurs aléatoirement dans notre tableau <cite>elements</cite> déclaré plus haut entre les indices 0 et 19.</p>
-<div class="figure align-default">
-<img alt="../_images/static-linked-list.svg" src="../_images/static-linked-list.svg" /></div>
+<div class="figure align-default" id="id8">
+<img alt="../_images/static-linked-list.svg" src="../_images/static-linked-list.svg" /><p class="caption"><span class="caption-number">Fig. 21.7 </span><span class="caption-text">Construction d'une liste chaîne à l'aide d'un tableau</span></span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="n">current</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="k">struct</span> <span class="n">Element</span> <span class="n">next</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
@@ -730,7 +697,8 @@
 </ul>
 <p>Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.</p>
 <p>Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-number">Tableau 21.2 </span><span class="caption-text">Coût des opérations dans des structures de données récursives</span><a class="headerlink" href="#id9" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 17%" />
@@ -774,12 +742,13 @@
 </table>
 <div class="section" id="liste-simplement-chainee-linked-list">
 <h3><span class="section-number">21.4.1</span>Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Lien permanent vers ce titre">¶</a></h3>
-<p id="index-0">La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
+<p id="index-8">La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
 qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
 <p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
 à la valeur <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
-<div class="figure align-default">
-<img alt="../_images/list.svg" src="../_images/list.svg" /></div>
+<div class="figure align-default" id="id10">
+<img alt="../_images/list.svg" src="../_images/list.svg" /><p class="caption"><span class="caption-number">Fig. 21.8 </span><span class="caption-text">Liste chaînée simple</span></span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -851,13 +820,15 @@ le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <
 </pre></div>
 </div>
 <p>Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :</p>
-<div class="figure align-default">
-<img alt="../_images/loop.svg" src="../_images/loop.svg" /></div>
+<div class="figure align-default" id="id11">
+<img alt="../_images/loop.svg" src="../_images/loop.svg" /><p class="caption"><span class="caption-number">Fig. 21.9 </span><span class="caption-text">Boucle dans une liste chaînée</span></span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?</p>
 <p>Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé <em>algorithme du lièvre et de la tortue</em>. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.</p>
-<div class="figure align-default" id="index-1">
-<img alt="../_images/floyd.svg" src="../_images/floyd.svg" /></div>
+<div class="figure align-default" id="id12">
+<span id="index-9"></span><img alt="../_images/floyd.svg" src="../_images/floyd.svg" /><p class="caption"><span class="caption-number">Fig. 21.10 </span><span class="caption-text">Algorithme de détection de cycle de Robert W. Floyd</span></span><a class="headerlink" href="#id12" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">compute_length</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">size_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -967,8 +938,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <h2><span class="section-number">21.7</span>Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'objectif de cette section n'est pas d'entrer dans les détails des <a class="reference external" href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires</a> dont la théorie requiert un ouvrage dédié, mais de vous sensibiliser à l'existence de ces structures de données qui sont à la base de beaucoup de langage de haut niveau comme C++, Python ou C#.</p>
 <p>L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un <code class="docutils literal notranslate"><span class="pre">left</span></code> et un <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
-<div class="figure align-default" id="id1">
-<img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /><p class="caption"><span class="caption-number">Fig. 21.2 </span><span class="caption-text">Arbre binaire équilibré</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id13">
+<img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /><p class="caption"><span class="caption-number">Fig. 21.11 </span><span class="caption-text">Arbre binaire équilibré</span></span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :</p>
 <ul class="simple">
@@ -1009,7 +980,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <h2><span class="section-number">21.8</span>Heap<a class="headerlink" href="#heap" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La structure de donnée <code class="docutils literal notranslate"><span class="pre">heap</span></code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit &quot;presque complet&quot;, dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est à dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
 <p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-number">Tableau 21.3 </span><span class="caption-text">Opération d'accès à un élément d'un <em>heap</em></span><a class="headerlink" href="#id14" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 37%" />
@@ -1036,12 +1008,13 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </tr>
 </tbody>
 </table>
-<div class="figure align-default">
-<img alt="../_images/heap.svg" src="../_images/heap.svg" /></div>
+<div class="figure align-default" id="id15">
+<img alt="../_images/heap.svg" src="../_images/heap.svg" /><p class="caption"><span class="caption-number">Fig. 21.12 </span><span class="caption-text">Représentation d'un <em>heap</em></span></span><a class="headerlink" href="#id15" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 <div class="section" id="queue-prioritaire">
 <h2><span class="section-number">21.9</span>Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.</p>
+<p id="index-10">Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
    <span class="k">enum</span> <span class="n">SocialStatus</span> <span class="p">{</span>
@@ -1079,8 +1052,9 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <h2><span class="section-number">21.10</span>Tableau de Hachage<a class="headerlink" href="#tableau-de-hachage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les tableaux de hachage (<em>Hash Table</em>) sont une structure particulière dans laquelle une fonction dite de <em>hachage</em> est utilisée pour transformer les entrées en des indices d'un tableau.</p>
 <p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :</p>
-<div class="figure align-default">
-<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /></div>
+<div class="figure align-default" id="id16">
+<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /><p class="caption"><span class="caption-number">Fig. 21.13 </span><span class="caption-text">Tableau de hashage simple</span></span><a class="headerlink" href="#id16" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>Si l'on cherche l'indice correspondant à <code class="docutils literal notranslate"><span class="pre">Ada</span></code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans ce exemple considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Nom    Valeurs ASCII     Somme  Modulo 10</span>
 <span class="go">---    --------------    -----  ---------</span>
@@ -1140,7 +1114,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p>Cette <a class="reference external" href="https://www.youtube.com/watch?v=KyUTuwz_b7Q">vidéo</a> YouTube explique bien le fonctionnement des tableaux de hachage.</p>
 <div class="section" id="collisions">
 <h3><span class="section-number">21.10.1</span>Collisions<a class="headerlink" href="#collisions" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Lorsque la fonction de hachage est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :</p>
+<p id="index-11">Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Sue -&gt; {83, 117, 101} -&gt; 301 -&gt; 4
 Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </pre></div>
@@ -1181,7 +1155,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <div class="section" id="facteur-de-charge">
 <h3><span class="section-number">21.10.2</span>Facteur de charge<a class="headerlink" href="#facteur-de-charge" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le facteur de charge d'une table de hachage est donné par la relation :</p>
+<p>Le <span class="target" id="index-12"></span>facteur de charge d'une table de hachage est donné par la relation :</p>
 <div class="math notranslate nohighlight">
 \[\text{Facteur de charge} = \frac{\text{Nombre total d'éléments}}{\text{Taille de la table}}\]</div>
 <p>Plus ce facteur de charge est élevé, dans le cas du <em>linear probing</em>, moins bon sera performance de la table de hachage.</p>
@@ -1189,9 +1163,10 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <div class="section" id="chainage">
 <h3><span class="section-number">21.10.3</span>Chaînage<a class="headerlink" href="#chainage" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le chaînage ou <em>chaining</em> est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.</p>
-<div class="figure align-default">
-<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /></div>
+<p>Le <span class="target" id="index-13"></span>chaînage ou <em>chaining</em> est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.</p>
+<div class="figure align-default" id="id17">
+<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /><p class="caption"><span class="caption-number">Fig. 21.14 </span><span class="caption-text">Chaînage d'une table de hashage</span></span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
+</div>
 </div>
 <div class="section" id="fonction-de-hachage">
 <h3><span class="section-number">21.10.4</span>Fonction de hachage<a class="headerlink" href="#fonction-de-hachage" title="Lien permanent vers ce titre">¶</a></h3>
@@ -1404,7 +1379,8 @@ int main() {
 </pre></div>
 </div>
 <p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-number">Tableau 21.4 </span><span class="caption-text">Comparaison des performances des structure récursives</span><a class="headerlink" href="#id18" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 14%" />
@@ -1422,13 +1398,13 @@ int main() {
 <th class="head"><p>Arbre</p></th>
 <th class="head"><p>Hash Map</p></th>
 </tr>
-<tr class="row-even"><th class="head"><p>` `</p></th>
+<tr class="row-even"><th class="head"><p>Nom</p></th>
 <th class="head"><p>Statique</p></th>
 <th class="head"><p>Dynamique</p></th>
 <th class="head"><p>chaînée</p></th>
 <th class="head"><p>circulaire</p></th>
-<th class="head"></th>
-<th class="head"></th>
+<th class="head"><p>binaire</p></th>
+<th class="head"><p>linéaire</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1499,7 +1475,7 @@ int main() {
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2019.
-    Mis à jour le 02 août 2020 (version v0.2.7-7-g4be5704).
+    Mis à jour le 03 août 2020 (version v0.2.7-9-gc8e933b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

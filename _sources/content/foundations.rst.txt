@@ -270,17 +270,19 @@ Il existe autant de conventions de nommage qu'il y a de développeurs mais un co
 
 Selon les standards adoptés chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (``_``) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
 
-+--------------+------------------+----------------------+
-| Convention   | Nom français     | Exemple              |
-+==============+==================+======================+
-| *camelcase*  | Casse de chameau | ``userLoginCount``   |
-+--------------+------------------+----------------------+
-| *snakecase*  | Casse de serpent | ``user_login_count`` |
-+--------------+------------------+----------------------+
-| *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
-+--------------+------------------+----------------------+
-| *kebabcase*  | Casse de kebab   | ``user-login-count`` |
-+--------------+------------------+----------------------+
+.. table:: Conventions de nommage
+
+    +--------------+------------------+----------------------+
+    | Convention   | Nom français     | Exemple              |
+    +==============+==================+======================+
+    | *camelcase*  | Casse de chameau | ``userLoginCount``   |
+    +--------------+------------------+----------------------+
+    | *snakecase*  | Casse de serpent | ``user_login_count`` |
+    +--------------+------------------+----------------------+
+    | *pascalcase* | Casse de Pascal  | ``UserLoginCount``   |
+    +--------------+------------------+----------------------+
+    | *kebabcase*  | Casse de kebab   | ``user-login-count`` |
+    +--------------+------------------+----------------------+
 
 Variable métasyntaxiques
 ------------------------
