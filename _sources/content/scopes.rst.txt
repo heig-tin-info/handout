@@ -176,7 +176,7 @@ obligatoire, et n'est pas recommandé en **C99** car son utilisation est implici
 ``register``
 ------------
 
-.. index:: register
+.. index:: classe de stockage; register, register
 
 Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.
 
@@ -185,14 +185,14 @@ Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de 
 ``const``
 ---------
 
-.. index:: const
+.. index:: classe de stockage; const, const
 
 Ce mot clé rends une déclaration non modifiable par le programme lui même. Néanmoins il ne s'agit pas de constantes au sens strict du terme car une variable de type ``const`` pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.
 
 ``static``
 ----------
 
-.. index:: static
+.. index:: classe de stockage; static, static
 
 Elle permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.
@@ -217,7 +217,7 @@ La fonction suivante est *statique* au module dans lequel elle est déclarée. I
 ``volatile``
 ------------
 
-.. index:: volatile
+.. index:: classe de stockage; volatile, volatile
 
 Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.
 
@@ -226,7 +226,7 @@ L'usage de cette classe de stockage réduit les performances d'un programme puis
 ``extern``
 ----------
 
-.. index:: extern
+.. index:: classe de stockage; extern, extern
 
 Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable ``foo`` mais s'attends à ce que cette variable ait été déclarée dans un autre fichier.
 
@@ -237,7 +237,7 @@ Cette classe est utilisée pour signaler que la variable ou la fonction associé
 ``restrict``
 ------------
 
-.. index:: restrict
+.. index:: classe de stockage; restrict, restrict
 
 En C, le mot clé ``restrict``, apparu avec **C99**, es utililsé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui même (p. ex: ``p + 1``).
 

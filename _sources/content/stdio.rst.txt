@@ -146,6 +146,8 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 Exemples
 --------
 
+.. index:: printf; format
+
 .. table:: Exemple de formattage avec :code:`printf`
 
     +---------------------------------+-------------------+--------+
