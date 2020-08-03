@@ -66,7 +66,6 @@ Date : |today|
     appendix/development
     appendix/unit
     appendix/laboratories
-    appendix/summary
 
 .. raw:: latex
 
@@ -75,7 +74,9 @@ Date : |today|
     \listoftables
     \printindex
 
-.. toctree::
 
-    backmatter/bibliography.rst
-    backmatter/colophon.rst
+.. include:: backmatter/glossary.rst
+
+.. include:: backmatter/bibliography.rst
+
+.. include:: backmatter/colophon.rst

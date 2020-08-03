@@ -178,21 +178,25 @@ Oui très exactement, les deux codes sont similaires, mais l'un est plus éléga
 
 L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai dire, les deux concepts sont interchangeables :
 
-==============  ========  ============  ============  ================
-Élement         Premier   Deuxième      Troisième     n ième
-==============  ========  ============  ============  ================
-Accès tableau   ``a[0]``  ``a[1]``      ``a[2]``      ``a[n - 1]``
-Accès pointeur  ``*a``    ``*(a + 1)``  ``*(a + 2)``  ``*(a + n - 1)``
-==============  ========  ============  ============  ================
+.. table:: Arithmétique sur tableau unidimensionnel
 
-De même, l'exercice peut être répété avec des tabelaux à deux dimensions :
+    ==============  ========  ============  ============  ================
+    Élement         Premier   Deuxième      Troisième     n ième
+    ==============  ========  ============  ============  ================
+    Accès tableau   ``a[0]``  ``a[1]``      ``a[2]``      ``a[n - 1]``
+    Accès pointeur  ``*a``    ``*(a + 1)``  ``*(a + 2)``  ``*(a + n - 1)``
+    ==============  ========  ============  ============  ================
 
-==============  ===============  ===============  ===================
-Élement         Premier          Deuxième         n ligne m colonne
-==============  ===============  ===============  ===================
-Accès tableau   ``a[0][0]``      ``a[1][1]``      ``a[n - 1][m - 1]``
-Accès pointeur  ``*(*(a+0)+0)``	 ``*(*(a+1)+1)``  ``*(*(a+i-1)+j-1)``
-==============  ===============  ===============  ===================
+De même, l'exercice peut être répété avec des tableaux à deux dimensions :
+
+.. table:: Arithmétique sur tableau bidimensionnel
+
+    ==============  ===============  ===============  ===================
+    Élement         Premier          Deuxième         n ligne m colonne
+    ==============  ===============  ===============  ===================
+    Accès tableau   ``a[0][0]``      ``a[1][1]``      ``a[n - 1][m - 1]``
+    Accès pointeur  ``*(*(a+0)+0)``  ``*(*(a+1)+1)``  ``*(*(a+i-1)+j-1)``
+    ==============  ===============  ===============  ===================
 
 Pointeur et chaînes de caractères
 =================================
@@ -521,13 +525,17 @@ Cette `règle <http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html>`__ est une recette
 
 Il faut tout d'abord lire :
 
-+---------+-------------------------+-------------------+
-| Symbole | Traduction              | Direction         |
-+=========+=========================+===================+
-| ``*``   | ``pointeur sur``        | Toujours à gauche |
-| ``[]``  | ``tableau de``          | Toujours à droite |
-| ``()``  | ``fonction retournant`` | Toujours à droite |
-+---------+-------------------------+-------------------+
+.. table:: Règles gauche droite
+
+    +---------+-------------------------+-------------------+
+    | Symbole | Traduction              | Direction         |
+    +=========+=========================+===================+
+    | ``*``   | ``pointeur sur``        | Toujours à gauche |
+    +---------+-------------------------+-------------------+
+    | ``[]``  | ``tableau de``          | Toujours à droite |
+    +---------+-------------------------+-------------------+
+    | ``()``  | ``fonction retournant`` | Toujours à droite |
+    +---------+-------------------------+-------------------+
 
 Première étape
 --------------
