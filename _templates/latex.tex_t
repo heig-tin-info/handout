@@ -94,6 +94,12 @@
   \clearpage
 }
 
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
 \newcommand\frontpage{
     \begin{localsize}{12}
     \thispagestyle{empty}
@@ -144,11 +150,12 @@
 
 <%= makeindex %>
 \begin{document}
-\frontpage
-
-\pagecolor{white}
-\nopagecolor
-\color{black}
+\frontpage\afterpage{
+    \nopagecolor
+    \color{black}
+    \pagecolor{white}
+    \blankpage
+}
 
 <%= shorthandoff %>
 
