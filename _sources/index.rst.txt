@@ -19,6 +19,10 @@ La version actuelle : |release|
 
 Date : |today|
 
+.. only:: latex
+
+    .. include:: frontmatter/introduction.rst
+
 .. raw:: latex
 
     \mainmatter

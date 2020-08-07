@@ -331,8 +331,7 @@ La phase de *preprocessing* permet de générer un fichier intermédiaire en lan
 
 - Le remplacement des définitions par leurs valeurs (``#define``),
 - Le remplacement des fichiers inclus par leurs contenus (``#include``),
-- La conservation ou la suppression des zones de compilation
-   conditionnelles (``#if/#ifdef/#elif/#else/#endif``).
+- La conservation ou la suppression des zones de compilation conditionnelles (``#if/#ifdef/#elif/#else/#endif``).
 - La suppression des commentaires (``/* ... */``, ``// ...``)
 
 Avec ``gcc`` il est possible de demander que l'exécution du préprocesseur en utilisant l'option ``-E``.
