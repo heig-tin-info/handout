@@ -35,7 +35,7 @@ templates_path = ['_templates']
 language = 'fr'
 smartquotes = False
 
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'summary/*.rst']
 
 html_theme = 'heigvd'
 html_secnumber_suffix = '  '
