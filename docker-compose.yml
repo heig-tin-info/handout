@@ -2,7 +2,7 @@ version: "3"
 
 services:
   latex:
-    image: nowox/latex:2.0
+    build: .
     container_name: latexmk
     volumes:
       - .:/home/latex

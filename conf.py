@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath("./_ext"))
 
 project = 'Le C pour l\'ingenieur'
 author = 'Prof. Yves Chevallier'
-copyright = 'HEIG-VD(c) 2019'
+copyright = 'HEIG-VD(c) 2020'
 release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
 
 extensions = [
@@ -20,6 +20,7 @@ extensions = [
     'sphinx.ext.todo',
 #    'sphinxcontrib.bibtex',
     'sphinxcontrib.rsvgconverter',
+    'listings',
     'exercices',
     'unicode',
     'appendix',
@@ -38,14 +39,9 @@ smartquotes = False
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-html_static_path = ['_static']
-
 html_theme = 'heigvd'
 html_secnumber_suffix = '  '
 html_last_updated_fmt = r'%d %b %Y (version ' + release + ')'
-html_css_files = [
-    'custom.css'
-]
 
 numfig = True
 
@@ -69,7 +65,6 @@ latex_engine = 'xelatex'
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '10pt',
-    'wrapperclass': 'manual',
     'babel': r'\usepackage[french]{babel}',
     'inputenc': '',
     'utf8extra': '',
@@ -77,136 +72,7 @@ latex_elements = {
     'fncychap': '',
     'printindex': '',
     'maketitle': r'\maketitle',
-    'preamble': r'''
-
-% Disable the ugly colouring of titles. Why does Sphinx do this?
-\definecolor{TitleColor}{rgb}{0,0,0}
-\definecolor{InnerLinkColor}{rgb}{0,0,0}
-
-\usepackage{fontspec}
-\setmonofont{DejaVu Sans Mono}
-
-\usepackage{colortbl}
-\usepackage{emptypage}
-\usepackage{xcolor,graphicx}
-\usepackage[xparse,skins,breakable]{tcolorbox}
-
-\newcommand\documentTitle{Le C pour l'ingénieur}
-\newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
-height from=1.3cm to 16cm,%
-overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
-    \includegraphics[width=2em]{../../assets/icons/hint.pdf}}; }}
-
-\renewenvironment{sphinxnote}[1]
-    {\begin{hint}{#1}}
-    {\end{hint}}
-
-% Change code-block style
-\colorlet{aaa}{lightgray}
-\colorlet{foobar}{lightgray!8}
-\sphinxsetup{%
-  VerbatimColor={named}{foobar},
-  verbatimwithframe=true,
-  VerbatimBorderColor={named}{aaa},
-  verbatimborder=0.3mm,
-  OuterLinkColor={rgb}{0.55,0.06,0.09}
-}
-
-% Define header and footers
-\pagestyle{fancy}
-
-\fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[CE]{\uppercase\expandafter{\documentTitle}}
-\fancyhead[CO]{\leftmark}
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Chapter pages
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[LE,RO]{\thepage}
-    \fancyfoot{}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-
-% Better looking descriptions... leftmargin must be tweaked if needed...
-\usepackage{enumitem}
-\setlist[description]{labelindent=0pt,style=multiline,leftmargin=4cm}
-
-% Redefine to remove the buggy pagenumbering
-\makeatletter
-\renewcommand{\sphinxtableofcontents}{%
-  %\pagenumbering{roman}% <-- Not wanted
-  \begingroup
-    \parskip \z@skip
-    \sphinxtableofcontentshook
-    \tableofcontents
-  \endgroup
-  % before resetting page counter, let's do the right thing.
-  \if@openright\cleardoublepage\else\clearpage\fi
-  %\pagenumbering{arabic}% <-- Not wanted
-}
-\makeatother
-
-% Index does not use ttfamily, make bigletters bold
-\def\sphinxstyleindexentry   #1{#1}
-\def\sphinxstyleindexlettergroup #1%
-    {{\Large\textbf{#1}}\nopagebreak\vspace{1mm}}
-
-% Maketitle
-\usepackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
-\def\department{Département des Techniques de l'Ingénieur (TIN)}
-
-\makeatletter
-\def\maketitle{                   % Prints the title page
-\thispagestyle{empty}
-\begin{textblock}{20}(10,10)
-%    \includegraphics[height=2.5cm]{heig-vd-small.pdf}
-\end{textblock}
-\vspace{7cm}
-\begin{center}
-  {\huge
-  \lineskip 10ex
-  \bfseries\@title\par}                  %% The Title
-  \vskip0pt plus1fill\relax
-  %\rule{75mm}{0.5pt}
-  \vspace{3cm}
-  \Large
-  Cours d'informatique pour étudiants Bachelor première année
-  \par
-  \emph{\department}
-  \par
-  \vspace{2cm}
-  \vskip0pt plus2fill\relax
-  \emph{par}
-  \par%\vskip0pt plus2fill\relax
-  \@author                      %% Author
-  \par\vskip0pt plus1fill\relax
-  \par
-  \py@release
-  %% \rule{37.5mm}{0.5pt}
-\end{center}
-\vspace{5cm}
-
-\vskip0pt plus1fill\relax
-
-\begin{center}
-  \large
-  \par\vskip0pt plus2fill\relax
-  Haute École d'Ingénierie et de Gestion du canton de Vaud\\
-  Route de Cheseaux, CH-1400 Yverdon-les-Bains, Suisse
-  \par%\vskip0pt plus2fill\relax
-  \today                       %% Year
-  \par
-\end{center}
-\mbox{}\relax}
-\makeatother
-'''
+    'preamble': open('_templates/preamble.tex').read()
 }
 
 latex_logo = 'assets/images/heig-vd-small.pdf'

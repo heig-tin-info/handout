@@ -12,7 +12,7 @@ Add directives for writing exercises and solutions. This extension supports:
 To summarize:
 
     - Exercises are automatically numbered "Exercise 1.1" (section number + exercise number)
-    - If a `.. all-exercises::`, the exercises are mentionned where, the `exercise` directive
+    - If a `.. all-exercises::`, the exercises is mentionned, the `exercise` directive
       is replaced with a reference to the exercise
     - Solutions can be hidden with `:hidden:`
 """
