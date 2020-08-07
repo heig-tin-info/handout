@@ -1,17 +1,15 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# http://www.sphinx-doc.org/en/master/config
 import os
 import sys
 import subprocess
+import datetime
 
+now = datetime.datetime.now()
 sys.path.append(os.path.abspath("./_ext"))
 
 project = 'Le C pour l\'ingenieur'
 author = 'Prof. Yves Chevallier'
-copyright = 'HEIG-VD(c) 2020'
+copyright = f'HEIG-VD(c) {now.year}'
 release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
 
 extensions = [
