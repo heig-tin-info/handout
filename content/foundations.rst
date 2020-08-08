@@ -98,51 +98,59 @@ Le langage de programmation C tel que défini par C11 comporte environ 37 mots c
 .. hlist::
     :columns: 4
 
-    - ``auto``
-    - ``do``
-    - ``goto``
-    - ``return``
-    - ``typedef``
-    - ``_Complex``
-    - ``break``
-    - ``double``
-    - ``if``
-    - ``short``
-    - ``union``
-    - ``_Imaginary``
-    - ``case``
-    - ``else``
-    - ``inline``
-    - ``signed``
-    - ``unsigned``
-    - ``char``
-    - ``enum``
-    - ``int``
-    - ``sizeof``
-    - ``void``
-    - ``const``
-    - ``extern``
-    - ``long``
-    - ``static``
-    - ``volatile``
-    - ``continue``
-    - ``float``
-    - ``register``
-    - ``struct``
-    - ``while``
-    - ``default``
-    - ``for``
-    - ``restrict``
-    - ``switch``
     - ``_Bool``
+    - ``_Complex``
+    - ``_Imaginary``
+    - ``auto``
+    - ``break``
+    - ``case``
+    - ``char``
+    - ``const``
+    - ``continue``
+    - ``default``
+    - ``do``
+    - ``double``
+    - ``else``
+    - ``enum``
+    - ``extern``
+    - ``float``
+    - ``for``
+    - ``goto``
+    - ``if``
+    - ``inline``
+    - ``int``
+    - ``long``
+    - ``register``
+    - ``restrict``
+    - ``return``
+    - ``short``
+    - ``signed``
+    - ``sizeof``
+    - ``static``
+    - ``struct``
+    - ``switch``
+    - ``typedef``
+    - ``union``
+    - ``unsigned``
+    - ``void``
+    - ``volatile``
+    - ``while``
 
 Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
-.. code-block:: c
+.. hlist::
+    :columns: 4
 
-    auto        restrict     short        inline
-    _Bool       register     goto         _imaginary
-    long
+    - ``_Bool``
+    - ``_imaginary``
+    - ``auto``
+    - ``goto``
+    - ``inline``
+    - ``long``
+    - ``register``
+    - ``restrict``
+    - ``short``
+
 
 Notons que les mots clés ``true`` et ``false`` décrits à la :numref:`booleans` ne sont pas standardisés en C mais ils le sont en C++.
 
