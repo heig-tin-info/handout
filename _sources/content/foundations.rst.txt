@@ -95,15 +95,46 @@ Le langage de programmation C tel que défini par C11 comporte environ 37 mots c
 
 .. index:: auto, do, goto, return, typedef, _Complex , break, double, if, short, union, _Imaginary , case, else, inline, signed, unsigned , char, enum, int, sizeof, void , const, extern, long, static, volatile , continue, float, register, struct, while , default, for, restrict, switch, _Bool
 
-.. code-block:: c
+.. hlist::
+    :columns: 4
 
-    auto        do           goto         return      typedef       _Complex
-    break       double       if           short       union         _Imaginary
-    case        else         inline       signed      unsigned
-    char        enum         int          sizeof      void
-    const       extern       long         static      volatile
-    continue    float        register     struct      while
-    default     for          restrict     switch      _Bool
+    - ``auto``
+    - ``do``
+    - ``goto``
+    - ``return``
+    - ``typedef``
+    - ``_Complex``
+    - ``break``
+    - ``double``
+    - ``if``
+    - ``short``
+    - ``union``
+    - ``_Imaginary``
+    - ``case``
+    - ``else``
+    - ``inline``
+    - ``signed``
+    - ``unsigned``
+    - ``char``
+    - ``enum``
+    - ``int``
+    - ``sizeof``
+    - ``void``
+    - ``const``
+    - ``extern``
+    - ``long``
+    - ``static``
+    - ``volatile``
+    - ``continue``
+    - ``float``
+    - ``register``
+    - ``struct``
+    - ``while``
+    - ``default``
+    - ``for``
+    - ``restrict``
+    - ``switch``
+    - ``_Bool``
 
 Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
