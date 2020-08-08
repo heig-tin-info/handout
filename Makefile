@@ -31,4 +31,7 @@ pull:
 clean:
 	$(RM) -rf _build _static
 
-.PHONY: all clean artifacts dist pull
+# Because sphinx calls it...
+all-pdf:
+
+.PHONY: all clean artifacts dist pull all-pdf

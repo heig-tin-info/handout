@@ -23,6 +23,7 @@ extensions = [
     'unicode',
     'appendix',
     'gtag',
+    'hlist',
     'span-sectnum'
 ]
 
