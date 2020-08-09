@@ -812,7 +812,7 @@
 %% FOOTNOTES
 %
 % Support large numbered footnotes in minipage
-% But now obsolete due to systematic use of \savenotes/\spewnotes
+% But now obsolete due to systematic use of \ssavenotes/\spewnotes
 % when minipages are in use in the various macro definitions next.
 \def\thempfootnote{\arabic{mpfootnote}}
 
@@ -1462,7 +1462,7 @@
    % will put top part of frame on this baseline.
    \def\FrameHeightAdjust {\baselineskip}%
    % use package footnote to handle footnotes
-   \savenotes
+   \ssavenotes
    \trivlist\item\noindent
     % use a minipage if we are already inside a framed environment
     \ifspx@inframed\begin{minipage}{\linewidth}\fi
@@ -1549,7 +1549,7 @@
        \fboxsep\FrameSep \fboxrule\FrameRule
        \fcolorbox{spx@notice@bordercolor}{spx@notice@bgcolor}{##1}%
        \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
-   \savenotes
+   \ssavenotes
    % use a minipage if we are already inside a framed environment
    \ifspx@inframed
        \noindent\begin{minipage}{\linewidth}
@@ -1714,16 +1714,16 @@
 %% FROM DOCTUTILS LATEX WRITER
 %
 % The following is stuff copied from docutils' latex writer.
-%
-\newcommand{\optionlistlabel}[1]{\normalfont\bfseries #1 \hfill}% \bf deprecated
-\newenvironment{optionlist}[1]
+% Clash optionlist and ooptionlist
+\newcommand{\ooptionlistlabel}[1]{\normalfont\bfseries #1 \hfill}% \bf deprecated
+\newenvironment{ooptionlist}[1]
 {\begin{list}{}
   {\setlength{\labelwidth}{#1}
    \setlength{\rightmargin}{1cm}
    \setlength{\leftmargin}{\rightmargin}
    \addtolength{\leftmargin}{\labelwidth}
    \addtolength{\leftmargin}{\labelsep}
-   \renewcommand{\makelabel}{\optionlistlabel}}
+   \renewcommand{\makelabel}{\ooptionlistlabel}}
 }{\end{list}}
 
 \newlength{\lineblockindentation}

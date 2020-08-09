@@ -47,7 +47,8 @@ numfig = True
 pygments_style = "colorful"
 
 latex_additional_files = [
-    '_templates/sphinx.sty'
+    '_templates/sphinx.sty',
+    '_templates/footnotehyper-sphinx.sty'
 ]
 
 latex_docclass = {
