@@ -18,6 +18,7 @@ To summarize:
 """
 from collections import OrderedDict
 import os
+from os import path
 import sphinx.locale
 from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
@@ -29,8 +30,9 @@ from sphinx.util import logging, texescape
 from sphinx.util.template import LaTeXRenderer
 from sphinx.locale import get_translation
 
-MESSAGE_CATALOG_NAME = 'exercises'  # name of *.pot, *.po and *.mo files
-_ = get_translation(MESSAGE_CATALOG_NAME)
+package_dir = path.abspath(path.dirname(__file__))
+
+_ = get_translation(__name__)
 
 logger = logging.getLogger(__name__)
 
@@ -364,6 +366,8 @@ def depart_latex_exercise_title(self, node):
 def setup(app):
     no_visits = (no_visit, no_visit)
 
+    app.add_message_catalog(__name__, path.join(package_dir, 'locales'))
+
     app.add_enumerable_node(exercise, 'exercise',
                             html=(visit_html_exercise, depart_html_exercise),
                             latex=(visit_latex_exercise, depart_latex_exercise),
@@ -394,10 +398,6 @@ def setup(app):
 
     app.add_latex_package('tocloft')
     app.add_latex_package('xparse')
-
-    # package_dir = os.path.abspath(os.path.dirname(__file__))
-    # locale_dir = os.path.join(package_dir, 'locales')
-    # app.add_message_catalog(MESSAGE_CATALOG_NAME, locale_dir)
 
     return {
         'version': '0.1',

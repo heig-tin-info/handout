@@ -19,7 +19,7 @@ extensions = [
 #    'sphinxcontrib.bibtex',
     'sphinxcontrib.rsvgconverter',
     'listings',
-    'exercices',
+    'exercises',
     'unicode',
     'appendix',
     'gtag',
