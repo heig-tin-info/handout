@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>Solution des exercices</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="Bibliographie" href="bibliography.html" />
+  <link rel="prev" title="24 Philosophie" href="../content/philosophy.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Références
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Références
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Table des matières</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../content/introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/composite-datatypes.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/files.html" class="reference internal ">Les  fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/translation-units.html" class="reference internal ">Compilation séparée</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/data-structures.html" class="reference internal ">Structures de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Solution des exercices</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#solution-des-exercices" class="reference internal">Solution des exercices</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/bash.html" class="reference internal ">Ligne de commande</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Solution des exercices</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../content/philosophy.html"
+       title="Chapitre précédent">← 24  Philosophie</a>
+  </li>
+  <li class="next">
+    <a href="bibliography.html"
+       title="Chapitre suivant">Bibliographie →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="solution-des-exercices">
+<h1>Solution des exercices<a class="headerlink" href="#solution-des-exercices" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="solution-chapter-1">
+<h2>Chapter 1<a class="headerlink" href="#solution-chapter-1" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/introduction.html#exercise-0"><strong>Exercise 1.1</strong></a></p>
+<p>Au paragraphe §5.2.4.2.1-1 on peut lire que <code class="docutils literal notranslate"><span class="pre">ULLONG_MAX</span></code> est encodé sur 64-bits et donc que sa valeur est <span class="math notranslate nohighlight">\(2^{64}-1\)</span> donc <cite>18'446'744'073'709'551'615</cite>.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-1"><strong>Exercise 1.2</strong></a></p>
+<p><a class="reference external" href="https://www.eclipse.org/ide/">Eclipse</a> est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-2"><strong>Exercise 1.3</strong></a></p>
+<p>Il suffit pour cela de se rendre sur le site de <a class="reference external" href="https://stackoverflow.com/tags/c">Stackoverflow</a> et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.</p>
+<p>Seriez-vous capable de répondre à une question posée?</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-3"><strong>Exercise 1.4</strong></a></p>
+<p>Brian Kernighan et Dennis Ritchie en 1972</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-4"><strong>Exercise 1.5</strong></a></p>
+<p>Le standard industriel, malgré que nous soyons en 2019 est toujours
+<strong>ISO/IEC 9899:1999</strong> car peu de changements majeurs ont été apporté
+au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
+que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-5"><strong>Exercise 1.6</strong></a></p>
+<p>C supporte les paradigmes impératifs, structurés et procédural.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-6"><strong>Exercise 1.7</strong></a></p>
+<p>La programmation impérative consiste en des séquences de commandes ordonnées.
+C'est à dire que les séquences sont exécutées dans un ordre défini les unes à la suite de autres.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-7"><strong>Exercise 1.8</strong></a></p>
+<p>Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une <em>coulée de lave</em>
+il est important qu'un programme soit testé et soumis à une équipe de <em>beta-testing</em> qui
+s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
+facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.</p>
+<p>Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement mais être difficile à l'utilisation car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.</p>
+<p><a class="reference external" href="../content/introduction.html#exercise-8"><strong>Exercise 1.9</strong></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notament dans cet ouvrage pour montrer que le contenu du fichier <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> est bel et bien celui attendu.</p>
+<div class="section" id="solution-chapter-2">
+<h2>Chapter 2<a class="headerlink" href="#solution-chapter-2" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="solution-chapter-3">
+<h2>Chapter 3<a class="headerlink" href="#solution-chapter-3" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/foundations.html#exercise-0"><strong>Exercise 3.1</strong></a></p>
+<p>Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne <a class="reference external" href="https://regex101.com/r/cmxaic/1">regex101.com</a>.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2_pi</span></code> <strong>invalide</strong> car commence par un chiffre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_2</span></code> <strong>valide</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x___3</span></code> <strong>valide</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">2</span></code> <strong>invalide</strong> car comporte un espace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positionRobot</span></code> <strong>valide</strong>, notation <em>camelCase</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">piece_presente</span></code> <strong>valide</strong>, notation <em>snake_case</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_commande_vanne</span></code> <strong>valide</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-courant_sortie</span></code> <strong>invalide</strong>, un identificateur ne peut pas commencer par le signe <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_alarme_</span></code> <strong>valide</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">panne#2</span></code> <strong>invalide</strong>, le caractère <code class="docutils literal notranslate"><span class="pre">#</span></code> n'est pas autorisé</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> <strong>invalide</strong>, <code class="docutils literal notranslate"><span class="pre">int</span></code> est un mot réservé du langage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">défaillance</span></code> <strong>invalide</strong>, uniquement les caractères imprimable ASCII sont autorisés</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f'</span></code> <strong>invalide</strong> l'apostrophe n'est pas autorisée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INT</span></code> <strong>valide</strong></p></li>
+</ol>
+<p><a class="reference external" href="../content/foundations.html#exercise-1"><strong>Exercise 3.2</strong></a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 39%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ligne</p></th>
+<th class="head"><p>Instruction</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code></p></td>
+<td><p>5</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">c;</span></code></p></td>
+<td><p>5</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">a;</span></code></p></td>
+<td><p>5</p></td>
+<td><p>?</p></td>
+<td><p>5</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">1;</span></code></p></td>
+<td><p>6</p></td>
+<td><p>?</p></td>
+<td><p>5</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">++c;</span></code></p></td>
+<td><p>6</p></td>
+<td><p>?</p></td>
+<td><p>6</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">x;</span></code></p></td>
+<td><p>6</p></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">2.</span> <span class="pre">=</span> <span class="pre">7.;</span></code></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="../content/foundations.html#exercise-3"><strong>Exercise 3.4</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>p ≡ 2
+x ≡ 7
+n ≡ 7
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/foundations.html#exercise-4"><strong>Exercise 3.5</strong></a></p>
+<p>Selon la table de priorité des opérateurs, on note :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> priorité 1 associativité à droite</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> priorité 3 associativité à gauche</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> priorité 4 associativité à droite</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> priorité 14 associativité à gauche</p></li>
+</ul>
+<p>En revanche rien n'est dit sur les <a class="reference external" href="https://en.wikipedia.org/wiki/Sequence_point">point de séquences</a>. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.</p>
+<p>Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">(k</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(j</span> <span class="pre">=</span> <span class="pre">3)</span></code></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">2</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">(k</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(j</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">j</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">+</span> <span class="pre">k</span> <span class="pre">*</span> <span class="pre">4</span></code></dt><dd><ul class="simple">
+<li><p>Résultat indéterminé</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">(i</span> <span class="pre">=</span> <span class="pre">3)</span> <span class="pre">+</span> <span class="pre">(k</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(j</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">(k</span> <span class="pre">=</span> <span class="pre">j</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(j</span> <span class="pre">=</span> <span class="pre">k</span> <span class="pre">-</span> <span class="pre">1)</span></code></dt><dd><ul class="simple">
+<li><p>Résultat indéterminé</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference external" href="../content/foundations.html#exercise-5"><strong>Exercise 3.6</strong></a></p>
+<p>Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nelems</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Un consensus assez bien établi est qu'une variable commencant par <code class="docutils literal notranslate"><span class="pre">n</span></code> peut signifier
+<em>number of</em>.</p>
+<div class="section" id="solution-chapter-4">
+<h2>Chapter 4<a class="headerlink" href="#solution-chapter-4" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/numeration.html#exercise-0"><strong>Exercise 4.1</strong></a></p>
+<p>Avec une base binaire 2 et 10 bits, le total représentable est :</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[2^10 = 1024\]</div>
+</div></blockquote>
+<p>Soit les nombres de 0 à 1023.</p>
+<p><a class="reference external" href="../content/numeration.html#exercise-1"><strong>Exercise 4.2</strong></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>0xaaaa    ≡ 43690
+0b1100101 ≡   101
+0x1010    ≡  4112
+129       ≡   129 (n&#39;est-ce pas ?)
+0216      ≡   142
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/numeration.html#exercise-2"><strong>Exercise 4.3</strong></a></p>
+<p>Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>0 ○ (GA)
+1 − (BU)
+2 ⨼ (ZO)
+3 ◿ (MEU)
+</pre></div>
+</div>
+<p>Le nombre d'entrée <code class="docutils literal notranslate"><span class="pre">−⨼O◿O</span></code> peut ainsi s'exprimer :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>−⨼○◿○ ≡ 12030₄
+</pre></div>
+</div>
+<p>En appliquant la méthode du cours on obtient :</p>
+<div class="math notranslate nohighlight">
+\[1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}\]</div>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>Depuis un terminal Python vous pouvez simplement utiliser <code class="docutils literal notranslate"><span class="pre">int(&quot;12030&quot;,</span> <span class="pre">4)</span></code></p>
+</div>
+<p><a class="reference external" href="../content/numeration.html#exercise-3"><strong>Exercise 4.4</strong></a></p>
+<ol class="arabic">
+<li><dl>
+<dt>1 + 51</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>       ¹¹
+         1₂
++   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+----------
+    110100₂
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>51 - 7</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  …¹¹¹  ¹¹
+  …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
++ …111111001₂  (complément à deux) 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+ -----------
+  …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>204 + 51</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    11001100₂
++     110011₂
+ -----------
+  …011111111₂  (2⁸ - 1 ≡ 255)
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>204 + 204 (sur 8-bits)</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   ¹|¹  ¹¹
+    |11001100₂
++   |11001100₂
+ ---+--------
+   1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference external" href="../content/numeration.html#exercise-4"><strong>Exercise 4.5</strong></a></p>
+<p>Si l'on applique De Morgan (<span class="math notranslate nohighlight">\(\bar{XY} = \bar{X} + \bar{Y}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[D \cdot E + \bar{D} + \bar{E}\]</div>
+<p><a class="reference external" href="../content/numeration.html#exercise-5"><strong>Exercise 4.6</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">^=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">^=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">^=</span> <span class="n">b</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-5">
+<h2>Chapter 5<a class="headerlink" href="#solution-chapter-5" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="solution-chapter-6">
+<h2>Chapter 6<a class="headerlink" href="#solution-chapter-6" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/datatype.html#exercise-7"><strong>Exercise 6.8</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>    <span class="c1">// Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>  <span class="c1">// Incorrect, valeur signée dans un conteneur non signé</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+<span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>    <span class="c1">// Incorrect, valeur signée dans un conteneur non signé</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/datatype.html#exercise-8"><strong>Exercise 6.9</strong></a></p>
+<p>p ≡ 2
+x = 7.5
+n = 8</p>
+<p><a class="reference external" href="../content/datatype.html#exercise-9"><strong>Exercise 6.10</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">))</span>
+    <span class="o">||</span>
+    <span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="mi">50</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="o">||</span>
+    <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">60</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ol>
+<p><a class="reference external" href="../content/datatype.html#exercise-12"><strong>Exercise 6.13</strong></a></p>
+<p>Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">10000000.</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<span class="go">10000000.000000</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/datatype.html#exercise-15"><strong>Exercise 6.16</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/datatype.html#exercise-16"><strong>Exercise 6.17</strong></a></p>
+<ol class="arabic">
+<li><p>Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.</p></li>
+<li><p>En pratique, il obtient un entier, c'est à dire toujours 0.</p></li>
+<li><dl>
+<dt>La promotion implicite des entiers peut être découpée comme suit :</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span> <span class="o">-</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">bad_parts</span><span class="p">;</span>
+<span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">numerator</span> <span class="o">/</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">inspected_parts</span><span class="p">;</span>
+<span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">percentage_good_parts</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>La division est donc appliquée à des entiers et non des flottnts.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Une possible correction consiste à forcer le type d'un des membres de la division :</dt><dd></dd>
+</dl>
+</li>
+</ol>
+<div class="section" id="solution-chapter-7">
+<h2>Chapter 7<a class="headerlink" href="#solution-chapter-7" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/control-structures.html#exercise-8"><strong>Exercise 7.9</strong></a></p>
+<ol class="arabic">
+<li><dl>
+<dt>Le cas est circonscrit à un interval de valeur donnée, le <code class="docutils literal notranslate"><span class="pre">if</span></code> est approprié:</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">min</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Dans ce cas un <cite>switch</cite> semble le plus approprié</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span> <span class="o">:</span>
+        <span class="cm">/* ... */</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">1</span> <span class="o">:</span>
+        <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>À reformuler <em>tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte</em>. On se retrouve donc avec une boucle à deux conditions de sorties.</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">pos</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pos</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// Not found</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Found `c` in `str` at position `pos`</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> semble ici la plus adaptée</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Il est nécessaire ici d'assurer au moins un tour de boucle :</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">size_t</span> <span class="n">max_line_length</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">format</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="n">snprintf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">format</span><span class="p">),</span> <span class="s">&quot;%%%zus&quot;</span><span class="p">,</span> <span class="n">max_line_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">max_lines</span><span class="p">][</span><span class="n">max_line_length</span><span class="p">];</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d. &quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
+    <span class="n">strcmp</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="s">&quot;STOP&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+    <span class="o">++</span><span class="n">line</span> <span class="o">&lt;</span> <span class="n">max_lines</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference external" href="../content/control-structures.html#exercise-10"><strong>Exercise 7.11</strong></a></p>
+<p>La priorité de l'opérateur unitaire <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> est plus élevée que <code class="docutils literal notranslate"><span class="pre">==</span></code> ce qui se traduit par :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">bits</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Le développeur voulait probablement appliquer le masque à <code class="docutils literal notranslate"><span class="pre">x</span></code> puis le comparer au motif <code class="docutils literal notranslate"><span class="pre">bits</span></code>. La bonne réponse devrait alors être :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="o">==</span> <span class="n">bits</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-8">
+<h2>Chapter 8<a class="headerlink" href="#solution-chapter-8" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="solution-chapter-9">
+<h2>Chapter 9<a class="headerlink" href="#solution-chapter-9" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-0"><strong>Exercise 9.1</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">char</span> <span class="o">*</span><span class="n">words</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Albédo&quot;</span><span class="p">,</span> <span class="s">&quot;Bigre&quot;</span><span class="p">,</span> <span class="s">&quot;Maringouin&quot;</span><span class="p">,</span> <span class="s">&quot;Pluripotent&quot;</span><span class="p">,</span> <span class="s">&quot;Entrechat&quot;</span><span class="p">,</span> <span class="s">&quot;Caracoler&quot;</span> <span class="s">&quot;Palinodie&quot;</span><span class="p">,</span> <span class="s">&quot;Sémillante&quot;</span><span class="p">,</span> <span class="s">&quot;Atavisme&quot;</span><span class="p">,</span> <span class="s">&quot;Cyclothymie&quot;</span><span class="p">,</span> <span class="s">&quot;Idiosyncratique&quot;</span><span class="p">,</span> <span class="s">&quot;Entéléchie&quot;</span><span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="n">puts</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">))]);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-3"><strong>Exercise 9.4</strong></a></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 2, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1. <code class="docutils literal notranslate"><span class="pre">j</span></code> n'est pas lue car arrêt prématuré sur <code class="docutils literal notranslate"><span class="pre">,</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: -1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: -2, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 0. <code class="docutils literal notranslate"><span class="pre">i</span></code> n'est pas lue car arrêt prématuré sur <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 2, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 23, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1234, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 56, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 123, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 789, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 2, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 0, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 23, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 18, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 42, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: 10, <code class="docutils literal notranslate"><span class="pre">j</span></code>: 1, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 2. Le chiffre 8 interdit en octal provoque un arrêt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: <code class="docutils literal notranslate"><span class="pre">123.</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: <code class="docutils literal notranslate"><span class="pre">1.23</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: <code class="docutils literal notranslate"><span class="pre">1.23E6</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: <code class="docutils literal notranslate"><span class="pre">12</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1</p></li>
+</ol>
+<p><a class="reference external" href="../content/stdio.html#exercise-4"><strong>Exercise 9.5</strong></a></p>
+<ol class="arabic">
+<li><dl>
+<dt>Saisir 3 caractères consécutifs dans des variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>.</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c%c%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>.</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f ;%f ;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe <code class="docutils literal notranslate"><span class="pre">=</span></code>, dans des variables <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>.</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;t=&quot;</span><span class="p">);</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;u=&quot;</span><span class="p">);</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;v=&quot;</span><span class="p">);</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference external" href="../content/stdio.html#exercise-5"><strong>Exercise 9.6</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Incorrect ! Le premier paramètre de printf doit être la chaîne de format.</span>
+<span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+<span class="c1">// Incorrect ! Le premier paramètre de scanf doit être la chaine de format.</span>
+<span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+
+<span class="c1">// Correct, mais surprenant.</span>
+<span class="c1">// Cette instruction affichera l’adresse de I, et non pas sa valeur !</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+
+<span class="c1">// Incorrect. Le paramètre i est de type short, alors que la chaîne de</span>
+<span class="c1">// format spécifie un type int. Fonctionnera sur les machines dont le type</span>
+<span class="c1">// short et int sont identiques</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+
+<span class="c1">// Incorrect, la troisième variable passée en paramètre ne sera pas affichée.</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+
+<span class="c1">// Incorrect ! Le premier paramètre est de type short alors que int</span>
+<span class="c1">// est spécifié dans la chaîne de format.</span>
+<span class="c1">// Le deuxième paramètre n’est pas passé par adresse, ce qui va</span>
+<span class="c1">// probablement causer une erreur fatale.</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+
+<span class="c1">// Correct, mais étonnant. Affiche l’adresse de la variable u.</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
+
+<span class="c1">// Incorrect ! Le paramètre est de type unsigned short, alors que</span>
+<span class="c1">// la chaîne de format spécifie int. Fonctionnera pour les valeurs</span>
+<span class="c1">// positives sur les machines dont le type short et int sont identiques.</span>
+<span class="c1">// Pour les valeurs négatives, le résultat sera l’interprétation non</span>
+<span class="c1">// signée de la valeur en complément à 2.</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
+
+<span class="c1">// Correct, mais x est traité comme double.</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+<span class="c1">// Correct.</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+
+<span class="c1">// Correct ! %f est traité comme double par printf !</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+
+<span class="c1">// Incorrect ! La chaîne de format spécifie float,</span>
+<span class="c1">// le paramètre passé est l’adresse d’une variable de type double.</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-6"><strong>Exercise 9.7</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Donnez les valeurs de x, y et z :&quot;</span><span class="p">);</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f%f%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Erreur de saisie.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-7"><strong>Exercise 9.8</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnees du vecteur v1 separees par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f ;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y1</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnees du vecteur v2 separees par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f ;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y2</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">dot_product</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">y2</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Produit scalaire : %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">dot_product</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dot_product</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les vecteurs sont orthogonaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche mais cependant différent de zéro.
+On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre <code class="docutils literal notranslate"><span class="pre">-0.000001</span></code> et <code class="docutils literal notranslate"><span class="pre">+0.000001</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dot_product</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1E-6</span> <span class="o">&amp;&amp;</span> <span class="n">dot_product</span> <span class="o">&lt;=</span> <span class="mf">1E-6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">dot_product</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1E-6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-8"><strong>Exercise 9.9</strong></a></p>
+<p>Une fois la correction effectuée, vous utilisez l'outil de <code class="docutils literal notranslate"><span class="pre">diff</span></code> pour montrer les différences :</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>1,3c1,3
+&lt;         #include &lt;stdio.h&gt;
+&lt;         #include &lt;stdlib.h&gt;
+&lt;         int main()
+<span class="gd">---</span>
+&gt;         #include &lt;std_io.h&gt;
+&gt;         #jnclude &lt;stdlib.h&gt;
+&gt;         INT Main()
+5c5
+&lt;         int a, b, sum;
+<span class="gd">---</span>
+&gt;         int a, sum;
+9c9
+&lt;         scanf(&quot;%d&quot;, &amp;a);
+<span class="gd">---</span>
+&gt;         scanf(&quot;%d&quot;, a);
+14,16c14,16
+&lt;         /* Affichage du résultat */
+&lt;         sum = a + b;
+&lt;         printf(&quot;%d + %d = %d\n&quot;, a, b, sum);
+<span class="gd">---</span>
+&gt;         /* Affichage du résultat
+&gt;         somme = a - b;
+&gt;         Printf(&quot;%d + %d = %d\n&quot;, a, b, sum);
+18c18,19
+&lt;         return EXIT_SUCCESS;
+<span class="gd">---</span>
+&gt;         retturn EXIT_FAILURE;
+&gt;         }
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/stdio.html#exercise-9"><strong>Exercise 9.10</strong></a></p>
+<ol class="arabic simple">
+<li><p>Ligne 6</p></li>
+<li><p>C est un langage impératif, l'ordre est séquentiel du haut vers le bas</p></li>
+<li><dl class="simple">
+<dt>Les étapes sont les suivantes :</dt><dd><ol class="arabic simple">
+<li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">a</span></code> à l'utilisateur</p></li>
+<li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> à l'utilisateur</p></li>
+<li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> à l'utilisateur</p></li>
+<li><p>Calcul de l'image affine de <code class="docutils literal notranslate"><span class="pre">x</span></code> (équation de droite)</p></li>
+<li><p>Affichage du résultat</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Que verra l'utilisateur à l'écran ?</dt><dd><ol class="arabic simple">
+<li><p>Il verra <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">12</span></code> pour <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2;</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">5;</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">2</span></code></p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Quelle est l'utilité de ce programme ?</dt><dd><ol class="arabic simple">
+<li><p>Le calcul d'un point d'une droite</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference external" href="../content/stdio.html#exercise-10"><strong>Exercise 9.11</strong></a></p>
+<p>Citons les défauts de ce programme :</p>
+<ul class="simple">
+<li><p>Le programme ne peut pas être utilisé avec les arguments, uniquement en mode interactif</p></li>
+<li><p>Les invités de dialogue <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">``,</span> <span class="pre">``b</span> <span class="pre">=</span> <span class="pre">``</span> <span class="pre">ne</span> <span class="pre">sont</span> <span class="pre">pas</span> <span class="pre">clair,</span> <span class="pre">``a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> sont associés à quoi ?</p></li>
+<li><p>La valeur de retour n'est pas exploitable directement.</p></li>
+<li><p>Le nom des variables utilisé n'est pas clair.</p></li>
+<li><p>Aucune valeur par défaut.</p></li>
+</ul>
+<p>Une solution possible serait :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>        <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+        <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+        <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+        <span class="p">{</span>
+            <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">offset</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">slope</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+                <span class="n">slope</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kt">float</span> <span class="n">offset_default</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Offset? [%f]: &quot;</span><span class="p">,</span> <span class="n">offset_default</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">offset</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">offset</span> <span class="o">=</span> <span class="n">offset_default</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="kt">float</span> <span class="n">slope_default</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pente? [%f]: &quot;</span><span class="p">,</span> <span class="n">slope_default</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">slope</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">slope</span> <span class="o">=</span> <span class="n">slope_default</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">slope</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">?</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">3</span><span class="p">]);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kt">float</span> <span class="n">x_default</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x (abscisse) [%f]:&quot;</span><span class="p">,</span> <span class="n">x_default</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">x</span> <span class="o">=</span> <span class="n">x_default</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">offset</span><span class="p">);</span>
+
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-10">
+<h2>Chapter 10<a class="headerlink" href="#solution-chapter-10" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/functions.html#exercise-0"><strong>Exercise 10.1</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">mean</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/functions.html#exercise-1"><strong>Exercise 10.2</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">min</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">min_value</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="n">min_value</span><span class="p">)</span>
+        <span class="n">min_value</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">min_value</span><span class="p">)</span>
+        <span class="n">min_value</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">min_value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une manière plus compacte, mais moins lisible serait :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">min</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/functions.html#exercise-2"><strong>Exercise 10.3</strong></a></p>
+<p>Voici une solution partielle :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TICKET_PRICE 50</span>
+
+<span class="kt">void</span> <span class="nf">give_coin</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">give_ticket</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ticket</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">no_ticket</span> <span class="o">=</span> <span class="n">amount_payed</span> <span class="o">&lt;</span> <span class="n">TICKET_PRICE</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">amount_to_return</span> <span class="o">=</span> <span class="n">amount_payed</span> <span class="o">-</span> <span class="n">TICKET_PRICE</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">amount_to_return</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">amount_to_return</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="o">&amp;&amp;</span> <span class="n">ncoin_20</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">give_coin</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+            <span class="n">amount_to_return</span> <span class="o">-=</span> <span class="mi">20</span><span class="p">;</span>
+            <span class="n">ncoin_20</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">amount_to_return</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">ncoin_10</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">give_coin</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+            <span class="n">amount_to_return</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="n">ncoin_10</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">no_ticket</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">amount_to_return</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">no_ticket</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">give_ticket</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-11">
+<h2>Chapter 11<a class="headerlink" href="#solution-chapter-11" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/composite-datatypes.html#exercise-0"><strong>Exercise 11.1</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int8_t</span> <span class="n">a</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/composite-datatypes.html#exercise-1"><strong>Exercise 11.2</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">search</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">!=</span> <span class="n">search</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/composite-datatypes.html#exercise-3"><strong>Exercise 11.4</strong></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">comp</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">char</span> <span class="n">b</span><span class="p">[],</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sum_a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sum_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum_a</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">sum_b</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">sum_b</span> <span class="o">-</span> <span class="n">sum_a</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="../content/composite-datatypes.html#exercise-5"><strong>Exercise 11.6</strong></a></p>
+<p>c</p>
+<p>Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+    <span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La complexité de cet algorithme est <span class="math notranslate nohighlight">\(O(n)\)</span> or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.</p>
+<p>Pour mieux se représenter le problème prenons l'exemple d'un tableau :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  0   1   2   3   4   5   6   7   8   9   10
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                              ^
+</pre></div>
+</div>
+<p>La première valeur magique est <code class="docutils literal notranslate"><span class="pre">7</span></code>. Est-ce qu'une approche dichotomique est possible ?</p>
+<p>Prenons le milieu du tableau <code class="docutils literal notranslate"><span class="pre">A[5]</span> <span class="pre">=</span> <span class="pre">4</span></code>. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  0   1   2   3   4
+┌───┬───┬───┬───┬───┐
+│ -1│ 0 │ 1 │ 2 │ 3 │
+└───┴───┴───┴───┴───┘
+</pre></div>
+</div>
+<p>On voit qu'il est impossible que la valeur se trouve à gauche car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est <code class="docutils literal notranslate"><span class="pre">A[mid]</span> <span class="pre">&lt;</span> <span class="pre">mid</span></code> où <code class="docutils literal notranslate"><span class="pre">mid</span></code> est la valeur mediane.</p>
+<p>Il est possible de répéter cette approche de façon dichotomique :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">_magic_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">_magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">end</span> <span class="o">&lt;</span> <span class="n">start</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">mid</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_magic_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_magic_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-12">
+<h2>Chapter 12<a class="headerlink" href="#solution-chapter-12" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="solution-chapter-14">
+<h2>Chapter 14<a class="headerlink" href="#solution-chapter-14" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/pointers.html#exercise-1"><strong>Exercise 14.2</strong></a></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>a:0, b:105, c:102, d:300, e:102
+</pre></div>
+</div>
+<div class="section" id="solution-chapter-15">
+<h2>Chapter 15<a class="headerlink" href="#solution-chapter-15" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<p><a class="reference external" href="../content/standard-library.html#exercise-0"><strong>Exercise 15.1</strong></a></p>
+<p>En cherchant <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">acos</span> <span class="pre">header</span></code> dans Google, on trouve que la fonction <code class="docutils literal notranslate"><span class="pre">acos</span></code> est définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
+<p>Une autre solution est d'utiliser sous Linux la commande <code class="docutils literal notranslate"><span class="pre">apropos</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> apropos acos
+<span class="go">acos (3)     - arc cosine function</span>
+<span class="go">acosf (3)    - arc cosine function</span>
+<span class="go">acosh (3)    - inverse hyperbolic cosine function</span>
+<span class="go">acoshf (3)   - inverse hyperbolic cosine function</span>
+<span class="go">acoshl (3)   - inverse hyperbolic cosine function</span>
+<span class="go">acosl (3)    - arc cosine function</span>
+<span class="go">cacos (3)    - complex arc cosine</span>
+<span class="go">cacosf (3)   - complex arc cosine</span>
+<span class="go">cacosh (3)   - complex arc hyperbolic cosine</span>
+<span class="go">cacoshf (3)  - complex arc hyperbolic cosine</span>
+<span class="go">cacoshl (3)  - complex arc hyperbolic cosine</span>
+<span class="go">cacosl (3)   - complex arc cosine</span>
+</pre></div>
+</div>
+<p>Le premier résultat permet ensuite de voir :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> man acos <span class="p">|</span> head -10
+<span class="go">ACOS(3)    Linux Programmer&#39;s Manual         ACOS(3)</span>
+
+<span class="go">NAME</span>
+<span class="go">    acos, acosf, acosl - arc cosine function</span>
+
+<span class="go">SYNOPSIS</span>
+<span class="gp">    #</span>include &lt;math.h&gt;
+
+<span class="go">    double acos(double x);</span>
+<span class="go">    float acosf(float x);</span>
+</pre></div>
+</div>
+<p>La réponse est donc <cite>&lt;math.h&gt;</cite>.</p>
+<p>Sous Windows avec Visual Studio, il suffit d'écrire <code class="docutils literal notranslate"><span class="pre">acos</span></code> dans un fichier source et d'appuyer sur <code class="docutils literal notranslate"><span class="pre">F1</span></code>. L'IDE redirige l'utilisateur sur l'aide Microsoft <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
+<p><a class="reference external" href="../content/standard-library.html#exercise-2"><strong>Exercise 15.3</strong></a></p>
+<p>En cherchant <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">acos</span> <span class="pre">header</span></code> dans Google, on trouve que la fonction <code class="docutils literal notranslate"><span class="pre">acos</span></code> est définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
+<p>Une autre solution est d'utiliser sous Linux la commande <code class="docutils literal notranslate"><span class="pre">apropos</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> apropos acos
+<span class="go">acos (3)     - arc cosine function</span>
+<span class="go">acosf (3)    - arc cosine function</span>
+<span class="go">acosh (3)    - inverse hyperbolic cosine function</span>
+<span class="go">acoshf (3)   - inverse hyperbolic cosine function</span>
+<span class="go">acoshl (3)   - inverse hyperbolic cosine function</span>
+<span class="go">acosl (3)    - arc cosine function</span>
+<span class="go">cacos (3)    - complex arc cosine</span>
+<span class="go">cacosf (3)   - complex arc cosine</span>
+<span class="go">cacosh (3)   - complex arc hyperbolic cosine</span>
+<span class="go">cacoshf (3)  - complex arc hyperbolic cosine</span>
+<span class="go">cacoshl (3)  - complex arc hyperbolic cosine</span>
+<span class="go">cacosl (3)   - complex arc cosine</span>
+</pre></div>
+</div>
+<p>Le premier résultat permet ensuite de voir :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> man acos <span class="p">|</span> head -10
+<span class="go">ACOS(3)    Linux Programmer&#39;s Manual         ACOS(3)</span>
+
+<span class="go">NAME</span>
+<span class="go">    acos, acosf, acosl - arc cosine function</span>
+
+<span class="go">SYNOPSIS</span>
+<span class="gp">    #</span>include &lt;math.h&gt;
+
+<span class="go">    double acos(double x);</span>
+<span class="go">    float acosf(float x);</span>
+</pre></div>
+</div>
+<p>La réponse est donc <cite>&lt;math.h&gt;</cite>.</p>
+<p>Sous Windows avec Visual Studio, il suffit d'écrire <code class="docutils literal notranslate"><span class="pre">acos</span></code> dans un fichier source et d'appuyer sur <code class="docutils literal notranslate"><span class="pre">F1</span></code>. L'IDE redirige l'utilisateur sur l'aide Microsoft <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
+<div class="section" id="solution-chapter-16">
+<h2>Chapter 16<a class="headerlink" href="#solution-chapter-16" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="solution-chapter-17">
+<h2>Chapter 17<a class="headerlink" href="#solution-chapter-17" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../content/philosophy.html"
+       title="Chapitre précédent">← 24  Philosophie</a>
+  </li>
+  <li class="next">
+    <a href="bibliography.html"
+       title="Chapitre suivant">Bibliographie →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2020.
+    Mis à jour le 09 août 2020 (version v0.2.7-21-gccffb85).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
