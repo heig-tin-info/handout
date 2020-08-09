@@ -1025,13 +1025,13 @@ une même région mémoire.</p>
 <p>Notons que sa fonction voisine <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> ne dois <strong>jamais</strong> être utilisée en cas d'<em>aliasing</em>. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple <code class="docutils literal notranslate"><span class="pre">memory_move</span></code>. Le standard <strong>C99</strong> ne défini pas le comportement de <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> pour des pointeurs qui se chevauchent.</p>
 <hr class="docutils" />
 <div class="exercise" id="exercise-0">
-<strong>Exercise 14.1 Esperluettes cascadées</strong><p>Quel est le type de :</p>
+<strong>Exercice 14.1 Esperluettes cascadées</strong><p>Quel est le type de :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*&amp;*&amp;*&amp;*&amp;*&amp;*&amp;</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="exercise" id="exercise-1">
-<strong>Exercise 14.2 Passage par adresse</strong><p>Donnez lesvaleurs affichées par ce programme pour les variables <code class="docutils literal notranslate"><span class="pre">a</span></code> à <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p>
+<strong>Exercice 14.2 Passage par adresse</strong><p>Donnez lesvaleurs affichées par ce programme pour les variables <code class="docutils literal notranslate"><span class="pre">a</span></code> à <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -1068,7 +1068,7 @@ une même région mémoire.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 09 août 2020 (version v0.2.7-22-g62a9d84).
+    Mis à jour le 09 août 2020 (version v0.2.7-26-g6e186fe).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

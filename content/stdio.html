@@ -411,7 +411,7 @@
 </dd>
 </dl>
 <div class="exercise" id="exercise-0">
-<strong>Exercise 9.1 Mot du jour</strong><p>Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.</p>
+<strong>Exercice 9.1 Mot du jour</strong><p>Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -593,7 +593,7 @@
 </tbody>
 </table>
 <div class="exercise" id="exercise-1">
-<strong>Exercise 9.2 Quelque bogues bien formatés</strong><p>Indiquez les erreurs dans les instructions suivantes :</p>
+<strong>Exercice 9.2 Quelque bogues bien formatés</strong><p>Indiquez les erreurs dans les instructions suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">40.</span><span class="p">);</span>
@@ -729,7 +729,7 @@ poussière
 </div>
 <p>Ensuite, <code class="docutils literal notranslate"><span class="pre">[^\n]</span></code>. Le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code>, terminé par <code class="docutils literal notranslate"><span class="pre">]</span></code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a class="reference external" href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code class="docutils literal notranslate"><span class="pre">^</span></code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code class="docutils literal notranslate"><span class="pre">scanf</span></code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code class="docutils literal notranslate"><span class="pre">C</span></code> de <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>, le pointeur de fichier est bloqué au caractère <code class="docutils literal notranslate"><span class="pre">C</span></code> et au prochain tour de boucle, <code class="docutils literal notranslate"><span class="pre">scanf</span></code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
 <div class="exercise" id="exercise-2">
-<strong>Exercise 9.3 scanf sur des entiers et des réels</strong><p>Considérant les déclarations :</p>
+<strong>Exercice 9.3 scanf sur des entiers et des réels</strong><p>Considérant les déclarations :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
 </pre></div>
@@ -744,7 +744,7 @@ poussière
 </div>
 </div>
 <div class="exercise" id="exercise-3">
-<strong>Exercise 9.4 Saisie de valeurs</strong><p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :</p>
+<strong>Exercice 9.4 Saisie de valeurs</strong><p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
@@ -773,7 +773,7 @@ poussière
 </ol>
 </div>
 <div class="exercise" id="exercise-4">
-<strong>Exercise 9.5 Chaînes de formats</strong><ol class="arabic simple">
+<strong>Exercice 9.5 Chaînes de formats</strong><ol class="arabic simple">
 <li><p>Saisir 3 caractères consécutifs dans des variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p></li>
 <li><p>Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p></li>
 <li><p>Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe <code class="docutils literal notranslate"><span class="pre">=</span></code>, dans des variables <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
@@ -819,7 +819,7 @@ poussière
 <p>Dans cet exemple je capture les nombres de 0 à 9 <code class="docutils literal notranslate"><span class="pre">0-9</span></code> (10), les caractères majuscules et minuscules <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> (52), ainsi que les caractères <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
 <hr class="docutils" />
 <div class="exercise" id="exercise-5">
-<strong>Exercise 9.6 Bugs</strong><p>Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
+<strong>Exercice 9.6 Bugs</strong><p>Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
 <span class="kt">long</span> <span class="n">j</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">u</span><span class="p">;</span>
@@ -841,13 +841,13 @@ poussière
 </div>
 </div>
 <div class="exercise" id="exercise-6">
-<strong>Exercise 9.7 Test de saisir correcte</strong><p>Écrivez un programme déclarant des variables réelles <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>, permettant de
+<strong>Exercice 9.7 Test de saisir correcte</strong><p>Écrivez un programme déclarant des variables réelles <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>, permettant de
 saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
 été assignées. Dans le cas contraire, afficher un message du type &quot;données
 invalides&quot;.</p>
 </div>
 <div class="exercise" id="exercise-7">
-<strong>Exercise 9.8 Produit scalaire</strong><p>Écrire un programme effectuant les opérations suivantes :</p>
+<strong>Exercice 9.8 Produit scalaire</strong><p>Écrire un programme effectuant les opérations suivantes :</p>
 <ul class="simple">
 <li><p>Saisir les coordonnées réelles <code class="docutils literal notranslate"><span class="pre">x1</span></code> et <code class="docutils literal notranslate"><span class="pre">y1</span></code> d’un vecteur <code class="docutils literal notranslate"><span class="pre">v1</span></code>.</p></li>
 <li><p>Saisir les coordonnées réelles <code class="docutils literal notranslate"><span class="pre">x2</span></code> et <code class="docutils literal notranslate"><span class="pre">y2</span></code> d’un vecteur <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p></li>
@@ -855,7 +855,7 @@ invalides&quot;.</p>
 </ul>
 </div>
 <div class="exercise" id="exercise-8">
-<strong>Exercise 9.9 Crampes de doigts</strong><p>Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.</p>
+<strong>Exercice 9.9 Crampes de doigts</strong><p>Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.</p>
 <p>Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;std_io.h&gt;
 #jnclude &lt;stdlib.h&gt;
@@ -881,7 +881,7 @@ retturn EXIT_FAILURE;
 </div>
 </div>
 <div class="exercise" id="exercise-9">
-<strong>Exercise 9.10 Géométrie affine</strong><p>Considérez le programme suivant :</p>
+<strong>Exercice 9.10 Géométrie affine</strong><p>Considérez le programme suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -916,13 +916,13 @@ retturn EXIT_FAILURE;
 </ol>
 </div>
 <div class="exercise" id="exercise-10">
-<strong>Exercise 9.11 Équation de droite</strong><p>L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?</p>
+<strong>Exercice 9.11 Équation de droite</strong><p>L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?</p>
 </div>
 <div class="exercise" id="exercise-11">
-<strong>Exercise 9.12 Loi d'Ohm</strong><p>Écrivez un programme demandant deux réels <code class="docutils literal notranslate"><span class="pre">tension</span></code> et <code class="docutils literal notranslate"><span class="pre">résistance</span></code>, et affichez ensuite le <code class="docutils literal notranslate"><span class="pre">courant</span></code>. Prévoir un test pour le cas où la résistance serait nulle.</p>
+<strong>Exercice 9.12 Loi d'Ohm</strong><p>Écrivez un programme demandant deux réels <code class="docutils literal notranslate"><span class="pre">tension</span></code> et <code class="docutils literal notranslate"><span class="pre">résistance</span></code>, et affichez ensuite le <code class="docutils literal notranslate"><span class="pre">courant</span></code>. Prévoir un test pour le cas où la résistance serait nulle.</p>
 </div>
 <div class="exercise" id="exercise-12">
-<strong>Exercise 9.13 Tour Eiffel</strong><p>Considérons le programme suivant :</p>
+<strong>Exercice 9.13 Tour Eiffel</strong><p>Considérons le programme suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
@@ -954,7 +954,7 @@ retturn EXIT_FAILURE;
 </ol>
 </div>
 <div class="exercise" id="exercise-13">
-<strong>Exercise 9.14 Hyperloop</strong><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Hyperloop">Hyperloop</a> (aussi orthographié <strong>Hyperl∞p</strong>) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Swissmetro">Swissmetro</a>, mais abandonné en 2009.</p>
+<strong>Exercice 9.14 Hyperloop</strong><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Hyperloop">Hyperloop</a> (aussi orthographié <strong>Hyperl∞p</strong>) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Swissmetro">Swissmetro</a>, mais abandonné en 2009.</p>
 <p>Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.</p>
 <p>Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont :</p>
 <ul class="simple">
@@ -984,7 +984,7 @@ retturn EXIT_FAILURE;
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 09 août 2020 (version v0.2.7-22-g62a9d84).
+    Mis à jour le 09 août 2020 (version v0.2.7-26-g6e186fe).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

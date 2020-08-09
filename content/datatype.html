@@ -773,7 +773,7 @@
 <p>À ces types s'ajoutent les types <strong>rapides</strong> (<em>fast</em>) et <strong>minimums</strong> (<em>least</em>). Un type nommé <code class="docutils literal notranslate"><span class="pre">uint_least32_t</span></code> garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Il est strictement équivalent à <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p>
 <p>Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.</p>
 <div class="exercise" id="exercise-0">
-<strong>Exercise 6.1 Expressions arithmétiques entières</strong><p>Donnez la valeur des expressions ci-dessous :</p>
+<strong>Exercice 6.1 Expressions arithmétiques entières</strong><p>Donnez la valeur des expressions ci-dessous :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>25 + 10 + 7 – 3
 5 / 2
 24 + 5 / 2
@@ -790,7 +790,7 @@
 </div>
 </div>
 <div class="exercise" id="exercise-1">
-<strong>Exercise 6.2 Débordement</strong><p>Quel sera le contenu de <code class="docutils literal notranslate"><span class="pre">j</span></code> après l'exécution de l'instruction suivante :</p>
+<strong>Exercice 6.2 Débordement</strong><p>Quel sera le contenu de <code class="docutils literal notranslate"><span class="pre">j</span></code> après l'exécution de l'instruction suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1020,7 +1020,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <h3>6.5.4  Double précision<a class="headerlink" href="#double-precision" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La double précision est similaire à la simple précision mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
 <div class="exercise" id="exercise-2">
-<strong>Exercise 6.3 Expressions arithmétiques flottantes</strong><p>Donnez la valeur des expressions ci-dessous :</p>
+<strong>Exercice 6.3 Expressions arithmétiques flottantes</strong><p>Donnez la valeur des expressions ci-dessous :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>25. + 10. + 7. – 3.
 5. / 2.
 24. + 5. / 2.
@@ -1097,7 +1097,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </pre></div>
 </div>
 <div class="exercise" id="exercise-3">
-<strong>Exercise 6.4 Constantes littérales caractérielles</strong><p>Indiquez si les constantes littérales suivantes sont valides ou invalides.</p>
+<strong>Exercice 6.4 Constantes littérales caractérielles</strong><p>Indiquez si les constantes littérales suivantes sont valides ou invalides.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'A'</span></code></p></li>
@@ -1116,7 +1116,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </ol>
 </div>
 <div class="exercise" id="exercise-4">
-<strong>Exercise 6.5 Chaînes de formatage</strong><p>Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.</p>
+<strong>Exercice 6.5 Chaînes de formatage</strong><p>Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
 <span class="kt">short</span> <span class="n">sh1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">f1</span> <span class="o">=</span> <span class="mf">7.0f</span><span class="p">;</span>
@@ -1281,7 +1281,7 @@ assez grand pour  contenir un <code class="docutils literal notranslate"><span c
 <p>Notez qu'il n'y a pas de promotion numérique vers le type <em>short</em>. On
 passe directement à un type <em>int</em>.</p>
 <div class="exercise" id="exercise-5">
-<strong>Exercise 6.6 Expressions mixtes</strong><p>Soit les instructions suivantes :</p>
+<strong>Exercice 6.6 Expressions mixtes</strong><p>Soit les instructions suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span>
@@ -1300,7 +1300,7 @@ passe directement à un type <em>int</em>.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-6">
-<strong>Exercise 6.7 Promotion numérique</strong><p>Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :</p>
+<strong>Exercice 6.7 Promotion numérique</strong><p>Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
 <span class="kt">short</span> <span class="n">sh</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -1369,7 +1369,7 @@ pose un problème de précision de calcul.</p>
 <p>A l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div class="exercise" id="exercise-7">
-<strong>Exercise 6.8 Conversion de types</strong><p>On considère les déclarations suivantes :</p>
+<strong>Exercice 6.8 Conversion de types</strong><p>On considère les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
 <span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">j</span><span class="p">;</span>
@@ -1389,7 +1389,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 </div>
 <div class="exercise" id="exercise-8">
-<strong>Exercise 6.9 Un casting explicite</strong><p>Que valent les valeurs de <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
+<strong>Exercice 6.9 Un casting explicite</strong><p>Que valent les valeurs de <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">;</span>
 
@@ -1400,7 +1400,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 </div>
 <div class="exercise" id="exercise-9">
-<strong>Exercise 6.10 Opérateurs de relation et opérateurs logiques</strong><p>Soit les déclarations suivantes :</p>
+<strong>Exercice 6.10 Opérateurs de relation et opérateurs logiques</strong><p>Soit les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
 <span class="kt">bool</span> <span class="n">condition</span><span class="p">;</span>
 </pre></div>
@@ -1420,7 +1420,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-10">
-<strong>Exercise 6.11 Casses tête</strong><p>Vous participez à une revue de code et tomber sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
+<strong>Exercice 6.11 Casses tête</strong><p>Vous participez à une revue de code et tomber sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
 <p>Pour chaque exemple, donner la valeur des variables après exécution du code.</p>
 <ol class="arabic">
 <li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
@@ -1444,7 +1444,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 <hr class="docutils" />
 <div class="exercise" id="exercise-11">
-<strong>Exercise 6.12 Evaluation d'expressions</strong><p>Considérons les déclarations suivantes :</p>
+<strong>Exercice 6.12 Evaluation d'expressions</strong><p>Considérons les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -1469,13 +1469,13 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-12">
-<strong>Exercise 6.13 Précision des flottants</strong><p>Que vaut <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
+<strong>Exercice 6.13 Précision des flottants</strong><p>Que vaut <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">10000000.</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="exercise" id="exercise-13">
-<strong>Exercise 6.14 Type de donnée idoine</strong><p>Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme :</p>
+<strong>Exercice 6.14 Type de donnée idoine</strong><p>Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme :</p>
 <ol class="arabic simple">
 <li><p>Gestion d'un parking: nombre de voitures présentes</p></li>
 <li><dl class="simple">
@@ -1494,7 +1494,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-14">
-<strong>Exercise 6.15 Construction d'expressions</strong><p>On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
+<strong>Exercice 6.15 Construction d'expressions</strong><p>On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
 à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
 nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
 secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...</p>
@@ -1506,7 +1506,7 @@ les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.</p>
 correspondant.</p>
 </div>
 <div class="exercise" id="exercise-15">
-<strong>Exercise 6.16 Somme des entiers</strong><p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme :</p>
+<strong>Exercice 6.16 Somme des entiers</strong><p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme :</p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=1}^n k = \frac{n(n+1)}{2}\]</div>
 <p>Un grand mathématicien <a class="reference external" href="https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan</a> (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :</p>
@@ -1525,7 +1525,7 @@ correspondant.</p>
 <p>A partir de quelle valeur, le temps de calcul devient significativement palpable ?</p>
 </div>
 <div class="exercise" id="exercise-16">
-<strong>Exercise 6.17 Système de vision industriel</strong><p>La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :</p>
+<strong>Exercice 6.17 Système de vision industriel</strong><p>La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span> <span class="n">inspected_parts</span><span class="p">,</span> <span class="n">bad_parts</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">percentage_good_parts</span><span class="p">;</span>
 </pre></div>
@@ -1543,7 +1543,7 @@ correspondant.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-17">
-<strong>Exercise 6.18 Missile Patriot</strong><p>Durant la guerre du golfe le 25 février 1991, une batterie de missile américaine à Dharan en arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
+<strong>Exercice 6.18 Missile Patriot</strong><p>Durant la guerre du golfe le 25 février 1991, une batterie de missile américaine à Dharan en arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
 <p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixieème de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:<cite>ième</cite> décimale après la virguleDes erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduit par 600 mètres d'erreur lors de la tentative d'interception.</p>
 <p>Le stockage de la valeur 0.1 est donné par :</p>
 <div class="math notranslate nohighlight">
@@ -1573,7 +1573,7 @@ correspondant.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 09 août 2020 (version v0.2.7-22-g62a9d84).
+    Mis à jour le 09 août 2020 (version v0.2.7-26-g6e186fe).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

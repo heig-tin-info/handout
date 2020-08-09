@@ -503,22 +503,19 @@ en précision ou en grandeur représentable. La promotion numérique régit
 les conversions effectuées implicitement par le langage C lorsqu'on
 convertit une donnée d'un type vers un autre. Cette promotion tend à
 conserver le maximum de précision lorsqu'on effectue des calcul entre
-types différents (ex : l'addition d'un *int* avec un *double* donne un
-type *double*). **Règles de base :**
+types différents (ex : l'addition d'un ``int`` avec un ``double`` donne un
+type ``double``). Voici les règles de base :
 
--  les opérateurs ne peuvent agir que sur des types identiques
-
--  quand les types sont différents, il y a conversion automatique vers
-   le type ayant le plus grand pouvoir de représentation
-
--  les conversions ne sont faites qu'au fur et à mesure des besoins
+- les opérateurs ne peuvent agir que sur des types identiques ;
+- quand les types sont différents, il y a conversion automatique vers le type ayant le plus grand pouvoir de représentation ;
+- les conversions ne sont faites qu'au fur et à mesure des besoins.
 
 La **promotion** est l'action de promouvoir un type de donnée en un autre type de donnée plus général. On parle de promotion implicite des entiers lorsqu'un type est promu en un type plus grand automatiquement par le compilateur.
 
 Valeurs gauche
 ==============
 
-Une :index:`valeur gauche` (*lvalue*) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
+Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
 
 .. code-block:: c
 
