@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>8Programmes et Processus</title>
+      <title>8 Programmes et Processus</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="9Entrées Sorties" href="stdio.html" />
-  <link rel="prev" title="7Structures de contrôle" href="control-structures.html" /> 
+  <link rel="next" title="9 Entrées Sorties" href="stdio.html" />
+  <link rel="prev" title="7 Structures de contrôle" href="control-structures.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -281,6 +295,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -333,18 +368,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">8</span>Programmes et Processus</li>
+    <li>8  Programmes et Processus</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="control-structures.html"
-       title="Chapitre précédent">← <span class="section-number">7</span>Structures de contrôle</a>
+       title="Chapitre précédent">← 7  Structures de contrôle</a>
   </li>
   <li class="next">
     <a href="stdio.html"
-       title="Chapitre suivant"><span class="section-number">9</span>Entrées Sorties →</a>
+       title="Chapitre suivant">9  Entrées Sorties →</a>
   </li>
 </ul>
   
@@ -353,13 +388,13 @@
           <div class="content" role="main">
             
   <div class="section" id="programmes-et-processus">
-<h1><span class="section-number">8</span>Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>8  Programmes et Processus<a class="headerlink" href="#programmes-et-processus" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="figure align-default" id="id1">
 <img alt="https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg" src="https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg" />
-<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Programmeuse en tenue décontractée à côté de 62'500 cartes perforées</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="qu-est-ce-qu-un-programme">
-<h2><span class="section-number">8.1</span>Qu'est-ce qu'un programme?<a class="headerlink" href="#qu-est-ce-qu-un-programme" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.1  Qu'est-ce qu'un programme?<a class="headerlink" href="#qu-est-ce-qu-un-programme" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Programme_informatique">programme informatique</a> est un ensemble d'opérations destinées à être exécutées par un ordinateur.</p>
 <p>Un programme peut se décliner sous plusieurs formes :</p>
 <ul class="simple">
@@ -369,17 +404,15 @@
 </ul>
 <p>Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les <a class="reference external" href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">systèmes d'exploitation</a> tels que Windows sont dit <a class="reference external" href="https://fr.wikipedia.org/wiki/Multit%C3%A2che">multitâches</a>, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.</p>
 <div class="section" id="code-source">
-<h3><span class="section-number">8.1.1</span>Code source<a class="headerlink" href="#code-source" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.1.1  Code source<a class="headerlink" href="#code-source" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le <strong>code source</strong> est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes <a class="reference external" href="https://fr.wikipedia.org/wiki/Langage_Ladder">Ladder</a> utilisés dans les automates programmables et respectant la norme <a class="reference external" href="https://fr.wikipedia.org/wiki/CEI_61131-3">IEC 61131-3</a>, ou <a class="reference external" href="www.ni.com/en-us/shop/labview.html">LabView</a> un outil de développement graphique.</p>
 <p>Le plus souvent le code source est organisé en une <a class="reference external" href="https://fr.wikipedia.org/wiki/Arborescence">arborescence</a> de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.</p>
 </div>
 <div class="section" id="executable-binaire">
-<h3><span class="section-number">8.1.2</span>Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.1.2  Exécutable binaire<a class="headerlink" href="#executable-binaire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une fois compilé en <a class="reference external" href="https://fr.wikipedia.org/wiki/Langage_machine">langage machine</a>, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est <a class="reference external" href="https://en.wikipedia.org/wiki/Bare_machine">bare metal</a>, qu'il s'exécute à même le métal.</p>
 <p>Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (<a class="reference external" href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>).</p>
 <p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">Code source 8.1 </span><span class="caption-text">Fibonacci.c</span></span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -399,7 +432,6 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 <p>Une fois <a class="reference external" href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gcc Fibonacci.c -o fibonacci.exe</span>
@@ -479,7 +511,7 @@
 <p>Ce programme peut-être exécuté par tout le monde, mais modifié que par l'utilisateur <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
 </div>
 <div class="section" id="entrees-sorties">
-<span id="inputs-outputs"></span><h3><span class="section-number">8.1.3</span>Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="inputs-outputs"></span><h3>8.1.3  Entrées sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Tout programme doit pouvoir interagir avec son environnement. A l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :</p>
 <ul class="simple">
 <li><p>L'entrée standard <code class="docutils literal notranslate"><span class="pre">STDIN</span></code> fourni au programme du contenu qui est généralement fourni par la sortie d'un autre programme.</p></li>
@@ -492,12 +524,12 @@
 <li><p>La sortie d'erreur standard <code class="docutils literal notranslate"><span class="pre">STDERR</span></code> contient des détails sur les éventuelles erreurs d'exécution du programme.</p></li>
 </ul>
 <p>La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système (<a class="reference external" href="https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me">syscall</a>) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.</p>
-<div class="figure align-default" id="id3">
-<img alt="../_images/program.svg" src="../_images/program.svg" /><p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Résumé des interactions avec un programme</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id2">
+<img alt="../_images/program.svg" src="../_images/program.svg" /><p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Résumé des interactions avec un programme</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="signaux">
-<span id="signals"></span><h3><span class="section-number">8.1.4</span>Signaux<a class="headerlink" href="#signaux" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="signals"></span><h3>8.1.4  Signaux<a class="headerlink" href="#signaux" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des <a class="reference external" href="https://fr.wikipedia.org/wiki/Signal_(informatique)">signaux</a>. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.</p>
 <p>Si, en utilisant Windows, vous vous rendez dans le <a class="reference external" href="https://fr.wikipedia.org/wiki/Gestionnaire_des_t%C3%A2ches_Windows">gestionnaire de tâches</a> et que vous décider de <em>Terminer une tâche</em>, le système d'exploitation envoie un signal au programme lui demandant de se terminer.</p>
 <p>Sous Linux, habituellement, le <em>shell</em> relie certains raccourcis clavier à des signaux particuliers :</p>
@@ -516,7 +548,7 @@
 </div>
 </div>
 <div class="section" id="arguments-et-options">
-<h2><span class="section-number">8.2</span>Arguments et options<a class="headerlink" href="#arguments-et-options" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.2  Arguments et options<a class="headerlink" href="#arguments-et-options" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'interpréteur de commande <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> sous Windows ou <code class="docutils literal notranslate"><span class="pre">bash</span></code> sous Linux, fonctionne de façon assez similaire. L'<strong>invite de commande</strong> nommée <em>prompt</em> en anglais invite l'utilisateur à entrer une commande. Sous <a class="reference external" href="https://fr.wikipedia.org/wiki/DOS">DOS</a> puis sous Windows cet invite de commande ressemble à ceci :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C:\&gt;</span>
 </pre></div>
@@ -553,11 +585,11 @@
 </pre></div>
 </div>
 <div class="section" id="norme-posix">
-<h3><span class="section-number">8.2.1</span>Norme POSIX<a class="headerlink" href="#norme-posix" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.2.1  Norme POSIX<a class="headerlink" href="#norme-posix" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le standard POSIX décrit une façon de distinguer des <em>options</em> passées à un programme. Par exemple, le programme <a class="reference external" href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a> peut être paramétré pour changer son comportement en utilisant des <cite>options</cite> standards comme <code class="docutils literal notranslate"><span class="pre">-d</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">getopt</span></code> disponible dans la biblothèque <code class="docutils literal notranslate"><span class="pre">&lt;unistd.h&gt;</span></code> permet de facilement interpréter ces options.</p>
 </div>
 <div class="section" id="extension-gnu">
-<h3><span class="section-number">8.2.2</span>Extension GNU<a class="headerlink" href="#extension-gnu" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.2.2  Extension GNU<a class="headerlink" href="#extension-gnu" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension <a class="reference external" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> et son en-tête <code class="docutils literal notranslate"><span class="pre">&lt;getopt.h&gt;</span></code> permet l'accès à la fonction <code class="docutils literal notranslate"><span class="pre">getopt_long</span></code> laquelle permet d'interpréter aussi les options longues <code class="docutils literal notranslate"><span class="pre">--version</span></code> qui sont devenues très répandues.</p>
 <p>Ci-dessous une possible utilisation de cette fonction :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;getopt.h&gt;</span><span class="cp"></span>
@@ -657,15 +689,15 @@
 </div>
 </div>
 <div class="section" id="windows">
-<h3><span class="section-number">8.2.3</span>Windows<a class="headerlink" href="#windows" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.2.3  Windows<a class="headerlink" href="#windows" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Windows utilise à l'instare de <code class="docutils literal notranslate"><span class="pre">RDOS</span></code> ou <a class="reference external" href="https://en.wikipedia.org/wiki/OpenVMS">OpenVMS</a>, le caractère <em>slash</em> pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">-s</span> <span class="pre">D*</span></code>, sous Windows on utilisera <code class="docutils literal notranslate"><span class="pre">dir</span> <span class="pre">/q</span> <span class="pre">d*</span> <span class="pre">/o:s</span></code>.</p>
 </div>
 </div>
 <div class="section" id="fonction-main">
-<h2><span class="section-number">8.3</span>Fonction main<a class="headerlink" href="#fonction-main" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.3  Fonction main<a class="headerlink" href="#fonction-main" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le standard définit une fonction nommée <code class="docutils literal notranslate"><span class="pre">main</span></code> comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le <a class="reference external" href="https://en.wikipedia.org/wiki/BIOS">BIOS</a> a chargé le système d'exploitation en mémoire. Dès lors la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> de notre programme <a class="reference external" href="hello">Hello World</a> n'est pas la première, mais est appelé.</p>
 <div class="section" id="qui-appelle-main">
-<h3><span class="section-number">8.3.1</span>Qui appelle main ?<a class="headerlink" href="#qui-appelle-main" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.3.1  Qui appelle main ?<a class="headerlink" href="#qui-appelle-main" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Un exécutable binaire à un format particulier appelé <strong>ELF</strong> (<a class="reference external" href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">Executable and Linkable Format</a>) qui contient un <strong>point d'entrée</strong> qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé <code class="docutils literal notranslate"><span class="pre">_init</span></code>. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la <strong>pile</strong> du programme :</p>
 <ul class="simple">
 <li><p>Le nombre d'arguments <code class="docutils literal notranslate"><span class="pre">argc</span></code></p></li>
@@ -685,7 +717,7 @@
 </div>
 </div>
 <div class="section" id="valeur-de-retour">
-<h3><span class="section-number">8.3.2</span>Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>8.3.2  Valeur de retour<a class="headerlink" href="#valeur-de-retour" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme (<a class="reference external" href="https://en.wikipedia.org/wiki/Exit_status">exit status</a>). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">0</span></code></dt><dd><p>Succès, le programme s'est terminé correctement.</p>
@@ -708,7 +740,7 @@
 </div>
 </div>
 <div class="section" id="entrees-sorties-standards">
-<h2><span class="section-number">8.4</span>Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.4  Entrées sorties standards<a class="headerlink" href="#entrees-sorties-standards" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code> (<a class="reference external" href="http://man7.org/linux/man-pages/man3/stdio.3.html">man stdio</a>) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (<em>shell</em>, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code>.</p>
 <p>La fonction de base est <code class="docutils literal notranslate"><span class="pre">putchar</span></code> qui écrit un caractère sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>include &lt;stdio.h&gt;
@@ -752,7 +784,7 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
 <p>Dans le cas où un de ces programmes génère une alerte (<em>warning</em>), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: <code class="docutils literal notranslate"><span class="pre">stdout</span></code> pour la sortie standard et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> pour les messages de diagnostique et les erreurs.</p>
 </div>
 <div class="section" id="boucle-d-attente">
-<h2><span class="section-number">8.5</span>Boucle d'attente<a class="headerlink" href="#boucle-d-attente" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>8.5  Boucle d'attente<a class="headerlink" href="#boucle-d-attente" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span><span class="p">(;;)</span> <span class="p">{}</span>
@@ -782,7 +814,13 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="../exercises.html#exercise/8/1">Exercice 8.1</a>: La fortune, la vache qui dit et le chat drôle</p>
+<div class="exercise" id="exercise-0">
+<strong>Exercise 8.1 La fortune, la vache qui dit et le chat drôle</strong><p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> fortune <span class="p">|</span> cowsay <span class="p">|</span> lolcat
+</pre></div>
+</div>
+<p>Quelle est sa structure et que fait-elle ?</p>
+</div>
 </div>
 </div>
 
@@ -792,15 +830,15 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="control-structures.html"
-       title="Chapitre précédent">← <span class="section-number">7</span>Structures de contrôle</a>
+       title="Chapitre précédent">← 7  Structures de contrôle</a>
   </li>
   <li class="next">
     <a href="stdio.html"
-       title="Chapitre suivant"><span class="section-number">9</span>Entrées Sorties →</a>
+       title="Chapitre suivant">9  Entrées Sorties →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

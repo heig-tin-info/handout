@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>10Fonctions</title>
+      <title>10 Fonctions</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="11Types composites" href="composite-datatypes.html" />
-  <link rel="prev" title="9Entrées Sorties" href="stdio.html" /> 
+  <link rel="next" title="11 Types composites" href="composite-datatypes.html" />
+  <link rel="prev" title="9 Entrées Sorties" href="stdio.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -283,6 +297,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -335,18 +370,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">10</span>Fonctions</li>
+    <li>10  Fonctions</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="stdio.html"
-       title="Chapitre précédent">← <span class="section-number">9</span>Entrées Sorties</a>
+       title="Chapitre précédent">← 9  Entrées Sorties</a>
   </li>
   <li class="next">
     <a href="composite-datatypes.html"
-       title="Chapitre suivant"><span class="section-number">11</span>Types composites →</a>
+       title="Chapitre suivant">11  Types composites →</a>
   </li>
 </ul>
   
@@ -355,11 +390,11 @@
           <div class="content" role="main">
             
   <div class="section" id="fonctions">
-<h1><span class="section-number">10</span>Fonctions<a class="headerlink" href="#fonctions" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>10  Fonctions<a class="headerlink" href="#fonctions" title="Lien permanent vers ce titre">¶</a></h1>
 <p>A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a class="reference external" href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a class="reference external" href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
 <div class="figure align-default" id="id1">
 <img alt="../_images/hamilton.jpg" src="../_images/hamilton.jpg" />
-<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Néanmoins, dans ce langage assembleur étrange, le code reste <strong>monolithique</strong> et toutes les variables sont globales.</p>
 <p>Un programme convenablement <strong>structuré</strong> est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un <a class="reference external" href="https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs">téléencéphale hautement développé et son pouce préhenseur</a> aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les <a class="reference external" href="https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)">effets de bords</a>.</p>
@@ -380,11 +415,11 @@
 </ul>
 <p>En revanche, une fonction apporte quelques désavantages qui à l'échelle des ordinateurs moderne sont parfaitement négligeables. L'appel à une fonction ou sous-routine requiert du <a class="reference external" href="https://fr.wikipedia.org/wiki/Sous-programme">housekeeping</a>, qui se compose d'un prélude et d'un aboutissant et dans lequel le <a class="reference external" href="https://fr.wikipedia.org/wiki/Commutation_de_contexte">contexte</a> doit être sauvegardé.</p>
 <div class="section" id="conventions-d-appel">
-<span id="calling-conventions"></span><h2><span class="section-number">10.1</span>Conventions d'appel<a class="headerlink" href="#conventions-d-appel" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="calling-conventions"></span><h2>10.1  Conventions d'appel<a class="headerlink" href="#conventions-d-appel" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans le <a class="reference external" href="https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro">Voyage de Chihiro</a> (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.</p>
 <div class="figure align-default" id="id2">
 <img alt="../_images/kamaji.jpg" src="../_images/kamaji.jpg" />
-<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Le vieux Kamaji et ses bras extensibles.</span></span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Le vieux Kamaji et ses bras extensibles.</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Je vous propose bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'<a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">ALU</a> d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.</p>
 <p>Il profite de son temps libre, pendant que les bains sont fermés pour préparer certains mélanges d'herbes les plus populaires et il place ce stock dans un casier du mur. Préparer un mélange est très similaire à un programme informatique dans lequel une suite d'opération représente une recette donnée. Le vieux Kamaji à une très grande mémoire, et il ne dispose pas de livre de recettes, mais vous, moi, n'importe qui, aurions besoin d'instructions claires du type :</p>
@@ -425,10 +460,10 @@
 </ul>
 <p>En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.</p>
 <div class="section" id="overhead">
-<h3><span class="section-number">10.1.1</span>Overhead<a class="headerlink" href="#overhead" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>10.1.1  Overhead<a class="headerlink" href="#overhead" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :</p>
 <div class="figure align-default" id="id3">
-<img alt="../_images/calling-convention.svg" src="../_images/calling-convention.svg" /><p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Sauvegarde des registres du processeur et convention d'appel de fonction.</span></span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/calling-convention.svg" src="../_images/calling-convention.svg" /><p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Sauvegarde des registres du processeur et convention d'appel de fonction.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
@@ -438,7 +473,7 @@
 </div>
 </div>
 <div class="section" id="stack">
-<h3><span class="section-number">10.1.2</span>Stack<a class="headerlink" href="#stack" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>10.1.2  Stack<a class="headerlink" href="#stack" title="Lien permanent vers ce titre">¶</a></h3>
 <p>En français la <a class="reference external" href="https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution">pile d'exécution</a>, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le <em>stack</em> est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le <em>stack</em>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d1</span><span class="p">);</span>
 </pre></div>
@@ -447,7 +482,7 @@
 </div>
 </div>
 <div class="section" id="prototype">
-<span id="function-prototype"></span><h2><span class="section-number">10.2</span>Prototype<a class="headerlink" href="#prototype" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="function-prototype"></span><h2>10.2  Prototype<a class="headerlink" href="#prototype" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le <a class="reference external" href="https://en.wikipedia.org/wiki/Function_prototype">prototype</a> d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code> et il est déclaré sous la forme :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>​int printf(const char* format, ...);
 </pre></div>
@@ -489,7 +524,7 @@
 <p>Un <strong>prototype</strong> de fonction diffère de son <strong>implémentation</strong> par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les <a class="reference internal" href="#calling-conventions"><span class="std std-ref">conventions d'appel</span></a> de la fonction.</p>
 </div>
 <div class="section" id="syntaxe">
-<h2><span class="section-number">10.3</span>Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>10.3  Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis <strong>C99</strong>, une fonction prend la forme :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">storage</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">return</span><span class="o">-</span><span class="nb">type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="p">(</span> <span class="o">&lt;</span><span class="n">parameter</span><span class="o">-</span><span class="nb">type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">parameter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span> <span class="p">)</span>
 </pre></div>
@@ -512,7 +547,7 @@
 </dd>
 </dl>
 <div class="section" id="void">
-<h3><span class="section-number">10.3.1</span>void<a class="headerlink" href="#void" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>10.3.1  void<a class="headerlink" href="#void" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le type <code class="docutils literal notranslate"><span class="pre">void</span></code> est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :</p>
 <ul>
 <li><dl>
@@ -550,7 +585,7 @@
 </div>
 </div>
 <div class="section" id="parametres">
-<h2><span class="section-number">10.4</span>Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>10.4  Paramètres<a class="headerlink" href="#parametres" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.</p>
 <p>En plus de cela, les <a class="reference external" href="https://fr.wikipedia.org/wiki/Param%C3%A8tre_(programmation_informatique)">paramètres</a> peuvent être passés de deux manières :</p>
 <ul class="simple">
@@ -586,7 +621,7 @@
 <p>Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le <em>caller</em>.</p>
 </div>
 <div class="section" id="recursion">
-<h2><span class="section-number">10.5</span>Récursion<a class="headerlink" href="#recursion" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>10.5  Récursion<a class="headerlink" href="#recursion" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle même.</p>
 <p>Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de fibonacci jusqu'à <code class="docutils literal notranslate"><span class="pre">n</span></code> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
@@ -655,7 +690,7 @@ fib(x)  13x
 <p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
 </div>
 <div class="section" id="memoisation">
-<h2><span class="section-number">10.6</span>Mémoïsation<a class="headerlink" href="#memoisation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>10.6  Mémoïsation<a class="headerlink" href="#memoisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En informatique la <a class="reference external" href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">mémoïsation</a> est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_dynamique">programmation dynamique</a>.</p>
 <p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutiles de fois. La parade est de mémoriser pour chaque appel de <code class="docutils literal notranslate"><span class="pre">fib</span></code>, la sortie correspondante à l'entrée.</p>
 <p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :</p>
@@ -698,11 +733,90 @@ fib(x)  13x
 </pre></div>
 </div>
 <hr class="docutils" />
-<p><a class="reference external" href="../exercises.html#exercise/10/1">Exercice 10.1</a>: Dans la moyenne</p>
-<p><a class="reference external" href="../exercises.html#exercise/10/2">Exercice 10.2</a>: Le plus petit</p>
-<p><a class="reference external" href="../exercises.html#exercise/10/3">Exercice 10.3</a>: Algorithme de retour de monnaie</p>
-<p><a class="reference external" href="../exercises.html#exercise/10/4">Exercice 10.4</a>: La fonction f</p>
-<p><a class="reference external" href="../exercises.html#exercise/10/5">Exercice 10.5</a>: Mauvaise somme</p>
+<div class="exercise" id="exercise-0">
+<strong>Exercise 10.1 Dans la moyenne</strong><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">mean</span></code> qui reçoit 3 paramètres réels et qui retourne la moyenne.</p>
+</div>
+<div class="exercise" id="exercise-1">
+<strong>Exercise 10.2 Le plus petit</strong><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">min</span></code> qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.</p>
+</div>
+<div class="exercise" id="exercise-2">
+<strong>Exercise 10.3 Algorithme de retour de monnaie</strong><p>On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.</p>
+<p>Dans le code du programme, les trois variables suivantes seront utilisées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Available coins in the parking ticket machine</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ncoin_10</span><span class="p">,</span> <span class="n">ncoin_20</span><span class="p">;</span>
+
+<span class="c1">// How much money the user inserted into the machine (in cents)</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">amount_payed</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;10 10 20 20 20&quot;</span> <span class="p">|</span> ./ptm <span class="m">30</span> <span class="m">1</span>
+<span class="go">ticket</span>
+<span class="go">20</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+<p>Le programme reçois sur <code class="docutils literal notranslate"><span class="pre">stdin</span></code> les pièces introduites dans la machine. Les deux arguments passés au programme <code class="docutils literal notranslate"><span class="pre">ptm</span></code> sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. <code class="docutils literal notranslate"><span class="pre">stdout</span></code> contient les valeurs rendue à l'utilisateur. La valeur <code class="docutils literal notranslate"><span class="pre">ticket</span></code> correspond au ticket distribué.</p>
+<p>Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.</p>
+</div>
+<div class="exercise" id="exercise-3">
+<strong>Exercise 10.4 La fonction f</strong><p>Considérons le programme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Quel sont les types et les valeurs retournées par les expressions ci-dessous ?</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Quel est votre conclusion sur cette fonction ?</p>
+</div>
+<div class="exercise" id="exercise-4">
+<strong>Exercise 10.5 Mauvaise somme</strong><p>Le programme suivant compile sans erreurs graves mais ne fonctionne pas correctement.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+
+<span class="kt">long</span> <span class="nf">get_integer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">ok</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter a integer value: &quot;</span><span class="p">);</span>
+        <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span> <span class="c1">// Empty input buffer</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Incorrect value.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">long</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="n">b</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>$ ./sum
+8527952
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -712,15 +826,15 @@ fib(x)  13x
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="stdio.html"
-       title="Chapitre précédent">← <span class="section-number">9</span>Entrées Sorties</a>
+       title="Chapitre précédent">← 9  Entrées Sorties</a>
   </li>
   <li class="next">
     <a href="composite-datatypes.html"
-       title="Chapitre suivant"><span class="section-number">11</span>Types composites →</a>
+       title="Chapitre suivant">11  Types composites →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

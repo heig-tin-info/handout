@@ -756,7 +756,6 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
         .. literalinclude:: ../assets/src/linear.c
             :language: c
-            :caption: linear.c
 
 .. exercise:: Loi d'Ohm
 

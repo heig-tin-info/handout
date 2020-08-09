@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>18Compilation séparée</title>
+      <title>18 Compilation séparée</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="19Portée et visibilité" href="scopes.html" />
-  <link rel="prev" title="17Algorithmes et conception" href="algorithms.html" /> 
+  <link rel="next" title="19 Portée et visibilité" href="scopes.html" />
+  <link rel="prev" title="17 Algorithmes et conception" href="algorithms.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -281,6 +295,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -333,18 +368,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">18</span>Compilation séparée</li>
+    <li>18  Compilation séparée</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="algorithms.html"
-       title="Chapitre précédent">← <span class="section-number">17</span>Algorithmes et conception</a>
+       title="Chapitre précédent">← 17  Algorithmes et conception</a>
   </li>
   <li class="next">
     <a href="scopes.html"
-       title="Chapitre suivant"><span class="section-number">19</span>Portée et visibilité →</a>
+       title="Chapitre suivant">19  Portée et visibilité →</a>
   </li>
 </ul>
   
@@ -353,13 +388,13 @@
           <div class="content" role="main">
             
   <div class="section" id="compilation-separee">
-<span id="translationunits"></span><h1><span class="section-number">18</span>Compilation séparée<a class="headerlink" href="#compilation-separee" title="Lien permanent vers ce titre">¶</a></h1>
+<span id="translationunits"></span><h1>18  Compilation séparée<a class="headerlink" href="#compilation-separee" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="translation-unit">
-<h2><span class="section-number">18.1</span>Translation unit<a class="headerlink" href="#translation-unit" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>18.1  Translation unit<a class="headerlink" href="#translation-unit" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En programmation, on appelle <em>translation unit</em> (unité de traduction), un code qui peut être <strong>compilé</strong> en un <strong>objet</strong> sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.</p>
 </div>
 <div class="section" id="diviser-pour-mieux-regner">
-<h2><span class="section-number">18.2</span>Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>18.2  Diviser pour mieux régner<a class="headerlink" href="#diviser-pour-mieux-regner" title="Lien permanent vers ce titre">¶</a></h2>
 <p>De même qu'un magasine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.</p>
 <p>Rappelons-le (et c'est très important) :</p>
 <ul class="simple">
@@ -425,7 +460,7 @@ réinventer la roue à chaque application !</p>
 <p>Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.</p>
 </div>
 <div class="section" id="module-logiciel">
-<h2><span class="section-number">18.3</span>Module logiciel<a class="headerlink" href="#module-logiciel" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>18.3  Module logiciel<a class="headerlink" href="#module-logiciel" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :</p>
 <ul class="simple">
 <li><p>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;</p></li>
@@ -437,7 +472,7 @@ réinventer la roue à chaque application !</p>
 <p>Un module logiciel peut se composer de fichiers sources, c'est à dire un ensemble de fichiers <code class="docutils literal notranslate"><span class="pre">.c</span></code> et <code class="docutils literal notranslate"><span class="pre">.h</span></code> ainsi qu'une documentation et un script de compilation (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code class="docutils literal notranslate"><span class="pre">.h</span></code>, <code class="docutils literal notranslate"><span class="pre">.a</span></code> et <code class="docutils literal notranslate"><span class="pre">.so</span></code>. Sous Windows on rencontre fréquemment l'extension <code class="docutils literal notranslate"><span class="pre">.dll</span></code>. Ces fichiers compilés ne donnent pas accès au code source mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
 </div>
 <div class="section" id="compilation-avec-assemblage-differe">
-<h2><span class="section-number">18.4</span>Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>18.4  Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lorsque nous avions compilé notre premier exemple <a class="reference external" href="hello">Hello World</a> nous avions simplement appelé <code class="docutils literal notranslate"><span class="pre">gcc</span></code> avec le fichier source <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> qui nous avait créé un exécutable <code class="docutils literal notranslate"><span class="pre">a.out</span></code>. En réalité, GCC est passé par plusieurs sous étapes de compilation :</p>
 <ol class="arabic simple">
 <li><p><strong>Préprocessing</strong> : les commentaires sont retirés, les directives pré-processeur sont remplacées par leur équivalent C.</p></li>
@@ -447,7 +482,7 @@ réinventer la roue à chaque application !</p>
 <p>Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.</p>
 <p>La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (<code class="docutils literal notranslate"><span class="pre">.s</span></code>) ou objets (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) en utilisant la bonne commande.</p>
 <div class="figure align-default" id="id1">
-<img alt="../_images/gcc.svg" src="../_images/gcc.svg" /><p class="caption"><span class="caption-number">Fig. 18.1 </span><span class="caption-text">Étapes intermédiaires de compilation avec GCC</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/gcc.svg" src="../_images/gcc.svg" /><p class="caption"><span class="caption-number">Fig. 18.1 </span><span class="caption-text">Étapes intermédiaires de compilation avec GCC</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Notons que ces étapes existent quelque soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).</p>
 <p>Notons que généralement, seul deux étapes de GCC sont utilisées :</p>
@@ -457,7 +492,7 @@ réinventer la roue à chaque application !</p>
 </ol>
 </div>
 <div class="section" id="fichiers-d-en-tete-header">
-<h2><span class="section-number">18.5</span>Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-d-en-tete-header" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>18.5  Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-d-en-tete-header" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les fichiers d'en-tête (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) sont des fichiers écrits en langage C mais qui ne contienne pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code class="docutils literal notranslate"><span class="pre">while</span></code>, de <code class="docutils literal notranslate"><span class="pre">for</span></code> ou même de <code class="docutils literal notranslate"><span class="pre">if</span></code>. Par convention ces fichiers ne contienne que :</p>
 <ul class="simple">
 <li><p>Des prototypes de fonctions (ou de variables).</p></li>
@@ -509,7 +544,7 @@ réinventer la roue à chaque application !</p>
 <p>Notons qu'ici le prototype est précédé par le mot clé <code class="docutils literal notranslate"><span class="pre">extern</span></code>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas car <code class="docutils literal notranslate"><span class="pre">printf</span></code> est déjà compilée quelque part dans la bibliothèque <code class="docutils literal notranslate"><span class="pre">libc</span></code> inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.</p>
 <p>Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.</p>
 <div class="section" id="protection-de-reentrance">
-<h3><span class="section-number">18.5.1</span>Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>18.5.1  Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on défini dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclu par une autre bibliothèque une erreur de compilation apparaîtera :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;&lt; EOF &gt; main.c
 <span class="go">→ #include &quot;foo.h&quot;</span>
@@ -597,15 +632,15 @@ réinventer la roue à chaque application !</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="algorithms.html"
-       title="Chapitre précédent">← <span class="section-number">17</span>Algorithmes et conception</a>
+       title="Chapitre précédent">← 17  Algorithmes et conception</a>
   </li>
   <li class="next">
     <a href="scopes.html"
-       title="Chapitre suivant"><span class="section-number">19</span>Portée et visibilité →</a>
+       title="Chapitre suivant">19  Portée et visibilité →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

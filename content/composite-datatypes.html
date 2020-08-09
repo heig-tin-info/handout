@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>11Types composites</title>
+      <title>11 Types composites</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="12Les fichiers" href="files.html" />
-  <link rel="prev" title="10Fonctions" href="functions.html" /> 
+  <link rel="next" title="12 Les fichiers" href="files.html" />
+  <link rel="prev" title="10 Fonctions" href="functions.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -285,6 +299,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -337,18 +372,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">11</span>Types composites</li>
+    <li>11  Types composites</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="functions.html"
-       title="Chapitre précédent">← <span class="section-number">10</span>Fonctions</a>
+       title="Chapitre précédent">← 10  Fonctions</a>
   </li>
   <li class="next">
     <a href="files.html"
-       title="Chapitre suivant"><span class="section-number">12</span>Les  fichiers →</a>
+       title="Chapitre suivant">12  Les  fichiers →</a>
   </li>
 </ul>
   
@@ -357,9 +392,9 @@
           <div class="content" role="main">
             
   <div class="section" id="types-composites">
-<h1><span class="section-number">11</span>Types composites<a class="headerlink" href="#types-composites" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>11  Types composites<a class="headerlink" href="#types-composites" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="tableaux">
-<span id="index-0"></span><h2><span class="section-number">11.1</span>Tableaux<a class="headerlink" href="#tableaux" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-0"></span><h2>11.1  Tableaux<a class="headerlink" href="#tableaux" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les <a class="reference external" href="https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)">tableaux</a> (<em>arrays</em>) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.</p>
 <p>L'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> est utilisé à la fois pour le déréférencement (accès à un indice du tableau) et pour l'assignation d'une taille à un tableau :</p>
 <p>La déclaration d'un tableau d'entiers de dix éléments s'écrit de la façon suivante :</p>
@@ -400,14 +435,86 @@
 </div>
 <p>Un fait remarquable est que l'opérateur <code class="docutils literal notranslate"><span class="pre">[]</span></code> est commutatif. En effet, l'opérateur <em>crochet</em> est un sucre syntaxique :</p>
 <p>Et cela fonctionne même avec les tableaux à plusieurs dimensions :</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/1">Exercice 11.1</a>: Assignation</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/2">Exercice 11.2</a>: Première position</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/3">Exercice 11.3</a>: Déclarations de tableaux</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/4">Exercice 11.4</a>: Comparaisons</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/5">Exercice 11.5</a>: Le plus grand et le plus petit</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/6">Exercice 11.6</a>: L'index magique</p>
+<div class="exercise" id="exercise-0">
+<strong>Exercise 11.1 Assignation</strong><p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
+</div>
+<div class="exercise" id="exercise-1">
+<strong>Exercise 11.2 Première position</strong><p>Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurence d'une valeur dans le tableau.</p>
+<p>Traitez les cas particuliers.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">search</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-2">
+<strong>Exercise 11.3 Déclarations de tableaux</strong><p>Considérant les déclarations suivantes :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define LIMIT 10</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">twelve</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correcte ou non.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">t</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">l</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">t</span><span class="p">[</span><span class="n">LIMITE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">t</span><span class="p">[</span><span class="n">douze</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">t</span><span class="p">[</span><span class="n">LIMITE</span> <span class="o">+</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kt">float</span> <span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="cm">/* five */</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kt">float</span> <span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>        <span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-3">
+<strong>Exercise 11.4 Comparaisons</strong><p>Soit deux tableaux <cite>char u[]</cite> et <cite>char v[]</cite>, écrire une fonction comparant leur contenu et retournant :</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">0</span></code></dt><dd><p>La somme des deux tableaux est égale.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-1</span></code></dt><dd><p>La somme du tableau de gauche est plus petite que le tableau de droite</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">1</span></code></dt><dd><p>La somme du tableau de droite est plus grande que le tableau de gauche</p>
+</dd>
+</dl>
+<p>Le prototype de la fonction à écrire est :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">comp</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">char</span> <span class="n">b</span><span class="p">[],</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-4">
+<strong>Exercise 11.5 Le plus grand et le plus petit</strong><p>Dans le canton de Genève, il existe une tradition ancestrale: l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En comémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle &quot;Ainsi périrent les ennemis de la République !&quot;.</p>
+<p>Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.</p>
+<p>Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1931
+1986
+1996
+1981
+1979
+1999
+2004
+1978
+1964
+</pre></div>
+</div>
+<p>Votre programme sera exécuté comme suit :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat years.txt <span class="p">|</span> marmite
+<span class="go">2004</span>
+<span class="go">1931</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-5">
+<strong>Exercise 11.6 L'index magique</strong><p>Un indice magique d'un tableau <code class="docutils literal notranslate"><span class="pre">A[0..n-1]</span></code> est défini tel que la valeur <code class="docutils literal notranslate"><span class="pre">A[i]</span> <span class="pre">==</span> <span class="pre">i</span></code>. Compte tenu que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.</p>
+<p>Exemple :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  0   1   2   3   4   5   6   7   8   9   10
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                              ^
+</pre></div>
+</div>
+</div>
 <div class="section" id="initialisation">
-<h3><span class="section-number">11.1.1</span>Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.1.1  Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableaux. La déclaration suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">even</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
 </pre></div>
@@ -457,7 +564,7 @@
 </div>
 </div>
 <div class="section" id="initialisation-a-zero">
-<h3><span class="section-number">11.1.2</span>Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.1.2  Initialisation à zéro<a class="headerlink" href="#initialisation-a-zero" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Enfin, un sucre syntaxique <code class="docutils literal notranslate"><span class="pre">{0}</span></code> permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisées à zéro si non mentionnées :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </pre></div>
@@ -465,7 +572,7 @@
 <p>Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. <a class="reference internal" href="memory-management.html#memory-management"><span class="std std-numref">Section 13</span></a>) les variables globales sont placées dans le segment mémoire <code class="docutils literal notranslate"><span class="pre">.bss</span></code> et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.</p>
 </div>
 <div class="section" id="initialization-a-une-valeur-particuliere">
-<h3><span class="section-number">11.1.3</span>Initialization à une valeur particulière<a class="headerlink" href="#initialization-a-une-valeur-particuliere" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.1.3  Initialization à une valeur particulière<a class="headerlink" href="#initialization-a-une-valeur-particuliere" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette écriture n'est pas normalisée <strong>C99</strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span> <span class="mi">0</span> <span class="p">...</span> <span class="mi">1023</span> <span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
 </pre></div>
@@ -477,7 +584,7 @@
 </div>
 </div>
 <div class="section" id="tableaux-non-modifiables">
-<h3><span class="section-number">11.1.4</span>Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.1.4  Tableaux non modifiables<a class="headerlink" href="#tableaux-non-modifiables" title="Lien permanent vers ce titre">¶</a></h3>
 <p>À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé <code class="docutils literal notranslate"><span class="pre">const</span></code> est utilisé a cette fin.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int32_t</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
 <span class="n">sequence</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// Interdit !</span>
@@ -499,7 +606,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="tableaux-multi-dimensionnels">
-<h3><span class="section-number">11.1.5</span>Tableaux multi-dimensionnels<a class="headerlink" href="#tableaux-multi-dimensionnels" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.1.5  Tableaux multi-dimensionnels<a class="headerlink" href="#tableaux-multi-dimensionnels" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du <em>tic-tac-toe</em> ou morpion, il faudra une grille de 3x3.</p>
 <p>Pour ce faire, il est possible de définir un tableau de 6 éléments comme vu auparavant, et utiliser un artifice pour adresser les lignes et les colonnes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
@@ -537,12 +644,140 @@ target type [-Wdiscarded-qualifiers]
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">};</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="../exercises.html#exercise/11/7">Exercice 11.7</a>: Détectives privés</p>
-<p><a class="reference external" href="../exercises.html#exercise/11/8">Exercice 11.8</a>: Pot de peinture</p>
+<div class="exercise" id="exercise-6">
+<strong>Exercise 11.7 Détectives privés</strong><p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>` `</p></th>
+<th class="head"><p>Bosley</p></th>
+<th class="head"><p>Sabrina</p></th>
+<th class="head"><p>Jill</p></th>
+<th class="head"><p>Kelly</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Janvier</p></td>
+<td><p>414.38</p></td>
+<td><p>222.72</p></td>
+<td><p>99.17</p></td>
+<td><p>153.81</p></td>
+</tr>
+<tr class="row-odd"><td><p>Février</p></td>
+<td><p>403.41</p></td>
+<td><p>390.61</p></td>
+<td><p>174.39</p></td>
+<td><p>18.11</p></td>
+</tr>
+<tr class="row-even"><td><p>Mars</p></td>
+<td><p>227.55</p></td>
+<td><p>73.86</p></td>
+<td><p>291.08</p></td>
+<td><p>416.55</p></td>
+</tr>
+<tr class="row-odd"><td><p>Avril</p></td>
+<td><p>220.20</p></td>
+<td><p>342.25</p></td>
+<td><p>139.45</p></td>
+<td><p>86.98</p></td>
+</tr>
+<tr class="row-even"><td><p>Mai</p></td>
+<td><p>13.46</p></td>
+<td><p>172.66</p></td>
+<td><p>252.33</p></td>
+<td><p>265.32</p></td>
+</tr>
+<tr class="row-odd"><td><p>Juin</p></td>
+<td><p>259.37</p></td>
+<td><p>378.72</p></td>
+<td><p>173.02</p></td>
+<td><p>208.43</p></td>
+</tr>
+<tr class="row-even"><td><p>Juillet</p></td>
+<td><p>327.06</p></td>
+<td><p>16.53</p></td>
+<td><p>391.05</p></td>
+<td><p>266.84</p></td>
+</tr>
+<tr class="row-odd"><td><p>Août</p></td>
+<td><p>50.82</p></td>
+<td><p>3.37</p></td>
+<td><p>201.71</p></td>
+<td><p>170.84</p></td>
+</tr>
+<tr class="row-even"><td><p>Septembre</p></td>
+<td><p>450.78</p></td>
+<td><p>9.33</p></td>
+<td><p>111.63</p></td>
+<td><p>337.07</p></td>
+</tr>
+<tr class="row-odd"><td><p>Octobre</p></td>
+<td><p>434.45</p></td>
+<td><p>77.80</p></td>
+<td><p>459.46</p></td>
+<td><p>479.17</p></td>
+</tr>
+<tr class="row-even"><td><p>Novembre</p></td>
+<td><p>420.13</p></td>
+<td><p>474.69</p></td>
+<td><p>343.64</p></td>
+<td><p>273.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Décembre</p></td>
+<td><p>147.76</p></td>
+<td><p>250.73</p></td>
+<td><p>201.47</p></td>
+<td><p>9.75</p></td>
+</tr>
+</tbody>
+</table>
+<p>Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">accounts</span><span class="p">[][]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="mf">414.38</span><span class="p">,</span> <span class="mf">222.72</span><span class="p">,</span>  <span class="mf">99.17</span><span class="p">,</span> <span class="mf">153.81</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">403.41</span><span class="p">,</span> <span class="mf">390.61</span><span class="p">,</span> <span class="mf">174.39</span><span class="p">,</span> <span class="mf">18.11</span><span class="p">,</span>  <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">227.55</span><span class="p">,</span>  <span class="mf">73.86</span><span class="p">,</span> <span class="mf">291.08</span><span class="p">,</span> <span class="mf">416.55</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">220.20</span><span class="p">,</span> <span class="mf">342.25</span><span class="p">,</span> <span class="mf">139.45</span><span class="p">,</span> <span class="mf">86.98</span><span class="p">,</span>  <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">13.46</span> <span class="p">,</span> <span class="mf">172.66</span><span class="p">,</span> <span class="mf">252.33</span><span class="p">,</span> <span class="mf">265.32</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">259.37</span><span class="p">,</span> <span class="mf">378.72</span><span class="p">,</span> <span class="mf">173.02</span><span class="p">,</span> <span class="mf">208.43</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">327.06</span><span class="p">,</span>  <span class="mf">16.53</span><span class="p">,</span> <span class="mf">391.05</span><span class="p">,</span> <span class="mf">266.84</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">50.82</span> <span class="p">,</span>   <span class="mf">3.37</span><span class="p">,</span> <span class="mf">201.71</span><span class="p">,</span> <span class="mf">170.84</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">450.78</span><span class="p">,</span>   <span class="mf">9.33</span><span class="p">,</span> <span class="mf">111.63</span><span class="p">,</span> <span class="mf">337.07</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">434.45</span><span class="p">,</span>  <span class="mf">77.80</span><span class="p">,</span> <span class="mf">459.46</span><span class="p">,</span> <span class="mf">479.17</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">420.13</span><span class="p">,</span> <span class="mf">474.69</span><span class="p">,</span> <span class="mf">343.64</span><span class="p">,</span> <span class="mf">273.28</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span><span class="mf">147.76</span><span class="p">,</span> <span class="mf">250.73</span><span class="p">,</span> <span class="mf">201.47</span><span class="p">,</span> <span class="mf">9.75</span><span class="p">,</span>   <span class="mi">0</span><span class="p">},</span>
+    <span class="p">{</span>  <span class="mi">0</span><span class="p">,</span>      <span class="mi">0</span><span class="p">,</span>      <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>      <span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Et laquelle complète les valeurs manquantes.</p>
+</div>
+<div class="exercise" id="exercise-7">
+<strong>Exercise 11.8 Pot de peinture</strong><p>A l'instar de l'outil <em>pot de peinture</em> des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.</p>
+<p>L'image est représentée par un tableau bi-dimensionnel contenant des couleurs indexées :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span> <span class="n">BLACK</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">PURPLE</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">,</span> <span class="n">GREEN</span> <span class="n">YELLOW</span><span class="p">,</span> <span class="n">WHITE</span> <span class="p">}</span> <span class="n">Color</span><span class="p">;</span>
+
+<span class="c1">#if 0 // Image declaration example</span>
+<span class="n">Color</span> <span class="n">image</span><span class="p">[</span><span class="mi">100</span><span class="p">][</span><span class="mi">100</span><span class="p">];</span>
+<span class="c1">#endif</span>
+
+<span class="n">boolean</span> <span class="n">paint</span><span class="p">(</span><span class="n">Color</span><span class="o">*</span> <span class="n">image</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">rows</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">cols</span><span class="p">,</span> <span class="n">Color</span> <span class="n">fill_color</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Indication</p>
+<p>Deux approches intéressantes sont possibles: <strong>DFS</strong> (Depth-First-Search) ou <strong>BFS</strong> (Breadth-First-Search), toutes deux récursives.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="chaines-de-caracteres">
-<h2><span class="section-number">11.2</span>Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.2  Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacuns représentant un caractère ASCII spécifique. La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello</span></code> contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
 <p>En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;hello, world!&quot;</span><span class="p">;</span>
@@ -572,7 +807,7 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <div class="section" id="tableaux-de-chaines-de-caracteres">
-<h3><span class="section-number">11.2.1</span>Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.2.1  Tableaux de chaînes de caractères<a class="headerlink" href="#tableaux-de-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">conjunctions</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&quot;mais&quot;</span><span class="p">,</span> <span class="s">&quot;ou&quot;</span><span class="p">,</span> <span class="s">&quot;est&quot;</span><span class="p">,</span> <span class="s">&quot;donc&quot;</span><span class="p">,</span> <span class="s">&quot;or&quot;</span><span class="p">,</span> <span class="s">&quot;ni&quot;</span><span class="p">,</span> <span class="s">&quot;car&quot;</span>
@@ -597,7 +832,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="structures">
-<h2><span class="section-number">11.3</span>Structures<a class="headerlink" href="#structures" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.3  Structures<a class="headerlink" href="#structures" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type <code class="docutils literal notranslate"><span class="pre">struct</span></code> a été dérivé de <code class="docutils literal notranslate"><span class="pre">ALGOL</span> <span class="pre">68</span></code>. Il est également utilisé en C++ et est similaire à une classe.</p>
 <p>Il faut voir une structure comme un container à variables qu'il est possible de véhiculer comme un tout.</p>
 <p>La structure suivante décrit un agrégat de trois grandeurs scalaires formant un point tridimensionnel :</p>
@@ -634,7 +869,7 @@ target type [-Wdiscarded-qualifiers]
 <p>Comme <code class="docutils literal notranslate"><span class="pre">point</span></code> n'est pas une primitive standard mais un container à primitive, il n'est pas correct d'écrire <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">=</span> <span class="pre">12</span></code>. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.</p>
 <p>Ces coordonnées sont un clin d'oeil aux <a class="reference external" href="https://fr.wikipedia.org/wiki/Pierres_du_Niton">Pierres du Niton</a> qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour <a class="reference external" href="https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre">Axel Lidenbrock</a> et son fulmicoton.</p>
 <div class="section" id="structures-nommees">
-<h3><span class="section-number">11.3.1</span>Structures nommées<a class="headerlink" href="#structures-nommees" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.1  Structures nommées<a class="headerlink" href="#structures-nommees" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'écriture que l'on a vu initialement <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">};</span></code> est appelée structure annonyme, c'est à dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">nom;</span></code>. Néanmoins la structure est toujours annonyme.</p>
 <p>Le langage C prévoit la possibilté de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé <code class="docutils literal notranslate"><span class="pre">struct</span></code> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
@@ -667,7 +902,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">11.3.2</span>Initialisation<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.2  Initialisation<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> mais avec l'opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> serait identique à un tableau de trois <code class="docutils literal notranslate"><span class="pre">double</span></code> et par conséquent l'initialisation suivante est possible :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">3060426.957</span><span class="p">,</span> <span class="mf">3192003.220</span><span class="p">,</span> <span class="mf">4581359.381</span> <span class="p">};</span>
 </pre></div>
@@ -691,7 +926,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="tableaux-de-structures">
-<h3><span class="section-number">11.3.3</span>Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.3  Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code class="docutils literal notranslate"><span class="pre">char</span></code> ou <code class="docutils literal notranslate"><span class="pre">double</span></code> peut donc être fait avec <code class="docutils literal notranslate"><span class="pre">struct</span></code>. Et donc, il est aussi possibel de déclarer un tableau de structures. Ici donnons l'exemple d'un tableaux de points initialisés :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
@@ -706,7 +941,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="structures-en-parametres">
-<h3><span class="section-number">11.3.4</span>Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.4  Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="nf">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
@@ -756,7 +991,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="structures-flexibles">
-<h3><span class="section-number">11.3.5</span>Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.5  Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Introduit avec C99, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Vector</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span> <span class="c1">// name of the vector</span>
@@ -776,7 +1011,7 @@ target type [-Wdiscarded-qualifiers]
 <p>Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.</p>
 </div>
 <div class="section" id="structure-de-structures">
-<h3><span class="section-number">11.3.6</span>Structure de structures<a class="headerlink" href="#structure-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.6  Structure de structures<a class="headerlink" href="#structure-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On comprends aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.</p>
 <p>Nous déclarons ici une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Line</span></code> composée de <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="p">{</span>
@@ -792,7 +1027,7 @@ target type [-Wdiscarded-qualifiers]
 </div>
 </div>
 <div class="section" id="alignement-memoire">
-<h3><span class="section-number">11.3.7</span>Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>11.3.7  Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
 </pre></div>
@@ -904,7 +1139,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </div>
 </div>
 <div class="section" id="champs-de-bits">
-<h2><span class="section-number">11.4</span>Champs de bits<a class="headerlink" href="#champs-de-bits" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.4  Champs de bits<a class="headerlink" href="#champs-de-bits" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les champs de bits sont des structures dont une information supplémentaire est ajoutée: le nombre de bits utilisés.</p>
 <p>Prenons l'exemple du <a class="reference external" href="http://www.ti.com/lit/ug/sprug03b/sprug03b.pdf">module I2C</a> du microcontrôleur TMS320F28335. Le registre <code class="docutils literal notranslate"><span class="pre">I2CMDR</span></code> décrit à la page 23 est un registre 16-bits qu'il conviendrait de décrire avec un champ de bits :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">I2CMDR</span> <span class="p">{</span>
@@ -940,7 +1175,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 <p>Notons que les champs de bits, ainsi que les structures seront déclarées différemment selon que l'architecture cible est <em>little-endian</em> ou <em>big-endian</em>.</p>
 </div>
 <div class="section" id="unions">
-<h2><span class="section-number">11.5</span>Unions<a class="headerlink" href="#unions" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.5  Unions<a class="headerlink" href="#unions" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <a class="reference external" href="https://en.wikipedia.org/wiki/Union_type">union</a> est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au <a class="reference internal" href="datatype.html#storage"><span class="std std-numref">Section 6.2</span></a> nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -998,7 +1233,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </div>
 </div>
 <div class="section" id="creation-de-type">
-<h2><span class="section-number">11.6</span>Création de type<a class="headerlink" href="#creation-de-type" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.6  Création de type<a class="headerlink" href="#creation-de-type" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">typedef</span></code> permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe <code class="docutils literal notranslate"><span class="pre">struct</span></code>), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.</p>
 <p>L'exemple suivant déclare un type <code class="docutils literal notranslate"><span class="pre">Point</span></code> et un prototype de fonction permettant l'addition de deux points.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
@@ -1011,7 +1246,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </div>
 </div>
 <div class="section" id="compound-literals">
-<h2><span class="section-number">11.7</span>Compound Literals<a class="headerlink" href="#compound-literals" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>11.7  Compound Literals<a class="headerlink" href="#compound-literals" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Naïvement traduit en <em>litéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé &quot;à la volée&quot; utilisé de la même façon que les transtypages.</p>
 <p>Reprenons notre structure Point <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> vue plus haut. Si l'on souhaite changer la valeur du point <code class="docutils literal notranslate"><span class="pre">p</span></code> il faudrait on pourrait écrire ceci :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// Déclaré plus haut</span>
@@ -1043,7 +1278,53 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </pre></div>
 </div>
 <hr class="docutils" />
-<p><a class="reference external" href="../exercises.html#exercise/11/9">Exercice 11.9</a>: Mendeleïev</p>
+<div class="exercise" id="exercise-8">
+<strong>Exercise 11.9 Mendeleïev</strong><p>Chaque élément du taleau périodique des éléments comporte les propriétés suivantes :</p>
+<ul class="simple">
+<li><p>Un nom jusqu'à 20 lettres</p></li>
+<li><p>Un symbole jusqu'à 2 lettres</p></li>
+<li><p>Un numéro atomique de 1 à 118 (2019)</p></li>
+<li><dl class="simple">
+<dt>Le type de l'élément</dt><dd><ul>
+<li><dl class="simple">
+<dt>Métaux</dt><dd><ul>
+<li><p>Alcalin</p></li>
+<li><p>Alcalino-terreux</p></li>
+<li><p>Lanthanides</p></li>
+<li><p>Actinides</p></li>
+<li><p>Métaux de transition</p></li>
+<li><p>Métaux pauvres</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Métalloïdes</p></li>
+<li><dl class="simple">
+<dt>Non métaux</dt><dd><ul>
+<li><p>Autres</p></li>
+<li><p>Halogène</p></li>
+<li><p>Gaz noble</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>La période: un entier de 1 à 7</p></li>
+<li><p>Le groupe: un entier de 1 à 18</p></li>
+</ul>
+<p>Déclarer une structure de données permettant de stocker tous les éléments chimiques de tel facon qu'ils puissent être accédés comme :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">6</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Helium&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">54</span><span class="p">].</span><span class="n">type</span><span class="p">,</span> <span class="s">&quot;Gaz noble&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">11</span><span class="p">].</span><span class="n">period</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">Element</span> <span class="o">*</span><span class="n">el</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">element</span><span class="p">[</span><span class="mi">92</span><span class="p">];</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">el</span><span class="o">-&gt;</span><span class="n">atomic_weight</span> <span class="o">==</span> <span class="mi">92</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1053,15 +1334,15 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="functions.html"
-       title="Chapitre précédent">← <span class="section-number">10</span>Fonctions</a>
+       title="Chapitre précédent">← 10  Fonctions</a>
   </li>
   <li class="next">
     <a href="files.html"
-       title="Chapitre suivant"><span class="section-number">12</span>Les  fichiers →</a>
+       title="Chapitre suivant">12  Les  fichiers →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

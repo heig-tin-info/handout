@@ -58,6 +58,26 @@ Date : |today|
     content/traps
     content/philosophy
 
+.. raw:: latex
+
+    \backmatter
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Références
+    :glob:
+
+    backmatter/exercises
+    backmatter/bibliography
+    backmatter/glossary
+
+.. raw:: latex
+
+    \listoffigures
+    \listoftables
+    \listofexercise
+    \printindex
+
 .. appendix::
     :numbered:
     :maxdepth: 2
@@ -70,17 +90,5 @@ Date : |today|
     appendix/development
     appendix/unit
     appendix/laboratories
-
-.. raw:: latex
-
-    \backmatter
-    \listoffigures
-    \listoftables
-    \printindex
-
-
-.. include:: backmatter/glossary.rst
-
-.. include:: backmatter/bibliography.rst
 
 .. include:: backmatter/colophon.rst

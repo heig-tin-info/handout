@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>9Entrées Sorties</title>
+      <title>9 Entrées Sorties</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="10Fonctions" href="functions.html" />
-  <link rel="prev" title="8Programmes et Processus" href="processus.html" /> 
+  <link rel="next" title="10 Fonctions" href="functions.html" />
+  <link rel="prev" title="8 Programmes et Processus" href="processus.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -279,6 +293,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -331,18 +366,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">9</span>Entrées Sorties</li>
+    <li>9  Entrées Sorties</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="processus.html"
-       title="Chapitre précédent">← <span class="section-number">8</span>Programmes et Processus</a>
+       title="Chapitre précédent">← 8  Programmes et Processus</a>
   </li>
   <li class="next">
     <a href="functions.html"
-       title="Chapitre suivant"><span class="section-number">10</span>Fonctions →</a>
+       title="Chapitre suivant">10  Fonctions →</a>
   </li>
 </ul>
   
@@ -351,7 +386,7 @@
           <div class="content" role="main">
             
   <div class="section" id="entrees-sorties">
-<h1><span class="section-number">9</span>Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>9  Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Comme nous l'avons vu (c.f. <a class="reference internal" href="processus.html#inputs-outputs"><span class="std std-numref">Section 8.1.3</span></a>) un programme dispose de canaux d'entrées sorties <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
 <p>La fonction phare est bien entendu <code class="docutils literal notranslate"><span class="pre">printf</span></code> pour le formatage de chaîne de caractères et <code class="docutils literal notranslate"><span class="pre">scanf</span></code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes :</p>
 <ul class="simple">
@@ -361,7 +396,7 @@
 </ul>
 <p>La liste citée est non exhaustive, mais largement documentée ici: <a class="reference external" href="http://man7.org/linux/man-pages/man3/stdio.3.html">&lt;stdio.h&gt;</a>.</p>
 <div class="section" id="sorties-non-formatees">
-<h2><span class="section-number">9.1</span>Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>9.1  Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">putchar(char</span> <span class="pre">c)</span></code></dt><dd><p>Pour imprimer un caractère unique: <code class="docutils literal notranslate"><span class="pre">putchar('c')</span></code></p>
@@ -369,10 +404,23 @@
 <dt><code class="docutils literal notranslate"><span class="pre">puts(char[]</span> <span class="pre">str)</span></code></dt><dd><p>Pour imprimer une chaîne de caractères</p>
 </dd>
 </dl>
-<p><a class="reference external" href="../exercises.html#exercise/9/1">Exercice 9.1</a>: Mot du jour</p>
+<div class="exercise" id="exercise-0">
+<strong>Exercise 9.1 Mot du jour</strong><p>Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">char</span> <span class="o">*</span><span class="n">words</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Albédo&quot;</span><span class="p">,</span> <span class="s">&quot;Bigre&quot;</span><span class="p">,</span> <span class="s">&quot;Maringouin&quot;</span><span class="p">,</span> <span class="s">&quot;Pluripotent&quot;</span><span class="p">,</span> <span class="s">&quot;Entrechat&quot;</span><span class="p">,</span> <span class="s">&quot;Caracoler&quot;</span> <span class="s">&quot;Palinodie&quot;</span><span class="p">,</span> <span class="s">&quot;Sémillante&quot;</span><span class="p">,</span> <span class="s">&quot;Atavisme&quot;</span><span class="p">,</span> <span class="s">&quot;Cyclothymie&quot;</span><span class="p">,</span> <span class="s">&quot;Idiosyncratique&quot;</span><span class="p">,</span> <span class="s">&quot;Entéléchie&quot;</span><span class="p">};</span>
+
+<span class="cp">#if 0</span><span class="c"></span>
+<span class="c">    srand(time(NULL));   // Initialization, should only be called once.</span>
+<span class="c">    size_t r = rand() % sizeof(words) / sizeof(char*); // Generate random value</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="sorties-formatees">
-<h2><span class="section-number">9.2</span>Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>9.2  Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code class="docutils literal notranslate"><span class="pre">123</span></code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Etape  Opération  Resultat  Reste
 1      123 / 10   12        3
@@ -446,7 +494,7 @@
 </div>
 </div>
 <div class="section" id="printf">
-<h2><span class="section-number">9.3</span>printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>9.3  printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifieurs débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -481,13 +529,13 @@
 <dt><code class="docutils literal notranslate"><span class="pre">type</span></code></dt><dd><p>Type de formatage souhaité</p>
 </dd>
 </dl>
-<div class="figure align-default" id="id4">
-<img alt="../_images/formats.svg" src="../_images/formats.svg" /><p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Formatage d'un marqueur</span></span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/formats.svg" src="../_images/formats.svg" /><p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Formatage d'un marqueur</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="exemples">
-<h3><span class="section-number">9.3.1</span>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
-<span id="index-0"></span><table class="docutils align-default" id="id5">
-<caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formattage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<h3>9.3.1  Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-0"></span><table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formattage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 32%" />
@@ -538,11 +586,21 @@
 </tr>
 </tbody>
 </table>
-<p><a class="reference external" href="../exercises.html#exercise/9/2">Exercice 9.2</a>: Quelque bogues bien formatés</p>
+<div class="exercise" id="exercise-1">
+<strong>Exercise 9.2 Quelque bogues bien formatés</strong><p>Indiquez les erreurs dans les instructions suivantes :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">40.</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%*d, %*d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%6.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mh">0x9f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="entrees-formatees">
-<h2><span class="section-number">9.4</span>Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>9.4  Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire un <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">scanf</span></code> est par exemple utilisée à cette fin :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -573,7 +631,7 @@
 </div>
 <p>On observe ici un comportement différent, car le retour clavier lorsque la touche <em>enter</em> est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.</p>
 <div class="section" id="scanf">
-<h3><span class="section-number">9.4.1</span>scanf<a class="headerlink" href="#scanf" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>9.4.1  scanf<a class="headerlink" href="#scanf" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le format de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> se rapproche de <code class="docutils literal notranslate"><span class="pre">printf</span></code> mais en plus simple. Le <a class="reference external" href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipedia de <a class="reference external" href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
 <p>Cette fonction tient son origine une nouvelle fois de <a class="reference external" href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<code class="docutils literal notranslate"><span class="pre">readf</span></code>), elle est donc très ancienne.</p>
 <p>La compréhension de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
@@ -664,12 +722,60 @@ poussière
 </pre></div>
 </div>
 <p>Ensuite, <code class="docutils literal notranslate"><span class="pre">[^\n]</span></code>. Le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code>, terminé par <code class="docutils literal notranslate"><span class="pre">]</span></code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a class="reference external" href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code class="docutils literal notranslate"><span class="pre">^</span></code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code class="docutils literal notranslate"><span class="pre">scanf</span></code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code class="docutils literal notranslate"><span class="pre">C</span></code> de <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>, le pointeur de fichier est bloqué au caractère <code class="docutils literal notranslate"><span class="pre">C</span></code> et au prochain tour de boucle, <code class="docutils literal notranslate"><span class="pre">scanf</span></code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/3">Exercice 9.3</a>: scanf sur des entiers et des réels</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/4">Exercice 9.4</a>: Saisie de valeurs</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/5">Exercice 9.5</a>: Chaînes de formats</p>
+<div class="exercise" id="exercise-2">
+<strong>Exercise 9.3 scanf sur des entiers et des réels</strong><p>Considérant les déclarations :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Donnez les valeurs de chacune des variables après exécution. Chaque ligne est indépendante des autres.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;1 12.5&quot;</span><span class="p">,</span> <span class="s">&quot;%d %d, &amp;j, &amp;k);</span>
+<span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;12.5&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">%</span><span class="n">f</span><span class="p">);</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123 123&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123a 123&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;%2d%2d%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-3">
+<strong>Exercise 9.4 Saisie de valeurs</strong><p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%1d%1d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">12\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">,</span> <span class="pre">2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">-1</span>&#160;&#160; <span class="pre">-2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span>&#160; <span class="pre">1</span>&#160; <span class="pre">-</span>&#160; <span class="pre">2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d,%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span>&#160; <span class="pre">,</span>&#160; <span class="pre">2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d</span> <span class="pre">,%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span>&#160; <span class="pre">,</span>&#160; <span class="pre">2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%4d</span> <span class="pre">%2d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">234\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%4d</span> <span class="pre">%2d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1234567\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d%*d%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">123</span> <span class="pre">456</span> <span class="pre">789\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;i=%d</span> <span class="pre">,</span> <span class="pre">j=%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">,</span> <span class="pre">2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;i=%d</span> <span class="pre">,</span> <span class="pre">j=%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">i=1,</span> <span class="pre">j=2\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1.23</span> <span class="pre">4.56\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%d.%d&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">1.23</span> <span class="pre">4.56\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%x%x&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">2a\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%x%x&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">0x12</span> <span class="pre">0X2a\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%o%o&quot;,</span> <span class="pre">&amp;i,</span> <span class="pre">&amp;j);</span></code>, <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">018\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%f&quot;,</span> <span class="pre">&amp;x);</span></code>, <code class="docutils literal notranslate"><span class="pre">123\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%f&quot;,</span> <span class="pre">&amp;x);</span></code>, <code class="docutils literal notranslate"><span class="pre">1.23\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%f&quot;,</span> <span class="pre">&amp;x);</span></code>, <code class="docutils literal notranslate"><span class="pre">123E4\n</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">scanf(&quot;%e&quot;,</span> <span class="pre">&amp;x);</span></code>, <code class="docutils literal notranslate"><span class="pre">12\n</span></code></p></li>
+</ol>
+</div>
+<div class="exercise" id="exercise-4">
+<strong>Exercise 9.5 Chaînes de formats</strong><ol class="arabic simple">
+<li><p>Saisir 3 caractères consécutifs dans des variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p></li>
+<li><p>Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p></li>
+<li><p>Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe <code class="docutils literal notranslate"><span class="pre">=</span></code>, dans des variables <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
+</ol>
+</div>
 </div>
 <div class="section" id="saisie-de-chaine-de-caracteres">
-<h3><span class="section-number">9.4.2</span>Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>9.4.2  Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code class="docutils literal notranslate"><span class="pre">%20s</span></code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code class="docutils literal notranslate"><span class="pre">\0</span></code>. Sinon, il y a risque de <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -697,7 +803,7 @@ poussière
 </div>
 </div>
 <div class="section" id="saisie-arbitraire">
-<h3><span class="section-number">9.4.3</span>Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>9.4.3  Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a class="reference external" href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Q2hvY29sYXQ&quot;</span><span class="p">;</span>
 <span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
@@ -706,15 +812,154 @@ poussière
 </div>
 <p>Dans cet exemple je capture les nombres de 0 à 9 <code class="docutils literal notranslate"><span class="pre">0-9</span></code> (10), les caractères majuscules et minuscules <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> (52), ainsi que les caractères <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
 <hr class="docutils" />
-<p><a class="reference external" href="../exercises.html#exercise/9/6">Exercice 9.6</a>: Bugs</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/7">Exercice 9.7</a>: Test de saisir correcte</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/8">Exercice 9.8</a>: Produit scalaire</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/9">Exercice 9.9</a>: Crampes de doigts</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/10">Exercice 9.10</a>: Géométrie affine</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/11">Exercice 9.11</a>: Équation de droite</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/12">Exercice 9.12</a>: Loi d'Ohm</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/13">Exercice 9.13</a>: Tour Eiffel</p>
-<p><a class="reference external" href="../exercises.html#exercise/9/14">Exercice 9.14</a>: Hyperloop</p>
+<div class="exercise" id="exercise-5">
+<strong>Exercise 9.6 Bugs</strong><p>Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">j</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">u</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-6">
+<strong>Exercise 9.7 Test de saisir correcte</strong><p>Écrivez un programme déclarant des variables réelles <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code>, permettant de
+saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
+été assignées. Dans le cas contraire, afficher un message du type &quot;données
+invalides&quot;.</p>
+</div>
+<div class="exercise" id="exercise-7">
+<strong>Exercise 9.8 Produit scalaire</strong><p>Écrire un programme effectuant les opérations suivantes :</p>
+<ul class="simple">
+<li><p>Saisir les coordonnées réelles <code class="docutils literal notranslate"><span class="pre">x1</span></code> et <code class="docutils literal notranslate"><span class="pre">y1</span></code> d’un vecteur <code class="docutils literal notranslate"><span class="pre">v1</span></code>.</p></li>
+<li><p>Saisir les coordonnées réelles <code class="docutils literal notranslate"><span class="pre">x2</span></code> et <code class="docutils literal notranslate"><span class="pre">y2</span></code> d’un vecteur <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p></li>
+<li><p>Calculer le produit scalaire. Afficher un message indiquant si les vecteurs sont orthogonaux ou non.</p></li>
+</ul>
+</div>
+<div class="exercise" id="exercise-8">
+<strong>Exercise 9.9 Crampes de doigts</strong><p>Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.</p>
+<p>Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;std_io.h&gt;
+#jnclude &lt;stdlib.h&gt;
+INT Main()
+{
+int a, sum;
+printf(&quot;Addition de 2 entiers a et b.\n&quot;);
+
+printf(&quot;a: &quot;)
+scanf(&quot;%d&quot;, a);
+
+printf(&quot;b: &quot;);
+scanf(&quot;%d&quot;, &amp;b);
+
+/* Affichage du résultat
+somme = a - b;
+Printf(&quot;%d + %d = %d\n&quot;, a, b, sum);
+
+retturn EXIT_FAILURE;
+}
+}
+</pre></div>
+</div>
+</div>
+<div class="exercise" id="exercise-9">
+<strong>Exercise 9.10 Géométrie affine</strong><p>Considérez le programme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;b = &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;y = %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>À quelle ligne commence l'exécution de ce programme ?</p></li>
+<li><p>Dans quel ordre s'exécutent les instructions ?</p></li>
+<li><p>Décrivez ce que fait ce programme étape par étape</p></li>
+<li><p>Que verra l'utilisateur à l'écran ?</p></li>
+<li><p>Quelle est l'utilité de ce programme ?</p></li>
+</ol>
+</div>
+<div class="exercise" id="exercise-10">
+<strong>Exercise 9.11 Équation de droite</strong><p>L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?</p>
+</div>
+<div class="exercise" id="exercise-11">
+<strong>Exercise 9.12 Loi d'Ohm</strong><p>Écrivez un programme demandant deux réels <code class="docutils literal notranslate"><span class="pre">tension</span></code> et <code class="docutils literal notranslate"><span class="pre">résistance</span></code>, et affichez ensuite le <code class="docutils literal notranslate"><span class="pre">courant</span></code>. Prévoir un test pour le cas où la résistance serait nulle.</p>
+</div>
+<div class="exercise" id="exercise-12">
+<strong>Exercise 9.13 Tour Eiffel</strong><p>Considérons le programme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): &quot;</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">angle_degre</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">angle_degrees</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">angle_radian</span> <span class="o">=</span> <span class="n">angle_degrees</span> <span class="o">*</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mf">45.</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;À quelle distance vous trouvez vous du bâtiment (en mètres): &quot;</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">distance</span><span class="p">;</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span>
+
+    <span class="kt">float</span> <span class="n">height</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">tan</span><span class="p">(</span><span class="n">angle_radian</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La hauteur du bâtiment est : %g mètres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Que fait le programme étape par étape ?</p></li>
+<li><p>Que verra l'utilisateur à l'écran ?</p></li>
+<li><p>À quoi sert ce programme ?</p></li>
+<li><p>Euh, mais ? Ce programme comporte des erreurs, lesquelles ?</p></li>
+<li><p>Implémentez-le et testez-le.</p></li>
+</ol>
+</div>
+<div class="exercise" id="exercise-13">
+<strong>Exercise 9.14 Hyperloop</strong><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Hyperloop">Hyperloop</a> (aussi orthographié <strong>Hyperl∞p</strong>) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Swissmetro">Swissmetro</a>, mais abandonné en 2009.</p>
+<p>Néanmoins, les ingénieurs suisses avaient à l'époque écrit un programme pour calculer, compte tenu d'une vitesse donnée, le temps de parcours entre deux villes de Suisse.</p>
+<p>Écrire un programme pour calculer la distance entre deux villes de suisse parmi lesquelles proposées sont :</p>
+<ul class="simple">
+<li><p>Genève</p></li>
+<li><p>Zürich</p></li>
+<li><p>Bâle</p></li>
+<li><p>Bern</p></li>
+<li><p>St-Galle</p></li>
+</ul>
+<p>Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vitesse maximale de 1220 km/h.</p>
+</div>
 </div>
 </div>
 </div>
@@ -725,15 +970,15 @@ poussière
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="processus.html"
-       title="Chapitre précédent">← <span class="section-number">8</span>Programmes et Processus</a>
+       title="Chapitre précédent">← 8  Programmes et Processus</a>
   </li>
   <li class="next">
     <a href="functions.html"
-       title="Chapitre suivant"><span class="section-number">10</span>Fonctions →</a>
+       title="Chapitre suivant">10  Fonctions →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

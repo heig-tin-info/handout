@@ -13,7 +13,7 @@
       gtag('config', 'UA-145664552-1');
     </script>
     
-      <title>19Portée et visibilité</title>
+      <title>19 Portée et visibilité</title>
     
       <link rel="stylesheet" href="../_static/pygments.css">
       <link rel="stylesheet" href="../_static/theme.css">
@@ -35,8 +35,8 @@
     <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Recherche" href="../search.html" />
-  <link rel="next" title="20Qualité et Testabilité" href="testing.html" />
-  <link rel="prev" title="18Compilation séparée" href="translation-units.html" /> 
+  <link rel="next" title="20 Qualité et Testabilité" href="testing.html" />
+  <link rel="prev" title="18 Compilation séparée" href="translation-units.html" /> 
   </head>
 
   <body>
@@ -55,6 +55,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -85,6 +92,13 @@
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link  router-link-active">
          Table des matières
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Références
       </a>
     </div>
   
@@ -279,6 +293,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -331,18 +366,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">19</span>Portée et visibilité</li>
+    <li>19  Portée et visibilité</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="translation-units.html"
-       title="Chapitre précédent">← <span class="section-number">18</span>Compilation séparée</a>
+       title="Chapitre précédent">← 18  Compilation séparée</a>
   </li>
   <li class="next">
     <a href="testing.html"
-       title="Chapitre suivant"><span class="section-number">20</span>Qualité et Testabilité →</a>
+       title="Chapitre suivant">20  Qualité et Testabilité →</a>
   </li>
 </ul>
   
@@ -351,7 +386,7 @@
           <div class="content" role="main">
             
   <div class="section" id="portee-et-visibilite">
-<h1><span class="section-number">19</span>Portée et visibilité<a class="headerlink" href="#portee-et-visibilite" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>19  Portée et visibilité<a class="headerlink" href="#portee-et-visibilite" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Ce chapitre se concentre sur quatre caractéristiques d'une variable :</p>
 <ul class="simple">
 <li><p>La portée</p></li>
@@ -362,10 +397,10 @@
 <p>Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible, et de quelle manière</p>
 <div class="figure align-default" id="id1">
 <img alt="../_images/visibility.jpg" src="../_images/visibility.jpg" />
-<p class="caption"><span class="caption-number">Fig. 19.1 </span><span class="caption-text">Brouillard matinal sur le <a class="reference external" href="https://fr.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a>, San Francisco.</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 19.1 </span><span class="caption-text">Brouillard matinal sur le <a class="reference external" href="https://fr.wikipedia.org/wiki/Golden_Gate_Bridge">Golden Gate Bridge</a>, San Francisco.</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="espace-de-nommage">
-<h2><span class="section-number">19.1</span>Espace de nommage<a class="headerlink" href="#espace-de-nommage" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>19.1  Espace de nommage<a class="headerlink" href="#espace-de-nommage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'espace de nommage ou <code class="docutils literal notranslate"><span class="pre">namespace</span></code> est un concept différent de celui existant dans d'autres langages tel que C++. Le standard <strong>C99</strong> décrit 4 types possibles pour un identifiant :</p>
 <ul class="simple">
 <li><p>fonction et <em>labels</em></p></li>
@@ -374,7 +409,7 @@
 </ul>
 </div>
 <div class="section" id="portee">
-<h2><span class="section-number">19.2</span>Portée<a class="headerlink" href="#portee" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>19.2  Portée<a class="headerlink" href="#portee" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La portée ou <a class="reference external" href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a> décrit jusqu'à où une variable est accessible.</p>
 <p>Une variable est <strong>globale</strong>, c'est-à-dire accessible partout, si elle est déclarée en dehors d'une fonction :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">global_variable</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
@@ -394,7 +429,7 @@
 </pre></div>
 </div>
 <div class="section" id="variable-shadowing">
-<h3><span class="section-number">19.2.1</span>Variable shadowing<a class="headerlink" href="#variable-shadowing" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.2.1  Variable shadowing<a class="headerlink" href="#variable-shadowing" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On dit qu'une variable est <em>shadowed</em> ou <em>masquée</em> si sa déclaration masque une variable préalablement déclarée :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
 
@@ -408,7 +443,7 @@
 </div>
 </div>
 <div class="section" id="visibilite">
-<h2><span class="section-number">19.3</span>Visibilité<a class="headerlink" href="#visibilite" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>19.3  Visibilité<a class="headerlink" href="#visibilite" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Selon l'endoit où est déclaré une variable, elle ne sera pas nécessairement visible partout ailleurs. Une variable <strong>locale</strong> n'est accessible qu'à partir de sa déclaration et jusqu'à la fin du bloc dans laquelle elle est déclarée.</p>
 <p>L'exemple suivant montre la visibilité de plusieurs variables :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>                  //   a
@@ -478,11 +513,11 @@ int j;                       //  ┴ ┬
 <p>En écrivant <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">foo;</span></code> dans <code class="docutils literal notranslate"><span class="pre">foo.c</span></code>, la variable n'est plus accessible en dehors du module même avec une déclaration en avance. On dit que sa portée est réduite au module.</p>
 </div>
 <div class="section" id="qualificatif-de-type">
-<h2><span class="section-number">19.4</span>Qualificatif de type<a class="headerlink" href="#qualificatif-de-type" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>19.4  Qualificatif de type<a class="headerlink" href="#qualificatif-de-type" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les variables en C peuvent être crées de différentes manières. Selon la manière dont elle pourront être utilisées, il est courant de les classer en catégories.</p>
 <p>Une classe de stockage peut être implicite à une déclaration de variable ou explicite, en ajoutant un attribut devant la déclaration de celle-ci.</p>
 <div class="section" id="auto">
-<h3><span class="section-number">19.4.1</span><code class="docutils literal notranslate"><span class="pre">auto</span></code><a class="headerlink" href="#auto" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.1  <code class="docutils literal notranslate"><span class="pre">auto</span></code><a class="headerlink" href="#auto" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-0">Cette classe est utilisée par défaut lorsqu'aucune autre classe
 n'est précisée. Les variables automatiques sont visibles uniquement dans
 le bloc où elles sont déclarées. Ces variables sont habituellement créées sur la pile (<em>stack</em>) mais peuvent être aussi stockées dans les registres du processeur. C'est un choix qui incombe au compilateur.</p>
@@ -493,16 +528,16 @@ le bloc où elles sont déclarées. Ces variables sont habituellement créées s
 obligatoire, et n'est pas recommandé en <strong>C99</strong> car son utilisation est implicite.</p>
 </div>
 <div class="section" id="register">
-<h3><span class="section-number">19.4.2</span><code class="docutils literal notranslate"><span class="pre">register</span></code><a class="headerlink" href="#register" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.2  <code class="docutils literal notranslate"><span class="pre">register</span></code><a class="headerlink" href="#register" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-1">Ce mot clé incite le compilateur à utiliser un registre processeur pour stocker la variable. Ceci permet de gagner en temps d'exécution car la variable n'a pas besoin d'être chargée depuis et écrite vers la mémoire.</p>
 <p>Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable <code class="docutils literal notranslate"><span class="pre">i</span></code> utilisée dans les boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> était déclarées <code class="docutils literal notranslate"><span class="pre">register</span> <span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span></code>. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis <strong>C99</strong>.</p>
 </div>
 <div class="section" id="const">
-<h3><span class="section-number">19.4.3</span><code class="docutils literal notranslate"><span class="pre">const</span></code><a class="headerlink" href="#const" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.3  <code class="docutils literal notranslate"><span class="pre">const</span></code><a class="headerlink" href="#const" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-2">Ce mot clé rends une déclaration non modifiable par le programme lui même. Néanmoins il ne s'agit pas de constantes au sens strict du terme car une variable de type <code class="docutils literal notranslate"><span class="pre">const</span></code> pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.</p>
 </div>
 <div class="section" id="static">
-<h3><span class="section-number">19.4.4</span><code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#static" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.4  <code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#static" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-3">Elle permet de déclarer des variables dont le contenu est
 préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 <p>Elles ne sont donc initialisées qu'une seule fois. L'exemple suivant est une fonction qui retourne à chaque fois une valeur différente, incrémentée de 1. La variable <code class="docutils literal notranslate"><span class="pre">i</span></code> agit ici comme une variable globale, elle n'est initialisée qu'une seule fois à 0 et donc s'incrémente d'appel en appel. En revanche, elle n'est pas accessible en dehors de la fonction; c'est donc une variable locale.</p>
@@ -519,19 +554,19 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 </div>
 </div>
 <div class="section" id="volatile">
-<h3><span class="section-number">19.4.5</span><code class="docutils literal notranslate"><span class="pre">volatile</span></code><a class="headerlink" href="#volatile" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.5  <code class="docutils literal notranslate"><span class="pre">volatile</span></code><a class="headerlink" href="#volatile" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-4">Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.</p>
 <p>L'usage de cette classe de stockage réduit les performances d'un programme puisque qu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation</p>
 </div>
 <div class="section" id="extern">
-<h3><span class="section-number">19.4.6</span><code class="docutils literal notranslate"><span class="pre">extern</span></code><a class="headerlink" href="#extern" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.6  <code class="docutils literal notranslate"><span class="pre">extern</span></code><a class="headerlink" href="#extern" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-5">Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> mais s'attends à ce que cette variable ait été déclarée dans un autre fichier.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span> <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="restrict">
-<h3><span class="section-number">19.4.7</span><code class="docutils literal notranslate"><span class="pre">restrict</span></code><a class="headerlink" href="#restrict" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>19.4.7  <code class="docutils literal notranslate"><span class="pre">restrict</span></code><a class="headerlink" href="#restrict" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-6">En C, le mot clé <code class="docutils literal notranslate"><span class="pre">restrict</span></code>, apparu avec <strong>C99</strong>, es utililsé uniquement pour des pointeurs. Ce qualificatif de type informe le compilateur que pour toute la durée de vie du pointeur, aucun autre pointeur ne pointera que sur la valeur qu'il pointe ou une valeur dérivée de lui même (p. ex: <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">+</span> <span class="pre">1</span></code>).</p>
 <p>En d'autres termes, le qualificatif indique au compilateur que deux pointeurs différents ne peuvent pas pointer sur les même régions mémoire.</p>
 <p>Prenons l'exemple simple d'une fonction qui met à jour deux pointeurs avec une valeur passée en paramètre :</p>
@@ -559,15 +594,15 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="translation-units.html"
-       title="Chapitre précédent">← <span class="section-number">18</span>Compilation séparée</a>
+       title="Chapitre précédent">← 18  Compilation séparée</a>
   </li>
   <li class="next">
     <a href="testing.html"
-       title="Chapitre suivant"><span class="section-number">20</span>Qualité et Testabilité →</a>
+       title="Chapitre suivant">20  Qualité et Testabilité →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 08 août 2020 (version v0.2.7-18-gde894e0).
+    Mis à jour le 09 août 2020 (version v0.2.7-20-g843cfae).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
