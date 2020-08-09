@@ -1017,33 +1017,33 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </pre></div>
 </div>
 <p><a class="reference external" href="../content/stdio.html#exercise-9"><strong>Exercice 9.10</strong></a></p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Ligne 6</p></li>
 <li><p>C est un langage impératif, l'ordre est séquentiel du haut vers le bas</p></li>
-<li><dl class="simple">
-<dt>Les étapes sont les suivantes :</dt><dd><ol class="arabic simple">
+<li><p>Les étapes sont les suivantes :</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">a</span></code> à l'utilisateur</p></li>
 <li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> à l'utilisateur</p></li>
 <li><p>Demande de la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> à l'utilisateur</p></li>
 <li><p>Calcul de l'image affine de <code class="docutils literal notranslate"><span class="pre">x</span></code> (équation de droite)</p></li>
 <li><p>Affichage du résultat</p></li>
 </ol>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Que verra l'utilisateur à l'écran ?</dt><dd><ol class="arabic simple">
+<li><p>Que verra l'utilisateur à l'écran ?</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Il verra <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">12</span></code> pour <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2;</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">5;</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">2</span></code></p></li>
 </ol>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Quelle est l'utilité de ce programme ?</dt><dd><ol class="arabic simple">
+<li><p>Quelle est l'utilité de ce programme ?</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Le calcul d'un point d'une droite</p></li>
 </ol>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ol>
 <p><a class="reference external" href="../content/stdio.html#exercise-10"><strong>Exercice 9.11</strong></a></p>
@@ -1284,40 +1284,6 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </div>
 <p>La réponse est donc <cite>&lt;math.h&gt;</cite>.</p>
 <p>Sous Windows avec Visual Studio, il suffit d'écrire <code class="docutils literal notranslate"><span class="pre">acos</span></code> dans un fichier source et d'appuyer sur <code class="docutils literal notranslate"><span class="pre">F1</span></code>. L'IDE redirige l'utilisateur sur l'aide Microsoft <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
-<p><a class="reference external" href="../content/standard-library.html#exercise-2"><strong>Exercice 15.3</strong></a></p>
-<p>En cherchant <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">acos</span> <span class="pre">header</span></code> dans Google, on trouve que la fonction <code class="docutils literal notranslate"><span class="pre">acos</span></code> est définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
-<p>Une autre solution est d'utiliser sous Linux la commande <code class="docutils literal notranslate"><span class="pre">apropos</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> apropos acos
-<span class="go">acos (3)     - arc cosine function</span>
-<span class="go">acosf (3)    - arc cosine function</span>
-<span class="go">acosh (3)    - inverse hyperbolic cosine function</span>
-<span class="go">acoshf (3)   - inverse hyperbolic cosine function</span>
-<span class="go">acoshl (3)   - inverse hyperbolic cosine function</span>
-<span class="go">acosl (3)    - arc cosine function</span>
-<span class="go">cacos (3)    - complex arc cosine</span>
-<span class="go">cacosf (3)   - complex arc cosine</span>
-<span class="go">cacosh (3)   - complex arc hyperbolic cosine</span>
-<span class="go">cacoshf (3)  - complex arc hyperbolic cosine</span>
-<span class="go">cacoshl (3)  - complex arc hyperbolic cosine</span>
-<span class="go">cacosl (3)   - complex arc cosine</span>
-</pre></div>
-</div>
-<p>Le premier résultat permet ensuite de voir :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> man acos <span class="p">|</span> head -10
-<span class="go">ACOS(3)    Linux Programmer&#39;s Manual         ACOS(3)</span>
-
-<span class="go">NAME</span>
-<span class="go">    acos, acosf, acosl - arc cosine function</span>
-
-<span class="go">SYNOPSIS</span>
-<span class="gp">    #</span>include &lt;math.h&gt;
-
-<span class="go">    double acos(double x);</span>
-<span class="go">    float acosf(float x);</span>
-</pre></div>
-</div>
-<p>La réponse est donc <cite>&lt;math.h&gt;</cite>.</p>
-<p>Sous Windows avec Visual Studio, il suffit d'écrire <code class="docutils literal notranslate"><span class="pre">acos</span></code> dans un fichier source et d'appuyer sur <code class="docutils literal notranslate"><span class="pre">F1</span></code>. L'IDE redirige l'utilisateur sur l'aide Microsoft <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl">acos-acosf-acosl</a> qui indique que le header source est <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
 <div class="section" id="solution-chapter-16">
 <h2>Chapitre 16<a class="headerlink" href="#solution-chapter-16" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
@@ -1340,7 +1306,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 09 août 2020 (version v0.2.7-26-g6e186fe).
+    Mis à jour le 09 août 2020 (version v0.2.7-27-gbc64d59).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
