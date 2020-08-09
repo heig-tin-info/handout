@@ -383,7 +383,7 @@ def setup(app):
 
     app.add_directive('exercise', ExerciseDirective)
     app.add_directive('solution', SolutionDirective)
-    app.add_directive('exercises_solutions', SolutionsDirective)
+    app.add_directive('exercises-solutions', SolutionsDirective)
 
     app.connect('config-inited', check_config)
     app.connect('env-before-read-docs', env_before_read_docs)

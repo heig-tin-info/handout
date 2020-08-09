@@ -18,17 +18,14 @@ git clone https://github.com/heig-vd-tin/info-handout.git
 cd info-handout
 git submodule init
 git submodulee update
-make html
-make pdf
+make
 ```
-
-Alternativement vous pouvez utiliser Docker et suivre le contenu de `.travis.yml`.
 
 ## Intégration continue
 
-Les nouvelles releases sont automatiquement générées par Travis CI:
+Les nouvelles releases sont automatiquement générées par GitHub Actions :
 
-- A chaque nouveau tag, les version PDF et MAN sont générées
+- A chaque nouveau tag, les version PDF et MAN sont généréesws
 - A chaque commit sur la branche `master` une version HTML est générée
 
 ## Build
