@@ -728,14 +728,17 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
         #. Ligne 6
         #. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
         #. Les étapes sont les suivantes :
+
             #. Demande de la valeur de ``a`` à l'utilisateur
             #. Demande de la valeur de ``b`` à l'utilisateur
             #. Demande de la valeur de ``x`` à l'utilisateur
             #. Calcul de l'image affine de ``x`` (équation de droite)
             #. Affichage du résultat
         #. Que verra l'utilisateur à l'écran ?
+
             #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
         #. Quelle est l'utilité de ce programme ?
+
             #. Le calcul d'un point d'une droite
 
 .. exercise:: Équation de droite
