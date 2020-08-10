@@ -10,7 +10,7 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{listings}
-\usepackage{xeCJK}
+\usepackage{ctex}
 \usepackage{lstfiracode}
 \usepackage[xparse,skins,breakable]{tcolorbox}
 \usepackage[framemethod=tikz]{mdframed}
@@ -26,6 +26,30 @@
 % UTF-8
 \setCJKmainfont{ipaexm.ttf}
 \setmonofont{Fira Code}
+\tracinglostchars=2
+\usepackage{newunicodechar}
+\usepackage{unicode-math}
+\newunicodechar{ﬁ}{{\sffamily ﬁ}}
+
+\newunicodechar{⇒}{{\sffamily ⇒}}
+\newunicodechar{⊕}{{\sffamily ⊕}}
+\newunicodechar{│}{{\sffamily │}}
+\newunicodechar{┬}{{\sffamily ┬}}
+\newunicodechar{♯}{{\sffamily ♯}}
+\newunicodechar{⨼}{{\sffamily ⨼}}
+\newunicodechar{◿}{{\sffamily ◿}}
+\newunicodechar{🠔}{{\sffamily 🠔}}
+
+\newunicodechar{α}{$\alpha$}
+\newunicodechar{δ}{$\delta$}
+\newunicodechar{ε}{$\varepsilon$}
+\newunicodechar{η}{$\eta$}
+\newunicodechar{ι}{$\iota$}
+\newunicodechar{κ}{$\kappa$}
+\newunicodechar{λ}{$\lambda$}
+\newunicodechar{μ}{$\mu$}
+\newunicodechar{π}{$\pi$}
+\newunicodechar{ω}{$\omega$}
 
 \newcommand\documentTitle{Le C pour l'ingénieur}
 \newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
