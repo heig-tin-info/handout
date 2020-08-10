@@ -3,7 +3,7 @@
 import string
 from docutils import nodes
 from sphinx.environment.collectors.toctree import TocTreeCollector
-from sphinx.directives import TocTree
+from sphinx.directives.other import TocTree
 from sphinx import addnodes
 from typing import cast
 
