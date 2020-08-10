@@ -26,7 +26,7 @@ html: Makefile
 man: Makefile
 	$(DOCKER) $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-pdf: Makefile
+pdf latexpdf: Makefile
 	@$(DOCKER) $(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 latex: Makefile
@@ -53,4 +53,4 @@ $(DISTDIR):
 # Because sphinx calls it...
 all-pdf:
 
-.PHONY: all clean artifacts dist pull all-pdf spellcheck
+.PHONY: all pdf html latexpdf clean artifacts dist pull all-pdf spellcheck

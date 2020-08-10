@@ -14,10 +14,7 @@ Bash est écrit en C et les sources sont naturellement disponibles sur internet.
 
     $
 
-Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom d'un programme.
-
-Pipe
-----
+Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom d'un programme. Voici un exemple :
 
 .. code-block:: console
 

@@ -64,7 +64,7 @@ En plus, il existe un compteur d'accès ``count`` qui s'incrémente lorsque l'on
 
     foo->count = 42; // Hacked this !
 
-Pour s'en protéger, on a recours à la compilation séparée (voir chapitre TranslationUnits__) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier ``foobar.h`` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
+Pour s'en protéger, on a recours à la compilation séparée (voir chapitre :ref:`TranslationUnits`) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier ``foobar.h`` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
 
 .. code-block:: c
 
