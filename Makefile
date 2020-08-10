@@ -3,7 +3,8 @@ SPHINXBUILD ?= sphinx-build
 SOURCEDIR = src
 BUILDDIR = build
 DISTDIR = dist
-DOCKER = docker-compose run latex
+
+DOCKER ?= docker-compose run latex
 
 all: $(DISTDIR)/html.tar.gz $(DISTDIR)/handout.pdf $(DISTDIR)/info.1
 

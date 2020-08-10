@@ -31,5 +31,10 @@
         "tyriar.sort-lines",
         "shardulm94.trailing-spaces",
         "visualstudioexptteam.vscodeintellicode"
-	]
+	],
+
+	"remoteEnv": {
+		// Disable docker to run in this container (Check Makefile)
+		"DOCKER": " "
+	}
 }
