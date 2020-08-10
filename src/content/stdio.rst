@@ -515,9 +515,6 @@ Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur ``[
 
 Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères majuscules et minuscules ``A-Za-z`` (52), ainsi que les caractères ``+``, ``/`` (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.
 
-
------
-
 .. exercise:: Bugs
 
     Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.

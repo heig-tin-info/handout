@@ -130,8 +130,8 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 
 .. index:: VsCode
 
-`Microsoft Visual Studio Code (VsCode) <https://code.visualstudio.com/>`__
-    Un **éditeur de code** *open-source* multi plates-formes disponible sur Windows, MacOS et Linux.
+`Visual Studio Code <https://code.visualstudio.com/>`__
+    Un **éditeur de code** *open-source* multi plates-formes disponible sur Windows, MacOS et Linux. Souvent abrégé *VsCode*.
 
 .. index:: GCC
 
@@ -174,16 +174,16 @@ Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et
 
 Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :
 
-https://stackoverflow.com/
+`Stack Overflow <https://stackoverflow.com/>`__
     Aujourd'hui le plus grand portail de questions/réponses dédié à la programmation logicielle
 
-https://github.com/
+`GitHub <https://github.com/>`__
     Un portail de partage de code
 
-https://scholar.google.ch/
+`Google Scholar <https://scholar.google.ch/>`__
     Un point d'entrée essentiel pour la recherche d'articles scientifiques
 
-https://linux.die.net/man/
+`Man Pages <https://linux.die.net/man/>`__
     La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements MacOS/Linux/Unix et POSIX compatibles.
 
 .. exercise:: Pêche

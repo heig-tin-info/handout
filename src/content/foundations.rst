@@ -188,39 +188,45 @@ En addition de ceci, voici quelques règles :
 
     Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
 
-    #. ``2_pi``
-    #. ``x_2``
-    #. ``x___3``
-    #. ``x 2``
-    #. ``positionRobot``
-    #. ``piece_presente``
-    #. ``_commande_vanne``
-    #. ``-courant_sortie``
-    #. ``_alarme_``
-    #. ``panne#2``
-    #. ``int``
-    #. ``défaillance``
-    #. ``f'``
-    #. ``INT``
+    .. hlist::
+        :columns: 2
+
+        #. ``2_pi``
+        #. ``x_2``
+        #. ``x___3``
+        #. ``x 2``
+        #. ``positionRobot``
+        #. ``piece_presente``
+        #. ``_commande_vanne``
+        #. ``-courant_sortie``
+        #. ``_alarme_``
+        #. ``panne#2``
+        #. ``int``
+        #. ``défaillance``
+        #. ``f'``
+        #. ``INT``
 
     .. solution::
 
         Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne `regex101.com <https://regex101.com/r/cmxaic/1>`__.
 
-        #. ``2_pi`` **invalide** car commence par un chiffre
-        #. ``x_2`` **valide**
-        #. ``x___3`` **valide**
-        #. ``x 2`` **invalide** car comporte un espace
-        #. ``positionRobot`` **valide**, notation *camelCase*
-        #. ``piece_presente`` **valide**, notation *snake_case*
-        #. ``_commande_vanne`` **valide**
-        #. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
-        #. ``_alarme_`` **valide**
-        #. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
-        #. ``int`` **invalide**, ``int`` est un mot réservé du langage
-        #. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
-        #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
-        #. ``INT`` **valide**
+        .. hlist::
+            :columns: 2
+
+            #. ``2_pi`` **invalide** car commence par un chiffre
+            #. ``x_2`` **valide**
+            #. ``x___3`` **valide**
+            #. ``x 2`` **invalide** car comporte un espace
+            #. ``positionRobot`` **valide**, notation *camelCase*
+            #. ``piece_presente`` **valide**, notation *snake_case*
+            #. ``_commande_vanne`` **valide**
+            #. ``-courant_sortie`` **invalide**, un identificateur ne peut pas commencer par le signe ``-``
+            #. ``_alarme_`` **valide**
+            #. ``panne#2`` **invalide**, le caractère ``#`` n'est pas autorisé
+            #. ``int`` **invalide**, ``int`` est un mot réservé du langage
+            #. ``défaillance`` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+            #. ``f'`` **invalide** l'apostrophe n'est pas autorisée
+            #. ``INT`` **valide**
 
 .. index:: variable
 
@@ -374,22 +380,25 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
 
     Pour les entrées suivantes, indiquez lesquelles sont correctes.
 
-    #. ``12.3``
-    #. ``12E03``
-    #. ``12u``
-    #. ``12.0u``
-    #. ``1L``
-    #. ``1.0L``
-    #. ``.9``
-    #. ``9.``
-    #. ``.``
-    #. ``0x33``
-    #. ``0xefg``
-    #. ``0xef``
-    #. ``0xeF``
-    #. ``0x0.2``
-    #. ``09``
-    #. ``02``
+    .. hlist::
+        :columns: 2
+
+        #. ``12.3``
+        #. ``12E03``
+        #. ``12u``
+        #. ``12.0u``
+        #. ``1L``
+        #. ``1.0L``
+        #. ``.9``
+        #. ``9.``
+        #. ``.``
+        #. ``0x33``
+        #. ``0xefg``
+        #. ``0xef``
+        #. ``0xeF``
+        #. ``0x0.2``
+        #. ``09``
+        #. ``02``
 
 Operateur d'affectation
 =======================
@@ -564,10 +573,6 @@ Le format des commentaires est par essence libre au développeur mais il est gé
 
 - Les commentaires soient concis et précis.
 - Les commentaires soient écrits en anglais.
-
-
-
------
 
 .. exercise:: Verbosité
 

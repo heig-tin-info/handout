@@ -35,6 +35,7 @@ Considérons le paquet de 32-bit suivant, êtes-vous à même d'en donner une si
 Il pourrait s'agir :
 
 - de 4 caractères de 8-bits :
+
     - ``01000000`` ``@``
     - ``01001001`` ``I``
     - ``00001111`` ``\x0f``
@@ -120,17 +121,19 @@ En C, on nomme ce type de donnée ``unsigned int``, ``int`` étant le dénominat
 
 Voici quelques exemples des valeurs minimales et maximales possibles selon le nombre de bits utilisés pour coder l'information numérique :
 
-+--------------+-----------+-------------------------------------------------+
-| Profondeur   | Minimum   | Maximum                                         |
-+==============+===========+=================================================+
-| 8 bits       | 0         | 255 (:math:`2^8 - 1`)                           |
-+--------------+-----------+-------------------------------------------------+
-| 16 bits      | 0         | 65'535 (:math:`2^{16} - 1`)                     |
-+--------------+-----------+-------------------------------------------------+
-| 32 bits      | 0         | 4'294'967'295 (:math:`2^{32} - 1`)              |
-+--------------+-----------+-------------------------------------------------+
-| 64 bits      | 0         | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
-+--------------+-----------+-------------------------------------------------+
+.. table:: Stockage d'un entier non signé sur différentes profondeurs
+
+    +--------------+-----------+-------------------------------------------------+
+    | Profondeur   | Minimum   | Maximum                                         |
+    +==============+===========+=================================================+
+    | 8 bits       | 0         | 255 (:math:`2^8 - 1`)                           |
+    +--------------+-----------+-------------------------------------------------+
+    | 16 bits      | 0         | 65'535 (:math:`2^{16} - 1`)                     |
+    +--------------+-----------+-------------------------------------------------+
+    | 32 bits      | 0         | 4'294'967'295 (:math:`2^{32} - 1`)              |
+    +--------------+-----------+-------------------------------------------------+
+    | 64 bits      | 0         | 18'446'744'073'709'551'616 (:math:`2^{64} - 1`) |
+    +--------------+-----------+-------------------------------------------------+
 
 Notez l'importance du :math:`-1` dans la définition du maximum, car la valeur minimum :math:`0` fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
@@ -149,15 +152,17 @@ En C on dit que ces nombres sont ``signed``. Il est par conséquent correct d'é
 
 Voici quelques exemples de valeurs minimales et maximales selon le nombre de bits utilisés pour coder l'information :
 
-+--------------+------------------+------------------+
-| Profondeur   | Minimum          | Maximum          |
-+==============+==================+==================+
-| 8 bits       | -128             | +127             |
-+--------------+------------------+------------------+
-| 16 bits      | -32'768          | +32'767          |
-+--------------+------------------+------------------+
-| 32 bits      | -2'147'483'648   | +2'147'483'647   |
-+--------------+------------------+------------------+
+.. table:: Stockage d'un entier signé sur différentes profondeurs
+
+    +--------------+------------------+------------------+
+    | Profondeur   | Minimum          | Maximum          |
+    +==============+==================+==================+
+    | 8 bits       | -128             | +127             |
+    +--------------+------------------+------------------+
+    | 16 bits      | -32'768          | +32'767          |
+    +--------------+------------------+------------------+
+    | 32 bits      | -2'147'483'648   | +2'147'483'647   |
+    +--------------+------------------+------------------+
 
 En mémoire ces nombres sont stockés en utilisant le :ref:`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
 
@@ -181,6 +186,8 @@ La construction d'un type entier C est la suivante :
     :width: 100 %
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins :math:`N` bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au :numref:`standard-integers`.
+
+.. todo:: Table too big on LaTeX
 
 .. _standard-integers:
 .. table:: Types entiers standards
@@ -304,6 +311,8 @@ Comme nous l'avons évoqué plus haut, la taille des entiers ``short``, ``int``,
 Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un ``int`` comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du ``int`` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
 
 La première solution est de toujours utiliser les types proposés par ``<stdint.h>`` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
+
+.. todo:: Inline text are sometime too wide
 
 .. list-table:: Modèle de données
    :widths: 15 10 10 10 10 10 30
@@ -564,11 +573,11 @@ Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas le
 
     Table ANSI INCITS 4-1986 (standard actuel)
 
-Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres.
-
 .. index:: ISO/IEC 8859, latin1
 
-Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
+Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
+
+.. todo:: Fix vertical bars
 
 .. figure:: ../../assets/figures/dist/encoding/latin1.*
 
@@ -582,9 +591,9 @@ Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-.. figure:: ../../assets/figures/dist/encoding/encoding-trends.*
+.. figure:: ../../assets/images/encoding-trends.*
 
-    Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
+    Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008 (`src <https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html>`__)
 
 .. index:: UTF-8
 
@@ -641,20 +650,23 @@ La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les co
 
     Indiquez si les constantes littérales suivantes sont valides ou invalides.
 
-    #. ``'a'``
-    #. ``'A'``
-    #. ``'ab'``
-    #. ``'\x41'``
-    #. ``'\041'``
-    #. ``'\0x41'``
-    #. ``'\n'``
-    #. ``'\w'``
-    #. ``'\t'``
-    #. ``'\xp2'``
-    #. ``"abcdef"``
-    #. ``"\abc\ndef"``
-    #. ``"\'\"\\"``
-    #. ``"Hello \world !\n"``
+    .. hlist::
+        :columns: 2
+
+        #. ``'a'``
+        #. ``'A'``
+        #. ``'ab'``
+        #. ``'\x41'``
+        #. ``'\041'``
+        #. ``'\0x41'``
+        #. ``'\n'``
+        #. ``'\w'``
+        #. ``'\t'``
+        #. ``'\xp2'``
+        #. ``"abcdef"``
+        #. ``"\abc\ndef"``
+        #. ``"\'\"\\"``
+        #. ``"Hello \world !\n"``
 
 .. exercise:: Chaînes de formatage
 

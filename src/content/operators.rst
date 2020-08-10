@@ -179,8 +179,6 @@ effectuer des tests un peu plus complexe.
 ET logique
 ----------
 
-Ecriture :
-
 .. code-block:: c
 
     resultat = condition1 && condition2;
@@ -188,7 +186,7 @@ Ecriture :
 Table de vérité
 
 +--------------+--------------+------------+
-| condition1   | condition2   | résultat   |
+| Condition 1  | Condition 2  | résultat   |
 +==============+==============+============+
 | 0            | 0            | 0          |
 +--------------+--------------+------------+
@@ -202,8 +200,6 @@ Table de vérité
 OU logique
 ----------
 
-Ecriture :
-
 .. code-block:: c
 
     resultat = condition1 || condition2;
@@ -211,7 +207,7 @@ Ecriture :
 Table de vérité
 
 +--------------+--------------+------------+
-| condition1   | condition2   | résultat   |
+| Condition 1  | Condition 2  | Résultat   |
 +==============+==============+============+
 | 0            | 0            | 0          |
 +--------------+--------------+------------+
@@ -225,8 +221,6 @@ Table de vérité
 Inversion logique
 -----------------
 
-Ecriture :
-
 .. code-block:: c
 
     resultat = !condition1;
@@ -234,7 +228,7 @@ Ecriture :
 Table de vérité
 
 +--------------+------------+
-| condition1   | résultat   |
+| Condition    | Résultat   |
 +==============+============+
 | 0            | 1          |
 +--------------+------------+
@@ -262,8 +256,6 @@ C'est un opérateur unaire dont l'écriture est :
 ET logique
 ----------
 
-Ecriture :
-
 .. code-block:: c
 
     uint8_t a=0x55; // 0101 0101 (binaire)
@@ -274,8 +266,6 @@ Ecriture :
 
 OU logique
 ----------
-
-Ecriture :
 
 .. code-block:: c
 
@@ -288,8 +278,6 @@ Ecriture :
 OU EXCLUSIF logique
 -------------------
 
-Ecriture :
-
 .. code-block:: c
 
     uint8_t a=0x55; // 0101 0101 (binaire)
@@ -300,8 +288,6 @@ Ecriture :
 
 Décalage à droite
 -----------------
-
-Ecriture :
 
 .. code-block:: c
 
@@ -315,8 +301,6 @@ Cette opération s'apparente à une division par 2.
 
 Décalage à gauche
 -----------------
-
-Ecriture :
 
 .. code-block:: c
 
@@ -338,49 +322,37 @@ Ils peuvent, en outre, être exécutés avant ou après l'évaluation de
 l'opération. On parle alors de pré-incrémentation ou pré-décrémentation
 et post-incrémentation ou post-décrémentation.
 
-pré-incrémentation
-------------------
+- pré-incrémentation
 
-Ecriture :
+    .. code-block:: c
 
-.. code-block:: c
+        int32_t i=0, j=0;
 
-    int32_t i=0, j=0;
+        j = ++i;    // on obtient i=1 et j=1
 
-    j = ++i;    // on obtient i=1 et j=1
+- post-incrémentation
 
-post-incrémentation
--------------------
+    .. code-block:: c
 
-Ecriture :
+        int32_t i=0, j=0;
 
-.. code-block:: c
+        j = i++;    // on obtient i=1 et j=0
 
-    int32_t i=0, j=0;
+- pré-décrémentation
 
-    j = i++;    // on obtient i=1 et j=0
+    .. code-block:: c
 
-pré-décrémentation
-------------------
+        int32_t i=0, j=0;
 
-Ecriture :
+        j = --i;    // on obtient i=-1 et j=-1
 
-.. code-block:: c
+- post-décrémentation
 
-    int32_t i=0, j=0;
+    .. code-block:: c
 
-    j = --i;    // on obtient i=-1 et j=-1
+        int32_t i=0, j=0;
 
-post-décrémentation
--------------------
-
-Ecriture :
-
-.. code-block:: c
-
-    int32_t i=0, j=0;
-
-    j = i--;    // on obtient i=-1 et j=0
+        j = i--;    // on obtient i=-1 et j=0
 
 
 .. _precedence:
@@ -527,6 +499,7 @@ Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langa
 
 1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
 2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint :
+
     .. code-block:: text
 
         4:8: error: lvalue required as left operand of assignment

@@ -55,7 +55,7 @@ latex_preamble = r"""
 def visit_latex_hlist(self, node):
     options = [
         f'columns={node["columns"]}' if node['columns'] else '',
-        f'min-lines={mnode["min-lines"]}' if node['min-lines'] else ''
+        f'min-lines={node["min-lines"]}' if node['min-lines'] else ''
     ]
     self.body.append('\\begin{hlist}[%s]\n' % ','.join(options))
     if self.table:

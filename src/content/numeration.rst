@@ -36,7 +36,7 @@ Le système décimal est le système de numération utilisant la base dix et le 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
 .. figure:: ../../assets/figures/dist/encoding/hieroglyph.*
-    :scale: 50%
+    :scale: 20%
 
     1506 en écriture hiéroglyphique
 
@@ -508,25 +508,27 @@ Opérations logiques
 Opérations bit à bit
 --------------------
 
-..index:: bitwise
+.. index:: bitwise
 
 Les :index:`opérations bit-à-bit` (*bitwise*) disponibles en C sont les suivantes :
 
-+-----------+-------------------+---------------------------------+
-| Opérateur | Description       | Exemple                         |
-+===========+===================+=================================+
-| ``&``     | ET binaire        | ``(0b1101 & 0b1010) == 0b1000`` |
-+-----------+-------------------+---------------------------------+
-| ``|``     | OU binaire        | ``(0b1101 | 0b1010) == 0b1111`` |
-+-----------+-------------------+---------------------------------+
-| ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
-+-----------+-------------------+---------------------------------+
-| ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
-+-----------+-------------------+---------------------------------+
-| ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
-+-----------+-------------------+---------------------------------+
-| ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
-+-----------+-------------------+---------------------------------+
+.. table:: Opérateurs bit-à-bit
+
+    +-----------+-------------------+---------------------------------+
+    | Opérateur | Description       | Exemple                         |
+    +===========+===================+=================================+
+    | ``&``     | ET binaire        | ``(0b1101 & 0b1010) == 0b1000`` |
+    +-----------+-------------------+---------------------------------+
+    | ``|``     | OU binaire        | ``(0b1101 | 0b1010) == 0b1111`` |
+    +-----------+-------------------+---------------------------------+
+    | ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
+    +-----------+-------------------+---------------------------------+
+    | ``~``     | Complément à un   | ``~0b11011010 == 0b00100101``   |
+    +-----------+-------------------+---------------------------------+
+    | ``<<``    | Décalage à gauche | ``(0b1101 << 3) == 0b1101000``  |
+    +-----------+-------------------+---------------------------------+
+    | ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
+    +-----------+-------------------+---------------------------------+
 
 Le ET logique est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
@@ -735,8 +737,6 @@ Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathémat
 .. note::
 
     En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre intuitive car ``round(3.5)`` donne 4 mais ``round(4.5)`` donne 4 aussi.
-
-----
 
 .. exercise:: Swap sans valeur intermédiaire
 
