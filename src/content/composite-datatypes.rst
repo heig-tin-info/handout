@@ -344,7 +344,7 @@ Enfin, un sucre syntaxique ``{0}`` permet d'initialiser tout un tableau à zéro
 
 Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
 
-Initialization à une valeur particulière
+Initialisation à une valeur particulière
 ----------------------------------------
 
 Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
@@ -960,7 +960,7 @@ Elle serait très probablement représentée en mémoire de la façon suivante :
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
         A         B         C
 
-En revance si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
+En revanche si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
 
 .. code-block:: text
 

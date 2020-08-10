@@ -76,7 +76,7 @@ Pour s'en protéger, on a recours à la compilation séparée (voir chapitre Tra
     int get(Foo* foo);
     void set(Foo* foo, int value);
 
-Ce fichier sera inclu dans le programme principal ``main.c`` :
+Ce fichier sera inclus dans le programme principal ``main.c`` :
 
 .. code-block:: c
 

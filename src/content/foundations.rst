@@ -342,7 +342,7 @@ On trouvera une `table <http://www.catb.org/jargon/html/M/metasyntactic-variable
 Les constantes
 ==============
 
-Une constante par opposition à une variable voit son contenu fixe et immutable.
+Une constante par opposition à une variable voit son contenu fixe et immuable.
 
 Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé ``const``.
 
@@ -352,7 +352,7 @@ Formellement, une constante se déclare comme une variable, mais préfixée du m
 
 .. note::
 
-    Il ne faut pas confondre la **constante** qui est une variable immutable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
+    Il ne faut pas confondre la **constante** qui est une variable immuable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
 
     .. code-block:: c
 
@@ -464,7 +464,7 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
 
         int i, j, k;
 
-    Donnez les valeurs des variabels ``i``, ``j`` et ``k`` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
+    Donnez les valeurs des variables ``i``, ``j`` et ``k`` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
 
     .. code-block:: c
 
@@ -516,7 +516,7 @@ Il existe deux manière d'écrire un commentaire en C :
 
     // This is a single line comment.
 
-- Les commentaires de block
+- Les commentaires de blocs
 
   .. code-block:: c
 

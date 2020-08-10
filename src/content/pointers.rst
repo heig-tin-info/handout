@@ -48,7 +48,7 @@ S'il avait oublié l'astérisque (``*``, :unicode:`U+002A`) dans cette dernière
 
 L'astérisque agit donc comme un **déréférencement**, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.
 
-Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (``&``, :unicode:`U+0026`): ``&castello_wall``, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
+Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (``&``, :unicode:`U+0026`): ``&castello_wall``, pourquoi ? L'esperluette quand elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
 
 Il manque encore une chose, il y a aussi une astérisque sur ``(*gps_position)[]``. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
 
@@ -181,7 +181,7 @@ L'arithmétique de pointeur est donc chose courante avec les tableaux. À vrai d
 .. table:: Arithmétique sur tableau unidimensionnel
 
     ==============  ========  ============  ============  ================
-    Élement         Premier   Deuxième      Troisième     n ième
+    Élément         Premier   Deuxième      Troisième     n ième
     ==============  ========  ============  ============  ================
     Accès tableau   ``a[0]``  ``a[1]``      ``a[2]``      ``a[n - 1]``
     Accès pointeur  ``*a``    ``*(a + 1)``  ``*(a + 2)``  ``*(a + n - 1)``
@@ -192,7 +192,7 @@ De même, l'exercice peut être répété avec des tableaux à deux dimensions :
 .. table:: Arithmétique sur tableau bidimensionnel
 
     ==============  ===============  ===============  ===================
-    Élement         Premier          Deuxième         n ligne m colonne
+    Élément         Premier          Deuxième         n ligne m colonne
     ==============  ===============  ===============  ===================
     Accès tableau   ``a[0][0]``      ``a[1][1]``      ``a[n - 1][m - 1]``
     Accès pointeur  ``*(*(a+0)+0)``  ``*(*(a+1)+1)``  ``*(*(a+i-1)+j-1)``

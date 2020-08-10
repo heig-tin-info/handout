@@ -77,7 +77,7 @@ Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) 
     On observe notamment que la fonction ``printf`` est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction ``main``.
 
 ``strings``
-    Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débug qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère ``hello, world``. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.
+    Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débogue qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère ``hello, world``. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.
 
     .. code-block:: console
 

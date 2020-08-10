@@ -376,7 +376,7 @@ Math
     +------------------+-------------------------------------------------------+
     | ``cbrt(x)``      | Racine cubique :math:`\sqrt[3](x)`                    |
     +------------------+-------------------------------------------------------+
-    | ``hypot(x,y)``   | Hypothénuse optimisé :math:`\sqrt(x^2 + y^2)`         |
+    | ``hypot(x,y)``   | Hypoténuse optimisé :math:`\sqrt(x^2 + y^2)`          |
     +------------------+-------------------------------------------------------+
     | ``ceil``         | Arrondi à l'entier supérieur                          |
     +------------------+-------------------------------------------------------+
@@ -485,7 +485,7 @@ Le standard C ne définit que le minimum vital et qui est valable sur toutes les
 
     - ``<sys/socket.h>``
     - ``<sharedmemory.h>``
-- La communicaton sur le réseau e.g. internet
+- La communication sur le réseau e.g. internet
 
     - ``<sys/socket.h>``
     - ``<arpa/inet.h>``

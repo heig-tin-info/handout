@@ -381,7 +381,7 @@ Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une
 
     #endif
 
-Si le fichier a déjà été inclus, la définition ``MATH_H`` sera déjà déclarée et le fichier d'en-tête ne sera pas réinclus.
+Si le fichier a déjà été inclus, la définition ``MATH_H`` sera déjà déclarée et le fichier d'en-tête ne sera pas ré-inclus.
 
 On préfèrera utiliser la directive `#pragma once <https://en.wikipedia.org/wiki/Pragma_once>`__ qui est plus simple à l'usage et évite une collision de nom. Néanmoins et bien que cette directive ne soit pas standardisée par l'ISO, elle est compatible avec la très grande majorité des compilateurs C.
 

@@ -151,7 +151,7 @@ Ce fichier de configuration permet à Git d'ignorer par défaut certains fichier
 .vscode/launch.json
 -------------------
 
-Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme en mode débug. Il est au format JSON. Les lignes importantes sont ``program`` qui contient le nom de l'exécutable à lancer ``args`` qui spécifie les arguments passés à ce programme et ``MiMode`` qui est le nom du débogueur que vous utiliserez. Par défaut nous utilisons GDB.
+Ce fichier permet à Visual Studio Code de savoir comment exécuter le programme en mode débogue. Il est au format JSON. Les lignes importantes sont ``program`` qui contient le nom de l'exécutable à lancer ``args`` qui spécifie les arguments passés à ce programme et ``MiMode`` qui est le nom du débogueur que vous utiliserez. Par défaut nous utilisons GDB.
 
 .. code:: json
 
@@ -244,7 +244,7 @@ Pas de panique, il vous suffit de savoir exécuter ``make all`` ou ``make clean`
 README.md
 ---------
 
-Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notament le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe :
+Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notamment le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe :
 
 .. code::markdown
 

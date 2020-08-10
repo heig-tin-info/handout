@@ -504,7 +504,7 @@ Programmes et Processus
 =======================
 
 ================  ==========================================
-Élement           Description
+Élément           Description
 ================  ==========================================
 ``stdin``         Entrée standard
 ``stdout``        Sortie standard

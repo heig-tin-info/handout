@@ -18,6 +18,8 @@ jobs:
         run: make pull
       - name: Build
         run: make
+      - name: Check spelling
+        run: spellcheck
       - name: Upload handout
         uses: actions/upload-artifact@v2
         with:

@@ -185,7 +185,7 @@ Sous Linux, le prompt est largement configurable et dépend de la distribution i
 
 Une commande débute par le nom de cette dernière, qui peut être le nom du programme que l'on souhaite exécuter puis vient les arguments et les options.
 
-- Une **option** est par convention un **argument** dont le préfix est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant :
+- Une **option** est par convention un **argument** dont le préfixe est ``-`` sous Linux ou ``/`` sous Windows même si le standard GNU gagne du terrain. Aussi, le consensus le plus large semble être le suivant :
 
 - Une option peut être exprimée soit sous format court ``-o``, ``-v``, soit sous format long ``--output=``, ``--verbose`` selon qu'elle commence par un ou deux tirets. Une option peut être un booléenne (présence ou non de l'option), ou scalaire, c'est-à-dire être associée à une valeur ``--output=foo.o``. Les options modifient le comportement interne d'un programme.
 
@@ -221,7 +221,7 @@ En C, c'est au développeur de distinguer les options des arguments, car ils son
 Norme POSIX
 -----------
 
-Le standard POSIX décrit une façon de distinguer des *options* passées à un programme. Par exemple, le programme `cowsay <https://en.wikipedia.org/wiki/Cowsay>`__ peut être paramétré pour changer son comportement en utilisant des `options` standards comme ``-d``. La fonction ``getopt`` disponible dans la biblothèque ``<unistd.h>`` permet de facilement interpréter ces options.
+Le standard POSIX décrit une façon de distinguer des *options* passées à un programme. Par exemple, le programme `cowsay <https://en.wikipedia.org/wiki/Cowsay>`__ peut être paramétré pour changer son comportement en utilisant des `options` standards comme ``-d``. La fonction ``getopt`` disponible dans la bibliothèque ``<unistd.h>`` permet de facilement interpréter ces options.
 
 .. code-block::c
 

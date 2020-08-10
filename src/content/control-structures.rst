@@ -657,15 +657,15 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
     Parmi les cas suivants, quelle structure de contrôle utiliser ?
 
-    #. Test qu'une variable est dans un interval donné.
+    #. Test qu'une variable est dans un intervalle donné.
     #. Actions suivant un choix multiple de l'utilisateur
     #. Rechercher un caractère particulier dans une chaîne de caractère
-    #. Itérer toutes les valeurs paires sur un interval donné
+    #. Itérer toutes les valeurs paires sur un intervalle donné
     #. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``
 
     .. solution::
 
-        #. Le cas est circonscrit à un interval de valeur donnée, le ``if`` est approprié :
+        #. Le cas est circonscrit à un intervalle de valeur donnée, le ``if`` est approprié :
 
             .. code-block:: c
 
