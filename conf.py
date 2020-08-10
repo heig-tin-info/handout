@@ -23,7 +23,6 @@ extensions = [
     'appendix',
     'gtag',
     'hlist',
-    'span-sectnum',
     'fix-short-caption',
     'fix-literal-block'
 ]
