@@ -5,7 +5,7 @@ import subprocess
 import datetime
 
 now = datetime.datetime.now()
-sys.path.append(os.path.abspath("./_ext"))
+sys.path.append(os.path.abspath("./extensions"))
 
 project = 'Le C pour l\'ingenieur'
 author = 'Prof. Yves Chevallier'

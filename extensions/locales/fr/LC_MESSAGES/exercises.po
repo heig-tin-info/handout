@@ -18,23 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: _ext/exercices.py:110 _ext/exercices.py:284
+#: extensions/exercices.py:110 extensions/exercices.py:284
 msgid "Exercise"
 msgstr "Exercice"
 
-#: _ext/exercices.py:140 _ext/exercices.py:386
+#: extensions/exercices.py:140 extensions/exercices.py:386
 msgid "Solution"
 msgstr "Solution"
 
-#: _ext/exercices.py:247
+#: extensions/exercices.py:247
 msgid "Chapter"
 msgstr "Chapitre"
 
-#: _ext/exercices.py:285
+#: extensions/exercices.py:285
 msgid "List of Exercises"
 msgstr "Liste des exercices"
 
-#: _ext/exercices.py:296
+#: extensions/exercices.py:296
 #, python-format
 msgid "Exercise %s"
 msgstr "Exercice %s"
