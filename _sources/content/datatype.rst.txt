@@ -273,7 +273,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
 
     Donnez la valeur des expressions ci-dessous :
 
-    .. code-block:: c
+    .. code-block:: text
 
         25 + 10 + 7 – 3
         5 / 2
@@ -531,7 +531,7 @@ La double précision est similaire à la simple précision mais avec une mantiss
 
     Donnez la valeur des expressions ci-dessous :
 
-    .. code-block:: c
+    .. code-block:: text
 
         25. + 10. + 7. – 3.
         5. / 2.
