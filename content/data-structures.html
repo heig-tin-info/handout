@@ -61,14 +61,14 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
-         Références
+         Annexes
       </a>
     </div>
   
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
-         Annexes
+         Références
       </a>
     </div>
   
@@ -98,14 +98,14 @@
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
-         Références
+         Annexes
       </a>
     </div>
   
     <div class="nav-item">
       <a href="../index.html#le-c-pour-l-ingenieur"
          class="nav-link ">
-         Annexes
+         Références
       </a>
     </div>
   
@@ -311,33 +311,6 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 "><a href="../backmatter/exercises.html" class="reference internal ">Solution des exercices</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-    <div class="sidebar-group">
-      <p class="caption">
         <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
       </p>
       <ul class="">
@@ -366,13 +339,40 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités</a>
+          <li class="toctree-l1 "><a href="../appendix/unit.html" class="reference internal ">Fiches d'unités de cours</a>
 
             
           </li>
 
         
           <li class="toctree-l1 "><a href="../appendix/laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Références</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../backmatter/exercises.html" class="reference internal ">Solution des exercices</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/bibliography.html" class="reference internal ">Bibliographie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../backmatter/glossary.html" class="reference internal ">Glossaire</a>
 
             
           </li>
@@ -463,7 +463,7 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// Hacked this !</span>
 </pre></div>
 </div>
-<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre <a href="#id19"><span class="problematic" id="id20">TranslationUnits__</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
+<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre <a class="reference internal" href="translation-units.html#translationunits"><span class="std std-ref">Compilation séparée</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Foo</span> <span class="n">Foo</span><span class="p">;</span>
@@ -1525,7 +1525,7 @@ int main() {
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-41-gddb6794).
+    Mis à jour le 10 août 2020 (version v0.3.0).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

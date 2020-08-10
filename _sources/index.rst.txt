@@ -46,6 +46,23 @@ Le C pour l'ingénieur
 
 .. raw:: latex
 
+    \appendix
+
+.. appendix::
+    :numbered:
+    :maxdepth: 2
+    :caption: Annexes
+    :glob:
+
+    appendix/vscode
+    appendix/grammar
+    appendix/bash
+    appendix/development
+    appendix/unit
+    appendix/laboratories
+
+.. raw:: latex
+
     \backmatter
 
 .. toctree::
@@ -63,18 +80,5 @@ Le C pour l'ingénieur
     \listoftables
     \listofexercise
     \printindex
-
-.. appendix::
-    :numbered:
-    :maxdepth: 2
-    :caption: Annexes
-    :glob:
-
-    appendix/vscode
-    appendix/grammar
-    appendix/bash
-    appendix/development
-    appendix/unit
-    appendix/laboratories
 
 .. include:: backmatter/colophon.rst

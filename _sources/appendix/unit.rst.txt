@@ -1,6 +1,6 @@
-===============
-Fiches d'unités
-===============
+========================
+Fiches d'unités de cours
+========================
 
 Les fiches d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format **YAML**.
 
