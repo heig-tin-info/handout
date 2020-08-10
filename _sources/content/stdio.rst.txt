@@ -120,7 +120,7 @@ Il définit que la fonction ``printf`` prend en paramètre un format suivi de ``
 
 La fonction retourne le nombre de caractères formatés ou ``-1`` en cas d'erreur.
 
-La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page Wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant :
+La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant :
 
 .. code-block:: c
 
@@ -172,7 +172,7 @@ Exemples
     +-------------------------------------+-------------------+--------+
     | :code:`printf("%*.*f", 4, 2, 102.1)`| :code:`102.10`    | 7      |
     +-------------------------------------+-------------------+--------+
-    | :code:`printf("%8x", 3141592)`      | :code:` 2fefd8`   | 6      |
+    | :code:`printf("%8x", 57005)`        | :code:`    dead`  | 6      |
     +-------------------------------------+-------------------+--------+
     | :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
     +-------------------------------------+-------------------+--------+
@@ -546,7 +546,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
             // Incorrect ! Le premier paramètre de printf doit être la chaîne de format.
             printf(i);
 
-            // Incorrect ! Le premier paramètre de scanf doit être la chaine de format.
+            // Incorrect ! Le premier paramètre de scanf doit être la chaîne de format.
             scanf(&i);
 
             // Correct, mais surprenant.
@@ -657,7 +657,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
     Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
 
-    Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
+    Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?
 
     .. code-block:: text
 
@@ -715,7 +715,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
             18c18,19
             <         return EXIT_SUCCESS;
             ---
-            >         retturn EXIT_FAILURE;
+            >         return EXIT_FAILURE;
             >         }
 
 

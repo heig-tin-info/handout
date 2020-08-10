@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -376,18 +376,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>15  Bibliothèques</li>
+    <li><span class="section-number">15  </span>Bibliothèques</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="pointers.html"
-       title="Chapitre précédent">← 14  Pointeurs</a>
+       title="Chapitre précédent">← <span class="section-number">14  </span>Pointeurs</a>
   </li>
   <li class="next">
     <a href="preprocessor.html"
-       title="Chapitre suivant">16  Préprocesseur →</a>
+       title="Chapitre suivant"><span class="section-number">16  </span>Préprocesseur →</a>
   </li>
 </ul>
   
@@ -396,7 +396,7 @@
           <div class="content" role="main">
             
   <div class="section" id="bibliotheques">
-<h1>15  Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">15  </span>Bibliothèques<a class="headerlink" href="#bibliotheques" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="figure align-default" id="id1">
 <img alt="../_images/library.jpg" src="../_images/library.jpg" />
 <p class="caption"><span class="caption-number">Fig. 15.1 </span><span class="caption-text">Bibliothèque du Trinity College de Dublin</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
@@ -406,7 +406,7 @@
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
 <p>Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
 <div class="section" id="exemple-libgmp">
-<h2>15.1  Exemple: libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.1  </span>Exemple: libgmp<a class="headerlink" href="#exemple-libgmp" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Voyons ensemble le cas de <a class="reference external" href="https://packages.debian.org/buster/libgmp-dev">libgmp</a>. Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que <code class="docutils literal notranslate"><span class="pre">libgmp</span></code> est disponible pour différentes architectures <code class="docutils literal notranslate"><span class="pre">amd64</span></code>, <code class="docutils literal notranslate"><span class="pre">arm64</span></code>, <code class="docutils literal notranslate"><span class="pre">s390x</span></code>, <code class="docutils literal notranslate"><span class="pre">i386</span></code>, ... Un développement sur un Raspberry-PI nécessitera <code class="docutils literal notranslate"><span class="pre">arm64</span></code> alors qu'un développement sur un PC utilisera <code class="docutils literal notranslate"><span class="pre">amd64</span></code>. En <a class="reference external" href="https://packages.debian.org/buster/amd64/libgmp-dev/filelist">cliquant</a> sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fichier d&#39;en-tête C</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">gmp</span><span class="o">.</span><span class="n">h</span>
@@ -532,7 +532,7 @@
 </div>
 </div>
 <div class="section" id="exemple-ncurses">
-<h2>15.2  Exemple: ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.2  </span>Exemple: ncurses<a class="headerlink" href="#exemple-ncurses" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La bibliothèque <a class="reference external" href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a class="reference external" href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a class="reference external" href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
 <div class="figure align-default" id="id2">
@@ -564,7 +564,7 @@
 </div>
 </div>
 <div class="section" id="bibliotheques-statiques">
-<h2>15.3  Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.3  </span>Bibliothèques statiques<a class="headerlink" href="#bibliotheques-statiques" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <em>static library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.a</span></code> sur un système POSIX (Android, Mac OS, Linux, Unix)</p></li>
@@ -633,7 +633,7 @@
 <p>La procédure sous Windows est plus compliquée et ne sera pas décrite ici.</p>
 </div>
 <div class="section" id="bibliotheques-dynamiques">
-<h2>15.4  Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.4  </span>Bibliothèques dynamiques<a class="headerlink" href="#bibliotheques-dynamiques" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <em>dynamic library</em> est un fichier binaire compilé pour une architecture donnée et portant les extensions :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.so</span></code> sur un système POSIX (Android, Mac OS, Linux, Unix)</p></li>
@@ -661,7 +661,7 @@
 </div>
 </div>
 <div class="section" id="bibliotheques-standard">
-<h2>15.5  Bibliothèques standard<a class="headerlink" href="#bibliotheques-standard" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.5  </span>Bibliothèques standard<a class="headerlink" href="#bibliotheques-standard" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les bibliothèques standard (<a class="reference external" href="https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C">C standard library</a>) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.</p>
 <p>Le standard <strong>C99</strong> définit un certain nombre d'en-têtes dont les plus utilisés (et ceux utilisés dans ce cours) sont :</p>
 <dl class="simple">
@@ -697,10 +697,10 @@
 <strong>Exercice 15.2 Date</strong><p>Lors du formatage d'une date, on y peut y lire <code class="docutils literal notranslate"><span class="pre">%w</span></code>, par quoi sera remplacé ce <em>token</em> ?</p>
 </div>
 <div class="section" id="fonctions-d-interet">
-<h3>15.5.1  Fonctions d'intérêt<a class="headerlink" href="#fonctions-d-interet" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">15.5.1  </span>Fonctions d'intérêt<a class="headerlink" href="#fonctions-d-interet" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code class="docutils literal notranslate"><span class="pre">sin</span></code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
 <div class="section" id="math">
-<h4>15.5.1.1  Math<a class="headerlink" href="#math" title="Lien permanent vers ce titre">¶</a></h4>
+<h4><span class="section-number">15.5.1.1  </span>Math<a class="headerlink" href="#math" title="Lien permanent vers ce titre">¶</a></h4>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-number">Tableau 15.1 </span><span class="caption-text">Constantes mathématiques</span><a class="headerlink" href="#id3" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -743,7 +743,7 @@
 <td><p>Exposant d'un nombre flottant <span class="math notranslate nohighlight">\(x\cdot2^n\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log(x)</span></code></p></td>
-<td><p>Logaritme binaire <span class="math notranslate nohighlight">\(\log_{2}(x)\)</span></p></td>
+<td><p>Logarithme binaire <span class="math notranslate nohighlight">\(\log_{2}(x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code></p></td>
 <td><p>Logarithme décimal <span class="math notranslate nohighlight">\(\log_{10}(x)\)</span></p></td>
@@ -758,7 +758,7 @@
 <td><p>Racine cubique <span class="math notranslate nohighlight">\(\sqrt[3](x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hypot(x,y)</span></code></p></td>
-<td><p>Hypothénuse optimisé <span class="math notranslate nohighlight">\(\sqrt(x^2 + y^2)\)</span></p></td>
+<td><p>Hypoténuse optimisé <span class="math notranslate nohighlight">\(\sqrt(x^2 + y^2)\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ceil</span></code></p></td>
 <td><p>Arrondi à l'entier supérieur</p></td>
@@ -776,7 +776,7 @@
 <p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
 </div>
 <div class="section" id="chaines-de-caracteres">
-<h4>15.5.1.2  Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
+<h4><span class="section-number">15.5.1.2  </span>Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">strcopy(dst,</span> <span class="pre">src)</span></code></dt><dd><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais sans nécessité de donner
 la taille de la chaîne puisqu'elle se termine par <code class="docutils literal notranslate"><span class="pre">\0</span></code></p>
@@ -787,7 +787,7 @@ les deux régions mémoire se superposent.</p>
 </dl>
 </div>
 <div class="section" id="types-de-donnees">
-<h4>15.5.1.3  Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">¶</a></h4>
+<h4><span class="section-number">15.5.1.3  </span>Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Test d'une propriété d'un caractère passé en paramètre</p>
 <table class="docutils align-default" id="id5">
 <caption><span class="caption-number">Tableau 15.3 </span><span class="caption-text">Fonctions de test de caractères</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
@@ -838,7 +838,7 @@ les deux régions mémoire se superposent.</p>
 </table>
 </div>
 <div class="section" id="limites">
-<h4>15.5.1.4  Limites<a class="headerlink" href="#limites" title="Lien permanent vers ce titre">¶</a></h4>
+<h4><span class="section-number">15.5.1.4  </span>Limites<a class="headerlink" href="#limites" title="Lien permanent vers ce titre">¶</a></h4>
 <table class="docutils align-default" id="id6">
 <caption><span class="caption-number">Tableau 15.4 </span><span class="caption-text">Valeurs limites pour les entiers signés et non signés</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -893,7 +893,7 @@ les deux régions mémoire se superposent.</p>
 </div>
 </div>
 <div class="section" id="autres-bibliotheques">
-<h2>15.6  Autres bibliothèques<a class="headerlink" href="#autres-bibliotheques" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">15.6  </span>Autres bibliothèques<a class="headerlink" href="#autres-bibliotheques" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>GNU C Library (<a class="reference external" href="https://www.gnu.org/software/libc/">glibc</a>)</dt><dd><ul>
@@ -906,7 +906,7 @@ les deux régions mémoire se superposent.</p>
 </li>
 </ul>
 <div class="section" id="posix-c-library">
-<h3>15.6.1  POSIX C Library<a class="headerlink" href="#posix-c-library" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">15.6.1  </span>POSIX C Library<a class="headerlink" href="#posix-c-library" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la <em>toolchain</em> soit compatible <strong>C99</strong>. Il existe néanmoins toute une collection d'autres fonctions manquantes :</p>
 <ul>
 <li><p>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)</p>
@@ -917,7 +917,7 @@ les deux régions mémoire se superposent.</p>
 </ul>
 </div></blockquote>
 </li>
-<li><p>La communicaton sur le réseau e.g. internet</p>
+<li><p>La communication sur le réseau e.g. internet</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
@@ -961,11 +961,11 @@ les deux régions mémoire se superposent.</p>
 <p>Un point d'entrée de l'API POSIX est la bibliothèque <code class="docutils literal notranslate"><span class="pre">&lt;unistd.h&gt;</span></code>.</p>
 </div>
 <div class="section" id="gnu-glibc">
-<h3>15.6.2  GNU GLIBC<a class="headerlink" href="#gnu-glibc" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">15.6.2  </span>GNU GLIBC<a class="headerlink" href="#gnu-glibc" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La bibliothèque portable <a class="reference external" href="https://www.gnu.org/software/gnulib/">GNULIB</a> est la bibliothèque standard référencée sous Linux par <code class="docutils literal notranslate"><span class="pre">libc6</span></code>.</p>
 </div>
 <div class="section" id="windows-c-library">
-<h3>15.6.3  Windows C library<a class="headerlink" href="#windows-c-library" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">15.6.3  </span>Windows C library<a class="headerlink" href="#windows-c-library" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La bibliothèque Windows <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windoes API</a> offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.</p>
 <p>L'accès à cet API est offert par un unique point d'entrée <a class="reference external" href="https://en.wikipedia.org/wiki/Windows.h">windows.h</a> qui regroupe certains en-têtes standards (<code class="docutils literal notranslate"><span class="pre">&lt;stdarg.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;string.h&gt;</span></code>, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :</p>
 <dl class="simple">
@@ -993,17 +993,17 @@ les deux régions mémoire se superposent.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="pointers.html"
-       title="Chapitre précédent">← 14  Pointeurs</a>
+       title="Chapitre précédent">← <span class="section-number">14  </span>Pointeurs</a>
   </li>
   <li class="next">
     <a href="preprocessor.html"
-       title="Chapitre suivant">16  Préprocesseur →</a>
+       title="Chapitre suivant"><span class="section-number">16  </span>Préprocesseur →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

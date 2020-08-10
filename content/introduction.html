@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -386,7 +386,7 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>1  Introduction</li>
+    <li><span class="section-number">1  </span>Introduction</li>
   </ul>
   
 
@@ -397,7 +397,7 @@
   </li>
   <li class="next">
     <a href="programming.html"
-       title="Chapitre suivant">2  La programmation →</a>
+       title="Chapitre suivant"><span class="section-number">2  </span>La programmation →</a>
   </li>
 </ul>
   
@@ -406,9 +406,9 @@
           <div class="content" role="main">
             
   <div class="section" id="introduction">
-<h1>1  Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">1  </span>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="historique">
-<span id="thompson"></span><h2>1.1  Historique<a class="headerlink" href="#historique" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="thompson"></span><h2><span class="section-number">1.1  </span>Historique<a class="headerlink" href="#historique" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le langage de programmation <strong>C</strong> est la suite naturelle du langage <strong>B</strong> créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: <a class="reference external" href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>.</p>
 <span class="target" id="index-0"></span><span class="target" id="index-1"></span><p id="index-2">Le langage C a été inventé en 1972 par <a class="reference external" href="https://fr.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a> et <a class="reference external" href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a>. Ils sont les concepteurs du système d'exploitation <a class="reference external" href="https://fr.wikipedia.org/wiki/Unix">UNIX</a> et ont créé ce nouveau langage pour faciliter leurs travaux de développement logiciel. La saga continue avec <a class="reference external" href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> qui décide d'étendre C en apportant une saveur nouvelle: la programmation orientée objet (OOP), qui fera l'objet d'un cours à part entière. Ce C amélioré voit le jour en 1985.</p>
 <span class="target" id="index-3"></span><span class="target" id="index-4"></span><p id="index-5">Il faut attendre 1989 pour que le langage C fasse l'objet d'une normalisation par l'ANSI. L'année suivante le comité ISO ratifie le standard <em>ISO/IEC 9899:1990</em> communément appelé <strong>C90</strong>.</p>
@@ -421,7 +421,7 @@
 </div>
 </div>
 <div class="section" id="standardisation">
-<span id="index-10"></span><h2>1.2  Standardisation<a class="headerlink" href="#standardisation" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-10"></span><h2><span class="section-number">1.2  </span>Standardisation<a class="headerlink" href="#standardisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Vous l'aurez compris à lecture de cette introduction, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.</p>
 <span class="target" id="index-11"></span><p id="index-12">Le standard le plus couramment utilisé en 2019 est encore <a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
 <table class="docutils align-default" id="id2">
@@ -480,7 +480,7 @@
 </div>
 </div>
 <div class="section" id="environnement-de-developpement">
-<h2>1.3  Environnement de développement<a class="headerlink" href="#environnement-de-developpement" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">1.3  </span>Environnement de développement<a class="headerlink" href="#environnement-de-developpement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les <em>smartphones</em> disposent aujourd'hui d'une fonctionnalité de suggestion automatique de mots; les éditeurs de texte orienté programmation disposent de fonctionnalités similaires qui complètent automatiquement le code selon le contexte.</p>
 <p id="index-15">Un autre composant essentiel de l'environnement de développement est le <strong>compilateur</strong>. Il s'agit généralement d'un ensemble de programmes qui permettent de convertir le <strong>code</strong> écrit en un programme exécutable. Ce programme peut-être par la suite intégré dans un <em>smartphone</em>, dans un système embarqué sur un satellite, sur des cartes de prototypage comme un Raspberry PI, ou encore sur un ordinateur personnel.</p>
 <p id="index-16">L'ensemble des outils nécessaire à créer un produit logiciel est appelé chaîne de compilation, plus communément appelée <strong>toolchain</strong>.</p>
@@ -515,7 +515,7 @@
 </dd>
 </dl>
 <dl class="simple" id="index-23">
-<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Ed_(text_editor)">Ed</a></dt><dd><p>Prononcé /iːdiː/ (hidi), il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le <em>shell</em>. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...</p>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Ed_(text_editor)">Ed</a></dt><dd><p>Prononcé &quot;hidi&quot;, il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le <em>shell</em>. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...</p>
 </dd>
 </dl>
 <div class="exercise" id="exercise-1">
@@ -523,7 +523,7 @@
 </div>
 </div>
 <div class="section" id="l-anglais">
-<span id="index-24"></span><h2>1.4  L'Anglais<a class="headerlink" href="#l-anglais" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-24"></span><h2><span class="section-number">1.4  </span>L'Anglais<a class="headerlink" href="#l-anglais" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En programmation, quel que soit le langage utilisé, la langue <strong>anglaise</strong> est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut <strong>réutilisable</strong> pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.</p>
 <p id="index-25">Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de <em>feu d'alerte</em> en lieu et place de <em>warning</em>, car si l'un est la traduction ad hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.</p>
 <p>Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :</p>
@@ -542,7 +542,7 @@
 </div>
 <span class="target" id="index-26"></span></div>
 <div class="section" id="apprendre-a-pecher">
-<span id="index-27"></span><h2>1.5  Apprendre à pêcher<a class="headerlink" href="#apprendre-a-pecher" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-27"></span><h2><span class="section-number">1.5  </span>Apprendre à pêcher<a class="headerlink" href="#apprendre-a-pecher" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un jeune homme s'en va à la mer avec son père et lui demande: papa, j'ai faim, comment ramènes-tu du poisson? Le père fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: papa, j'ai faim, me ramènerais-tu du poisson? Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.</p>
 <p>Un jour, alors que le fils invective son père l'estomac vide, le père annonce. Fils, il est temps pour toi d'apprendre à pêcher, je peux te montrer encore longtemps comment je ramène du poisson, mais ce ne serait pas t'aider, voici donc cette canne et cet hameçon.</p>
 <p>Le jeune homme tente de répéter les gestes de son père, mais il ne parvient pas à ramener le poisson qui le rassasierait. Il demande à son père de l'aide que ce dernier refuse. Fils, c'est par la pratique et avec la faim au ventre que tu parviendras à prendre du poisson, persévère et tu deviendras meilleur pêcheur que moi, la lignée ainsi assurée de toujours manger à sa faim.</p>
@@ -550,7 +550,7 @@
 <p>Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&amp;R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.</p>
 </div>
 <div class="section" id="programmation-texte-structuree">
-<span id="structured-text"></span><h2>1.6  Programmation texte structurée<a class="headerlink" href="#programmation-texte-structuree" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="structured-text"></span><h2><span class="section-number">1.6  </span>Programmation texte structurée<a class="headerlink" href="#programmation-texte-structuree" title="Lien permanent vers ce titre">¶</a></h2>
 <span class="target" id="index-28"></span><p id="index-29">Le C comme la plupart des langages de programmation utilise du texte structuré, c'est-à-dire que le langage peut être défini par un <strong>vocabulaire</strong>, une <strong>grammaire</strong> et se compose d'un <strong>alphabet</strong>.</p>
 <p>À l'inverse des <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_language">langages naturels</a> comme le Français, un langage de programmation est un <a class="reference external" href="https://fr.wikipedia.org/wiki/Langage_formel">langage formel</a> et se veut exact dans sa grammaire et son vocabulaire, il n'y a pas de cas particuliers ni d'ambiguïtés possibles dans l'écriture.</p>
 <p>Les <strong>compilateurs</strong>, sont ainsi construits autour d'une grammaire du langage qui est réduite au minimum par souci d'économie de mémoire, pour taire les ambiguïtés et accroître la productivité du développeur.</p>
@@ -572,7 +572,7 @@ SERVIR(omelette_cuite)
 <p>Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peu ainsi s'exprimer en utilisant la forme Backus-Naur ou <strong>BNF</strong> disponible en annexe.</p>
 </div>
 <div class="section" id="les-paradigmes-de-programmation">
-<span id="paradigms"></span><span id="index-30"></span><h2>1.7  Les paradigmes de programmation<a class="headerlink" href="#les-paradigmes-de-programmation" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="paradigms"></span><span id="index-30"></span><h2><span class="section-number">1.7  </span>Les paradigmes de programmation<a class="headerlink" href="#les-paradigmes-de-programmation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL, Lisp et sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. <a class="reference internal" href="#thompson"><span class="std std-numref">Section 1.1</span></a>). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même <a class="reference external" href="https://fr.wikipedia.org/wiki/Paradigme_(programmation)">paradigme de programmation</a>.</p>
 <p>Certains paradigmes sont plus adaptés que d'autres à la résolution de certains problèmes et de nombreux langages de programmation sont dit <strong>multi-paradigmes</strong>, c'est-à-dire qu'ils supportent différents paradigmes.</p>
 <p>Nous citions plus haut le C++ qui permet la programmation orientée objet, laquelle est un paradigme de programmation qui n'existe pas en C.</p>
@@ -591,7 +591,7 @@ SERVIR(omelette_cuite)
 <p>Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)">programmation réflective</a>.</p>
 </div>
 <div class="section" id="cycle-de-developpement">
-<span id="index-34"></span><h2>1.8  Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-34"></span><h2><span class="section-number">1.8  </span>Cycle de développement<a class="headerlink" href="#cycle-de-developpement" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-35">Le cycle de développement logiciel comprend la suite des étapes menant de l'étude et l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le <a class="reference external" href="https://fr.wikipedia.org/wiki/Cycle_en_V">Cycle en V</a> ou le <a class="reference external" href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade">modèle en cascade</a>. Quel que soit le modèle utilisé, il comprendra les étapes suivantes :</p>
 <ol class="arabic simple">
 <li><p><strong>Étude</strong> et analyse du problème</p></li>
@@ -611,7 +611,7 @@ SERVIR(omelette_cuite)
 </div>
 </div>
 <div class="section" id="cycle-de-compilation">
-<h2>1.9  Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">1.9  </span>Cycle de compilation<a class="headerlink" href="#cycle-de-compilation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double grammaire. Le processus de compilation s'effectue donc en deux passes.</p>
 <ol class="arabic simple">
 <li><p>Préprocesseur</p></li>
@@ -623,7 +623,7 @@ SERVIR(omelette_cuite)
 </div>
 <p>Voyons plus en détail chacune de ces étapes.</p>
 <div class="section" id="preprocesseur-pre-processing">
-<span id="index-36"></span><h3>1.9.1  Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-36"></span><h3><span class="section-number">1.9.1  </span>Préprocesseur (<em>pre-processing</em>)<a class="headerlink" href="#preprocesseur-pre-processing" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La phase de <em>preprocessing</em> permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le <em>preprocessing</em> réalise :</p>
 <ul class="simple">
 <li><p>Le remplacement des définitions par leurs valeurs (<code class="docutils literal notranslate"><span class="pre">#define</span></code>),</p></li>
@@ -637,7 +637,7 @@ SERVIR(omelette_cuite)
 </div>
 </div>
 <div class="section" id="compilation-build">
-<span id="index-37"></span><h3>1.9.2  Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-37"></span><h3><span class="section-number">1.9.2  </span>Compilation (<em>build</em>)<a class="headerlink" href="#compilation-build" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension <cite>.o</cite> ou <cite>.obj</cite>) qui sera utilisé pour la phase suivante. Lors de la <em>compilation</em>, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
 <p>Avec <code class="docutils literal notranslate"><span class="pre">gcc</span></code> il est possible de ne demander que l'assemblage d'un code avec l'option <code class="docutils literal notranslate"><span class="pre">-S</span></code>.</p>
 <div class="figure align-default" id="id7">
@@ -648,7 +648,7 @@ SERVIR(omelette_cuite)
 </div>
 </div>
 <div class="section" id="edition-de-liens-link">
-<span id="index-38"></span><h3>1.9.3  Édition de liens (<em>link</em>)<a class="headerlink" href="#edition-de-liens-link" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-38"></span><h3><span class="section-number">1.9.3  </span>Édition de liens (<em>link</em>)<a class="headerlink" href="#edition-de-liens-link" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des <strong>librairies</strong>. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.</p>
 <div class="figure align-default" id="id9">
@@ -657,17 +657,17 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </div>
 </div>
 <div class="section" id="une-affaire-de-consensus">
-<h2>1.10  Une affaire de consensus<a class="headerlink" href="#une-affaire-de-consensus" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">1.10  </span>Une affaire de consensus<a class="headerlink" href="#une-affaire-de-consensus" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes. Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Fin_de_ligne">EOL</a>, l'interdiction du <code class="docutils literal notranslate"><span class="pre">goto</span></code>, le respect inconditionnel des règles <a class="reference external" href="https://en.wikipedia.org/wiki/MISRA_C">MISRA</a>. Il existe ainsi de longues guerres de croyances, parfois vielles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là où les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'<a class="reference external" href="https://fr.wikipedia.org/wiki/Ancrage_(psychologie)">ancrage mental</a>. L'enseignant devrait être sensible à ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.</p>
 <p>Citons par exemple les <a class="reference external" href="https://fr.wikipedia.org/wiki/Guerre_d%27%C3%A9diteurs">guerres d'éditeurs</a> qui date des années 1970 et qui opposent les défenseurs de l'éditeur <code class="docutils literal notranslate"><span class="pre">vi</span></code> aux inconditionnels d'<code class="docutils literal notranslate"><span class="pre">emacs</span></code>. Il s'agit de deux éditeurs de texte très puissants et à la courbe d'apprentissage raide qui séparent les opinions tant leur paradigme de fonctionnement est aporétique. Ces guerres sont d'abord entretenues par plaisir de l'amusement, mais les foules de convertis ne s'aperçoivent pas toujours de l'envergure émotionnelle que prend l'affaire dans son ensemble et force est de constater qu'avec le temps ils ne parviennent plus à percevoir le monde tel qu'il est, à force d'habitudes.</p>
 <p id="index-39">S'enterrer dans une zone de confort renforce le biais du <a class="reference external" href="https://everlaab.com/marteau-de-maslow/">Marteau de Maslow</a>, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.</p>
 <p>Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.</p>
-<p>La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au <a class="reference external" href="https://en.wikipedia.org/wiki/Attentional_bias">biais d'attention</a>. Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.</p>
+<p>La clé de la bonne attitude c'est d'être à l'écoute du consensus de ne pas sombrer au <a class="reference external" href="https://en.wikipedia.org/wiki/Attentional_bias">biais d'attention</a>. Il faut non seulement être sensible au consensus local direct: son entreprise, son école, son équipe de travail, mais surtout au consensus planétaire dont l'accès ne peut se faire que par l'interaction directe avec la communauté de développeurs, soit par les forums de discussions (Reddit, stackoverflow), soit par le code lui-même. Vous avez un doute sur la bonne méthode pour écrire tel algorithme ou sur la façon dont votre programme devrait être structuré ? Plongez-vous dans le code des autres, multipliez vos expériences, observez les disparités et les oppositions, et apprenez à ne pas y être sensible.</p>
 <span class="target" id="index-40"></span><p id="index-41">Vous verrez qu'au début, un programme ne vous semble lisible que s'il respecte vos habitudes, la taille de vos indentations préférées, la police de caractère qui vous sied le mieux, l'éditeur qui supporte les ligatures, car admettez-le <code class="docutils literal notranslate"><span class="pre">ﬁ</span></code> est infiniment plus lisible que <code class="docutils literal notranslate"><span class="pre">fi</span></code>. Par la suite, et à la relecture de cette section, vous apprendrez à faire fi de cette zone de confort qui vous était si chère et que l'important n'est plus la forme, mais le fond. Vous aurez comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Neo_(Matrix)">Néo</a>, libéré votre esprit et serez capable de voir la matrice sans filtre, sans biais.</p>
 <p>En somme, restez ouvert aux autres points de vues, cherchez à adopter le consensus majoritaire qui dynamise au mieux votre équipe de développement, qui s'encadre le mieux dans votre stratégie de croissance et de collaboration et surtout, abreuvez-vous de code, faites-en des indigestions, rêvez-en la nuit. Vous tradez du Bitcoin, allez lire <a class="reference external" href="https://github.com/bitcoin/bitcoin">le code source</a>, vous aimez Linux, plongez-vous dans le code source du <a class="reference external" href="https://github.com/torvalds/linux">kernel</a>, certains collègues ou amis vous ont parlé de Git, allez voir ses <a class="reference external" href="https://github.com/git/git">entrailles</a>... Oui, tous ces projets sont écrits en C, n'est-ce pas merveilleux ?</p>
 </div>
 <div class="section" id="hello-world">
-<span id="hello"></span><span id="index-42"></span><h2>1.11  Hello World!<a class="headerlink" href="#hello-world" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="hello"></span><span id="index-42"></span><h2><span class="section-number">1.11  </span>Hello World!<a class="headerlink" href="#hello-world" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il est traditionnellement coutume depuis la publication en 1978 du livre <a class="reference external" href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> de reprendre l'exemple de Brian Kernighan comme premier programme.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -697,7 +697,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <span class="go">}</span>
 </pre></div>
 </div>
-<p>À présent on peut utiliser notre compilateur par défault: <code class="docutils literal notranslate"><span class="pre">cc</span></code> pour <em>C Compiler</em>. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier <a class="reference external" href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
+<p>À présent on peut utiliser notre compilateur par défaut: <code class="docutils literal notranslate"><span class="pre">cc</span></code> pour <em>C Compiler</em>. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier <a class="reference external" href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc hello.c
 </pre></div>
 </div>
@@ -762,13 +762,13 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
   </li>
   <li class="next">
     <a href="programming.html"
-       title="Chapitre suivant">2  La programmation →</a>
+       title="Chapitre suivant"><span class="section-number">2  </span>La programmation →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

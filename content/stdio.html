@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -372,18 +372,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>9  Entrées Sorties</li>
+    <li><span class="section-number">9  </span>Entrées Sorties</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="processus.html"
-       title="Chapitre précédent">← 8  Programmes et Processus</a>
+       title="Chapitre précédent">← <span class="section-number">8  </span>Programmes et Processus</a>
   </li>
   <li class="next">
     <a href="functions.html"
-       title="Chapitre suivant">10  Fonctions →</a>
+       title="Chapitre suivant"><span class="section-number">10  </span>Fonctions →</a>
   </li>
 </ul>
   
@@ -392,7 +392,7 @@
           <div class="content" role="main">
             
   <div class="section" id="entrees-sorties">
-<h1>9  Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">9  </span>Entrées Sorties<a class="headerlink" href="#entrees-sorties" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Comme nous l'avons vu (c.f. <a class="reference internal" href="processus.html#inputs-outputs"><span class="std std-numref">Section 8.1.3</span></a>) un programme dispose de canaux d'entrées sorties <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.</p>
 <p>La fonction phare est bien entendu <code class="docutils literal notranslate"><span class="pre">printf</span></code> pour le formatage de chaîne de caractères et <code class="docutils literal notranslate"><span class="pre">scanf</span></code> pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes :</p>
 <ul class="simple">
@@ -402,7 +402,7 @@
 </ul>
 <p>La liste citée est non exhaustive, mais largement documentée ici: <a class="reference external" href="http://man7.org/linux/man-pages/man3/stdio.3.html">&lt;stdio.h&gt;</a>.</p>
 <div class="section" id="sorties-non-formatees">
-<h2>9.1  Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">9.1  </span>Sorties non formatées<a class="headerlink" href="#sorties-non-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">putchar(char</span> <span class="pre">c)</span></code></dt><dd><p>Pour imprimer un caractère unique: <code class="docutils literal notranslate"><span class="pre">putchar('c')</span></code></p>
@@ -428,7 +428,7 @@
 </div>
 </div>
 <div class="section" id="sorties-formatees">
-<h2>9.2  Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">9.2  </span>Sorties formatées<a class="headerlink" href="#sorties-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur <code class="docutils literal notranslate"><span class="pre">123</span></code>. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Etape  Opération  Resultat  Reste
 1      123 / 10   12        3
@@ -502,7 +502,7 @@
 </div>
 </div>
 <div class="section" id="printf">
-<h2>9.3  printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">9.3  </span>printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -519,7 +519,7 @@
 </div>
 <p>Il définit que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> prend en paramètre un format suivi de <code class="docutils literal notranslate"><span class="pre">...</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme toutes celles de la même catégorie sont dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code class="docutils literal notranslate"><span class="pre">&quot;Mes</span> <span class="pre">nombres</span> <span class="pre">préférés</span> <span class="pre">sont</span> <span class="pre">%d</span> <span class="pre">et</span> <span class="pre">%d,</span> <span class="pre">mais</span> <span class="pre">surtout</span> <span class="pre">%s&quot;</span></code> demandera trois paramètres additionnels :</p>
 <p>La fonction retourne le nombre de caractères formatés ou <code class="docutils literal notranslate"><span class="pre">-1</span></code> en cas d'erreur.</p>
-<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
+<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
 </pre></div>
 </div>
@@ -541,7 +541,7 @@
 <img alt="../_images/formats.svg" src="../_images/formats.svg" /><p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Formatage d'un marqueur</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="exemples">
-<h3>9.3.1  Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">9.3.1  </span>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
 <span id="index-0"></span><table class="docutils align-default" id="id2">
 <caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formatage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -584,8 +584,8 @@
 <td><p><code class="code docutils literal notranslate"><span class="pre">102.10</span></code></p></td>
 <td><p>7</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">printf(&quot;%8x&quot;,</span> <span class="pre">3141592)</span></code></p></td>
-<td><p>:code:` 2fefd8`</p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">printf(&quot;%8x&quot;,</span> <span class="pre">57005)</span></code></p></td>
+<td><p>:code:`    dead`</p></td>
 <td><p>6</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">printf(&quot;%s&quot;,</span> <span class="pre">&quot;Hello&quot;)</span></code></p></td>
@@ -608,7 +608,7 @@
 </div>
 </div>
 <div class="section" id="entrees-formatees">
-<h2>9.4  Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">9.4  </span>Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">scanf</span></code> est par exemple utilisée à cette fin :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -639,7 +639,7 @@
 </div>
 <p>On observe ici un comportement différent, car le retour clavier lorsque la touche <em>enter</em> est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.</p>
 <div class="section" id="scanf">
-<h3>9.4.1  scanf<a class="headerlink" href="#scanf" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">9.4.1  </span>scanf<a class="headerlink" href="#scanf" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le format de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> se rapproche de <code class="docutils literal notranslate"><span class="pre">printf</span></code> mais en plus simple. Le <a class="reference external" href="https://linux.die.net/man/3/scanf">man scanf</a> ou même la page Wikipedia de <a class="reference external" href="https://en.wikipedia.org/wiki/Scanf_format_string">scanf</a> renseigne sur son format.</p>
 <p>Cette fonction tient son origine une nouvelle fois de <a class="reference external" href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<code class="docutils literal notranslate"><span class="pre">readf</span></code>), elle est donc très ancienne.</p>
 <p>La compréhension de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
@@ -783,7 +783,7 @@ poussière
 </div>
 </div>
 <div class="section" id="saisie-de-chaine-de-caracteres">
-<h3>9.4.2  Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">9.4.2  </span>Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code class="docutils literal notranslate"><span class="pre">%20s</span></code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code class="docutils literal notranslate"><span class="pre">\0</span></code>. Sinon, il y a risque de <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -811,7 +811,7 @@ poussière
 </div>
 </div>
 <div class="section" id="saisie-arbitraire">
-<h3>9.4.3  Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">9.4.3  </span>Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a class="reference external" href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Q2hvY29sYXQ&quot;</span><span class="p">;</span>
 <span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
@@ -857,7 +857,7 @@ invalides&quot;.</p>
 </div>
 <div class="exercise" id="exercise-8">
 <strong>Exercice 9.9 Crampes de doigts</strong><p>Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.</p>
-<p>Grâce à votre esprit affuté et votre oeil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?</p>
+<p>Grâce à votre esprit affuté et votre œil perçant, vous identifiez 13 erreurs. Lesquelles sont-elles ?</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;std_io.h&gt;
 #jnclude &lt;stdlib.h&gt;
 INT Main()
@@ -977,17 +977,17 @@ retturn EXIT_FAILURE;
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="processus.html"
-       title="Chapitre précédent">← 8  Programmes et Processus</a>
+       title="Chapitre précédent">← <span class="section-number">8  </span>Programmes et Processus</a>
   </li>
   <li class="next">
     <a href="functions.html"
-       title="Chapitre suivant">10  Fonctions →</a>
+       title="Chapitre suivant"><span class="section-number">10  </span>Fonctions →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

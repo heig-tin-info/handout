@@ -23,7 +23,7 @@ Les fichiers sont organisés dans une arborescence gérée par un `système de f
         ├── System32          Système d'exploitation 64-bits (oui, oui)
         └── Temp              Fichiers temporaires
 
-Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par chemin réseau ``\\eistore2``, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'UN SEUL système de fichier dont la racine est ``/``.
+Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par chemin réseau ``\\eistore2``, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est ``/``.
 
 .. code-block:: console
 
@@ -522,7 +522,7 @@ L'utilisation de ``fseek`` est par conséquent utile :
     fseek(fd, 11 + 9 + month * 7 SEEK_CUR);
     fscanf(fd, "%lf", &temperature);
 
-L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.
+L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.
 
 Format sérialisé
 ----------------

@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -382,18 +382,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>14  Pointeurs</li>
+    <li><span class="section-number">14  </span>Pointeurs</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="memory-management.html"
-       title="Chapitre précédent">← 13  Gestion de la mémoire</a>
+       title="Chapitre précédent">← <span class="section-number">13  </span>Gestion de la mémoire</a>
   </li>
   <li class="next">
     <a href="standard-library.html"
-       title="Chapitre suivant">15  Bibliothèques →</a>
+       title="Chapitre suivant"><span class="section-number">15  </span>Bibliothèques →</a>
   </li>
 </ul>
   
@@ -402,17 +402,17 @@
           <div class="content" role="main">
             
   <div class="section" id="pointeurs">
-<span id="pointers"></span><h1>14  Pointeurs<a class="headerlink" href="#pointeurs" title="Lien permanent vers ce titre">¶</a></h1>
+<span id="pointers"></span><h1><span class="section-number">14  </span>Pointeurs<a class="headerlink" href="#pointeurs" title="Lien permanent vers ce titre">¶</a></h1>
 <p><a class="reference external" href="https://fr.wikiquote.org/wiki/Le_Jour_de_gloire">Attention les vélos</a>, on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les <a class="reference external" href="https://fr.wikipedia.org/wiki/Pointeur_(programmation)">pointeurs</a>.</p>
 <p>Les pointeurs sont des <strong>variables</strong> qui, au lieu de stocker une valeur, stockent une <strong>adresse mémoire</strong>. Dans quel but me direz-vous ? Pour créer des indirections, simplifier l'exécution du code.</p>
 <p>Prenons un exemple concret. Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Vicomte_de_Valmont">Vicomte de Valmont</a> décide d'écrire à la marquise de Merteuil et il rédige une lettre. Il cachette sa lettre et la dépose dans sa boîte aux lettres pour enlèvement par le facteur moyennant quelques sous. En des termes programmatiques, on a :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">lettre</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">lettre</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Marquise, ...&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Cette variable <code class="docutils literal notranslate"><span class="pre">lettre</span></code> est dès lors enregistrée en mémoire à l'adresse <code class="docutils literal notranslate"><span class="pre">0x12345abc</span></code> qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.</p>
 <p>Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire a fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.</p>
 <p>Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de <em>64-bits</em> il n'arrive à mémoriser que 8 caractères <code class="docutils literal notranslate"><span class="pre">Chère</span> <span class="pre">Ma</span></code>. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son <a class="reference external" href="https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau">tout nickelé</a> jusqu'à ce que toute la lettre ait été retranscrite.</p>
-<p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteil :</p>
+<p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteuil :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">valmont_mailbox</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
 <span class="kt">char</span> <span class="n">merteil_mailbox</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
 </pre></div>
@@ -430,8 +430,8 @@
 </div>
 <p>S'il avait oublié l'astérisque (<code class="docutils literal notranslate"><span class="pre">*</span></code>, <a class="reference external" href="https://unicode-table.com/en/002A/">U+002A</a>) dans cette dernière ligne il n'aurait pas vu le message espéré, mais simplement <code class="docutils literal notranslate"><span class="pre">0123</span></code> qui correspond au contenu à l'adresse mémoire ou se trouve l'adresse du message (et non le message).</p>
 <p>L'astérisque agit donc comme un <strong>déréférencement</strong>, autrement dit, la demande expresse faite au dévoué facteur d'aller à l'adresse donnée récupérer le contenu du message.</p>
-<p>Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <a class="reference external" href="https://unicode-table.com/en/0026/">U+0026</a>): <code class="docutils literal notranslate"><span class="pre">&amp;castello_wall</span></code>, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par <strong>l'adresse de</strong>. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.</p>
-<p>Il manque encore une chose, il y a aussi une astérisque sur <code class="docutils literal notranslate"><span class="pre">(*gps_position)[]</span></code>. Cela vaudrait-il dire qu’on déréférence la position gps pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?</p>
+<p>Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <a class="reference external" href="https://unicode-table.com/en/0026/">U+0026</a>): <code class="docutils literal notranslate"><span class="pre">&amp;castello_wall</span></code>, pourquoi ? L'esperluette quand elle préfixe une variable peut être traduite par <strong>l'adresse de</strong>. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.</p>
+<p>Il manque encore une chose, il y a aussi une astérisque sur <code class="docutils literal notranslate"><span class="pre">(*gps_position)[]</span></code>. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?</p>
 <p>Notons qu'il y a plusieurs interprétations de l'astérisque en C :</p>
 <ul class="simple">
 <li><p>Opérateur de multiplication: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></p></li>
@@ -456,7 +456,7 @@
 <li><p><strong>L'adresse d'une variable</strong> peut être obtenue avec une esperluette</p></li>
 </ul>
 <div class="section" id="pointeur-simple">
-<h2>14.1  Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.1  </span>Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </pre></div>
@@ -491,7 +491,7 @@
 </div>
 </div>
 <div class="section" id="arithmetique-de-pointeurs">
-<h2>14.2  Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.2  </span>Arithmétique de pointeurs<a class="headerlink" href="#arithmetique-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Fondamentalement un pointeur est une variable qui contient un <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_ordinal">ordinal</a>, c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Le vif zéphyr jubile sur les kumquats du clown gracieux&quot;</span><span class="p">;</span>
 
@@ -544,7 +544,7 @@
 <col style="width: 26%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Élement</p></th>
+<tr class="row-odd"><th class="head"><p>Élément</p></th>
 <th class="head"><p>Premier</p></th>
 <th class="head"><p>Deuxième</p></th>
 <th class="head"><p>Troisième</p></th>
@@ -576,7 +576,7 @@
 <col style="width: 30%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Élement</p></th>
+<tr class="row-odd"><th class="head"><p>Élément</p></th>
 <th class="head"><p>Premier</p></th>
 <th class="head"><p>Deuxième</p></th>
 <th class="head"><p>n ligne m colonne</p></th>
@@ -597,7 +597,7 @@
 </table>
 </div>
 <div class="section" id="pointeur-et-chaines-de-caracteres">
-<h2>14.3  Pointeur et chaînes de caractères<a class="headerlink" href="#pointeur-et-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.3  </span>Pointeur et chaînes de caractères<a class="headerlink" href="#pointeur-et-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">conjonctions</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&quot;mais&quot;</span><span class="p">,</span> <span class="s">&quot;ou&quot;</span><span class="p">,</span> <span class="s">&quot;est&quot;</span><span class="p">,</span> <span class="s">&quot;donc&quot;</span><span class="p">,</span> <span class="s">&quot;or&quot;</span><span class="p">,</span> <span class="s">&quot;ni&quot;</span><span class="p">,</span> <span class="s">&quot;car&quot;</span>
 <span class="p">};</span>
@@ -609,9 +609,9 @@
 <p>Cette structure est très exactement la même que pour les arguments transmis à la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>: la définition <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*argv[]</span></code>.</p>
 </div>
 <div class="section" id="structures-et-pointeurs">
-<h2>14.4  Structures et pointeurs<a class="headerlink" href="#structures-et-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.4  </span>Structures et pointeurs<a class="headerlink" href="#structures-et-pointeurs" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="initialisation-d-un-pointeur-sur-une-structure">
-<h3>14.4.1  Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.4.1  </span>Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
 <p>De la même manière qu'avec les types standards, on peut définir un
 pointeur sur une structure de donnée.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
@@ -634,7 +634,7 @@ initialiser un pointeur sur une structure de la façon suivante :</p>
 </div>
 </div>
 <div class="section" id="utilisation-d-un-pointeur-sur-une-structure">
-<h3>14.4.2  Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.4.2  </span>Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On a vu que les champs d'une structure sont accessibles au travers du
 <span class="math notranslate nohighlight">\(.\)</span> faisant la liaison entre la variable et le champ. Cela est
 valable si la variable est du type structuré. Si la variable est du type
@@ -651,7 +651,7 @@ pointeur sur une structure, on remplacera le <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="utilisation-d-un-pointeur-recursif-sur-une-structure">
-<h3>14.4.3  Utilisation d'un pointeur récursif sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-recursif-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.4.3  </span>Utilisation d'un pointeur récursif sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-recursif-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lorsqu'on utilise des listes chaînées, on a besoin de créer une
 structure contenant des données ainsi qu'un pointeur sur un élément
 précédent et un autre sur l'élément suivant. Ces pointeurs sont du même
@@ -685,7 +685,7 @@ style d'écriture spécifique :</p>
 </div>
 </div>
 <div class="section" id="pointeurs-et-parametres-de-fonctions">
-<h3>14.4.4  Pointeurs et paramètres de fonctions<a class="headerlink" href="#pointeurs-et-parametres-de-fonctions" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.4.4  </span>Pointeurs et paramètres de fonctions<a class="headerlink" href="#pointeurs-et-parametres-de-fonctions" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les fonctions comportent une liste de paramètres permettant de retourner
 une information au programme appelant. Il est souvent indispensable de
 pouvoir fournir à une fonction des paramètres qu'elle peut modifier lors
@@ -693,7 +693,7 @@ de son exécution. Pour se faire, on passera par l'utilisation de
 pointeurs.</p>
 </div>
 <div class="section" id="parametres-sous-la-forme-de-pointeurs">
-<h3>14.4.5  Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.4.5  </span>Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
 de la manière suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">type</span> <span class="nf">fonction</span><span class="p">(</span><span class="n">type</span> <span class="o">*</span> <span class="n">param</span><span class="p">);</span>
@@ -734,7 +734,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 </div>
 <div class="section" id="transtypage-de-pointeurs-cast">
-<h2>14.5  Transtypage de pointeurs (cast)<a class="headerlink" href="#transtypage-de-pointeurs-cast" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.5  </span>Transtypage de pointeurs (cast)<a class="headerlink" href="#transtypage-de-pointeurs-cast" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le <code class="docutils literal notranslate"><span class="pre">cast</span></code> de pointeur s'avère nécessaire lorsqu'un pointeur du type <code class="docutils literal notranslate"><span class="pre">void</span></code> est déclaré, comme c'est le cas pour la fonction de copie mémoire <code class="docutils literal notranslate"><span class="pre">memcpy</span></code>. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;Mind the gap, please!&quot;</span><span class="p">;</span>
 
@@ -765,7 +765,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <blockquote>
 <div><p>A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.</p>
 </div></blockquote>
-<p>Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur <code class="docutils literal notranslate"><span class="pre">void</span></code>. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message autodocumenté du code.</p>
+<p>Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur <code class="docutils literal notranslate"><span class="pre">void</span></code>. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto documenté du code.</p>
 <p>Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">memcpy</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
@@ -835,7 +835,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <p>Vous pouvez jouer avec cet exemple <a class="reference external" href="https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4">ici</a>.</p>
 </div>
 <div class="section" id="pointeurs-de-fonctions">
-<h2>14.6  Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.6  </span>Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
 <p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
@@ -869,7 +869,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 </div>
 <div class="section" id="la-regle-gauche-droite">
-<h2>14.7  La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.7  </span>La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Cette <a class="reference external" href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-number">Tableau 14.3 </span><span class="caption-text">Règles gauche droite</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
@@ -948,7 +948,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </li>
 </ol>
 <div class="section" id="cdecl">
-<h3>14.7.1  cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">14.7.1  </span>cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il existe un programme nommé <a class="reference external" href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cdecl <span class="s1">&#39;char (*(*x[3])())[5]&#39;</span>
 <span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
@@ -958,7 +958,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 </div>
 <div class="section" id="initialisation-par-transtypage">
-<h2>14.8  Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.8  </span>Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span> <span class="p">{</span> <span class="kt">char</span> <span class="n">a</span><span class="p">;</span> <span class="kt">char</span> <span class="n">b</span><span class="p">;</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="kt">char</span> <span class="n">d</span><span class="p">;</span> <span class="p">}){</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">};</span>
 </pre></div>
@@ -971,7 +971,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 </div>
 <div class="section" id="enchevetrement-ou-aliasing">
-<h2>14.9  Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">14.9  </span>Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Travailler avec les pointeurs demande une attention particulière à tous
 les problèmes d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
 une même région mémoire.</p>
@@ -1054,17 +1054,17 @@ une même région mémoire.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="memory-management.html"
-       title="Chapitre précédent">← 13  Gestion de la mémoire</a>
+       title="Chapitre précédent">← <span class="section-number">13  </span>Gestion de la mémoire</a>
   </li>
   <li class="next">
     <a href="standard-library.html"
-       title="Chapitre suivant">15  Bibliothèques →</a>
+       title="Chapitre suivant"><span class="section-number">15  </span>Bibliothèques →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

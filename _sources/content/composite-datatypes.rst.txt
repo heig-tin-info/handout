@@ -204,7 +204,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
     .. solution::
 
-        Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique :
+        Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
 
         .. code-block:: c
 
@@ -344,7 +344,7 @@ Enfin, un sucre syntaxique ``{0}`` permet d'initialiser tout un tableau à zéro
 
 Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. :numref:`memory-management`) les variables globales sont placées dans le segment mémoire ``.bss`` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
 
-Initialization à une valeur particulière
+Initialisation à une valeur particulière
 ----------------------------------------
 
 Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
@@ -632,7 +632,7 @@ La structure ainsi déclarée n'est pas très utile telle quelle, en revanche el
 
 Comme ``point`` n'est pas une primitive standard, mais un container à primitive, il n'est pas correct d'écrire ``point = 12``. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.
 
-Ces coordonnées sont un clin d'oeil aux `Pierres du Niton <https://fr.wikipedia.org/wiki/Pierres_du_Niton>`__ qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour `Axel Lidenbrock <https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre>`__ et son fulmicoton.
+Ces coordonnées sont un clin d'œil aux `Pierres du Niton <https://fr.wikipedia.org/wiki/Pierres_du_Niton>`__ qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour `Axel Lidenbrock <https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre>`__ et son fulmicoton.
 
 Structures nommées
 ------------------
@@ -840,7 +840,7 @@ Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est do
 
     struct Line lines[2]; // Chaque point est un double, codé sur 8 bytes.
 
-Ci-dessous est représenté l'offset mémoire (en bytes) à laquel est stocké chaque membre de la structure, ainsi que l'élément correspondant.
+Ci-dessous est représenté l'offset mémoire (en bytes) à laquelle est stocké chaque membre de la structure, ainsi que l'élément correspondant.
 
 .. code-block:: text
 
@@ -888,7 +888,7 @@ Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellem
 
     int32_t d = (data[0] << 8) | (data[1] & 0x0F);
 
-Pour éviter ces manoeuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
+Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (*padding*) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :
 
 .. code-block:: c
 
@@ -960,7 +960,7 @@ Elle serait très probablement représentée en mémoire de la façon suivante :
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
         A         B         C
 
-En revance si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
+En revanche si elle est décrite en utilisant un *packing* sur 8-bits, avec ``#pragma pack(1)`` on aura l'alignement mémoire suivant :
 
 .. code-block:: text
 

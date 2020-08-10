@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -382,18 +382,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>3  Généralités du langage</li>
+    <li><span class="section-number">3  </span>Généralités du langage</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="programming.html"
-       title="Chapitre précédent">← 2  La programmation</a>
+       title="Chapitre précédent">← <span class="section-number">2  </span>La programmation</a>
   </li>
   <li class="next">
     <a href="numeration.html"
-       title="Chapitre suivant">4  Numération →</a>
+       title="Chapitre suivant"><span class="section-number">4  </span>Numération →</a>
   </li>
 </ul>
   
@@ -402,11 +402,11 @@
           <div class="content" role="main">
             
   <div class="section" id="generalites-du-langage">
-<h1>3  Généralités du langage<a class="headerlink" href="#generalites-du-langage" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">3  </span>Généralités du langage<a class="headerlink" href="#generalites-du-langage" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source.</p>
-<p>Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
+<p>Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.</p>
 <div class="section" id="l-alphabet">
-<span id="index-0"></span><h2>3.1  L'alphabet<a class="headerlink" href="#l-alphabet" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-0"></span><h2><span class="section-number">3.1  </span>L'alphabet<a class="headerlink" href="#l-alphabet" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-1">Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 caractères latins et de 10 <a class="reference external" href="https://fr.wikipedia.org/wiki/Chiffres_arabes">chiffres indo-arabes</a> :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 a b c d e f g h i j k l m n o p q r s t u v w x y z
@@ -450,7 +450,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="fin-de-lignes-eol">
-<span id="index-4"></span><h2>3.2  Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">3.2  </span>Fin de lignes (EOL)<a class="headerlink" href="#fin-de-lignes-eol" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-5">À l'instar des premières machines à écrire, les <a class="reference external" href="https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur">téléscripteurs</a> possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme <a class="reference external" href="https://fr.wikipedia.org/wiki/Retour_chariot">retour chariot</a> est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC <a class="reference external" href="https://fr.wikipedia.org/wiki/Compatible_PC">IBM compatibles</a> ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (<code class="docutils literal notranslate"><span class="pre">CR</span></code>) et une nouvelle ligne (<code class="docutils literal notranslate"><span class="pre">LF</span></code>) ou en C <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>. Les premiers <a class="reference external" href="https://fr.wikipedia.org/wiki/Macintosh">Macintosh</a> d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère <code class="docutils literal notranslate"><span class="pre">\r</span></code>. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>Fort heureusement depuis que Apple a migré son système sur une base <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a> (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne :</p>
 <ul class="simple">
@@ -463,7 +463,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="mots-cles">
-<h2>3.3  Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">3.3  </span>Mots clés<a class="headerlink" href="#mots-cles" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :</p>
 <div style="-webkit-column-count: 4;-moz-column-count: 4; column-count: 4;"><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">_Bool</span></code></p></li>
@@ -521,7 +521,7 @@ SPACE \040 Space
 <p>Notons que les mots clés <code class="docutils literal notranslate"><span class="pre">true</span></code> et <code class="docutils literal notranslate"><span class="pre">false</span></code> décrits à la <a class="reference internal" href="datatype.html#booleans"><span class="std std-numref">Section 6.8</span></a> ne sont pas standardisés en C, mais ils le sont en C++.</p>
 </div>
 <div class="section" id="identifiers">
-<span id="identificateurs"></span><h2>3.4  Identificateurs<a class="headerlink" href="#identifiers" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="identificateurs"></span><h2><span class="section-number">3.4  </span>Identificateurs<a class="headerlink" href="#identifiers" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-7">Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :</p>
 <div class="figure align-default" id="id2">
 <img alt="../_images/identifier.svg" src="../_images/identifier.svg" /><p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Grammaire d'un identificateur C</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
@@ -563,7 +563,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="variables">
-<span id="index-9"></span><h2>3.5  Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="index-9"></span><h2><span class="section-number">3.5  </span>Variables<a class="headerlink" href="#variables" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une variable est un symbole qui associe un nom <strong>identificateur</strong> à une <strong>valeur</strong>. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.</p>
 <p>Une variable est définie par :</p>
 <ul class="simple" id="index-10">
@@ -575,7 +575,7 @@ SPACE \040 Space
 <li><p>Sa <strong>visibilité</strong> (<em>visibility</em>) qui ne peut être que <em>public</em> en C.</p></li>
 </ul>
 <div class="section" id="declaration">
-<span id="index-11"></span><h3>3.5.1  Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="index-11"></span><h3><span class="section-number">3.5.1  </span>Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;€&#39;</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">temperature</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
@@ -668,7 +668,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="convention-de-nommage">
-<h3>3.5.2  Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">3.5.2  </span>Convention de nommage<a class="headerlink" href="#convention-de-nommage" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :</p>
 <ul class="simple">
 <li><p>La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.</p></li>
@@ -710,30 +710,30 @@ SPACE \040 Space
 </table>
 </div>
 <div class="section" id="variable-metasyntaxiques">
-<h3>3.5.3  Variable métasyntaxiques<a class="headerlink" href="#variable-metasyntaxiques" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">3.5.3  </span>Variable métasyntaxiques<a class="headerlink" href="#variable-metasyntaxiques" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique">métasyntaxiques</a>. En français les valeurs <code class="docutils literal notranslate"><span class="pre">toto</span></code>, <code class="docutils literal notranslate"><span class="pre">titi</span></code>, <code class="docutils literal notranslate"><span class="pre">tata</span></code> et <code class="docutils literal notranslate"><span class="pre">tutu</span></code> sont régulièrement utilisées tandis qu'en anglais
 <code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>, <code class="docutils literal notranslate"><span class="pre">baz</span></code> et <code class="docutils literal notranslate"><span class="pre">qux</span></code> sont régulièrement utilisés. Les valeurs <code class="docutils literal notranslate"><span class="pre">spam</span></code>, <code class="docutils literal notranslate"><span class="pre">ham</span></code> et <code class="docutils literal notranslate"><span class="pre">eggs</span></code> sont quant à elles souvent utilisée en Python, en référence au sketch <a class="reference external" href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)">Spam</a> des Monthy Python.</p>
 <p>Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.</p>
-<p>On touvera une <a class="reference external" href="http://www.catb.org/jargon/html/M/metasyntactic-variable.html">table</a> des différents noms les plus courants utilisés dans différentes langues.</p>
+<p>On trouvera une <a class="reference external" href="http://www.catb.org/jargon/html/M/metasyntactic-variable.html">table</a> des différents noms les plus courants utilisés dans différentes langues.</p>
 </div>
 </div>
 <div class="section" id="les-constantes">
-<h2>3.6  Les constantes<a class="headerlink" href="#les-constantes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une constante par opposition à une variable voit son contenu fixe et immutable.</p>
+<h2><span class="section-number">3.6  </span>Les constantes<a class="headerlink" href="#les-constantes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une constante par opposition à une variable voit son contenu fixe et immuable.</p>
 <p>Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé <code class="docutils literal notranslate"><span class="pre">const</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">double</span> <span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">12.67</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Il ne faut pas confondre la <strong>constante</strong> qui est une variable immutable, stockée en mémoire et une <strong>macro</strong> qui appartient au préprocesseur. Le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">math.h</span></code> définit par exemple la constante <code class="docutils literal notranslate"><span class="pre">M_PI</span></code> sous forme de macro.</p>
+<p>Il ne faut pas confondre la <strong>constante</strong> qui est une variable immuable, stockée en mémoire et une <strong>macro</strong> qui appartient au préprocesseur. Le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">math.h</span></code> définit par exemple la constante <code class="docutils literal notranslate"><span class="pre">M_PI</span></code> sous forme de macro.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define M_PI 3.14159265358979323846</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="constantes-litterales">
-<h2>3.7  Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">3.7  </span>Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>      <span class="c1">// Grandeur valant le nombre d&#39;heures sur l&#39;horloge du Palais du Quirinal à Rome</span>
 <span class="mi">12u</span>    <span class="c1">// Grandeur non signée</span>
@@ -743,7 +743,7 @@ SPACE \040 Space
 <span class="mh">0xa</span>    <span class="c1">// Grandeur hexadécimale valant 10 en décimal</span>
 <span class="mi">0</span><span class="n">b111</span>  <span class="c1">// Grandeur binaire valant 7 en décimal</span>
 <span class="mf">33.</span>    <span class="c1">// Grandeur réelle exprimée en virgule flottante</span>
-<span class="sc">&#39;0&#39;</span>    <span class="c1">// Grandeur caractère vallant 48 en décimal</span>
+<span class="sc">&#39;0&#39;</span>    <span class="c1">// Grandeur caractère valant 48 en décimal</span>
 </pre></div>
 </div>
 <div class="exercise" id="exercise-2">
@@ -770,7 +770,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="operateur-d-affectation">
-<h2>3.8  Opérateur d'affectation<a class="headerlink" href="#operateur-d-affectation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">3.8  </span>Opérateur d'affectation<a class="headerlink" href="#operateur-d-affectation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.</p>
 <p>Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal <code class="docutils literal notranslate"><span class="pre">=</span></code> or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.</p>
 <p>Pour mieux saisir la nuance, considérons le programme suivant :</p>
@@ -808,7 +808,7 @@ SPACE \040 Space
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Donnez les valeurs des variabels <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> et <code class="docutils literal notranslate"><span class="pre">k</span></code> après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?</p>
+<p>Donnez les valeurs des variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> et <code class="docutils literal notranslate"><span class="pre">k</span></code> après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* 1 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">);</span>
 <span class="cm">/* 2 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
 <span class="cm">/* 3 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
@@ -817,7 +817,7 @@ SPACE \040 Space
 </div>
 </div>
 <div class="section" id="commentaires">
-<h2>3.9  Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">3.9  </span>Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Comme en français et ainsi qu'illustré par la <a class="reference internal" href="#proust"><span class="std std-numref">Fig. 3.3</span></a>, il est possible d'annoter un programme avec des <strong>commentaires</strong>. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.</p>
 <div class="figure align-default" id="id4">
 <span id="proust"></span><img alt="../_images/proust.svg" src="../_images/proust.svg" /><p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Les carafes dans la Vivonne</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
@@ -829,7 +829,7 @@ SPACE \040 Space
 </pre></div>
 </div>
 </li>
-<li><p>Les commentaires de block</p>
+<li><p>Les commentaires de blocs</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This is a</span>
 <span class="cm">   Multi-line comment */</span>
 </pre></div>
@@ -896,17 +896,17 @@ désactiver cette portion de code.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="programming.html"
-       title="Chapitre précédent">← 2  La programmation</a>
+       title="Chapitre précédent">← <span class="section-number">2  </span>La programmation</a>
   </li>
   <li class="next">
     <a href="numeration.html"
-       title="Chapitre suivant">4  Numération →</a>
+       title="Chapitre suivant"><span class="section-number">4  </span>Numération →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

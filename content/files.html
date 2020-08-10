@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -380,18 +380,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>12  Les  fichiers</li>
+    <li><span class="section-number">12  </span>Les  fichiers</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="composite-datatypes.html"
-       title="Chapitre précédent">← 11  Types composites</a>
+       title="Chapitre précédent">← <span class="section-number">11  </span>Types composites</a>
   </li>
   <li class="next">
     <a href="memory-management.html"
-       title="Chapitre suivant">13  Gestion de la mémoire →</a>
+       title="Chapitre suivant"><span class="section-number">13  </span>Gestion de la mémoire →</a>
   </li>
 </ul>
   
@@ -400,9 +400,9 @@
           <div class="content" role="main">
             
   <div class="section" id="les-fichiers">
-<h1>12  Les  fichiers<a class="headerlink" href="#les-fichiers" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">12  </span>Les  fichiers<a class="headerlink" href="#les-fichiers" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="systeme-de-fichiers">
-<h2>12.1  Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.1  </span>Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans un environnement POSIX tout est fichier. <code class="docutils literal notranslate"><span class="pre">stdin</span></code> est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.</p>
 <p>Les fichiers sont organisés dans une arborescence gérée par un <a class="reference external" href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>. Sous Windows l'arborescence classique est :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C :</span>
@@ -418,7 +418,7 @@
 <span class="go">    └── Temp              Fichiers temporaires</span>
 </pre></div>
 </div>
-<p>Il y a une arborescence par disque physique <code class="docutils literal notranslate"><span class="pre">C:</span></code>, <code class="docutils literal notranslate"><span class="pre">D:</span></code>, une arborescence par chemin réseau <code class="docutils literal notranslate"><span class="pre">\\eistore2</span></code>, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'UN SEUL système de fichier dont la racine est <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>Il y a une arborescence par disque physique <code class="docutils literal notranslate"><span class="pre">C:</span></code>, <code class="docutils literal notranslate"><span class="pre">D:</span></code>, une arborescence par chemin réseau <code class="docutils literal notranslate"><span class="pre">\\eistore2</span></code>, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'un seul système de fichier dont la racine est <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/</span>
 <span class="go">├── bin                   Programmes exécutables cruciaux</span>
 <span class="go">├── dev                   Périphériques (clavier, souris ...)</span>
@@ -448,7 +448,7 @@
 <p>Le chemin <code class="docutils literal notranslate"><span class="pre">/usr/bin/.././bin/../../home/john/documents</span></code> est correct, mais il n'est pas <a class="reference external" href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>. La forme canonique est <code class="docutils literal notranslate"><span class="pre">/home/john/documents</span></code>. Un chemin peut être relatif s'il ne commence pas par un <code class="docutils literal notranslate"><span class="pre">/</span></code>: <code class="docutils literal notranslate"><span class="pre">../bin</span></code>. Sous Windows c'est pareil, mais la racine différemment selon le type de média <code class="docutils literal notranslate"><span class="pre">C:\</span></code>, <code class="docutils literal notranslate"><span class="pre">\\network</span></code>, ...</p>
 <p>Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.</p>
 <div class="section" id="navigation">
-<h3>12.1.1  Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.1.1  </span>Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Sous Windows (PowerShell) ou un système <strong>POSIX</strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> est un raccourci du nom <em>list</em>, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.</p></li>
@@ -457,7 +457,7 @@
 </div>
 </div>
 <div class="section" id="format-d-un-fichier">
-<h2>12.2  Format d'un fichier<a class="headerlink" href="#format-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.2  </span>Format d'un fichier<a class="headerlink" href="#format-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -485,7 +485,7 @@
 <p>Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">a.txt</span> <span class="pre">+</span> <span class="pre">b.txt</span> <span class="pre">c.txt</span></code> considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">/b</span> <span class="pre">a.bin</span> <span class="pre">+</span> <span class="pre">b.bin</span> <span class="pre">c.bin</span></code> ne le fera pas.</p>
 </div>
 <div class="section" id="ouverture-d-un-fichier">
-<h2>12.3  Ouverture d'un fichier<a class="headerlink" href="#ouverture-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.3  </span>Ouverture d'un fichier<a class="headerlink" href="#ouverture-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Sous POSIX, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -572,11 +572,11 @@
 </div>
 </div>
 <div class="section" id="navigation-dans-un-fichier">
-<h2>12.4  Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.4  </span>Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.</p>
 <p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
 <div class="section" id="fseek">
-<h3>12.4.1  fseek<a class="headerlink" href="#fseek" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.4.1  </span>fseek<a class="headerlink" href="#fseek" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -591,7 +591,7 @@
 </dl>
 </div>
 <div class="section" id="ftell">
-<h3>12.4.2  ftell<a class="headerlink" href="#ftell" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.4.2  </span>ftell<a class="headerlink" href="#ftell" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il est parfois utile de savoir où se trouve le curseur. <code class="docutils literal notranslate"><span class="pre">ftell()</span></code> retourne la position actuelle du curseur dans un fichier ouvert.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">filename</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;foo&quot;</span><span class="p">;</span>
 
@@ -604,12 +604,12 @@
 </div>
 </div>
 <div class="section" id="rewind">
-<h3>12.4.3  rewind<a class="headerlink" href="#rewind" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.4.3  </span>rewind<a class="headerlink" href="#rewind" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'appel <code class="docutils literal notranslate"><span class="pre">rewind()</span></code> est équivalent à <code class="docutils literal notranslate"><span class="pre">(void)</span> <span class="pre">fseek(stream,</span> <span class="pre">0L,</span> <span class="pre">SEEK_SET)</span></code> et permet de se positionner au début du fichier.</p>
 </div>
 </div>
 <div class="section" id="lecture-ecriture">
-<h2>12.5  Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.5  </span>Lecture / Écriture<a class="headerlink" href="#lecture-ecriture" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues <code class="docutils literal notranslate"><span class="pre">printf</span></code> et <code class="docutils literal notranslate"><span class="pre">scanf</span></code> pour les flux standards (<em>stdout</em>, <em>stderr</em>), mais en utilisant les pendants fichiers :</p>
 <p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">fscanf(FILE</span> <span class="pre">*stream,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*format,</span> <span class="pre">...)</span></code></p>
 <blockquote>
@@ -659,7 +659,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="buffer-de-fichier">
-<h2>12.6  Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.6  </span>Buffer de fichier<a class="headerlink" href="#buffer-de-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">unbuffered</span></code> (<code class="docutils literal notranslate"><span class="pre">_IONBF</span></code>)</dt><dd><p>Pas de buffer, les caractères lus ou écrits sont acheminés le plus vite possible de la source à la destination.</p>
@@ -718,7 +718,7 @@
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">fflush</span></code> force l'écriture malgré l'utilisation d'un buffer.</p>
 </div>
 <div class="section" id="fichiers-et-flux">
-<h2>12.7  Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.7  </span>Fichiers et Flux<a class="headerlink" href="#fichiers-et-flux" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Historiquement les descripteurs de fichiers sont appelés <code class="docutils literal notranslate"><span class="pre">FILE</span></code> alors qu'ils sont préférablement appelés <code class="docutils literal notranslate"><span class="pre">streams</span></code> en C++. Un fichier au même titre que <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> sont des flux de données. La norme POSIX, décrit que par défaut les flux :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>. <code class="docutils literal notranslate"><span class="pre">STDIN</span></code>,</p></li>
@@ -751,7 +751,7 @@
 <p>On peut voir qu’on lit <code class="docutils literal notranslate"><span class="pre">k\n</span></code> sur le flux <code class="docutils literal notranslate"><span class="pre">0</span></code>, soit <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, puis que le fichier <code class="docutils literal notranslate"><span class="pre">file</span></code> est ouvert, il porte l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>, enfin on écrit sur <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 </div>
 <div class="section" id="formats-de-serialisation">
-<h2>12.8  Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">12.8  </span>Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois :</p>
 <table class="docutils align-default">
 <colgroup>
@@ -872,7 +872,7 @@
 <li><p>Utiliser un langage de sérialisation de haut niveau comme JSON, YAML ou XML</p></li>
 </ul>
 <div class="section" id="format-tabule">
-<h3>12.8.1  Format tabulé<a class="headerlink" href="#format-tabule" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.8.1  </span>Format tabulé<a class="headerlink" href="#format-tabule" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Un fichier dit tabulé, utilise une <a class="reference external" href="https://fr.wikipedia.org/wiki/Valeur_sentinelle">sentinelle</a>, souvent le caractère de tabulation <code class="docutils literal notranslate"><span class="pre">\t</span></code> pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un <code class="docutils literal notranslate"><span class="pre">\n</span></code>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Pays\tVille\t01\t02\t03\t04\t05\t06\t07\t08\t09\t10\t11\t12\n
 Suisse\tZürich\t0.3\t1.3\t5.3\t8.8\t13.3\t16.4\t18.6\t18.0\t14.1\t9.9\t4.4\t1.4\n
@@ -916,7 +916,7 @@ Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-2
 <p>L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.</p>
 </div>
 <div class="section" id="format-avec-remplissage">
-<h3>12.8.2  Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.8.2  </span>Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
 48e colonne :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0000000000111111111122222222223333333333444444444455555555556666666666777777777788
@@ -943,10 +943,10 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
 <span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
+<p>L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
 </div>
 <div class="section" id="format-serialise">
-<h3>12.8.3  Format sérialisé<a class="headerlink" href="#format-serialise" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">12.8.3  </span>Format sérialisé<a class="headerlink" href="#format-serialise" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici <a class="reference external" href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
@@ -1033,17 +1033,17 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="composite-datatypes.html"
-       title="Chapitre précédent">← 11  Types composites</a>
+       title="Chapitre précédent">← <span class="section-number">11  </span>Types composites</a>
   </li>
   <li class="next">
     <a href="memory-management.html"
-       title="Chapitre suivant">13  Gestion de la mémoire →</a>
+       title="Chapitre suivant"><span class="section-number">13  </span>Gestion de la mémoire →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

@@ -34,7 +34,7 @@ Les opérateurs relationnels permettent de comparer deux entités. Le résultat 
     =========  =====================  ==================
     Opérateur  Description            Exemple vrai
     =========  =====================  ==================
-    ``==``     Egal                   ``42 == 0x101010``
+    ``==``     Égal                   ``42 == 0x101010``
     ``>=``     Supérieur ou égal      ``9 >= 9``
     ``<=``     Inférieur ou égal      ``-8 <= 8``
     ``>``      Strictement supérieur  ``0x31 > '0'``
@@ -74,7 +74,7 @@ Attention néanmoins aux types des variables impliquées. La division ``5 / 2`` 
 
 Le modulo est le reste de la division entière. L'assertion suivante est donc vraie : ``13 % 4 == 1``, car 13 divisé par 4 égal 3 et il reste 1.
 
-Les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. L'addition de deux entiers 8 bits ``120 + 120`` ne fera pas ``240`` car le type ne permet pas de stoquer des valeurs plus grandes que ``127``.
+Les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. L'addition de deux entiers 8 bits ``120 + 120`` ne fera pas ``240`` car le type ne permet pas de stocker des valeurs plus grandes que ``127``.
 
 Opérateurs bit à bit
 ====================
@@ -376,11 +376,11 @@ La précédence
     |          +-----------------------+--------------------------------------------+                 |
     |          | ``[]``                | Indexage des tableaux                      |                 |
     |          +-----------------------+--------------------------------------------+                 |
-    |          | ``.``                 | Element d'une structure                    |                 |
+    |          | ``.``                 | Élément d'une structure                    |                 |
     |          +-----------------------+--------------------------------------------+                 |
-    |          | ``->``                | Element d'une structure                    |                 |
+    |          | ``->``                | Élément d'une structure                    |                 |
     +----------+-----------------------+--------------------------------------------+-----------------+
-    | 2        | ``++``, ``--``        | Préfix incréments/décréments               | Droite à Gauche |
+    | 2        | ``++``, ``--``        | Préfixe incréments/décréments              | Droite à Gauche |
     |          +-----------------------+--------------------------------------------+                 |
     |          | ``+``, ``-``          | Signe                                      |                 |
     |          +-----------------------+--------------------------------------------+                 |
@@ -388,7 +388,7 @@ La précédence
     |          +-----------------------+--------------------------------------------+                 |
     |          | ``(type)``            | Cast (Transtypage)                         |                 |
     |          +-----------------------+--------------------------------------------+                 |
-    |          | ``*``                 | Indirection, déréfrencement                |                 |
+    |          | ``*``                 | Indirection, déréférencement               |                 |
     |          +-----------------------+--------------------------------------------+                 |
     |          | ``&``                 | Adresse de...                              |                 |
     |          +-----------------------+--------------------------------------------+                 |
@@ -404,7 +404,7 @@ La précédence
     |          +-----------------------+--------------------------------------------+                 |
     |          | ``>``, ``>=``         | Comparaison plus grand que                 |                 |
     +----------+-----------------------+--------------------------------------------+                 |
-    | 7        | ``==``, ``!=``        | Egalité, non égalité                       |                 |
+    | 7        | ``==``, ``!=``        | Égalité, non égalité                       |                 |
     +----------+-----------------------+--------------------------------------------+                 |
     | 8        | ``&``                 | ET binaire                                 |                 |
     +----------+-----------------------+--------------------------------------------+                 |
@@ -498,7 +498,7 @@ Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langa
     (x = y) = z;  // (2)
 
 1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
-2. En forcant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint :
+2. En forçant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint :
 
     .. code-block:: text
 

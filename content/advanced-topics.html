@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -376,18 +376,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>22  Avancé</li>
+    <li><span class="section-number">22  </span>Avancé</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="data-structures.html"
-       title="Chapitre précédent">← 21  Structures de données</a>
+       title="Chapitre précédent">← <span class="section-number">21  </span>Structures de données</a>
   </li>
   <li class="next">
     <a href="traps.html"
-       title="Chapitre suivant">23  Pièges →</a>
+       title="Chapitre suivant"><span class="section-number">23  </span>Pièges →</a>
   </li>
 </ul>
   
@@ -396,10 +396,10 @@
           <div class="content" role="main">
             
   <div class="section" id="avance">
-<h1>22  Avancé<a class="headerlink" href="#avance" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">22  </span>Avancé<a class="headerlink" href="#avance" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour le contrôle de connaissance.</p>
 <div class="section" id="points-de-sequences">
-<span id="sequence-point"></span><h2>22.1  Points de séquences<a class="headerlink" href="#points-de-sequences" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="sequence-point"></span><h2><span class="section-number">22.1  </span>Points de séquences<a class="headerlink" href="#points-de-sequences" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On appelle un point de séquence ou <a class="reference external" href="https://en.wikipedia.org/wiki/Sequence_point">sequence point</a> exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :</p>
 <ul>
 <li><p>L'appel d'une fonction est effectué après que tous ses arguments ont été évalués</p></li>
@@ -415,7 +415,7 @@
 <p>L'opérateur d'assignation <code class="docutils literal notranslate"><span class="pre">=</span></code> n'est donc pas un point de séquence et l'exécution du code <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">(a</span> <span class="pre">=</span> <span class="pre">2)</span></code> est par conséquent indéterminée.</p>
 </div>
 <div class="section" id="complement-sur-les-variables-initialisees">
-<h2>22.2  Complément sur les variables initialisées<a class="headerlink" href="#complement-sur-les-variables-initialisees" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">22.2  </span>Complément sur les variables initialisées<a class="headerlink" href="#complement-sur-les-variables-initialisees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le fait de déclarer des variables dans en langage C implique que le
 logiciel doit réaliser l'initialisation de ces variables au tout début
 de son exécution. De fait, on peut remarquer deux choses. Il y a les
@@ -435,7 +435,7 @@ différente de zéro vers la zone de ces mêmes variables.</p></li>
 de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 <div class="section" id="binutils">
-<h2>22.3  Binutils<a class="headerlink" href="#binutils" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">22.3  </span>Binutils<a class="headerlink" href="#binutils" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les outils binaires (<a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Binutils">binutils</a>) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au débogage. Certains de ces outils sont très pratiques, mais nombreux sont les développeurs qui ne les connaissent pas.</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">nm</span></code></dt><dd><p>Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne :</p>
@@ -464,7 +464,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 <p>On observe notamment que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">strings</span></code></dt><dd><p>Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débug qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world</span></code>. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">strings</span></code></dt><dd><p>Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débogue qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world</span></code>. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> strings a.out
 <span class="go">/lib64/ld-linux-x86-64.so.2</span>
 <span class="go">libc.so.6</span>
@@ -508,7 +508,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </dl>
 </div>
 <div class="section" id="format-q">
-<h2>22.4  Format Q<a class="headerlink" href="#format-q" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">22.4  </span>Format Q<a class="headerlink" href="#format-q" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le format <a class="reference external" href="https://en.wikipedia.org/wiki/Q_(number_format)">Q</a> est une notation en virgule fixe dans laquelle le format d'un nombre est représenté par la lettre <strong>Q</strong> suivie de deux nombres :</p>
 <ol class="arabic simple">
 <li><p>Le nombre de bits entiers</p></li>
@@ -539,7 +539,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="math notranslate nohighlight">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.</p>
 <p>Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.</p>
 <div class="section" id="addition">
-<h3>22.4.1  Addition<a class="headerlink" href="#addition" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">22.4.1  </span>Addition<a class="headerlink" href="#addition" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="kt">int16_t</span> <span class="n">Q</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="n">Q</span> <span class="n">Q12</span><span class="p">;</span>
@@ -558,7 +558,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 </div>
 <div class="section" id="multiplication">
-<h3>22.4.2  Multiplication<a class="headerlink" href="#multiplication" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">22.4.2  </span>Multiplication<a class="headerlink" href="#multiplication" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Soit deux nombres 0.9 et 3.141 :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─╀─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
 │0│0│0│0│1│1│1│0││0│1│1│0│0│1│1│0│ Q4.12 (0.9) 3686
@@ -604,7 +604,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 </div>
 <div class="section" id="memoire-partagee">
-<h2>22.5  Mémoire partagée<a class="headerlink" href="#memoire-partagee" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">22.5  </span>Mémoire partagée<a class="headerlink" href="#memoire-partagee" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accédée par un autre programme. Le système d'exploitation l'en empêche.</p>
 <p>Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :</p>
 <ul class="simple">
@@ -646,7 +646,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </pre></div>
 </div>
 <div class="section" id="file-memory-mapping">
-<h3>22.5.1  File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">22.5.1  </span>File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec <code class="docutils literal notranslate"><span class="pre">fopen</span></code> et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
 <span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SEEK_END</span><span class="p">);</span>
@@ -680,7 +680,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 </div>
 <div class="section" id="collecteur-de-dechets-garbage-collector">
-<h2>22.6  Collecteur de déchets (<em>garbage collector</em>)<a class="headerlink" href="#collecteur-de-dechets-garbage-collector" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">22.6  </span>Collecteur de déchets (<em>garbage collector</em>)<a class="headerlink" href="#collecteur-de-dechets-garbage-collector" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="nf">get_number</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="o">*</span><span class="n">num</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
@@ -696,7 +696,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
 <p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a class="reference external" href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <code class="docutils literal notranslate"><span class="pre">free</span></code>.</p>
-<p>On dit que le programme à une <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <code class="docutils literal notranslate"><span class="pre">malloc</span></code> retourne <code class="docutils literal notranslate"><span class="pre">NULL</span></code> et qu'une erreur de segmentaiton apparaisse lors du <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
+<p>On dit que le programme à une <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <code class="docutils literal notranslate"><span class="pre">malloc</span></code> retourne <code class="docutils literal notranslate"><span class="pre">NULL</span></code> et qu'une erreur de segmentation apparaisse lors du <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
 <p>Allons plus loin dans notre exemple et considérons le code suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
@@ -747,7 +747,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code> qu'elle aime un des nombres mémorisés.</p>
 <p>Au niveau du <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">0</span></code> dans la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>, il est impossible de savoir si l'adresse pointée par <code class="docutils literal notranslate"><span class="pre">num</span></code> est encore utilisée ou non. Il se peut que <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
 <p>Comment peut-on savoir si il est possible de libérer ou non <code class="docutils literal notranslate"><span class="pre">num</span></code> ?</p>
-<p>Une solution courament utilsée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
+<p>Une solution couramment utilisée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
 <p>Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé <em>Garbage Collector</em> et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le <em>gc</em> décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.</p>
 <p>En revanche en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>
 </div>
@@ -759,17 +759,17 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="data-structures.html"
-       title="Chapitre précédent">← 21  Structures de données</a>
+       title="Chapitre précédent">← <span class="section-number">21  </span>Structures de données</a>
   </li>
   <li class="next">
     <a href="traps.html"
-       title="Chapitre suivant">23  Pièges →</a>
+       title="Chapitre suivant"><span class="section-number">23  </span>Pièges →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

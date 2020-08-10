@@ -21,12 +21,12 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../_static/theme-vendors.js"></script>
@@ -372,18 +372,18 @@
   <ul class="breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-    <li>7  Structures de contrôle</li>
+    <li><span class="section-number">7  </span>Structures de contrôle</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="datatype.html"
-       title="Chapitre précédent">← 6  Types de données</a>
+       title="Chapitre précédent">← <span class="section-number">6  </span>Types de données</a>
   </li>
   <li class="next">
     <a href="processus.html"
-       title="Chapitre suivant">8  Programmes et Processus →</a>
+       title="Chapitre suivant"><span class="section-number">8  </span>Programmes et Processus →</a>
   </li>
 </ul>
   
@@ -392,7 +392,7 @@
           <div class="content" role="main">
             
   <div class="section" id="structures-de-controle">
-<h1>7  Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Lien permanent vers ce titre">¶</a></h1>
+<h1><span class="section-number">7  </span>Structures de contrôle<a class="headerlink" href="#structures-de-controle" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Les structures de contrôle appartiennent aux langages de programmation dits <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e">structurés</a>. Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :</p>
 <ol class="arabic simple">
 <li><p>Les embranchements (<code class="docutils literal notranslate"><span class="pre">branching</span></code>)</p></li>
@@ -407,7 +407,7 @@
 <li><p>Appels de fonctions</p></li>
 </ul>
 <div class="section" id="sequences">
-<h2>7.1  Séquences<a class="headerlink" href="#sequences" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">7.1  </span>Séquences<a class="headerlink" href="#sequences" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En C, chaque instruction est séparée de la suivante par un point virgule <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/003B/">U+003B</a>):</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">k</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
@@ -425,7 +425,7 @@
 </div>
 </div>
 <div class="section" id="les-embranchements">
-<h2>7.2  Les embranchements<a class="headerlink" href="#les-embranchements" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">7.2  </span>Les embranchements<a class="headerlink" href="#les-embranchements" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix <em>vrai</em> et un choix <em>faux</em>, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code></p></li>
@@ -447,7 +447,7 @@
 </pre></div>
 </div>
 <div class="section" id="if-else">
-<h3>7.2.1  if..else<a class="headerlink" href="#if-else" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.2.1  </span>if..else<a class="headerlink" href="#if-else" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">if</span></code> est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté.</p>
 <p>Les enchaînements possibles sont :</p>
 <ul class="simple">
@@ -586,7 +586,7 @@
 </div>
 </div>
 <div class="section" id="switch">
-<span id="id2"></span><h3>7.2.2  <code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">7.2.2  </span><code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire, l'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> peut-être utilisée :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
 <span class="p">{</span>
@@ -641,7 +641,7 @@
 </div>
 </div>
 <div class="section" id="les-boucles">
-<h2>7.3  Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">7.3  </span>Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
@@ -652,7 +652,7 @@
 <img alt="../_images/for.svg" src="../_images/for.svg" /><p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Aperçu des trois structure de boucles</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="while">
-<h3>7.3.1  while<a class="headerlink" href="#while" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.3.1  </span>while<a class="headerlink" href="#while" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La structure <code class="docutils literal notranslate"><span class="pre">while</span></code> répète une séquence <strong>tant que</strong> la condition est vraie.</p>
 <p>Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">get_weight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">420</span> <span class="cm">/* newtons */</span><span class="p">)</span>
@@ -677,7 +677,7 @@
 </div>
 </div>
 <div class="section" id="do-while">
-<h3>7.3.2  do..while<a class="headerlink" href="#do-while" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.3.2  </span>do..while<a class="headerlink" href="#do-while" title="Lien permanent vers ce titre">¶</a></h3>
 <p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code class="docutils literal notranslate"><span class="pre">do</span></code>...<code class="docutils literal notranslate"><span class="pre">while</span></code> permet justement ceci :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
@@ -690,7 +690,7 @@
 <p>Contrairement à la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
 </div>
 <div class="section" id="for">
-<h3>7.3.3  for<a class="headerlink" href="#for" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.3.3  </span>for<a class="headerlink" href="#for" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est un <code class="docutils literal notranslate"><span class="pre">while</span></code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span> <span class="cm">/* expression 2 */</span><span class="p">;</span> <span class="cm">/* expression 3 */</span><span class="p">)</span>
 <span class="p">{</span>
@@ -764,7 +764,7 @@
 </div>
 </div>
 <div class="section" id="boucles-infinies">
-<h3>7.3.4  Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.3.4  </span>Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> telle que :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">main_loop</span><span class="p">()</span>
 <span class="p">{</span>
@@ -823,7 +823,7 @@
 </div>
 </div>
 <div class="section" id="les-sauts">
-<h2>7.4  Les sauts<a class="headerlink" href="#les-sauts" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">7.4  </span>Les sauts<a class="headerlink" href="#les-sauts" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.</p>
 <ul class="simple">
@@ -841,7 +841,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <li><p><code class="docutils literal notranslate"><span class="pre">return</span></code></p></li>
 </ul>
 <div class="section" id="goto">
-<h3>7.4.1  <code class="docutils literal notranslate"><span class="pre">goto</span></code><a class="headerlink" href="#goto" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.4.1  </span><code class="docutils literal notranslate"><span class="pre">goto</span></code><a class="headerlink" href="#goto" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de <code class="docutils literal notranslate"><span class="pre">goto</span></code>, une autre solution plus élégante existe.</p>
 <p>Néanmoins, il est important de comprendre que <code class="docutils literal notranslate"><span class="pre">goto</span></code> était dans certain langage de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <code class="docutils literal notranslate"><span class="pre">JUMP</span></code>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code class="docutils literal notranslate"><span class="pre">if</span></code> et de <code class="docutils literal notranslate"><span class="pre">goto</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">goto</span></code> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="reference internal" href="foundations.html#identifiers"><span class="std std-ref">identificateur</span></a> suivi d'un <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
@@ -871,7 +871,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </div>
 </div>
 <div class="section" id="continue">
-<h3>7.4.2  <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.4.2  </span><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">continue</span></code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">airplane_seat</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
@@ -889,22 +889,22 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">goto</span> <span class="n">contin</span><span class="p">;</span>
+        <span class="k">goto</span> <span class="n">next</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/* ... */</span>
 
-    <span class="nl">contin</span> <span class="p">:</span>
+    <span class="nl">next</span><span class="p">:</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="break">
-<h3>7.4.3  <code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.4.3  </span><code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">break</span></code> peut être utilisé dans une boucle ou dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Il permet d'interrompre l'exécution de la boucle ou de la structure <code class="docutils literal notranslate"><span class="pre">switch</span></code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code> (c.f. <a class="reference internal" href="#switch"><span class="std std-numref">Section 7.2.2</span></a>).</p>
 </div>
 <div class="section" id="return">
-<h3>7.4.4  <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#return" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">7.4.4  </span><code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#return" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">return</span></code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code class="docutils literal notranslate"><span class="pre">void</span></code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span> <span class="n">password</span><span class="p">)</span>
 <span class="p">{</span>
@@ -970,10 +970,10 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="exercise" id="exercise-8">
 <strong>Exercice 7.9 Cas appropriés</strong><p>Parmi les cas suivants, quelle structure de contrôle utiliser ?</p>
 <ol class="arabic simple">
-<li><p>Test qu'une variable est dans un interval donné.</p></li>
+<li><p>Test qu'une variable est dans un intervalle donné.</p></li>
 <li><p>Actions suivant un choix multiple de l'utilisateur</p></li>
 <li><p>Rechercher un caractère particulier dans une chaîne de caractère</p></li>
-<li><p>Itérer toutes les valeurs paires sur un interval donné</p></li>
+<li><p>Itérer toutes les valeurs paires sur un intervalle donné</p></li>
 <li><p>Demander la ligne suivante du télégramme à l'utilisateur jusqu'à <code class="docutils literal notranslate"><span class="pre">STOP</span></code></p></li>
 </ol>
 </div>
@@ -1000,17 +1000,17 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="datatype.html"
-       title="Chapitre précédent">← 6  Types de données</a>
+       title="Chapitre précédent">← <span class="section-number">6  </span>Types de données</a>
   </li>
   <li class="next">
     <a href="processus.html"
-       title="Chapitre suivant">8  Programmes et Processus →</a>
+       title="Chapitre suivant"><span class="section-number">8  </span>Programmes et Processus →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
+    Mis à jour le 10 août 2020 (version v0.2.7-40-g5c76761).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>
