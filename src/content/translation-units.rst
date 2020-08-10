@@ -21,9 +21,9 @@ Rappelons-le (et c'est très important) :
 - un fichier ne devrait pas dépasser 1000 lignes ;
 - une ligne ne devrait pas dépasser 80 caractères.
 
-Donc à un moment, il est essentiel de divisier son travail en créant plusieurs fichiers.
+Donc à un moment, il est essentiel de diviser son travail en créant plusieurs fichiers.
 
-Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguéri des développeur. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :
+Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :
 
 .. code-block:: console
 
@@ -80,7 +80,7 @@ Un des avantages majeurs à la création de modules est qu'un module
 logiciel peut être réutilisé pour d'autres applications. Plus besoin de
 réinventer la roue à chaque application !
 
-Cet exemple sera compilé dans un environnement POSIX de la facon suivante :
+Cet exemple sera compilé dans un environnement POSIX de la façon suivante :
 
 .. code-block:: console
 
@@ -97,23 +97,23 @@ Les applications modernes dépendent souvent de nombreux modules logiciels exter
 
 - les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;
 - les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;
-- la lisibilité du programme est accrue car il est bien découpé en des ensembles fonctionnels ;
+- la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels ;
 - les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.
 
-Lorsque vous utiliser la fonction ``printf``, vous dépendez d'un module externe nommé ``stdio``. En réalité l'ensemble des modules ``stdio``, ``stdlib``, ``stdint``, ``ctype``... sont tous groupé dans une seule bibliothèque logicielle nommée ``libc`` disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre ``glibc`` est utilisée. Il s'agit de la biblothèque `GNU C Library <https://fr.wikipedia.org/wiki/GNU_C_Library>`__.
+Lorsque vous utilisez la fonction ``printf``, vous dépendez d'un module externe nommé ``stdio``. En réalité l'ensemble des modules ``stdio``, ``stdlib``, ``stdint``, ``ctype``... sont tous groupés dans une seule bibliothèque logicielle nommée ``libc`` disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre ``glibc`` est utilisé. Il s'agit de la bibliothèque `GNU C Library <https://fr.wikipedia.org/wiki/GNU_C_Library>`__.
 
-Un module logiciel peut se composer de fichiers sources, c'est à dire un ensemble de fichiers ``.c`` et ``.h`` ainsi qu'une documentation et un script de compilation (``Makefile``). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers ``.h``, ``.a`` et ``.so``. Sous Windows on rencontre fréquemment l'extension ``.dll``. Ces fichiers compilés ne donnent pas accès au code source mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.
+Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers ``.c`` et ``.h`` ainsi qu'une documentation et un script de compilation (``Makefile``). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers ``.h``, ``.a`` et ``.so``. Sous Windows on rencontre fréquemment l'extension ``.dll``. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.
 
 Compilation avec assemblage différé
 ===================================
 
-Lorsque nous avions compilé notre premier exemple `Hello World <hello>`__ nous avions simplement appelé ``gcc`` avec le fichier source ``hello.c`` qui nous avait créé un exécutable ``a.out``. En réalité, GCC est passé par plusieurs sous étapes de compilation :
+Lorsque nous avions compilé notre premier exemple `Hello World <hello>`__ nous avions simplement appelé ``gcc`` avec le fichier source ``hello.c`` qui nous avait créé un exécutable ``a.out``. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
 
-1. **Préprocessing** : les commentaires sont retirés, les directives pré-processeur sont remplacées par leur équivalent C.
+1. **Préprocessing** : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.
 2. **Compilation** : le code C d'une seule *translation unit* est converti en langage machine en un fichier objet ``.o``.
-3. **Édition des liens** : aussi nommé *link*, les différents fichiers objets sont réunis en un seul exécutable.
+3. **Édition des liens** : aussi nommés *link*, les différents fichiers objets sont réunis en un seul exécutable.
 
-Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.
+Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps, mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.
 
 La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (``.s``) ou objets (``.o``) en utilisant la bonne commande.
 
@@ -121,7 +121,7 @@ La figure suivante résume les différentes étapes de GCC. Les pointillés indi
 
     Étapes intermédiaires de compilation avec GCC
 
-Notons que ces étapes existent quelque soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).
+Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).
 
 Notons que généralement, seul deux étapes de GCC sont utilisées :
 
@@ -131,13 +131,13 @@ Notons que généralement, seul deux étapes de GCC sont utilisées :
 Fichiers d'en-tête (*header*)
 =============================
 
-Les fichiers d'en-tête (``.h``) sont des fichiers écrits en langage C mais qui ne contienne pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de ``while``, de ``for`` ou même de ``if``. Par convention ces fichiers ne contienne que :
+Les fichiers d'en-tête (``.h``) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de ``while``, de ``for`` ou même de ``if``. Par convention ces fichiers ne contiennent que :
 
 - Des prototypes de fonctions (ou de variables).
-- Des déclaration de types (``typedef``, ``struct``).
-- Des définitions pré-processeur (``#include``, ``#define``).
+- Des déclarations de types (``typedef``, ``struct``).
+- Des définitions préprocesseur (``#include``, ``#define``).
 
-Nous l'avons vu dans le chapitre sur le pré-processeur, la directive ``#include`` ne fait qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :
+Nous l'avons vu dans le chapitre sur le préprocesseur, la directive ``#include`` ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :
 
 .. code-block:: c
 
@@ -146,7 +146,7 @@ Nous l'avons vu dans le chapitre sur le pré-processeur, la directive ``#include
        #include "foobar.def"
     }
 
-Et le fichier ``foobar.def`` pourrait cotenir :
+Et le fichier ``foobar.def`` pourrait contenir :
 
 .. code-block:: c
 
@@ -159,7 +159,7 @@ Et le fichier ``foobar.def`` pourrait cotenir :
 
 Vous noterez que l'extension de ``foobar`` n'est pas ``.h`` puisque le contenu n'est pas un fichier d'en-tête. ``.def`` ou n'importe quelle autre extension pourrait donc faire l'affaire ici.
 
-Dans cet exemple, le pré-processeur ne fait qu'inclure le contenu du fichier ``foobar.def`` à l'emplacement de la définition ``#include "foobar.def"``. Voyons le en détail :
+Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier ``foobar.def`` à l'emplacement de la définition ``#include "foobar.def"``. Voyons-le en détail :
 
 .. code-block:: console
 
@@ -184,7 +184,7 @@ Dans cet exemple, le pré-processeur ne fait qu'inclure le contenu du fichier ``
     printf("hello bar\n");
     }
 
-Lorsque l'on observe le résultat du pré-processeur, on s'aperçois que toutes les directives préprocesseur ont disparues et que la directive ``#include`` a été remplacée par de contenu de ``foobar.def``. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
+Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive ``#include`` a été remplacée par de contenu de ``foobar.def``. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.
 
 Nous avons vu au chapitre sur les `prototypes de fonctions <function_prototype>`__ qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (*forward declaration*). Dans le fichier d'en-tête ``stdio.h`` on trouvera la ligne : ``int printf( const char *restrict format, ... );``.
 
@@ -198,14 +198,14 @@ Nous avons vu au chapitre sur les `prototypes de fonctions <function_prototype>`
     $ gcc -E main.c | grep -P '\bprintf\b'
     extern int printf (const char *__restrict __format, ...);
 
-Notons qu'ici le prototype est précédé par le mot clé ``extern``. Il s'agit d'un mot clé **optionnel** permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas car ``printf`` est déjà compilée quelque part dans la bibliothèque ``libc`` inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
+Notons qu'ici le prototype est précédé par le mot clé ``extern``. Il s'agit d'un mot clé **optionnel** permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car ``printf`` est déjà compilée quelque part dans la bibliothèque ``libc`` inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.
 
 Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.
 
 Protection de réentrance
 ------------------------
 
-La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on défini dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclu par une autre bibliothèque une erreur de compilation apparaîtera :
+La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque une erreur de compilation apparaîtra :
 
 .. code-block:: console
 
@@ -281,7 +281,7 @@ Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par e
 
 Si aucune définition du type ``#define BAR_H`` n'existe, alors le fichier ``bar.h`` n'a jamais été inclus auparavant et le contenu de la directive ``#ifndef BAR_H`` dans lequel on commence par définir ``BAR_H`` est exécuté. Lors d'une future inclusion de ``bar.h``, la valeur de ``BAR_H`` aura déjà été définie et le contenu de la directive ``#ifndef BAR_H`` ne sera jamais exécuté.
 
-Alternativement, il existe une solution **non standard** mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :
+Alternativement, il existe une solution **non standard**, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :
 
 .. code-block:: c
 
@@ -291,4 +291,4 @@ Alternativement, il existe une solution **non standard** mais supportée par la 
     int b, a, r;
     } Bar;
 
-Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un ``#endif`` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT car le nom du fichier ``bar.h`` n'apparaît pas dans le fichier ``BAR_H``.
+Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un ``#endif`` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier ``bar.h`` n'apparaît pas dans le fichier ``BAR_H``.

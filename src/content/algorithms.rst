@@ -14,12 +14,12 @@ Généralement un algorithme peut être exprimé graphiquement en utilisant un o
 
 La **conception** aussi appelée `Architecture logicielle <https://fr.wikipedia.org/wiki/Architecture_logicielle>`__ est l'art de penser un programme avant son implémentation. La phase de conception fait bien souvent appel à des algorithmes.
 
-Pour être qualifié d'algorithme certaines propriété doivent être respectées :
+Pour être qualifiées d'algorithmes, certaines propriétés doivent être respectées :
 
 #. **Entrées**, un algorithme doit posséder 0 ou plus d'entrées en provenance de l'extérieur de l'algorithme.
 #. **Sorties**, un algorithme doit posséder au moins une sortie.
 #. **Rigueur**, chaque étape d'un algorithme doit être claire et bien définie.
-#. **Finitude**, un algorithme doit comporté un nombre fini d'étapes.
+#. **Finitude**, un algorithme doit comporter un nombre fini d'étapes.
 #. **Répétable**, un algorithme doit fournir un résultat répétable.
 
 Complexité d'un algorithme
@@ -211,9 +211,9 @@ Type d'algorithmes
 Algorithmes en ligne (incrémental)
 ----------------------------------
 
-Un algorithme incrémental ou `online <https://fr.wikipedia.org/wiki/Algorithme_online>`__ est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est à dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.
+Un algorithme incrémental ou `online <https://fr.wikipedia.org/wiki/Algorithme_online>`__ est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.
 
-Un exemple typique est le `problème de la secrétaire <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire>`__. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretient s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.
+Un exemple typique est le `problème de la secrétaire <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire>`__. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.
 
 La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de :math:`1/e`. Ensuite il suffit d'attendre un ou une candidate meilleure que toutes ceux/celles du premier échantillon.
 

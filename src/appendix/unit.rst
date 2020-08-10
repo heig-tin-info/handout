@@ -2,7 +2,7 @@
 Fiches d'unités
 ===============
 
-Les fichies d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format **YAML**.
+Les fiches d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format **YAML**.
 
 .. _info1:
 
@@ -12,7 +12,7 @@ Informatique 1
 .. literalinclude:: ../../units/info1.yaml
     :language: yaml
 
-Pannification du semestre d'hiver
+Panification du semestre d'hiver
 ---------------------------------
 
 +---------+------------+-------------------------+---------------------------+
@@ -22,11 +22,11 @@ Pannification du semestre d'hiver
 +---------+------------+-------------------------+---------------------------+
 |   39    | 2          | Numération              | 01 Premier pas en C       |
 +---------+------------+-------------------------+---------------------------+
-|   40    | 3          | Fondements du C         | 02 Équation Quadratique   |
+|   40    | 3          | Fondements du C         | 02 Équation quadratique   |
 +---------+------------+-------------------------+---------------------------+
 |   41    | 4          | Variables, opérateurs   | 03 Fléchettes             |
 +---------+------------+-------------------------+---------------------------+
-|   42    | 5          | Types, entrées Sorties  | 04 Pneus                  |
+|   42    | 5          | Types, entrées sorties  | 04 Pneus                  |
 +---------+------------+-------------------------+---------------------------+
 |   43    | Vacances d'automne                                               |
 +---------+------------+-------------------------+---------------------------+
@@ -71,7 +71,7 @@ Informatique 2
 .. literalinclude:: ../../units/info2.yaml
     :language: yaml
 
-Pannification du semestre de printemps
+Panification du semestre de printemps
 --------------------------------------
 
 +---------+------------+-------------------------+---------------------------+
@@ -87,9 +87,9 @@ Pannification du semestre de printemps
 +---------+------------+-------------------------+---------------------------+
 |   12    | 5          | Compilation séparée     | Météo (partie 2)          |
 +---------+------------+-------------------------+---------------------------+
-|   13    | 6          | Préprocesseur           | Tableau Dynamique (1/2)   |
+|   13    | 6          | Préprocesseur           | Tableau dynamique (1/2)   |
 +---------+------------+-------------------------+---------------------------+
-|   14    | 7          | Unions, champs de bits  | Tableau Dynamique (2/2)   |
+|   14    | 7          | Unions, champs de bits  | Tableau dynamique (2/2)   |
 +---------+------------+-------------------------+---------------------------+
 |   15    | 8          | Usage bibliothèques     | Stéganographie            |
 +---------+------------+-------------------------+---------------------------+
@@ -116,10 +116,10 @@ Pannification du semestre de printemps
 |   26    | Examens                                                          |
 +---------+------------+-------------------------+---------------------------+
 
-Modalités d'évalutation et de validation
+Modalités d'évaluation et de validation
 ========================================
 
-Le cours se composent de :
+Le cours se compose de :
 
 - Travaux écrits notés (coefficient 100%)
 - Quiz notés ou non (coefficient 10% ou 0%)
@@ -146,7 +146,7 @@ La note finale est donnée par l'expression :
     \frac{1}{2}
     \text{Exam}
 
-L'equivalent en C :
+L'équivalent en C :
 
 .. code-block:: c
 
@@ -178,5 +178,5 @@ L'equivalent en C :
 Les règles sont :
 
 - En cas d'absence à un quiz, la note de 1.0 est donnée.
-- En cas de plagiat, le `dilemme du prisionnier <https://fr.wikipedia.org/wiki/Dilemme_du_prisonnier#:~:text=Le%20dilemme%20du%20prisonnier%2C%20%C3%A9nonc%C3%A9,est%20jou%C3%A9%20qu'une%20fois.>`__ s'applique.
+- En cas de plagiat, le `dilemme du prisonnier <https://fr.wikipedia.org/wiki/Dilemme_du_prisonnier#:~:text=Le%20dilemme%20du%20prisonnier%2C%20%C3%A9nonc%C3%A9,est%20jou%C3%A9%20qu'une%20fois.>`__ s'applique.
 - Le quiz le plus mauvais ne compte pas.

@@ -16,7 +16,7 @@ Prenons un exemple concret. Le `Vicomte de Valmont <https://fr.wikipedia.org/wik
 
 Cette variable ``lettre`` est dès lors enregistrée en mémoire à l'adresse ``0x12345abc`` qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.
 
-Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire à fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.
+Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire a fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.
 
 Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de *64-bits* il n'arrive à mémoriser que 8 caractères ``Chère Ma``. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son `tout nickelé <https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau>`__ jusqu'à ce que toute la lettre ait été retranscrite.
 
@@ -31,7 +31,7 @@ La canicule n'étant pas finie, et cette physique discutable ne pouvant être d�
 
 .. code-block:: c
 
-    char castello_wall[] = "Cher Vicomte, ...";
+    char castello_wall[] = "Cher Vicomte ...";
     char (*gps_position)[] = &castello_wall;
 
 De retour chez elle, elle prie le facteur de transmettre au vicomte de Valmont ce simple mot: ``0x30313233``. Le facteur parvient sans mal à mémoriser les 4 octets du message.
@@ -80,7 +80,7 @@ Résumons :
 Pointeur simple
 ===============
 
-Le format le plus simple d'un pointeur sur un entier s'écrit avec l'asterix ``*``:
+Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque ``*``:
 
 .. code-block:: c
 
@@ -247,7 +247,7 @@ Utilisation d'un pointeur sur une structure
 -------------------------------------------
 
 On a vu que les champs d'une structure sont accessibles au travers du
-:math:`.` faisant la liaison entre la variable et le champs. Cela est
+:math:`.` faisant la liaison entre la variable et le champ. Cela est
 valable si la variable est du type structuré. Si la variable est du type
 pointeur sur une structure, on remplacera le :math:`.` par :math:`->`.
 
@@ -312,7 +312,7 @@ pointeurs.
 Paramètres sous la forme de pointeurs
 -------------------------------------
 
-Le prototype d'une fonction recevant un (ou plusieurs) pointeurs s'écrit
+Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
 de la manière suivante :
 
 .. code-block:: c
@@ -481,7 +481,7 @@ Vous pouvez jouer avec cet exemple `ici <https://godbolt.org/#g:!((g:!((g:!((h:c
 Pointeurs de fonctions
 ======================
 
-Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (`callback <https://fr.wikipedia.org/wiki/Fonction_de_rappel>`__).
+Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (`callback <https://fr.wikipedia.org/wiki/Fonction_de_rappel>`__).
 
 Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :
 
@@ -590,7 +590,7 @@ Il existe un programme nommé `cdecl <https://github.com/paul-j-lucas/cdecl>`__ 
     $ cdecl 'char (*(*x[3])())[5]'
     declare x as array 3 of pointer to function returning pointer to array 5 of char
 
-Une version en-ligne est également `disponible <https://cdecl.org/>`__.
+Une version en ligne est également `disponible <https://cdecl.org/>`__.
 
 Initialisation par transtypage
 ==============================
@@ -612,7 +612,7 @@ Enchevêtrement ou *Aliasing*
 ============================
 
 Travailler avec les pointeurs demande une attention particulière à tous
-les problème d'*alisasing* dans lesquels différents pointeurs pointent sur
+les problèmes d'*alisasing* dans lesquels différents pointeurs pointent sur
 une même région mémoire.
 
 Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant :
@@ -662,7 +662,7 @@ Naïvement l'exécution suivante devrait fonctionner, mais les deux pointeurs so
     │0│1│2│0│1│2│3│4│5│6│ Opération avec `memmove` (fonction standard)
     └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoire qui s'enchevêtrent. En revanche, la fonction standard ``memmove`` de ``<stdlib.h>`` fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.
+Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard ``memmove`` de ``<stdlib.h>`` fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.
 
 Notons que sa fonction voisine ``memcpy`` ne dois **jamais** être utilisée en cas d'*aliasing*. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple ``memory_move``. Le standard **C99** ne défini pas le comportement de ``memcpy`` pour des pointeurs qui se chevauchent.
 
@@ -681,7 +681,7 @@ Notons que sa fonction voisine ``memcpy`` ne dois **jamais** être utilisée en 
 
 .. exercise:: Passage par adresse
 
-    Donnez lesvaleurs affichées par ce programme pour les variables ``a`` à ``e``.
+    Donnez les valeurs affichées par ce programme pour les variables ``a`` à ``e``.
 
     .. code-block:: c
 

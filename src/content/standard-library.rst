@@ -8,7 +8,7 @@ Bibliothèques
 
 Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction ``printf`` est une de ces fonctionnalités et offerte par le header ``<stdio.h>`` faisant partie de la bibliothèque ``libc6``.
 
-L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme ``<stdlib.h>`` etant la concaténation de *standard library* par exemple. Notez que librairie n'est pas la traduction correcte de *library* qui est un `faux ami <https://fr.wikipedia.org/wiki/Faux-ami>`__.
+L'anglicisme *library*, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme ``<stdlib.h>`` étant la concaténation de *standard library* par exemple. Notez que librairie n'est pas la traduction correcte de *library* qui est un `faux ami <https://fr.wikipedia.org/wiki/Faux-ami>`__.
 
 Une *library*, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (*header*) contenant les définitions de cette bibliothèque.
 
@@ -113,7 +113,7 @@ Alternativement on peut compiler le même programme en utilisant la librairie **
 
     $ gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 
-c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :
+C'est-à-dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :
 
 .. code-block:: console
 
@@ -187,7 +187,7 @@ Ainsi qu'un fichier d'en-tête `caesar.h`:
 .. literalinclude:: ../../assets/src/caesar.h
     :language: c
 
-Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame :
+Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :
 
 .. code-block:: console
 
@@ -276,7 +276,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
     Défini les types standard d'entiers (``int32_t``, ``int_fast64_t``, ...).
 
 ``<stdio.h>``
-    Permet l'accès aux entrées sorties standard (``stdin``, ``stdout``, ``stderr``). Défini entre autre la fonction ``printf``.
+    Permet l'accès aux entrées sorties standard (``stdin``, ``stdout``, ``stderr``). Définis entre autres la fonction ``printf``.
 
 ``<stdlib.h>``
     Permet l'allocation dynamique et défini ``malloc``
@@ -383,12 +383,12 @@ Math
     | ``floor``        | Arrondi à l'entier inférieur                          |
     +------------------+-------------------------------------------------------+
 
-Notons par exemple que la fonction ``hypot`` peut très bien être émulée facilement en utilsant la fonction ``sqrt``. Néanmoins elle existe pour deux raisons élémentaires :
+Notons par exemple que la fonction ``hypot`` peut très bien être émulée facilement en utilisant la fonction ``sqrt``. Néanmoins elle existe pour deux raisons élémentaires :
 
 1. Éviter les dépassements (*overflow*).
 2. Une meilleure optimisation du code.
 
-Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capable de calculer certaines fonctions plus rapidement.
+Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
 
 Chaînes de caractères
 ^^^^^^^^^^^^^^^^^^^^^
@@ -519,7 +519,7 @@ La bibliothèque portable `GNULIB <https://www.gnu.org/software/gnulib/>`__ est 
 Windows C library
 -----------------
 
-La bibliothèque Windows `Windoes API <https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list>`_ offre une interface au système de fichier, au registre windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
+La bibliothèque Windows `Windoes API <https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list>`_ offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
 
 L'accès à cet API est offert par un unique point d'entrée `windows.h <https://en.wikipedia.org/wiki/Windows.h>`__ qui regroupe certains en-têtes standards (``<stdarg.h>``, ``<string.h>``, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :
 

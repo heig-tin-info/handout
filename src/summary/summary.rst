@@ -9,7 +9,7 @@ Introduction
 
 Le langage C a créé en **1972** par `Brian Kernighan <https://fr.wikipedia.org/wiki/Brian_Kernighan>`__ et `Dennis Ritchie <https://fr.wikipedia.org/wiki/Dennis_Ritchie>`__ est s'est dès lors imposé comme le standard industriel pour la programmation embarquée et pour tout développement nécessitant de hautes performances.
 
-Le language est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
+Le langage est standardisé par l'ISO (standardisation internationale) et le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
 
 Il faut retenir que le C est un langage dit :
 
@@ -22,7 +22,7 @@ Ce sont ses paradigmes de programmation
 Cycle de développement
 ----------------------
 
-Le cycle de dévelopment se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé beaucoup utilisé dans l'industrie :
+Le cycle de développement se compose toujours des phases: étude, écriture du cahier des charges, de l'écriture des tests, de la conception du logiciel, du codage à proprement parler et des validations finales. Le modèle en cascade est un bon résumé très utilisé dans l'industrie :
 
 .. figure:: ../../assets/figures/dist/software-life-cycle/waterfall.*
 
@@ -50,14 +50,14 @@ Faire évoluer un logiciel est aussi un processus itératif :
 Make
 ----
 
-Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et regénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme :
+Souvent, pour s'éviter de répéter les mêmes commandes les développeurs utilisent un outil comme `make` qui tire des règles de compilations d'un fichier nommé `Makefile`. Cet outil permet d'automatiquement recompiler les fichiers qui ne sont plus à jour et régénérer automatiquement l'exécutable. Certaines recettes de `make` sont souvent utilisées comme :
 
 - ``make all`` Pour compiler tout le projet
 - ``make clean`` Pour supprimer tous les fichiers intermédiaires générés
-- ``make mrproper`` Pour supprimer tous les fihciers intermédiaires ainsi que les exécutables produits.
+- ``make mrproper`` Pour supprimer tous les fichiers intermédiaires ainsi que les exécutables produits.
 - ``make test`` Pour exécuter les tests de validation
 
-D'autres recettes peuvent être écrites dans le fichier `Makefile` mais la courbe d'apprentissage du langage de `make` est raide.
+D'autres recettes peuvent être écrites dans le fichier `Makefile`, mais la courbe d'apprentissage du langage de `make` est raide.
 
 Linux/POSIX
 -----------
@@ -72,8 +72,8 @@ Commande     Description
 ``ls -al``   Liste le contenu du répertoire courant avec plus de détails
 ``echo``     Affiche sur ``stdout`` les éléments passés par argument au programme
 ``make``     Outil d'aide à la compilation utilisant le fichier ``Makefile``
-``gcc``      Compilateur open-source largement utilisé dans l'industrie
-``vi``       Éditeur de texte ultra puissant mais difficile à apprendre
+``gcc``      Compilateur open source largement utilisé dans l'industrie
+``vi``       Éditeur de texte ultra puissant, mais difficile à apprendre
 ===========  ======================================================================
 
 Programmation
@@ -109,7 +109,7 @@ Expression   Nom      Nom anglais        Description
 Fin de lignes
 -------------
 
-Les caractères de fin de ligne dépendent du système d'exploitation et sont appelé **EOL**: *End Of Line*.
+Les caractères de fin de ligne dépendent du système d'exploitation et sont appelés **EOL**: *End Of Line*.
 
 ==========   ========  =================================
 Expression   Nom       Système d'exploitation
@@ -147,7 +147,7 @@ Elle peut être: **globale** et dans ce cas elle est automatiquement initialisé
         return foo;
     }
 
-Ou elle peut être locale et dasn ce cas il est nécessaire de l'initialiser à une valeur :
+Ou elle peut être locale et dans ce cas il est nécessaire de l'initialiser à une valeur :
 
 .. code-block:: c
 
@@ -156,7 +156,7 @@ Ou elle peut être locale et dasn ce cas il est nécessaire de l'initialiser à 
         return foo;
     }
 
-Il est possible de déclarer plusieurs variable d'un même type sur la même ligne :
+Il est possible de déclarer plusieurs variables d'un même type sur la même ligne :
 
 .. code-block:: c
 
@@ -197,7 +197,7 @@ Il existe deux types de commentaires :
 
     // This is a single line comment.
 
-- Les commentaires de block
+- Les commentaires de blocs
 
   .. code-block:: c
 
@@ -274,13 +274,13 @@ Les opérateurs ont une priorité et une direction d'associativité:
      9    ^          -->
     14    =          -->
 
-Donc la priorité de ces opération sera :
+Donc la priorité de ces opérations sera :
 
 .. code-block:: text
 
     (u = ((((++a) + (b * (c++))) >> 3) ^ 2))
 
-Dans le cas des opérateurs de pré et post incrémentation, il sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédant/suivant point de séquence. C'est à dire :
+Dans le cas des opérateurs de pré et post incrémentation, ils sont en effet les plus prioritaires mais leur action est décalée dans le temps au précédent/suivant point de séquence. C'est-à-dire :
 
 .. code-block:: text
 
@@ -302,7 +302,7 @@ Dans cet exemple `c` est une valeur gauche
 Types de données
 ================
 
-Dans 90% des cas voici les types qu'un dévelopeur utilisera en C et sur le modèle
+Dans 90% des cas, voici les types qu'un développeur utilisera en C et sur le modèle
 de donnée **LP64**
 
 ==================  ============  ================================
@@ -324,12 +324,12 @@ Pour s'assurer d'une taille donnée on peut utiliser les types standard **C99** 
 
     int main(void) {
         int8_t foo = 0;  // Valeur signée sur 8-bit
-        uint32_t bar = 0;  // Valeur non-signée sur 32-bit
+        uint32_t bar = 0;  // Valeur non signée sur 32-bit
 
-        uint_least16_t = 0;  // Valeur non-signée d'au moins 16-bit
+        uint_least16_t = 0;  // Valeur non signée d'au moins 16-bit
     }
 
-Les valeurs signées sont exprimées en **complément à deux** c'est à dire que les valeurs maximales et minimales sont pour un entier 8-bit de ``-128`` à ``+128``.
+Les valeurs signées sont exprimées en **complément à deux** c'est-à-dire que les valeurs maximales et minimales sont pour un entier 8-bit de ``-128`` à ``+128``.
 
 La construction des types standards :
 
@@ -352,7 +352,7 @@ Un caractère est une valeur binaire codée sur 8-bit et dont l'interprétation 
 
     Table ANSI INCITS 4-1986 (standard actuel)
 
-Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codé en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage **utf-8**.
+Seul ces valeurs sont garanties d'être stockées sur 8-bit. Pour les caractères accentués ou les émoticônes, la manière dont ils sont codés en mémoire dépend de l'encodage des caractères. Souvent on utilise le type d'encodage **utf-8**.
 
 Les écritures suivantes sont donc strictement identiques :
 
@@ -421,7 +421,7 @@ Transtypage
 
 Préfixer une variable ou une valeur avec ``(int)`` comme dans: ``(int)a`` permet de convertir explicitement cette variable dans le type donné.
 
-Le transtypage peut être implcitie par exemple dans ``int a = 4.5``
+Le transtypage peut être implicite par exemple dans ``int a = 4.5``
 
 Ou plus spécifiquement dans :
 
@@ -512,7 +512,7 @@ Programmes et Processus
 ``argc``          Nombre d'arguments
 ``argv``          Valeurs des arguments
 ``exit-status``   Status de sortie d'un programme ``$?``
-``signaux``       Intéraction avec le système d'exploitation
+``signaux``       Interaction avec le système d'exploitation
 ================  ==========================================
 
 .. figure:: ../../assets/figures/dist/process/program.*
@@ -525,7 +525,7 @@ Entrées Sorties
 ``printf``
 ----------
 
-Les sorties formattées utilisent `printf` dont le format est :
+Les sorties formatées utilisent `printf` dont le format est :
 
 .. code-block:: text
 

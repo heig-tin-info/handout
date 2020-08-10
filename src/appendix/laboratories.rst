@@ -12,19 +12,19 @@ Protocole
 #. Rédiger le code.
 #. Le tester.
 #. Rédiger votre rapport de test si demandé.
-#. Le soumettre avant la date butoire.
+#. Le soumettre avant la date butoir.
 
-Evaluation
+Évaluation
 ==========
 
-Une grille d'évaluation est intégrée à tous les laboratoires. Elle prends la forme d'un fichier ``criteria.yml`` que l'étudiant peut consulter en tout temps.
+Une grille d'évaluation est intégrée à tous les laboratoires. Elle prend la forme d'un fichier ``criteria.yml`` que l'étudiant peut consulter en tout temps.
 
 Directives
 ==========
 
 - La recherche sur internet est autorisée et conseillée.
-- Le plagia n'est pas autorisé, et sanctionné si découvert par la note de 1.0.
-- Le rendu passé la date butoire est sanctionné à raison de 1 point puis 1/24 de point par heure de retard.
+- Le plagiat n'est pas autorisé, et sanctionné si découvert par la note de 1.0.
+- Le rendu passé la date butoir est sanctionné à raison de 1 point puis 1/24 de point par heure de retard.
 
 Format de rendu
 ===============
@@ -33,12 +33,12 @@ Format de rendu
 - Encodage: UTF-8 sans BOM.
 - Code source respectueux de ISO/IEC 9899:1999.
 - Le code doit comporter un exemple d'utilisation et une documentation mise à jour dans ``README.md``.
-- Lorsqu'un rapport est demandé vous le placerez dans ``REPORT.md``.
+- Lorsqu'un rapport est demandé, vous le placerez dans ``REPORT.md``.
 
 Anatomie d'un travail pratique
 ==============================
 
-Un certain nombre de fichiers vous sont donnés, il est utile de les connaîtres. Un référentiel sera généralement composé des éléments suivants :
+Un certain nombre de fichiers vous sont donnés, il est utile de les connaître. Un référentiel sera généralement composé des éléments suivants :
 
 .. code:: text
 
@@ -60,19 +60,19 @@ Un certain nombre de fichiers vous sont donnés, il est utile de les connaîtres
     │   └── test.txt
     ├── foo.c
     ├── foo.h
-    ├── main.c    
+    ├── main.c
     ├── criteria.yml
     └── tests
         ├── Makefile
         └── test_foo.c
-    
+
 
 .clang-format
 -------------
 
-Ce fichier est au format `YAML <https://fr.wikipedia.org/wiki/YAML>`__ et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension `Clang-Format <https://marketplace.visualstudio.com/items?itemName=xaver.clang-format>`__ et l'exécutable ``clang-format`` (``sudo apt install -y clang-format``). `Clang-format <https://clang.llvm.org/docs/ClangFormat.html>`__ est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC. 
+Ce fichier est au format `YAML <https://fr.wikipedia.org/wiki/YAML>`__ et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension `Clang-Format <https://marketplace.visualstudio.com/items?itemName=xaver.clang-format>`__ et l'exécutable ``clang-format`` (``sudo apt install -y clang-format``). `Clang-format <https://clang.llvm.org/docs/ClangFormat.html>`__ est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.
 
-On voit que le texte passé sur ``stdin`` (jusqu'à EOF) est ensuite formatté proprement :
+On voit que le texte passé sur ``stdin`` (jusqu'à EOF) est ensuite formaté proprement :
 
 .. code:: console
 
@@ -90,18 +90,18 @@ On voit que le texte passé sur ``stdin`` (jusqu'à EOF) est ensuite formatté p
     printf("hello, world\n");
     }
 
-Par défaut ``clang-format`` utilise le fichier de configuration nommé ``.clang-format`` qu'il trouve. 
+Par défaut ``clang-format`` utilise le fichier de configuration nommé ``.clang-format`` qu'il trouve.
 
 Vous pouvez générer votre propre configuration facilement depuis un configurateur tel que `clang-format configurator <https://zed0.co.uk/clang-format-configurator/>`__.
 
 .editor_config
 --------------
 
-Ce fichier au format YAML permet de spécifier des recommendations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes **CR** ou **CRLF**, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. `EditorConfig <https://editorconfig.org/>`__ est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé ``.editor_config``. 
+Ce fichier au format YAML permet de spécifier des recommandations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes **CR** ou **CRLF**, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. `EditorConfig <https://editorconfig.org/>`__ est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé ``.editor_config``.
 
-Dans Visual Studio Code, il faut installer l'extension `EditorConfig for VS Code <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>`__ pour bénéficier de ce fichier. 
+Dans Visual Studio Code, il faut installer l'extension `EditorConfig for VS Code <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>`__ pour bénéficier de ce fichier.
 
-Pour les travaux pratique on se contente de spécifier les directives suivantes :
+Pour les travaux pratiques, on se contente de spécifier les directives suivantes :
 
 .. code:: yaml
 
@@ -111,7 +111,7 @@ Pour les travaux pratique on se contente de spécifier les directives suivantes 
     end_of_line = lf
     insert_final_newline = true
     indent_style = space
-    indent_size = 4    
+    indent_size = 4
     charset = utf-8
 
     [*.{json,yaml}]
@@ -127,7 +127,7 @@ Pour les travaux pratique on se contente de spécifier les directives suivantes 
 .gitattributes
 --------------
 
-Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quel sera la fin de ligne standard pour certain type de fichiers : 
+Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quelle sera la fin de ligne standard pour certains types de fichiers :
 
 .. code::text
 
@@ -211,7 +211,7 @@ Ce fichier contient les directives de compilation utilisées par Visual Studio C
 Makefile
 --------
 
-Ce fichier contient les directives nécessaires au programme ``make`` pour générer votre exécutable. Vous pouvez vous inspirer de ce ``Makefile`` générique mais n'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces). Si vous avez l'extension EditorConfig installée pour votre éditeur vous pouvez reformater le fichier avant de l'enregistrer.
+Ce fichier contient les directives nécessaires au programme ``make`` pour générer votre exécutable. Vous pouvez vous inspirer de ce ``Makefile`` générique, mais n'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces). Si vous avez l'extension EditorConfig installée pour votre éditeur vous pouvez reformater le fichier avant de l'enregistrer.
 
 .. code:: make
 
@@ -237,14 +237,14 @@ Ce fichier contient les directives nécessaires au programme ``make`` pour gén�
 
     .PHONY: all prof clean
 
-En substance, ce fichier contient des règles, des dépendances et des recettes de fabrication. Les règles de base sont ``all`` et ``clean``. La règle ``all`` dépend de la règle ``$(EXEC)`` qui est une variable qui contient le nom de l'exécutable, ici ``a.out``. Vous pouvez spécifier le nom de l'exécutable souhaité à la ligne ``EXEC=mon_executable``. La règle ``$(EXEC)`` dépend de ``$(COBJS)`` qui sont la liste des objets C, à savoir tous les fichiers ``.c`` dont l'extension est remplacée par ``.o``. Une règle générique permet ensuite de générer tous les fichiers objets nécessaires à partir du fichier C correspondant : ``%.o: %.c``. Enfin, en compilation séparée, l'exécutable est créé en assemblant tous les fichiers objets. 
+En substance, ce fichier contient des règles, des dépendances et des recettes de fabrication. Les règles de base sont ``all`` et ``clean``. La règle ``all`` dépend de la règle ``$(EXEC)`` qui est une variable qui contient le nom de l'exécutable, ici ``a.out``. Vous pouvez spécifier le nom de l'exécutable souhaité à la ligne ``EXEC=mon_executable``. La règle ``$(EXEC)`` dépend de ``$(COBJS)`` qui sont la liste des objets C, à savoir tous les fichiers ``.c`` dont l'extension est remplacée par ``.o``. Une règle générique permet ensuite de générer tous les fichiers objets nécessaires à partir du fichier C correspondant : ``%.o: %.c``. Enfin, en compilation séparée, l'exécutable est créé en assemblant tous les fichiers objets.
 
 Pas de panique, il vous suffit de savoir exécuter ``make all`` ou ``make clean`` pour vous en sortir.
 
 README.md
 ---------
 
-Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notament le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe : 
+Il s'agit de la documentation principale de votre référentiel. Elle contient la donnée du travail pratique en format Markdown. Ce fichier est également utilisé par défaut dans GitHub. Il contient notament le titre du laboratoire, la durée, le délai de rendu et le format individuel ou de groupe :
 
 .. code::markdown
 
@@ -259,9 +259,9 @@ Il s'agit de la documentation principale de votre référentiel. Elle contient l
 criteria.yml
 ------------
 
-Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé ``description`` et un nombre de point est spécifié. Une exigence peut avoir soit un nombre de point positif soit négatif. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas dilluer les exigences au travers d'autre critères importants mais normalment respectés des étudiants. 
+Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé ``description`` et un nombre de points est spécifié. Une exigence peut avoir soit un nombre de points positifs soit négatifs. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas diluer les exigences au travers d'autres critères importants, mais normalement respectés des étudiants.
 
-Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue. 
+Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue.
 
 .. code::yaml
 
@@ -370,4 +370,4 @@ Des points bonus sont donnés si le programme dispose d'une aide et d'une versio
             description: Usage de l'anglais
             bonus: 0/1
 
-Ce fichier est utilisé par des tests automatique pour faciliter la correction du travail pratique. 
+Ce fichier est utilisé par des tests automatique pour faciliter la correction du travail pratique.

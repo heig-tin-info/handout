@@ -85,5 +85,5 @@ latex_documents = [
 
 man_pages = [
     ('index', 'info', None, author, 1),
-    ('summary_summary', 'summary', summary_title, author, 1)
+    ('summary/summary', 'summary', summary_title, author, 1)
 ]

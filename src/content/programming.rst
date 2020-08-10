@@ -18,7 +18,7 @@ Il ne serait pas raisonnable de vous enseigner la programmation C sans au préal
 Algorithmique
 =============
 
-L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définiton et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours :
+L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'`algorithmes <https://fr.wikipedia.org/wiki/Algorithme>`__. Nous verrons l'algorithmique plus en détail dans le chapitre :numref:`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours :
 
 - dans une recette de cuisine,
 - le tissage de tapis persans,
@@ -112,7 +112,7 @@ Un calculateur du latin *calculare*: calculer avec des cailloux, originellement 
 
 Les `os d'Ishango <https://fr.wikipedia.org/wiki/Os_d%27Ishango>`__ datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
-Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur car même une calculatrice de poche doit gérer en plus des calculs :
+Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs :
 
 - l'interface de saisie (pavé numérique);
 - l'affichage du résultat (écran à cristaux liquide).
@@ -126,7 +126,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
 
     « Le 16 IV 1955
     Cher Monsieur,
-    Que diriez-vous d’ordinateur? C’est un mot correctement formé, qui se trouve même dans le Littré comme adjectif désignant Dieu qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe ordiner, un nom d’action ordination. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connue, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
+    Que diriez-vous d’ordinateur? C’est un mot correctement formé, qui se trouve même dans le Littré comme adjectif désignant Dieu qui met de l’ordre dans le monde. Un mot de ce genre a l’avantage de donner aisément un verbe ordiner, un nom d’action ordination. L’inconvénient est que ordination désigne une cérémonie religieuse ; mais les deux champs de signification (religion et comptabilité) sont si éloignés et la cérémonie d’ordination connut, je crois, de si peu de personnes que l’inconvénient est peut-être mineur. D’ailleurs votre machine serait ordinateur (et non-ordination) et ce mot est tout à fait sorti de l’usage théologique. Systémateur serait un néologisme, mais qui ne me paraît pas offensant ; il permet systématisé ; — mais système ne me semble guère utilisable — Combinateur a l’inconvénient du sens péjoratif de combine ; combiner est usuel donc peu capable de devenir technique ; combination ne me paraît guère viable à cause de la proximité de combinaison. Mais les Allemands ont bien leurs combinats (sorte de trusts, je crois), si bien que le mot aurait peut-être des possibilités autres que celles qu’évoque combine.
 
     Congesteur, digesteur évoquent trop congestion et digestion. Synthétiseur ne me paraît pas un mot assez neuf pour désigner un objet spécifique, déterminé comme votre machine.
 

@@ -49,7 +49,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 .. figure:: ../../assets/figures/dist/control-structure/branching-diagram.*
     :alt: Diagrammes BPMN
 
-    Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
+    Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)
 
 Les embranchements s'appuient sur les séquences :
 
@@ -77,7 +77,7 @@ Les enchaînements possibles sont :
 - ``if`` + ``else if`` + ``else if`` + ...
 - ``if`` + ``else if`` + ``else``
 
-Une condition n'est pas nécessairement unique mais peut-être la concaténation logique de plusieurs conditions séparées :
+Une condition n'est pas nécessairement unique, mais peut-être la concaténation logique de plusieurs conditions séparées :
 
 .. code-block:: c
 
@@ -152,7 +152,7 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
     }
     else
     {
-        printf("La valeur ne satisfait aucune condition établies.");
+        printf("La valeur ne satisfait aucune condition établie.");
     }
 
 .. exercise:: Et si?
@@ -166,7 +166,7 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 
 .. exercise:: D'autres si?
 
-    Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expressions si elles impriment ou non ``i vaut 8``:
+    Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expression si elles impriment ou non ``i vaut 8``:
 
     .. todo:: Fix box around code...
 
@@ -221,7 +221,7 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 ``switch``
 ----------
 
-L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, l'instruction ``switch`` peut-être utilisée :
+L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire, l'instruction ``switch`` peut-être utilisée :
 
 .. code-block:: c
 
@@ -352,12 +352,12 @@ Expression 1
     Exécutée une seule fois à l'entrée dans la boucle, c'est l'expression d'initialisation permettant par exemple de déclarer une variable et de l'initialiser à une valeur particulière.
 
 Expression 2
-    Condition de validité (ou de maintient de la boucle). Tant que la condition est vraie, la boucle est exécutée.
+    Condition de validité (ou de maintien de la boucle). Tant que la condition est vraie, la boucle est exécutée.
 
 Expression 3
-    Action de fin de tour. A la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.
+    Action de fin de tour. À la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.
 
-Voici comment répéter 10x un block de code :
+Voici comment répéter 10x un bloc de code :
 
 .. code-block:: c
 
@@ -409,7 +409,7 @@ Notons que les portions de ``for`` sont optionnels et que la structure suivante 
     2. Une boucle ``while``
     3. Une boucle ``do..while``
 
-    Quel  est la structure de contrôle la plus adaptée à cette situation ?
+    Quelle est la structure de contrôle la plus adaptée à cette situation ?
 
 .. exercise:: Opérateur virgule dans une boucle
 
@@ -454,9 +454,9 @@ Il y a différentes variantes de boucles infinies :
 
     do { } while (true);
 
-Notions que l'expression ``while (1)`` que l'on rencontre fréquemment dans des exemples est fausse syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire ``1`` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire ``while (1 == 1)`` ou simplement ``while (true)``.
+Notions que l'expression ``while (1)`` que l'on rencontre fréquemment dans des exemples est faux syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire ``1`` devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire ``while (1 == 1)`` ou simplement ``while (true)``.
 
-On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de conditions extérieure car en effet, avant **C99** définir la valeur ``true`` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :
+On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de conditions extérieures, car, avant **C99** définir la valeur ``true`` était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :
 
 .. code-block:: c
 
@@ -464,7 +464,7 @@ On préférera néanmoins l'écriture ``for (;;)`` qui ne fait pas intervenir de
 
     while (true) { /* ... */ }
 
-Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale :
+Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. :numref:`signals`). On rajoute alors une condition de sortie à la boucle principale :
 
 .. code-block:: c
 
@@ -508,13 +508,13 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 ``goto``
 --------
 
-Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison car dans la très vaste majorité des cas ou vous pensez avoir besoin de ``goto``, une autre solution plus élégante existe.
+Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de ``goto``, une autre solution plus élégante existe.
 
-Néanmoins, il est importante de comprendre que ``goto`` était dans certain langage de prorgramation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine car la plupart des processeurs ne connaissent que cette instruction souvent appellée ``JUMP``. Il est par conséquent possible d'immiter le comportement de n'importe quelle structure de contrôle si l'on dispose de ``if`` et de ``goto``.
+Néanmoins, il est important de comprendre que ``goto`` était dans certain langage de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée ``JUMP``. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de ``if`` et de ``goto``.
 
 ``goto`` effectue un saut inconditionnel à un *label* défini en C par un :ref:`identificateur <identifiers>` suivi d'un ``:``.
 
-L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
+L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
 
 .. code-block::
 
@@ -576,7 +576,7 @@ Cette structure est équivalente à l'utilisation d'un goto avec un label placé
 ``break``
 ---------
 
-Le mot-clé ``break`` peut être utilisé dans une boucle ou dans un ``switch``. Il permet d'interrompre l'execution de la boucle ou de la structure ``switch`` la plus proche. Nous avions déjà évoqué l'utilisation dans un ``switch`` (c.f. :numref:`switch`).
+Le mot-clé ``break`` peut être utilisé dans une boucle ou dans un ``switch``. Il permet d'interrompre l'exécution de la boucle ou de la structure ``switch`` la plus proche. Nous avions déjà évoqué l'utilisation dans un ``switch`` (c.f. :numref:`switch`).
 
 
 ``return``
@@ -613,7 +613,7 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
         long i = 0;
         double x = 100.0;
 
-    Indiquer la nature de l'erreur dans les expressions suivants :
+    Indiquer la nature de l'erreur dans les expressions suivantes :
 
     #.
         .. code-block:: c
@@ -655,10 +655,10 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
 .. exercise:: Cas appropriés
 
-    Parmis les cas suivants, quel structure de contrôle utiliser ?
+    Parmi les cas suivants, quelle structure de contrôle utiliser ?
 
-    #. Test qu'une variable soit dans un interval donné.
-    #. Actions suivant un choix multiple de l'utilsateur
+    #. Test qu'une variable est dans un interval donné.
+    #. Actions suivant un choix multiple de l'utilisateur
     #. Rechercher un caractère particulier dans une chaîne de caractère
     #. Itérer toutes les valeurs paires sur un interval donné
     #. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à ``STOP``

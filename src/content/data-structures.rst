@@ -22,7 +22,7 @@ L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore
         foo->key; // Impossible car le type est incomplet.
     }
 
-De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forcant cet utilisateur à ne passer que par des fonctions d'accès.
+De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forçant cet utilisateur à ne passer que par des fonctions d'accès.
 
 Prenons le cas du fichier `foobar.c` lequel décrit une structure ``struct Foo`` et un type ``Foo``. Notez que le type peut être déclaré avant la structure. ``Foo`` restera abstrait jusqu'à la déclaration complète de la structure ``struct Foo`` permettant de connaître sa taille. Ce fichier contient également trois fonctions :
 
@@ -58,13 +58,13 @@ En plus, il existe un compteur d'accès ``count`` qui s'incrémente lorsque l'on
         foo->value = value;
     }
 
-Evidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :
+Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :
 
 .. code-block:: c
 
     foo->count = 42; // Hacked this !
 
-Pour s'en protéger on a recours à la compilation séparée (voir chapitre TranslationUnits__) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier ``foobar.h`` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
+Pour s'en protéger, on a recours à la compilation séparée (voir chapitre TranslationUnits__) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier ``foobar.h`` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
 
 .. code-block:: c
 
@@ -110,7 +110,7 @@ Un tableau dynamique est souvent spécifié par un facteur de croissance (rien �
     buffer[1] = 'e';
     buffer[2] = 'l'; // Le buffer est plein...
 
-    // Augmente dynamiquemenmt la taille du buffer à 5 chars
+    // Augmente dynamiquement la taille du buffer à 5 chars
     char *tmp = realloc(buffer, 5);
     assert(tmp != NULL);
     buffer = tmp;
@@ -122,7 +122,7 @@ Un tableau dynamique est souvent spécifié par un facteur de croissance (rien �
     // Libère l'espace mémoire utilisé
     free(buffer);
 
-La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est à dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc.
+La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est-à-dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc.
 
 Lorsque le nombre d'éléments du tableau devient inférieur du facteur de croissance à la taille effective du tableau, il est possible de faire l'opération inverse, c'est-à-dire réduire la taille allouée. En pratique cette opération est rarement implémentée, car peu efficace (c.f. `cette <https://stackoverflow.com/a/60827815/2612235>`__ réponse sur stackoverflow).
 
@@ -154,7 +154,7 @@ Un tableau dynamique peut être représenté par la figure suivante :
 
     Tableau dynamique
 
-Un espace mémoire est réservé dynamiquement sur le tas. Comme ``malloc`` ne retourne pas la taille de l'espace mémoire alloué mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 ``int32_t`` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par ``malloc`` n'est généralement pas vide mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un d'autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
+Un espace mémoire est réservé dynamiquement sur le tas. Comme ``malloc`` ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 ``int32_t`` représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par ``malloc`` n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.
 
 Les composants de cette structure de donnée sont donc :
 
@@ -191,7 +191,7 @@ L'opération ``push`` ajoute un élément à la fin du tableau.
     if (elements >= capacity) exit(EXIT_FAILURE);
     data[elements++] = value;
 
-L'opération ``shift`` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.
+L'opération ``shift`` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.
 
 .. figure:: ../../assets/figures/dist/data-structure/dyn-array-shift.*
     :scale: 70%
@@ -205,7 +205,7 @@ L'opération ``shift`` retire un élément depuis le début. L'opération à une
     for (int k = 0; k < capacity; k++)
         data[k] = data[k+1];
 
-Une optimisation peut être faite en déplacant le pointeur de donnée de 1 permettant de réduite la complexité à O(1) :
+Une optimisation peut être faite en déplaçant le pointeur de donnée de 1 permettant de réduite la complexité à O(1) :
 
 .. code-block:: c
 
@@ -316,7 +316,7 @@ Listes chaînées
 
 .. index:: liste chaînée
 
-On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte :math:`O(1)` amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte :math:`O(n)` du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.
+On s'aperçoit vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte :math:`O(1)` amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte :math:`O(n)` du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.
 
 Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.
 
@@ -331,13 +331,13 @@ Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque él
 
     struct Element elements[100];
 
-Considérons les dix premiers éléments de la séquence de nombre `A130826 <https://oeis.org/A130826>`__ dans un tableau statique. Ensuite répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
+Considérons les dix premiers éléments de la séquence de nombre `A130826 <https://oeis.org/A130826>`__ dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
 
 .. figure:: ../../assets/figures/dist/data-structure/static-linked-list.*
 
-    Construction d'une liste chaîne à l'aide d'un tableau
+    Construction d'une liste chainée à l'aide d'un tableau
 
-On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
+On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :
 
 .. code-block:: c
 
@@ -379,7 +379,7 @@ D'autre part, la solution proposée n'est pas optimale :
 
 - L'élément 0 est un cas particulier qu'il faut traiter différemment. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau. Insérer un nouvel élément en début de tableau demande de déplacer cet élément ailleurs en mémoire.
 - Rechercher un élément libre prend du temps.
-- Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacement mémoire disponibles
+- Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacements mémoires disponibles.
 
 Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :
 
@@ -622,7 +622,7 @@ Cette liste chaînée particulière compresse les deux pointeurs en un seul en u
     ...  A        B         C         D         E  ...
             <–>  A⊕C  <->  B⊕D  <->  C⊕E  <->
 
-Lorsque la liste est traversée de gauche à droite, il est possible de facilement reconstuire le pointeur de l'élément suivant à partir de l'adresse de l'élément précédent.
+Lorsque la liste est traversée de gauche à droite, il est possible de facilement reconstruire le pointeur de l'élément suivant à partir de l'adresse de l'élément précédent.
 
 Les inconvénients de cette structure sont :
 
@@ -689,7 +689,7 @@ L'insertion et la suppression d'éléments dans un arbre binaire fait appel à d
 Heap
 ====
 
-La structure de donnée ``heap`` aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit "presque complet", dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est à dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.
+La structure de donnée ``heap`` aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit "presque complet", dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.
 
 Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :
 
@@ -713,7 +713,7 @@ Queue prioritaire
 
 .. index:: queue prioritaire
 
-Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.
+Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.
 
 .. code-block:: c
 
@@ -746,7 +746,7 @@ Une queue prioritaire ou *priority queue*, est une queue dans laquelle les élé
         }
     }
 
-La queue prioritaire dispose donc aussi des méthodes ``enqueue`` et ``dequeue`` mais le ``dequeue`` retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération ``enqueue`` ou ``dequeue``. L'une de ces deux opération pourrait donc avoir une complexité de :math:`O(n log n)`. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.
+La queue prioritaire dispose donc aussi des méthodes ``enqueue`` et ``dequeue`` mais le ``dequeue`` retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération ``enqueue`` ou ``dequeue``. L'une de ces deux opérations pourrait donc avoir une complexité de :math:`O(n log n)`. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.
 
 L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un *heap*, soit construit à partir d'un tableau statique, soit un tableau dynamique.
 
@@ -759,9 +759,9 @@ L'objectif est de stocker des chaînes de caractères correspondant a des noms s
 
 .. figure:: ../../assets/figures/dist/data-structure/hash-linear.*
 
-    Tableau de hashage simple
+    Tableau de hachage simple
 
-Si l'on cherche l'indice correspondant à ``Ada``, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans ce exemple considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
+Si l'on cherche l'indice correspondant à ``Ada``, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
 
 .. code-block:: console
 
@@ -835,7 +835,7 @@ Collisions
 
 .. index:: collision
 
-Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
+Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :
 
 .. code-block:: text
 
@@ -865,9 +865,9 @@ Récupérer une valeur dans le tableau demande une comparaison supplémentaire :
     while (strcmp(people[hash], key) != 0) hash++;
     Person person = people[hash];
 
-Lorsque le nombre de collision est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à :math:`O(1)` mais lorsque le nombre de collision est prépondérant, la complexité se rapproche de celle de la recherche linéaire :math:`O(n)` et on perd tout avantage à cette structure de donnée.
+Lorsque le nombre de collisions est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à :math:`O(1)`, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire :math:`O(n)` et on perd tout avantage à cette structure de donnée.
 
-Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille :math:`26^3 = 17576` personnes. L'emprunte mémoire peut être considérablement réduite en stockant non pas une structure ``struct Person`` mais plutôt l'adresse vers cette structure :
+Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille :math:`26^3 = 17576` personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure ``struct Person`` mais plutôt l'adresse vers cette structure :
 
 .. code-block:: c
 
@@ -905,12 +905,12 @@ Le :index:`chaînage` ou *chaining* est une autre méthode pour mieux gérer les
 
 .. figure:: ../../assets/figures/dist/data-structure/hash-table.*
 
-    Chaînage d'une table de hashage
+    Chaînage d'une table de hachage
 
 Fonction de hachage
 -------------------
 
-Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes ``"Rea"`` ou ``"Rae"`` auront les même *hash* puisqu'ils contiennent les même lettres. De même une fonction de hachage qui ne réparti pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
+Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes ``"Rea"`` ou ``"Rae"`` auront les même *hash* puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
 
 L'idée générale des fonctions de hachage est de répartir **uniformément** les clés sur les indices de la table de hachage. L'approche la plus courante est de mélanger les bits de notre clé dans un processus reproductible.
 
@@ -957,7 +957,7 @@ Cette approche nous donne une assez bonne répartition :
     Max : 3
     Tod : 1
 
-Dans la pratique, on utilisera volontier des fonctions de hachage utilisés en cryptographies tels que `MD5 <https://en.wikipedia.org/wiki/MD5>`__ ou `SHA`. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :
+Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que `MD5 <https://en.wikipedia.org/wiki/MD5>`__ ou `SHA`. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :
 
 .. code-block:: console
 
@@ -972,7 +972,7 @@ Dans la pratique, on utilisera volontier des fonctions de hachage utilisés en c
     $ md5sum chanson.txt
     699bfc5c3fd42a06e99797bfa635f410  chanson.txt
 
-Le *hash* de ce texte est exprimé en hexadécimal ( ``0x699bfc5c3fd42a06e99797bfa635f410``). Converti en décimal ``140378864046454182829995736237591622672`` il peut être réduit en utilsant le modulo. Voici un exemple en C :
+Le *hash* de ce texte est exprimé en hexadécimal ( ``0x699bfc5c3fd42a06e99797bfa635f410``). Converti en décimal ``140378864046454182829995736237591622672`` il peut être réduit en utilisant le modulo. Voici un exemple en C :
 
 .. code-block:: c
 
@@ -1033,7 +1033,7 @@ On peut constater qu'ici les indices sont bien répartis et que la fonction de h
 Piles ou LIFO (*Last In First Out*)
 ===================================
 
-Une pile est une structure de donnée très similaire à un tableau dynamique mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :
+Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :
 
 - d'ajouter un élément (*push*) ;
 - retirer un élément (*pop*) ;
@@ -1068,7 +1068,7 @@ Les piles peuvent être implémentées avec des tableaux dynamiques ou des liste
 Queues ou FIFO (*First In First Out*)
 =====================================
 
-Les queues sont aussi des structures très similaires à des tableaux dynamiques mais elle ne permettent que les opérations suivantes :
+Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes :
 
 - ajouter un élément à la queue (*push*) aussi nommé *enqueue* ;
 - supprimer un élément au début de la queue (*shift*) aussi nommé *dequeue* ;
@@ -1112,7 +1112,7 @@ Les queues sont souvent utilisées lorsque des processus séquentiels ou parall�
 Performances
 ============
 
-Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moin d'*overhead* pour les opérations de ``push`` ou ``unshift`` ?
+Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'*overhead* pour les opérations de ``push`` ou ``unshift`` ?
 
 L'indexation (*indexing*) est l'accès à une certaine valeur du tableau par exemple avec ``a[k]``. Dans un tableau statique et dynamique l'accès se fait par pointeur depuis le début du tableau soit : ``*((char*)a + sizeof(a[0]) * k)`` qui est équivalant à ``*(a + k)``. L'indexation par arithmétique de pointeur n'est pas possible avec les listes chaînées dont il faut parcourir chaque élément pour découvrir l'adresse du prochain élément :
 
@@ -1125,7 +1125,7 @@ L'indexation (*indexing*) est l'accès à une certaine valeur du tableau par exe
         return el.value;
     }
 
-L'indexation d'une liste chaînée prends dans le cas le plus défavorable :math:`O(n)`.
+L'indexation d'une liste chaînée prend dans le cas le plus défavorable :math:`O(n)`.
 
 Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations : ``12 -> 4 -> 6 -> 5``. L'indexation est ainsi possible en :math:`O(log n)`.
 
@@ -1144,7 +1144,7 @@ Les arbres binaires ont une structure qui permet naturellement la dichotomique. 
 
 Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :
 
-.. table:: Comparaison des performances des structure récursives
+.. table:: Comparaison des performances des structures récursives
 
     =============  ==========  ===========  ========  ==========  ========  =========
         Action             Tableau          Liste     Buffer      Arbre     Hash Map
