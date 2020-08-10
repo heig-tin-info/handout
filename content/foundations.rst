@@ -441,7 +441,7 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
 
     .. solution::
 
-        .. code-block:: c
+        .. code-block:: text
 
             p ≡ 2
             x ≡ 7

@@ -16,7 +16,6 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     'sphinx.ext.todo',
-#    'sphinxcontrib.bibtex',
     'sphinxcontrib.rsvgconverter',
     'listings',
     'exercises',
@@ -24,7 +23,9 @@ extensions = [
     'appendix',
     'gtag',
     'hlist',
-    'span-sectnum'
+    'span-sectnum',
+    'fix-short-caption',
+    'fix-literal-block'
 ]
 
 googleanalytics_id = 'UA-145664552-1'

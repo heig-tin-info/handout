@@ -582,7 +582,7 @@ Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. 
 
     Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue :
 
-    .. code-block:: c
+    .. code-block:: console
 
         $ ./sum
         8527952
