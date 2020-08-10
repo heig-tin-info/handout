@@ -2,9 +2,9 @@
 Généralités du langage
 ======================
 
-Ce chapitre traite des éléments constitufs et fondamentaux du langage C. Il traite des généralités propres au langage mais aussi des notions élémentaires permettant d'interpréter du code source.
+Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source.
 
-Notons que ce chapitre est transveral, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
+Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
 
 .. index:: alphabet
 
@@ -21,9 +21,9 @@ Fort heureusement pour nous occidentaux, l'alphabet de C est composé des 52 car
     a b c d e f g h i j k l m n o p q r s t u v w x y z
     0 1 2 3 4 5 6 7 8 9
 
-La séparation des symboles est assurée par `une espace <https://fr.wikipedia.org/wiki/Espace_(typographie)>`__, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est à dire qu'ils ne sont pas directement visible ni à l'écran, ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le `pied-de-mouche <https://fr.wikipedia.org/wiki/Pied-de-mouche>`__ ``¶`` pour indiquer les fin de paragraphes qui sont également des caractères non-imprimables.
+La séparation des symboles est assurée par `une espace <https://fr.wikipedia.org/wiki/Espace_(typographie)>`__, une tabulation horizontale, une tabulation verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression. Microsoft Word et d'autres éditeurs utilisent généralement le `pied-de-mouche <https://fr.wikipedia.org/wiki/Pied-de-mouche>`__ ``¶`` pour indiquer les fins de paragraphes qui sont également des caractères non imprimables.
 
-On nomme les caractères non-imprimables soit par leur acronyme ``LF`` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* ``\n``:
+On nomme les caractères non imprimables soit par leur acronyme ``LF`` pour *Line Feed* ou soit par leur convention C échappée par un *backslash* ``\n``:
 
 .. index:: LF, VT, FF, TAB, CR
 
@@ -44,9 +44,9 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 
 .. index:: trigraphes, digraphes
 
-Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la comission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
+Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les **trigraphes** et plus tard les **digraphes** qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi ``<:`` est le digraphe de ``[`` et ``??<`` est le trigraphe de ``{``. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.
 
-Retenez que C peut être un langage extrèmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le `The International Obfuscated C Code Contest <https://www.ioccc.org/>`__ qui prime des codes les plus subtils et illisibles comme le code suivant écrit par `Chris Mills <https://www.ioccc.org/2015/mills2>`__. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
+Retenez que C peut être un langage extrêmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le `The International Obfuscated C Code Contest <https://www.ioccc.org/>`__ qui prime des codes les plus subtils et illisibles comme le code suivant écrit par `Chris Mills <https://www.ioccc.org/2015/mills2>`__. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.
 
 .. code-block:: c
 
@@ -75,18 +75,18 @@ Fin de lignes (EOL)
 
 .. index:: téléscripteurs
 
-À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatibles <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne devait toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugaient inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement mais ils ont choisi de ne garder que ``\n``.
+À l'instar des premières machines à écrire, les `téléscripteurs <https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur>`__ possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme `retour chariot <https://fr.wikipedia.org/wiki/Retour_chariot>`__ est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC `IBM compatibles <https://fr.wikipedia.org/wiki/Compatible_PC>`__ ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (``CR``) et une nouvelle ligne (``LF``) ou en C ``\r\n``. Les premiers `Macintosh <https://fr.wikipedia.org/wiki/Macintosh>`__ d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère ``\r``. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que ``\n``.
 
 Fort heureusement depuis que Apple a migré son système sur une base `BSD <https://en.wikipedia.org/wiki/Berkeley_Software_Distribution>`__ (UNIX), il n'existe aujourd'hui plus que deux standards de retour à la ligne :
 
-- ``LF`` ou ``\n`` sur les ordinateurs POSIX comme Linux, Unix ou MacOS
+- ``LF`` ou ``\n`` sur les ordinateurs POSIX comme Linux, Unix ou macOS
 - ``CRLF`` ou ``\r\n`` sur les ordinateurs Windows.
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (``EOL``: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
 .. figure:: ../../assets/figures/dist/encoding/crlf.*
 
-    Distinction de différents caractères non-imprimables
+    Distinction de différents caractères non imprimables
 
 Mots clés
 =========
@@ -136,7 +136,7 @@ Le langage de programmation C tel que défini par C11 comporte environ 37 mots c
     - ``volatile``
     - ``while``
 
-Dans ce cours l'usage des mots clés suivants est découragé car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
+Dans ce cours l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
 .. hlist::
     :columns: 4
@@ -152,7 +152,7 @@ Dans ce cours l'usage des mots clés suivants est découragé car leur utilisati
     - ``short``
 
 
-Notons que les mots clés ``true`` et ``false`` décrits à la :numref:`booleans` ne sont pas standardisés en C mais ils le sont en C++.
+Notons que les mots clés ``true`` et ``false`` décrits à la :numref:`booleans` ne sont pas standardisés en C, mais ils le sont en C++.
 
 .. _identifiers:
 
@@ -172,7 +172,7 @@ En addition de ceci, voici quelques règles :
 .. index:: casse
 
 - Un identificateur ne peut pas être l'un des mots clés du langage.
-- Les identificateurs sont sensible à la `casse <https://fr.wikipedia.org/wiki/Casse_(typographie)>`__.
+- Les identificateurs sont sensibles à la `casse <https://fr.wikipedia.org/wiki/Casse_(typographie)>`__.
 - Le standard C99, se réserve l'usage de tous les identificateurs débutant par ``_`` suivi d'une lettre majuscule ou un autre *underscore* ``_``.
 - Le standard `POSIX <https://fr.wikipedia.org/wiki/POSIX>`__, se réserve l'usage de tous les identificateurs finissant par ``_t``.
 
@@ -213,10 +213,10 @@ En addition de ceci, voici quelques règles :
         .. hlist::
             :columns: 2
 
-            #. ``2_pi`` **invalide** car commence par un chiffre
+            #. ``2_pi`` **invalide**, car commence par un chiffre
             #. ``x_2`` **valide**
             #. ``x___3`` **valide**
-            #. ``x 2`` **invalide** car comporte un espace
+            #. ``x 2`` **invalide**, car comporte un espace
             #. ``positionRobot`` **valide**, notation *camelCase*
             #. ``piece_presente`` **valide**, notation *snake_case*
             #. ``_commande_vanne`` **valide**
@@ -239,9 +239,9 @@ Une variable est définie par :
 
 .. index:: visibilité, type, valeur, portée
 
-- Son **nom** (*name*), c'est à dire l'identificateur associé au symbole.
+- Son **nom** (*name*), c'est-à-dire l'identificateur associé au symbole.
 - Son **type** (*type*), qui est la convention d'interprétation du contenu binaire en mémoire.
-- Sa **valeur** (*value*), qui est le contenu interprêté connaissant son type.
+- Sa **valeur** (*value*), qui est le contenu interprété connaissant son type.
 - Son **adresse** (*address*) qui est l'emplacement mémoire ou la représentation binaire sera enregistrée
 - Sa **portée** (*scope*) qui est la portion de code ou le symbole est défini et accessible.
 - Sa **visibilité** (*visibility*) qui ne peut être que *public* en C.
@@ -307,11 +307,11 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 Convention de nommage
 ---------------------
 
-Il existe autant de conventions de nommage qu'il y a de développeurs mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :
+Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :
 
 - La longueur du nom d'une variable est généralement proportionnelle à sa portée et donc il est d'autant plus court que l'utilisation d'une variable est localisée.
-- Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguité.
-- Le nom doit participer à l'auto-documentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.
+- Le nom doit être concis et précis et ne pas laisser place à une quelconque ambiguïté.
+- Le nom doit participer à l'autodocumentation du code et permettre à un lecteur de comprendre facilement le programme qu'il lit.
 
 Selon les standards adoptés chaque société on trouve ceux qui préfèrent nommer les variables en utilisant un *underscore* (``_``) comme séparateur et ceux qui préfèrent nommer une variable en utilisant des majuscules comme séparateurs de mots.
 
@@ -335,7 +335,7 @@ Variable métasyntaxiques
 Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites `métasyntaxiques <https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique>`__. En français les valeurs ``toto``, ``titi``, ``tata`` et ``tutu`` sont régulièrement utilisées tandis qu'en anglais
 ``foo``, ``bar``, ``baz`` et ``qux`` sont régulièrement utilisés. Les valeurs ``spam``, ``ham`` et ``eggs`` sont quant à elles souvent utilisée en Python, en référence au sketch `Spam <https://en.wikipedia.org/wiki/Spam_(Monty_Python)>`__ des Monthy Python.
 
-Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonnance d'un problème plus spécifique.
+Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.
 
 On touvera une `table <http://www.catb.org/jargon/html/M/metasyntactic-variable.html>`__ des différents noms les plus courants utilisés dans différentes langues.
 
@@ -344,7 +344,7 @@ Les constantes
 
 Une constante par opposition à une variable voit son contenu fixe et immutable.
 
-Formellement, une constante se déclare comme une variable mais préfixée du mot-clé ``const``.
+Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé ``const``.
 
 .. code-block:: c
 
@@ -352,7 +352,7 @@ Formellement, une constante se déclare comme une variable mais préfixée du mo
 
 .. note::
 
-    Il ne faut pas confondre la **constante** qui est une variable immutable, stockée en mémoire et une **macro** qui appartient au pré-processeur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
+    Il ne faut pas confondre la **constante** qui est une variable immutable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête ``math.h`` définit par exemple la constante ``M_PI`` sous forme de macro.
 
     .. code-block:: c
 
@@ -400,10 +400,10 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
         #. ``09``
         #. ``02``
 
-Operateur d'affectation
+Opérateur d'affectation
 =======================
 
-Dans les exemples ci-dessus on utilise l'opérateur d'affectation pour associer une valeur à une variable.
+Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.
 
 Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal ``=`` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.
 
@@ -414,20 +414,20 @@ Pour mieux saisir la nuance, considérons le programme suivant :
     a = 42;
     a = b;
 
-Mathématiquement, la valeur de ``b`` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code car oui, C est un langage impératif (c.f. :numref:`paradigms`). Ainsi, dans l'ordre on lit :
+Mathématiquement, la valeur de ``b`` devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage impératif (c.f. :numref:`paradigms`). Ainsi, dans l'ordre on lit :
 
 #. J'assigne la valeur 42 à la variable symbolisée par ``a``
 #. Puis, j'assigne la valeur de la variable ``b`` au contenu de ``a``.
 
 Comme on ne connaît pas la valeur de ``b``, avec cet exemple, on ne peut pas connaître la valeur de ``a``.
 
-Certaines langages de programmation ont été sensibilisé à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est ``<-`` et une affectation pourrait s'écrire par exemple: ``a <- 42`` ou ``42 -> a``.
+Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est ``<-`` et une affectation pourrait s'écrire par exemple: ``a <- 42`` ou ``42 -> a``.
 
 En C, l'opérateur d'égalité que nous verrons plus loin s'écrit ``==`` (deux ``=`` concaténés).
 
-Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est à dire que la valeur à **droite** de l'opérateur est affectée à la variable située à **gauche** de l'opérateur.
+Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à **droite** de l'opérateur est affectée à la variable située à **gauche** de l'opérateur.
 
-S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur ``+`` et dans l'exemple suivant il faut lire que ``42`` est assigné à ``c``, que la valeur de ``c`` est ensuite assignée à ``b`` et enfin la valeur de ``b`` est assignée à ``a``.
+S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur ``+`` et dans l'exemple suivant il faut lire que ``42`` est assigné à ``c``, que la valeur de ``c`` est ensuite assigné à ``b`` et enfin la valeur de ``b`` est assignée à ``a``.
 
 .. code-block:: c
 
@@ -523,21 +523,21 @@ Il existe deux manière d'écrire un commentaire en C :
     /* This is a
        Multi-line comment */
 
-Les commentaires sont parsés par le pré-processeur, aussi ils n'influencent pas le fonctionnement d'un programme mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois mais comme tout développement doit être si possible **réutilisable**,
+Les commentaires sont parsés par le préprocesseur, aussi ils n'influencent pas le fonctionnement d'un programme, mais seulement sa lecture. Rappelons qu'un code est plus souvent lu qu'écrit, car on ne l'écrit qu'une seule fois, mais comme tout développement doit être si possible **réutilisable**,
 il est plus probable qu'il soit lu part d'autres développeurs.
 
-En conséquence, il est important de clarifier toute zone d'ombre lorsque que l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.
+En conséquence, il est important de clarifier toute zone d'ombre lorsque l'on s'éloigne des consensus établis, ou lorsque le code seul n'est pas suffisant pour bien comprendre son fonctionnement.
 
-D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires mais un programme sans commentaires n'est pas
+D'une façon générale, les commentaires servent à expliquer **pourquoi** et non **comment**. Un bon programme devrait pouvoir se passer de commentaires, mais un programme sans commentaires n'est pas
 nécessairement un bon programme.
 
-Notons que l'on ne commente jamais des portions de code et ce pour plusieurs raisons :
+Notons que l'on ne commente jamais des portions de code, et ce pour plusieurs raisons :
 
 1. Les outils de *refactoring* ne pourront pas accéder du code commenté
 2. La syntaxe ne pourra plus être vérifiée par l'IDE
 3. Les outils de gestion de configuration (e.g. Git) devraient être utilisés à cette fin
 
-Si d'aventure vous souhaitez exclure temporairement du code de la compilation, utilisez la directive de pré-processeur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
+Si d'aventure vous souhaitez exclure temporairement du code de la compilation, utilisez la directive de préprocesseur suivante, et n'oubliez pas d'expliquer pourquoi vous avez souhaité
 désactiver cette portion de code.
 
 .. code-block:: c
@@ -548,11 +548,11 @@ désactiver cette portion de code.
     }
     #endif
 
-D'une manière générale l'utilisaton des commentaires ne devrait pas être utilisée pour :
+D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour :
 
 - Désactiver temporairement une portion de code sans l'effacer.
 - Expliquer le **comment** du fonctionnement du code.
-- Faire dans le dythyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.
+- Faire dans le dithyrambique pompeux et notarial, des phrases à rallonge bien trop romanesques.
 - Créer de jolies séparations telles que ``/*************************/``.
 
 Exemple d'entête de fichier :
@@ -569,7 +569,7 @@ Exemple d'entête de fichier :
      * NOTE: Important notes about this code
      */
 
-Le format des commentaires est par essence libre au développeur mais il est généralement souhaité que :
+Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que :
 
 - Les commentaires soient concis et précis.
 - Les commentaires soient écrits en anglais.
@@ -592,5 +592,5 @@ Le format des commentaires est par essence libre au développeur mais il est gé
             for (size_t i; i < nelems; i++)
                 elem[i] = i;
 
-        Un consensus assez bien établi est qu'une variable commencant par ``n`` peut signifier
+        Un consensus assez bien établi est qu'une variable commençant par ``n`` peut signifier
         *number of*.

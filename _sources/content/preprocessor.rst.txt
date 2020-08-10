@@ -9,7 +9,7 @@ Le coeur de cette opération est appelé **préprocesseur**. Les instructions du
 Le vocabulaire du préprocesseur est le suivant :
 
 ``#include``
-    Inclu un fichier dans le fichier courant
+    Inclus un fichier dans le fichier courant
 
 ``#define``
     Crée une définition (Macro)
@@ -101,7 +101,7 @@ Extensions des fichiers
 Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur :
 
 ``.h``
-    Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions, ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.
+    Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.
 
 ``.c``
     Fichier source C comportant les implémentations de fonction et les variables globales. Ce fichier sera soumis au préprocesseur.
@@ -151,7 +151,7 @@ L'inclusion de fichier est simplement du remplacement de chaînes :
     , mais cette fin est là.
     # 3 "main.c" 2
 
-La directive ``#include`` est principalement utilisée pour include des fichiers d'en-tête (*header*), mais rarement (jamais), des fichiers C.
+La directive ``#include`` est principalement utilisée pour inclure des fichiers d'en-tête (*header*), mais rarement (jamais), des fichiers C.
 
 Définitions
 ===========
@@ -180,7 +180,7 @@ Il est ainsi possible de définir la taille du tableau à la compilation avec :
 
     $ gcc main.c -DWINDOW_SIZE=42
 
-Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. **C'est une remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire :
+Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. **C'est un remplacement de chaîne bête, idiot et naïf**. Il est par conséquent possible d'écrire :
 
 .. code-block:: c
 
@@ -235,7 +235,7 @@ Macros
 
 On appel **macro** une fonction définie au niveau du préprocesseur.
 
-Debogage
+Débogage
 ========
 
 #error
@@ -270,7 +270,7 @@ Le standard définit certains symboles utiles pour le débogage :
     Est remplacé par la date sous la forme ``"Mmm dd yyyy"``
 
 ``__TIME__``
-    Est remplacé par l'heure au moment du pr-processing ``"hh:mm:ss"``
+    Est remplacé par l'heure au moment du pre-processing ``"hh:mm:ss"``
 
 Caractère d'échappement
 =======================

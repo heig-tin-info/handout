@@ -421,7 +421,7 @@
 <p>Il y a une arborescence par disque physique <code class="docutils literal notranslate"><span class="pre">C:</span></code>, <code class="docutils literal notranslate"><span class="pre">D:</span></code>, une arborescence par chemin réseau <code class="docutils literal notranslate"><span class="pre">\\eistore2</span></code>, etc. Sous POSIX, la stratégie est différente, car il n'existe qu'UN SEUL système de fichier dont la racine est <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/</span>
 <span class="go">├── bin                   Programmes exécutables cruciaux</span>
-<span class="go">├── dev                   Périphériques (clavier, souris, ...)</span>
+<span class="go">├── dev                   Périphériques (clavier, souris ...)</span>
 <span class="go">├── usr</span>
 <span class="go">│   └── bin               Programmes installés</span>
 <span class="go">├── mnt                   Points de montage (disques réseaux, CD, clé USB)</span>
@@ -445,20 +445,20 @@
 <li><p>Slash <code class="docutils literal notranslate"><span class="pre">/</span></code> sous POSIX</p></li>
 <li><p>Antislash <code class="docutils literal notranslate"><span class="pre">\</span></code> sous Windows</p></li>
 </ul>
-<p>Le chemin <code class="docutils literal notranslate"><span class="pre">/usr/bin/.././bin/../../home/john/documents</span></code> est correct mais il n'est pas <a class="reference external" href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>. La forme canonique est <code class="docutils literal notranslate"><span class="pre">/home/john/documents</span></code>. Un chemin peut être relatif s'il ne commence pas par un <code class="docutils literal notranslate"><span class="pre">/</span></code>: <code class="docutils literal notranslate"><span class="pre">../bin</span></code>. Sous Windows c'est pareil mais la racine différemment selon le type de média <code class="docutils literal notranslate"><span class="pre">C:\</span></code>, <code class="docutils literal notranslate"><span class="pre">\\network</span></code>, ...</p>
+<p>Le chemin <code class="docutils literal notranslate"><span class="pre">/usr/bin/.././bin/../../home/john/documents</span></code> est correct, mais il n'est pas <a class="reference external" href="https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)">canonique</a>. La forme canonique est <code class="docutils literal notranslate"><span class="pre">/home/john/documents</span></code>. Un chemin peut être relatif s'il ne commence pas par un <code class="docutils literal notranslate"><span class="pre">/</span></code>: <code class="docutils literal notranslate"><span class="pre">../bin</span></code>. Sous Windows c'est pareil, mais la racine différemment selon le type de média <code class="docutils literal notranslate"><span class="pre">C:\</span></code>, <code class="docutils literal notranslate"><span class="pre">\\network</span></code>, ...</p>
 <p>Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.</p>
 <div class="section" id="navigation">
 <h3>12.1.1  Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Sous Windows (PowerShell) ou un système <strong>POSIX</strong> (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> est un raccourcis du nom <em>list</em>, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> pour <em>change directory</em> permet de naviger dans l'arboresence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> est un raccourci du nom <em>list</em>, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> pour <em>change directory</em> permet de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="format-d-un-fichier">
 <h2>12.2  Format d'un fichier<a class="headerlink" href="#format-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un fichier peut avoir un contenu arbitraire; une suite de zéros et de uns binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
+<p>Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -574,7 +574,7 @@
 <div class="section" id="navigation-dans-un-fichier">
 <h2>12.4  Navigation dans un fichier<a class="headerlink" href="#navigation-dans-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.</p>
-<p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier mais seulement écrire dedans.</p>
+<p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
 <div class="section" id="fseek">
 <h3>12.4.1  fseek<a class="headerlink" href="#fseek" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">)</span>
@@ -725,7 +725,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>. <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code>,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>. <code class="docutils literal notranslate"><span class="pre">STDERR</span></code>,</p></li>
 </ul>
-<p>sont ouverts au début du programme. Le premier fichier ouvert, par exemple avec <code class="docutils literal notranslate"><span class="pre">fopen</span></code> sera très probablement assigné à l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <code class="docutils literal notranslate"><span class="pre">fopen</span></code> sera très probablement assigné à l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 <p>Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme <code class="docutils literal notranslate"><span class="pre">strace</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -748,7 +748,7 @@
 <span class="go">write(1, &quot;l&quot;, 1l)                        = 1</span>
 </pre></div>
 </div>
-<p>On peut voir que l'on lit <code class="docutils literal notranslate"><span class="pre">k\n</span></code> sur le flux <code class="docutils literal notranslate"><span class="pre">0</span></code>, soit <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, puis que le fichier <code class="docutils literal notranslate"><span class="pre">file</span></code> est ouvert, il porte l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>, enfin on écrit sur <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>On peut voir qu’on lit <code class="docutils literal notranslate"><span class="pre">k\n</span></code> sur le flux <code class="docutils literal notranslate"><span class="pre">0</span></code>, soit <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, puis que le fichier <code class="docutils literal notranslate"><span class="pre">file</span></code> est ouvert, il porte l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>, enfin on écrit sur <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 </div>
 <div class="section" id="formats-de-serialisation">
 <h2>12.8  Formats de sérialisation<a class="headerlink" href="#formats-de-serialisation" title="Lien permanent vers ce titre">¶</a></h2>
@@ -865,7 +865,7 @@
 </tr>
 </tbody>
 </table>
-<p>Il existe plusieurs manière d'écrire ces informations dans un fichier :</p>
+<p>Il existe plusieurs manières d'écrire ces informations dans un fichier :</p>
 <ul class="simple">
 <li><p>Écriture tabulée</p></li>
 <li><p>Écriture avec remplissage</p></li>
@@ -913,12 +913,12 @@ Russie\tYakutsk\t-38.6\t-33.8\t-20.1\t-4.8\t7.5\t16.4\t19.5\t15.2\t6.1\t-7.8\t-2
 <span class="go">00000198</span>
 </pre></div>
 </div>
-<p>L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.</p>
+<p>L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.</p>
 </div>
 <div class="section" id="format-avec-remplissage">
 <h3>12.8.2  Format avec remplissage<a class="headerlink" href="#format-avec-remplissage" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour palier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours aligné avec la
-48 ième colonne :</p>
+<p>Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
+48e colonne :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0000000000111111111122222222223333333333444444444455555555556666666666777777777788
 0123456789012345678901234567890123456789012345678901234567890123456789012345678901
 +---------+-------+-----+-----+-----+----+----+----+----+----+----+----+-----+---&gt;
@@ -931,8 +931,8 @@ Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26
 Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
 </pre></div>
 </div>
-<p>Idéalement on utilise comme caractère de remplissage le caractère nulle <code class="docutils literal notranslate"><span class="pre">\0</span></code> mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.</p>
-<p>La lecture aléatoire de ce type de fichier est facilitée car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caracètres, la ville sur 9 caractères et chaque température sur 7 caractères.</p>
+<p>Idéalement on utilise comme caractère de remplissage le caractère nulle <code class="docutils literal notranslate"><span class="pre">\0</span></code>, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.</p>
+<p>La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.</p>
 <p>L'utilisation de <code class="docutils literal notranslate"><span class="pre">fseek</span></code> est par conséquent utile :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -943,11 +943,11 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
 <span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 carctères pour le nom des villes.</p>
+<p>L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
 </div>
 <div class="section" id="format-serialise">
 <h3>12.8.3  Format sérialisé<a class="headerlink" href="#format-serialise" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Des langages de sérialisation permettent de stucturer de l'information en utilisant un format spécifique. Ici <a class="reference external" href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> :</p>
+<p>Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici <a class="reference external" href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> :</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;pays&quot;</span><span class="p">:</span> <span class="s2">&quot;Suisse&quot;</span><span class="p">,</span>
@@ -988,8 +988,8 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est à dire qu'il est facilement lisible depuis différents langage de programmation.</p>
-<p>En C, on pourra utilier la bibliothèque logicielle <a class="reference external" href="https://github.com/json-c/json-c">json-c</a>.</p>
+<p>L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est-à-dire qu'il est facilement lisible depuis différents langages de programmation.</p>
+<p>En C, on pourra utiliser la bibliothèque logicielle <a class="reference external" href="https://github.com/json-c/json-c">json-c</a>.</p>
 <hr class="docutils" />
 <div class="exercise" id="exercise-1">
 <strong>Exercice 12.2 Variantes</strong><p>Considérez les deux programmes ci-dessous très similaires.</p>
@@ -1041,7 +1041,7 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -537,7 +537,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </pre></div>
 </div>
 <p>On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : <span class="math notranslate nohighlight">\(1 / 2^12 = 0.00024\)</span>. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.</p>
-<p>Les opérations arithmétiques sont possibles facilement entre des nombres de même types.</p>
+<p>Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.</p>
 <div class="section" id="addition">
 <h3>22.4.1  Addition<a class="headerlink" href="#addition" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
@@ -570,7 +570,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </pre></div>
 </div>
 <p>Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombre <strong>Q</strong> s'additionnent comme <strong>Q4.12</strong> x <strong>Q4.12</strong> donnera <strong>Q8.24</strong>.</p>
-<p>On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur <strong>Q8.8</strong> il convient de supprimer les 16-bits de poids faible</p>
+<p>On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur <strong>Q8.8</strong> il convient de supprimer les 16-bits de poids faible.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3686 * 12867 = 47227762
 
 ┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┐┌─┬─┬─┬─┬─┬─┬─┬─┦
@@ -605,14 +605,14 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 <div class="section" id="memoire-partagee">
 <h2>22.5  Mémoire partagée<a class="headerlink" href="#memoire-partagee" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accedée par un autre programme. Le système d'exploitation l'en empêche.</p>
+<p>Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accédée par un autre programme. Le système d'exploitation l'en empêche.</p>
 <p>Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :</p>
 <ul class="simple">
 <li><p>les flux (fichiers, stdin, stdout...)</p></li>
 <li><p>la mémoire partagée</p></li>
 <li><p>les sockets</p></li>
 </ul>
-<p>Vous avez déjà vu les flux au chapitre précédant, et les sockets ne font pas partie de ce cours d'introduction.</p>
+<p>Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.</p>
 <p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
 <p>C'est principalement l'appel système <code class="docutils literal notranslate"><span class="pre">mmap</span></code> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">mmap</span><span class="p">(</span>
@@ -744,12 +744,12 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code> qu'elle aime un des nombre mémorisés.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code> qu'elle aime un des nombres mémorisés.</p>
 <p>Au niveau du <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">0</span></code> dans la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>, il est impossible de savoir si l'adresse pointée par <code class="docutils literal notranslate"><span class="pre">num</span></code> est encore utilisée ou non. Il se peut que <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.</p>
 <p>Comment peut-on savoir si il est possible de libérer ou non <code class="docutils literal notranslate"><span class="pre">num</span></code> ?</p>
-<p>Une solution courament utilsée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas ou le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
+<p>Une solution courament utilsée en C++ s'appelle un <em>smart pointer</em>. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.</p>
 <p>Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé <em>Garbage Collector</em> et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le <em>gc</em> décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.</p>
-<p>En revanche en C, il n'existe aucun mécanisme aussi sophistiqués alors prenez garde à bien libérer les ressources utilisée et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>
+<p>En revanche en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.</p>
 </div>
 </div>
 
@@ -767,7 +767,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

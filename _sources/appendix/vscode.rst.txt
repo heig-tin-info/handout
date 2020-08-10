@@ -6,11 +6,11 @@
 Visual Studio Code
 ==================
 
-Visual Studio Code est un éditeur gratuit open-source développé par Microsoft. Il gagne en popularité et réuni les avantages d'être léger, multi-platforme et multi-langage.
+Visual Studio Code est un éditeur gratuit open source développé par Microsoft. Il gagne en popularité et réunit les avantages d'être léger, multi-plate-forme et multilangage.
 
-Pour pouvoir l'utilser avec votre compilateur et écrire du C, il faut une configuration minimale.
+Pour pouvoir l'utiliser avec votre compilateur et écrire du C, il faut une configuration minimale.
 
-Visual Studio Code n'a pas la notion de **projet** mais d'espace de travail **workspace**. Un espace de travail est simplement un répertoire. A l'intérieur de ce répertoire on y trouvera :
+Visual Studio Code n'a pas la notion de **projet** mais d'espace de travail **workspace**. Un espace de travail est simplement un répertoire. À l'intérieur de ce répertoire, on y trouvera :
 
 .. code-block::
 

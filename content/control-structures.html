@@ -433,7 +433,7 @@
 <li><p>L'instruction ternaire</p></li>
 </ol>
 <div class="figure align-default" id="id3">
-<img alt="Diagrammes BPMN" src="../_images/branching-diagram.svg" /><p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<img alt="Diagrammes BPMN" src="../_images/branching-diagram.svg" /><p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Les embranchements s'appuient sur les séquences :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
@@ -457,7 +457,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + ...</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
 </ul>
-<p>Une condition n'est pas nécessairement unique mais peut-être la concaténation logique de plusieurs conditions séparées :</p>
+<p>Une condition n'est pas nécessairement unique, mais peut-être la concaténation logique de plusieurs conditions séparées :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">((</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">110</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">210</span><span class="p">))</span>
 <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
@@ -522,7 +522,7 @@
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur ne satisfait aucune condition établies.&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur ne satisfait aucune condition établie.&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -534,7 +534,7 @@
 </div>
 </div>
 <div class="exercise" id="exercise-1">
-<strong>Exercice 7.2 D'autres si?</strong><p>Compte tenu de la déclaration <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">8;</span></code>, indiquer pour chaque expressions si elles impriment ou non <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">vaut</span> <span class="pre">8</span></code>:</p>
+<strong>Exercice 7.2 D'autres si?</strong><p>Compte tenu de la déclaration <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">8;</span></code>, indiquer pour chaque expression si elles impriment ou non <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">vaut</span> <span class="pre">8</span></code>:</p>
 <ol class="arabic">
 <li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span> <span class="n">then</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -587,7 +587,7 @@
 </div>
 <div class="section" id="switch">
 <span id="id2"></span><h3>7.2.2  <code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L'embranchement multiple, lorsque la condition n'est pas binaire mais scalaire, l'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> peut-être utilisée :</p>
+<p>L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire, l'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> peut-être utilisée :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span> <span class="o">:</span>
@@ -701,12 +701,12 @@
 <dl class="simple">
 <dt>Expression 1</dt><dd><p>Exécutée une seule fois à l'entrée dans la boucle, c'est l'expression d'initialisation permettant par exemple de déclarer une variable et de l'initialiser à une valeur particulière.</p>
 </dd>
-<dt>Expression 2</dt><dd><p>Condition de validité (ou de maintient de la boucle). Tant que la condition est vraie, la boucle est exécutée.</p>
+<dt>Expression 2</dt><dd><p>Condition de validité (ou de maintien de la boucle). Tant que la condition est vraie, la boucle est exécutée.</p>
 </dd>
-<dt>Expression 3</dt><dd><p>Action de fin de tour. A la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.</p>
+<dt>Expression 3</dt><dd><p>Action de fin de tour. À la fin de l'exécution de la séquence, cette action est exécutée avant le tour suivant. Cette action permet par exemple d'incrémenter une variable.</p>
 </dd>
 </dl>
-<p>Voici comment répéter 10x un block de code :</p>
+<p>Voici comment répéter 10x un bloc de code :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">something</span><span class="p">();</span>
@@ -750,7 +750,7 @@
 <li><p>Une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
 <li><p>Une boucle <code class="docutils literal notranslate"><span class="pre">do..while</span></code></p></li>
 </ol>
-<p>Quel  est la structure de contrôle la plus adaptée à cette situation ?</p>
+<p>Quelle est la structure de contrôle la plus adaptée à cette situation ?</p>
 </div>
 <div class="exercise" id="exercise-6">
 <strong>Exercice 7.7 Opérateur virgule dans une boucle</strong><p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
@@ -788,14 +788,14 @@
 <span class="k">do</span> <span class="p">{</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Notions que l'expression <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1)</span></code> que l'on rencontre fréquemment dans des exemples est fausse syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code class="docutils literal notranslate"><span class="pre">1</span></code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1</span> <span class="pre">==</span> <span class="pre">1)</span></code> ou simplement <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(true)</span></code>.</p>
-<p>On préférera néanmoins l'écriture <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(;;)</span></code> qui ne fait pas intervenir de conditions extérieure car en effet, avant <strong>C99</strong> définir la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
+<p>Notions que l'expression <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1)</span></code> que l'on rencontre fréquemment dans des exemples est faux syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code class="docutils literal notranslate"><span class="pre">1</span></code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1</span> <span class="pre">==</span> <span class="pre">1)</span></code> ou simplement <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(true)</span></code>.</p>
+<p>On préférera néanmoins l'écriture <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(;;)</span></code> qui ne fait pas intervenir de conditions extérieures, car, avant <strong>C99</strong> définir la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">_Bool</span> <span class="nb">true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
 </pre></div>
 </div>
-<p>Lorsque l'on a besoin d'une boucle infinie il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c.f. <a class="reference internal" href="processus.html#signals"><span class="std std-numref">Section 8.1.4</span></a>). On rajoute alors une condition de sortie à la boucle principale :</p>
+<p>Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c.f. <a class="reference internal" href="processus.html#signals"><span class="std std-numref">Section 8.1.4</span></a>). On rajoute alors une condition de sortie à la boucle principale :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
@@ -842,10 +842,10 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </ul>
 <div class="section" id="goto">
 <h3>7.4.1  <code class="docutils literal notranslate"><span class="pre">goto</span></code><a class="headerlink" href="#goto" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison car dans la très vaste majorité des cas ou vous pensez avoir besoin de <code class="docutils literal notranslate"><span class="pre">goto</span></code>, une autre solution plus élégante existe.</p>
-<p>Néanmoins, il est importante de comprendre que <code class="docutils literal notranslate"><span class="pre">goto</span></code> était dans certain langage de prorgramation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine car la plupart des processeurs ne connaissent que cette instruction souvent appellée <code class="docutils literal notranslate"><span class="pre">JUMP</span></code>. Il est par conséquent possible d'immiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code class="docutils literal notranslate"><span class="pre">if</span></code> et de <code class="docutils literal notranslate"><span class="pre">goto</span></code>.</p>
+<p>Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de <code class="docutils literal notranslate"><span class="pre">goto</span></code>, une autre solution plus élégante existe.</p>
+<p>Néanmoins, il est important de comprendre que <code class="docutils literal notranslate"><span class="pre">goto</span></code> était dans certain langage de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée <code class="docutils literal notranslate"><span class="pre">JUMP</span></code>. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de <code class="docutils literal notranslate"><span class="pre">if</span></code> et de <code class="docutils literal notranslate"><span class="pre">goto</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">goto</span></code> effectue un saut inconditionnel à un <em>label</em> défini en C par un <a class="reference internal" href="foundations.html#identifiers"><span class="std std-ref">identificateur</span></a> suivi d'un <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
-<p>L'un des seuls cas de figure autorisé est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :</p>
+<p>L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;time.h&gt;</span>
 
 <span class="nb">int</span> <span class="n">parse_message</span><span class="p">(</span><span class="nb">int</span> <span class="n">message</span><span class="p">)</span>
@@ -901,7 +901,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </div>
 <div class="section" id="break">
 <h3>7.4.3  <code class="docutils literal notranslate"><span class="pre">break</span></code><a class="headerlink" href="#break" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">break</span></code> peut être utilisé dans une boucle ou dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Il permet d'interrompre l'execution de la boucle ou de la structure <code class="docutils literal notranslate"><span class="pre">switch</span></code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code> (c.f. <a class="reference internal" href="#switch"><span class="std std-numref">Section 7.2.2</span></a>).</p>
+<p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">break</span></code> peut être utilisé dans une boucle ou dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Il permet d'interrompre l'exécution de la boucle ou de la structure <code class="docutils literal notranslate"><span class="pre">switch</span></code> la plus proche. Nous avions déjà évoqué l'utilisation dans un <code class="docutils literal notranslate"><span class="pre">switch</span></code> (c.f. <a class="reference internal" href="#switch"><span class="std std-numref">Section 7.2.2</span></a>).</p>
 </div>
 <div class="section" id="return">
 <h3>7.4.4  <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#return" title="Lien permanent vers ce titre">¶</a></h3>
@@ -929,7 +929,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Indiquer la nature de l'erreur dans les expressions suivants :</p>
+<p>Indiquer la nature de l'erreur dans les expressions suivantes :</p>
 <ol class="arabic">
 <li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
@@ -968,10 +968,10 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </ol>
 </div>
 <div class="exercise" id="exercise-8">
-<strong>Exercice 7.9 Cas appropriés</strong><p>Parmis les cas suivants, quel structure de contrôle utiliser ?</p>
+<strong>Exercice 7.9 Cas appropriés</strong><p>Parmi les cas suivants, quelle structure de contrôle utiliser ?</p>
 <ol class="arabic simple">
-<li><p>Test qu'une variable soit dans un interval donné.</p></li>
-<li><p>Actions suivant un choix multiple de l'utilsateur</p></li>
+<li><p>Test qu'une variable est dans un interval donné.</p></li>
+<li><p>Actions suivant un choix multiple de l'utilisateur</p></li>
 <li><p>Rechercher un caractère particulier dans une chaîne de caractère</p></li>
 <li><p>Itérer toutes les valeurs paires sur un interval donné</p></li>
 <li><p>Demander la ligne suivante du télégramme à l'utilisateur jusqu'à <code class="docutils literal notranslate"><span class="pre">STOP</span></code></p></li>
@@ -1008,7 +1008,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

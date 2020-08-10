@@ -20,7 +20,7 @@ Le préprocesseur interprète une macro avec paramètres que si la parenthèse o
 
     int u = f(1)
 
-Le préprocesseur génère ceci et le compilateur retournera une erreur du type ``identification x non déclaré``.
+Le préprocesseur génère ceci et le compilateur retournera une erreur du type ``identification x non déclarés``.
 
 .. code-block:: c
 

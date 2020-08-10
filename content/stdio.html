@@ -411,7 +411,7 @@
 </dd>
 </dl>
 <div class="exercise" id="exercise-0">
-<strong>Exercice 9.1 Mot du jour</strong><p>Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.</p>
+<strong>Exercice 9.1 Mot du jour</strong><p>Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -503,7 +503,7 @@
 </div>
 <div class="section" id="printf">
 <h2>9.3  printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifieurs débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
+<p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -519,7 +519,7 @@
 </div>
 <p>Il définit que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> prend en paramètre un format suivi de <code class="docutils literal notranslate"><span class="pre">...</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme toutes celles de la même catégorie sont dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code class="docutils literal notranslate"><span class="pre">&quot;Mes</span> <span class="pre">nombres</span> <span class="pre">préférés</span> <span class="pre">sont</span> <span class="pre">%d</span> <span class="pre">et</span> <span class="pre">%d,</span> <span class="pre">mais</span> <span class="pre">surtout</span> <span class="pre">%s&quot;</span></code> demandera trois paramètres additionnels :</p>
 <p>La fonction retourne le nombre de caractères formatés ou <code class="docutils literal notranslate"><span class="pre">-1</span></code> en cas d'erreur.</p>
-<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
+<p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
 </pre></div>
 </div>
@@ -543,7 +543,7 @@
 <div class="section" id="exemples">
 <h3>9.3.1  Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
 <span id="index-0"></span><table class="docutils align-default" id="id2">
-<caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formattage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<caption><span class="caption-number">Tableau 9.1 </span><span class="caption-text">Exemple de formatage avec <code class="code docutils literal notranslate"><span class="pre">printf</span></code></span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 58%" />
 <col style="width: 30%" />
@@ -609,7 +609,7 @@
 </div>
 <div class="section" id="entrees-formatees">
 <h2>9.4  Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire un <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
+<p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">scanf</span></code> est par exemple utilisée à cette fin :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -820,7 +820,7 @@ poussière
 </div>
 <p>Dans cet exemple je capture les nombres de 0 à 9 <code class="docutils literal notranslate"><span class="pre">0-9</span></code> (10), les caractères majuscules et minuscules <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> (52), ainsi que les caractères <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
 <div class="exercise" id="exercise-5">
-<strong>Exercice 9.6 Bugs</strong><p>Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
+<strong>Exercice 9.6 Bugs</strong><p>Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
 <span class="kt">long</span> <span class="n">j</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">u</span><span class="p">;</span>
@@ -985,7 +985,7 @@ retturn EXIT_FAILURE;
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

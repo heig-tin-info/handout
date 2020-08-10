@@ -237,7 +237,7 @@
                 
                   <li class="toctree-l2"><a href="#macros" class="reference internal">Macros</a></li>
                 
-                  <li class="toctree-l2"><a href="#debogage" class="reference internal">Debogage</a></li>
+                  <li class="toctree-l2"><a href="#debogage" class="reference internal">Débogage</a></li>
                 
                   <li class="toctree-l2"><a href="#caractere-d-echappement" class="reference internal">Caractère d'échappement</a></li>
                 
@@ -409,7 +409,7 @@
 <p>Le coeur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (<code class="docutils literal notranslate"><span class="pre">#</span></code>), <em>hash</em> en anglais et utilisé récemment comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (<code class="docutils literal notranslate"><span class="pre">♯</span></code>) présent sur les pavés numériques de téléphone.</p>
 <p>Le vocabulaire du préprocesseur est le suivant :</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">#include</span></code></dt><dd><p>Inclu un fichier dans le fichier courant</p>
+<dt><code class="docutils literal notranslate"><span class="pre">#include</span></code></dt><dd><p>Inclus un fichier dans le fichier courant</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">#define</span></code></dt><dd><p>Crée une définition (Macro)</p>
 </dd>
@@ -486,7 +486,7 @@ OWNER_NAME
 <h2>16.2  Extensions des fichiers<a class="headerlink" href="#extensions-des-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Par convention, et selon le standard GNU, les extensions suivantes sont en vigueur :</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">.h</span></code></dt><dd><p>Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions, ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">.h</span></code></dt><dd><p>Fichier d'en-tête ne comportant que des définitions préprocesseur, des déclarations (structures, unions ...) et des prototypes de fonction, mais aucun code exécutable. Ce fichier sera soumis au préprocesseur.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">.c</span></code></dt><dd><p>Fichier source C comportant les implémentations de fonction et les variables globales. Ce fichier sera soumis au préprocesseur.</p>
 </dd>
@@ -529,7 +529,7 @@ OWNER_NAME
 <span class="gp">#</span> <span class="m">3</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
 </pre></div>
 </div>
-<p>La directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> est principalement utilisée pour include des fichiers d'en-tête (<em>header</em>), mais rarement (jamais), des fichiers C.</p>
+<p>La directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> est principalement utilisée pour inclure des fichiers d'en-tête (<em>header</em>), mais rarement (jamais), des fichiers C.</p>
 </div>
 </div>
 <div class="section" id="definitions">
@@ -553,7 +553,7 @@ OWNER_NAME
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc main.c -DWINDOW_SIZE<span class="o">=</span><span class="m">42</span>
 </pre></div>
 </div>
-<p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacé par le contenu de sa définition. <strong>C'est une remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire :</p>
+<p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. <strong>C'est un remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MAIN int main(</span>
 <span class="cp">#define BEGIN ) {</span>
 <span class="cp">#define END return 0; }</span>
@@ -600,7 +600,7 @@ OWNER_NAME
 <p>On appel <strong>macro</strong> une fonction définie au niveau du préprocesseur.</p>
 </div>
 <div class="section" id="debogage">
-<h2>16.6  Debogage<a class="headerlink" href="#debogage" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>16.6  Débogage<a class="headerlink" href="#debogage" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="error">
 <h3>16.6.1  #error<a class="headerlink" href="#error" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette directive génère une erreur avec le texte qui suit la directive :</p>
@@ -624,7 +624,7 @@ OWNER_NAME
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">__DATE__</span></code></dt><dd><p>Est remplacé par la date sous la forme <code class="docutils literal notranslate"><span class="pre">&quot;Mmm</span> <span class="pre">dd</span> <span class="pre">yyyy&quot;</span></code></p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">__TIME__</span></code></dt><dd><p>Est remplacé par l'heure au moment du pr-processing <code class="docutils literal notranslate"><span class="pre">&quot;hh:mm:ss&quot;</span></code></p>
+<dt><code class="docutils literal notranslate"><span class="pre">__TIME__</span></code></dt><dd><p>Est remplacé par l'heure au moment du pre-processing <code class="docutils literal notranslate"><span class="pre">&quot;hh:mm:ss&quot;</span></code></p>
 </dd>
 </dl>
 </div>
@@ -761,7 +761,7 @@ OWNER_NAME
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -393,14 +393,14 @@
             
   <div class="section" id="qualite-et-testabilite">
 <h1>20  Qualité et Testabilité<a class="headerlink" href="#qualite-et-testabilite" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelque soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophique.</p>
+<p>Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.</p>
 <p>Voici quelques exemples célèbres de ratés logiciels :</p>
 <dl class="simple">
-<dt>La sonde martienne Mariner</dt><dd><p>En 1962, un bogue logiciel à causé l'échec de la mission avec la destruction de la fusée apès qu'elle ait divergé de sa trajectoire. Une formule a mal été retranscrite depuis le papier en code exécutable. Des tests suffisants auraient évité cet échec</p>
+<dt>La sonde martienne Mariner</dt><dd><p>En 1962, un bogue logiciel a causé l'échec de la mission avec la destruction de la fusée après qu'elle ait divergé de sa trajectoire. Une formule a mal été retranscrite depuis le papier en code exécutable. Des tests suffisants auraient évité cet échec.</p>
 </dd>
-<dt>Un pipeline sovietique de gaz</dt><dd><p>En 1982, un bug a été introduit dans un ordinateur canadien acheté pour le control d'un pipeline de gas trans-sibérien. L'erreur est reportée comme la plus large explosion jamais enregistrée d'origine non nucléaire.</p>
+<dt>Un pipeline soviétique de gaz</dt><dd><p>En 1982, un bug a été introduit dans un ordinateur canadien acheté pour le contrôle d'un pipeline de gaz transsibérien. L'erreur est reportée comme la plus large explosion jamais enregistrée d'origine non nucléaire.</p>
 </dd>
-<dt>Le générateur de nombre pseudo-aléatoire Kerberos</dt><dd><p>Kerberos est un système de sécurité utilisé par Microsoft pour chiffer les mot de passes des comptes Windows. Une erreur de code lors de la génération d'une <a class="reference external" href="https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire">graine aléatoire</a> a permi de façon triviale pendant 8 ans de pénétrer n'importe quel ordinateur utilisant une authentification Kerberos.</p>
+<dt>Le générateur de nombre pseudo-aléatoire Kerberos</dt><dd><p>Kerberos est un système de sécurité utilisé par Microsoft pour chiffrer les mots de passe des comptes Windows. Une erreur de code lors de la génération d'une <a class="reference external" href="https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire">graine aléatoire</a> a permis de façon triviale pendant 8 ans de pénétrer n'importe quel ordinateur utilisant une authentification Kerberos.</p>
 </dd>
 <dt>La division entière sur Pentium</dt><dd><p>En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division <span class="math notranslate nohighlight">\(4195835.0/3145727.0\)</span> menait à <span class="math notranslate nohighlight">\(1.33374\)</span> au lieu de <span class="math notranslate nohighlight">\(1.33382\)</span></p>
 </dd>
@@ -409,7 +409,7 @@
 <h2>20.1  Hacking<a class="headerlink" href="#hacking" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="buffer-overflow">
 <h3>20.1.1  Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant &quot;le jardinage mémoire&quot;. Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctements implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
+<p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant &quot;le jardinage mémoire&quot;. Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
 <p>Considérons le programme suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -441,7 +441,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyé des privilèges administrateurs. Testons ce programme :</p>
+<p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc u.c -fno-stack-protector
 <span class="gp">$</span> ./a.out
 <span class="go">Password: starwars</span>
@@ -455,7 +455,7 @@
 <span class="go">Wrong Password</span>
 </pre></div>
 </div>
-<p>Et maintenant essayons avec un mot de passe magique...</p>
+<p>Et maintenant, essayons avec un mot de passe magique...</p>
 </div>
 </div>
 <div class="section" id="tests-unitaires">
@@ -484,7 +484,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -29,7 +29,7 @@ Il y a une arborescence par disque physique ``C:``, ``D:``, une arborescence par
 
     /
     ├── bin                   Programmes exécutables cruciaux
-    ├── dev                   Périphériques (clavier, souris, ...)
+    ├── dev                   Périphériques (clavier, souris ...)
     ├── usr
     │   └── bin               Programmes installés
     ├── mnt                   Points de montage (disques réseaux, CD, clé USB)
@@ -53,7 +53,7 @@ La localisation d'un fichier au sein d'un système de fichier peut être soit **
 - Slash ``/`` sous POSIX
 - Antislash ``\`` sous Windows
 
-Le chemin ``/usr/bin/.././bin/../../home/john/documents`` est correct mais il n'est pas `canonique <https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)>`__. La forme canonique est ``/home/john/documents``. Un chemin peut être relatif s'il ne commence pas par un ``/``: ``../bin``. Sous Windows c'est pareil mais la racine différemment selon le type de média ``C:\``, ``\\network``, ...
+Le chemin ``/usr/bin/.././bin/../../home/john/documents`` est correct, mais il n'est pas `canonique <https://fr.wikipedia.org/wiki/Canonique_(math%C3%A9matiques)>`__. La forme canonique est ``/home/john/documents``. Un chemin peut être relatif s'il ne commence pas par un ``/``: ``../bin``. Sous Windows c'est pareil, mais la racine différemment selon le type de média ``C:\``, ``\\network``, ...
 
 Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.
 
@@ -62,13 +62,13 @@ Navigation
 
 Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :
 
-- ``ls`` est un raccourcis du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
-- ``cd`` pour *change directory* permet de naviger dans l'arboresence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
+- ``ls`` est un raccourci du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
+- ``cd`` pour *change directory* permet de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
 
 Format d'un fichier
 ===================
 
-Un fichier peut avoir un contenu arbitraire; une suite de zéros et de uns binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un `fichier texte <https://fr.wikipedia.org/wiki/Fichier_texte>`__. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un `fichier binaire <https://fr.wikipedia.org/wiki/Fichier_binaire>`__.
+Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un `fichier texte <https://fr.wikipedia.org/wiki/Fichier_texte>`__. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un `fichier binaire <https://fr.wikipedia.org/wiki/Fichier_binaire>`__.
 
 La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :
 
@@ -212,7 +212,7 @@ Navigation dans un fichier
 
 Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.
 
-La navigation dans un fichier n'est possible que si le fichier est *seekable*. Généralement les pointeurs de fichiers ``stdin``, ``stdout`` et ``stderr`` ne sont pas *seekable*, et il n'est pas possible de se déplacer dans le fichier mais seulement écrire dedans.
+La navigation dans un fichier n'est possible que si le fichier est *seekable*. Généralement les pointeurs de fichiers ``stdin``, ``stdout`` et ``stderr`` ne sont pas *seekable*, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.
 
 fseek
 -----
@@ -387,7 +387,7 @@ Historiquement les descripteurs de fichiers sont appelés ``FILE`` alors qu'ils 
 - ``1``. ``STDOUT``,
 - ``2``. ``STDERR``,
 
-sont ouverts au début du programme. Le premier fichier ouvert, par exemple avec ``fopen`` sera très probablement assigné à l'identifiant ``3``.
+sont ouverts au début du programme. Le premier fichier ouvert par exemple avec ``fopen`` sera très probablement assigné à l'identifiant ``3``.
 
 Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme ``strace``:
 
@@ -415,7 +415,7 @@ Pour mémoire ``strace`` permet de capturer les appels systèmes du programme pa
     write(3, "k", 1)                        = 1
     write(1, "l", 1l)                        = 1
 
-On peut voir que l'on lit ``k\n`` sur le flux ``0``, soit ``stdin``, puis que le fichier ``file`` est ouvert, il porte l'identifiant ``3``, enfin on écrit sur ``1``, ``2`` et ``3``.
+On peut voir qu’on lit ``k\n`` sur le flux ``0``, soit ``stdin``, puis que le fichier ``file`` est ouvert, il porte l'identifiant ``3``, enfin on écrit sur ``1``, ``2`` et ``3``.
 
 Formats de sérialisation
 ========================
@@ -432,7 +432,7 @@ Yémen      Aden     25.7   26.0   27.2   28.9  31.0  32.7  32.7  31.5  31.6  28
 Russie     Yakutsk  -38.6  -33.8  -20.1  -4.8  7.5   16.4  19.5  15.2  6.1   -7.8  -27.0  -37.6
 =========  =======  =====  =====  =====  ====  ====  ====  ====  ====  ====  ====  =====  =====
 
-Il existe plusieurs manière d'écrire ces informations dans un fichier :
+Il existe plusieurs manières d'écrire ces informations dans un fichier :
 
 - Écriture tabulée
 - Écriture avec remplissage
@@ -485,13 +485,13 @@ Ce fichier peut être observé avec un lecteur hexadécimal :
     00000190  30 09 2d 33 37 2e 36 0a                           |0.-37.6.|
     00000198
 
-L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.
+L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.
 
 Format avec remplissage
 -----------------------
 
-Pour palier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours aligné avec la
-48 ième colonne :
+Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
+48e colonne :
 
 .. code-block:: text
 
@@ -506,9 +506,9 @@ Pour palier au défaut du format tabulé, il est possible d'écrire le fichier e
     Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26.01
     Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
 
-Idéalement on utilise comme caractère de remplissage le caractère nulle ``\0`` mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
+Idéalement on utilise comme caractère de remplissage le caractère nulle ``\0``, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
 
-La lecture aléatoire de ce type de fichier est facilitée car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caracètres, la ville sur 9 caractères et chaque température sur 7 caractères.
+La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.
 
 L'utilisation de ``fseek`` est par conséquent utile :
 
@@ -522,12 +522,12 @@ L'utilisation de ``fseek`` est par conséquent utile :
     fseek(fd, 11 + 9 + month * 7 SEEK_CUR);
     fscanf(fd, "%lf", &temperature);
 
-L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 carctères pour le nom des villes.
+L'incovénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.
 
 Format sérialisé
 ----------------
 
-Des langages de sérialisation permettent de stucturer de l'information en utilisant un format spécifique. Ici `JSON <https://fr.wikipedia.org/wiki/JavaScript_Object_Notation>`__ :
+Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici `JSON <https://fr.wikipedia.org/wiki/JavaScript_Object_Notation>`__ :
 
 .. code-block:: json
 
@@ -570,9 +570,9 @@ Des langages de sérialisation permettent de stucturer de l'information en utili
         }
     ]
 
-L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est à dire qu'il est facilement lisible depuis différents langage de programmation.
+L'avantage de ce type de format est qu'il est facilement modifiable avec un éditeur de texte et qu'il est très interopérable. C'est-à-dire qu'il est facilement lisible depuis différents langages de programmation.
 
-En C, on pourra utilier la bibliothèque logicielle `json-c <https://github.com/json-c/json-c>`__.
+En C, on pourra utiliser la bibliothèque logicielle `json-c <https://github.com/json-c/json-c>`__.
 
 -----
 

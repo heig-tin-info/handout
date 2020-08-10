@@ -401,9 +401,9 @@
 <a class="reference internal image-reference" href="../_images/hamilton.jpg"><img alt="Margaret Hamilton, directrice projet AGC" src="../_images/hamilton.jpg" style="width: 372.0px; height: 472.79999999999995px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a class="reference external" href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a class="reference external" href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
+<p>À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du <a class="reference external" href="https://github.com/chrislgarry/Apollo-11">Apollo Guidance Computer</a> ont été publiées sur GitHub. Le langage est l'assembler <a class="reference external" href="https://www.ibiblio.org/apollo/yaYUL.html">yaYUL</a> dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.</p>
 <p>Néanmoins, dans ce langage assembleur étrange, le code reste <strong>monolithique</strong> et toutes les variables sont globales.</p>
-<p>Un programme convenablement <strong>structuré</strong> est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un <a class="reference external" href="https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs">téléencéphale hautement développé et son pouce préhenseur</a> aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les <a class="reference external" href="https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)">effets de bords</a>.</p>
+<p>Un programme convenablement <strong>structuré</strong> est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un <a class="reference external" href="https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs">télencéphale hautement développé et son pouce préhenseur</a> aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les <a class="reference external" href="https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)">effets de bords</a>.</p>
 <p>Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :</p>
 <ul class="simple">
 <li><p>D'un identifiant unique</p></li>
@@ -451,7 +451,7 @@
 </pre></div>
 </div>
 <p>Pour des recettes complexes, il se pourrait que la fonction <code class="docutils literal notranslate"><span class="pre">slice_and_blend</span></code> soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que <code class="docutils literal notranslate"><span class="pre">slice</span></code> (découper) ou <code class="docutils literal notranslate"><span class="pre">blend_together</span></code> (incorporer).</p>
-<p>Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a class="reference external" href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est à dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
+<p>Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a class="reference external" href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
 <p>On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction <code class="docutils literal notranslate"><span class="pre">slice</span></code>, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">herb</span> <span class="nf">slice</span><span class="p">(</span><span class="n">herb</span> <span class="n">a</span><span class="p">);</span>
 </pre></div>
@@ -485,7 +485,7 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. A chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
+<p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
 </div>
 </div>
 <div class="section" id="prototype">
@@ -635,8 +635,8 @@
 </div>
 <div class="section" id="recursion">
 <h2>10.5  Récursion<a class="headerlink" href="#recursion" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle même.</p>
-<p>Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de fibonacci jusqu'à <code class="docutils literal notranslate"><span class="pre">n</span></code> :</p>
+<p>La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle-même.</p>
+<p>Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de Fibonacci jusqu'à <code class="docutils literal notranslate"><span class="pre">n</span></code> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -653,7 +653,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Il peut sembler plus logique de raisonner de façon récursive. Quelque soit l'itération à laquelle l'on soit, l'assertion suivante est valable :</p>
+<p>Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :</p>
 <blockquote>
 <div><p>fib(n) == fib(n - 1) + fib(n - 2)</p>
 </div></blockquote>
@@ -693,26 +693,26 @@ fib(0)   2x
 fib(x)  13x
 </pre></div>
 </div>
-<p>Pour calculer la somme de fibonacci, il faut appeler 13 fois la fonction. On le verra plus tard mais la complexité algoritmique de cette fonction est dite <span class="math notranslate nohighlight">\(O(2^n)\)</span>. C'est à dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :</p>
+<p>Pour calculer la somme de Fibonacci, il faut appeler 13 fois la fonction. On le verra plus tard, mais la complexité algorithmique de cette fonction est dite <span class="math notranslate nohighlight">\(O(2^n)\)</span>. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :</p>
 <div class="math notranslate nohighlight">
 \[T(n) = O\left(\frac{1+\sqrt(5)}{2}^n\right) = O\left(1.6180^n\right)\]</div>
 <p>Ce terme 1.6180 est appelé <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_d%27or">le nombre d'or</a>.</p>
 <p>Ainsi pour calculer fib(100) il faudra sept cent quatre-vingt-douze trillions soixante-dix mille huit cent trente-neuf billions huit cent quarante-huit milliards trois cent soixante-quatorze millions neuf cent douze mille deux cent quatre-vingt-douze appels à la fonction <cite>fib</cite> (792'070'839'848'374'912'292). Pour un processeur Core i7 (2020) capable de calculer environ 100 GFLOPS (milliards d'opérations par seconde), il lui faudra tout de même 251 ans.</p>
-<p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. C'est à dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
-<p>Généralement les algorithmes récursifs (s'appelant eux même) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
+<p>En revanche, dans l'approche itérative, on constate qu'une seule boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.</p>
+<p>Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.</p>
 <p>Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.</p>
 </div>
 <div class="section" id="memoisation">
 <h2>10.6  Mémoïsation<a class="headerlink" href="#memoisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En informatique la <a class="reference external" href="https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation">mémoïsation</a> est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en <a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_dynamique">programmation dynamique</a>.</p>
-<p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutiles de fois. La parade est de mémoriser pour chaque appel de <code class="docutils literal notranslate"><span class="pre">fib</span></code>, la sortie correspondante à l'entrée.</p>
+<p>Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de <code class="docutils literal notranslate"><span class="pre">fib</span></code>, la sortie correspondante à l'entrée.</p>
 <p>Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">memoize(Cache</span> <span class="pre">*cache,</span> <span class="pre">int</span> <span class="pre">input,</span> <span class="pre">int</span> <span class="pre">output)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">memoize_has(Cache</span> <span class="pre">*cache,</span> <span class="pre">int</span> <span class="pre">input)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">memoize_get(Cache</span> <span class="pre">*cache,</span> <span class="pre">int</span> <span class="pre">input)</span></code></p></li>
 </ul>
-<p>La première fonction mémorise la valeur de sortie <code class="docutils literal notranslate"><span class="pre">output</span></code> liée à la valeur d'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>. Pour des raisons de simplicité d'utilsation, la fonction retourne la valeur de sortie <code class="docutils literal notranslate"><span class="pre">output</span></code>.</p>
+<p>La première fonction mémorise la valeur de sortie <code class="docutils literal notranslate"><span class="pre">output</span></code> liée à la valeur d'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie <code class="docutils literal notranslate"><span class="pre">output</span></code>.</p>
 <p>La seconde fonction <code class="docutils literal notranslate"><span class="pre">memoize_has</span></code> vérifie si une valeur de correspondance existe pour l'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>. Elle retourne <code class="docutils literal notranslate"><span class="pre">true</span></code> en cas de correspondance et <code class="docutils literal notranslate"><span class="pre">false</span></code> sinon.</p>
 <p>La troisième fonction <code class="docutils literal notranslate"><span class="pre">memoize_get</span></code> retourne la valeur de sortie correspondante à la valeur d'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
 <p>Notre fonction récursive sera ainsi modifiée comme suit :</p>
@@ -768,7 +768,7 @@ fib(x)  13x
 <span class="go">10</span>
 </pre></div>
 </div>
-<p>Le programme reçois sur <code class="docutils literal notranslate"><span class="pre">stdin</span></code> les pièces introduites dans la machine. Les deux arguments passés au programme <code class="docutils literal notranslate"><span class="pre">ptm</span></code> sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. <code class="docutils literal notranslate"><span class="pre">stdout</span></code> contient les valeurs rendue à l'utilisateur. La valeur <code class="docutils literal notranslate"><span class="pre">ticket</span></code> correspond au ticket distribué.</p>
+<p>Le programme reçoit sur <code class="docutils literal notranslate"><span class="pre">stdin</span></code> les pièces introduites dans la machine. Les deux arguments passés au programme <code class="docutils literal notranslate"><span class="pre">ptm</span></code> sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. <code class="docutils literal notranslate"><span class="pre">stdout</span></code> contient les valeurs rendues à l'utilisateur. La valeur <code class="docutils literal notranslate"><span class="pre">ticket</span></code> correspond au ticket distribué.</p>
 <p>Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.</p>
 </div>
 <div class="exercise" id="exercise-3">
@@ -793,7 +793,7 @@ fib(x)  13x
 <p>Quel est votre conclusion sur cette fonction ?</p>
 </div>
 <div class="exercise" id="exercise-4">
-<strong>Exercice 10.5 Mauvaise somme</strong><p>Le programme suivant compile sans erreurs graves mais ne fonctionne pas correctement.</p>
+<strong>Exercice 10.5 Mauvaise somme</strong><p>Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
@@ -823,7 +823,7 @@ fib(x)  13x
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue :</p>
+<p>Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./sum
 <span class="go">8527952</span>
 </pre></div>
@@ -846,7 +846,7 @@ fib(x)  13x
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

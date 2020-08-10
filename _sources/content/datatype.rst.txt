@@ -250,7 +250,7 @@ Types réformés
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
 .. _stdint:
-.. table:: Entiers standard définis par ``stdint``
+.. table:: Entiers standard défini par ``stdint``
 
     +-----------------------------------------------+----------+------------------+----------+
     | Type                                          | Signe    | Profondeur       | Format   |
@@ -306,9 +306,9 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
 Modèle de donnée
 ^^^^^^^^^^^^^^^^
 
-Comme nous l'avons évoqué plus haut, la taille des entiers ``short``, ``int``, ... n'est pas précisément définie par le standard. On sait qu'un ``int`` contient **au moins** 16-bits mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment conscensieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
+Comme nous l'avons évoqué plus haut, la taille des entiers ``short``, ``int``, ... n'est pas précisément définie par le standard. On sait qu'un ``int`` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
 
-Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un ``int`` comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du ``int`` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
+Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un ``int`` comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du ``int`` sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?
 
 La première solution est de toujours utiliser les types proposés par ``<stdint.h>`` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
@@ -393,7 +393,7 @@ Prenons l'exemple d'un nombre entier exprimé sur 8-bits, on peut admettre facil
     └─┴─┴─┴─┴─┴─┴─┴─┘
                     , / 2^0     ----> 83 / 1 = 83
 
-Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre ``0b01010011`` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisé par 8 (:math:`2^3`). On parviens alors à exprimer une grandeur réelle comportant une epartie décimale :
+Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre ``0b01010011`` avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 (:math:`2^3`). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :
 
 .. code-block::
 
@@ -413,7 +413,7 @@ Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens,
               │0│1│1│ / 2^3     ----> 83 / 8 = 10.375
               └─┴─┴─┘
 
-Cette solution est élégante mais demande a présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
+Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
 Virgule flottante
 -----------------
@@ -432,7 +432,7 @@ Imaginons alors que l'on sacrifie 3 bits sur les 8 pour encoder l'information de
     └─┴─┴─┴─┴─┴─┴─┴─┘
        └────────────> / 2^1 ----> 19 / 2 = 9.5
 
-Notre construction nous permet toujours d'exprimer des grandeurs réelles mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre :math:`1\cdot2^{7}=0.0078125` et :math:`63`. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
+Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre :math:`1\cdot2^{7}=0.0078125` et :math:`63`. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
 Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :
 
@@ -465,7 +465,7 @@ Avec :
 :math:`f_k`
     Entier non négatif plus petit que la base :math:`b`.
 
-Etant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres ``binary16``, ``binary32`` ou ``binary64``, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés.
+Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres ``binary16``, ``binary32`` ou ``binary64``, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisées.
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (`FPU <https://en.wikipedia.org/wiki/Floating-point_unit>`__ pour *Floating point unit*) sont les suivants :
 
@@ -481,9 +481,9 @@ Prenons le temps de faire quelques observations.
 
 - Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.
 - La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.
-- La base ayant été fixée à 2, il est possible d'exprimer :math:`1/1024` sans erreur de précision mais pas :math:`1/1000`.
+- La base ayant été fixée à 2, il est possible d'exprimer :math:`1/1024` sans erreur de précision, mais pas :math:`1/1000`.
 - Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent `(10 à 100x) <https://stackoverflow.com/a/15585448/2612235>`__ pour faire des calculs en virgule flottante.
-- Bien que le standard **C99** définisse les types virgule flottante ``float``, ``double`` et ``long double``, ils ne definissent pas la précision avec lesquelles ces nombres sont exprimés car cela dépend de l'architecture du processeur utilisé.
+- Bien que le standard **C99** définisse les types virgule flottante ``float``, ``double`` et ``long double``, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé.
 
 Simple précision
 ----------------
@@ -534,7 +534,7 @@ Vient s'ajouter les valeurs particulières suivantes :
 Double précision
 ----------------
 
-La double précision est similaire à la simple précision mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
+La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
 
 .. exercise:: Expressions arithmétiques flottantes
 
@@ -567,7 +567,7 @@ Historiquement, alors que les informations dans un ordinateur ne sont que des 1 
 
     Table ASCII ASA X3.4 établie en 1963
 
-Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.
+Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.
 
 .. figure:: ../../assets/figures/dist/encoding/ascii.*
 
@@ -575,7 +575,7 @@ Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas le
 
 .. index:: ISO/IEC 8859, latin1
 
-Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
+Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
 .. todo:: Fix vertical bars
 
@@ -583,11 +583,11 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
     Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)
 
-Ce standard a généré durant des décénies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
+Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
 Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé `Windows-1252 <https://fr.wikipedia.org/wiki/Windows-1252>`__ s'inspirant de `ISO-8859-1 <https://fr.wikipedia.org/wiki/ISO/CEI_8859-1>`__. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
-Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), les coréens (한국어), les chinois avec le chinois simplifé (官话) et le chinois traditionel (官話), les japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
+Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
@@ -599,7 +599,7 @@ Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du 
 
 L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. `Ken Thompson <https://fr.wikipedia.org/wiki/Ken_Thompson>`__, dont nous avons déjà parlé en :ref:`introduction <thompson>` est à l'origine de ce standard. Par exemple le *devanagari* caractère ``ह`` utilisé en Sanskrit possède la dénomination unicode :unicode:`U+0939` et s'encode sur 3 octets: ``0xE0 0xA4 0xB9``
 
-En programmation C, un caractère ``char`` ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
+En programmation C, un caractère ``char`` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.
 
 Voici par exemple comment déclarer une variable contenant le caractère dollar :
 
@@ -622,7 +622,7 @@ Attention donc au caractère ``'3'`` qui correspond à la grandeur hexadécimale
 Chaîne de caractères
 ====================
 
-Une :index:`chaîne de caractères` est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
+Une :index:`chaîne de caractères` est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit ``NUL`` ou ``\0``.
 
 La chaîne de caractère ``Hello`` sera en mémoire stockée en utilisant les codes ASCII suivants.
 
@@ -709,7 +709,7 @@ Un `booléen <https://fr.wikipedia.org/wiki/Bool%C3%A9en>`__ est un type de donn
 
 La convention est d'utiliser ``1`` pour mémoriser un état vrai, et ``0`` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les :index:`booléens` ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête ``stdbool.h``. Avant cela le type boolean était ``_Bool`` et définir les états vrais et faux étaient à la charge du dévelopeur.
+Les :index:`booléens` ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête ``stdbool.h``. Avant cela le type boolean était ``_Bool`` et définir les états vrais et faux était à la charge du développeur.
 
 .. code-block:: c
 
@@ -719,9 +719,9 @@ Les :index:`booléens` ont étés introduits formellement en C avec **C99** et n
     bool has_tail = true;
 
 
-Afin de faciliter la lecture du code, il est courant de préfixer les variables booléenes avec les prefixes ``is_`` ou ``has_``.
+Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les prefixes ``is_`` ou ``has_``.
 
-A titre d'exemple, si l'on souhaite stocker le genre d'un individu (male, ou femelle), on pourrait utiliser la variable ``is_male``.
+À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable ``is_male``.
 
 Énumérations
 ============
@@ -769,7 +769,7 @@ ou encore :
         CODE_US=1
     } CountryCodes;
 
-Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter des éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.
+Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.
 
 L'utilisation d'un type énuméré peut être la suivante :
 
@@ -801,7 +801,7 @@ Type vide (*void*)
 
 .. index:: void
 
-Le type ``void`` est particulier. Il s'agit d'un type dit **incomplet** car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
+Le type ``void`` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :
 
 .. code-block:: c
 
@@ -825,11 +825,11 @@ Promotion implicite
 ===================
 
 Généralement le type ``int`` est de la même largeur que le bus mémoire de donnée d'un ordinateur.
-C'est à dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
-du processeur. Les *registres* du processeur, autrement dit ses casiers mémoire, sont au moins
+C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
+du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins
 assez grand pour  contenir un ``int``.
 
-Aussi, la plupart des types de taille inférieure à ``int`` sont automatiquement et implicitement promu en ``int``. Le résultat de ``a + b`` lorsque ``a`` et ``b`` sont des ``char`` sera automatiquement un ``int``.
+Aussi, la plupart des types de taille inférieure à ``int`` sont automatiquement et implicitement promus en ``int``. Le résultat de ``a + b`` lorsque ``a`` et ``b`` sont des ``char`` sera automatiquement un ``int``.
 
 +---------+-----------------------+----------+
 | char    | :math:`\Rightarrow`   | int      |
@@ -890,7 +890,7 @@ Effets du transtypage
 Le changement de type forcé (transtypage) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
-est plus important, il n'y a pas de problème. A l'inverse, on peut
+est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
 la valeur représentée !
 
@@ -911,7 +911,7 @@ Transtypage d'un réel en entier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La conversion d'un nombre réel (*double* ou *float*) en entier (signé)
-doit être étudié pour éviter tout problème. Le type entier doit être
+doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).
 
 .. code-block:: c
@@ -950,7 +950,7 @@ pose un problème de précision de calcul.
     double d=0.1111111111111111;
     float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 
-A l'exécution, il y a une perte de précision lors de la conversion ce
+À l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Conversion de types
@@ -1053,9 +1053,9 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         #. ``true``
         #. ``true``
 
-.. exercise:: Casses tête
+.. exercise:: Casse-tête
 
-    Vous participez à une revue de code et tomber sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
+    Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
 
     Pour chaque exemple, donner la valeur des variables après exécution du code.
 
@@ -1078,7 +1078,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 ------
 
-.. exercise:: Evaluation d'expressions
+.. exercise:: Évaluation d'expressions
 
     Considérons les déclarations suivantes :
 
@@ -1133,9 +1133,9 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Type de donnée idoine
 
-    Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme :
+    Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
 
-    #. Gestion d'un parking: nombre de voitures présentes
+    #. Gestion d'un parking: nombre de voitures présente
     #. Station météo
         #. Température moyenne de la journée
         #. Nombre de valeurs utilisées pour la moyenne
@@ -1153,16 +1153,16 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
 
     Donnez une expression arithmétique permettant, en fonction d’un angle donné,
-    d’indiquer que est le secteur du disque se trouvent devant la flèche. Note :
+    d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
     l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
     les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
 
-    Ecrivez un programme demandant l’angle et affichant le numéro de secteur
+    Écrivez un programme demandant l’angle et affichant le numéro de secteur
     correspondant.
 
 .. exercise:: Somme des entiers
 
-    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme :
+    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
 
     .. math::
 
@@ -1174,7 +1174,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
         \sum_{k=1}^{\inf} k = -\frac{1}{12}
 
-    Vous ne le croyez pas et décider d'utiliser le super-ordinateur `Pensées Profondes <https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste>`__ pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
+    Vous ne le croyez pas et décider d'utiliser le superordinateur `Pensées Profondes <https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste>`__ pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur ``n`` à laquelle s'arrêter.
 
     Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme ``time``:
 
@@ -1187,7 +1187,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         user    0m0.172s
         sys     0m0.016s
 
-    A partir de quelle valeur, le temps de calcul devient significativement palpable ?
+    À partir de quelle valeur, le temps de calcul devient significativement palpable ?
 
     .. solution::
 
@@ -1212,7 +1212,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         uint32_t inspected_parts, bad_parts;
         float percentage_good_parts;
 
-    A un moment du programme, on peut lire :
+    À un moment du programme, on peut lire :
 
     .. code-block:: c
 
@@ -1223,11 +1223,11 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     #. Quel résultat le développeur s'attend-il à obtenir ?
     #. Qu'obtient-il en pratique ?
     #. Pourquoi ?
-    #. Corrigez les éventuelles erreurs
+    #. Corrigez les éventuelles erreurs.
 
     .. solution::
 
-        #. Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.
+        #. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
         #. En pratique, il obtient un entier, c'est à dire toujours 0.
         #. La promotion implicite des entiers peut être découpée comme suit :
 
@@ -1237,7 +1237,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
                 (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
                 (float)percentage_good_parts = (uint32_t)percentage;
 
-            La division est donc appliquée à des entiers et non des flottnts.
+            La division est donc appliquée à des entiers et non des flottants.
 
         #. Une possible correction consiste à forcer le type d'un des membres de la division :
 
@@ -1247,9 +1247,9 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Missile Patriot
 
-    Durant la guerre du golfe le 25 février 1991, une batterie de missile américaine à Dharan en arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
+    Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 
-    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixieème de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:`ième` décimale après la virguleDes erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduit par 600 mètres d'erreur lors de la tentative d'interception.
+    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:`ième` décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
 
     Le stockage de la valeur 0.1 est donné par :
 
@@ -1257,7 +1257,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
         0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
 
-    Un registre contient donc le nombre d'heures écoulées exprimée en dixième de seconde soit pour 100 heures :
+    Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
 
     .. math::
 

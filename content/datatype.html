@@ -715,7 +715,7 @@
 <h4>6.4.3.2  Types réformés<a class="headerlink" href="#types-reformes" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.</p>
 <span id="stdint"></span><table class="docutils align-default" id="id8">
-<caption><span class="caption-number">Tableau 6.4 </span><span class="caption-text">Entiers standard définis par <code class="docutils literal notranslate"><span class="pre">stdint</span></code></span><a class="headerlink" href="#id8" title="Lien permanent vers ce tableau">¶</a></caption>
+<caption><span class="caption-number">Tableau 6.4 </span><span class="caption-text">Entiers standard défini par <code class="docutils literal notranslate"><span class="pre">stdint</span></code></span><a class="headerlink" href="#id8" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 12%" />
@@ -800,8 +800,8 @@
 </div>
 <div class="section" id="modele-de-donnee">
 <h4>6.4.3.3  Modèle de donnée<a class="headerlink" href="#modele-de-donnee" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Comme nous l'avons évoqué plus haut, la taille des entiers <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, ... n'est pas précisément définie par le standard. On sait qu'un <code class="docutils literal notranslate"><span class="pre">int</span></code> contient <strong>au moins</strong> 16-bits mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment conscensieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
-<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code class="docutils literal notranslate"><span class="pre">int</span></code> comme valeur de comptage allant au delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code class="docutils literal notranslate"><span class="pre">int</span></code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?</p>
+<p>Comme nous l'avons évoqué plus haut, la taille des entiers <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, ... n'est pas précisément définie par le standard. On sait qu'un <code class="docutils literal notranslate"><span class="pre">int</span></code> contient <strong>au moins</strong> 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.</p>
+<p>Admettons que ce développeur sans scrupule développe un programme complexe sur sa machine de guerre 64-bits en utilisant un <code class="docutils literal notranslate"><span class="pre">int</span></code> comme valeur de comptage allant au-delà de dix milliards. Après tests, son programme fonctionne sur sa machine, ainsi que celle de son collègue. Mais lorsqu'il livre le programme à son client, le processus crash. En effet, la taille du <code class="docutils literal notranslate"><span class="pre">int</span></code> sur l'ordinateur du client est de 32-bits. Comment peut-on s'affranchir de ce type de problème?</p>
 <p>La première solution est de toujours utiliser les types proposés par <code class="docutils literal notranslate"><span class="pre">&lt;stdint.h&gt;</span></code> lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :</p>
 <table class="colwidths-given docutils align-default" id="id9">
 <caption><span class="caption-number">Tableau 6.5 </span><span class="caption-text">Modèle de données</span><a class="headerlink" href="#id9" title="Lien permanent vers ce tableau">¶</a></caption>
@@ -893,7 +893,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
                 , / 2^0     ----&gt; 83 / 1 = 83
 </pre></div>
 </div>
-<p>Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre <code class="docutils literal notranslate"><span class="pre">0b01010011</span></code> avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisé par 8 (<span class="math notranslate nohighlight">\(2^3\)</span>). On parviens alors à exprimer une grandeur réelle comportant une epartie décimale :</p>
+<p>Imaginons à présent que nous déplacions cette virgule virtuelle de trois éléments sur la gauche. En admettant que deux ingénieurs se mettent d'accord pour considérer ce nombre <code class="docutils literal notranslate"><span class="pre">0b01010011</span></code> avec une virgule fixe positionnée au quatrième bit, l'interprétation de cette grandeur serait alors la valeur entière divisée par 8 (<span class="math notranslate nohighlight">\(2^3\)</span>). On parvient alors à exprimer une grandeur réelle comportant une partie décimale :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─┬─┬─┬─┬─┬─┬─┬─┐
 │0│1│0│1│0│0│1│1│ = 2^6 + 2^4 + 2^1 + 2^0 = 64 + 16 + 2 + 1 = 83
 └─┴─┴─┴─┴─┴─┴─┴─┘
@@ -909,7 +909,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
           └─┴─┴─┘
 </pre></div>
 </div>
-<p>Cette solution est élégante mais demande a présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
+<p>Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.</p>
 </div>
 <div class="section" id="virgule-flottante">
 <h3>6.5.2  Virgule flottante<a class="headerlink" href="#virgule-flottante" title="Lien permanent vers ce titre">¶</a></h3>
@@ -921,7 +921,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
    └────────────&gt; / 2^1 ----&gt; 19 / 2 = 9.5
 </pre></div>
 </div>
-<p>Notre construction nous permet toujours d'exprimer des grandeurs réelles mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="math notranslate nohighlight">\(1\cdot2^{7}=0.0078125\)</span> et <span class="math notranslate nohighlight">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
+<p>Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre <span class="math notranslate nohighlight">\(1\cdot2^{7}=0.0078125\)</span> et <span class="math notranslate nohighlight">\(63\)</span>. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32-bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.</p>
 <p>Dernière itération, choisissons d'étendre notre espace de stockage à ,4 octets. Réservons un bit de signe pour exprimer les grandeurs négatives, 8 bits pour l'exposant et 23 bits pour la mantisse :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> ┌ Signe 1 bit
  │        ┌ Exposant 8 bits
@@ -948,7 +948,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <dt><span class="math notranslate nohighlight">\(f_k\)</span></dt><dd><p>Entier non négatif plus petit que la base <span class="math notranslate nohighlight">\(b\)</span>.</p>
 </dd>
 </dl>
-<p>Etant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code class="docutils literal notranslate"><span class="pre">binary16</span></code>, <code class="docutils literal notranslate"><span class="pre">binary32</span></code> ou <code class="docutils literal notranslate"><span class="pre">binary64</span></code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisés.</p>
+<p>Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres <code class="docutils literal notranslate"><span class="pre">binary16</span></code>, <code class="docutils literal notranslate"><span class="pre">binary32</span></code> ou <code class="docutils literal notranslate"><span class="pre">binary64</span></code>, selon le nombre de bits utilisé pour coder l'information. Les termes de <em>Single precision</em> ou <em>Double precision</em> sont aussi couramment utilisées.</p>
 <p>Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante (<a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_unit">FPU</a> pour <em>Floating point unit</em>) sont les suivants :</p>
 <table class="docutils align-default">
 <colgroup>
@@ -981,9 +981,9 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <ul class="simple">
 <li><p>Une valeur encodée en virgule flottante sera toujours une approximation d'une grandeur réelle.</p></li>
 <li><p>La précision est d'autant plus grande que le nombre de bits de la mantisse est grand.</p></li>
-<li><p>La base ayant été fixée à 2, il est possible d'exprimer <span class="math notranslate nohighlight">\(1/1024\)</span> sans erreur de précision mais pas <span class="math notranslate nohighlight">\(1/1000\)</span>.</p></li>
+<li><p>La base ayant été fixée à 2, il est possible d'exprimer <span class="math notranslate nohighlight">\(1/1024\)</span> sans erreur de précision, mais pas <span class="math notranslate nohighlight">\(1/1000\)</span>.</p></li>
 <li><p>Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent <a class="reference external" href="https://stackoverflow.com/a/15585448/2612235">(10 à 100x)</a> pour faire des calculs en virgule flottante.</p></li>
-<li><p>Bien que le standard <strong>C99</strong> définisse les types virgule flottante <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> et <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, ils ne definissent pas la précision avec lesquelles ces nombres sont exprimés car cela dépend de l'architecture du processeur utilisé.</p></li>
+<li><p>Bien que le standard <strong>C99</strong> définisse les types virgule flottante <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> et <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé.</p></li>
 </ul>
 </div>
 <div class="section" id="simple-precision">
@@ -1020,7 +1020,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </div>
 <div class="section" id="double-precision">
 <h3>6.5.4  Double précision<a class="headerlink" href="#double-precision" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La double précision est similaire à la simple précision mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
+<p>La double précision est similaire à la simple précision, mais avec une mantisse à <strong>52 bits</strong> et <strong>11 bits</strong> d'exposants.</p>
 <div class="exercise" id="exercise-2">
 <strong>Exercice 6.3 Expressions arithmétiques flottantes</strong><p>Donnez la valeur des expressions ci-dessous :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>25. + 10. + 7. – 3.
@@ -1045,24 +1045,24 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <div class="figure align-default" id="id10">
 <img alt="../_images/ascii-1963.svg" src="../_images/ascii-1963.svg" /><p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Table ASCII ASA X3.4 établie en 1963</span><a class="headerlink" href="#id10" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.</p>
+<p>Aujourd'hui la table ASCII de base définit 128 caractères qui n'incluent pas les caractères accentués.</p>
 <div class="figure align-default" id="id11">
 <img alt="../_images/ascii.svg" src="../_images/ascii.svg" /><p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Table ANSI INCITS 4-1986 (standard actuel)</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p id="index-13">Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
+<p id="index-13">Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions pour ajouter les caractères manquants tels que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard <strong>ISO/IEC 8859</strong> aussi appelé standard <em>Latin</em> définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables <strong>ISO-8859-1</strong> ou (<strong>latin1</strong>) et <strong>ISO-8859-15</strong> (<strong>latin9</strong>):</p>
 <div class="figure align-default" id="id12">
 <img alt="../_images/latin1.svg" src="../_images/latin1.svg" /><p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)</span><a class="headerlink" href="#id12" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Ce standard a généré durant des décénies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
+<p>Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs, et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.</p>
 <p>Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé <a class="reference external" href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> s'inspirant de <a class="reference external" href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO-8859-1</a>. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...</p>
-<p>Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), les coréens (한국어), les chinois avec le chinois simplifé (官话) et le chinois traditionel (官話), les japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
+<p>Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.</p>
 <p>Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard <strong>Unicode</strong> (<em>Universal Coded Character Set</em>) plus précisément nommé <strong>UTF-8</strong>.</p>
 <div class="figure align-default" id="id13">
 <img alt="../_images/encoding-trends.png" src="../_images/encoding-trends.png" />
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008 (<a class="reference external" href="https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html">src</a>)</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p id="index-14">L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a class="reference external" href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en <a class="reference internal" href="introduction.html#thompson"><span class="std std-ref">introduction</span></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code class="docutils literal notranslate"><span class="pre">ह</span></code> utilisé en Sanskrit possède la dénomination unicode <a class="reference external" href="https://unicode-table.com/en/0939/">U+0939</a> et s'encode sur 3 octets: <code class="docutils literal notranslate"><span class="pre">0xE0</span> <span class="pre">0xA4</span> <span class="pre">0xB9</span></code></p>
-<p>En programmation C, un caractère <code class="docutils literal notranslate"><span class="pre">char</span></code> ne peut exprimer sans ambiguité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
+<p>En programmation C, un caractère <code class="docutils literal notranslate"><span class="pre">char</span></code> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
 <p>Voici par exemple comment déclarer une variable contenant le caractère dollar :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;$&#39;</span><span class="p">;</span>
 </pre></div>
@@ -1080,7 +1080,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 </div>
 <div class="section" id="chaine-de-caracteres">
 <h2>6.7  Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une <span class="target" id="index-15"></span>chaîne de caractères est simplement la suite contigue de plusieurs caractère dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code class="docutils literal notranslate"><span class="pre">NUL</span></code> ou <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
+<p>Une <span class="target" id="index-15"></span>chaîne de caractères est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code class="docutils literal notranslate"><span class="pre">NUL</span></code> ou <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
 <p>La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">Hello</span></code> sera en mémoire stockée en utilisant les codes ASCII suivants.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>
 </pre></div>
@@ -1154,15 +1154,15 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <span id="booleans"></span><h2>6.8  Les booléens<a class="headerlink" href="#les-booleens" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code class="docutils literal notranslate"><span class="pre">true</span></code>) et <em>faux</em> (<code class="docutils literal notranslate"><span class="pre">false</span></code>) et destiné à représenter les états en logique booléenne (Nom venant de <a class="reference external" href="https://fr.wikipedia.org/wiki/George_Boole">George Boole</a> fondateur de l'algèbre éponyme).</p>
 <p>La convention est d'utiliser <code class="docutils literal notranslate"><span class="pre">1</span></code> pour mémoriser un état vrai, et <code class="docutils literal notranslate"><span class="pre">0</span></code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
-<p>Les <span class="target" id="index-16"></span>booléens ont étés introduits formellement en C avec <strong>C99</strong> et nécessitent l'inclusion du fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdbool.h</span></code>. Avant cela le type boolean était <code class="docutils literal notranslate"><span class="pre">_Bool</span></code> et définir les états vrais et faux étaient à la charge du dévelopeur.</p>
+<p>Les <span class="target" id="index-16"></span>booléens ont étés introduits formellement en C avec <strong>C99</strong> et nécessitent l'inclusion du fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdbool.h</span></code>. Avant cela le type boolean était <code class="docutils literal notranslate"><span class="pre">_Bool</span></code> et définir les états vrais et faux était à la charge du développeur.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
 
 <span class="kt">bool</span> <span class="n">is_enabled</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 <span class="kt">bool</span> <span class="n">has_tail</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléenes avec les prefixes <code class="docutils literal notranslate"><span class="pre">is_</span></code> ou <code class="docutils literal notranslate"><span class="pre">has_</span></code>.</p>
-<p>A titre d'exemple, si l'on souhaite stocker le genre d'un individu (male, ou femelle), on pourrait utiliser la variable <code class="docutils literal notranslate"><span class="pre">is_male</span></code>.</p>
+<p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les prefixes <code class="docutils literal notranslate"><span class="pre">is_</span></code> ou <code class="docutils literal notranslate"><span class="pre">has_</span></code>.</p>
+<p>À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable <code class="docutils literal notranslate"><span class="pre">is_male</span></code>.</p>
 </div>
 <div class="section" id="enumerations">
 <h2>6.9  Énumérations<a class="headerlink" href="#enumerations" title="Lien permanent vers ce titre">¶</a></h2>
@@ -1202,7 +1202,7 @@ définies numériquement dans le type énuméré.</p>
 <span class="p">}</span> <span class="n">CountryCodes</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter des éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.</p>
+<p>Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.</p>
 <p>L'utilisation d'un type énuméré peut être la suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">call</span><span class="p">(</span><span class="k">enum</span> <span class="n">country_codes</span> <span class="n">code</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">switch</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="p">{</span>
@@ -1228,7 +1228,7 @@ définies numériquement dans le type énuméré.</p>
 </div>
 <div class="section" id="type-vide-void">
 <h2>6.11  Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-18">Le type <code class="docutils literal notranslate"><span class="pre">void</span></code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong> car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
+<p id="index-18">Le type <code class="docutils literal notranslate"><span class="pre">void</span></code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">shout</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hey!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1248,10 +1248,10 @@ définies numériquement dans le type énuméré.</p>
 <div class="section" id="promotion-implicite">
 <h2>6.12  Promotion implicite<a class="headerlink" href="#promotion-implicite" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Généralement le type <code class="docutils literal notranslate"><span class="pre">int</span></code> est de la même largeur que le bus mémoire de donnée d'un ordinateur.
-C'est à dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
-du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoire, sont au moins
+C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
+du processeur. Les <em>registres</em> du processeur, autrement dit ses casiers mémoires, sont au moins
 assez grand pour  contenir un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<p>Aussi, la plupart des types de taille inférieure à <code class="docutils literal notranslate"><span class="pre">int</span></code> sont automatiquement et implicitement promu en <code class="docutils literal notranslate"><span class="pre">int</span></code>. Le résultat de <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> lorsque <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> sont des <code class="docutils literal notranslate"><span class="pre">char</span></code> sera automatiquement un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>Aussi, la plupart des types de taille inférieure à <code class="docutils literal notranslate"><span class="pre">int</span></code> sont automatiquement et implicitement promus en <code class="docutils literal notranslate"><span class="pre">int</span></code>. Le résultat de <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> lorsque <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> sont des <code class="docutils literal notranslate"><span class="pre">char</span></code> sera automatiquement un <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
@@ -1323,7 +1323,7 @@ passe directement à un type <em>int</em>.</p>
 <p>Le changement de type forcé (transtypage) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
-est plus important, il n'y a pas de problème. A l'inverse, on peut
+est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
 la valeur représentée !</p>
 <div class="section" id="transtypage-d-un-entier-en-reel">
@@ -1339,7 +1339,7 @@ n'a pas d'effet particulier. Le type</p>
 <div class="section" id="transtypage-d-un-reel-en-entier">
 <h4>6.12.1.2  Transtypage d'un réel en entier<a class="headerlink" href="#transtypage-d-un-reel-en-entier" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La conversion d'un nombre réel (<em>double</em> ou <em>float</em>) en entier (signé)
-doit être étudié pour éviter tout problème. Le type entier doit être
+doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
 <span class="kt">long</span> <span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 3 =&gt; perte de précision</span>
@@ -1369,7 +1369,7 @@ pose un problème de précision de calcul.</p>
 <span class="kt">float</span> <span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
 </pre></div>
 </div>
-<p>A l'exécution, il y a une perte de précision lors de la conversion ce
+<p>À l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div class="exercise" id="exercise-7">
 <strong>Exercice 6.8 Conversion de types</strong><p>On considère les déclarations suivantes :</p>
@@ -1423,7 +1423,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </ol>
 </div>
 <div class="exercise" id="exercise-10">
-<strong>Exercice 6.11 Casses tête</strong><p>Vous participez à une revue de code et tomber sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
+<strong>Exercice 6.11 Casse-tête</strong><p>Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
 <p>Pour chaque exemple, donner la valeur des variables après exécution du code.</p>
 <ol class="arabic">
 <li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
@@ -1447,7 +1447,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 <hr class="docutils" />
 <div class="exercise" id="exercise-11">
-<strong>Exercice 6.12 Evaluation d'expressions</strong><p>Considérons les déclarations suivantes :</p>
+<strong>Exercice 6.12 Évaluation d'expressions</strong><p>Considérons les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -1478,9 +1478,9 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 </div>
 </div>
 <div class="exercise" id="exercise-13">
-<strong>Exercice 6.14 Type de donnée idoine</strong><p>Pour chaque entrée suivante, indiquez le nom et le type des variabels que vous utiliseriez pour représenter les données dans ce programme :</p>
+<strong>Exercice 6.14 Type de donnée idoine</strong><p>Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :</p>
 <ol class="arabic simple">
-<li><p>Gestion d'un parking: nombre de voitures présentes</p></li>
+<li><p>Gestion d'un parking: nombre de voitures présente</p></li>
 <li><dl class="simple">
 <dt>Station météo</dt><dd><ol class="arabic simple">
 <li><p>Température moyenne de la journée</p></li>
@@ -1502,20 +1502,20 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
 secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...</p>
 <p>Donnez une expression arithmétique permettant, en fonction d’un angle donné,
-d’indiquer que est le secteur du disque se trouvent devant la flèche. Note :
+d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
 l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
 les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.</p>
-<p>Ecrivez un programme demandant l’angle et affichant le numéro de secteur
+<p>Écrivez un programme demandant l’angle et affichant le numéro de secteur
 correspondant.</p>
 </div>
 <div class="exercise" id="exercise-15">
-<strong>Exercice 6.16 Somme des entiers</strong><p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimé comme :</p>
+<strong>Exercice 6.16 Somme des entiers</strong><p>Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :</p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=1}^n k = \frac{n(n+1)}{2}\]</div>
 <p>Un grand mathématicien <a class="reference external" href="https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan">Srinivasa Ramanujan</a> (En tamoul: சீனிவாச இராமானுஜன்) à démontré que ce la somme à l'infini donne :</p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=1}^{\inf} k = -\frac{1}{12}\]</div>
-<p>Vous ne le croyez pas et décider d'utiliser le super-ordinateur <a class="reference external" href="https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste">Pensées Profondes</a> pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur <code class="docutils literal notranslate"><span class="pre">n</span></code> à laquelle s'arrêter.</p>
+<p>Vous ne le croyez pas et décider d'utiliser le superordinateur <a class="reference external" href="https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste">Pensées Profondes</a> pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur <code class="docutils literal notranslate"><span class="pre">n</span></code> à laquelle s'arrêter.</p>
 <p>Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme <code class="docutils literal notranslate"><span class="pre">time</span></code>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">time</span> ./a.out <span class="m">1000000000</span>
 <span class="go">500000000500000000</span>
@@ -1525,7 +1525,7 @@ correspondant.</p>
 <span class="go">sys     0m0.016s</span>
 </pre></div>
 </div>
-<p>A partir de quelle valeur, le temps de calcul devient significativement palpable ?</p>
+<p>À partir de quelle valeur, le temps de calcul devient significativement palpable ?</p>
 </div>
 <div class="exercise" id="exercise-16">
 <strong>Exercice 6.17 Système de vision industriel</strong><p>La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :</p>
@@ -1533,7 +1533,7 @@ correspondant.</p>
 <span class="kt">float</span> <span class="n">percentage_good_parts</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A un moment du programme, on peut lire :</p>
+<p>À un moment du programme, on peut lire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_good_parts</span> <span class="o">=</span> <span class="p">(</span><span class="n">inspected_parts</span> <span class="o">-</span> <span class="n">bad_parts</span><span class="p">)</span> <span class="o">/</span> <span class="n">inspected_parts</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1542,16 +1542,16 @@ correspondant.</p>
 <li><p>Quel résultat le développeur s'attend-il à obtenir ?</p></li>
 <li><p>Qu'obtient-il en pratique ?</p></li>
 <li><p>Pourquoi ?</p></li>
-<li><p>Corrigez les éventuelles erreurs</p></li>
+<li><p>Corrigez les éventuelles erreurs.</p></li>
 </ol>
 </div>
 <div class="exercise" id="exercise-17">
-<strong>Exercice 6.18 Missile Patriot</strong><p>Durant la guerre du golfe le 25 février 1991, une batterie de missile américaine à Dharan en arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
-<p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixieème de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:<cite>ième</cite> décimale après la virguleDes erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduit par 600 mètres d'erreur lors de la tentative d'interception.</p>
+<strong>Exercice 6.18 Missile Patriot</strong><p>Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile iraquien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport <strong>GAO/OMTEC-92-26</strong> du commandement général.</p>
+<p>Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24:sup:<cite>ième</cite> décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.</p>
 <p>Le stockage de la valeur 0.1 est donné par :</p>
 <div class="math notranslate nohighlight">
 \[0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836\]</div>
-<p>Un registre contient donc le nombre d'heures écoulées exprimée en dixième de seconde soit pour 100 heures :</p>
+<p>Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :</p>
 <div class="math notranslate nohighlight">
 \[100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000\]</div>
 <p>En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne <code class="docutils literal notranslate"><span class="pre">Q1.23</span> <span class="pre">x</span> <span class="pre">Q0.24</span> <span class="pre">=</span> <span class="pre">Q1.47</span></code> le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par <span class="math notranslate nohighlight">\(2^{47}\)</span> pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.</p>
@@ -1576,7 +1576,7 @@ correspondant.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

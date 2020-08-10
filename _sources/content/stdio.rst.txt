@@ -25,7 +25,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 
 .. exercise:: Mot du jour
 
-    Écrire un programme qui retourne un mot parmi une liste de mot, de facon aléatoire.
+    Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.
 
     .. code-block:: c
 
@@ -98,7 +98,7 @@ Cette implémentation pourrait être utilisée de la façon suivante :
 printf
 ======
 
-Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifieurs débutent par le caractère ``%`` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formater un entier non signé.
+Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi ``printf`` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifié débutent par le caractère ``%`` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise ``%d`` pour formater un entier non signé.
 
 .. code-block:: c
 
@@ -120,7 +120,7 @@ Il définit que la fonction ``printf`` prend en paramètre un format suivi de ``
 
 La fonction retourne le nombre de caractères formatés ou ``-1`` en cas d'erreur.
 
-La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant :
+La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaitre et la page Wikipedia `printf format string <https://en.wikipedia.org/wiki/Printf_format_string>`__ est d'une grande aide. Le format de construction est le suivant :
 
 .. code-block:: c
 
@@ -153,7 +153,7 @@ Exemples
 
 .. index:: printf; format
 
-.. table:: Exemple de formattage avec :code:`printf`
+.. table:: Exemple de formatage avec :code:`printf`
 
     +-------------------------------------+-------------------+--------+
     | Exemple                             | Sortie            | Taille |
@@ -193,7 +193,7 @@ Exemples
 Entrées formatées
 =================
 
-À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire un `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
+À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire une `analyse syntaxique <https://fr.wikipedia.org/wiki/Analyse_syntaxique>`__ de son contenu pour en extraire de l'information.
 
 La fonction ``scanf`` est par exemple utilisée à cette fin :
 
@@ -517,7 +517,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
 .. exercise:: Bugs
 
-    Parmi les instructions ci-dessous, indiquez celles qui sont coorectes et celle qui comportent des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.
+    Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.
 
     .. code-block:: c
 
@@ -627,11 +627,11 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
             int main(void)
             {
                 float x1, y1
-                printf("Coordonnees du vecteur v1 separees par un \";\" :\n");
+                printf("Coordonnées du vecteur v1 séparées par un \";\" :\n");
                 scanf("%f ;%f", &x1, &y1);
 
                 float x2, y2;
-                printf("Coordonnees du vecteur v2 separees par un \";\" :\n");
+                printf("Coordonnées du vecteur v2 séparées par un \";\" :\n");
                 scanf("%f ;%f", &x2, &y2);
 
                 float dot_product = x1 * x2 + y1 * y2;
@@ -640,7 +640,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
                     printf("Les vecteurs sont orthogonaux.\n");
             }
 
-        Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche mais cependant différent de zéro.
+        Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
         On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre ``-0.000001`` et ``+0.000001``:
 
         .. code-block:: c

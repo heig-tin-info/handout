@@ -410,7 +410,7 @@
 </pre></div>
 </div>
 <p>Cette variable <code class="docutils literal notranslate"><span class="pre">lettre</span></code> est dès lors enregistrée en mémoire à l'adresse <code class="docutils literal notranslate"><span class="pre">0x12345abc</span></code> qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.</p>
-<p>Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire à fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.</p>
+<p>Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer, mais constate avec effroi que le cachet de cire a fondu sous l'effet du réchauffement climatique. La lettre est collée au fond de la boîte et il ne parvient pas à la détacher. Pire encore, et ajoutant à la situation déjà cocasse un dramatisme sans équivoque, à forcer de ses maigres doigts le papier de l'enveloppe se déchire et le contenu de lettre indécollable lui est révélée.</p>
 <p>Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de <em>64-bits</em> il n'arrive à mémoriser que 8 caractères <code class="docutils literal notranslate"><span class="pre">Chère</span> <span class="pre">Ma</span></code>. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son <a class="reference external" href="https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau">tout nickelé</a> jusqu'à ce que toute la lettre ait été retranscrite.</p>
 <p>On se retrouve avec une <strong>copie</strong> de la lettre chez madame de Merteil :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">valmont_mailbox</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Chère Maquise, ...&quot;</span><span class="p">;</span>
@@ -418,7 +418,7 @@
 </pre></div>
 </div>
 <p>La canicule n'étant pas finie, et cette physique discutable ne pouvant être déjouée, la marquise décide de résoudre le problème et se rends à <a class="reference external" href="https://fr.wikipedia.org/wiki/Pierre_Choderlos_de_Laclos">Tarente</a> (un très mauvais choix par jour de canicule) et formule sa réponse sur le mur sud du Castello Aragonese ayant préalablement pris soin de noter la position GPS du mur avec exactitude (<code class="docutils literal notranslate"><span class="pre">0x30313233</span></code>):</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">castello_wall</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Cher Vicomte, ...&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">castello_wall</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Cher Vicomte ...&quot;</span><span class="p">;</span>
 <span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">gps_position</span><span class="p">)[]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">castello_wall</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -457,7 +457,7 @@
 </ul>
 <div class="section" id="pointeur-simple">
 <h2>14.1  Pointeur simple<a class="headerlink" href="#pointeur-simple" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'asterix <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<p>Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -636,7 +636,7 @@ initialiser un pointeur sur une structure de la façon suivante :</p>
 <div class="section" id="utilisation-d-un-pointeur-sur-une-structure">
 <h3>14.4.2  Utilisation d'un pointeur sur une structure<a class="headerlink" href="#utilisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On a vu que les champs d'une structure sont accessibles au travers du
-<span class="math notranslate nohighlight">\(.\)</span> faisant la liaison entre la variable et le champs. Cela est
+<span class="math notranslate nohighlight">\(.\)</span> faisant la liaison entre la variable et le champ. Cela est
 valable si la variable est du type structuré. Si la variable est du type
 pointeur sur une structure, on remplacera le <span class="math notranslate nohighlight">\(.\)</span> par <span class="math notranslate nohighlight">\(-&gt;\)</span>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sDate</span> <span class="n">date_depart</span><span class="p">;</span>
@@ -694,7 +694,7 @@ pointeurs.</p>
 </div>
 <div class="section" id="parametres-sous-la-forme-de-pointeurs">
 <h3>14.4.5  Paramètres sous la forme de pointeurs<a class="headerlink" href="#parametres-sous-la-forme-de-pointeurs" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le prototype d'une fonction recevant un (ou plusieurs) pointeurs s'écrit
+<p>Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
 de la manière suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">type</span> <span class="nf">fonction</span><span class="p">(</span><span class="n">type</span> <span class="o">*</span> <span class="n">param</span><span class="p">);</span>
 </pre></div>
@@ -836,7 +836,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 <div class="section" id="pointeurs-de-fonctions">
 <h2>14.6  Pointeurs de fonctions<a class="headerlink" href="#pointeurs-de-fonctions" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un pointeur peut pointer n'importe ou en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
+<p>Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel (<a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_de_rappel">callback</a>).</p>
 <p>Par exemple on veut appliquer une transformation sur tous les éléments d'un tableau, mais la transformation n'est pas connue à l'avance. On pourrait écrire :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">is_odd</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
@@ -954,7 +954,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
 </pre></div>
 </div>
-<p>Une version en-ligne est également <a class="reference external" href="https://cdecl.org/">disponible</a>.</p>
+<p>Une version en ligne est également <a class="reference external" href="https://cdecl.org/">disponible</a>.</p>
 </div>
 </div>
 <div class="section" id="initialisation-par-transtypage">
@@ -973,7 +973,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <div class="section" id="enchevetrement-ou-aliasing">
 <h2>14.9  Enchevêtrement ou <em>Aliasing</em><a class="headerlink" href="#enchevetrement-ou-aliasing" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Travailler avec les pointeurs demande une attention particulière à tous
-les problème d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
+les problèmes d'<em>alisasing</em> dans lesquels différents pointeurs pointent sur
 une même région mémoire.</p>
 <p>Mettons que l'on souhaite simplement déplacer une région mémoire vers une nouvelle région mémoire. On pourrait implémenter le code suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">memory_move</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dst</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
@@ -1015,7 +1015,7 @@ une même région mémoire.</p>
 └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 </pre></div>
 </div>
-<p>Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoire qui s'enchevêtrent. En revanche, la fonction standard <code class="docutils literal notranslate"><span class="pre">memmove</span></code> de <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.</p>
+<p>Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard <code class="docutils literal notranslate"><span class="pre">memmove</span></code> de <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.</p>
 <p>Notons que sa fonction voisine <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> ne dois <strong>jamais</strong> être utilisée en cas d'<em>aliasing</em>. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple <code class="docutils literal notranslate"><span class="pre">memory_move</span></code>. Le standard <strong>C99</strong> ne défini pas le comportement de <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> pour des pointeurs qui se chevauchent.</p>
 <hr class="docutils" />
 <div class="exercise" id="exercise-0">
@@ -1025,7 +1025,7 @@ une même région mémoire.</p>
 </div>
 </div>
 <div class="exercise" id="exercise-1">
-<strong>Exercice 14.2 Passage par adresse</strong><p>Donnez lesvaleurs affichées par ce programme pour les variables <code class="docutils literal notranslate"><span class="pre">a</span></code> à <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p>
+<strong>Exercice 14.2 Passage par adresse</strong><p>Donnez les valeurs affichées par ce programme pour les variables <code class="docutils literal notranslate"><span class="pre">a</span></code> à <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -1062,7 +1062,7 @@ une même région mémoire.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

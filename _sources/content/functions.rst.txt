@@ -8,11 +8,11 @@ Fonctions
 
     Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
-A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
+À l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
 
 Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** et toutes les variables sont globales.
 
-Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un `téléencéphale hautement développé et son pouce préhenseur <https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs>`__ aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les `effets de bords <https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>`__.
+Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un `télencéphale hautement développé et son pouce préhenseur <https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs>`__ aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les `effets de bords <https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)>`__.
 
 Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :
 
@@ -73,7 +73,7 @@ On pourrait résumer ce travail par une fonction C, ici prenant un rhizome et de
 
 Pour des recettes complexes, il se pourrait que la fonction ``slice_and_blend`` soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que ``slice`` (découper) ou ``blend_together`` (incorporer).
 
-Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les `conventions d'appel <https://en.wikipedia.org/wiki/Calling_convention>`__. C'est à dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le *blend*, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.
+Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les `conventions d'appel <https://en.wikipedia.org/wiki/Calling_convention>`__. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le *blend*, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.
 
 On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction ``slice``, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.
 
@@ -119,7 +119,7 @@ En français la `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3
 
     double quaternion_norm(double a1, double b1, double c1, double d1);
 
-La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. A chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
+La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le *stack* dans le même état qu'il était avant l'appel d'une fonction enfant.
 
 .. _function_prototype:
 
@@ -292,9 +292,9 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 Récursion
 =========
 
-La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle même.
+La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle-même.
 
-Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de fibonacci jusqu'à ``n`` :
+Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de Fibonacci jusqu'à ``n`` :
 
 .. code-block:: c
 
@@ -313,7 +313,7 @@ Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somm
         return sum;
     }
 
-Il peut sembler plus logique de raisonner de façon récursive. Quelque soit l'itération à laquelle l'on soit, l'assertion suivante est valable :
+Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :
 
     fib(n) == fib(n - 1) + fib(n - 2)
 
@@ -360,7 +360,7 @@ Si l'on somme le nombre de fois que chacune de ces fonctions est appelée :
     -----------
     fib(x)  13x
 
-Pour calculer la somme de fibonacci, il faut appeler 13 fois la fonction. On le verra plus tard mais la complexité algoritmique de cette fonction est dite :math:`O(2^n)`. C'est à dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :
+Pour calculer la somme de Fibonacci, il faut appeler 13 fois la fonction. On le verra plus tard, mais la complexité algorithmique de cette fonction est dite :math:`O(2^n)`. C'est-à-dire que le nombre d'appels suit une relation exponentielle. La réelle complexité est donnée par la relation :
 
 .. math::
 
@@ -370,9 +370,9 @@ Ce terme 1.6180 est appelé `le nombre d'or <https://fr.wikipedia.org/wiki/Nombr
 
 Ainsi pour calculer fib(100) il faudra sept cent quatre-vingt-douze trillions soixante-dix mille huit cent trente-neuf billions huit cent quarante-huit milliards trois cent soixante-quatorze millions neuf cent douze mille deux cent quatre-vingt-douze appels à la fonction `fib` (792'070'839'848'374'912'292). Pour un processeur Core i7 (2020) capable de calculer environ 100 GFLOPS (milliards d'opérations par seconde), il lui faudra tout de même 251 ans.
 
-En revanche, dans l'approche itérative, on constate qu'une seule boucle ``for``. C'est à dire qu'il faudra seulement 100 itérations pour calculer la somme.
+En revanche, dans l'approche itérative, on constate qu'une seule boucle ``for``. C'est-à-dire qu'il faudra seulement 100 itérations pour calculer la somme.
 
-Généralement les algorithmes récursifs (s'appelant eux même) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.
+Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins performants que les algorithmes itératifs (utilisant des boucles). Néanmoins il est parfois plus facile d'écrire un algorithme récursif.
 
 Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.
 
@@ -381,7 +381,7 @@ Mémoïsation
 
 En informatique la `mémoïsation <https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation>`__ est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en `programmation dynamique <https://fr.wikipedia.org/wiki/Programmation_dynamique>`__.
 
-Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutiles de fois. La parade est de mémoriser pour chaque appel de ``fib``, la sortie correspondante à l'entrée.
+Nous l'avons vu précédemment, l'algorithme récursif du calcul de la somme de la suite de Fibonacci n'est pas efficace du fait que les mêmes appels sont répétés un nombre inutile de fois. La parade est de mémoriser pour chaque appel de ``fib``, la sortie correspondante à l'entrée.
 
 Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :
 
@@ -389,7 +389,7 @@ Dans cet exemple nous utiliserons un mécanisme composé de trois fonctions :
 - ``bool memoize_has(Cache *cache, int input)``
 - ``int memoize_get(Cache *cache, int input)``
 
-La première fonction mémorise la valeur de sortie ``output`` liée à la valeur d'entrée ``input``. Pour des raisons de simplicité d'utilsation, la fonction retourne la valeur de sortie ``output``.
+La première fonction mémorise la valeur de sortie ``output`` liée à la valeur d'entrée ``input``. Pour des raisons de simplicité d'utilisation, la fonction retourne la valeur de sortie ``output``.
 
 La seconde fonction ``memoize_has`` vérifie si une valeur de correspondance existe pour l'entrée ``input``. Elle retourne ``true`` en cas de correspondance et ``false`` sinon.
 
@@ -490,7 +490,7 @@ Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. 
         20
         10
 
-    Le programme reçois sur ``stdin`` les pièces introduites dans la machine. Les deux arguments passés au programme ``ptm`` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. ``stdout`` contient les valeurs rendue à l'utilisateur. La valeur ``ticket`` correspond au ticket distribué.
+    Le programme reçoit sur ``stdin`` les pièces introduites dans la machine. Les deux arguments passés au programme ``ptm`` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. ``stdout`` contient les valeurs rendues à l'utilisateur. La valeur ``ticket`` correspond au ticket distribué.
 
     Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
 
@@ -557,7 +557,7 @@ Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. 
 
 .. exercise:: Mauvaise somme
 
-    Le programme suivant compile sans erreurs graves mais ne fonctionne pas correctement.
+    Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
 
     .. code-block:: c
 
@@ -589,7 +589,7 @@ Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. 
             printf("%d\n", a + b);
         }
 
-    Quel est le problème ? A titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparue :
+    Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
 
     .. code-block:: console
 

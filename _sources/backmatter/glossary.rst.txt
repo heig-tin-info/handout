@@ -5,7 +5,7 @@ Glossaire
 .. glossary::
 
     compilateur
-        Programme exécutable permettant de transformer des instructions écrit dans un langage de programmation en langage machine (assembleur).
+        Programme exécutable permettant de transformer des instructions écrites dans un langage de programmation en langage machine (assembleur).
 
     linker
         Programme exécutable permettant l'assemblage de différents modules compilés en un seul exécutable.
@@ -20,10 +20,10 @@ Glossaire
         Business Process Model and Notation. Un système de diagrammes pour décrire des processus séquentiels et parallèles.
 
     UML
-        Unified Modeling Language. Un ensemble de plusieurs méthodes pour présenter graphiquement une architecture logicielle.
+        Unified Modelling Language. Un ensemble de plusieurs méthodes pour présenter graphiquement une architecture logicielle.
 
     GCC
         *GNU C Compiler*. Compilateur libre offert standard sur les systèmes POSIX Linux.
 
     POSIX
-        Famille de normes techniques définie depuis 1988 et suggérées par Richard Stallman permettant de standardiser le fonctionnement des systèmes d'exploitations éonymes. Il est l'acronyme de *Portable Operating System Interface*
+        Famille de normes techniques définies depuis 1988 et suggérées par Richard Stallman permettant de standardiser le fonctionnement des systèmes d'exploitation éponymes. Il est l'acronyme de *Portable Operating System Interface*

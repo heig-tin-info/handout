@@ -41,7 +41,7 @@ L'opérateur ``sizeof`` permet d'obtenir la taille d'un tableau en mémoire, mai
            /* ... */
         }
 
-Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seul une **référence** sur ce tableau est passée.
+Une variable représentant un tableau est en réalité un pointeur sur ce tableau, c'est-à-dire la position mémoire à laquelle se trouvent les éléments du tableau. Nous verrons ceci plus en détail à la section :numref:`pointers`. Ce qu'il est important de retenir c'est que lorsqu'un tableau est passé à une fonction comme dans l'exemple suivant, l'entier du tableau n'est pas passé par copie, mais seule une **référence** sur ce tableau est passée.
 
 La preuve étant que le contenu du tableau peut être modifié à distance :
 
@@ -84,7 +84,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
 .. exercise:: Première position
 
-    Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurence d'une valeur dans le tableau.
+    Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
 
     Traitez les cas particuliers.
 
@@ -112,7 +112,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
         const int twelve = 12;
         int i = 3;
 
-    Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correcte ou non.
+    Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
 
     .. code-block:: c
 
@@ -162,7 +162,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
 .. exercise:: Le plus grand et le plus petit
 
-    Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En comémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
+    Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
 
     Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
 
@@ -190,7 +190,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
 .. exercise:: L'index magique
 
-    Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Compte tenu que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+    Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
 
     Exemple :
 
@@ -220,7 +220,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
         La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
 
-        Pour mieux se représenter le problème prenons l'exemple d'un tableau :
+        Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
 
         .. code-block:: text
 
@@ -241,7 +241,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
             │ -1│ 0 │ 1 │ 2 │ 3 │
             └───┴───┴───┴───┴───┘
 
-        On voit qu'il est impossible que la valeur se trouve à gauche car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur mediane.
+        On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur médiane.
 
         Il est possible de répéter cette approche de façon dichotomique :
 
@@ -272,9 +272,9 @@ Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire
 
     int32_t even[6];
 
-contient 6 entiers, chacuns d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.
+contiens 6 entiers, chacun d'une taille de 32-bits (4 bytes). L'espace mémoire réservé est donc de 24 bytes.
 
-Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (``even[4]``), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu il faut initialiser le tableau, soit affecter des valeurs pour chaque indice :
+Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur qu'il y a, par exemple, à l'indice 4 (``even[4]``), car ce tableau n'a pas été initialisé et le contenu mémoire est non prédictible puisqu'il peut contenir les vestiges d'un ancien programme ayant résidé dans cette région mémoire auparavant. Pour s'assurer d'un contenu, il faut initialiser le tableau, soit affecter des valeurs pour chaque indice :
 
 .. code:: c
 
@@ -286,7 +286,7 @@ Compte tenu de cette déclaration, il n'est pas possible de connaître la valeur
     sequence[4] = 23;
     sequence[5] = 42;
 
-Cette écriture n'est certainement pas la plus optimisée car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades :
+Cette écriture n'est certainement pas la plus optimisée, car l'initialisation du tableau n'est pas réalisée à la compilation, mais à l'exécution du programme ; et ce seront pas moins de six instructions qui seront nécessaires à initialiser ce tableau. L'initialisation d'un tableau utilise les accolades :
 
 .. code:: c
 
@@ -298,7 +298,7 @@ Dans cette dernière écriture, il existe une redondance d'information. La parti
 
    int32_t sequence[] = {4, 8, 15, 16, 23, 42};
 
-Notons que dans premier de ces deux cas, si un nombre inférieur à 6 éléments est initialisé, les autrs éléments seront initializés à **zéro**
+Notons que dans premier de ces deux cas, si un nombre inférieur à 6 éléments est initialisé, les autres éléments seront initialisés à **zéro**
 
 .. code:: c
 
@@ -336,7 +336,7 @@ Notons qu'un type composé tel qu'un tableau ne peut pas être initialisé aprè
 Initialisation à zéro
 ---------------------
 
-Enfin, un sucre syntaxique ``{0}`` permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisées à zéro si non mentionnées :
+Enfin, un sucre syntaxique ``{0}`` permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisé à zéro si non mentionnées :
 
 .. code:: c
 
@@ -363,7 +363,7 @@ En **C99**, il n'est pas possible d'initialiser un type composé à une valeur u
 Tableaux non modifiables
 ------------------------
 
-À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé ``const`` est utilisé a cette fin.
+À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé ``const`` est utilisé à cette fin.
 
 .. code:: c
 
@@ -383,14 +383,14 @@ Notons que lors de l'utilisation de pointeurs, il serait possible, de façon dé
    int *p = sequence;
    p[2] = 12;
 
-Dans ce cas, ce n'est pas une erreur mais une alerte du compilateur qui survient :
+Dans ce cas, ce n'est pas une erreur, mais une alerte du compilateur qui survient :
 
 .. code:: text
 
    warning: initialization discards ‘const’ qualifier from pointer
    target type [-Wdiscarded-qualifiers]
 
-Tableaux multi-dimensionnels
+Tableaux multidimensionnels
 ----------------------------
 
 Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du *tic-tac-toe* ou morpion, il faudra une grille de 3x3.
@@ -416,13 +416,13 @@ Jouer ``x`` au centre équivaut à écrire :
 
     game[1][1] = 'x';
 
-De la même façon il est possible de définir structure tri-dimensionnelles :
+De la même façon il est possible de définir structure tridimensionnelle :
 
 .. code:: c
 
     int volume[10][4][8];
 
-L'initialisation des tableaux multi-dimensionnel est très similaire au tableaux standards mais il est possible d'utiliser plusieurs niveau d'accolades.
+L'initialisation des tableaux multidimensionnelle est très similaire aux tableaux standards, mais il est possible d'utiliser plusieurs niveaux d'accolades.
 
 Ainsi le jeu de morpion suivant :
 
@@ -467,7 +467,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
     Décembre   147.76   250.73    201.47  9.75
     =========  =======  =======   ======  ======
 
-    Afin de laisser plus de temps aux détectives à résoudres des affaires, vous êtes mandaté pour écrire une fonction qui reçois en paramètre le tableau de réels ci-dessus formaté comme suit :
+    Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
 
     .. code-block:: c
 
@@ -491,9 +491,9 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 
 .. exercise:: Pot de peinture
 
-    A l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
+    À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
 
-    L'image est représentée par un tableau bi-dimensionnel contenant des couleurs indexées :
+    L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
 
     .. code-block::
 
@@ -512,7 +512,7 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 Chaînes de caractères
 =====================
 
-Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacuns représentant un caractère ASCII spécifique. La chaîne de caractère ``hello`` contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de ``char``.
+Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère ``hello`` contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de ``char``.
 
 En C, un artifice est utilisé pour faciliter les opérations sur les chaînes de caractères. Tous les caractères de 1 à 255 sont utilisables sauf le 0 qui est utilisé comme sentinelle. Lors de la déclaration d'une chaîne comme ceci :
 
@@ -610,7 +610,7 @@ Il ne faut pas confondre l'écriture ci-dessus avec ceci, dans lequel il y a un 
         double z;
     };
 
-En utilisant le mot-clé ``struct`` devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à ``x`` puisqu'il n'existe pas de variable ``x``. En revanche, un nouveau container contenant trois variable est défini, mais pas encore déclaré.
+En utilisant le mot-clé ``struct`` devant un bloc, les variables déclarées au sein de ce bloc ne seront pas réservées en mémoire. Autrement dit, il ne sera pas possible d'accéder à ``x`` puisqu'il n'existe pas de variable ``x``. En revanche, un nouveau container contenant trois variables est défini, mais pas encore déclaré.
 
 La structure ainsi déclarée n'est pas très utile telle quelle, en revanche elle peut-être utilisée pour déclarer une variable de type ``struct`` :
 
@@ -622,7 +622,7 @@ La structure ainsi déclarée n'est pas très utile telle quelle, en revanche el
         double z;
     } point;
 
-A présent on a déclaré une variable ``point`` de type ``struct`` contenant trois éléments de type ``double``. L'affectaction d'une valeur à cette variable utilise l'opérateur ``.`` :
+À présent on a déclaré une variable ``point`` de type ``struct`` contenant trois éléments de type ``double``. L'affectation d'une valeur à cette variable utilise l'opérateur ``.`` :
 
 .. code-block:: c
 
@@ -630,16 +630,16 @@ A présent on a déclaré une variable ``point`` de type ``struct`` contenant tr
     point.y = 3192003.220;
     point.z = 4581359.381;
 
-Comme ``point`` n'est pas une primitive standard mais un container à primitive, il n'est pas correct d'écrire ``point = 12``. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.
+Comme ``point`` n'est pas une primitive standard, mais un container à primitive, il n'est pas correct d'écrire ``point = 12``. Il est essentiel d'indiquer quel élément de ce container on souhaite accéder.
 
-Ces coordonnées sont un clin d'oeil aux `Pierres du Niton <https://fr.wikipedia.org/wiki/Pierres_du_Niton>`__ qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour `Axel Lidenbrock <https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre>`__ et son fulmicoton.
+Ces coordonnées sont un clin d'oeil aux `Pierres du Niton <https://fr.wikipedia.org/wiki/Pierres_du_Niton>`__ qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour `Axel Lidenbrock <https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre>`__ et son fulmicoton.
 
 Structures nommées
 ------------------
 
-L'écriture que l'on a vu initialement ``struct { ... };`` est appelée structure annonyme, c'est à dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration ``struct { ... } nom;``. Néanmoins la structure est toujours annonyme.
+L'écriture que l'on a vu initialement ``struct { ... };`` est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration ``struct { ... } nom;``. Néanmoins la structure est toujours anonyme.
 
-Le langage C prévoit la possibilté de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé ``struct`` :
+Le langage C prévoit la possibilité de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé ``struct`` :
 
 .. code-block:: c
 
@@ -669,7 +669,7 @@ Rien n'empêche de déclarer une structure nommée et d'également déclarer une
     } foo;
     struct Point bar;
 
-Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est à dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :
+Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est-à-dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :
 
 .. code-block:: c
 
@@ -696,7 +696,7 @@ Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la 
 
 Il faut savoir que **C99** restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.
 
-Notons que des stuctures comportant des types différents peuvent aussi être initialisée de la même manière :
+Notons que des structures comportant des types différents peuvent aussi être initialisées de la même manière :
 
 .. code-block:: c
 
@@ -712,7 +712,7 @@ Notons que des stuctures comportant des types différents peuvent aussi être in
 Tableaux de structures
 ----------------------
 
-Une structure est un type comme un autre. Tout ce qui peut être fait avec ``char`` ou ``double`` peut donc être fait avec ``struct``. Et donc, il est aussi possibel de déclarer un tableau de structures. Ici donnons l'exemple d'un tableaux de points initialisés :
+Une structure est un type comme un autre. Tout ce qui peut être fait avec ``char`` ou ``double`` peut donc être fait avec ``struct``. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés :
 
 .. code-block:: c
 
@@ -759,7 +759,7 @@ Il est également possible de passer une structure en paramètre d'une fonction 
         double n = norm(p);
     }
 
-Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est à dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seul l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :
+Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est-à-dire que l'entier du contenu de la structure sera copié sur la pile (*stack*) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seule l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :
 
 .. code-block:: c
 
@@ -779,7 +779,7 @@ Contrairement aux tableaux, les structures sont toujours passées par valeur, c'
         printf("%g, %g\n", p.x, q.x);
     }
 
-Le résultat affiché sera ``0.0, 1.0``. Seul la seconde valeur est modifiée.
+Le résultat affiché sera ``0.0, 1.0``. Seule la seconde valeur est modifiée.
 
 .. hint::
 
@@ -788,7 +788,7 @@ Le résultat affiché sera ``0.0, 1.0``. Seul la seconde valeur est modifiée.
 Structures flexibles
 --------------------
 
-Introduit avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
+Introduits avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
 
 .. code-block:: c
 
@@ -798,7 +798,7 @@ Introduit avec C99, les membres de structures flexibles ou *flexible array membe
         double array[]; // flexible array member
     };
 
-Cette écriture permet par exemple de réserver un espace mémoire plus grand que la structure de base, et d'utiliser le reste de l'espace domme tableau flexible.
+Cette écriture permet par exemple de réserver un espace mémoire plus grand que la structure de base, et d'utiliser le reste de l'espace comme tableau flexible.
 
 .. code-block:: c
 
@@ -813,7 +813,7 @@ Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fix
 Structure de structures
 -----------------------
 
-On comprends aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.
+On comprend aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.
 
 Nous déclarons ici une structure ``struct Line`` composée de ``struct Point`` :
 
@@ -880,7 +880,7 @@ Imaginons pour comprendre qu'un casier mémoire sur une architecture 32-bits est
     └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘ └─┴─┴─┴─┘
         A         B         C         D
 
-On constate que la valeur ``d`` est à cheval entre deux casiers. De même que la valeur ``i`` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peux acceuillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture ``B`` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps.
+On constate que la valeur ``d`` est à cheval entre deux casiers. De même que la valeur ``i`` est répartie sur trois casiers au lieu de deux. Le processeur communique avec la mémoire en  utilisant des *bus mémoire*, ils sont l'analogie d'une autoroute qui ne peut accueillir que des voitures, chacune ne pouvant transporter que 4 passagers. Un passager ne peut pas arpenter l'autoroute sans voiture. Le processeur est la gare de triage et s'occupe de réassembler les passagers, et l'opération consistant à demander à un passager de sortir de la voiture ``B`` pour s'installer dans une autre, ou même se déplacer de la place conducteur à la place du passager arrière prend du temps.
 
 Le compilateur sera donc obligé de faire du zèle pour accéder à d. Formellement l'accès à ``d`` pourrait s'écrire ainsi :
 
@@ -913,7 +913,7 @@ En reprenant notre analogie de voitures, le stockage est maintenant fait comme c
         A         B         C         D         E
 
 Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers.
-L'accès à ``d`` est ainsi facilité au détriment d'une perte substentielle de l'espace de stockage.
+L'accès à ``d`` est ainsi facilité au détriment d'une perte substantielle de l'espace de stockage.
 
 Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :
 
@@ -939,7 +939,7 @@ Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaq
 
 L'option ``-Wpadded`` de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure ``BitmapFileHeader`` est enregistrée avec ``fwrite(header, sizeof(BitmapFileHeader), ...)``. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte ``Wpadded`` comme une erreur critique.
 
-Pour palier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
+Pour pallier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive ``#pragma pack`` permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :
 
 .. code-block:: c
 
@@ -950,7 +950,7 @@ Pour palier à ce problème, lorsqu'une structure mémoire doit être respectée
         char c;
     };
 
-Elle serait très probablement représentée en mémoire de la facon suivante :
+Elle serait très probablement représentée en mémoire de la façon suivante :
 
 .. code-block:: text
 
@@ -1076,8 +1076,8 @@ Les unions sont très utilisées en combinaison avec des champs de bits. Pour re
         uint16_t all;
     };
 
-Création de type
-================
+Création de types
+=================
 
 Le mot clé ``typedef`` permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe ``struct``), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.
 
@@ -1095,7 +1095,7 @@ L'exemple suivant déclare un type ``Point`` et un prototype de fonction permett
 Compound Literals
 =================
 
-Naïvement traduit en *litéraux composés*, un *compound literal* est une méthode de création d'un type composé "à la volée" utilisé de la même façon que les transtypages.
+Naïvement traduit en *littéraux composés*, un *compound literal* est une méthode de création d'un type composé "à la volée" utilisé de la même façon que les transtypages.
 
 Reprenons notre structure Point ``struct Point`` vue plus haut. Si l'on souhaite changer la valeur du point ``p`` il faudrait on pourrait écrire ceci :
 
@@ -1116,13 +1116,13 @@ Notons que passer par une variable intermédiaire ``q`` n'est pas très utile. I
 
     p = {.x=1, .y=2, .z=3};
 
-Néanmoins cette écriture mènera à une erreur de compilation car le compilateur cherchera à déterminer le type de l'expression ``{.x=1, .y=2, .z=3}``. Il est alors essentiel d'utiliser la notation suivante :
+Néanmoins cette écriture mènera à une erreur de compilation, car le compilateur cherchera à déterminer le type de l'expression ``{.x=1, .y=2, .z=3}``. Il est alors essentiel d'utiliser la notation suivante :
 
 .. code-block:: c
 
     p = (struct Point){.x=1, .y=2, .z=3};
 
-Cette notation de litéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction ``foo`` :
+Cette notation de littéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction ``foo`` :
 
 .. code-block:: c
 
@@ -1137,7 +1137,7 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
 
 .. exercise:: Mendeleïev
 
-    Chaque élément du taleau périodique des éléments comporte les propriétés suivantes :
+    Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :
 
     - Un nom jusqu'à 20 lettres
     - Un symbole jusqu'à 2 lettres
@@ -1153,7 +1153,7 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
             - Métaux de transition
             - Métaux pauvres
         - Métalloïdes
-        - Non métaux
+        - Non-métaux
 
             - Autres
             - Halogène
@@ -1161,7 +1161,7 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
     - La période: un entier de 1 à 7
     - Le groupe: un entier de 1 à 18
 
-    Déclarer une structure de données permettant de stocker tous les éléments chimiques de tel facon qu'ils puissent être accédés comme :
+    Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme :
 
     .. code-block:: c
 

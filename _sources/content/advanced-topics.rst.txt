@@ -157,7 +157,7 @@ Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 
 On note une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : :math:`1 / 2^12 = 0.00024`. Il convient alors d'arrondir le nombre à la troisième décimale soit 3.141.
 
-Les opérations arithmétiques sont possibles facilement entre des nombres de même types.
+Les opérations arithmétiques sont possibles facilement entre des nombres de mêmes types.
 
 Addition
 --------
@@ -197,7 +197,7 @@ Soit deux nombres 0.9 et 3.141 :
 
 Multiplier ces deux valeurs revient à une multiplication sur 2 fois la taille. Le résultat doit être obtenu sur 32-bits sachant que les nombre **Q** s'additionnent comme **Q4.12** x **Q4.12** donnera **Q8.24**.
 
-On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur **Q8.8** il convient de supprimer les 16-bits de poids faible
+On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera une valeur en dessous de 3. Pour reconstruire une valeur **Q8.8** il convient de supprimer les 16-bits de poids faible.
 
 .. code-block:: text
 
@@ -234,7 +234,7 @@ On voit immédiatement que la partie entière vaut 2, donc 90% de 3.14 donnera u
 Mémoire partagée
 ================
 
-Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accedée par un autre programme. Le système d'exploitation l'en empêche.
+Nous le verrons plus loin au chapitre sur la MMU, mais la mémoire d'un processus mémoire (programme) ne peut pas être accédée par un autre programme. Le système d'exploitation l'en empêche.
 
 Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'utiliser différentes méthodes :
 
@@ -242,7 +242,7 @@ Lorsque l'on souhaite communiquer entre plusieurs programmes, il est possible d'
 - la mémoire partagée
 - les sockets
 
-Vous avez déjà vu les flux au chapitre précédant, et les sockets ne font pas partie de ce cours d'introduction.
+Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.
 
 Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.
 
@@ -393,14 +393,14 @@ Allons plus loin dans notre exemple et considérons le code suivant :
         };
     }
 
-La fonction ``get_number`` alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions ``foo`` et ``bar`` reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur ``stdout`` qu'elle aime un des nombre mémorisés.
+La fonction ``get_number`` alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions ``foo`` et ``bar`` reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur ``stdout`` qu'elle aime un des nombres mémorisés.
 
 Au niveau du ``#if 0`` dans la fonction ``main``, il est impossible de savoir si l'adresse pointée par ``num`` est encore utilisée ou non. Il se peut que ``foo`` et ``bar`` utilisent cet espace mémoire, comme il se peut qu'aucun des deux ne l'utilise.
 
 Comment peut-on savoir si il est possible de libérer ou non ``num`` ?
 
-Une solution courament utilsée en C++ s'appelle un *smart pointer*. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas ou le nombre de référence tombe à zéro, il est possible de libérer la ressource.
+Une solution courament utilsée en C++ s'appelle un *smart pointer*. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.
 
 Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé *Garbage Collector* et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le *gc* décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.
 
-En revanche en C, il n'existe aucun mécanisme aussi sophistiqués alors prenez garde à bien libérer les ressources utilisée et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.
+En revanche en C, il n'existe aucun mécanisme aussi sophistiqué alors prenez garde à bien libérer les ressources utilisées et à éviter d'écrire des fonctions qui allouent du contenu mémoire dynamiquement.

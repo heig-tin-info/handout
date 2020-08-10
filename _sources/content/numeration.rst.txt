@@ -4,7 +4,7 @@ Numération
 
 .. index:: numération
 
-La numération désigne le mode de représentation des nombres (e.g. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimale ou vicésimale), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est importante pour l'ingénieur développeur car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
+La numération désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.
 
 Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.
 
@@ -13,9 +13,9 @@ Bases
 
 .. index:: base
 
-Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composé de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
+Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.
 
-Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interprêter ces nombres :
+Sans cette connaissance à priori du système de numération utilisé, il vous est impossible d'interpréter ces nombres :
 
 .. code-block::
 
@@ -31,7 +31,7 @@ Système décimal
 
 .. index:: système décimal
 
-Le système décimal est le système de numération utilisant la base dix et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas, par exemple les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation Maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques trace en français avec la dénomination *quatre-vingt*.
+Le système décimal est le système de numération utilisant la base dix et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas, par exemple les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
@@ -40,34 +40,34 @@ L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(100
 
     1506 en écriture hiéroglyphique
 
-Notre système de représentation des nombres est le système de numération indo-arabe qui employe une notation positionnelle et dix chiffres allant de zéro à neuf :
+Notre système de représentation des nombres est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres allant de zéro à neuf :
 
 .. code-block::
 
     0 1 2 3 4 5 6 7 8 9
 
-Un nombre peut être décomposé en puissances successives :
+Un nombre peut être décomposé en puissance successives :
 
 .. math::
 
     1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
 
-La base dix n'est pas utilsée dans les ordinateurs car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
+La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
 Système binaire
 ---------------
 
 .. index:: binaire
 
-Le système binaire est similaire au système décimal mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs emprunté au système indo-arabe :
+Le système binaire est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
 
 .. code-block::
 
     0, 1 = false, true = F, T
 
-En termes technique ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.
+En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.
 
-Un nombre binaire peut être également décomposé en puissances successives :
+Un nombre binaire peut être également décomposé en puissance successives :
 
 .. math::
 
@@ -92,19 +92,19 @@ Système octal
 
 .. index:: octal
 
-Inventé par Charles XII de Suède, le système de numération octal utilise 8 symboles emprunté au système indo-arabe. Il pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
+Inventé par Charles XII de Suède, le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Il pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
 
 .. code-block:: text
 
     0 1 2 3 4 5 6 7
 
-Un nombre octal peut également être décomposé en puissances successives :
+Un nombre octal peut également être décomposé en puissance successives :
 
 .. math::
 
     1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}
 
-Au début de l'informatique la base octale fut très utilisée car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets :
+Au début de l'informatique, la base octale fut très utilisée, car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets :
 
 .. code-block:: text
 
@@ -119,7 +119,7 @@ En C, un nombre octal est écrit en préfixant la valeur à représenter d'un z�
 
     assert(octal != decimal);
 
-Il est également possible de faire référence à un caractère en utilsant l'échappement octal :
+Il est également possible de faire référence à un caractère en utilisant l'échappement octal :
 
 .. code-block:: c
 
@@ -137,7 +137,7 @@ Ce système de numération positionnel en base 16 est le plus utilisé en inform
 
     0 1 2 3 4 5 6 7 8 9 A B C D E F
 
-L'écriture peut également être décomposée en puissances successives :
+L'écriture peut également être décomposée en puissance successives :
 
 .. math::
 
@@ -151,7 +151,7 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 
 .. index:: quadruplets
 
-L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplications :
+L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication :
 
 +------------+-------------+--------+---------+
 | Binaire    | Hexadécimal | Octal  | Décimal |
@@ -225,17 +225,17 @@ pour lister le contenu hexadécimal de son fichier :
     0000018d
 
 
-Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisé par deux caractères hexadécimaux, et à droite le texte ou chaque caractère non-imprimable est remplacé par un point. On observe notament ici que :
+Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :
 
-- ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère unicode :unicode:`U+0065`
+- ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère Unicode :unicode:`U+0065`
 - ``é`` de ailé est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` :unicode:`U+0301`
-- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode :unicode:`U+202F`, ainsi que recommandé par l'académie Française.
+- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode :unicode:`U+202F`, ainsi que recommandé par l'Académie française.
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le ``é``.
 
 .. exercise:: Les chiffres hexadécimaux
 
-    Calculer la valeur décimale des nombres suivants et donnez le détail du calcul :
+    Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :
 
     .. code-block:: text
 
@@ -275,7 +275,7 @@ où:
 :math:`h_i`
     La valeur du chiffre à la position :math:`i`
 
-Ainsi, la valeur ``AP7`` exprimé en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal :
+Ainsi, la valeur ``AP7`` exprimée en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal :
 
 .. code-block:: text
 
@@ -321,7 +321,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
     .. solution::
 
-        Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :
+        Le système Shadock est un système quaternaire similaire au système du génome humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :
 
         .. code-block::
 
@@ -336,7 +336,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
             −⨼○◿○ ≡ 12030₄
 
-        En appliquant la méthode du cours on obtient :
+        En appliquant la méthode du cours, on obtient :
 
         .. math::
 
@@ -382,7 +382,7 @@ Cette méthode impose le sacrifice d'un bit et donc l'intervalle représentable 
     -+-----+-----+-----+->  -+-----+-----+-----+---> Méthode du bit de signe
      0     1     2     3     0    -1    -2    -3
 
-De plus les additions et soustractions sont difficile car il n'est pas possible d'effecuer des opérations simples :
+De plus les additions et soustractions sont difficiles, car il n'est pas possible d'effectuer des opérations simples :
 
 .. code-block:: text
 
@@ -391,17 +391,17 @@ De plus les additions et soustractions sont difficile car il n'est pas possible 
     ----------
       11111101 (-125)    2 - 5 != -125
 
-En résumé, la solution utilsant un bit de signe pose deux problèmes :
+En résumé, la solution utilisant un bit de signe pose deux problèmes :
 
 - Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place
-- Le double zéro (positif et négatif) est génant
+- Le double zéro (positif et négatif) est gênant
 
 Complément à un
 ---------------
 
 .. index:: Complément à un, CDC6600
 
-Le **complément à un** est une methode plus maline utilisée dans les premiers ordinateurs comme le `CDC 6600 <https://fr.wikipedia.org/wiki/Control_Data_6600>`__ (1964) ou le `UNIVAC 1107 <https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series#1107>`__ (1962). Il existe également un bit de signe mais il est implicite.
+Le **complément à un** est une méthode plus maline utilisée dans les premiers ordinateurs comme le `CDC 6600 <https://fr.wikipedia.org/wiki/Control_Data_6600>`__ (1964) ou le `UNIVAC 1107 <https://en.wikipedia.org/wiki/UNIVAC_1100/2200_series#1107>`__ (1962). Il existe également un bit de signe, mais il est implicite.
 
 Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par :
 
@@ -430,7 +430,7 @@ Ainsi il est facile d'écrire le complément à neuf :
             v
     9 8 7 6 5 4 3 2 1 0
 
-On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. A gauche on a une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat ``939`` correspond à ``60``.
+On notera avec beaucoup d'intérêt qu'un calcul est possible avec cette méthode. À gauche on a une soustraction classique, à droite on remplace la soustraction par une addition ainsi que les valeurs négatives par leur complément à 9. Le résultat ``939`` correspond à ``60``.
 
 .. code-block::
 
@@ -450,7 +450,7 @@ Notons que le cas précis de l'inversion des chiffres correspond au complément 
     -+-----+-----+-----+-> <-+-----+-----+-----+--- complément à un
      0     1     2     3    -3    -2    -1     0
 
-Reprenons l'exemple précédant de soustraction, on notera que l'opération fonctionne en soustrayant 1 au résultat du calcul.
+Reprenons l'exemple précédent de soustraction, on notera que l'opération fonctionne en soustrayant 1 au résultat du calcul.
 
 .. code-block::
 
@@ -464,8 +464,8 @@ Reprenons l'exemple précédant de soustraction, on notera que l'opération fonc
 
 En résumé, la méthode du complément à 1 :
 
-- Les opérations redeviennent presque triviale, mais il est nécessaire de soustraire 1 au résultat
-- Le double zéro (positif et négatif) est génant
+- Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat
+- Le double zéro (positif et négatif) est gênant
 
 .. _twos_complement:
 
@@ -474,10 +474,10 @@ Complément à deux
 
 Le :index:`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
-1. Calculer le complément à un du nombre d'entrée.
+1. Calculer le complément à un du nombre d'entrées.
 2. Ajouter 1 au résultat.
 
-Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résouds tous les problèmes amenés par le complément à un :
+Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
 
 .. code-block::
 
@@ -500,7 +500,7 @@ Les avantages :
 
 - Les opérations sont triviales.
 - Le problème du double zéro est résolu.
-- On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédamment étudiées``.
+- On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédemment étudiées``.
 
 Opérations logiques
 ===================
@@ -510,9 +510,9 @@ Opérations bit à bit
 
 .. index:: bitwise
 
-Les :index:`opérations bit-à-bit` (*bitwise*) disponibles en C sont les suivantes :
+Les :index:`opérations bit à bit` (*bitwise*) disponibles en C sont les suivantes :
 
-.. table:: Opérateurs bit-à-bit
+.. table:: Opérateurs bit à bit
 
     +-----------+-------------------+---------------------------------+
     | Opérateur | Description       | Exemple                         |
@@ -588,7 +588,7 @@ Opérateurs arithmétiques
 ------------------------
 
 Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est à dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition :
+C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition :
 
 .. code-block:: text
 
@@ -622,7 +622,7 @@ En arithmétique binaire, c'est exactement la même chose :
 
 .. exercise:: Additions binaires
 
-    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenants additions et soustractions.
+    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
 
     Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
 
@@ -677,7 +677,7 @@ Lois de De Morgan
 
 .. index:: De Morgan
 
-Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors eprimer que :
+Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont des identités logiques formulées il y a près de deux siècles: sachant qu'en logique classique, la négation d'une conjonction implique la disjonction des négations et que la conjonction de négations implique la négation d'une disjonction, on peut alors exprimer que :
 
 .. code-block::
 
@@ -686,7 +686,7 @@ Les `lois de De Morgan <https://fr.wikipedia.org/wiki/Lois_de_De_Morgan>`__ sont
 
 Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.
 
-A titre d'exemple, les opérations suivantes sont donc équivalentes :
+À titre d'exemple, les opérations suivantes sont donc équivalentes :
 
 .. code-block:: c
 
@@ -696,7 +696,7 @@ A titre d'exemple, les opérations suivantes sont donc équivalentes :
     assert(a | b == ~a & ~b);
     assert(~a & ~b == ~(a | b));
 
-En logique booléenne on exprime la négation par une bar p.ex. :math:`\bar{P}`.
+En logique booléenne on exprime la négation par une barre p.ex. :math:`\bar{P}`.
 
 .. exercise:: De Morgan
 
@@ -720,7 +720,7 @@ Arrondi
 
 .. index:: arrondi, rounding, truncate
 
-En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exaustive :
+En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/Rounding>`__) est beaucoup plus complexe qu'imaginée. Un nombre réel peut être converti en un nombre entier de plusieurs manières dont voici une liste non exhaustive :
 
 - **tronqué** (*truncate*) lorsque la partie fractionnaire est simplement enlevée
 - **arrondi à l'entier supérieur** (*rounding up*)
@@ -732,15 +732,15 @@ En programmation, la notion d'arrondi (`rounding <https://en.wikipedia.org/wiki/
 
 Selon le langage de programmation et la méthode utilisée, le mécanisme d'arrondi sera différent. En C, la bibliothèque mathématique offre les fonctions ``ceil`` pour l'arrondi au plafond (entier supérieur), ``floor`` pour arrondi au plancher (entier inférieur) et ``round`` pour l'arrondi au plus proche (*nearest*). Il existe également fonction ``trunc`` qui tronque la valeur en supprimant la partie fractionnaire.
 
-Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donne 24.
+Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathématiciens et les programmeurs. C utilise l'arrondi au plus proche, c'est à dire que -23.5 donne -24 et 23.5 donnent 24.
 
 .. note::
 
-    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre intuitive car ``round(3.5)`` donne 4 mais ``round(4.5)`` donne 4 aussi.
+    En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car ``round(3.5)`` donne 4, mais ``round(4.5)`` donne 4 aussi.
 
 .. exercise:: Swap sans valeur intermédiaire
 
-    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaire. Indice: utilisez l'opérateur XOR ``^``.
+    Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
 
     Testez votre solution
 

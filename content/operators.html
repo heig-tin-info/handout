@@ -183,13 +183,13 @@
                 
                   <li class="toctree-l2"><a href="#les-operateurs-logiques" class="reference internal">Les opérateurs logiques</a></li>
                 
-                  <li class="toctree-l2"><a href="#les-operateurs-bit-a-bit" class="reference internal">Les opérateurs bit-à-bit</a></li>
+                  <li class="toctree-l2"><a href="#les-operateurs-bit-a-bit" class="reference internal">Les opérateurs bit à bit</a></li>
                 
                   <li class="toctree-l2"><a href="#les-operateurs-d-incrementation-et-de-decrementation" class="reference internal">Les opérateurs d'incrémentation (++) et de décrémentation (--)</a></li>
                 
                   <li class="toctree-l2"><a href="#priorite-des-operateurs" class="reference internal">Priorité des opérateurs</a></li>
                 
-                  <li class="toctree-l2"><a href="#valeurs-gauche" class="reference internal">Valeurs gauche</a></li>
+                  <li class="toctree-l2"><a href="#valeurs-gauches" class="reference internal">Valeurs gauches</a></li>
                 
                   <li class="toctree-l2"><a href="#optimisation" class="reference internal">Optimisation</a></li>
                 
@@ -419,7 +419,7 @@
 <h1>5  Opérateurs<a class="headerlink" href="#operateurs" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Un <span class="target" id="index-0"></span>opérateur applique une opération à une (opérateur unitaire), deux ou trois (<span class="target" id="index-1"></span>ternaire) entrées.</p>
 <div class="figure align-default" id="id3">
-<img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composées de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composée de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
@@ -428,14 +428,14 @@
 <dl class="simple">
 <dt>Une <span class="target" id="index-3"></span>priorité</dt><dd><p>La multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code> est plus prioritaire que l'addition <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 </dd>
-<dt>Une <span class="target" id="index-4"></span>associativité</dt><dd><p>L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
+<dt>Une <span class="target" id="index-4"></span>associativité</dt><dd><p>L'opérateur d'affectation possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
 </dd>
 <dt>Un <span class="target" id="index-5"></span>point de séquence</dt><dd><p>Certains opérateurs comme <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">,</span></code> possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus grande que 12, le test <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> ne sera jamais effectué. L'opérateur <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
 </dd>
 </dl>
 <div class="section" id="operateurs-relationnels">
 <h2>5.1  Opérateurs relationnels<a class="headerlink" href="#operateurs-relationnels" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un <strong>boolean</strong> c'est à dire que le résultat d'une comparaison est soit <strong>vrai</strong>, soit <strong>faux</strong>.</p>
+<p>Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un <strong>boolean</strong> c'est-à-dire que le résultat d'une comparaison est soit <strong>vrai</strong>, soit <strong>faux</strong>.</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-number">Tableau 5.1 </span><span class="caption-text">Opérateurs relationnels</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -568,7 +568,7 @@
 </div>
 <div class="section" id="operateur-sequentiel">
 <h2>5.9  Opérateur séquentiel<a class="headerlink" href="#operateur-sequentiel" title="Lien permanent vers ce titre">¶</a></h2>
-<p>L'opérateur séquentiel (<em>comma operator</em>) permet l'exécution ordonné d'opérations, et retourne la dernière valeur. Son utilisation est courament limitée soit aux décalarations de variables, soit au boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<p>L'opérateur séquentiel (<em>comma operator</em>) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée soit aux déclarations de variables, soit au boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
 </pre></div>
 </div>
@@ -577,7 +577,7 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">3</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>L'opérateur agit également comme un <a class="reference internal" href="advanced-topics.html#sequence-point"><span class="std std-ref">Point de séquence</span></a>, c'est à dire que l'ordre des étapes sont respectés.</p>
+<p>L'opérateur agit également comme un <a class="reference internal" href="advanced-topics.html#sequence-point"><span class="std std-ref">Point de séquence</span></a>, c'est-à-dire que l'ordre des étapes est respecté.</p>
 <div class="exercise" id="exercise-0">
 <strong>Exercice 5.1 Opérateur séquentiel</strong><p>Que sera-t-il affiché à l'écran ?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -595,7 +595,7 @@
 <div class="section" id="les-operateurs-logiques">
 <h2>5.11  Les opérateurs logiques<a class="headerlink" href="#les-operateurs-logiques" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ils permettent de coupler des opérateurs de comparaison entre eux pour
-effectuer des tests un peu plus complexe.</p>
+effectuer des tests un peu plus complexes.</p>
 <div class="section" id="et-logique">
 <h3>5.11.1  ET logique<a class="headerlink" href="#et-logique" title="Lien permanent vers ce titre">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="n">condition1</span> <span class="o">&amp;&amp;</span> <span class="n">condition2</span><span class="p">;</span>
@@ -700,8 +700,8 @@ effectuer des tests un peu plus complexe.</p>
 </div>
 </div>
 <div class="section" id="les-operateurs-bit-a-bit">
-<h2>5.12  Les opérateurs bit-à-bit<a class="headerlink" href="#les-operateurs-bit-a-bit" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ils permettent d'effectuer des opérations binaire bit à bit sur des
+<h2>5.12  Les opérateurs bit à bit<a class="headerlink" href="#les-operateurs-bit-a-bit" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ils permettent d'effectuer des opérations binaires bit à bit sur des
 types entiers.</p>
 <div class="section" id="inversion-logique-ou-complement-a-1">
 <h3>5.12.1  Inversion logique ou complément à 1<a class="headerlink" href="#inversion-logique-ou-complement-a-1" title="Lien permanent vers ce titre">¶</a></h3>
@@ -771,10 +771,10 @@ Cette opération s'apparente à une division par 2.</p>
 permettent d'ajouter 1 ou de retrancher 1 à une variable, et ce de
 manière optimisée pour le processeur qui exécute le programme.</p>
 <p>Ils peuvent, en outre, être exécutés avant ou après l'évaluation de
-l'opération. On parle alors de pré-incrémentation ou pré-décrémentation
+l'opération. On parle alors de pré incrémentation ou pré décrémentation
 et post-incrémentation ou post-décrémentation.</p>
 <ul>
-<li><p>pré-incrémentation</p>
+<li><p>pré incrémentation</p>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
@@ -792,7 +792,7 @@ et post-incrémentation ou post-décrémentation.</p>
 </div>
 </div></blockquote>
 </li>
-<li><p>pré-décrémentation</p>
+<li><p>pré décrémentation</p>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
@@ -814,7 +814,7 @@ et post-incrémentation ou post-décrémentation.</p>
 </div>
 <div class="section" id="priorite-des-operateurs">
 <span id="precedence"></span><h2>5.14  Priorité des opérateurs<a class="headerlink" href="#priorite-des-operateurs" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La <strong>précédence</strong> est un anglicisme de <em>precedence</em> (priorité) qui concerne la priorité des opérateurs, où l'ordre dans lequel les opérateurs sont exécutés. Chacuns connaît la priorité des quatre opérateurs de base (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>) mais le C et ses nombreux opérateurs est bien plus complexe.</p>
+<p>La <strong>précédence</strong> est un anglicisme de <em>precedence</em> (priorité) qui concerne la priorité des opérateurs, ou l'ordre dans lequel les opérateurs sont exécutés. Chacun connaît la priorité des quatre opérateurs de base (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>), mais le C et ses nombreux opérateurs sont bien plus complexes.</p>
 <p>La table suivante indique les règles à suivre pour les précédences des opérateurs en C.
 La précédence</p>
 <table class="docutils align-default" id="id5">
@@ -949,7 +949,7 @@ La précédence</p>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">23</span> <span class="o">+</span> <span class="mi">34</span> <span class="o">/</span> <span class="o">++</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Selon la précédance de chaque opérateur ainsi que son associativité on a :</p>
+<p>Selon la précédence de chaque opérateur ainsi que son associativité on a :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[ ] 1
 ++  2
 /   3
@@ -960,7 +960,7 @@ La précédence</p>
 =   14
 </pre></div>
 </div>
-<p>L'écriture en notation polonaise inversée, donnerait alors</p>
+<p>L'écriture en notation polonaise inversée donnerait alors</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>34, i, 0, [], ++,  /, 5, 23, +, +, 0xFF, y, &lt;&lt;, &amp;, x, =
 </pre></div>
 </div>
@@ -978,7 +978,7 @@ On comprend aisément que plus cette taille est importante, plus on gagne
 en précision ou en grandeur représentable. La promotion numérique régit
 les conversions effectuées implicitement par le langage C lorsqu'on
 convertit une donnée d'un type vers un autre. Cette promotion tend à
-conserver le maximum de précision lorsqu'on effectue des calcul entre
+conserver le maximum de précision lorsqu'on effectue des calculs entre
 types différents (ex : l'addition d'un <code class="docutils literal notranslate"><span class="pre">int</span></code> avec un <code class="docutils literal notranslate"><span class="pre">double</span></code> donne un
 type <code class="docutils literal notranslate"><span class="pre">double</span></code>). Voici les règles de base :</p>
 <ul class="simple">
@@ -989,9 +989,9 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <p>La <strong>promotion</strong> est l'action de promouvoir un type de donnée en un autre type de donnée plus général. On parle de promotion implicite des entiers lorsqu'un type est promu en un type plus grand automatiquement par le compilateur.</p>
 </div>
 </div>
-<div class="section" id="valeurs-gauche">
-<h2>5.15  Valeurs gauche<a class="headerlink" href="#valeurs-gauche" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une <span class="target" id="index-6"></span>valeur gauche (<code class="docutils literal notranslate"><span class="pre">lvalue</span></code>) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
+<div class="section" id="valeurs-gauches">
+<h2>5.15  Valeurs gauches<a class="headerlink" href="#valeurs-gauches" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une <span class="target" id="index-6"></span>valeur gauche (<code class="docutils literal notranslate"><span class="pre">lvalue</span></code>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>    <span class="c1">// (1)</span>
@@ -1010,7 +1010,7 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </div></blockquote>
 </li>
 </ol>
-<p>Voici quelques exemples de valeurs gauche :</p>
+<p>Voici quelques exemples de valeurs gauches :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">y</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">++x</span></code></p></li>
@@ -1024,7 +1024,7 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>De même que ce test n'effectura pas une division mais testera simplement le dernier bit de <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<p>De même que ce test n'effectuera pas une division, mais testera simplement le dernier bit de <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Pair&quot;</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -1058,7 +1058,7 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <li><p>mettre à 0 le bit numéro <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code> étant un entier entre 0 et 15;</p></li>
 <li><p>inverser le bit numéro <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code> étant un entier entre 0 et 15;</p></li>
 </ul>
-<p>Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle <code class="docutils literal notranslate"><span class="pre">r0</span></code> la vairable désignant le registre en mémoire et <code class="docutils literal notranslate"><span class="pre">n</span></code> la variable contenant le numéro du bit à modifier. Écriver les expressions permettant d'effectuer les opérations demandées.</p>
+<p>Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle <code class="docutils literal notranslate"><span class="pre">r0</span></code> la variable désignant le registre en mémoire et <code class="docutils literal notranslate"><span class="pre">n</span></code> la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.</p>
 </div>
 <div class="exercise" id="exercise-3">
 <strong>Exercice 5.4 Recherche d'expressions</strong><p>Considérant les déclarations suivantes :</p>
@@ -1088,11 +1088,11 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </div></blockquote>
 <p>Par exemple :</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">9</span></code> est un nombre narcissique car <span class="math notranslate nohighlight">\(9 = 9^1 = 9\)</span></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">153</span></code> est un nombre narcissique car <span class="math notranslate nohighlight">\(153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153\)</span></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">10</span></code> n'est pas un nombre narcissique car <span class="math notranslate nohighlight">\(10 \ne 1^2 + 0^2 = 1\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">9</span></code> est un nombre narcissique, car <span class="math notranslate nohighlight">\(9 = 9^1 = 9\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">153</span></code> est un nombre narcissique, car <span class="math notranslate nohighlight">\(153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10</span></code> n'est pas un nombre narcissique, car <span class="math notranslate nohighlight">\(10 \ne 1^2 + 0^2 = 1\)</span></p></li>
 </ul>
-<p>Implanter un programme permettant de vérifier si un nombre d'entrée est narcissique ou non. L'exécution est la suivante :</p>
+<p>Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./armstrong 153
 1
 
@@ -1118,7 +1118,7 @@ $ ./armstrong 154
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

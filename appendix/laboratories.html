@@ -348,7 +348,7 @@
                 
                   <li class="toctree-l2"><a href="#protocole" class="reference internal">Protocole</a></li>
                 
-                  <li class="toctree-l2"><a href="#evaluation" class="reference internal">Evaluation</a></li>
+                  <li class="toctree-l2"><a href="#evaluation" class="reference internal">Évaluation</a></li>
                 
                   <li class="toctree-l2"><a href="#directives" class="reference internal">Directives</a></li>
                 
@@ -399,19 +399,19 @@
 <li><p>Rédiger le code.</p></li>
 <li><p>Le tester.</p></li>
 <li><p>Rédiger votre rapport de test si demandé.</p></li>
-<li><p>Le soumettre avant la date butoire.</p></li>
+<li><p>Le soumettre avant la date butoir.</p></li>
 </ol>
 </div>
 <div class="section" id="evaluation">
-<h2>F.2  Evaluation<a class="headerlink" href="#evaluation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une grille d'évaluation est intégrée à tous les laboratoires. Elle prends la forme d'un fichier <code class="docutils literal notranslate"><span class="pre">criteria.yml</span></code> que l'étudiant peut consulter en tout temps.</p>
+<h2>F.2  Évaluation<a class="headerlink" href="#evaluation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une grille d'évaluation est intégrée à tous les laboratoires. Elle prend la forme d'un fichier <code class="docutils literal notranslate"><span class="pre">criteria.yml</span></code> que l'étudiant peut consulter en tout temps.</p>
 </div>
 <div class="section" id="directives">
 <h2>F.3  Directives<a class="headerlink" href="#directives" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
 <li><p>La recherche sur internet est autorisée et conseillée.</p></li>
-<li><p>Le plagia n'est pas autorisé, et sanctionné si découvert par la note de 1.0.</p></li>
-<li><p>Le rendu passé la date butoire est sanctionné à raison de 1 point puis 1/24 de point par heure de retard.</p></li>
+<li><p>Le plagiat n'est pas autorisé, et sanctionné si découvert par la note de 1.0.</p></li>
+<li><p>Le rendu passé la date butoir est sanctionné à raison de 1 point puis 1/24 de point par heure de retard.</p></li>
 </ul>
 </div>
 <div class="section" id="format-de-rendu">
@@ -421,12 +421,12 @@
 <li><p>Encodage: UTF-8 sans BOM.</p></li>
 <li><p>Code source respectueux de ISO/IEC 9899:1999.</p></li>
 <li><p>Le code doit comporter un exemple d'utilisation et une documentation mise à jour dans <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p></li>
-<li><p>Lorsqu'un rapport est demandé vous le placerez dans <code class="docutils literal notranslate"><span class="pre">REPORT.md</span></code>.</p></li>
+<li><p>Lorsqu'un rapport est demandé, vous le placerez dans <code class="docutils literal notranslate"><span class="pre">REPORT.md</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="anatomie-d-un-travail-pratique">
 <h2>F.5  Anatomie d'un travail pratique<a class="headerlink" href="#anatomie-d-un-travail-pratique" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un certain nombre de fichiers vous sont donnés, il est utile de les connaîtres. Un référentiel sera généralement composé des éléments suivants :</p>
+<p>Un certain nombre de fichiers vous sont donnés, il est utile de les connaître. Un référentiel sera généralement composé des éléments suivants :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ tree
 .
 ├── .clang-format
@@ -455,7 +455,7 @@
 <div class="section" id="clang-format">
 <h3>F.5.1  .clang-format<a class="headerlink" href="#clang-format" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier est au format <a class="reference external" href="https://fr.wikipedia.org/wiki/YAML">YAML</a> et contient des directives pour formater votre code automatiquement soit à partir de VsCode si vous avez installé l'extension <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=xaver.clang-format">Clang-Format</a> et l'exécutable <code class="docutils literal notranslate"><span class="pre">clang-format</span></code> (<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">clang-format</span></code>). <a class="reference external" href="https://clang.llvm.org/docs/ClangFormat.html">Clang-format</a> est un utilitaire de la suite LLVM, proposant Clang un compilateur alternatif à GCC.</p>
-<p>On voit que le texte passé sur <code class="docutils literal notranslate"><span class="pre">stdin</span></code> (jusqu'à EOF) est ensuite formatté proprement :</p>
+<p>On voit que le texte passé sur <code class="docutils literal notranslate"><span class="pre">stdin</span></code> (jusqu'à EOF) est ensuite formaté proprement :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> clang-format --style<span class="o">=</span>mozilla &lt;&lt;EOF
 <span class="gp">#</span>include &lt;stdio.h&gt;
 <span class="go">int</span>
@@ -476,9 +476,9 @@
 </div>
 <div class="section" id="editor-config">
 <h3>F.5.2  .editor_config<a class="headerlink" href="#editor-config" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ce fichier au format YAML permet de spécifier des recommendations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes <strong>CR</strong> ou <strong>CRLF</strong>, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. <a class="reference external" href="https://editorconfig.org/">EditorConfig</a> est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé <code class="docutils literal notranslate"><span class="pre">.editor_config</span></code>.</p>
+<p>Ce fichier au format YAML permet de spécifier des recommandations pour l'édition de fichiers sources. Vous pouvez y spécifier le type de fin de lignes <strong>CR</strong> ou <strong>CRLF</strong>, le type d'indentation (espaces ou tabulations) et le type d'encodage (ASCII ou UTF-8) pour chaque type de fichiers. <a class="reference external" href="https://editorconfig.org/">EditorConfig</a> est aujourd'hui supporté par la plupart des éditeurs de textes qui cherchent automatiquement un fichier de configuration nommé <code class="docutils literal notranslate"><span class="pre">.editor_config</span></code>.</p>
 <p>Dans Visual Studio Code, il faut installer l'extension <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a> pour bénéficier de ce fichier.</p>
-<p>Pour les travaux pratique on se contente de spécifier les directives suivantes :</p>
+<p>Pour les travaux pratiques, on se contente de spécifier les directives suivantes :</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">root = true</span>
 
 <span class="l l-Scalar l-Scalar-Plain">[*]</span>
@@ -502,7 +502,7 @@
 </div>
 <div class="section" id="gitattributes">
 <h3>F.5.3  .gitattributes<a class="headerlink" href="#gitattributes" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quel sera la fin de ligne standard pour certain type de fichiers :</p>
+<p>Ce fichier permet à Git de résoudre certains problèmes dans l'édition de fichiers sous Windows ou POSIX lorsque le type de fichiers n'a pas le bon format. On se contente de définir quelle sera la fin de ligne standard pour certains types de fichiers :</p>
 </div>
 <div class="section" id="gitignore">
 <h3>F.5.4  .gitignore<a class="headerlink" href="#gitignore" title="Lien permanent vers ce titre">¶</a></h3>
@@ -545,7 +545,7 @@
 </div>
 <div class="section" id="makefile">
 <h3>F.5.7  Makefile<a class="headerlink" href="#makefile" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ce fichier contient les directives nécessaires au programme <code class="docutils literal notranslate"><span class="pre">make</span></code> pour générer votre exécutable. Vous pouvez vous inspirer de ce <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> générique mais n'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces). Si vous avez l'extension EditorConfig installée pour votre éditeur vous pouvez reformater le fichier avant de l'enregistrer.</p>
+<p>Ce fichier contient les directives nécessaires au programme <code class="docutils literal notranslate"><span class="pre">make</span></code> pour générer votre exécutable. Vous pouvez vous inspirer de ce <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> générique, mais n'oubliez pas que la tabulation dans un Makefile doit être le caractère tabulation (pas des espaces). Si vous avez l'extension EditorConfig installée pour votre éditeur vous pouvez reformater le fichier avant de l'enregistrer.</p>
 <div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">CSRCS</span><span class="o">=</span><span class="k">$(</span>wildcard *.c<span class="k">)</span>
 <span class="nv">COBJS</span><span class="o">=</span><span class="k">$(</span>patsubst %.c,%.o,<span class="k">$(</span>CSRCS<span class="k">))</span>
 <span class="nv">EXEC</span><span class="o">?=</span>a.out
@@ -578,7 +578,7 @@
 </div>
 <div class="section" id="criteria-yml">
 <h3>F.5.9  criteria.yml<a class="headerlink" href="#criteria-yml" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé <code class="docutils literal notranslate"><span class="pre">description</span></code> et un nombre de point est spécifié. Une exigence peut avoir soit un nombre de point positif soit négatif. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas dilluer les exigences au travers d'autre critères importants mais normalment respectés des étudiants.</p>
+<p>Ce fichier contient les directives d'évaluation du travail pratique. Il est au format YAML. Pour chaque point évalué une description est donnée avec la clé <code class="docutils literal notranslate"><span class="pre">description</span></code> et un nombre de points est spécifié. Une exigence peut avoir soit un nombre de points positifs soit négatifs. Les points négatifs agissent comme une pénalité. Ce choix d'avoir des points et des pénalités permet de ne pas diluer les exigences au travers d'autres critères importants, mais normalement respectés des étudiants.</p>
 <p>Des points bonus sont donnés si le programme dispose d'une aide et d'une version et si la fonctionnalité du programme est étendue.</p>
 <p>Ce fichier est utilisé par des tests automatique pour faciliter la correction du travail pratique.</p>
 </div>
@@ -595,7 +595,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

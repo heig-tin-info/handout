@@ -15,7 +15,7 @@ Le `rasoir d'Ockham <https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham>`__ expose 
 
 En philosophie un `rasoir <https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>`__ est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
 
-Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple quelque soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
+Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
 
 Principes de programmation
 ==========================
@@ -29,7 +29,7 @@ DRY
 
     Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.
 
-En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`C` suivi de :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`V`. Dupliquer du code et quelque soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe d'un `code smell <https://fr.wikipedia.org/wiki/Code_smell>`__ qui indique que le code peut être simplifié et optimisé.
+En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`C` suivi de :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`V`. Dupliquer du code et quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe d'un `code smell <https://fr.wikipedia.org/wiki/Code_smell>`__ qui indique que le code peut être simplifié et optimisé.
 
 KISS
 ----
@@ -41,7 +41,7 @@ YAGNI
 
 YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
-Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.
+Ce principe combat le biais du développeur à vouloir sans cesse démarré de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.
 
 SSOT
 ----

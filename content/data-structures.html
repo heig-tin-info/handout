@@ -426,7 +426,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forcant cet utilisateur à ne passer que par des fonctions d'accès.</p>
+<p>De façon générale, les types abstraits sont utilisés dans l'écriture de bibliothèques logicielles lorsqu'il est important que l'utilisateur final ne puisse pas compromettre le contenu du type et en forçant cet utilisateur à ne passer que par des fonctions d'accès.</p>
 <p>Prenons le cas du fichier <cite>foobar.c</cite> lequel décrit une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Foo</span></code> et un type <code class="docutils literal notranslate"><span class="pre">Foo</span></code>. Notez que le type peut être déclaré avant la structure. <code class="docutils literal notranslate"><span class="pre">Foo</span></code> restera abstrait jusqu'à la déclaration complète de la structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Foo</span></code> permettant de connaître sa taille. Ce fichier contient également trois fonctions :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> permet d'initialiser la structure ;</p></li>
@@ -459,11 +459,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Evidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :</p>
+<p>Évidemment, on ne souhaite pas qu'un petit malin compromette ce compteur en écrivant maladroitement :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// Hacked this !</span>
 </pre></div>
 </div>
-<p>Pour s'en protéger on a recours à la compilation séparée (voir chapitre <a href="#id19"><span class="problematic" id="id20">TranslationUnits__</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
+<p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre <a href="#id19"><span class="problematic" id="id20">TranslationUnits__</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Foo</span> <span class="n">Foo</span><span class="p">;</span>
@@ -500,7 +500,7 @@
 <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;e&#39;</span><span class="p">;</span>
 <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;l&#39;</span><span class="p">;</span> <span class="c1">// Le buffer est plein...</span>
 
-<span class="c1">// Augmente dynamiquemenmt la taille du buffer à 5 chars</span>
+<span class="c1">// Augmente dynamiquement la taille du buffer à 5 chars</span>
 <span class="kt">char</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 <span class="n">assert</span><span class="p">(</span><span class="n">tmp</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
 <span class="n">buffer</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
@@ -513,7 +513,7 @@
 <span class="n">free</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est à dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc.</p>
+<p>La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'ancien espace. Selon les langages de programmation et les compilateurs, ces facteurs sont compris entre 3/2 et 2. C'est-à-dire que la taille du tableau prendra les tailles de 1, 2, 4, 8, 16, 32, etc.</p>
 <p>Lorsque le nombre d'éléments du tableau devient inférieur du facteur de croissance à la taille effective du tableau, il est possible de faire l'opération inverse, c'est-à-dire réduire la taille allouée. En pratique cette opération est rarement implémentée, car peu efficace (c.f. <a class="reference external" href="https://stackoverflow.com/a/60827815/2612235">cette</a> réponse sur stackoverflow).</p>
 <div class="section" id="anatomie">
 <h3>21.2.1  Anatomie<a class="headerlink" href="#anatomie" title="Lien permanent vers ce titre">¶</a></h3>
@@ -550,7 +550,7 @@
 <div class="figure align-default" id="id2">
 <img alt="../_images/dyn-array.svg" src="../_images/dyn-array.svg" /><p class="caption"><span class="caption-number">Fig. 21.1 </span><span class="caption-text">Tableau dynamique</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code class="docutils literal notranslate"><span class="pre">malloc</span></code> ne retourne pas la taille de l'espace mémoire alloué mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code class="docutils literal notranslate"><span class="pre">int32_t</span></code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> n'est généralement pas vide mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un d'autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
+<p>Un espace mémoire est réservé dynamiquement sur le tas. Comme <code class="docutils literal notranslate"><span class="pre">malloc</span></code> ne retourne pas la taille de l'espace mémoire alloué, mais juste un pointeur sur cet espace, il est nécessaire de conserver dans une variable la capacité du tableau. Notons qu'un tableau de 10 <code class="docutils literal notranslate"><span class="pre">int32_t</span></code> représentera un espace mémoire de 4x10 bytes, soit 40 bytes. La mémoire ainsi réservée par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> n'est généralement pas vide, mais elle contient des valeurs, vestige d'une ancienne allocation mémoire d'un autre programme depuis que l'ordinateur a été allumé. Pour connaître le nombre d'éléments effectifs du tableau, il faut également le mémoriser. Enfin, le pointeur sur l'espace mémoire est aussi mémorisé.</p>
 <p>Les composants de cette structure de donnée sont donc :</p>
 <ul class="simple">
 <li><p>Un entier non signé <code class="docutils literal notranslate"><span class="pre">size_t</span></code> représentant la capacité totale du tableau dynamique à un instant T.</p></li>
@@ -576,7 +576,7 @@
 <span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>L'opération <code class="docutils literal notranslate"><span class="pre">shift</span></code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.</p>
+<p>L'opération <code class="docutils literal notranslate"><span class="pre">shift</span></code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque élément qu'il contient.</p>
 <div class="figure align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/dyn-array-shift.svg"><img alt="../_images/dyn-array-shift.svg" src="../_images/dyn-array-shift.svg" /></a>
 <p class="caption"><span class="caption-number">Fig. 21.4 </span><span class="caption-text">Suppression du premier élément dans un tableau dynamique</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
@@ -587,7 +587,7 @@
     <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>Une optimisation peut être faite en déplacant le pointeur de donnée de 1 permettant de réduite la complexité à O(1) :</p>
+<p>Une optimisation peut être faite en déplaçant le pointeur de donnée de 1 permettant de réduite la complexité à O(1) :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">capacity</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -677,7 +677,7 @@
 </div>
 <div class="section" id="listes-chainees">
 <h2>21.4  Listes chaînées<a class="headerlink" href="#listes-chainees" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-7">On s'aperçois vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="math notranslate nohighlight">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="math notranslate nohighlight">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
+<p id="index-7">On s'aperçoit vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="math notranslate nohighlight">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="math notranslate nohighlight">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
 <p>Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.</p>
 <p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="p">{</span>
@@ -688,11 +688,11 @@
 <span class="k">struct</span> <span class="n">Element</span> <span class="n">elements</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>Considérons les dix premiers éléments de la séquence de nombre <a class="reference external" href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite répartissons ces valeurs aléatoirement dans notre tableau <cite>elements</cite> déclaré plus haut entre les indices 0 et 19.</p>
+<p>Considérons les dix premiers éléments de la séquence de nombre <a class="reference external" href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <cite>elements</cite> déclaré plus haut entre les indices 0 et 19.</p>
 <div class="figure align-default" id="id8">
-<img alt="../_images/static-linked-list.svg" src="../_images/static-linked-list.svg" /><p class="caption"><span class="caption-number">Fig. 21.7 </span><span class="caption-text">Construction d'une liste chaîne à l'aide d'un tableau</span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/static-linked-list.svg" src="../_images/static-linked-list.svg" /><p class="caption"><span class="caption-number">Fig. 21.7 </span><span class="caption-text">Construction d'une liste chainée à l'aide d'un tableau</span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
+<p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="n">current</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="k">struct</span> <span class="n">Element</span> <span class="n">next</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
 </pre></div>
@@ -729,7 +729,7 @@
 <ul class="simple">
 <li><p>L'élément 0 est un cas particulier qu'il faut traiter différemment. Le premier élément de la liste doit toujours être positionné à l'indice 0 du tableau. Insérer un nouvel élément en début de tableau demande de déplacer cet élément ailleurs en mémoire.</p></li>
 <li><p>Rechercher un élément libre prend du temps.</p></li>
-<li><p>Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacement mémoire disponibles</p></li>
+<li><p>Supprimer un élément dans le tableau laisse une place mémoire vide. Il devient alors difficile de savoir où sont les emplacements mémoires disponibles.</p></li>
 </ul>
 <p>Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par :</p>
 <ul class="simple">
@@ -970,7 +970,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
         &lt;–&gt;  A⊕C  &lt;-&gt;  B⊕D  &lt;-&gt;  C⊕E  &lt;-&gt;
 </pre></div>
 </div>
-<p>Lorsque la liste est traversée de gauche à droite, il est possible de facilement reconstuire le pointeur de l'élément suivant à partir de l'adresse de l'élément précédent.</p>
+<p>Lorsque la liste est traversée de gauche à droite, il est possible de facilement reconstruire le pointeur de l'élément suivant à partir de l'adresse de l'élément précédent.</p>
 <p>Les inconvénients de cette structure sont :</p>
 <ul class="simple">
 <li><p>Difficultés de débogage</p></li>
@@ -1027,7 +1027,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </div>
 <div class="section" id="heap">
 <h2>21.8  Heap<a class="headerlink" href="#heap" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La structure de donnée <code class="docutils literal notranslate"><span class="pre">heap</span></code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit &quot;presque complet&quot;, dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est à dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
+<p>La structure de donnée <code class="docutils literal notranslate"><span class="pre">heap</span></code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit &quot;presque complet&quot;, dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
 <p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
 <table class="docutils align-default" id="id14">
 <caption><span class="caption-number">Tableau 21.3 </span><span class="caption-text">Opération d'accès à un élément d'un <em>heap</em></span><a class="headerlink" href="#id14" title="Lien permanent vers ce tableau">¶</a></caption>
@@ -1064,7 +1064,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </div>
 <div class="section" id="queue-prioritaire">
 <h2>21.9  Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-10">Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée mais, par importance aristocratique.</p>
+<p id="index-10">Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
    <span class="k">enum</span> <span class="n">SocialStatus</span> <span class="p">{</span>
@@ -1095,7 +1095,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>La queue prioritaire dispose donc aussi des méthodes <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> et <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> mais le <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> ou <code class="docutils literal notranslate"><span class="pre">dequeue</span></code>. L'une de ces deux opération pourrait donc avoir une complexité de <span class="math notranslate nohighlight">\(O(n log n)\)</span>. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
+<p>La queue prioritaire dispose donc aussi des méthodes <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> et <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> mais le <code class="docutils literal notranslate"><span class="pre">dequeue</span></code> retournera l'élément le plus prioritaire de la liste. Ceci se traduit par trier la file d'attente à chaque opération <code class="docutils literal notranslate"><span class="pre">enqueue</span></code> ou <code class="docutils literal notranslate"><span class="pre">dequeue</span></code>. L'une de ces deux opérations pourrait donc avoir une complexité de <span class="math notranslate nohighlight">\(O(n log n)\)</span>. Heureusement, il existe méthodes de tris performantes si un tableau est déjà trié et qu'un seul nouvel élément y est ajouté.</p>
 <p>L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un <em>heap</em>, soit construit à partir d'un tableau statique, soit un tableau dynamique.</p>
 </div>
 <div class="section" id="tableau-de-hachage">
@@ -1103,9 +1103,9 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p>Les tableaux de hachage (<em>Hash Table</em>) sont une structure particulière dans laquelle une fonction dite de <em>hachage</em> est utilisée pour transformer les entrées en des indices d'un tableau.</p>
 <p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :</p>
 <div class="figure align-default" id="id16">
-<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /><p class="caption"><span class="caption-number">Fig. 21.13 </span><span class="caption-text">Tableau de hashage simple</span><a class="headerlink" href="#id16" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /><p class="caption"><span class="caption-number">Fig. 21.13 </span><span class="caption-text">Tableau de hachage simple</span><a class="headerlink" href="#id16" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Si l'on cherche l'indice correspondant à <code class="docutils literal notranslate"><span class="pre">Ada</span></code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans ce exemple considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
+<p>Si l'on cherche l'indice correspondant à <code class="docutils literal notranslate"><span class="pre">Ada</span></code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Nom    Valeurs ASCII     Somme  Modulo 10</span>
 <span class="go">---    --------------    -----  ---------</span>
 <span class="go">Mia -&gt; {77, 105, 97}  -&gt; 279 -&gt; 4</span>
@@ -1164,7 +1164,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p>Cette <a class="reference external" href="https://www.youtube.com/watch?v=KyUTuwz_b7Q">vidéo</a> YouTube explique bien le fonctionnement des tableaux de hachage.</p>
 <div class="section" id="collisions">
 <h3>21.10.1  Collisions<a class="headerlink" href="#collisions" title="Lien permanent vers ce titre">¶</a></h3>
-<p id="index-11">Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collision peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :</p>
+<p id="index-11">Lorsque la :index`fonction de hachage` est mal choisie, un certain nombre de collisions peuvent apparaître. Si l'on souhaite par exemple ajouter les personnes suivantes :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Sue -&gt; {83, 117, 101} -&gt; 301 -&gt; 4
 Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </pre></div>
@@ -1187,8 +1187,8 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="n">hash</span><span class="p">];</span>
 </pre></div>
 </div>
-<p>Lorsque le nombre de collision est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à <span class="math notranslate nohighlight">\(O(1)\)</span> mais lorsque le nombre de collision est prépondérant, la complexité se rapproche de celle de la recherche linéaire <span class="math notranslate nohighlight">\(O(n)\)</span> et on perd tout avantage à cette structure de donnée.</p>
-<p>Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille <span class="math notranslate nohighlight">\(26^3 = 17576\)</span> personnes. L'emprunte mémoire peut être considérablement réduite en stockant non pas une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Person</span></code> mais plutôt l'adresse vers cette structure :</p>
+<p>Lorsque le nombre de collisions est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à <span class="math notranslate nohighlight">\(O(1)\)</span>, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire <span class="math notranslate nohighlight">\(O(n)\)</span> et on perd tout avantage à cette structure de donnée.</p>
+<p>Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille <span class="math notranslate nohighlight">\(26^3 = 17576\)</span> personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Person</span></code> mais plutôt l'adresse vers cette structure :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Person</span> <span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">NULL</span> <span class="p">};</span>
 </pre></div>
 </div>
@@ -1215,12 +1215,12 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <h3>21.10.3  Chaînage<a class="headerlink" href="#chainage" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le <span class="target" id="index-13"></span>chaînage ou <em>chaining</em> est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.</p>
 <div class="figure align-default" id="id17">
-<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /><p class="caption"><span class="caption-number">Fig. 21.14 </span><span class="caption-text">Chaînage d'une table de hashage</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
+<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /><p class="caption"><span class="caption-number">Fig. 21.14 </span><span class="caption-text">Chaînage d'une table de hachage</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="fonction-de-hachage">
 <h3>21.10.4  Fonction de hachage<a class="headerlink" href="#fonction-de-hachage" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes <code class="docutils literal notranslate"><span class="pre">&quot;Rea&quot;</span></code> ou <code class="docutils literal notranslate"><span class="pre">&quot;Rae&quot;</span></code> auront les même <em>hash</em> puisqu'ils contiennent les même lettres. De même une fonction de hachage qui ne réparti pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.</p>
+<p>Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes <code class="docutils literal notranslate"><span class="pre">&quot;Rea&quot;</span></code> ou <code class="docutils literal notranslate"><span class="pre">&quot;Rae&quot;</span></code> auront les même <em>hash</em> puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.</p>
 <p>L'idée générale des fonctions de hachage est de répartir <strong>uniformément</strong> les clés sur les indices de la table de hachage. L'approche la plus courante est de mélanger les bits de notre clé dans un processus reproductible.</p>
 <p>Une idée <strong>mauvaise</strong> et <strong>à ne pas retenir</strong> pourrait être d'utiliser le caractère pseudo-aléatoire de <code class="docutils literal notranslate"><span class="pre">rand</span></code> pour hacher nos noms :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
@@ -1261,7 +1261,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <span class="go">Tod : 1</span>
 </pre></div>
 </div>
-<p>Dans la pratique, on utilisera volontier des fonctions de hachage utilisés en cryptographies tels que <a class="reference external" href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <cite>SHA</cite>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
+<p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a class="reference external" href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <cite>SHA</cite>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat chanson.txt
 <span class="go">Si je perds bien des maîtresses,</span>
 <span class="go">J&#39;en fais encor plus souvent,</span>
@@ -1274,7 +1274,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <span class="go">699bfc5c3fd42a06e99797bfa635f410  chanson.txt</span>
 </pre></div>
 </div>
-<p>Le <em>hash</em> de ce texte est exprimé en hexadécimal ( <code class="docutils literal notranslate"><span class="pre">0x699bfc5c3fd42a06e99797bfa635f410</span></code>). Converti en décimal <code class="docutils literal notranslate"><span class="pre">140378864046454182829995736237591622672</span></code> il peut être réduit en utilsant le modulo. Voici un exemple en C :</p>
+<p>Le <em>hash</em> de ce texte est exprimé en hexadécimal ( <code class="docutils literal notranslate"><span class="pre">0x699bfc5c3fd42a06e99797bfa635f410</span></code>). Converti en décimal <code class="docutils literal notranslate"><span class="pre">140378864046454182829995736237591622672</span></code> il peut être réduit en utilisant le modulo. Voici un exemple en C :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;openssl/md5.h&gt;</span><span class="cp"></span>
@@ -1332,7 +1332,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <div class="section" id="piles-ou-lifo-last-in-first-out">
 <h2>21.11  Piles ou LIFO (<em>Last In First Out</em>)<a class="headerlink" href="#piles-ou-lifo-last-in-first-out" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une pile est une structure de donnée très similaire à un tableau dynamique mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :</p>
+<p>Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :</p>
 <ul class="simple">
 <li><p>d'ajouter un élément (<em>push</em>) ;</p></li>
 <li><p>retirer un élément (<em>pop</em>) ;</p></li>
@@ -1364,7 +1364,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <div class="section" id="queues-ou-fifo-first-in-first-out">
 <h2>21.12  Queues ou FIFO (<em>First In First Out</em>)<a class="headerlink" href="#queues-ou-fifo-first-in-first-out" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les queues sont aussi des structures très similaires à des tableaux dynamiques mais elle ne permettent que les opérations suivantes :</p>
+<p>Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes :</p>
 <ul class="simple">
 <li><p>ajouter un élément à la queue (<em>push</em>) aussi nommé <em>enqueue</em> ;</p></li>
 <li><p>supprimer un élément au début de la queue (<em>shift</em>) aussi nommé <em>dequeue</em> ;</p></li>
@@ -1404,7 +1404,7 @@ int main() {
 </div>
 <div class="section" id="performances">
 <h2>21.13  Performances<a class="headerlink" href="#performances" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moin d'<em>overhead</em> pour les opérations de <code class="docutils literal notranslate"><span class="pre">push</span></code> ou <code class="docutils literal notranslate"><span class="pre">unshift</span></code> ?</p>
+<p>Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'<em>overhead</em> pour les opérations de <code class="docutils literal notranslate"><span class="pre">push</span></code> ou <code class="docutils literal notranslate"><span class="pre">unshift</span></code> ?</p>
 <p>L'indexation (<em>indexing</em>) est l'accès à une certaine valeur du tableau par exemple avec <code class="docutils literal notranslate"><span class="pre">a[k]</span></code>. Dans un tableau statique et dynamique l'accès se fait par pointeur depuis le début du tableau soit : <code class="docutils literal notranslate"><span class="pre">*((char*)a</span> <span class="pre">+</span> <span class="pre">sizeof(a[0])</span> <span class="pre">*</span> <span class="pre">k)</span></code> qui est équivalant à <code class="docutils literal notranslate"><span class="pre">*(a</span> <span class="pre">+</span> <span class="pre">k)</span></code>. L'indexation par arithmétique de pointeur n'est pas possible avec les listes chaînées dont il faut parcourir chaque élément pour découvrir l'adresse du prochain élément :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">get</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">list</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">List</span> <span class="o">*</span><span class="n">el</span> <span class="o">=</span> <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span>
@@ -1414,7 +1414,7 @@ int main() {
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>L'indexation d'une liste chaînée prends dans le cas le plus défavorable <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
+<p>L'indexation d'une liste chaînée prend dans le cas le plus défavorable <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
 <p>Les arbres binaires ont une structure qui permet naturellement la dichotomique. Chercher l'élément 5 prend 4 opérations : <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">-&gt;</span> <span class="pre">4</span> <span class="pre">-&gt;</span> <span class="pre">6</span> <span class="pre">-&gt;</span> <span class="pre">5</span></code>. L'indexation est ainsi possible en <span class="math notranslate nohighlight">\(O(log n)\)</span>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>            12
              |
@@ -1430,7 +1430,7 @@ int main() {
 </div>
 <p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :</p>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-number">Tableau 21.4 </span><span class="caption-text">Comparaison des performances des structure récursives</span><a class="headerlink" href="#id18" title="Lien permanent vers ce tableau">¶</a></caption>
+<caption><span class="caption-number">Tableau 21.4 </span><span class="caption-text">Comparaison des performances des structures récursives</span><a class="headerlink" href="#id18" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 14%" />
@@ -1525,7 +1525,7 @@ int main() {
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

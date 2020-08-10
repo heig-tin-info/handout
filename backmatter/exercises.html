@@ -387,6 +387,7 @@
             
   <div class="section" id="solution-des-exercices">
 <h1>Solution des exercices<a class="headerlink" href="#solution-des-exercices" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Vous trouvez ici les solutions de la plupart des exercices du livre. Certains ne comprennent pas de solution, volontairement pour qu'ils puissent être faits en classe ou qu'il suscite chez le lecteur davantage d'attention.</p>
 <div class="section" id="solution-chapter-1">
 <h2>Chapitre 1<a class="headerlink" href="#solution-chapter-1" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
@@ -401,32 +402,32 @@
 <p>Brian Kernighan et Dennis Ritchie en 1972</p>
 <p><a class="reference external" href="../content/introduction.html#exercise-4"><strong>Exercice 1.5</strong></a></p>
 <p>Le standard industriel, malgré que nous soyons en 2019 est toujours
-<strong>ISO/IEC 9899:1999</strong> car peu de changements majeurs ont été apporté
+<strong>ISO/IEC 9899:1999</strong>, car peu de changements majeurs ont été apportés
 au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
 que d'adopter un standard plus récent qui n'apporte que peu de changements.</p>
 <p><a class="reference external" href="../content/introduction.html#exercise-5"><strong>Exercice 1.6</strong></a></p>
 <p>C supporte les paradigmes impératifs, structurés et procédural.</p>
 <p><a class="reference external" href="../content/introduction.html#exercise-6"><strong>Exercice 1.7</strong></a></p>
 <p>La programmation impérative consiste en des séquences de commandes ordonnées.
-C'est à dire que les séquences sont exécutées dans un ordre défini les unes à la suite de autres.</p>
+C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.</p>
 <p><a class="reference external" href="../content/introduction.html#exercise-7"><strong>Exercice 1.8</strong></a></p>
 <p>Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une <em>coulée de lave</em>
 il est important qu'un programme soit testé et soumis à une équipe de <em>beta-testing</em> qui
 s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
 facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.</p>
-<p>Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement mais être difficile à l'utilisation car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.</p>
+<p>Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.</p>
 <p><a class="reference external" href="../content/introduction.html#exercise-8"><strong>Exercice 1.9</strong></a></p>
-<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notament dans cet ouvrage pour montrer que le contenu du fichier <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> est bel et bien celui attendu.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> est bel et bien celui attendu.</p>
 <div class="section" id="solution-chapter-3">
 <h2>Chapitre 3<a class="headerlink" href="#solution-chapter-3" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
 <p><a class="reference external" href="../content/foundations.html#exercise-0"><strong>Exercice 3.1</strong></a></p>
 <p>Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne <a class="reference external" href="https://regex101.com/r/cmxaic/1">regex101.com</a>.</p>
 <div style="-webkit-column-count: 2;-moz-column-count: 2; column-count: 2;"><ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">2_pi</span></code> <strong>invalide</strong> car commence par un chiffre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2_pi</span></code> <strong>invalide</strong>, car commence par un chiffre</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x_2</span></code> <strong>valide</strong></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x___3</span></code> <strong>valide</strong></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">2</span></code> <strong>invalide</strong> car comporte un espace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">2</span></code> <strong>invalide</strong>, car comporte un espace</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">positionRobot</span></code> <strong>valide</strong>, notation <em>camelCase</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">piece_presente</span></code> <strong>valide</strong>, notation <em>snake_case</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_commande_vanne</span></code> <strong>valide</strong></p></li>
@@ -569,7 +570,7 @@ n ≡ 7
     <span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Un consensus assez bien établi est qu'une variable commencant par <code class="docutils literal notranslate"><span class="pre">n</span></code> peut signifier
+<p>Un consensus assez bien établi est qu'une variable commençant par <code class="docutils literal notranslate"><span class="pre">n</span></code> peut signifier
 <em>number of</em>.</p>
 <div class="section" id="solution-chapter-4">
 <h2>Chapitre 4<a class="headerlink" href="#solution-chapter-4" title="Lien permanent vers ce titre">¶</a></h2>
@@ -590,7 +591,7 @@ n ≡ 7
 </pre></div>
 </div>
 <p><a class="reference external" href="../content/numeration.html#exercise-2"><strong>Exercice 4.3</strong></a></p>
-<p>Le système Shadock est un système quaternaire similaire au système du génôme humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :</p>
+<p>Le système Shadock est un système quaternaire similaire au système du génome humain basé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks les symboles du système indo-arabe que nous connaissons mieux :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>0 ○ (GA)
 1 − (BU)
 2 ⨼ (ZO)
@@ -601,7 +602,7 @@ n ≡ 7
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>−⨼○◿○ ≡ 12030₄
 </pre></div>
 </div>
-<p>En appliquant la méthode du cours on obtient :</p>
+<p>En appliquant la méthode du cours, on obtient :</p>
 <div class="math notranslate nohighlight">
 \[1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}\]</div>
 <div class="admonition hint">
@@ -729,7 +730,7 @@ n = 8
 </div>
 <p><a class="reference external" href="../content/datatype.html#exercise-16"><strong>Exercice 6.17</strong></a></p>
 <ol class="arabic">
-<li><p>Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.</p></li>
+<li><p>Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.</p></li>
 <li><p>En pratique, il obtient un entier, c'est à dire toujours 0.</p></li>
 <li><p>La promotion implicite des entiers peut être découpée comme suit :</p>
 <blockquote>
@@ -738,7 +739,7 @@ n = 8
 <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">percentage_good_parts</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">percentage</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>La division est donc appliquée à des entiers et non des flottnts.</p>
+<p>La division est donc appliquée à des entiers et non des flottants.</p>
 </div></blockquote>
 </li>
 <li><p>Une possible correction consiste à forcer le type d'un des membres de la division :</p>
@@ -1078,11 +1079,11 @@ provoque un arrêt</p></td>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">float</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnees du vecteur v1 separees par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnées du vecteur v1 séparées par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
     <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f ;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y1</span><span class="p">);</span>
 
     <span class="kt">float</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnees du vecteur v2 separees par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Coordonnées du vecteur v2 séparées par un </span><span class="se">\&quot;</span><span class="s">;</span><span class="se">\&quot;</span><span class="s"> :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
     <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f ;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y2</span><span class="p">);</span>
 
     <span class="kt">float</span> <span class="n">dot_product</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">y2</span><span class="p">;</span>
@@ -1092,7 +1093,7 @@ provoque un arrêt</p></td>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche mais cependant différent de zéro.
+<p>Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
 On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre <code class="docutils literal notranslate"><span class="pre">-0.000001</span></code> et <code class="docutils literal notranslate"><span class="pre">+0.000001</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dot_product</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1E-6</span> <span class="o">&amp;&amp;</span> <span class="n">dot_product</span> <span class="o">&lt;=</span> <span class="mf">1E-6</span><span class="p">)</span>
 </pre></div>
@@ -1319,7 +1320,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </pre></div>
 </div>
 <p>La complexité de cet algorithme est <span class="math notranslate nohighlight">\(O(n)\)</span> or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.</p>
-<p>Pour mieux se représenter le problème prenons l'exemple d'un tableau :</p>
+<p>Pour mieux se représenter le problème, prenons l'exemple d'un tableau :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  0   1   2   3   4   5   6   7   8   9   10
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
 │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
@@ -1335,7 +1336,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 └───┴───┴───┴───┴───┘
 </pre></div>
 </div>
-<p>On voit qu'il est impossible que la valeur se trouve à gauche car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est <code class="docutils literal notranslate"><span class="pre">A[mid]</span> <span class="pre">&lt;</span> <span class="pre">mid</span></code> où <code class="docutils literal notranslate"><span class="pre">mid</span></code> est la valeur mediane.</p>
+<p>On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est <code class="docutils literal notranslate"><span class="pre">A[mid]</span> <span class="pre">&lt;</span> <span class="pre">mid</span></code> où <code class="docutils literal notranslate"><span class="pre">mid</span></code> est la valeur médiane.</p>
 <p>Il est possible de répéter cette approche de façon dichotomique :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">_magic_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
@@ -1414,7 +1415,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

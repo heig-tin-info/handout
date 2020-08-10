@@ -7,9 +7,9 @@ Organisation de l'ouvrage
 
 Conçu comme un résumé du savoir nécessaire à l'ingénieur pour prendre en main le langage C, cet ouvrage n'est pas un manuel de référence. Il réfère à de nombreuses ressources internet et livres que le lecteur pourra consulter au besoin pour approfondir certains concepts.
 
-Chaque chapitre est composé d'exercices mais à des fins pédagogiques, toutes les solutions ne sont pas données. Certains exercices sont destinés à être faits en études.
+Chaque chapitre est composé d'exercices, mais à des fins pédagogiques, toutes les solutions ne sont pas données. Certains exercices sont destinés à être faits en études.
 
-Ce ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.
+Cet ouvrage est destiné à des étudiants ingénieurs de première année n'ayant aucune expérience en programmation.
 
 Conventions
 ===========
@@ -17,7 +17,7 @@ Conventions
 Symbole d'égalité
 -----------------
 
-Nous verrons que le signe d'égalité ``=`` peut aisément être confondu avec l'opérateur d'affectation (également) ``=`` utilisé en C. Dans certains exemples ou l'on montre une égalité entre différentes écritures, le signe d'égalité triple  (:unicode:`U+2261`) sera utilisé pour dissiper toute ambiguïté éventuelle :
+Nous verrons que le signe d'égalité ``=`` peut aisément être confondu avec l'opérateur d'affectation (également) ``=`` utilisé en C. Dans certains exemples où l'on montre une égalité entre différentes écritures, le signe d'égalité triple  (:unicode:`U+2261`) sera utilisé pour dissiper toute ambiguïté éventuelle :
 
 .. code-block::
 
@@ -42,5 +42,5 @@ Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes
 Encodage de caractère
 ---------------------
 
-Il sera souvent fait mention dans cet ouvrage la notation du type :unicode:`U+01AE`, il s'agit d'une notation unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect car cela dépend de la table d'encodage utilisée; en revanche, la notation unicode est exacte.
+Il sera souvent fait mention dans cet ouvrage la notation du type :unicode:`U+01AE`, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est exacte.
 

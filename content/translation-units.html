@@ -408,8 +408,8 @@
 <li><p>un fichier ne devrait pas dépasser 1000 lignes ;</p></li>
 <li><p>une ligne ne devrait pas dépasser 80 caractères.</p></li>
 </ul>
-<p>Donc à un moment, il est essentiel de divisier son travail en créant plusieurs fichiers.</p>
-<p>Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguéri des développeur. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :</p>
+<p>Donc à un moment, il est essentiel de diviser son travail en créant plusieurs fichiers.</p>
+<p>Ainsi, lorsque le programme commence à être volumineux, sa lecture, sa compréhension et sa mise au point deviennent délicates même pour le plus aguerri des développeurs. Il est alors essentiel de scinder le code source en plusieurs fichiers. Prenons l'exemple d'un programme qui effectue des calculs sur les nombres complexes. Notre projet est donc constitué de trois fichiers :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> tree
 <span class="go">.</span>
 <span class="go">├── complex.c</span>
@@ -457,7 +457,7 @@ nombres complexes. Exemple :</p>
 <p>Un des avantages majeurs à la création de modules est qu'un module
 logiciel peut être réutilisé pour d'autres applications. Plus besoin de
 réinventer la roue à chaque application !</p>
-<p>Cet exemple sera compilé dans un environnement POSIX de la facon suivante :</p>
+<p>Cet exemple sera compilé dans un environnement POSIX de la façon suivante :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gcc -c complex.c -o complex.o</span>
 <span class="go">gcc -c main.c -o main.o</span>
 <span class="go">gcc complex.o main.o -oprogram -lm</span>
@@ -471,26 +471,26 @@ réinventer la roue à chaque application !</p>
 <ul class="simple">
 <li><p>les modules externes sont sous la responsabilité d'autres développeurs et le programme a développer comporte moins de code ;</p></li>
 <li><p>les modules externes sont souvent bien documentés et testés et il est facile de les utiliser ;</p></li>
-<li><p>la lisibilité du programme est accrue car il est bien découpé en des ensembles fonctionnels ;</p></li>
+<li><p>la lisibilité du programme est accrue, car il est bien découpé en des ensembles fonctionnels ;</p></li>
 <li><p>les modules externes sont réutilisables et indépendants, ils peuvent donc être réutilisés sur plusieurs projets.</p></li>
 </ul>
-<p>Lorsque vous utiliser la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>, vous dépendez d'un module externe nommé <code class="docutils literal notranslate"><span class="pre">stdio</span></code>. En réalité l'ensemble des modules <code class="docutils literal notranslate"><span class="pre">stdio</span></code>, <code class="docutils literal notranslate"><span class="pre">stdlib</span></code>, <code class="docutils literal notranslate"><span class="pre">stdint</span></code>, <code class="docutils literal notranslate"><span class="pre">ctype</span></code>... sont tous groupé dans une seule bibliothèque logicielle nommée <code class="docutils literal notranslate"><span class="pre">libc</span></code> disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre <code class="docutils literal notranslate"><span class="pre">glibc</span></code> est utilisée. Il s'agit de la biblothèque <a class="reference external" href="https://fr.wikipedia.org/wiki/GNU_C_Library">GNU C Library</a>.</p>
-<p>Un module logiciel peut se composer de fichiers sources, c'est à dire un ensemble de fichiers <code class="docutils literal notranslate"><span class="pre">.c</span></code> et <code class="docutils literal notranslate"><span class="pre">.h</span></code> ainsi qu'une documentation et un script de compilation (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code class="docutils literal notranslate"><span class="pre">.h</span></code>, <code class="docutils literal notranslate"><span class="pre">.a</span></code> et <code class="docutils literal notranslate"><span class="pre">.so</span></code>. Sous Windows on rencontre fréquemment l'extension <code class="docutils literal notranslate"><span class="pre">.dll</span></code>. Ces fichiers compilés ne donnent pas accès au code source mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
+<p>Lorsque vous utilisez la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>, vous dépendez d'un module externe nommé <code class="docutils literal notranslate"><span class="pre">stdio</span></code>. En réalité l'ensemble des modules <code class="docutils literal notranslate"><span class="pre">stdio</span></code>, <code class="docutils literal notranslate"><span class="pre">stdlib</span></code>, <code class="docutils literal notranslate"><span class="pre">stdint</span></code>, <code class="docutils literal notranslate"><span class="pre">ctype</span></code>... sont tous groupés dans une seule bibliothèque logicielle nommée <code class="docutils literal notranslate"><span class="pre">libc</span></code> disponible sur tous les systèmes compatibles POSIX. Sous Linux, le pendant libre <code class="docutils literal notranslate"><span class="pre">glibc</span></code> est utilisé. Il s'agit de la bibliothèque <a class="reference external" href="https://fr.wikipedia.org/wiki/GNU_C_Library">GNU C Library</a>.</p>
+<p>Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers <code class="docutils literal notranslate"><span class="pre">.c</span></code> et <code class="docutils literal notranslate"><span class="pre">.h</span></code> ainsi qu'une documentation et un script de compilation (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers <code class="docutils literal notranslate"><span class="pre">.h</span></code>, <code class="docutils literal notranslate"><span class="pre">.a</span></code> et <code class="docutils literal notranslate"><span class="pre">.so</span></code>. Sous Windows on rencontre fréquemment l'extension <code class="docutils literal notranslate"><span class="pre">.dll</span></code>. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.</p>
 </div>
 <div class="section" id="compilation-avec-assemblage-differe">
 <h2>18.4  Compilation avec assemblage différé<a class="headerlink" href="#compilation-avec-assemblage-differe" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Lorsque nous avions compilé notre premier exemple <a class="reference external" href="hello">Hello World</a> nous avions simplement appelé <code class="docutils literal notranslate"><span class="pre">gcc</span></code> avec le fichier source <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> qui nous avait créé un exécutable <code class="docutils literal notranslate"><span class="pre">a.out</span></code>. En réalité, GCC est passé par plusieurs sous étapes de compilation :</p>
+<p>Lorsque nous avions compilé notre premier exemple <a class="reference external" href="hello">Hello World</a> nous avions simplement appelé <code class="docutils literal notranslate"><span class="pre">gcc</span></code> avec le fichier source <code class="docutils literal notranslate"><span class="pre">hello.c</span></code> qui nous avait créé un exécutable <code class="docutils literal notranslate"><span class="pre">a.out</span></code>. En réalité, GCC est passé par plusieurs sous-étapes de compilation :</p>
 <ol class="arabic simple">
-<li><p><strong>Préprocessing</strong> : les commentaires sont retirés, les directives pré-processeur sont remplacées par leur équivalent C.</p></li>
+<li><p><strong>Préprocessing</strong> : les commentaires sont retirés, les directives préprocesseur sont remplacées par leur équivalent C.</p></li>
 <li><p><strong>Compilation</strong> : le code C d'une seule <em>translation unit</em> est converti en langage machine en un fichier objet <code class="docutils literal notranslate"><span class="pre">.o</span></code>.</p></li>
-<li><p><strong>Édition des liens</strong> : aussi nommé <em>link</em>, les différents fichiers objets sont réunis en un seul exécutable.</p></li>
+<li><p><strong>Édition des liens</strong> : aussi nommés <em>link</em>, les différents fichiers objets sont réunis en un seul exécutable.</p></li>
 </ol>
-<p>Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.</p>
+<p>Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées en même temps, mais ce n'est plus possible aussitôt que le programme est composé de plusieurs unités de translation (plusieurs fichiers C). Il est alors nécessaire de compiler manuellement chaque fichier source et d'en créer.</p>
 <p>La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (<code class="docutils literal notranslate"><span class="pre">.s</span></code>) ou objets (<code class="docutils literal notranslate"><span class="pre">.o</span></code>) en utilisant la bonne commande.</p>
 <div class="figure align-default" id="id1">
 <img alt="../_images/gcc.svg" src="../_images/gcc.svg" /><p class="caption"><span class="caption-number">Fig. 18.1 </span><span class="caption-text">Étapes intermédiaires de compilation avec GCC</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Notons que ces étapes existent quelque soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).</p>
+<p>Notons que ces étapes existent, quel que soit le compilateur ou le système d'exploitation. Nous retrouverons ces exactes mêmes étapes avec Microsoft Visual Studio, mais le nom des commandes et les extensions des fichiers peuvent varier s'ils ne respectent pas la norme POSIX (et GNU).</p>
 <p>Notons que généralement, seul deux étapes de GCC sont utilisées :</p>
 <ol class="arabic simple">
 <li><p>Compilation avec <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-c</span> <span class="pre">&lt;fichier.c&gt;</span></code>, ceci génère automatiquement un fichier <code class="docutils literal notranslate"><span class="pre">.o</span></code> du même nom que le fichier d'entrée.</p></li>
@@ -499,20 +499,20 @@ réinventer la roue à chaque application !</p>
 </div>
 <div class="section" id="fichiers-d-en-tete-header">
 <h2>18.5  Fichiers d'en-tête (<em>header</em>)<a class="headerlink" href="#fichiers-d-en-tete-header" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les fichiers d'en-tête (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) sont des fichiers écrits en langage C mais qui ne contienne pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code class="docutils literal notranslate"><span class="pre">while</span></code>, de <code class="docutils literal notranslate"><span class="pre">for</span></code> ou même de <code class="docutils literal notranslate"><span class="pre">if</span></code>. Par convention ces fichiers ne contienne que :</p>
+<p>Les fichiers d'en-tête (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de <code class="docutils literal notranslate"><span class="pre">while</span></code>, de <code class="docutils literal notranslate"><span class="pre">for</span></code> ou même de <code class="docutils literal notranslate"><span class="pre">if</span></code>. Par convention ces fichiers ne contiennent que :</p>
 <ul class="simple">
 <li><p>Des prototypes de fonctions (ou de variables).</p></li>
-<li><p>Des déclaration de types (<code class="docutils literal notranslate"><span class="pre">typedef</span></code>, <code class="docutils literal notranslate"><span class="pre">struct</span></code>).</p></li>
-<li><p>Des définitions pré-processeur (<code class="docutils literal notranslate"><span class="pre">#include</span></code>, <code class="docutils literal notranslate"><span class="pre">#define</span></code>).</p></li>
+<li><p>Des déclarations de types (<code class="docutils literal notranslate"><span class="pre">typedef</span></code>, <code class="docutils literal notranslate"><span class="pre">struct</span></code>).</p></li>
+<li><p>Des définitions préprocesseur (<code class="docutils literal notranslate"><span class="pre">#include</span></code>, <code class="docutils literal notranslate"><span class="pre">#define</span></code>).</p></li>
 </ul>
-<p>Nous l'avons vu dans le chapitre sur le pré-processeur, la directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> ne fait qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :</p>
+<p>Nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.c</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
    <span class="cp">#include</span> <span class="cpf">&quot;foobar.def&quot;</span><span class="cp"></span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Et le fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> pourrait cotenir :</p>
+<p>Et le fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> pourrait contenir :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// foobar.def</span>
 <span class="cp">#ifdef FOO</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello foo!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -522,7 +522,7 @@ réinventer la roue à chaque application !</p>
 </pre></div>
 </div>
 <p>Vous noterez que l'extension de <code class="docutils literal notranslate"><span class="pre">foobar</span></code> n'est pas <code class="docutils literal notranslate"><span class="pre">.h</span></code> puisque le contenu n'est pas un fichier d'en-tête. <code class="docutils literal notranslate"><span class="pre">.def</span></code> ou n'importe quelle autre extension pourrait donc faire l'affaire ici.</p>
-<p>Dans cet exemple, le pré-processeur ne fait qu'inclure le contenu du fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> à l'emplacement de la définition <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;foobar.def&quot;</span></code>. Voyons le en détail :</p>
+<p>Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> à l'emplacement de la définition <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;foobar.def&quot;</span></code>. Voyons-le en détail :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;&lt; EOF &gt; main.c
 <span class="go">→ int main() {</span>
 <span class="go">→     #include &quot;foobar.def&quot;</span>
@@ -545,13 +545,13 @@ réinventer la roue à chaque application !</p>
 <span class="go">}</span>
 </pre></div>
 </div>
-<p>Lorsque l'on observe le résultat du pré-processeur, on s'aperçois que toutes les directives préprocesseur ont disparues et que la directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> a été remplacée par de contenu de <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code>. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.</p>
+<p>Lorsque l'on observe le résultat du préprocesseur, on s'aperçoit que toutes les directives préprocesseur ont disparues et que la directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> a été remplacée par de contenu de <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code>. Remarquons que le fichier est inclus deux fois, nous verrons plus loin comme éviter cela.</p>
 <p>Nous avons vu au chapitre sur les <a class="reference external" href="function_prototype">prototypes de fonctions</a> qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de savoir combien d'arguments est composé une fonction sans nécessairement disposer de l'implémentation de cette fonction. Aussi on trouve dans tous les fichiers d'en-tête des déclaration en amont (<em>forward declaration</em>). Dans le fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code> on trouvera la ligne : <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">printf(</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*restrict</span> <span class="pre">format,</span> <span class="pre">...</span> <span class="pre">);</span></code>.</p>
-<p>Notons qu'ici le prototype est précédé par le mot clé <code class="docutils literal notranslate"><span class="pre">extern</span></code>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas car <code class="docutils literal notranslate"><span class="pre">printf</span></code> est déjà compilée quelque part dans la bibliothèque <code class="docutils literal notranslate"><span class="pre">libc</span></code> inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.</p>
+<p>Notons qu'ici le prototype est précédé par le mot clé <code class="docutils literal notranslate"><span class="pre">extern</span></code>. Il s'agit d'un mot clé <strong>optionnel</strong> permettant de renforcer l'intention du développeur que la fonction déclarée n'est pas inclue dans fichier courant, mais qu'elle est implémentée ailleurs, dans un autre fichier. Et c'est le cas, car <code class="docutils literal notranslate"><span class="pre">printf</span></code> est déjà compilée quelque part dans la bibliothèque <code class="docutils literal notranslate"><span class="pre">libc</span></code> inclue par défaut lorsqu'un programme C est compilé dans un environnement POSIX.</p>
 <p>Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.</p>
 <div class="section" id="protection-de-reentrance">
 <h3>18.5.1  Protection de réentrance<a class="headerlink" href="#protection-de-reentrance" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on défini dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclu par une autre bibliothèque une erreur de compilation apparaîtera :</p>
+<p>La protection de réentrence aussi nommée <em>header guards</em> est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque une erreur de compilation apparaîtra :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;&lt; EOF &gt; main.c
 <span class="go">→ #include &quot;foo.h&quot;</span>
 <span class="go">→ #include &quot;bar.h&quot;</span>
@@ -619,7 +619,7 @@ réinventer la roue à chaque application !</p>
 </pre></div>
 </div>
 <p>Si aucune définition du type <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">BAR_H</span></code> n'existe, alors le fichier <code class="docutils literal notranslate"><span class="pre">bar.h</span></code> n'a jamais été inclus auparavant et le contenu de la directive <code class="docutils literal notranslate"><span class="pre">#ifndef</span> <span class="pre">BAR_H</span></code> dans lequel on commence par définir <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code> est exécuté. Lors d'une future inclusion de <code class="docutils literal notranslate"><span class="pre">bar.h</span></code>, la valeur de <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code> aura déjà été définie et le contenu de la directive <code class="docutils literal notranslate"><span class="pre">#ifndef</span> <span class="pre">BAR_H</span></code> ne sera jamais exécuté.</p>
-<p>Alternativement, il existe une solution <strong>non standard</strong> mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :</p>
+<p>Alternativement, il existe une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">Bar</span> <span class="p">{</span>
@@ -627,7 +627,7 @@ réinventer la roue à chaque application !</p>
 <span class="p">}</span> <span class="n">Bar</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code class="docutils literal notranslate"><span class="pre">#endif</span></code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT car le nom du fichier <code class="docutils literal notranslate"><span class="pre">bar.h</span></code> n'apparaît pas dans le fichier <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code>.</p>
+<p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code class="docutils literal notranslate"><span class="pre">#endif</span></code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <code class="docutils literal notranslate"><span class="pre">bar.h</span></code> n'apparaît pas dans le fichier <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code>.</p>
 </div>
 </div>
 </div>
@@ -646,7 +646,7 @@ réinventer la roue à chaque application !</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

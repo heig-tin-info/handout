@@ -18,7 +18,7 @@ Un programme peut se décliner sous plusieurs formes :
 - Listing assembleur
 - Exécutable binaire
 
-Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les `systèmes d'exploitation <https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation>`__ tels que Windows sont dit `multitâches <https://fr.wikipedia.org/wiki/Multit%C3%A2che>`__, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
+Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les `systèmes d'exploitation <https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation>`__ tels que Windows sont dits `multitâches <https://fr.wikipedia.org/wiki/Multit%C3%A2che>`__, il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
 Code source
 -----------
@@ -108,7 +108,7 @@ Il est facile de voir la correspondance entre l'assembleur et l'exécutable bina
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension ``.jpg`` sera un fichier image du `Join Photographic Experts Group <https://fr.wikipedia.org/wiki/JPEG>`__ et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension ``.exe`` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
-Sous POSIX (Linux, MacOS, UNIX), les *flags* d'un fichier qualifient son type. Le programme ``ls`` permet de visualiser les flags du programme ``Fibonacci`` que nous avons compilé:
+Sous POSIX (Linux, macOS, UNIX), les *flags* d'un fichier qualifient son type. Le programme ``ls`` permet de visualiser les flags du programme ``Fibonacci`` que nous avons compilé:
 
 .. code-block:: console
 
@@ -131,7 +131,7 @@ Ce programme peut-être exécuté par tout le monde, mais modifié que par l'uti
 Entrées sorties
 ---------------
 
-Tout programme doit pouvoir interagir avec son environnement. A l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
+Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
 
 - L'entrée standard ``STDIN`` fourni au programme du contenu qui est généralement fourni par la sortie d'un autre programme.
 - Les arguments du programme ``ARGV``
@@ -230,7 +230,7 @@ Le standard POSIX décrit une façon de distinguer des *options* passées à un 
 Extension GNU
 -------------
 
-Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension `GNU <https://fr.wikipedia.org/wiki/GNU>`__ et son en-tête ``<getopt.h>`` permet l'accès à la fonction ``getopt_long`` laquelle permet d'interpréter aussi les options longues ``--version`` qui sont devenues très répandues.
+Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension `GNU <https://fr.wikipedia.org/wiki/GNU>`__ et son en-tête ``<getopt.h>`` permet l'accès à la fonction ``getopt_long`` laquelle permet d'interpréter aussi les options longues ``--version`` qui sont devenues très répandue.
 
 .. code-block::c
 

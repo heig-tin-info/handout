@@ -402,7 +402,7 @@
 <p class="caption"><span class="caption-number">Fig. 15.1 </span><span class="caption-text">Bibliothèque du Trinity College de Dublin</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Une bibliothèque informatique est une collection de fichiers comportant des fonctionnalités logicielles prêtes à l'emploi. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> est une de ces fonctionnalités et offerte par le header <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code> faisant partie de la bibliothèque <code class="docutils literal notranslate"><span class="pre">libc6</span></code>.</p>
-<p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> etant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a class="reference external" href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
+<p>L'anglicisme <em>library</em>, plus court à prononcer et à écrire est souvent utilisé en lieu et place de bibliothèque tant il est omniprésent dans le monde logiciel. Le terme <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code> étant la concaténation de <em>standard library</em> par exemple. Notez que librairie n'est pas la traduction correcte de <em>library</em> qui est un <a class="reference external" href="https://fr.wikipedia.org/wiki/Faux-ami">faux ami</a>.</p>
 <p>Une <em>library</em>, à l'instar d'une bibliothèque, contient du contenu (livre écrit dans une langue donnée) et un index (registre). En informatique il s'agit d'un fichier binaire compilé pour une architecture donnée ainsi qu'un ou plusieurs fichiers d'en-tête (<em>header</em>) contenant les définitions de cette bibliothèque.</p>
 <p>Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.</p>
 <div class="section" id="exemple-libgmp">
@@ -516,7 +516,7 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 </pre></div>
 </div>
-<p>c'est à dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :</p>
+<p>C'est-à-dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> ~167 KiB
 <span class="gp">$</span> gcc gmp.c -l:libgmp.a
 <span class="gp">$</span> size a.out
@@ -605,7 +605,7 @@
 <span class="kt">void</span> <span class="nf">caesar</span><span class="p">(</span><span class="kt">char</span> <span class="n">str</span><span class="p">[],</span> <span class="kt">unsigned</span> <span class="n">key</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiveur crée l'amalgame :</p>
+<p>Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -c -o caesar.o caesar.c
 <span class="gp">$</span> ar rcs caesar.a caesar.o
 </pre></div>
@@ -681,7 +681,7 @@
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;stdint.h&gt;</span></code></dt><dd><p>Défini les types standard d'entiers (<code class="docutils literal notranslate"><span class="pre">int32_t</span></code>, <code class="docutils literal notranslate"><span class="pre">int_fast64_t</span></code>, ...).</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></dt><dd><p>Permet l'accès aux entrées sorties standard (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">stderr</span></code>). Défini entre autre la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></dt><dd><p>Permet l'accès aux entrées sorties standard (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">stderr</span></code>). Définis entre autres la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code></dt><dd><p>Permet l'allocation dynamique et défini <code class="docutils literal notranslate"><span class="pre">malloc</span></code></p>
 </dd>
@@ -768,12 +768,12 @@
 </tr>
 </tbody>
 </table>
-<p>Notons par exemple que la fonction <code class="docutils literal notranslate"><span class="pre">hypot</span></code> peut très bien être émulée facilement en utilsant la fonction <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>. Néanmoins elle existe pour deux raisons élémentaires :</p>
+<p>Notons par exemple que la fonction <code class="docutils literal notranslate"><span class="pre">hypot</span></code> peut très bien être émulée facilement en utilisant la fonction <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>. Néanmoins elle existe pour deux raisons élémentaires :</p>
 <ol class="arabic simple">
 <li><p>Éviter les dépassements (<em>overflow</em>).</p></li>
 <li><p>Une meilleure optimisation du code.</p></li>
 </ol>
-<p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capable de calculer certaines fonctions plus rapidement.</p>
+<p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.</p>
 </div>
 <div class="section" id="chaines-de-caracteres">
 <h4>15.5.1.2  Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
@@ -966,7 +966,7 @@ les deux régions mémoire se superposent.</p>
 </div>
 <div class="section" id="windows-c-library">
 <h3>15.6.3  Windows C library<a class="headerlink" href="#windows-c-library" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La bibliothèque Windows <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windoes API</a> offre une interface au système de fichier, au registre windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.</p>
+<p>La bibliothèque Windows <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windoes API</a> offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.</p>
 <p>L'accès à cet API est offert par un unique point d'entrée <a class="reference external" href="https://en.wikipedia.org/wiki/Windows.h">windows.h</a> qui regroupe certains en-têtes standards (<code class="docutils literal notranslate"><span class="pre">&lt;stdarg.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;string.h&gt;</span></code>, ...), mais pas tous (😔) ainsi que les en-têtes spécifiques à Windows tels que :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;winreg.h&gt;</span></code></dt><dd><p>Pour l'accès au registre Windows</p>
@@ -1001,7 +1001,7 @@ les deux régions mémoire se superposent.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
+    Mis à jour le 10 août 2020 (version v0.2.7-36-gcfa93e6).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

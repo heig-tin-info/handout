@@ -7,7 +7,7 @@ Un :index:`opérateur` applique une opération à une (opérateur unitaire), deu
 .. figure:: ../../assets/figures/dist/processor/alu.*
     :alt: ALU
 
-    Unité de calcul arithmétique (:index:`ALU`) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
+    Unité de calcul arithmétique (:index:`ALU`) composée de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 
 .. code-block:: c
 
@@ -19,7 +19,7 @@ Une :index:`priorité`
     La multiplication ``*`` est plus prioritaire que l'addition ``+``
 
 Une :index:`associativité`
-    L'opérateur d'affectation possède une associativité à droite, c'est à dire que l'opérande à droite de l'opérateur sera évalué en premier
+    L'opérateur d'affectation possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
 
 Un :index:`point de séquence`
     Certains opérateurs comme ``&&``, ``||``, ``?`` ou ``,`` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression ``i < 12 && j > 2`` la valeur de ``i`` est plus grande que 12, le test ``j > 2`` ne sera jamais effectué. L'opérateur ``&&`` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation ``=``.
@@ -27,7 +27,7 @@ Un :index:`point de séquence`
 Opérateurs relationnels
 =======================
 
-Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un **boolean** c'est à dire que le résultat d'une comparaison est soit **vrai**, soit **faux**.
+Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un **boolean** c'est-à-dire que le résultat d'une comparaison est soit **vrai**, soit **faux**.
 
 .. table:: Opérateurs relationnels
 
@@ -140,7 +140,7 @@ Opérateur de transtypage
 Opérateur séquentiel
 ====================
 
-L'opérateur séquentiel (*comma operator*) permet l'exécution ordonné d'opérations, et retourne la dernière valeur. Son utilisation est courament limitée soit aux décalarations de variables, soit au boucles ``for``:
+L'opérateur séquentiel (*comma operator*) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée soit aux déclarations de variables, soit au boucles ``for``:
 
 .. code-block:: c
 
@@ -154,7 +154,7 @@ Une particularité de cet opérateur est que seule la dernière valeur est retou
 
     assert(3 == (1, 2, 3))
 
-L'opérateur agit également comme un :ref:`Point de séquence <sequence_point>`, c'est à dire que l'ordre des étapes sont respectés.
+L'opérateur agit également comme un :ref:`Point de séquence <sequence_point>`, c'est-à-dire que l'ordre des étapes est respecté.
 
 .. exercise:: Opérateur séquentiel
 
@@ -174,7 +174,7 @@ Les opérateurs logiques
 =======================
 
 Ils permettent de coupler des opérateurs de comparaison entre eux pour
-effectuer des tests un peu plus complexe.
+effectuer des tests un peu plus complexes.
 
 ET logique
 ----------
@@ -235,10 +235,10 @@ Table de vérité
 | 1            | 0          |
 +--------------+------------+
 
-Les opérateurs bit-à-bit
+Les opérateurs bit à bit
 ========================
 
-Ils permettent d'effectuer des opérations binaire bit à bit sur des
+Ils permettent d'effectuer des opérations binaires bit à bit sur des
 types entiers.
 
 Inversion logique ou complément à 1
@@ -319,10 +319,10 @@ permettent d'ajouter 1 ou de retrancher 1 à une variable, et ce de
 manière optimisée pour le processeur qui exécute le programme.
 
 Ils peuvent, en outre, être exécutés avant ou après l'évaluation de
-l'opération. On parle alors de pré-incrémentation ou pré-décrémentation
+l'opération. On parle alors de pré incrémentation ou pré décrémentation
 et post-incrémentation ou post-décrémentation.
 
-- pré-incrémentation
+- pré incrémentation
 
     .. code-block:: c
 
@@ -338,7 +338,7 @@ et post-incrémentation ou post-décrémentation.
 
         j = i++;    // on obtient i=1 et j=0
 
-- pré-décrémentation
+- pré décrémentation
 
     .. code-block:: c
 
@@ -360,7 +360,7 @@ et post-incrémentation ou post-décrémentation.
 Priorité des opérateurs
 =======================
 
-La **précédence** est un anglicisme de *precedence* (priorité) qui concerne la priorité des opérateurs, où l'ordre dans lequel les opérateurs sont exécutés. Chacuns connaît la priorité des quatre opérateurs de base (``+``, ``-``, ``*``, ``/``) mais le C et ses nombreux opérateurs est bien plus complexe.
+La **précédence** est un anglicisme de *precedence* (priorité) qui concerne la priorité des opérateurs, ou l'ordre dans lequel les opérateurs sont exécutés. Chacun connaît la priorité des quatre opérateurs de base (``+``, ``-``, ``*``, ``/``), mais le C et ses nombreux opérateurs sont bien plus complexes.
 
 La table suivante indique les règles à suivre pour les précédences des opérateurs en C.
 La précédence
@@ -438,7 +438,7 @@ Considérons l'exemple suivant :
 
     x = 5 + 23 + 34 / ++i[0] & 0xFF << y;
 
-Selon la précédance de chaque opérateur ainsi que son associativité on a :
+Selon la précédence de chaque opérateur ainsi que son associativité on a :
 
 .. code-block:: text
 
@@ -451,7 +451,7 @@ Selon la précédance de chaque opérateur ainsi que son associativité on a :
     &   8
     =   14
 
-L'écriture en notation polonaise inversée, donnerait alors
+L'écriture en notation polonaise inversée donnerait alors
 
 .. code-block:: text
 
@@ -475,7 +475,7 @@ On comprend aisément que plus cette taille est importante, plus on gagne
 en précision ou en grandeur représentable. La promotion numérique régit
 les conversions effectuées implicitement par le langage C lorsqu'on
 convertit une donnée d'un type vers un autre. Cette promotion tend à
-conserver le maximum de précision lorsqu'on effectue des calcul entre
+conserver le maximum de précision lorsqu'on effectue des calculs entre
 types différents (ex : l'addition d'un ``int`` avec un ``double`` donne un
 type ``double``). Voici les règles de base :
 
@@ -485,10 +485,10 @@ type ``double``). Voici les règles de base :
 
 La **promotion** est l'action de promouvoir un type de donnée en un autre type de donnée plus général. On parle de promotion implicite des entiers lorsqu'un type est promu en un type plus grand automatiquement par le compilateur.
 
-Valeurs gauche
-==============
+Valeurs gauches
+===============
 
-Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langage de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
+Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
 
 .. code-block:: c
 
@@ -506,7 +506,7 @@ Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langa
             (x = y) = z;
                     ^
 
-Voici quelques exemples de valeurs gauche :
+Voici quelques exemples de valeurs gauches :
 
 - ``x /= y``
 - ``++x``
@@ -525,7 +525,7 @@ Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la c
 
     int num = (4 + 7 * 10) >> 2;
 
-De même que ce test n'effectura pas une division mais testera simplement le dernier bit de ``a``:
+De même que ce test n'effectuera pas une division, mais testera simplement le dernier bit de ``a``:
 
 .. code-block:: c
 
@@ -565,7 +565,7 @@ De même que ce test n'effectura pas une division mais testera simplement le der
     - mettre à 0 le bit numéro ``n``, ``n`` étant un entier entre 0 et 15;
     - inverser le bit numéro ``n``, ``n`` étant un entier entre 0 et 15;
 
-    Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle ``r0`` la vairable désignant le registre en mémoire et ``n`` la variable contenant le numéro du bit à modifier. Écriver les expressions permettant d'effectuer les opérations demandées.
+    Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle ``r0`` la variable désignant le registre en mémoire et ``n`` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
 
 .. exercise:: Recherche d'expressions
 
@@ -599,11 +599,11 @@ De même que ce test n'effectura pas une division mais testera simplement le der
 
     Par exemple :
 
-    - ``9`` est un nombre narcissique car :math:`9 = 9^1 = 9`
-    - ``153`` est un nombre narcissique car :math:`153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153`
-    - ``10`` n'est pas un nombre narcissique car :math:`10 \ne 1^2 + 0^2 = 1`
+    - ``9`` est un nombre narcissique, car :math:`9 = 9^1 = 9`
+    - ``153`` est un nombre narcissique, car :math:`153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153`
+    - ``10`` n'est pas un nombre narcissique, car :math:`10 \ne 1^2 + 0^2 = 1`
 
-    Implanter un programme permettant de vérifier si un nombre d'entrée est narcissique ou non. L'exécution est la suivante :
+    Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
 
     .. code-block::
 

@@ -126,17 +126,17 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 .. index:: Code::Blocks
 
 `Code::Blocks <http://www.codeblocks.org/>`__
-    Un **IDE** libre et multi plate-forme pour C et C++, une solution simple pour développer rapidement.
+    Un **IDE** libre et multi-plate-forme pour C et C++, une solution simple pour développer rapidement.
 
 .. index:: VsCode
 
 `Visual Studio Code <https://code.visualstudio.com/>`__
-    Un **éditeur de code** *open-source* multi plates-formes disponible sur Windows, MacOS et Linux. Souvent abrégé *VsCode*.
+    Un **éditeur de code** *open-source* multi-plate-forme disponible sur Windows, macOS et Linux. Souvent abrégé *VsCode*.
 
 .. index:: GCC
 
 `GCC <https://gcc.gnu.org/>`__
-    Un **compilateur** *open-source* utilisé sous Linux et MacOS.
+    Un **compilateur** *open-source* utilisé sous Linux et macOS.
 
 .. index:: CLANG
 
@@ -151,7 +151,7 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
 .. index:: Ed
 
 `Ed <https://en.wikipedia.org/wiki/Ed_(text_editor)>`__
-    Prononcé /iːdiː/ (hidi), il s'agit du tout premier éditeur de texte développé en 1969 faisant parti des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscure dans son fonctionnement mais bientôt 50 ans après, il fait toujours parti de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
+    Prononcé /iːdiː/ (hidi), il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
 
 .. exercise:: Eclipse
 
@@ -170,7 +170,7 @@ En programmation, quel que soit le langage utilisé, la langue **anglaise** est 
 
 .. index:: feu d'artifice
 
-Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning* car si l'un est la traduction ad-hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
+Aussi dans cet ouvrage, l'anglais sera privilégié dans les exemples de code et les noms des symboles (variables, constantes ...), les termes techniques seront traduits lorsqu'il existe un consensus établi sinon l'anglicisme sera préféré. Il m'est d'ailleurs difficile, bien que ce cours soit écrit en français de parler de *feu d'alerte* en lieu et place de *warning*, car si l'un est la traduction ad hoc de l'autre, la terminologie n'a rien à voir et préfère, au risque d'un affront avec l'Académie, préserver les us et coutumes des développeurs logiciels.
 
 Un autre point méritant d'être mentionné est la constante interaction d'un développeur avec internet pour y piocher des exemples, chercher des conseils, ou de l'aide pour utiliser des outils développés par d'autres. De nombreux sites internet, la vaste majorité en anglais, sont d'une aide précieuse pour le développeur. On peut ainsi citer :
 
@@ -184,11 +184,11 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
     Un point d'entrée essentiel pour la recherche d'articles scientifiques
 
 `Man Pages <https://linux.die.net/man/>`__
-    La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements MacOS/Linux/Unix et POSIX compatibles.
+    La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements macOS/Linux/Unix et POSIX compatible.
 
 .. exercise:: Pêche
 
-    Combien y-a-t-il eu de questions posées en C sur le site Stack Overflow?
+    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
     .. solution::
 
@@ -210,7 +210,7 @@ Le jeune homme tente de répéter les gestes de son père, mais il ne parvient p
 
 La morale de cette histoire est plus que jamais applicable en programmation, confier aux expérimentés l'écriture d'algorithmes compliqués, ou se contenter d'observer les réponses des exercices pour se dire: j'ai compris ce n'est pas si compliqué, est une erreur, car pêcher ou expliquer comment pêcher n'est pas la même chose.
 
-Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
+Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le développement logiciel et non un guide exhaustif du langage, car le standard C99/C11 est disponible sur internet ainsi que le K&R qui reste l'ouvrage de référence pour apprendre C. Il est donc inutile de paraphraser les exemples donnés quand internet apporte toutes les réponses, pour tous les publics du profane réservé au hacker passionné.
 
 .. _structured_text:
 
@@ -246,7 +246,7 @@ La structure de la phrase permettant de traiter tous les éléments d'un ensembl
 
 Où les ``<>`` sont des marques substitutives (`placeholder <https://fr.wikipedia.org/wiki/Marque_substitutive>`__) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un méta-langage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peu ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. La grammaire du langage C utilisé dans ce cours peu ainsi s'exprimer en utilisant la forme Backus-Naur ou **BNF** disponible en annexe.
 
 .. index:: paradigme
 .. _paradigms:
@@ -277,7 +277,7 @@ Le C++ quant à lui apporte les paradigmes suivants à C :
 - `Fonctionnel <https://fr.wikipedia.org/wiki/Programmation_fonctionnelle>`__
 - `Orienté objet <https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet>`__
 
-Des langages de plus haut niveau comme Python ou C# apportent d'avantages de paradigmes comme la `programmation réflective <https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>`__.
+Des langages de plus haut niveau comme Python ou C# apportent davantage de paradigmes comme la `programmation réflective <https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)>`__.
 
 .. index:: cycle de développement
 
@@ -378,7 +378,7 @@ Citons par exemple les `guerres d'éditeurs <https://fr.wikipedia.org/wiki/Guerr
 
 .. index:: Maslow
 
-S'enterrer dans une zone de confort renforce le biais du `Marteau de Maslow <https://everlaab.com/marteau-de-maslow/>`__, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est, essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
+S'enterrer dans une zone de confort renforce le biais du `Marteau de Maslow <https://everlaab.com/marteau-de-maslow/>`__, car lorsque l'on est un marteau, on ne voit plus les problèmes qu'en forme de clou. Cette zone de confort devient un ennemi et barre l'accès au regard critique et au pragmatisme qui devrait prévaloir. Car accepter l'existence de différentes approches possibles d'un problème donné est essentiel, car plus que dans tout autre domaine technique, le développement logiciel est avant tout une aventure collaborative qui ne devrait jamais être sous le joug d'une quelconque emprise émotionnelle.
 
 Un programme se doit d'être le plus neutre possible, impartial et minimaliste. Il n'est pas important de se préoccuper des affaires cosmétiques telles que la position des accolades dans un programme, le choix d'utiliser des espaces versus des tabulations horizontales, ou le besoin d'utiliser tel ou tel outil de développement parce qu'il est jugé meilleur qu'un autre.
 
@@ -411,7 +411,7 @@ L'appel de ``printf`` prend en **paramètre** le texte ``Hello world!\n`` dont l
 
 Une fois le code écrit, il faut le compiler. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard, l'IDE se chargera de l'opération automatiquement.
 
-Une console lancée ressemble à ceci, c'est intimidant si l'on en a pas l'habitude mais vraiment puissant.
+Une console lancée ressemble à ceci, c'est intimidant si l'on n’en a pas l'habitude, mais vraiment puissant.
 
 .. code-block:: console
 
@@ -430,7 +430,7 @@ La première étape est de s'assurer que le fichier ``test.c`` contient bien not
         return 0;
     }
 
-A présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+À présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
 
 .. code-block:: console
 
@@ -440,7 +440,7 @@ Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un
 
 .. index:: ls
 
-On s'attends donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme `ls <https://fr.wikipedia.org/wiki/Ls>`__ pour le vérifier
+On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme `ls <https://fr.wikipedia.org/wiki/Ls>`__ pour le vérifier
 
 .. code-block:: console
 
@@ -449,7 +449,7 @@ On s'attends donc à trouver dans le répertoire courant, notre fichier source a
 
 .. index:: a.out
 
-Très bien ! A présent, exécutons le programme en prenant soin de préfixer le nom par ``./`` car étant un programme local ``a.out`` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé ``ls`` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité tout programme local doit être explicitement nommé.
+Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par ``./`` car étant un programme local ``a.out`` ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé ``ls`` qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.
 
 .. code-block:: console
 
@@ -458,7 +458,7 @@ Très bien ! A présent, exécutons le programme en prenant soin de préfixer le
 
 Félicitations, le programme s'est exécuté.
 
-Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus ``ls`` nous sera utile mais cette fois-ci avec l'option ``l``:
+Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus ``ls`` nous sera utile, mais cette fois-ci avec l'option ``l``:
 
 .. code-block:: console
 
@@ -497,7 +497,7 @@ Décortiquons tout cela :
     .. solution::
 
         Le standard industriel, malgré que nous soyons en 2019 est toujours
-        **ISO/IEC 9899:1999** car peu de changements majeurs ont été apporté
+        **ISO/IEC 9899:1999**, car peu de changements majeurs ont été apportés
         au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
         que d'adopter un standard plus récent qui n'apporte que peu de changements.
 
@@ -516,11 +516,11 @@ Décortiquons tout cela :
     .. solution::
 
         La programmation impérative consiste en des séquences de commandes ordonnées.
-        C'est à dire que les séquences sont exécutées dans un ordre défini les unes à la suite de autres.
+        C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
 
 .. exercise:: Coulée de lave
 
-    Qu'est ce qu'une coulée de lave en informatique ?
+    Qu'est-ce qu'une coulée de lave en informatique ?
 
     .. solution::
 
@@ -529,7 +529,7 @@ Décortiquons tout cela :
         s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
         facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
 
-        Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement mais être difficile à l'utilisation car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
+        Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
 
 .. exercise:: Cat
 
@@ -537,4 +537,4 @@ Décortiquons tout cela :
 
     .. solution::
 
-        ``cat`` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notament dans cet ouvrage pour montrer que le contenu du fichier ``hello.c`` est bel et bien celui attendu.
+        ``cat`` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier ``hello.c`` est bel et bien celui attendu.
