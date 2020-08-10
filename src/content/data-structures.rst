@@ -150,7 +150,7 @@ Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer u
 
 Un tableau dynamique peut être représenté par la figure suivante :
 
-.. figure:: ../assets/figures/dist/data-structure/dyn-array.*
+.. figure:: ../../assets/figures/dist/data-structure/dyn-array.*
 
     Tableau dynamique
 
@@ -167,7 +167,8 @@ Les composants de cette structure de donnée sont donc :
 
 L'opération ``pop`` retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.
 
-.. figure:: ../assets/figures/dist/data-structure/dyn-array-pop.*
+.. figure:: ../../assets/figures/dist/data-structure/dyn-array-pop.*
+    :width: 70%
 
     Suppression d'un élément dans un tableau dynamique
 
@@ -180,7 +181,8 @@ L'opération ``pop`` retire l'élément de la fin du tableau. Le nombre d'élém
 
 L'opération ``push`` ajoute un élément à la fin du tableau.
 
-.. figure:: ../assets/figures/dist/data-structure/dyn-array-push.*
+.. figure:: ../../assets/figures/dist/data-structure/dyn-array-push.*
+    :width: 70%
 
     Ajout d'un élément dans un tableau dynamique
 
@@ -191,7 +193,8 @@ L'opération ``push`` ajoute un élément à la fin du tableau.
 
 L'opération ``shift`` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.
 
-.. figure:: ../assets/figures/dist/data-structure/dyn-array-shift.*
+.. figure:: ../../assets/figures/dist/data-structure/dyn-array-shift.*
+    :width: 70%
 
     Suppression du premier élément dans un tableau dynamique
 
@@ -216,7 +219,8 @@ Une optimisation peut être faite en déplacant le pointeur de donnée de 1 perm
 
 Enfin, l'opération ``unshift`` ajoute un élément depuis le début du tableau :
 
-.. figure:: ../assets/figures/dist/data-structure/dyn-array-unshift.*
+.. figure:: ../../assets/figures/dist/data-structure/dyn-array-unshift.*
+    :width: 70%
 
     Ajout d'un élément en début d'un tableau dynamique
 
@@ -245,7 +249,8 @@ Pour permettre la circulation, les indices sont calculés modulo la taille du bu
 
 Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :
 
-.. figure:: ../assets/figures/dist/data-structure/ring.*
+.. figure:: ../../assets/figures/dist/data-structure/ring.*
+    :width: 70%
 
     Exemple d'un tampon circulaire
 
@@ -328,7 +333,7 @@ Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque él
 
 Considérons les dix premiers éléments de la séquence de nombre `A130826 <https://oeis.org/A130826>`__ dans un tableau statique. Ensuite répartissons ces valeurs aléatoirement dans notre tableau `elements` déclaré plus haut entre les indices 0 et 19.
 
-.. figure:: ../assets/figures/dist/data-structure/static-linked-list.*
+.. figure:: ../../assets/figures/dist/data-structure/static-linked-list.*
 
     Construction d'une liste chaîne à l'aide d'un tableau
 
@@ -415,7 +420,7 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.
 Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
 à la valeur ``NULL``.
 
-.. figure:: ../assets/figures/dist/data-structure/list.*
+.. figure:: ../../assets/figures/dist/data-structure/list.*
 
     Liste chaînée simple
 
@@ -496,7 +501,8 @@ le nombre d'éléments jusqu'à ce que le pointeur *next* soit égal à ``NULL``
 
 Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
 
-.. figure:: ../assets/figures/dist/data-structure/loop.*
+.. figure:: ../../assets/figures/dist/data-structure/loop.*
+    :width: 70%
 
     Boucle dans une liste chaînée
 
@@ -507,7 +513,8 @@ Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appe
 
 .. index:: Floyd, Robert Floyd, lièvre, tortue
 
-.. figure:: ../assets/figures/dist/data-structure/floyd.*
+.. figure:: ../../assets/figures/dist/data-structure/floyd.*
+    :width: 70%
 
     Algorithme de détection de cycle de Robert W. Floyd
 
@@ -635,7 +642,8 @@ L'objectif de cette section n'est pas d'entrer dans les détails des `arbres bin
 
 L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un ``left`` et un ``right``:
 
-.. figure:: ../assets/figures/dist/data-structure/binary-tree.*
+.. figure:: ../../assets/figures/dist/data-structure/binary-tree.*
+    :width: 70%
 
     Arbre binaire équilibré
 
@@ -695,7 +703,8 @@ Un tas peut aisément être représenté sous forme de tableau en utilisant la r
     Parent            :math:`floor(k-1) / 2`  :math:`floor(k) / 2`
     ================  ======================  ======================
 
-.. figure:: ../assets/figures/dist/data-structure/heap.*
+.. figure:: ../../assets/figures/dist/data-structure/heap.*
+    :width: 70%
 
     Représentation d'un *heap*
 
@@ -748,7 +757,7 @@ Les tableaux de hachage (*Hash Table*) sont une structure particulière dans laq
 
 L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :
 
-.. figure:: ../assets/figures/dist/data-structure/hash-linear.*
+.. figure:: ../../assets/figures/dist/data-structure/hash-linear.*
 
     Tableau de hashage simple
 
@@ -894,7 +903,7 @@ Chaînage
 
 Le :index:`chaînage` ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
-.. figure:: ../assets/figures/dist/data-structure/hash-table.*
+.. figure:: ../../assets/figures/dist/data-structure/hash-table.*
 
     Chaînage d'une table de hashage
 

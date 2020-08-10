@@ -80,7 +80,7 @@ Le typage permet de résoudre toute ambiguïté.
 Boutisme
 ========
 
-.. figure:: ../assets/images/endian.*
+.. figure:: ../../assets/images/endian.*
 
 .. index:: boutisme, endianess, little endian, big endian
 
@@ -176,8 +176,8 @@ Types standards
 
 La construction d'un type entier C est la suivante :
 
-.. figure:: ../assets/figures/dist/datatype/ansi-integers.*
-    :alt: Entiers standardisés **C89**
+.. figure:: ../../assets/figures/dist/datatype/ansi-integers.*
+    :alt: Entiers standardisés C89
     :width: 100 %
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins :math:`N` bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au :numref:`standard-integers`.
@@ -231,8 +231,8 @@ Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au
 
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête ``stdint.h``. Cette bibliothèque standard offre les types suivants :
 
-.. figure:: ../assets/figures/dist/datatype/c99-integers.*
-    :alt: Entiers standardisés **C99**
+.. figure:: ../../assets/figures/dist/datatype/c99-integers.*
+    :alt: Entiers standardisés C99
     :width: 80%
 
     Flux de construction d'un entier standardisé
@@ -554,13 +554,13 @@ Les caractères, ceux que vous voyez dans cet ouvrage, sont généralement repr�
 
 Historiquement, alors que les informations dans un ordinateur ne sont que des 1 et des 0, il a fallu établir une correspondance entre une grandeur binaire et le caractère associé. Un standard a été proposé en 1963 par l'`ASA <https://fr.wikipedia.org/wiki/American_National_Standards_Institute>`__, l'*American Standards Association* aujourd'hui :index:`ANSI` qui ne définissait alors que 63 caractères imprimables et comme la mémoire était en son temps très cher, un caractère n'était codé que sur 7 bits.
 
-.. figure:: ../assets/figures/dist/encoding/ascii-1963.*
+.. figure:: ../../assets/figures/dist/encoding/ascii-1963.*
 
     Table ASCII ASA X3.4 établie en 1963
 
 Aujourd'hui la table ASCII de base défini 128 caractères qui n'incluent pas les caractères accentués.
 
-.. figure:: ../assets/figures/dist/encoding/ascii.*
+.. figure:: ../../assets/figures/dist/encoding/ascii.*
 
     Table ANSI INCITS 4-1986 (standard actuel)
 
@@ -570,7 +570,7 @@ Chaque pays et chaque langue utilise ses propres caractères et il a fallu trouv
 
 Le standard **ISO/IEC 8859** aussi appelé standard *Latin* défini 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**):
 
-.. figure:: ../assets/figures/dist/encoding/latin1.*
+.. figure:: ../../assets/figures/dist/encoding/latin1.*
 
     Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)
 
@@ -582,7 +582,7 @@ Avec l'arrivée d'internet et les échanges entre les arabes (عَرَب‎), le
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
-.. figure:: ../assets/figures/dist/encoding/encoding-trends.*
+.. figure:: ../../assets/figures/dist/encoding/encoding-trends.*
 
     Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2008
 
@@ -992,9 +992,11 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     .. solution::
 
-        p ≡ 2
-        x = 7.5
-        n = 8
+        .. code-block:: text
+
+            p ≡ 2
+            x = 7.5
+            n = 8
 
 .. exercise:: Opérateurs de relation et opérateurs logiques
 
@@ -1216,6 +1218,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         #. Le développeur s'attend à obtenir le pourcentage de bonne pièces avec plusieurs décimales après la virgule.
         #. En pratique, il obtient un entier, c'est à dire toujours 0.
         #. La promotion implicite des entiers peut être découpée comme suit :
+
             .. code-block:: c
 
                 (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
@@ -1225,6 +1228,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
             La division est donc appliquée à des entiers et non des flottnts.
 
         #. Une possible correction consiste à forcer le type d'un des membres de la division :
+
             .. code-block::c
 
                 percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;

@@ -117,7 +117,7 @@ Lorsqu'un seul fichier est fourni à GCC, les trois opérations sont effectuées
 
 La figure suivante résume les différentes étapes de GCC. Les pointillés indiquent à quel niveau les opérations peuvent s'arrêter. Il est dès lors possible de passer par des fichiers intermédiaires assembleur (``.s``) ou objets (``.o``) en utilisant la bonne commande.
 
-.. figure:: ../assets/figures/dist/toolchain/gcc.*
+.. figure:: ../../assets/figures/dist/toolchain/gcc.*
 
     Étapes intermédiaires de compilation avec GCC
 

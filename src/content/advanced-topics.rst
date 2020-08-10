@@ -13,6 +13,7 @@ On appelle un point de séquence ou `sequence point <https://en.wikipedia.org/wi
 
 - L'appel d'une fonction est effectué après que tous ses arguments ont été évalués
 - La fin du premier opérande dans les opérations ``&&``, ``||``, `?` et `,`.
+
     - Ceci permet de court-circuiter le calcul dans ``a() && b() ``. La condition ``b()`` n'est jamais évaluée si la condition ``a()`` est valide.
 - Avant et après des actions associées à un formatage d'entrée sortie
 
@@ -112,7 +113,7 @@ Les outils binaires (`binutils <https://en.wikipedia.org/wiki/GNU_Binutils>`__) 
         .comment
 
 ``size``
-    Liste la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou ``84d`` bytes.
+    Lister la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou ``84d`` bytes.
 
     .. code-block:: console
 

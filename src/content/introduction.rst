@@ -33,7 +33,7 @@ Cinquante ans plus tard, C est toujours l'un des langages de programmation les p
 
 Il faut retenir que C est un langage simple et efficace. Votre machine à café, votre voiture, vos écouteurs Bluetooth ont très probablement été programmés en C.
 
-.. figure:: ../assets/images/kernighan-ritchie-thompson.*
+.. figure:: ../../assets/images/kernighan-ritchie-thompson.*
 
     Les pères fondateurs du C
 
@@ -110,7 +110,7 @@ L'ensemble des outils nécessaire à créer un produit logiciel est appelé cha�
 
 Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement>`__ pour *Integrated development environment* comporte généralement un éditeur de code ainsi que la `toolchain <https://fr.wikipedia.org/wiki/Cha%C3%AEne_de_compilation>`__ associée.
 
-.. figure:: ../assets/figures/dist/toolchain/ide.*
+.. figure:: ../../assets/figures/dist/toolchain/ide.*
     :align: center
     :width: 80 %
 
@@ -302,7 +302,7 @@ Mises à part la dernière étape où il n'y a pas de retour en arrière possibl
 
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 
-.. figure:: ../assets/figures/dist/software-life-cycle/waterfall.*
+.. figure:: ../../assets/figures/dist/software-life-cycle/waterfall.*
 
     Modèle en cascade
 
@@ -316,7 +316,7 @@ Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dir
 
 Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exécutable binaire est créé.
 
-.. figure:: ../assets/figures/dist/software-life-cycle/build-cycle.*
+.. figure:: ../../assets/figures/dist/software-life-cycle/build-cycle.*
 
     Cycle de compilation illustré
 
@@ -336,7 +336,7 @@ La phase de *preprocessing* permet de générer un fichier intermédiaire en lan
 
 Avec ``gcc`` il est possible de demander que l'exécution du préprocesseur en utilisant l'option ``-E``.
 
-.. figure:: ../assets/figures/dist/toolchain/preprocessing.*
+.. figure:: ../../assets/figures/dist/toolchain/preprocessing.*
 
     Processus de pré-processing
 
@@ -349,11 +349,11 @@ La phase de compilation consiste en une analyse syntaxique du fichier à compile
 
 Avec ``gcc`` il est possible de ne demander que l'assemblage d'un code avec l'option ``-S``.
 
-.. figure:: ../assets/figures/dist/toolchain/assembly.*
+.. figure:: ../../assets/figures/dist/toolchain/assembly.*
 
     Assemblage d'un programme C pré-processé en assembleur
 
-.. figure:: ../assets/figures/dist/toolchain/build.*
+.. figure:: ../../assets/figures/dist/toolchain/build.*
 
     Traduction d'un programme C pré-processé en objet binaire
 
@@ -365,7 +365,7 @@ Avec ``gcc`` il est possible de ne demander que l'assemblage d'un code avec l'op
 La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des **librairies**. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
-.. figure:: ../assets/figures/dist/toolchain/link.*
+.. figure:: ../../assets/figures/dist/toolchain/link.*
 
     Édition des liens de plusieurs objets
 
@@ -400,7 +400,7 @@ Hello World!
 
 Il est traditionnellement coutume depuis la publication en 1978 du livre `The C Programming Language <https://en.wikipedia.org/wiki/The_C_Programming_Language>`__ de reprendre l'exemple de Brian Kernighan comme premier programme.
 
-.. literalinclude:: ../assets/src/hello.c
+.. literalinclude:: ../../assets/src/hello.c
     :language: c
 
 Ce programme est composé de deux parties. L'inclusion de la *library* standard d'entrées sorties (*STandarD Inputs Outputs*) qui définit la fonction ``printf``, et le programme principal nommé ``main``. Tout ce qui se situe à l'intérieur des accolades ``{ }`` appartient au programme ``main``.

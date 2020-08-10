@@ -8,11 +8,11 @@ Pour disposer d'un environnement POSIX sous Windows il existe 3 solutions :
 `MinGW <http://www.mingw.org/>`__
     Un environnement POSIX GNU pour Windows. La solution la plus facile.
 
-`WSL Windows Subsystem for Linux <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__
-    Une distribution Ubuntu pour Windows 10. La meilleure solution si vous voulez vous confronter à la ligne de commande et mieux comprendre le fonctionnement de Linux.
+`WSL2 <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__
+    L'accronyme de *Windows Subsystem for Linux*, c'est une distribution Ubuntu pour Windows 10. La meilleure solution si vous voulez vous confronter à la ligne de commande et mieux comprendre le fonctionnement de Linux.
 
-`Cygwin <http://www.cygwin.org/>`__
-    Un émulateur POSIX pour Windows. Une excellente alternative aux autres solutions qui se fait peu à peu remplacer par WSL.
+`Docker <https://docker.com>`__
+    Un système de containers permettant d'émuler un environnment POSIX isolé sans pour autant devoir installer des tas d'applications.
 
 Pour installer le plus facilement votre environnement de développement, je vous recommande `Chocolatey <https://chocolatey.org/>`__, un gestionnaire de paquets pour Windows. Une fois l'outil installé, vous pouvez installer les paquets suivants :
 
@@ -20,6 +20,9 @@ Pour installer le plus facilement votre environnement de développement, je vous
 
     C:\> choco install gcc
     C:\> choco install vscode
-    C:\> choco install git
+    C:\> choco install docker
+    C:\> choco install git.install
+    C:\> choco install microsoft-windows-terminal
+    C:\> choco install python3
 
 Ensuite vous pouvez exécuter ``Git Bash`` depuis le menu Démarrer et diposer d'une console comme si vous étiez sous Linux ou MacOSx.

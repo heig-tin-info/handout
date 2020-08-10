@@ -207,7 +207,7 @@ Pointeur et chaînes de caractères
         "mais", "ou", "est", "donc", "or", "ni", "car"
     };
 
-.. figure:: ../assets/figures/dist/string/ptrstr.*
+.. figure:: ../../assets/figures/dist/string/ptrstr.*
 
     Pointeur sur une chaîne de caractère
 
@@ -521,9 +521,7 @@ Avec la règle gauche droite on parvient à décortiquer la déclaration :
 La règle gauche-droite
 ======================
 
-Cette `règle <http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html>`__ est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs.
-
-Il faut tout d'abord lire :
+Cette `règle <http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html>`__ est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :
 
 .. table:: Règles gauche droite
 
@@ -538,24 +536,18 @@ Il faut tout d'abord lire :
     +---------+-------------------------+-------------------+
 
 Première étape
---------------
-
-Trouver l'identifiant et se dire ``L'identifiant est``.
+    Trouver l'identifiant et se dire ``L'identifiant est``.
 
 Deuxième étape
---------------
-
-Chercher le symbole à droite de l'identifiant. Si vous trouvez un ``()``, vous savez que cet identifiant est une fonction et vous avez ``L'identifiant est une fonction retournant``. Si vous trouvez un ``[]`` vous dites alors ``L'identifiant est un tableau de``. Continuez à droite jusqu'à ce que vous êtes à court de symboles, **OU** que vous trouvez une parenthèse fermante ``)``.
+    Chercher le symbole à droite de l'identifiant. Si vous trouvez un ``()``, vous savez que cet identifiant est une fonction et vous avez ``L'identifiant est une fonction retournant``. Si vous trouvez un ``[]`` vous dites alors ``L'identifiant est un tableau de``. Continuez à droite jusqu'à ce que vous êtes à court de symboles, **OU** que vous trouvez une parenthèse fermante ``)``.
 
 Troisième étape
----------------
+    Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme ``int``. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à **gauche** jusqu'à ce que vous êtes à court de symboles **OU** que vous rencontrez une parenthèse ouvrante ``(``.
 
-Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme ``int``. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à **gauche** jusqu'à ce que vous êtes à court de symboles **OU** que vous rencontrez une parenthèse ouvrante ``(``.
+Ensuite...
+    Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.
 
-Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.
-
-Exemples
---------
+Voici quelques exemples :
 
 .. code-block:: c
 

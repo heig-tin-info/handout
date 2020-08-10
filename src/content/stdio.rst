@@ -32,7 +32,9 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
         #include <time.h>
         #include <stdlib.h>
 
-        char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat", "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie", "Idiosyncratique", "Entéléchie"};
+        char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
+            "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
+            "Idiosyncratique", "Entéléchie"};
 
         #if 0
             srand(time(NULL));   // Initialization, should only be called once.
@@ -46,7 +48,10 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
             #include <time.h>
             #include <stdlib.h>
 
-            char *words[] = {"Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat", "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie", "Idiosyncratique", "Entéléchie"};
+            char *words[] = {
+                "Albédo", "Bigre", "Maringouin", "Pluripotent", "Entrechat",
+                "Caracoler" "Palinodie", "Sémillante", "Atavisme", "Cyclothymie",
+                "Idiosyncratique", "Entéléchie"};
 
             int main(void)
             {
@@ -72,7 +77,7 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
 
 Voici un exemple possible d'implémentation :
 
-.. literalinclude:: ../assets/src/iota.c
+.. literalinclude:: ../../assets/src/iota.c
     :language: c
     :name: iota-c
 
@@ -139,7 +144,7 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 ``type``
     Type de formatage souhaité
 
-.. figure:: ../assets/figures/dist/string/formats.*
+.. figure:: ../../assets/figures/dist/string/formats.*
 
     Formatage d'un marqueur
 
@@ -150,27 +155,27 @@ Exemples
 
 .. table:: Exemple de formattage avec :code:`printf`
 
-    +---------------------------------+-------------------+--------+
-    | Exemple                         | Sortie            | Taille |
-    +=================================+===================+========+
-    | ``printf("%c", 'c')``           | :code:`c`         | 1      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%d", 1242)``          | :code:`1242`      | 4      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%10d", 42)``          | :code:`       42` | 10     |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%07d", 42)``          | :code:`0000042`   | 7      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%+-5d", 23)``         | :code:`+23   `    | 6      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%5.3f", 314.15)``     | :code:`314.100`   | 7      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%*.*f", 4, 2, 102.1)``| :code:`102.10`    | 7      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%8x", 3141592)``      | :code:` 2fefd8`   | 6      |
-    +---------------------------------+-------------------+--------+
-    | ``printf("%s", "Hello")``       | :code:`Hello`     | 5      |
-    +---------------------------------+-------------------+--------+
+    +-------------------------------------+-------------------+--------+
+    | Exemple                             | Sortie            | Taille |
+    +=====================================+===================+========+
+    | :code:`printf("%c", 'c')`           | :code:`c`         | 1      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%d", 1242)`          | :code:`1242`      | 4      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%10d", 42)`          | :code:`       42` | 10     |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%07d", 42)`          | :code:`0000042`   | 7      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%+-5dfr", 23)`       | :code:`+23   fr`  | 6      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%5.3f", 314.15)`     | :code:`314.100`   | 7      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%*.*f", 4, 2, 102.1)`| :code:`102.10`    | 7      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%8x", 3141592)`      | :code:` 2fefd8`   | 6      |
+    +-------------------------------------+-------------------+--------+
+    | :code:`printf("%s", "Hello")`       | :code:`Hello`     | 5      |
+    +-------------------------------------+-------------------+--------+
 
 .. exercise:: Quelque bogues bien formatés
 
@@ -388,25 +393,52 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 
     .. solution::
 
-        #. ``i``: 1, ``j``: 2, ``n``: 2
-        #. ``i``: 1, ``j``: 0, ``n``: 1. ``j`` n'est pas lue car arrêt prématuré sur ``,``
-        #. ``i``: -1, ``j``: -2, ``n``: 2
-        #. ``i``: 0, ``j``: 0, ``n``: 0. ``i`` n'est pas lue car arrêt prématuré sur ``-``
-        #. ``i``: 1, ``j``: 0, ``n``: 1.
-        #. ``i``: 1, ``j``: 2, ``n``: 2
-        #. ``i``: 1, ``j``: 23, ``n``: 2
-        #. ``i``: 1234, ``j``: 56, ``n``: 2
-        #. ``i``: 123, ``j``: 789, ``n``: 2
-        #. ``i``: 0, ``j``: 0, ``n``: 0
-        #. ``i``: 1, ``j``: 2, ``n``: 2
-        #. ``i``: 1, ``j``: 0, ``n``: 1
-        #. ``i``: 1, ``j``: 23, ``n``: 2
-        #. ``i``: 18, ``j``: 42, ``n``: 2
-        #. ``i``: 10, ``j``: 1, ``n``: 2. Le chiffre 8 interdit en octal provoque un arrêt
-        #. ``x``: ``123.``, ``n``: 1
-        #. ``x``: ``1.23``, ``n``: 1
-        #. ``x``: ``1.23E6``, ``n``: 1
-        #. ``x``: ``12``, ``n``: 1
+        +------+----------+--------+--------+-------------------------------+
+        |``Q`` | ``i``    | ``j``  | ``n``  | Remarque                      |
+        +======+==========+========+========+===============================+
+        |  1   | ``1``    | ``2``  | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  2   | ``1``    | ``0``  | ``1.`` | ``j`` n'est pas lue car arrêt |
+        |      |          |        |        | prématuré sur ``,``           |
+        +------+----------+--------+--------+-------------------------------+
+        |  3   | ``-1``   | ``-2`` | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  4   | ``0``    | ``0``  | ``0.`` | ``i`` n'est pas lue car arrêt |
+        |      |          |        |        | prématuré sur ``-``           |
+        +------+----------+--------+--------+-------------------------------+
+        |  5   | ``1``    | ``0``  | ``1.`` |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  6   | ``1``    | ``2``  | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  7   | ``1``    | ``23`` | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  8   | ``1234`` | ``56`` | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  9   | ``123``  | ``789``| ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  10  | ``0``    | ``0``  | ``0``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  11  | ``1``    | ``2``  | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  12  | ``1``    | ``0``  | ``1``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  13  | ``1``    | ``23`` | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  14  | ``18``   | ``42`` | ``2``  |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  15  | ``10``   | ``1``  | ``2.`` | Le chiffre 8 interdit en octal|
+        |      |          |        |        | provoque un arrêt             |
+        +------+----------+--------+--------+-------------------------------+
+        |      | ``x``    | ``n``  |        |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  16  | ``123.`` | ``1``  |        |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  17  | ``1.23`` | ``1``  |        |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  18  |``1.23E6``| ``1``  |        |                               |
+        +------+----------+--------+--------+-------------------------------+
+        |  19  | ``12``   | ``1``  |        |                               |
+        +------+----------+--------+--------+-------------------------------+
 
 .. exercise:: Chaînes de formats
 
@@ -417,16 +449,19 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
     .. solution::
 
         #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
+
             .. code-block:: c
 
                 scanf("%c%c%c", &i, &j, &k);
 
         #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
+
             .. code-block:: c
 
                 scanf("%f ;%f ;%f", &x, &y, &z);
 
         #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
+
             .. code-block:: c
 
                 printf("t="); scanf("%f", &t);
@@ -757,7 +792,7 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
 
         Une solution possible serait :
 
-        .. literalinclude:: ../assets/src/linear.c
+        .. literalinclude:: ../../assets/src/linear.c
             :language: c
 
 .. exercise:: Loi d'Ohm

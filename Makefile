@@ -1,11 +1,23 @@
 SPHINXOPTS ?=
 SPHINXBUILD ?= sphinx-build
-SOURCEDIR = .
-BUILDDIR = _build
-
+SOURCEDIR = src
+BUILDDIR = build
+DISTDIR = dist
 DOCKER = docker-compose run latex
 
-all: html man pdf
+all: $(DISTDIR)/html.tar.gz $(DISTDIR)/handout.pdf $(DISTDIR)/info.1
+
+$(BUILDDIR)/latex/handout.pdf: pdf
+$(BUILDDIR)/man/info.1: man
+
+$(DISTDIR)/%: $(BUILDDIR)/latex/% | $(DISTDIR)
+	cp $< $@
+
+$(DISTDIR)/%: $(BUILDDIR)/man/% | $(DISTDIR)
+	cp $< $@
+
+$(DISTDIR)/%: html | $(DISTDIR)
+	tar cvzf $(DISTDIR)/html.tar.gz $(BUILDDIR)/html
 
 html: Makefile
 	$(DOCKER) $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -30,6 +42,9 @@ pull:
 
 clean:
 	$(RM) -rf _build _static
+
+$(DISTDIR):
+	mkdir -p $@
 
 # Because sphinx calls it...
 all-pdf:

@@ -202,7 +202,7 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
         └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
                                       ^
 
-    .. solution:: c
+    .. solution::
 
         Une solution triviale consite à itérer tous les éléments jusqu'à trouver l'indice magique :
 

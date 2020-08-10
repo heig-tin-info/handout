@@ -4,7 +4,8 @@ Opérateurs
 
 Un :index:`opérateur` applique une opération à une (opérateur unitaire), deux ou trois (:index:`ternaire`) entrées.
 
-.. figure:: ../assets/figures/dist/processor/alu.*
+.. figure:: ../../assets/figures/dist/processor/alu.*
+    :alt: ALU
 
     Unité de calcul arithmétique (:index:`ALU`) composées de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 

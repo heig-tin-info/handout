@@ -10,6 +10,7 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{array} % Fix tabular glitches with lines
 \usepackage{ctex}
 \usepackage{lstfiracode}
 \usepackage[xparse,skins,breakable]{tcolorbox}
@@ -50,6 +51,8 @@
 \newunicodechar{μ}{$\mu$}
 \newunicodechar{π}{$\pi$}
 \newunicodechar{ω}{$\omega$}
+\newunicodechar{ρ}{$\rho$}
+\newunicodechar{τ}{$\tau$}
 
 \newcommand\documentTitle{Le C pour l'ingénieur}
 \newtcolorbox{hint}{breakable,enhanced,arc=0mm,colback=lightgray!5,colframe=lightgray,leftrule=11mm,%
@@ -309,7 +312,8 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
   commentstyle=\rmfamily\itshape\color{gray},
   aboveskip=1.5em,
   belowskip=1em,
-  }
+  breaklines=true
+}
 
 \mdfsetup{skipabove=1.5em,skipbelow=1em}
 

@@ -35,7 +35,7 @@ Le système décimal est le système de numération utilisant la base dix et le 
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
-.. figure:: ../assets/figures/dist/encoding/hieroglyph.*
+.. figure:: ../../assets/figures/dist/encoding/hieroglyph.*
     :width: 50%
 
     1506 en écriture hiéroglyphique
@@ -73,7 +73,7 @@ Un nombre binaire peut être également décomposé en puissances successives :
 
     1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
 
-.. exercise::
+.. exercise:: Base 2
 
     Combien de valeurs décimales peuvent être représentées avec 10-bits ?
 
@@ -233,7 +233,7 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le ``é``.
 
-.. exercise:: Les chiffes hexadécimaux
+.. exercise:: Les chiffres hexadécimaux
 
     Calculer la valeur décimale des nombres suivants et donnez le détail du calcul :
 
@@ -312,7 +312,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 
 .. exercise:: La numération Shadock
 
-    .. figure:: ../assets/images/shadocks.*
+    .. figure:: ../../assets/images/shadocks.*
         :height: 200px
 
     Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo `Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>`__ en explique le principe.
@@ -624,14 +624,15 @@ En arithmétique binaire, c'est exactement la même chose :
 
     Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
 
-    #. 1 + 51
-    #. 51 - 7
-    #. 204 + 51
-    #. 204 + 204 (sur 8-bits)
+    #. :math:`1 + 51`
+    #. :math:`51 - 7`
+    #. :math:`204 + 51`
+    #. :math:`204 + 204` (sur 8-bits)
 
     .. solution::
 
         #. 1 + 51
+
             .. code-block:: text
 
                        ¹¹
@@ -641,6 +642,7 @@ En arithmétique binaire, c'est exactement la même chose :
                     110100₂
 
         #. 51 - 7
+
             .. code-block:: text
 
                   …¹¹¹  ¹¹
@@ -650,6 +652,7 @@ En arithmétique binaire, c'est exactement la même chose :
                   …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
 
         #. 204 + 51
+
             .. code-block:: text
 
                     11001100₂
@@ -658,6 +661,7 @@ En arithmétique binaire, c'est exactement la même chose :
                   …011111111₂  (2⁸ - 1 ≡ 255)
 
         #. 204 + 204 (sur 8-bits)
+
             .. code-block:: text
 
                    ¹|¹  ¹¹

@@ -394,7 +394,7 @@ On préfèrera utiliser la directive `#pragma once <https://en.wikipedia.org/wik
 Commentaires
 ============
 
-Les commentaires C du type :
+Les commentaires C du type suivant sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur :
 
 .. code-block:: c
 
@@ -404,12 +404,7 @@ Les commentaires C du type :
      * Le corbeau et le renard.
      */
 
-sont aussi des directives du préprocesseur. Ils seront retirés par le préprocesseur.
-
-
------
-
-.. exercise:: is_octal
+.. exercise:: Macro compromise ?
 
     Que pensez-vous de cette définition ?
 

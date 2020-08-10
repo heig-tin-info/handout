@@ -84,7 +84,7 @@ Fort heureusement depuis que Apple a migré son système sur une base `BSD <http
 
 Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (``EOL``: *End Of Line*) il faut utiliser, faite preuve de bon sens et surtout, soyez cohérent.
 
-.. figure:: ../assets/figures/dist/encoding/crlf.*
+.. figure:: ../../assets/figures/dist/encoding/crlf.*
 
     Distinction de différents caractères non-imprimables
 
@@ -163,7 +163,7 @@ Identificateurs
 
 Un identificateur est une séquence de caractères représentant une entité du programme et à laquelle il est possible de se référer. Un identificateur est défini par :
 
-.. figure:: ../assets/figures/dist/grammar/identifier.*
+.. figure:: ../../assets/figures/dist/grammar/identifier.*
 
     Grammaire d'un identificateur C
 
@@ -477,12 +477,15 @@ Nous verrons :numref:`precedence` que l'associativité de chaque opérateur dét
         Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
 
         #. ``i = (k = 2) + (j = 3)``
+
             - ``i = 5``
             - ``j = 3``
             - ``k = 2``
         #. ``i = (k = 2) + (j = 2) + j * 3 + k * 4``
+
             - Résultat indéterminé
         #. ``i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)``
+
             - Résultat indéterminé
 
 
@@ -492,7 +495,7 @@ Commentaires
 Comme en français et ainsi qu'illustré par la :numref:`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
 .. _proust:
-.. figure:: ../assets/images/proust.*
+.. figure:: ../../assets/images/proust.*
 
     Les carafes dans la Vivonne
 

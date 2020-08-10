@@ -51,7 +51,9 @@ planning:
         laboratory:
             - hours: 6
               chapters:
-                - Mise en oeuvre de type de données composées (structures, tableaux multidimensionnels)
+                - >
+                  Mise en oeuvre de type de données composées
+                  (structures, tableaux multidimensionnels)
             - hours: 4
               chapters:
                 - Lecture et écriture de fichiers texte et binaire en mode séquentiel
@@ -72,26 +74,36 @@ planning:
                 - Mini-projet
 prerequisites: |
     L'étudiant-e doit connaître et savoir utiliser les notions suivantes
-        - base de la programmation, types de base, structures de contrôle et sous-programmes
+        - base de la programmation, types de base, structures
+          de contrôle et sous-programmes
         - bases des outils de bureautique.
-    L'unité d'enseignement APR1 (analyse et programmation) permet d'acquérir ces connaissances
+    L'unité d'enseignement APR1 (analyse et programmation) permet
+    d'acquérir ces connaissances
 
 goals:
     class:
-        - Décomposer un algorithme selon l'approche descendante (raffinage successif) et ascendante.
+        - >
+          Décomposer un algorithme selon l'approche descendante (raffinage successif)
+          et ascendante.
         - Décomposer une application de complexité moyenne en algorithmes élémentaires.
         - Concevoir un type de données abstrait simple et les fonctions pour le manipuler.
         - Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.
         - Ecrire un programme qui lit ou écrit un fichier au format binaire, texte.
-        - Mettre en oeuvre l'allocation dynamique de mémoire pour créer des tableaux dimensionnés à
-l'exécution.
+        - >
+          Mettre en oeuvre l'allocation dynamique de mémoire pour créer des
+          tableaux dimensionnés à l'exécution.
         - Définir et manipuler un type de données récursif (liste chaînée).
-        - Mettre en oeuvre des champs de bits et des unions pour manipuler des bits dans un masque binaire.
+        - >
+          Mettre en oeuvre des champs de bits et des unions pour manipuler
+          des bits dans un masque binaire.
     laboratory:
-        - Programmer une bibliothèque de fonctions de qualité professionnelle (et l'utiliser).
+        - >
+          Programmer une bibliothèque de fonctions de qualité professionnelle
+          (et l'utiliser).
         - Programmer et mettre au point des algorithmes de complexité moyenne.
-        - Réaliser une application de taille et de complexité moyennes, mêlant différents aspects de la
-programmation.
+        - >
+          Réaliser une application de taille et de complexité moyennes,
+          mêlant différents aspects de la programmation.
 
 plan:
   - Algorithmie

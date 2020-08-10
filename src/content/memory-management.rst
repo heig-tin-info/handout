@@ -8,23 +8,30 @@ Vous l'aurez appris à vos dépens, l'erreur *Segmentation fault* (erreur de seg
 
 La mémoire d'un programme est découpée en `segments de données <https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es>`__. Les principaux segments sont :
 
-Segment de code ``.text``
-    Les instructions du programme exécutable sont chargées dans ce segment.
+.. list-table:: Segments mémoire
+    :header-rows: 1
 
-Segment de constantes et chaînes de caractères ``.rodata``
-    Les constantes globales ``const int = 13`` et les chaînes de caractères sont enregistrées dans ce segment.
-
-Segment de variables initialisées ``.bss``
-    Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que ``static int foo = 0`` seront stockées dans ce segment.
-
-Segment de variables non initialisées ``.data``
-    Les variables globales non initialisées comme ``static int bar;`` seront placées dans ce segment.
-
-Segment de tas ``.heap``
-    Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.
-
-Segment de pile ``.stack``
-    La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.
+    * - Segment
+      - Nom
+      - Description
+    * - ``.text``
+      - Segment de code
+      - Les instructions du programme exécutable sont chargées dans ce segment.
+    * - ``.rodata``
+      - Segment de constantes et chaînes de caractères
+      - Les constantes globales ``const int = 13`` et les chaînes de caractères sont enregistrées dans ce segment.
+    * - ``.bss``
+      - Segment de variables initialisées
+      - Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que ``static int foo = 0`` seront stockées dans ce segment.
+    * - ``.data``
+      - Segment de variables non initialisées
+      - Les variables globales non initialisées comme ``static int bar;`` seront placées dans ce segment.
+    * - ``.heap``
+      - Segment de tas
+      - Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.
+    * - ``.stack``
+      - Segment de pile
+      - La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.
 
 Allocation statique
 ===================
@@ -48,18 +55,18 @@ L'approche correcte est d'allouer la mémoire au moment ou on en a besoin, c'est
 
 Lorsqu'un programme à besoin de mémoire, il peut générer un appel système pour demander au système d'exploitation le besoin de disposer de plus de mémoire. En pratique on utilise deux fonctions de la bibliothèque standard `<stdlib.h>`:
 
-`void *malloc(size_t size)`
+``void *malloc(size_t size)``
     Alloue dynamiquement un espace mémoire de ``size`` bytes. Le terme *malloc* découle de *Memory ALLOCation*.
 
-`void *calloc(size_t nitems, size_t size)`
+``void *calloc(size_t nitems, size_t size)``
     Fonctionne de façon similaire à ``malloc`` mais initialise l'espace alloué à zéro.
 
-`void free(void *ptr)`
+``void free(void *ptr)``
     Libère un espace préalablement alloué par ``malloc`` ou ``calloc``
 
 L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, ``malloc`` recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système `sbrk <https://en.wikipedia.org/wiki/Sbrk>`__ qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.
 
-.. figure:: ../assets/figures/dist/memory/malloc.*
+.. figure:: ../../assets/figures/dist/memory/malloc.*
     :name: fig-allocation
 
     Allocation et libération mémoire
@@ -71,7 +78,8 @@ Les segments mémoires sont une construction de la bibliothèque standard, selon
 
 Néanmoins une bonne représentation est la suivante :
 
-.. figure:: ../assets/figures/dist/memory/program-memory.*
+.. figure:: ../../assets/figures/dist/memory/program-memory.*
+    :width: 80%
 
     Organisation de mémoire d'un programme
 
@@ -285,7 +293,7 @@ On peut observer à la figure :numref:`fig-allocation` qu'après un appel succes
 
 Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (``free``), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.
 
-.. figure:: ../assets/figures/dist/memory/fragmentation.*
+.. figure:: ../../assets/figures/dist/memory/fragmentation.*
 
     Fragmentation mémoire
 
@@ -302,7 +310,7 @@ La programmation sur de petites architectures matérielles (microcontrôleurs, D
 
 Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques proriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
 
-.. figure:: ../assets/figures/dist/memory/mmu.*
+.. figure:: ../../assets/figures/dist/memory/mmu.*
 
     Mémoire virtuelle
 

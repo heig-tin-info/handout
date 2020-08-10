@@ -242,6 +242,10 @@ def process_exercise_nodes(app, doctree, fromdocname):
     for node in doctree.traverse(solutions):
         content = []
         for chapter, exs in hierarchy.items():
+            # Ignore chapters without solutions
+            if not [e for e in exs if e['solution']]:
+                continue
+
             # Create a section per chapter
             section = nodes.section(ids=[f'solution-chapter-{chapter}'], auto=0)
             name = _('Chapter') + ' ' + str(chapter)
@@ -270,10 +274,10 @@ def process_exercise_nodes(app, doctree, fromdocname):
     for ex in doctree.traverse(exercise):
         ex.children = list(filter(lambda x: not isinstance(x, solution), ex.children))
 
+def build_finished(app, env):
     # Inject LaTeX header
-    if all_exercises and hasattr(app.builder, 'context'):
+    if env.exercises_all_exercises and hasattr(app.builder, 'context'):
         inject_latex_header(app, app.builder.context)
-
 
 def inject_latex_header(app, context):
     context['preamble'] += '\n' + r"%% BEGIN injection for extension exercises"
@@ -393,7 +397,7 @@ def setup(app):
     app.connect('env-before-read-docs', env_before_read_docs)
     app.connect('doctree-resolved', process_exercise_nodes)
     app.connect('env-purge-doc', purge)
-
+    app.connect('env-updated', build_finished)
     app.add_env_collector(ExercisesCollector)
 
     app.add_latex_package('tocloft')
