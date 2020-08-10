@@ -391,6 +391,7 @@
             
   <div class="section" id="fiches-d-unites">
 <h1>E  Fiches d'unités<a class="headerlink" href="#fiches-d-unites" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les fichies d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format <strong>YAML</strong>.</p>
 <div class="section" id="informatique-1">
 <span id="info1"></span><h2>E.1  Informatique 1<a class="headerlink" href="#informatique-1" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version formelle et étendue de la fiche d&#39;unité de cours disponible sur GAPS</span>
@@ -593,8 +594,8 @@
     <span class="l l-Scalar l-Scalar-Plain">- Commentaires</span>
 </pre></div>
 </div>
-<div class="section" id="pannification-du-semestre">
-<h3>E.1.1  Pannification du semestre<a class="headerlink" href="#pannification-du-semestre" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="pannification-du-semestre-d-hiver">
+<h3>E.1.1  Pannification du semestre d'hiver<a class="headerlink" href="#pannification-du-semestre-d-hiver" title="Lien permanent vers ce titre">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 12%" />
@@ -632,7 +633,8 @@
 </tr>
 <tr class="row-even"><td><p>42</p></td>
 <td><p>5</p></td>
-<td colspan="2"><p>Types, entrées Sorties    | 04 Nombre d'Armstrong</p></td>
+<td><p>Types, entrées Sorties</p></td>
+<td><p>04 Pneus</p></td>
 </tr>
 <tr class="row-odd"><td><p>43</p></td>
 <td colspan="3"><p>Vacances d'automne</p></td>
@@ -640,11 +642,11 @@
 <tr class="row-even"><td><p>44</p></td>
 <td><p>6</p></td>
 <td><p>Entrées sorties</p></td>
-<td><p>05 Pneus</p></td>
+<td><p>05 Monte-Carlo</p></td>
 </tr>
 <tr class="row-odd"><td><p>45</p></td>
 <td><p>7</p></td>
-<td><p>TE1</p></td>
+<td><p><strong>TE1</strong></p></td>
 <td><p>06 Tables Multiplications</p></td>
 </tr>
 <tr class="row-even"><td><p>46</p></td>
@@ -655,7 +657,7 @@
 <tr class="row-odd"><td><p>47</p></td>
 <td><p>9</p></td>
 <td><p>Fonctions</p></td>
-<td><p>08 Monte-Carlo</p></td>
+<td><p>08 Nombre d'Armstrong</p></td>
 </tr>
 <tr class="row-even"><td><p>48</p></td>
 <td><p>10</p></td>
@@ -669,7 +671,7 @@
 <tr class="row-even"><td><p>50</p></td>
 <td><p>12</p></td>
 <td><p>Algorithmique</p></td>
-<td></td>
+<td><p><strong>Labo Test</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>51</p></td>
 <td><p>13</p></td>
@@ -688,17 +690,17 @@
 </tr>
 <tr class="row-odd"><td><p>3</p></td>
 <td><p>15</p></td>
-<td><p>TE2</p></td>
+<td><p><strong>TE2</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>4</p></td>
 <td><p>16</p></td>
 <td><p>Exercices de révision</p></td>
 </tr>
 <tr class="row-odd"><td><p>5</p></td>
-<td colspan="3"><p>Préparation Examens</p></td>
+<td colspan="3"><p><strong>Préparation Examens</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>6</p></td>
-<td colspan="3"><p>Examens</p></td>
+<td colspan="3"><p><strong>Examens</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>7</p></td>
 <td colspan="3"><p>Relâches</p></td>
@@ -762,7 +764,9 @@
         <span class="nt">laboratory</span><span class="p">:</span>
             <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
               <span class="nt">chapters</span><span class="p">:</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mise en oeuvre de type de données composées (structures, tableaux multidimensionnels)</span>
+                <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+                  <span class="no">Mise en oeuvre de type de données composées</span>
+                  <span class="no">(structures, tableaux multidimensionnels)</span>
             <span class="p p-Indicator">-</span> <span class="nt">hours</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
               <span class="nt">chapters</span><span class="p">:</span>
                 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Lecture et écriture de fichiers texte et binaire en mode séquentiel</span>
@@ -783,26 +787,36 @@
                 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mini-projet</span>
 <span class="nt">prerequisites</span><span class="p">:</span> <span class="p p-Indicator">|</span>
     <span class="no">L&#39;étudiant-e doit connaître et savoir utiliser les notions suivantes</span>
-        <span class="no">- base de la programmation, types de base, structures de contrôle et sous-programmes</span>
+        <span class="no">- base de la programmation, types de base, structures</span>
+          <span class="no">de contrôle et sous-programmes</span>
         <span class="no">- bases des outils de bureautique.</span>
-    <span class="no">L&#39;unité d&#39;enseignement APR1 (analyse et programmation) permet d&#39;acquérir ces connaissances</span>
+    <span class="no">L&#39;unité d&#39;enseignement APR1 (analyse et programmation) permet</span>
+    <span class="no">d&#39;acquérir ces connaissances</span>
 
 <span class="nt">goals</span><span class="p">:</span>
     <span class="nt">class</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Décomposer un algorithme selon l&#39;approche descendante (raffinage successif) et ascendante.</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+          <span class="no">Décomposer un algorithme selon l&#39;approche descendante (raffinage successif)</span>
+          <span class="no">et ascendante.</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Décomposer une application de complexité moyenne en algorithmes élémentaires.</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir un type de données abstrait simple et les fonctions pour le manipuler.</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Ecrire un programme qui lit ou écrit un fichier au format binaire, texte.</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Mettre en oeuvre l&#39;allocation dynamique de mémoire pour créer des tableaux dimensionnés à</span>
-<span class="l l-Scalar l-Scalar-Plain">l&#39;exécution.</span>
-        <span class="l l-Scalar l-Scalar-Plain">- Définir et manipuler un type de données récursif (liste chaînée).</span>
-        <span class="l l-Scalar l-Scalar-Plain">- Mettre en oeuvre des champs de bits et des unions pour manipuler des bits dans un masque binaire.</span>
-    <span class="l l-Scalar l-Scalar-Plain">laboratory</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Programmer une bibliothèque de fonctions de qualité professionnelle (et l&#39;utiliser).</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+          <span class="no">Mettre en oeuvre l&#39;allocation dynamique de mémoire pour créer des</span>
+          <span class="no">tableaux dimensionnés à l&#39;exécution.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Définir et manipuler un type de données récursif (liste chaînée).</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+          <span class="no">Mettre en oeuvre des champs de bits et des unions pour manipuler</span>
+          <span class="no">des bits dans un masque binaire.</span>
+    <span class="nt">laboratory</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+          <span class="no">Programmer une bibliothèque de fonctions de qualité professionnelle</span>
+          <span class="no">(et l&#39;utiliser).</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Programmer et mettre au point des algorithmes de complexité moyenne.</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Réaliser une application de taille et de complexité moyennes, mêlant différents aspects de la</span>
-<span class="l l-Scalar l-Scalar-Plain">programmation.</span>
+        <span class="p p-Indicator">-</span> <span class="p p-Indicator">&gt;</span>
+          <span class="no">Réaliser une application de taille et de complexité moyennes,</span>
+          <span class="no">mêlant différents aspects de la programmation.</span>
 
 <span class="nt">plan</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Algorithmie</span>
@@ -848,8 +862,8 @@
     <span class="l l-Scalar l-Scalar-Plain">- Construire une bibliothèque documentée</span>
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>E.2.1  Pannification du semestre<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="pannification-du-semestre-de-printemps">
+<h3>E.2.1  Pannification du semestre de printemps<a class="headerlink" href="#pannification-du-semestre-de-printemps" title="Lien permanent vers ce titre">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 12%" />
@@ -903,20 +917,20 @@
 <tr class="row-odd"><td><p>15</p></td>
 <td><p>8</p></td>
 <td><p>Usage bibliothèques</p></td>
-<td><p>Révision TE1</p></td>
+<td><p>Stéganographie</p></td>
 </tr>
 <tr class="row-even"><td><p>16</p></td>
 <td colspan="3"><p>Vacances de Pâques</p></td>
 </tr>
 <tr class="row-odd"><td><p>17</p></td>
 <td><p>9</p></td>
-<td><p>TE1</p></td>
-<td><p>GMP</p></td>
+<td><p><strong>TE1</strong></p></td>
+<td><p>Wave (partie 1)</p></td>
 </tr>
 <tr class="row-even"><td><p>18</p></td>
 <td><p>10</p></td>
 <td><p>Algorithmique Big-O</p></td>
-<td></td>
+<td><p>Wave (partie 2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>19</p></td>
 <td><p>11</p></td>
@@ -926,27 +940,27 @@
 <tr class="row-even"><td><p>20</p></td>
 <td><p>12</p></td>
 <td><p>Queues et piles</p></td>
-<td><p>Révision TE2</p></td>
+<td><p>Tries</p></td>
 </tr>
 <tr class="row-odd"><td><p>21</p></td>
 <td><p>13</p></td>
 <td><p>Sockets</p></td>
-<td><p>Labo Test</p></td>
+<td><p><strong>Labo Test</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>22</p></td>
 <td><p>14</p></td>
-<td><p>TE2</p></td>
-<td></td>
+<td><p><strong>TE2</strong></p></td>
+<td><p>Shunting-yard</p></td>
 </tr>
 <tr class="row-odd"><td><p>23</p></td>
 <td><p>15</p></td>
 <td><p>Arbres binaires</p></td>
-<td><p>BST</p></td>
+<td><p>Tries (partie 1)</p></td>
 </tr>
 <tr class="row-even"><td><p>24</p></td>
 <td><p>16</p></td>
 <td><p>Exercices de révision</p></td>
-<td></td>
+<td><p>Tries (partie 2)</p></td>
 </tr>
 <tr class="row-odd"><td><p>25</p></td>
 <td colspan="3"><p>Préparation Examens</p></td>
@@ -1034,7 +1048,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

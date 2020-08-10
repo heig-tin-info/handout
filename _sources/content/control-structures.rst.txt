@@ -46,7 +46,8 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 2. ``switch``
 3. L'instruction ternaire
 
-.. figure:: ../assets/figures/dist/control-structure/branching-diagram.*
+.. figure:: ../../assets/figures/dist/control-structure/branching-diagram.*
+    :alt: Diagrammes BPMN
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modeleing Notation) et NSD (Nassi-Shneiderman)
 
@@ -167,6 +168,8 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 
     Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expressions si elles impriment ou non ``i vaut 8``:
 
+    .. todo:: Fix box around code...
+
     #. .. code-block:: c
 
         if (!(i < 8) && !(i > 8)) then
@@ -284,7 +287,7 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 - ``while``
 - ``do`` .. ``while``
 
-.. figure:: ../assets/figures/dist/control-structure/for.*
+.. figure:: ../../assets/figures/dist/control-structure/for.*
 
     Aperçu des trois structure de boucles
 
@@ -601,8 +604,6 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
     }
 
 
-------------
-
 .. exercise:: Faute d'erreur
 
     Considérons les déclarations suivantes :
@@ -664,12 +665,14 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
     .. solution::
 
-        #. Le cas est circonscrit à un interval de valeur donnée, le ``if`` est approprié:
+        #. Le cas est circonscrit à un interval de valeur donnée, le ``if`` est approprié :
+
             .. code-block:: c
 
                 if (i > min && i < max) { /* ... */ }
 
         #. Dans ce cas un `switch` semble le plus approprié
+
             .. code-block:: c
 
                 switch(choice) {
@@ -681,6 +684,7 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
                 }
 
         #. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
+
             .. code-block:: c
 
                 size_t pos;
@@ -694,6 +698,7 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
                 }
 
         #. La boucle ``for`` semble ici la plus adaptée
+
             .. code-block:: c
 
                 for (size_t i = 100; i < 200; i += 2) {
@@ -701,6 +706,7 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
                 }
 
         #. Il est nécessaire ici d'assurer au moins un tour de boucle :
+
             .. code-block:: c
 
                 const size_t max_line_length = 64;

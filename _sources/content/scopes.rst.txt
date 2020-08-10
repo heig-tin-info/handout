@@ -11,7 +11,7 @@ Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 
 Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à ou/et jusqu'à quand une variable est accessible, et de quelle manière
 
-.. figure:: ../assets/images/visibility.*
+.. figure:: ../../assets/images/visibility.*
 
     Brouillard matinal sur le `Golden Gate Bridge <https://fr.wikipedia.org/wiki/Golden_Gate_Bridge>`__, San Francisco.
 

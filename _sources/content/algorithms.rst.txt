@@ -81,7 +81,7 @@ catégories exprimées du meilleur au plus mauvais :
 
 Les différentes complexité peuvent être résumées sur la figure suivante :
 
-.. figure:: ../assets/images/complexity.*
+.. figure:: ../../assets/images/complexity.*
 
     Différentes complexités d'algorithmes
 
@@ -123,7 +123,7 @@ Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyon
       }
   }
 
-.. exercise::
+.. exercise:: Triangle evanescent
 
     Quel serait l'algorithme permettant d'afficher :
 
@@ -239,6 +239,7 @@ La solution à ce problème est de laisser passer 37% des candidats sans les eng
             return sum
 
     #. Implémenter cet algorithme en C compte tenu du prototype :
+
         .. code-block:: c
 
             float kahan_sum(float value, float sum, float c);

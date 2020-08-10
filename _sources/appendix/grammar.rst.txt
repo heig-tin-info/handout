@@ -8,5 +8,5 @@ Parce que les informaticiens ont de l'humour, Yacc à son pendant GNU `Bison <ht
 
 Voici à titre d'information la définition formelle du langage C99 :
 
-.. literalinclude:: ../assets/src/c99.y
+.. literalinclude:: ../../assets/src/c99.y
     :language: text

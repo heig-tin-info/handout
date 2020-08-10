@@ -536,7 +536,7 @@
 <p>La bibliothèque <a class="reference external" href="https://fr.wikipedia.org/wiki/Ncurses">ncurses</a> traduction de <em>nouvelles malédictions</em> est une évolution de <a class="reference external" href="https://fr.wikipedia.org/wiki/Curses">curses</a> développé originellement par <a class="reference external" href="https://en.wikipedia.org/wiki/Ken_Arnold">Ken Arnold</a> . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.</p>
 <p>La bibliothèque permet le positionnement arbitraire dans la fenêtre de commande, le dessin de fenêtres, de menus, d'ombrage sous les fenêtres, de couleurs ...</p>
 <div class="figure align-default" id="id2">
-<img alt="../_images/linux-menuconfig.png" src="../_images/linux-menuconfig.png" />
+<img alt="Example avec `ncurses`" src="../_images/linux-menuconfig.png" />
 <p class="caption"><span class="caption-number">Fig. 15.2 </span><span class="caption-text">Exemple d'interface graphique écrite avec <cite>ncurses</cite>. Ici la configuration du noyau Linux.</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :</p>
@@ -701,7 +701,8 @@
 <p>Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction <code class="docutils literal notranslate"><span class="pre">sin</span></code>. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.</p>
 <div class="section" id="math">
 <h4>15.5.1.1  Math<a class="headerlink" href="#math" title="Lien permanent vers ce titre">¶</a></h4>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Tableau 15.1 </span><span class="caption-text">Constantes mathématiques</span><a class="headerlink" href="#id3" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -723,7 +724,8 @@
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Tableau 15.2 </span><span class="caption-text">Fonctions mathématiques</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -735,28 +737,28 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(e^x\)</span></p></td>
+<td><p>Exponentielle <span class="math notranslate nohighlight">\(e^x\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ldexp(x,n)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(x\cdot2^n\)</span></p></td>
+<td><p>Exposant d'un nombre flottant <span class="math notranslate nohighlight">\(x\cdot2^n\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log(x)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\log_{2}(x)\)</span></p></td>
+<td><p>Logaritme binaire <span class="math notranslate nohighlight">\(\log_{2}(x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\log_{10}(x)\)</span></p></td>
+<td><p>Logarithme décimal <span class="math notranslate nohighlight">\(\log_{10}(x)\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(x^y\)</span></p></td>
+<td><p>Puissance <span class="math notranslate nohighlight">\(x^y\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt(x)\)</span></p></td>
+<td><p>Racine carrée <span class="math notranslate nohighlight">\(\sqrt(x)\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cbrt(x)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt[3](x)\)</span></p></td>
+<td><p>Racine cubique <span class="math notranslate nohighlight">\(\sqrt[3](x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hypot(x,y)</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\sqrt(x^2 + y^2)\)</span></p></td>
+<td><p>Hypothénuse optimisé <span class="math notranslate nohighlight">\(\sqrt(x^2 + y^2)\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ceil</span></code></p></td>
 <td><p>Arrondi à l'entier supérieur</p></td>
@@ -766,37 +768,29 @@
 </tr>
 </tbody>
 </table>
+<p>Notons par exemple que la fonction <code class="docutils literal notranslate"><span class="pre">hypot</span></code> peut très bien être émulée facilement en utilsant la fonction <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>. Néanmoins elle existe pour deux raisons élémentaires :</p>
+<ol class="arabic simple">
+<li><p>Éviter les dépassements (<em>overflow</em>).</p></li>
+<li><p>Une meilleure optimisation du code.</p></li>
+</ol>
+<p>Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capable de calculer certaines fonctions plus rapidement.</p>
 </div>
 <div class="section" id="chaines-de-caracteres">
 <h4>15.5.1.2  Chaînes de caractères<a class="headerlink" href="#chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Fonction</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">strcopy(dst,</span> <span class="pre">src)</span></code></p></td>
-<td><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais sans nécessité de donner
-la taille de la chaîne puisqu'elle se termine par
-<code class="docutils literal notranslate"><span class="pre">\0</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">memmove(dst,</span> <span class="pre">src,</span> <span class="pre">n)</span></code></p></td>
-<td><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais traite les cas
-particuliers lorsque les deux régions mémoire se
-superposent.</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">strcopy(dst,</span> <span class="pre">src)</span></code></dt><dd><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais sans nécessité de donner
+la taille de la chaîne puisqu'elle se termine par <code class="docutils literal notranslate"><span class="pre">\0</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">memmove(dst,</span> <span class="pre">src,</span> <span class="pre">n)</span></code></dt><dd><p>Identique à <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> mais traite les cas particuliers lorsque
+les deux régions mémoire se superposent.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="types-de-donnees">
 <h4>15.5.1.3  Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">¶</a></h4>
 <p>Test d'une propriété d'un caractère passé en paramètre</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Tableau 15.3 </span><span class="caption-text">Fonctions de test de caractères</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -845,8 +839,8 @@ superposent.</p></td>
 </div>
 <div class="section" id="limites">
 <h4>15.5.1.4  Limites<a class="headerlink" href="#limites" title="Lien permanent vers ce titre">¶</a></h4>
-<p>Valeurs limites pour les entiers signés et non signés</p>
-<table class="docutils align-default">
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-number">Tableau 15.4 </span><span class="caption-text">Valeurs limites pour les entiers signés et non signés</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 45%" />
@@ -914,51 +908,51 @@ superposent.</p></td>
 <div class="section" id="posix-c-library">
 <h3>15.6.1  POSIX C Library<a class="headerlink" href="#posix-c-library" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la <em>toolchain</em> soit compatible <strong>C99</strong>. Il existe néanmoins toute une collection d'autres fonctions manquantes :</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)</dt><dd><ul>
+<ul>
+<li><p>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;sharedmemory.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>La communicaton sur le réseau e.g. internet</dt><dd><ul>
+<li><p>La communicaton sur le réseau e.g. internet</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;arpa/inet.h&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;net/if.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Les tâches</dt><dd><ul>
+<li><p>Les tâches</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;thread.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Les traductions de chaînes p.ex. français vers anglais</dt><dd><ul>
+<li><p>Les traductions de chaînes p.ex. français vers anglais</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;iconv.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Les fonctions avancées de recherche de texte</dt><dd><ul>
+<li><p>Les fonctions avancées de recherche de texte</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;regex.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Le log centralisé des messages (d'erreur)</dt><dd><ul>
+<li><p>Le log centralisé des messages (d'erreur)</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code></p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
 <p>Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application <em>bare-metal</em>. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme <a class="reference external" href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> (ISO/IEC 9945).</p>
@@ -1007,7 +1001,7 @@ superposent.</p></td>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

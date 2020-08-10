@@ -870,8 +870,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div>
 <div class="section" id="la-regle-gauche-droite">
 <h2>14.7  La règle gauche-droite<a class="headerlink" href="#la-regle-gauche-droite" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Cette <a class="reference external" href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs.</p>
-<p>Il faut tout d'abord lire :</p>
+<p>Cette <a class="reference external" href="http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html">règle</a> est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-number">Tableau 14.3 </span><span class="caption-text">Règles gauche droite</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -900,21 +899,17 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </tr>
 </tbody>
 </table>
-<div class="section" id="premiere-etape">
-<h3>14.7.1  Première étape<a class="headerlink" href="#premiere-etape" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Trouver l'identifiant et se dire <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span></code>.</p>
-</div>
-<div class="section" id="deuxieme-etape">
-<h3>14.7.2  Deuxième étape<a class="headerlink" href="#deuxieme-etape" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Chercher le symbole à droite de l'identifiant. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">()</span></code>, vous savez que cet identifiant est une fonction et vous avez <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">fonction</span> <span class="pre">retournant</span></code>. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">[]</span></code> vous dites alors <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span></code>. Continuez à droite jusqu'à ce que vous êtes à court de symboles, <strong>OU</strong> que vous trouvez une parenthèse fermante <code class="docutils literal notranslate"><span class="pre">)</span></code>.</p>
-</div>
-<div class="section" id="troisieme-etape">
-<h3>14.7.3  Troisième étape<a class="headerlink" href="#troisieme-etape" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme <code class="docutils literal notranslate"><span class="pre">int</span></code>. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à <strong>gauche</strong> jusqu'à ce que vous êtes à court de symboles <strong>OU</strong> que vous rencontrez une parenthèse ouvrante <code class="docutils literal notranslate"><span class="pre">(</span></code>.</p>
-<p>Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.</p>
-</div>
-<div class="section" id="exemples">
-<h3>14.7.4  Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<dl class="simple">
+<dt>Première étape</dt><dd><p>Trouver l'identifiant et se dire <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span></code>.</p>
+</dd>
+<dt>Deuxième étape</dt><dd><p>Chercher le symbole à droite de l'identifiant. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">()</span></code>, vous savez que cet identifiant est une fonction et vous avez <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">fonction</span> <span class="pre">retournant</span></code>. Si vous trouvez un <code class="docutils literal notranslate"><span class="pre">[]</span></code> vous dites alors <code class="docutils literal notranslate"><span class="pre">L'identifiant</span> <span class="pre">est</span> <span class="pre">un</span> <span class="pre">tableau</span> <span class="pre">de</span></code>. Continuez à droite jusqu'à ce que vous êtes à court de symboles, <strong>OU</strong> que vous trouvez une parenthèse fermante <code class="docutils literal notranslate"><span class="pre">)</span></code>.</p>
+</dd>
+<dt>Troisième étape</dt><dd><p>Regardez le symbole à gauche de l'identifiant. S’il n'est aucun des symboles précédents, dites quelque chose comme <code class="docutils literal notranslate"><span class="pre">int</span></code>. Sinon, convertissez le symbole en utilisant la table de correspondance. Continuez d'aller à <strong>gauche</strong> jusqu'à ce que vous êtes à court de symboles <strong>OU</strong> que vous rencontrez une parenthèse ouvrante <code class="docutils literal notranslate"><span class="pre">(</span></code>.</p>
+</dd>
+<dt>Ensuite...</dt><dd><p>Continuez les étapes 2 et 3 jusqu'à ce que vous avez une déclaration complète.</p>
+</dd>
+</dl>
+<p>Voici quelques exemples :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[];</span>
 </pre></div>
 </div>
@@ -952,9 +947,8 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 </div></blockquote>
 </li>
 </ol>
-</div>
 <div class="section" id="cdecl">
-<h3>14.7.5  cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
+<h3>14.7.1  cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il existe un programme nommé <a class="reference external" href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cdecl <span class="s1">&#39;char (*(*x[3])())[5]&#39;</span>
 <span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
@@ -1068,7 +1062,7 @@ une même région mémoire.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

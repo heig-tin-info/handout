@@ -2,7 +2,7 @@
 La programmation
 ================
 
-.. figure:: ../assets/images/eniac.*
+.. figure:: ../../assets/images/eniac.*
 
     L'un des premiers ordinateurs: l'Eniac
 
@@ -30,7 +30,7 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 
 .. index:: pgcd, Euclide
 
-.. figure:: ../assets/figures/dist/algorithm/euclide-gcd.*
+.. figure:: ../../assets/figures/dist/algorithm/euclide-gcd.*
 
     Algorithme de calcul du PGCD d'Euclide.
 
@@ -50,7 +50,7 @@ Programmation
 
 La machine Jacquard est un `métier à tisser <https://fr.wikipedia.org/wiki/M%C3%A9tier_%C3%A0_tisser>`__ mis au point par Joseph Marie Jacquard en 1801. Il constitue le premier système mécanique programmable avec cartes perforées.
 
-.. figure:: ../assets/images/loom.*
+.. figure:: ../../assets/images/loom.*
     :width: 600px
 
     Mécanisme Jacquard au Musée des arts et métiers de Paris.
@@ -98,7 +98,7 @@ Les informaticiens-tisserands responsables de la création des cartes perforées
 
 Notons que *de gueules* signifie *rouge*. Le `drapeau suisse <https://fr.wikipedia.org/wiki/Drapeau_et_armoiries_de_la_Suisse>`__ est donc *de gueules, à la croix alésée d'argent*.
 
-.. figure:: ../assets/images/armoiries.*
+.. figure:: ../../assets/images/armoiries.*
     :width: 200px
 
     Armoiries des ducs de Mayenne

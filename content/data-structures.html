@@ -560,7 +560,8 @@
 </ul>
 <p id="index-1">L'opération <code class="docutils literal notranslate"><span class="pre">pop</span></code> retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.</p>
 <div class="figure align-default" id="id3">
-<img alt="../_images/dyn-array-pop.svg" src="../_images/dyn-array-pop.svg" /><p class="caption"><span class="caption-number">Fig. 21.2 </span><span class="caption-text">Suppression d'un élément dans un tableau dynamique</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/dyn-array-pop.svg"><img alt="../_images/dyn-array-pop.svg" src="../_images/dyn-array-pop.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.2 </span><span class="caption-text">Suppression d'un élément dans un tableau dynamique</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">--</span><span class="n">elements</span><span class="p">];</span>
@@ -568,7 +569,8 @@
 </div>
 <p id="index-2">L'opération <code class="docutils literal notranslate"><span class="pre">push</span></code> ajoute un élément à la fin du tableau.</p>
 <div class="figure align-default" id="id4">
-<img alt="../_images/dyn-array-push.svg" src="../_images/dyn-array-push.svg" /><p class="caption"><span class="caption-number">Fig. 21.3 </span><span class="caption-text">Ajout d'un élément dans un tableau dynamique</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/dyn-array-push.svg"><img alt="../_images/dyn-array-push.svg" src="../_images/dyn-array-push.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.3 </span><span class="caption-text">Ajout d'un élément dans un tableau dynamique</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&gt;=</span> <span class="n">capacity</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="n">data</span><span class="p">[</span><span class="n">elements</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
@@ -576,7 +578,8 @@
 </div>
 <p>L'opération <code class="docutils literal notranslate"><span class="pre">shift</span></code> retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.</p>
 <div class="figure align-default" id="id5">
-<img alt="../_images/dyn-array-shift.svg" src="../_images/dyn-array-shift.svg" /><p class="caption"><span class="caption-number">Fig. 21.4 </span><span class="caption-text">Suppression du premier élément dans un tableau dynamique</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/dyn-array-shift.svg"><img alt="../_images/dyn-array-shift.svg" src="../_images/dyn-array-shift.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.4 </span><span class="caption-text">Suppression du premier élément dans un tableau dynamique</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">elements</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -594,7 +597,8 @@
 </div>
 <p id="index-3">Enfin, l'opération <code class="docutils literal notranslate"><span class="pre">unshift</span></code> ajoute un élément depuis le début du tableau :</p>
 <div class="figure align-default" id="id6">
-<img alt="../_images/dyn-array-unshift.svg" src="../_images/dyn-array-unshift.svg" /><p class="caption"><span class="caption-number">Fig. 21.5 </span><span class="caption-text">Ajout d'un élément en début d'un tableau dynamique</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/dyn-array-unshift.svg"><img alt="../_images/dyn-array-unshift.svg" src="../_images/dyn-array-unshift.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.5 </span><span class="caption-text">Ajout d'un élément en début d'un tableau dynamique</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">elements</span><span class="p">;</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">--</span><span class="p">)</span>
     <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
@@ -616,7 +620,8 @@
 <p>Pour permettre la circulation, les indices sont calculés modulo la taille du buffer.</p>
 <p>Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :</p>
 <div class="figure align-default" id="id7">
-<img alt="../_images/ring.svg" src="../_images/ring.svg" /><p class="caption"><span class="caption-number">Fig. 21.6 </span><span class="caption-text">Exemple d'un tampon circulaire</span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/ring.svg"><img alt="../_images/ring.svg" src="../_images/ring.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.6 </span><span class="caption-text">Exemple d'un tampon circulaire</span><a class="headerlink" href="#id7" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Le nombre d'éléments dans le buffer est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur <code class="docutils literal notranslate"><span class="pre">%</span></code> en C ne fonctionne que sur des nombres positifs et ne retourne pas le résidu positif le plus petit. En sommes, <code class="docutils literal notranslate"><span class="pre">-2</span> <span class="pre">%</span> <span class="pre">5</span></code> devrait donner <code class="docutils literal notranslate"><span class="pre">3</span></code>, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est <code class="docutils literal notranslate"><span class="pre">-2</span></code>. Le modulo vrai, mathématiquement correct peut être calculé ainsi :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">A</span> <span class="o">%</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
@@ -862,13 +867,15 @@ le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <
 </div>
 <p>Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :</p>
 <div class="figure align-default" id="id11">
-<img alt="../_images/loop.svg" src="../_images/loop.svg" /><p class="caption"><span class="caption-number">Fig. 21.9 </span><span class="caption-text">Boucle dans une liste chaînée</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/loop.svg"><img alt="../_images/loop.svg" src="../_images/loop.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.9 </span><span class="caption-text">Boucle dans une liste chaînée</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?</p>
 <p>Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé <em>algorithme du lièvre et de la tortue</em>. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.</p>
 <div class="figure align-default" id="id12">
-<span id="index-9"></span><img alt="../_images/floyd.svg" src="../_images/floyd.svg" /><p class="caption"><span class="caption-number">Fig. 21.10 </span><span class="caption-text">Algorithme de détection de cycle de Robert W. Floyd</span><a class="headerlink" href="#id12" title="Lien permanent vers cette image">¶</a></p>
+<span id="index-9"></span><a class="reference internal image-reference" href="../_images/floyd.svg"><img alt="../_images/floyd.svg" src="../_images/floyd.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.10 </span><span class="caption-text">Algorithme de détection de cycle de Robert W. Floyd</span><a class="headerlink" href="#id12" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">compute_length</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span>
 <span class="p">{</span>
@@ -980,7 +987,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <p>L'objectif de cette section n'est pas d'entrer dans les détails des <a class="reference external" href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires</a> dont la théorie requiert un ouvrage dédié, mais de vous sensibiliser à l'existence de ces structures de données qui sont à la base de beaucoup de langage de haut niveau comme C++, Python ou C#.</p>
 <p>L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un <code class="docutils literal notranslate"><span class="pre">left</span></code> et un <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
 <div class="figure align-default" id="id13">
-<img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /><p class="caption"><span class="caption-number">Fig. 21.11 </span><span class="caption-text">Arbre binaire équilibré</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/binary-tree.svg"><img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.11 </span><span class="caption-text">Arbre binaire équilibré</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :</p>
 <ul class="simple">
@@ -1050,7 +1058,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </tbody>
 </table>
 <div class="figure align-default" id="id15">
-<img alt="../_images/heap.svg" src="../_images/heap.svg" /><p class="caption"><span class="caption-number">Fig. 21.12 </span><span class="caption-text">Représentation d'un <em>heap</em></span><a class="headerlink" href="#id15" title="Lien permanent vers cette image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/heap.svg"><img alt="../_images/heap.svg" src="../_images/heap.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.12 </span><span class="caption-text">Représentation d'un <em>heap</em></span><a class="headerlink" href="#id15" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="queue-prioritaire">
@@ -1516,7 +1525,7 @@ int main() {
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

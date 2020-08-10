@@ -401,14 +401,14 @@
 <div class="section" id="points-de-sequences">
 <span id="sequence-point"></span><h2>22.1  Points de séquences<a class="headerlink" href="#points-de-sequences" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On appelle un point de séquence ou <a class="reference external" href="https://en.wikipedia.org/wiki/Sequence_point">sequence point</a> exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est :</p>
-<ul class="simple">
+<ul>
 <li><p>L'appel d'une fonction est effectué après que tous ses arguments ont été évalués</p></li>
-<li><dl class="simple">
-<dt>La fin du premier opérande dans les opérations <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <cite>?</cite> et <cite>,</cite>.</dt><dd><ul>
+<li><p>La fin du premier opérande dans les opérations <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <cite>?</cite> et <cite>,</cite>.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Ceci permet de court-circuiter le calcul dans <code class="docutils literal notranslate"><span class="pre">a()</span> <span class="pre">&amp;&amp;</span> <span class="pre">b()</span> <span class="pre">``.</span> <span class="pre">La</span> <span class="pre">condition</span> <span class="pre">``b()</span></code> n'est jamais évaluée si la condition <code class="docutils literal notranslate"><span class="pre">a()</span></code> est valide.</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p>Avant et après des actions associées à un formatage d'entrée sortie</p></li>
 </ul>
@@ -498,7 +498,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">size</span></code></dt><dd><p>Liste la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou <code class="docutils literal notranslate"><span class="pre">84d</span></code> bytes.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">size</span></code></dt><dd><p>Lister la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou <code class="docutils literal notranslate"><span class="pre">84d</span></code> bytes.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> size a.out
 <span class="go">text    data     bss     dec     hex filename</span>
 <span class="go">1517     600       8    2125     84d a.out</span>
@@ -767,7 +767,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

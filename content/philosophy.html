@@ -428,11 +428,17 @@
 <h3>24.2.4  SSOT<a class="headerlink" href="#ssot" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce principe tient son acronyme de <a class="reference external" href="https://en.wikipedia.org/wiki/Single_source_of_truth">single source of truth</a>. Il adresse principalement un défaut de conception relatif aux métadonnées que peuvent être les paramètres d'un algorithme, le modèle d'une base de données ou la méthode usitée d'un programme à collecter des données.</p>
 <p>Un programme qui respecte ce principe évite la duplication des données. Des défauts courants de conception sont :</p>
-<ul class="simple">
+<ul>
 <li><p>Indiquer le nom d'un fichier source dans le fichier source</p></li>
 <li><p>Stocker la même image, le même document dans différents formats</p></li>
 <li><p>Stocker dans une base de données le nom <em>Doe</em>, prénom <em>John</em> ainsi que le nom complet <em>John Doe</em></p></li>
-<li><p>Avoir un commentaire C du type: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">height</span> <span class="pre">=</span> <span class="pre">206;</span> <span class="pre">//</span> <span class="pre">Size</span> <span class="pre">of</span> <span class="pre">Hafþór</span> <span class="pre">Júlíus</span> <span class="pre">Björnsson</span> <span class="pre">which</span> <span class="pre">is</span> <span class="pre">205</span> <span class="pre">cm</span></code> (deux sources de vérités contradictoires)</p></li>
+<li><p>Avoir un commentaire C ayant deux vérités contradictoires :</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">206</span><span class="p">;</span> <span class="c1">// Size of Hafþór Júlíus Björnsson which is 205 cm</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
 <li><p>Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)</p></li>
 </ul>
 </div>
@@ -550,26 +556,27 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p><strong>Mastodonte</strong> Une fonction est plus longue qu'un écran de haut (~50 lignes)</p></li>
 <li><p>Un fichier est plus long que <strong>1000 lignes</strong>.</p></li>
 <li><p><strong>Ligne Dieu</strong>, une ligne beaucoup trop longue et <em>de facto</em> illisible.</p></li>
-<li><dl>
-<dt>Une fonction à plus de <strong>trois</strong> paramètres</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
+<li><p>Une fonction à plus de <strong>trois</strong> paramètres</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
     <span class="kt">bool</span> <span class="n">with_milk</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">cow_milk</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number_of_sugars</span><span class="p">);</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p><strong>Copier coller</strong>, du code est dupliqué</p></li>
-<li><dl>
-<dt>Les commentaires expliquent le comment du code et non le pourquoi</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
+<li><p>Les commentaires expliquent le comment du code et non le pourquoi</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
 <span class="kt">double</span> <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">cst</span><span class="p">);</span>
 <span class="n">u</span> <span class="o">/=</span> <span class="mf">1.11123445143</span><span class="p">;</span> <span class="c1">// division par une constante inférieure à 2</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl>
-<dt><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+<li><p><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -580,11 +587,11 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <span class="p">}</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl>
-<dt>Usage de <code class="docutils literal notranslate"><span class="pre">goto</span></code></dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
+<li><p>Usage de <code class="docutils literal notranslate"><span class="pre">goto</span></code></p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
         <span class="k">goto</span> <span class="n">end</span><span class="p">;</span>
@@ -599,8 +606,7 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <span class="nl">end</span><span class="p">:</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><dl>
 <dt>Plusieurs variables avec des noms très similaires</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">advice</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
@@ -613,14 +619,14 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p><strong>Action à distance</strong> par l'emploi immodéré de variables globales</p></li>
 <li><p><strong>Ancre de bateau</strong>, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p></li>
 <li><p><strong>Cyclomatisme aigu</strong>, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p></li>
-<li><dl>
-<dt><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+<li><p><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">finished</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p><strong>Objet divin</strong> quand un composant logiciel assure trop de fonctions essentielles (KISS)</p></li>
 <li><p><strong>Coulée de lave</strong> lorsqu'un code immature est mis en production</p></li>
@@ -643,7 +649,7 @@ Namespaces are one honking great idea—let&#39;s do more of those!
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

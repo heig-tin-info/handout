@@ -9,7 +9,7 @@ La philosophie d'un bon développeur repose sur plusieurs principes de programma
 Rasoir d'Ockham
 ===============
 
-.. figure:: ../assets/images/razor.*
+.. figure:: ../../assets/images/razor.*
 
 Le `rasoir d'Ockham <https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham>`__ expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise `Shadok <https://en.wikipedia.org/wiki/Les_Shadoks>`__: "Pourquoi faire simple quand on peut faire compliqué ?"
 
@@ -53,7 +53,12 @@ Un programme qui respecte ce principe évite la duplication des données. Des d�
 - Indiquer le nom d'un fichier source dans le fichier source
 - Stocker la même image, le même document dans différents formats
 - Stocker dans une base de données le nom *Doe*, prénom *John* ainsi que le nom complet *John Doe*
-- Avoir un commentaire C du type: ``int height = 206; // Size of Hafþór Júlíus Björnsson which is 205 cm`` (deux sources de vérités contradictoires)
+- Avoir un commentaire C ayant deux vérités contradictoires :
+
+    .. code-block:: c
+
+        int height = 206; // Size of Hafþór Júlíus Björnsson which is 205 cm
+
 - Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)
 
 Zen de Python
@@ -190,6 +195,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 - Un fichier est plus long que **1000 lignes**.
 - **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible.
 - Une fonction à plus de **trois** paramètres
+
     .. code-block:: c
 
         void make_coffee(int size, int mode, int mouture, int cup_size,
@@ -197,6 +203,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
 - **Copier coller**, du code est dupliqué
 - Les commentaires expliquent le comment du code et non le pourquoi
+
     .. code-block:: c
 
         // Additionne une constante avec une autre pour ensuite l'utiliser
@@ -204,6 +211,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
         u /= 1.11123445143; // division par une constante inférieure à 2
 
 - **Arbre de Noël**, plus de deux structures de contrôles sont impliquées
+
     .. code-block:: c
 
         if (a > 2) {
@@ -217,6 +225,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
         }
 
 - Usage de ``goto``
+
     .. code-block:: c
 
         loop:
@@ -243,6 +252,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 - **Ancre de bateau**, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
 - **Cyclomatisme aigu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
 - **Attente active**, une boucle qui ne contient qu'une instruction de test, attendant la condition
+
     .. code-block:: c
 
         while (true) {

@@ -419,7 +419,7 @@
 <h1>5  Opérateurs<a class="headerlink" href="#operateurs" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Un <span class="target" id="index-0"></span>opérateur applique une opération à une (opérateur unitaire), deux ou trois (<span class="target" id="index-1"></span>ternaire) entrées.</p>
 <div class="figure align-default" id="id3">
-<img alt="../_images/alu.svg" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composées de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composées de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
@@ -598,7 +598,6 @@
 effectuer des tests un peu plus complexe.</p>
 <div class="section" id="et-logique">
 <h3>5.11.1  ET logique<a class="headerlink" href="#et-logique" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="n">condition1</span> <span class="o">&amp;&amp;</span> <span class="n">condition2</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -610,8 +609,8 @@ effectuer des tests un peu plus complexe.</p>
 <col style="width: 30%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>condition1</p></th>
-<th class="head"><p>condition2</p></th>
+<tr class="row-odd"><th class="head"><p>Condition 1</p></th>
+<th class="head"><p>Condition 2</p></th>
 <th class="head"><p>résultat</p></th>
 </tr>
 </thead>
@@ -637,7 +636,6 @@ effectuer des tests un peu plus complexe.</p>
 </div>
 <div class="section" id="ou-logique">
 <h3>5.11.2  OU logique<a class="headerlink" href="#ou-logique" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="n">condition1</span> <span class="o">||</span> <span class="n">condition2</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -649,9 +647,9 @@ effectuer des tests un peu plus complexe.</p>
 <col style="width: 30%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>condition1</p></th>
-<th class="head"><p>condition2</p></th>
-<th class="head"><p>résultat</p></th>
+<tr class="row-odd"><th class="head"><p>Condition 1</p></th>
+<th class="head"><p>Condition 2</p></th>
+<th class="head"><p>Résultat</p></th>
 </tr>
 </thead>
 <tbody>
@@ -676,7 +674,6 @@ effectuer des tests un peu plus complexe.</p>
 </div>
 <div class="section" id="inversion-logique">
 <h3>5.11.3  Inversion logique<a class="headerlink" href="#inversion-logique" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">resultat</span> <span class="o">=</span> <span class="o">!</span><span class="n">condition1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -687,8 +684,8 @@ effectuer des tests un peu plus complexe.</p>
 <col style="width: 46%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>condition1</p></th>
-<th class="head"><p>résultat</p></th>
+<tr class="row-odd"><th class="head"><p>Condition</p></th>
+<th class="head"><p>Résultat</p></th>
 </tr>
 </thead>
 <tbody>
@@ -718,7 +715,6 @@ types entiers.</p>
 </div>
 <div class="section" id="id1">
 <h3>5.12.2  ET logique<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="o">=</span><span class="mh">0x55</span><span class="p">;</span> <span class="c1">// 0101 0101 (binaire)</span>
 <span class="kt">uint8_t</span> <span class="n">b</span><span class="o">=</span><span class="mh">0x0F</span><span class="p">;</span> <span class="c1">// 0000 1111</span>
 <span class="kt">uint8_t</span> <span class="n">r</span><span class="o">=</span><span class="mh">0x00</span><span class="p">;</span>
@@ -729,7 +725,6 @@ types entiers.</p>
 </div>
 <div class="section" id="id2">
 <h3>5.12.3  OU logique<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="o">=</span><span class="mh">0x55</span><span class="p">;</span> <span class="c1">// 0101 0101 (binaire)</span>
 <span class="kt">uint8_t</span> <span class="n">b</span><span class="o">=</span><span class="mh">0x0F</span><span class="p">;</span> <span class="c1">// 0000 1111</span>
 <span class="kt">uint8_t</span> <span class="n">r</span><span class="o">=</span><span class="mh">0x00</span><span class="p">;</span>
@@ -740,7 +735,6 @@ types entiers.</p>
 </div>
 <div class="section" id="ou-exclusif-logique">
 <h3>5.12.4  OU EXCLUSIF logique<a class="headerlink" href="#ou-exclusif-logique" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="o">=</span><span class="mh">0x55</span><span class="p">;</span> <span class="c1">// 0101 0101 (binaire)</span>
 <span class="kt">uint8_t</span> <span class="n">b</span><span class="o">=</span><span class="mh">0x0F</span><span class="p">;</span> <span class="c1">// 0000 1111</span>
 <span class="kt">uint8_t</span> <span class="n">r</span><span class="o">=</span><span class="mh">0x00</span><span class="p">;</span>
@@ -751,7 +745,6 @@ types entiers.</p>
 </div>
 <div class="section" id="decalage-a-droite">
 <h3>5.12.5  Décalage à droite<a class="headerlink" href="#decalage-a-droite" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="o">=</span><span class="mh">0xAA</span><span class="p">;</span> <span class="c1">// 1010 1010 (binaire)</span>
 <span class="kt">uint8_t</span> <span class="n">r</span><span class="o">=</span><span class="mh">0x00</span><span class="p">;</span>
 
@@ -763,7 +756,6 @@ Cette opération s'apparente à une division par 2.</p>
 </div>
 <div class="section" id="decalage-a-gauche">
 <h3>5.12.6  Décalage à gauche<a class="headerlink" href="#decalage-a-gauche" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="o">=</span><span class="mh">0xAA</span><span class="p">;</span> <span class="c1">// 1010 1010 (binaire)</span>
 <span class="kt">uint8_t</span> <span class="n">r</span><span class="o">=</span><span class="mh">0x00</span><span class="p">;</span>
 
@@ -781,42 +773,44 @@ manière optimisée pour le processeur qui exécute le programme.</p>
 <p>Ils peuvent, en outre, être exécutés avant ou après l'évaluation de
 l'opération. On parle alors de pré-incrémentation ou pré-décrémentation
 et post-incrémentation ou post-décrémentation.</p>
-<div class="section" id="pre-incrementation">
-<h3>5.13.1  pré-incrémentation<a class="headerlink" href="#pre-incrementation" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<ul>
+<li><p>pré-incrémentation</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
 <span class="n">j</span> <span class="o">=</span> <span class="o">++</span><span class="n">i</span><span class="p">;</span>    <span class="c1">// on obtient i=1 et j=1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="post-incrementation">
-<h3>5.13.2  post-incrémentation<a class="headerlink" href="#post-incrementation" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</div></blockquote>
+</li>
+<li><p>post-incrémentation</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
 <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>    <span class="c1">// on obtient i=1 et j=0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pre-decrementation">
-<h3>5.13.3  pré-décrémentation<a class="headerlink" href="#pre-decrementation" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</div></blockquote>
+</li>
+<li><p>pré-décrémentation</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
 <span class="n">j</span> <span class="o">=</span> <span class="o">--</span><span class="n">i</span><span class="p">;</span>    <span class="c1">// on obtient i=-1 et j=-1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="post-decrementation">
-<h3>5.13.4  post-décrémentation<a class="headerlink" href="#post-decrementation" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Ecriture :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</div></blockquote>
+</li>
+<li><p>post-décrémentation</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 
 <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">--</span><span class="p">;</span>    <span class="c1">// on obtient i=-1 et j=0</span>
 </pre></div>
 </div>
-</div>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="priorite-des-operateurs">
 <span id="precedence"></span><h2>5.14  Priorité des opérateurs<a class="headerlink" href="#priorite-des-operateurs" title="Lien permanent vers ce titre">¶</a></h2>
@@ -1006,14 +1000,14 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </div>
 <ol class="arabic">
 <li><p>L'associativité de <code class="docutils literal notranslate"><span class="pre">=</span></code> est à droite donc cette expression est équivalente à <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">(y</span> <span class="pre">=</span> <span class="pre">(z))</span></code> qui évite toute ambiguïté.</p></li>
-<li><dl>
-<dt>En forcant l'associativité à gauche, on essaie d'assigner <code class="docutils literal notranslate"><span class="pre">z</span></code> à une <em>lvalue</em> et le compilateur s'en plaint :</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>4:8: error: lvalue required as left operand of assignment
+<li><p>En forcant l'associativité à gauche, on essaie d'assigner <code class="docutils literal notranslate"><span class="pre">z</span></code> à une <em>lvalue</em> et le compilateur s'en plaint :</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>4:8: error: lvalue required as left operand of assignment
     (x = y) = z;
             ^
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ol>
 <p>Voici quelques exemples de valeurs gauche :</p>
@@ -1124,7 +1118,7 @@ $ ./armstrong 154
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

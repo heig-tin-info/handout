@@ -401,20 +401,46 @@
 <span id="memory-management"></span><h1>13  Gestion de la mémoire<a class="headerlink" href="#gestion-de-la-memoire" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Vous l'aurez appris à vos dépens, l'erreur <em>Segmentation fault</em> (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.</p>
 <p>La mémoire d'un programme est découpée en <a class="reference external" href="https://fr.wikipedia.org/wiki/Segment_de_donn%C3%A9es">segments de données</a>. Les principaux segments sont :</p>
-<dl class="simple">
-<dt>Segment de code <code class="docutils literal notranslate"><span class="pre">.text</span></code></dt><dd><p>Les instructions du programme exécutable sont chargées dans ce segment.</p>
-</dd>
-<dt>Segment de constantes et chaînes de caractères <code class="docutils literal notranslate"><span class="pre">.rodata</span></code></dt><dd><p>Les constantes globales <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">13</span></code> et les chaînes de caractères sont enregistrées dans ce segment.</p>
-</dd>
-<dt>Segment de variables initialisées <code class="docutils literal notranslate"><span class="pre">.bss</span></code></dt><dd><p>Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">foo</span> <span class="pre">=</span> <span class="pre">0</span></code> seront stockées dans ce segment.</p>
-</dd>
-<dt>Segment de variables non initialisées <code class="docutils literal notranslate"><span class="pre">.data</span></code></dt><dd><p>Les variables globales non initialisées comme <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">bar;</span></code> seront placées dans ce segment.</p>
-</dd>
-<dt>Segment de tas <code class="docutils literal notranslate"><span class="pre">.heap</span></code></dt><dd><p>Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.</p>
-</dd>
-<dt>Segment de pile <code class="docutils literal notranslate"><span class="pre">.stack</span></code></dt><dd><p>La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.</p>
-</dd>
-</dl>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-number">Tableau 13.1 </span><span class="caption-text">Segments mémoire</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Segment</p></th>
+<th class="head"><p>Nom</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.text</span></code></p></td>
+<td><p>Segment de code</p></td>
+<td><p>Les instructions du programme exécutable sont chargées dans ce segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.rodata</span></code></p></td>
+<td><p>Segment de constantes et chaînes de caractères</p></td>
+<td><p>Les constantes globales <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">13</span></code> et les chaînes de caractères sont enregistrées dans ce segment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.bss</span></code></p></td>
+<td><p>Segment de variables initialisées</p></td>
+<td><p>Ce segment est garanti d'être initialisé à zéro lorsque le programme est chargé en mémoire. Les variables globales statiques tels que <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">foo</span> <span class="pre">=</span> <span class="pre">0</span></code> seront stockées dans ce segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.data</span></code></p></td>
+<td><p>Segment de variables non initialisées</p></td>
+<td><p>Les variables globales non initialisées comme <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">bar;</span></code> seront placées dans ce segment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.heap</span></code></p></td>
+<td><p>Segment de tas</p></td>
+<td><p>Les allocations dynamiques décrites plus bas dans ce chapitre sont déclarées ici.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.stack</span></code></p></td>
+<td><p>Segment de pile</p></td>
+<td><p>La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="allocation-statique">
 <h2>13.1  Allocation statique<a class="headerlink" href="#allocation-statique" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est-à-dire que le compilateur est capable a priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.</p>
@@ -430,11 +456,11 @@
 <p>L'approche correcte est d'allouer la mémoire au moment ou on en a besoin, c'est ce que l'on appelle l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Tas_(allocation_dynamique)">allocation dynamique</a>.</p>
 <p>Lorsqu'un programme à besoin de mémoire, il peut générer un appel système pour demander au système d'exploitation le besoin de disposer de plus de mémoire. En pratique on utilise deux fonctions de la bibliothèque standard <cite>&lt;stdlib.h&gt;</cite>:</p>
 <dl class="simple">
-<dt><cite>void *malloc(size_t size)</cite></dt><dd><p>Alloue dynamiquement un espace mémoire de <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes. Le terme <em>malloc</em> découle de <em>Memory ALLOCation</em>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*malloc(size_t</span> <span class="pre">size)</span></code></dt><dd><p>Alloue dynamiquement un espace mémoire de <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes. Le terme <em>malloc</em> découle de <em>Memory ALLOCation</em>.</p>
 </dd>
-<dt><cite>void *calloc(size_t nitems, size_t size)</cite></dt><dd><p>Fonctionne de façon similaire à <code class="docutils literal notranslate"><span class="pre">malloc</span></code> mais initialise l'espace alloué à zéro.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*calloc(size_t</span> <span class="pre">nitems,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></dt><dd><p>Fonctionne de façon similaire à <code class="docutils literal notranslate"><span class="pre">malloc</span></code> mais initialise l'espace alloué à zéro.</p>
 </dd>
-<dt><cite>void free(void *ptr)</cite></dt><dd><p>Libère un espace préalablement alloué par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> ou <code class="docutils literal notranslate"><span class="pre">calloc</span></code></p>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">free(void</span> <span class="pre">*ptr)</span></code></dt><dd><p>Libère un espace préalablement alloué par <code class="docutils literal notranslate"><span class="pre">malloc</span></code> ou <code class="docutils literal notranslate"><span class="pre">calloc</span></code></p>
 </dd>
 </dl>
 <p>L'allocation se fait sur le <cite>tas</cite> (<em>heap</em>) qui est de taille variable. À chaque fois qu'un espace mémoire est demandé, <code class="docutils literal notranslate"><span class="pre">malloc</span></code> recherche dans le segment un espace vide de taille suffisante, s'il ne parvient pas, il exécute l'appel système <a class="reference external" href="https://en.wikipedia.org/wiki/Sbrk">sbrk</a> qui permet de déplacer la frontière du segment mémoire et donc d'agrandir le segment.</p>
@@ -446,8 +472,9 @@
 <h2>13.3  Mémoire de programme<a class="headerlink" href="#memoire-de-programme" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les segments mémoires sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.</p>
 <p>Néanmoins une bonne représentation est la suivante :</p>
-<div class="figure align-default" id="id1">
-<img alt="../_images/program-memory.svg" src="../_images/program-memory.svg" /><p class="caption"><span class="caption-number">Fig. 13.2 </span><span class="caption-text">Organisation de mémoire d'un programme</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/program-memory.svg"><img alt="../_images/program-memory.svg" src="../_images/program-memory.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 13.2 </span><span class="caption-text">Organisation de mémoire d'un programme</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se percutent c'est le crash avec l'erreur bien connue <a class="reference external" href="https://fr.wikipedia.org/wiki/D%C3%A9passement_de_pile">stack overflow</a>.</p>
 </div>
@@ -629,8 +656,8 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
 <h2>13.7  Fragmentation mémoire<a class="headerlink" href="#fragmentation-memoire" title="Lien permanent vers ce titre">¶</a></h2>
 <p>On peut observer à la figure <a class="reference internal" href="#fig-allocation"><span class="std std-numref">Fig. 13.1</span></a> qu'après un appel successif de <code class="docutils literal notranslate"><span class="pre">malloc</span></code> et de <code class="docutils literal notranslate"><span class="pre">free</span></code> des espaces mémoires non utilisés peuvent apparaître entre des régions utilisées. Ces <em>trous</em> sont appelés fragmentation mémoire.</p>
 <p>Dans la figure suivante, on suit l'évolution de l'utilisation du <em>heap</em> au cours de la vie d'un programme. Au début ➀, la mémoire est libre. Tant que de la mémoire est allouée sans libération (<code class="docutils literal notranslate"><span class="pre">free</span></code>), aucun problème de fragmentation ➁. Néanmoins, après un certain temps la mémoire devient fragmentée ➂ ; il reste dans cet exemple 2 emplacements de taille 2, un emplacement de taille 5 et un emplacement de taille 8. Il est donc impossible de réserver un espace de taille 9 malgré que l'espace cumulé libre est suffisant.</p>
-<div class="figure align-default" id="id2">
-<img alt="../_images/fragmentation.svg" src="../_images/fragmentation.svg" /><p class="caption"><span class="caption-number">Fig. 13.3 </span><span class="caption-text">Fragmentation mémoire</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/fragmentation.svg" src="../_images/fragmentation.svg" /><p class="caption"><span class="caption-number">Fig. 13.3 </span><span class="caption-text">Fragmentation mémoire</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire est malvenue. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : <a class="reference external" href="https://www.youtube.com/watch?v=nn2FB1P_Mn8">éteindre puis redémarrer</a>.</p>
 <div class="section" id="mmu">
@@ -639,8 +666,8 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
 <p>En pratique l'espace de mémoire virtuelle est toujours beaucoup plus grand que l'espace physique. Cela permet de s'affranchir dans une large mesure de problèmes de fragmentation car si l'espace virtuel est suffisament grand, il y aura statistiquement plus de chance d'y trouver un emplacement non utilisé.</p>
 <p>La programmation sur de petites architectures matérielles (microcontrôleurs, DSP) ne possèdent pas de MMU et dès lors l'allocation dynamique est généralement à proscrire à moins qu'elle soit faite en connaissance de cause et en utilisant des mécanisme comme les <em>memory pool</em>.</p>
 <p>Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (<em>Physical Pages</em> ou <strong>PP</strong>). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kB. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques proriétés utiles à savoir est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (<em>virtual page</em> <strong>VP</strong>).</p>
-<div class="figure align-default" id="id3">
-<img alt="../_images/mmu.svg" src="../_images/mmu.svg" /><p class="caption"><span class="caption-number">Fig. 13.4 </span><span class="caption-text">Mémoire virtuelle</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id4">
+<img alt="../_images/mmu.svg" src="../_images/mmu.svg" /><p class="caption"><span class="caption-number">Fig. 13.4 </span><span class="caption-text">Mémoire virtuelle</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <div class="section" id="erreurs-de-segmentation-segmentation-fault">
 <h4>13.7.1.1  Erreurs de segmentation (<em>segmentation fault</em>)<a class="headerlink" href="#erreurs-de-segmentation-segmentation-fault" title="Lien permanent vers ce titre">¶</a></h4>
@@ -671,7 +698,7 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.2.7-32-g86a9b73).
+    Mis à jour le 10 août 2020 (version v0.2.7-35-g0590e18).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
