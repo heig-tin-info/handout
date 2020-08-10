@@ -31,7 +31,7 @@ googleanalytics_id = 'UA-145664552-1'
 
 source_suffix = ['.rst']
 
-templates_path = ['_templates']
+templates_path = ['assets/templates']
 
 language = 'fr'
 smartquotes = False
@@ -47,8 +47,8 @@ numfig = True
 pygments_style = "colorful"
 
 latex_additional_files = [
-    '_templates/sphinx.sty',
-    '_templates/footnotehyper-sphinx.sty'
+    'assets/templates/sphinx.sty',
+    'assets/templates/footnotehyper-sphinx.sty'
 ]
 
 latex_docclass = {
@@ -72,7 +72,7 @@ latex_elements = {
     'fncychap': '',
     'printindex': '',
     'maketitle': r'\maketitle',
-    'preamble': open('_templates/preamble.tex').read()
+    'preamble': open('assets/templates/preamble.tex').read()
 }
 
 latex_logo = 'assets/images/heig-vd-small.pdf'
