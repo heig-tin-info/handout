@@ -168,7 +168,7 @@ Les composants de cette structure de donnée sont donc :
 L'opération ``pop`` retire l'élément de la fin du tableau. Le nombre d'éléments est donc ajusté en conséquence.
 
 .. figure:: ../../assets/figures/dist/data-structure/dyn-array-pop.*
-    :width: 70%
+    :scale: 70%
 
     Suppression d'un élément dans un tableau dynamique
 
@@ -182,7 +182,7 @@ L'opération ``pop`` retire l'élément de la fin du tableau. Le nombre d'élém
 L'opération ``push`` ajoute un élément à la fin du tableau.
 
 .. figure:: ../../assets/figures/dist/data-structure/dyn-array-push.*
-    :width: 70%
+    :scale: 70%
 
     Ajout d'un élément dans un tableau dynamique
 
@@ -194,7 +194,7 @@ L'opération ``push`` ajoute un élément à la fin du tableau.
 L'opération ``shift`` retire un élément depuis le début. L'opération à une complexité de O(n) puisqu'à chaque opération il est nécessaire de déplacer chaque éléments qu'il contient.
 
 .. figure:: ../../assets/figures/dist/data-structure/dyn-array-shift.*
-    :width: 70%
+    :scale: 70%
 
     Suppression du premier élément dans un tableau dynamique
 
@@ -220,7 +220,7 @@ Une optimisation peut être faite en déplacant le pointeur de donnée de 1 perm
 Enfin, l'opération ``unshift`` ajoute un élément depuis le début du tableau :
 
 .. figure:: ../../assets/figures/dist/data-structure/dyn-array-unshift.*
-    :width: 70%
+    :scale: 70%
 
     Ajout d'un élément en début d'un tableau dynamique
 
@@ -250,7 +250,7 @@ Pour permettre la circulation, les indices sont calculés modulo la taille du bu
 Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :
 
 .. figure:: ../../assets/figures/dist/data-structure/ring.*
-    :width: 70%
+    :scale: 70%
 
     Exemple d'un tampon circulaire
 
@@ -502,7 +502,7 @@ le nombre d'éléments jusqu'à ce que le pointeur *next* soit égal à ``NULL``
 Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant :
 
 .. figure:: ../../assets/figures/dist/data-structure/loop.*
-    :width: 70%
+    :scale: 70%
 
     Boucle dans une liste chaînée
 
@@ -514,7 +514,7 @@ Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appe
 .. index:: Floyd, Robert Floyd, lièvre, tortue
 
 .. figure:: ../../assets/figures/dist/data-structure/floyd.*
-    :width: 70%
+    :scale: 70%
 
     Algorithme de détection de cycle de Robert W. Floyd
 
@@ -643,7 +643,7 @@ L'objectif de cette section n'est pas d'entrer dans les détails des `arbres bin
 L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un ``left`` et un ``right``:
 
 .. figure:: ../../assets/figures/dist/data-structure/binary-tree.*
-    :width: 70%
+    :scale: 70%
 
     Arbre binaire équilibré
 
@@ -704,7 +704,7 @@ Un tas peut aisément être représenté sous forme de tableau en utilisant la r
     ================  ======================  ======================
 
 .. figure:: ../../assets/figures/dist/data-structure/heap.*
-    :width: 70%
+    :scale: 70%
 
     Représentation d'un *heap*
 

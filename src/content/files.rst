@@ -258,21 +258,27 @@ Lecture / Écriture
 La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues ``printf`` et ``scanf`` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers :
 
 ``int fscanf(FILE *stream, const char *format, ...)``
+
     Équivalent à ``scanf`` mais pour les fichiers
 
 ``int fprintf(FILE *stream, const char *format, ...)``
+
     Équivalent à ``printf`` mais pour les fichiers
 
 ``int fgetc(FILE *stream)``
+
     Équivalent à ``getchar`` (ISO/IEC 9899 §7.19.7.6-2)
 
 ``int fputc(FILE *stream, char char)``
+
     Équivalent à ``putchar`` (ISO/IEC 9899 §7.19.7.9-2)
 
 ``char *fgets(char * restrict s, int n, FILE * restrict stream)``
+
     Équivalent à ``gets``
 
 ``int fputs(const char * restrict s, FILE * restrict stream)``
+
     Équivalent à ``puts``
 
 Bref... Vous avez compris.
@@ -280,6 +286,7 @@ Bref... Vous avez compris.
 Les nouvelles fonctions à connaître sont les suivantes :
 
 ``size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)``
+
     Lecture arbitraire de ``nmemb * size`` bytes depuis le flux ``stream`` dans le buffer ``ptr``:
 
     .. code-block:: c
@@ -298,6 +305,7 @@ Les nouvelles fonctions à connaître sont les suivantes :
     On notera au passage la nature *little-endian* du système.
 
 ``size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)``
+
     La fonction est similaire à ``fread`` mais pour écrire sur un flux.
 
 Buffer de fichier
@@ -487,12 +495,12 @@ Pour palier au défaut du format tabulé, il est possible d'écrire le fichier e
 
 .. code-block:: text
 
-    Pays       Ville    01     02     03     04    05    06    07    08    09    10    11     12
-    Suisse     Zürich   0.3    1.3    5.3    8.8   13.3  16.4  18.6  18.0  14.1  9.9   4.4    1.4
-    Italie     Rome     7.5    8.2    10.2   12.6  17.2  21.1  24.1  24.5  20.8  16.4  11.4   8.4
-    Allemagne  Berlin   0.6    2.3    5.1    10.2  14.8  17.9  20.3  19.7  15.3  10.5  6.0    1.33
-    Yémen      Aden     25.7   26.0   27.2   28.9  31.0  32.7  32.7  31.5  31.6  28.9  27.1   26.01
-    Russie     Yakutsk  -38.6  -33.8  -20.1  -4.8  7.5   16.4  19.5  15.2  6.1   -7.8  -27.0  -37.6
+    Pays      Ville   01    02    03    04   05   06   07   08   09   10   11    12
+    Suisse    Zürich  0.3   1.3   5.3   8.8  13.3 16.4 18.6 18.0 14.1 9.9  4.4   1.4
+    Italie    Rome    7.5   8.2   10.2  12.6 17.2 21.1 24.1 24.5 20.8 16.4 11.4  8.4
+    Allemagne Berlin  0.6   2.3   5.1   10.2 14.8 17.9 20.3 19.7 15.3 10.5 6.0   1.33
+    Yémen     Aden    25.7  26.0  27.2  28.9 31.0 32.7 32.7 31.5 31.6 28.9 27.1  26.01
+    Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37.6
 
 Idéalement on utilise comme caractère de remplissage le caractère nulle ``\0`` mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.
 

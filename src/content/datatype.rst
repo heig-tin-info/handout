@@ -233,7 +233,7 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 
 .. figure:: ../../assets/figures/dist/datatype/c99-integers.*
     :alt: Entiers standardisés C99
-    :width: 80%
+    :scale: 80%
 
     Flux de construction d'un entier standardisé
 

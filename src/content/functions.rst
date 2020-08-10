@@ -2,12 +2,13 @@
 Fonctions
 =========
 
-A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
-
 .. figure:: ../../assets/images/hamilton.*
     :alt: Margaret Hamilton, directrice projet AGC
+    :scale: 60%
 
     Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
+
+A l'époque d'Apollo 11, les fonctions n'existaient pas, le code n'était qu'une suite monolithique d'instruction ésotérique dont les sources du `Apollo Guidance Computer <https://github.com/chrislgarry/Apollo-11>`__ ont été publiées sur GitHub. Le langage est l'assembler `yaYUL <https://www.ibiblio.org/apollo/yaYUL.html>`__ dispose de sous-routines, ou procédures qui sont des fonctions sans paramètres. Ce type de langage est procédural.
 
 Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** et toutes les variables sont globales.
 
@@ -97,6 +98,7 @@ Overhead
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
 .. figure:: ../../assets/figures/dist/function/calling-convention.*
+    :scale: 60%
 
     Sauvegarde des registres du processeur et convention d'appel de fonction.
 
@@ -184,15 +186,19 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
     <storage-class> <return-type> <function-name> ( <parameter-type> <parameter-name>, ... )
 
 ``<storage-class>``
+
     Classe de stockage, elle n'est pas utile à ce stade du cours, nous aborderons plus tard les mots clés ``extern``, ``static`` et ``inline``.
 
 ``<return-type>``
+
     Le type de retour de la fonction, s'agit-il d'un ``int``, d'un ``float`` ? Le type de retour est anonyme, il n'a pas de nom et ce n'est pas nécessaire.
 
 ``<function-name>``
+
     Il s'agit d'un :ref:`identifiant <identifiers>` qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: ``compute_norm``, ``make_coffee``, ... Néanmoins lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que ``main``, ``display`` ou ``dot_product``.
 
 ``<parameter-type> <parameter-name>``
+
     La fonction peut prendre en paramètre zéro à plusieurs paramètres chaque paramètre est défini par son type et son nom tel que: ``double real, double imag`` pour une fonction qui prendrait en paramètre un nombre complexe.
 
 Après la fermeture de la parenthèse de la liste des paramètres, deux possibilités :
@@ -209,16 +215,19 @@ void
 Le type ``void`` est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :
 
 - Pour indiquer l'absence de valeur de retour :
+
     .. code-block:: c
 
         void foo(int a, int b);
 
 - Pour indiquer l'absence de paramètres :
+
     .. code-block:: c
 
         int bar(void);
 
 - Pour indiquer que la valeur de retour n'est pas utilisée par le parent :
+
     .. code-block:: c
 
         (void) foo(23, 11);
@@ -420,7 +429,6 @@ Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. 
         return cache_output[input % SIZE];
     }
 
-------
 
 .. exercise:: Dans la moyenne
 

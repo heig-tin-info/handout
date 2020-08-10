@@ -1134,7 +1134,6 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
         foo((int []){1,2,3});
     }
 
------
 
 .. exercise:: Mendeleïev
 
@@ -1144,7 +1143,9 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
     - Un symbole jusqu'à 2 lettres
     - Un numéro atomique de 1 à 118 (2019)
     - Le type de l'élément
+
         - Métaux
+
             - Alcalin
             - Alcalino-terreux
             - Lanthanides
@@ -1153,6 +1154,7 @@ Cette notation de litéraux composés peut également s'appliquer aux tableaux. 
             - Métaux pauvres
         - Métalloïdes
         - Non métaux
+
             - Autres
             - Halogène
             - Gaz noble

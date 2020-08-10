@@ -10,6 +10,7 @@ La mémoire d'un programme est découpée en `segments de données <https://fr.w
 
 .. list-table:: Segments mémoire
     :header-rows: 1
+    :widths: 20 30 50
 
     * - Segment
       - Nom
@@ -79,7 +80,7 @@ Les segments mémoires sont une construction de la bibliothèque standard, selon
 Néanmoins une bonne représentation est la suivante :
 
 .. figure:: ../../assets/figures/dist/memory/program-memory.*
-    :width: 80%
+    :scale: 60%
 
     Organisation de mémoire d'un programme
 

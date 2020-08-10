@@ -2,7 +2,8 @@
 Programmes et Processus
 =======================
 
-.. figure:: https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg
+.. figure:: ../../assets/images/vintage-programmer.*
+    :scale: 60%
 
     Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
 

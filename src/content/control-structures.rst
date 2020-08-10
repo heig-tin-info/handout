@@ -168,48 +168,68 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
 
     Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expressions si elles impriment ou non ``i vaut 8``:
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (!(i < 8) && !(i > 8)) then
             printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (!(i < 8) && !(i > 8))
             printf("i vaut 8");
             printf("\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if !(i < 8) && !(i > 8)
             printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (!(i < 8) && !(i > 8))
             printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (i = 8) printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (i & (1 << 3)) printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (i ^ 8) printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (i - 8) printf("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (i == 1 << 3) printf ("i vaut 8\n");
 
-    #. .. code-block:: c
+    #.
+
+        .. code-block:: c
 
         if (!((i < 8) || (i > 8)))
             printf("i vaut 8\n");
