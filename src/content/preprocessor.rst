@@ -370,7 +370,7 @@ Imaginons que la constante ``M_PI`` soit définie dans le header ``<math.h>``:
 
     #define M_PI        3.14159265358979323846
 
-Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur génèrera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :
+Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :
 
 .. code-block:: c
 

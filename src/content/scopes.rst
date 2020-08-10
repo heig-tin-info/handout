@@ -228,7 +228,7 @@ L'usage de cette classe de stockage réduit les performances d'un programme puis
 
 .. index:: classe de stockage; extern, extern
 
-Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable ``foo`` mais s'attends à ce que cette variable ait été déclarée dans un autre fichier.
+Cette classe est utilisée pour signaler que la variable ou la fonction associée est déclarée dans un autre module (autre fichier). Ainsi le code suivant ne déclare pas une nouvelle variable ``foo`` mais s'attend à ce que cette variable ait été déclarée dans un autre fichier.
 
 .. code-block:: c
 

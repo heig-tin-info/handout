@@ -342,7 +342,7 @@ La fonction ``get_number`` alloue dynamiquement un espace de la taille d'un enti
 
 A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les `limbes <https://fr.wikipedia.org/wiki/Limbes>`__. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec ``free``.
 
-On dit que le programme à une `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que ``malloc`` retourne ``NULL`` et qu'une erreur de segmentaiton apparaisse lors du ``printf``.
+On dit que le programme à une `fuite mémoire <https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire>`__. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que ``malloc`` retourne ``NULL`` et qu'une erreur de segmentation apparaisse lors du ``printf``.
 
 Allons plus loin dans notre exemple et considérons le code suivant :
 
@@ -399,7 +399,7 @@ Au niveau du ``#if 0`` dans la fonction ``main``, il est impossible de savoir si
 
 Comment peut-on savoir si il est possible de libérer ou non ``num`` ?
 
-Une solution courament utilsée en C++ s'appelle un *smart pointer*. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.
+Une solution couramment utilisée en C++ s'appelle un *smart pointer*. Il s'agit d'un pointeur qui contient en plus de l'adresse de la valeur, le nombre de références utilisées. De cette manière il est possible en tout temps de savoir si le pointeur est référencé quelque part. Dans le cas où le nombre de référence tombe à zéro, il est possible de libérer la ressource.
 
 Dans un certain nombre de langage de programmation comme Python ou Java, il existe un mécanisme automatique nommé *Garbage Collector* et qui, périodiquement, fait un tour de toutes les allocations dynamique pour savoir si elle sont encore référencées ou non. Le cas échéant, le *gc* décide libérer la ressource mémoire. De cette manière il n'est plus nécessaire de faire la chasse aux ressources allouées.
 

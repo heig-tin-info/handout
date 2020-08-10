@@ -91,7 +91,7 @@ Ce fichier sera inclu dans le programme principal ``main.c`` :
         printf("%d\n", get(foo));
     }
 
-En résumé, un type abstrait impose l'ulisation de fonctions intermédiaires pour modifier le type. Dans la grande majorité des cas, ces types représentent des structures qui contiennent des informations internes qui ne sont pas destinées à être modifiées par l'utilisateur final.
+En résumé, un type abstrait impose l'utilisation de fonctions intermédiaires pour modifier le type. Dans la grande majorité des cas, ces types représentent des structures qui contiennent des informations internes qui ne sont pas destinées à être modifiées par l'utilisateur final.
 
 Tableau dynamique
 =================
@@ -627,7 +627,7 @@ Lorsque la liste est traversée de gauche à droite, il est possible de facileme
 Les inconvénients de cette structure sont :
 
 - Difficultés de débogage
-- Complexité de mise en oeuvre
+- Complexité de mise en œuvre
 
 L'avantage principal étant le gain de place en mémoire.
 
@@ -713,7 +713,7 @@ Queue prioritaire
 
 .. index:: queue prioritaire
 
-Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux moeurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.
+Une queue prioritaire ou *priority queue*, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux mœurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.
 
 .. code-block:: c
 
@@ -826,7 +826,7 @@ Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément :
         return sum % 10;
     }
 
-L'accès à une personne à partir de la clé se résoud donc en ``O(1)`` car il n'y a aucune itération ou recherche à effectuer.
+L'accès à une personne à partir de la clé se résous donc en ``O(1)`` car il n'y a aucune itération ou recherche à effectuer.
 
 Cette `vidéo <https://www.youtube.com/watch?v=KyUTuwz_b7Q>`__ YouTube explique bien le fonctionnement des tableaux de hachage.
 

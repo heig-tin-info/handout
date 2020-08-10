@@ -52,14 +52,14 @@ planning:
             - hours: 6
               chapters:
                 - >
-                  Mise en oeuvre de type de données composées
+                  Mise en œuvre de type de données composées
                   (structures, tableaux multidimensionnels)
             - hours: 4
               chapters:
                 - Lecture et écriture de fichiers texte et binaire en mode séquentiel
             - hours: 4
               chapters:
-                - Mise en oeuvre de l'allocation dynamique de mémoire
+                - Mise en œuvre de l'allocation dynamique de mémoire
             - hours: 2
               chapters:
                 - Compilation séparée et implémentation de bibliothèques
@@ -90,11 +90,11 @@ goals:
         - Concevoir une bibliothèque de fonctions en utilisant la compilation séparée.
         - Ecrire un programme qui lit ou écrit un fichier au format binaire, texte.
         - >
-          Mettre en oeuvre l'allocation dynamique de mémoire pour créer des
+          Mettre en œuvre l'allocation dynamique de mémoire pour créer des
           tableaux dimensionnés à l'exécution.
         - Définir et manipuler un type de données récursif (liste chaînée).
         - >
-          Mettre en oeuvre des champs de bits et des unions pour manipuler
+          Mettre en œuvre des champs de bits et des unions pour manipuler
           des bits dans un masque binaire.
     laboratory:
         - >

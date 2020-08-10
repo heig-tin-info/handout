@@ -1,4 +1,4 @@
-# Configuration file for the Sphinx documentation builder.
+""" Configuration file for the Sphinx documentation builder. """
 import os
 import sys
 import subprocess
@@ -17,6 +17,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.todo',
     'sphinxcontrib.rsvgconverter',
+    'sphinxcontrib.spelling',
     'listings',
     'exercises',
     'unicode',
@@ -87,3 +88,6 @@ man_pages = [
     ('index', 'info', None, author, 1),
     ('summary/summary', 'summary', summary_title, author, 1)
 ]
+
+spelling_lang='fr_CH'
+spelling_show_suggestions=True

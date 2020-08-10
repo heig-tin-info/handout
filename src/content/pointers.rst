@@ -12,7 +12,7 @@ Prenons un exemple concret. Le `Vicomte de Valmont <https://fr.wikipedia.org/wik
 
 .. code-block:: c
 
-    char lettre[] = "Chère Maquise, ...";
+    char lettre[] = "Chère Marquise, ...";
 
 Cette variable ``lettre`` est dès lors enregistrée en mémoire à l'adresse ``0x12345abc`` qui pourrait correspondre à l'emplacement de la boîte aux lettres du Vicomte.
 
@@ -20,7 +20,7 @@ Le facteur qui ne craint pas la besogne prend connaissance du courrier à livrer
 
 Je l'admets volontiers, il me faut bien faire quelques pirouettes pour justifier qu'une valeur en mémoire ne peut être transportée d'un lieu à un autre à simple dos de facteur. Aussi, notre facteur qui est si bon, mais qui n'a plus la mémoire de sa jeunesse, ni papier d'ailleurs, décide de mémoriser la lettre et de la retranscrire chez madame la Marquise qu'il connaît bien. Or comme il est atteint de la maladie de *64-bits* il n'arrive à mémoriser que 8 caractères ``Chère Ma``. Sur son bolide, il arrive à destination et retranscrit dans le fond de la boîte de madame de Merteuil les huit caractères fidèlement retranscrits. Comme il est bonnet, mais assidu, il consacre le restant de sa journée en des allers-retours usant la gomme de son `tout nickelé <https://www.paroles.net/georges-brassens/paroles-pour-me-rendre-a-mon-bureau>`__ jusqu'à ce que toute la lettre ait été retranscrite.
 
-On se retrouve avec une **copie** de la lettre chez madame de Merteil :
+On se retrouve avec une **copie** de la lettre chez madame de Merteuil :
 
 .. code-block:: c
 
@@ -50,7 +50,7 @@ L'astérisque agit donc comme un **déréférencement**, autrement dit, la deman
 
 Oui, mais, on utilise un astérisque pour déréférencer, mais dans l'exemple précédant on a utilisé l'esperluette (``&``, :unicode:`U+0026`): ``&castello_wall``, pourquoi ? L'esperluette quant elle préfixe une variable peut être traduite par **l'adresse de**. Cela revient à l'étape pendant laquelle la marquise a mesuré la position GPS du mur sur à Tarente.
 
-Il manque encore une chose, il y a aussi une astérisque sur ``(*gps_position)[]``. Cela vaudrait-il dire qu’on déréférence la position gps pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
+Il manque encore une chose, il y a aussi une astérisque sur ``(*gps_position)[]``. Cela vaudrait-il dire qu’on déréférence la position GPS pour affecter l'adresse du mur ? Non, pas du tout... Et c'est d'ailleurs à cette étape que les novices perdent le fil. Où en étais-je ?
 
 Notons qu'il y a plusieurs interprétations de l'astérisque en C :
 
@@ -400,7 +400,7 @@ La clé est dans le standard ISO/IEC 9899:2011 section 6.3.2.3 page 55 :
 
     A pointer to void may be converted to or from a pointer to any object type. A pointer to any object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.
 
-Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur ``void``. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message autodocumenté du code.
+Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage explicite pour convertir vers et en provenance d'un pointeur sur ``void``. Et donc, l'astuce de memcpy est que la fonction accepte n'importe quel type de pointeur et c'est le message auto documenté du code.
 
 Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :
 

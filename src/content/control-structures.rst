@@ -565,12 +565,12 @@ Cette structure est équivalente à l'utilisation d'un goto avec un label placé
     while (true)
     {
         if (condition) {
-            goto contin;
+            goto next;
         }
 
         /* ... */
 
-        contin :
+        next:
     }
 
 ``break``

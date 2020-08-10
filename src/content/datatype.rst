@@ -174,7 +174,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 - Signé ou non signé
 - Nombre de bits avec lesquels l'information est stockée en mémoire
 
-À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur ``signed`` était optionnel, le préfix ``long`` ne pouvait s'appliquer qu'au type ``int`` et ``long`` et la confusion entre ``long`` (préfixe) et ``long`` (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.
+À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur ``signed`` était optionnel, le préfixe ``long`` ne pouvait s'appliquer qu'au type ``int`` et ``long`` et la confusion entre ``long`` (préfixe) et ``long`` (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.
 
 Types standards
 ^^^^^^^^^^^^^^^
@@ -587,7 +587,7 @@ Ce standard a généré durant des décennies de grandes frustrations et de prof
 
 Pour tenter de remédier à ce standard incompatible entre les pays Microsoft à proposé un standard nommé `Windows-1252 <https://fr.wikipedia.org/wiki/Windows-1252>`__ s'inspirant de `ISO-8859-1 <https://fr.wikipedia.org/wiki/ISO/CEI_8859-1>`__. En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
 
-Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleur par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
+Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب‎), les Coréens (한국어), les Chinois avec le chinois simplifié (官话) et le chinois traditionnel (官話), les Japonais qui possèdent deux alphabets ainsi que des caractères chinois (日本語), sans oublier l'ourdou (پاکِستان) pakistanais et tous ceux que l'on ne mentionnera pas, il a fallu bien plus que 256 caractères et quelques tables de correspondance. Ce présent ouvrage, ne pourrait d'ailleurs par être écrit sans avoir pu résoudre, au préalable, ces problèmes d'encodage; la preuve étant, vous parvenez à voir ces caractères qui ne vous sont pas familiers.
 
 Un consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) plus précisément nommé **UTF-8**.
 
@@ -719,7 +719,7 @@ Les :index:`booléens` ont étés introduits formellement en C avec **C99** et n
     bool has_tail = true;
 
 
-Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les prefixes ``is_`` ou ``has_``.
+Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes ``is_`` ou ``has_``.
 
 À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable ``is_male``.
 
@@ -1205,7 +1205,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 .. exercise:: Système de vision industriel
 
-    La société japonaise Nakainoeil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
+    La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
     .. code-block:: c
 

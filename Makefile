@@ -26,16 +26,16 @@ man: Makefile
 	$(DOCKER) $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 pdf: Makefile
-	$(DOCKER) $(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@$(DOCKER) $(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 latex: Makefile
-	$(DOCKER) $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@$(DOCKER) $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 $(ARTIFACTS_DIR):
 	mkdir $@
 
 $(ARTIFACTS_DIR)/heig-vd.pdf:
-	$(DOCKER) wget -P$(ARTIFACTS_DIR) $(ARTIFACTS_URL)/heig-vd.pdf
+	@$(DOCKER) wget -P$(ARTIFACTS_DIR) $(ARTIFACTS_URL)/heig-vd.pdf
 
 pull:
 	docker-compose build
@@ -43,10 +43,13 @@ pull:
 clean:
 	$(RM) -rf _build _static
 
+spellcheck:
+	@$(DOCKER) $(SPHINXBUILD) -b spelling "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 $(DISTDIR):
 	mkdir -p $@
 
 # Because sphinx calls it...
 all-pdf:
 
-.PHONY: all clean artifacts dist pull all-pdf
+.PHONY: all clean artifacts dist pull all-pdf spellcheck

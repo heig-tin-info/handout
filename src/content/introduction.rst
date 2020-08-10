@@ -430,7 +430,7 @@ La première étape est de s'assurer que le fichier ``test.c`` contient bien not
         return 0;
     }
 
-À présent on peut utiliser notre compilateur par défault: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
+À présent on peut utiliser notre compilateur par défaut: ``cc`` pour *C Compiler*. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier `a.out <https://fr.wikipedia.org/wiki/A.out>`__ pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter.
 
 .. code-block:: console
 

@@ -4,7 +4,7 @@ Généralités du langage
 
 Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source.
 
-Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maitrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
+Notons que ce chapitre est transversal, à la sa première lecture, le profane ne pourra tout comprendre sans savoir lu et maîtrisé les chapitres suivants, néanmoins il retrouvera ici les aspects fondamentaux du langage.
 
 .. index:: alphabet
 
@@ -337,7 +337,7 @@ Souvent lors d'exemples donnés en programmation on utilise des variables géné
 
 Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.
 
-On touvera une `table <http://www.catb.org/jargon/html/M/metasyntactic-variable.html>`__ des différents noms les plus courants utilisés dans différentes langues.
+On trouvera une `table <http://www.catb.org/jargon/html/M/metasyntactic-variable.html>`__ des différents noms les plus courants utilisés dans différentes langues.
 
 Les constantes
 ==============
@@ -374,7 +374,7 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
     0xa    // Grandeur hexadécimale valant 10 en décimal
     0b111  // Grandeur binaire valant 7 en décimal
     33.    // Grandeur réelle exprimée en virgule flottante
-    '0'    // Grandeur caractère vallant 48 en décimal
+    '0'    // Grandeur caractère valant 48 en décimal
 
 .. exercise:: Constances littérales
 

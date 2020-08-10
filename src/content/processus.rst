@@ -82,7 +82,7 @@ On obtiens un fichier similaire à ceci qui contient le code machine (``48 83 ec
     749:   00 00 00
     74c:   0f 1f 40 00             nopl   0x0(%rax)
 
-Avec un visualisateur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire ``hexdump`` est appelé avec deux options ``-s`` pour spécifier l'adresse de début, on choisi ici celle du début de la fonction ``main`` ``0x680``, et ``-n`` pour n'extraire que les premiers 256 octets :
+Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire ``hexdump`` est appelé avec deux options ``-s`` pour spécifier l'adresse de début, on choisi ici celle du début de la fonction ``main`` ``0x680``, et ``-n`` pour n'extraire que les premiers 256 octets :
 
 .. code-block:: console
 
@@ -245,7 +245,7 @@ Ci-dessous une possible utilisation de cette fonction :
 Windows
 -------
 
-Windows utilise à l'instare de ``RDOS`` ou `OpenVMS <https://en.wikipedia.org/wiki/OpenVMS>`__, le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être ``ls -l -s D*``, sous Windows on utilisera ``dir /q d* /o:s``.
+Windows utilise à l'instar de ``RDOS`` ou `OpenVMS <https://en.wikipedia.org/wiki/OpenVMS>`__, le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être ``ls -l -s D*``, sous Windows on utilisera ``dir /q d* /o:s``.
 
 Fonction main
 =============
