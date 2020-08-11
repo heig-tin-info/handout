@@ -27,7 +27,7 @@ def visit_literal_block(self, node: Element) -> None:
         location=(node.source, node.line), **highlight_args
     )
     starttag = self.starttag(node, 'div', suffix='',
-                                CLASS='highlight-%s notranslate' % lang)
+                             CLASS='highlight-%s notranslate' % lang)
     self.body.append(starttag + highlighted + '</div>\n')
     raise nodes.SkipNode
 

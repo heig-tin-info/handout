@@ -9,12 +9,10 @@ indent_style = space
 indent_size = 4
 
 [*.{yaml,yml}]
-indent_style = space
 indent_size = 2
-
-[*.py]
-indent_style = space
-indent_size = 4
 
 [Makefile]
 indent_style = tab
+
+[*.rst]
+indent_size = 4
