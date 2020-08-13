@@ -16,19 +16,20 @@ To summarize:
       is replaced with a reference to the exercise
     - Solutions can be hidden with `:hidden:`
 """
-from collections import OrderedDict
-import os
 from os import path
 import sphinx.locale
+from collections import defaultdict
 from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
-from sphinx import addnodes
 from sphinx.directives import SphinxDirective
 from sphinx.environment.collectors import EnvironmentCollector
 from sphinx.locale import _
 from sphinx.util import logging, texescape
 from sphinx.util.template import LaTeXRenderer
 from sphinx.locale import get_translation
+from sphinx.writers.html5 import HTML5Translator
+from sphinx.transforms import SphinxTransform
+from sphinx.errors import NoUri
 
 package_dir = path.abspath(path.dirname(__file__))
 
@@ -60,6 +61,9 @@ latex_preamble = r"""
 }
 """
 
+class unnumbered_title(nodes.title):
+    """ Regular title without numbering """
+
 class exercise_title(nodes.strong, nodes.Element):
     """ Title of exercises and solutions """
 
@@ -86,8 +90,9 @@ class SolutionsDirective(SphinxDirective):
         Section number, subsection, exercises...
     """
     def run(self):
-        self.env.exercises_all_solutions_docname = self.env.docname
-        return [solutions()] # Processed once the toctree is built.
+        # To know which document to rebuild if an exercise has changed.
+        vars(self.env).setdefault('exercises_all_solutions', set()).add(self.env.docname)
+        return [solutions()]
 
 
 class ExerciseDirective(SphinxDirective):
@@ -99,185 +104,256 @@ class ExerciseDirective(SphinxDirective):
     def run(self):
         self.assert_has_content()
 
-        # Destination for a reference to this exercise
-        target_id = 'exercise-%d' % self.env.new_serialno('sphinx.ext.exercises')
-        target_node = nodes.target('', '', ids=[target_id])
+        # Unique exercise identifier (each document)
+        serial_no = self.env.new_serialno('sphinx.ext.exercises')
+        target = nodes.target('', '', ids=[f'{self.name}-{serial_no}'])
 
-        exercise_node = exercise(self.content, **self.options)
+        # Build new exercise
+        exercise_node = exercise(self.content, *[
+            nodes.rubric(_('Exercise'), _('Exercise'))
+        ], ids=[f'{self.name}-{serial_no}'], **self.options)
 
-        # Exercise number not known before the toctree is resolved.
-        # This title will be modified later.
-        exercise_node += exercise_title(_('Exercise'), _('Exercise'))
-
-        # par = nodes.paragraph()
-        # exercise_node += par
-
-        # Allow for parsing content as ReST
+        # Recursively parse the exercise's content
         self.state.nested_parse(self.content, self.content_offset, exercise_node)
 
-        # Populate exercise pool
-        exercise_node['lineno'] = self.lineno
-        exercise_node['docname'] = self.env.docname
-        exercise_node['title'] = self.arguments[0] if self.arguments else ''
-        data = {
-            'lineno': self.lineno,
-            'docname': self.env.docname,
-            'node': exercise_node,
-            'title': self.arguments[0] if self.arguments else '',
-            'target': target_node,
-        }
-        self.env.exercises_all_exercises.append(data)
-        self.env.exercises_exercises_map[(self.env.docname, target_id)] = data
+        # Save metadata
+        exercise_node.update_all_atts({
+            'title': self.arguments[0] if self.arguments else ''
+        }, and_source=True)
 
-        return [target_node, exercise_node]
+        # Get source line/code for later
+        exercise_node.source = self.env.docname
+        exercise_node.line = self.lineno
+
+        return [target, exercise_node]
 
 
 class SolutionDirective(BaseAdmonition):
     node_class = solution
 
     def run(self):
-        if not self.arguments:
-            self.arguments.append(_('Solution'))
-
+        if self.arguments:
+            logger.warn("Solutions doesn't require arguments!")
+        self.arguments.append(_('Solution'))
         return super().run()
 
 
-def env_before_read_docs(app, env, docnames):
-    """ Creates the meta data containers. """
-    del app, docnames # Unused
-    if not hasattr(env, 'exercises_all_exercises'):
-        env.exercises_all_exercises = []
-    if not hasattr(env, 'exercises_exercises_map'):
-        env.exercises_exercises_map = {}
+class Visitors:
+    @classmethod
+    def get_pair(self, name):
+        return (
+            getattr(self, 'visit_' + name, self.no_visit),
+            getattr(self, 'depart_' + name, self.no_visit)
+        )
+
+    def no_visit(self, *args, **kwargs):
+        pass
+
+class HTMLVisitors(Visitors):
+    name = 'html'
+
+    def visit_exercise(self, node, name=''):
+        self.body.append('<div>\n')
+        if hasattr(node, 'exnum'):
+            self.body.append('secnum: %s' % str(node.exnum))
+
+    def depart_exercise(self, node=None):
+        self.body.append('</div>\n')
+
+    def visit_solution(self, node, name=''):
+        self.visit_admonition(node, name='solution')
+
+    def depart_solution(self, node=None):
+        self.depart_admonition(node)
+
+    def visit_exercise_title(self, node):
+        self.visit_strong(node)
 
 
-class ExercisesCollector(EnvironmentCollector):
-    """ Once the document is parsed, we can identify the chapter numbers
-    and add some more information to the exercise pool:
-      - Number of exercise (chapter is number[0])
-      - Label to display
-      - Node with content
+    def depart_exercise_title(self, node):
+        self.depart_strong(node)
+        self.add_permalink_ref(node, _('Permalink to this exercise'))
+
+    def visit_unnumbered_title(self, node):
+        self.visit_title(node)
+        self.body.pop(-1) # Pop the section number
+
+    def depart_unnumbered_title(self, node):
+        self.depart_title(node)
+
+
+class LaTeXVisitors(Visitors):
+    name = 'latex'
+
+    def visit_exercise(self, node, name=''):
+        self.body.append('\n\\begin{exercise}')
+        title = texescape.escape(node['title'])
+        if node['title']:
+            self.body.append('[' + title + ']')
+
+    def depart_exercise(self, node=None):
+        self.body.append('\\end{exercise}\n')
+
+    def visit_solution(self, node, name=''):
+        self.visit_admonition(node)
+
+    def depart_solution(self, node=None):
+        self.depart_admonition(node)
+
+    def visit_exercise_title(self, node):
+        if isinstance(node.parent, exercise):
+            raise nodes.SkipNode
+        else:
+            self.visit_strong(node)
+
+    def depart_exercise_title(self, node):
+        if isinstance(node.parent, exercise):
+            raise nodes.SkipNode
+        else:
+            self.depart_strong(node)
+
+    def visit_unnumbered_title(self, node):
+        self.visit_title(node)
+        self.body.append(self.body.pop(-1).replace('section', 'section*'))
+
+    def depart_unnumbered_title(self, node):
+        self.depart_title(node)
+
+
+class ManVisitors(Visitors):
+    name = 'man'
+
+
+class Collect(EnvironmentCollector):
+    """ Collect all the exercises and solutions across all documents.
     """
-    def clear_doc(self, app, env, docname):
-        pass
+    def all_exercises(self, env):
+        if not hasattr(env, 'exercise_exercises'):
+            env.exercise_exercises = defaultdict(dict)
+        return env.exercise_exercises
 
-    def process_doc(self, app, doctree):
-        pass
+    def get_reference(self, node):
+        return node.parent[node.parent.index(node) - 1]
+
+    def clear_doc(self, app, env, docname):
+        self.all_exercises(env)[docname] = {}
+        env.exercises_counter = defaultdict(int)
 
     def merge_other(self, app, env, docnames, other):
-        pass
+        for docname in docnames:
+            self.all_exercises(env)[docname] = self.all_exercises(other)[docname]
+
+    def process_doc(self, app, doctree):
+        env = app.env
+        for ex in doctree.traverse(exercise):
+            self.all_exercises(env)[env.docname][ex['ids'][0]] = ex
+
+    def get_outdated_docs(self, app, env, added, changed, removed):
+        exercises_document = set()
+        for document in set.union(added, changed, removed):
+            if self.all_exercises(env)[document]:
+                exercises_document.add(document)
+
+        if exercises_document:
+            return vars(env).setdefault('exercises_all_solutions', set())
+        return []
 
     def get_updated_docs(self, app, env):
-        """ When a document is updated, the toctree is traversed to
-        find new exercises.
-        """
-        def traverse_all(app, env, docname):
-            doctree = env.get_doctree(docname)
-
-            for toc in doctree.traverse(addnodes.toctree):
-                for _, subdocname in toc['entries']:
-                    traverse_all(app, env, subdocname)
-
-            for node in doctree.traverse(exercise):
-                self.process_exercise(app, env, node, docname)
-
-        traverse_all(app, env, env.config.master_doc)
+        env.exercise_solutions = {}
+        for docname, exs in env.exercise_exercises.items():
+            for ids, ex in exs.items():
+                sol = ex.next_node(solution)
+                if sol:
+                    number = env.toc_fignumbers[docname]['exercise'][ids]
+                    sol['target'] = self.get_reference(ex)['refid']
+                    env.exercise_solutions[number] = sol
 
         return []
 
-    def process_exercise(self, app, env, node, docname):
-        ids = node['ids']
+def get_exercise_number(env, node):
+    return env.toc_fignumbers[node.source]['exercise'][node['ids'][0]]
 
-        # Get exercise node previously created.
-        # For some reason attributes cannot be set on the node itself
-        solution_nodes = node.traverse(solution)
-        number = env.toc_fignumbers.get(docname, {}).get('exercise', {}).get(ids[0])
-        node_id = (docname, ids[0])
-        env.exercises_exercises_map[node_id].update({
-            'number': number,
-            'label': app.config.numfig_format['exercise'] % '.'.join(map(str, number)),
-            'solution': solution_nodes[0] if len(solution_nodes) == 1 else None
-        })
+def get_exercise_title(env, node):
+    number = get_exercise_number(env, node)
+    return _('Exercise') + ' ' + ('.'.join(map(str, number)))
 
+class RenameExercises(SphinxTransform):
+    default_priority = 100
 
-def get_reference(meta):
-    return '/'.join(['exercise'] + list(map(str, meta['number'])))
+    def apply(self, **kwargs):
+        for node in self.document.traverse(exercise):
+            node.children[0][0] = nodes.Text(get_exercise_title(self.env, node))
 
+class SolutionsChapter(SphinxTransform):
+    """ Create the solution chapter by moving all the exercises
+    from their original context to their new location. """
+    default_priority = 100
 
-def process_exercise_nodes(app, doctree, fromdocname):
-    """ Once the doctree is resolved, the exercises are injected where
-    they need to.
-    """
+    def get_exercise_node(self, sol):
+        while sol.parent:
+            if isinstance(sol.parent, exercise):
+                return sol.parent
+            sol = sol.parent
 
-    # Copy saved arguments to nodes, restore node pointers
-    for node in doctree.traverse(exercise):
-        node_id = (node['docname'], node['ids'][0])
-        meta = app.env.exercises_exercises_map[node_id]
-        node['label'] = meta['label']
-        node['number'] = meta['number']
-        node['title'] = meta['title']
-        meta['node'] = node
+    def get_chapter_elements(self, chapter):
+        name = _('Chapter') + ' ' + str(chapter)
+        return nodes.section('',
+            nodes.title(name, name),
+            ids=[f'exercise-solutions-chapter-{chapter}'])
 
-    # Sort exercises in ascending order
-    all_exercises = app.env.exercises_all_exercises
-    all_exercises.sort(key=lambda ex: ex['number'])
+    def get_solution_elements(self, sol):
+        ex = self.get_exercise_node(sol)
 
-    # Regroup exercises organized by chapters
-    hierarchy = OrderedDict()
-    for ex in all_exercises:
-        chapter = ex['number'][0]
-        if chapter not in hierarchy:
-            hierarchy[chapter] = []
-        hierarchy[chapter].append(ex)
+        try:
+            refuri = self.app.builder.get_relative_uri(self.env.docname, ex.source) + '#' + ex['ids'][0]
+        except NoUri:
+            refuri = ''
 
-    # Update exercise titles
-    for node in doctree.traverse(exercise):
-        label = node['label']
-        if node['title']:
-            label += ' ' + node['title']
-        node.children[0].replace_self(
-            exercise_title(label, label))
+        title_text = get_exercise_title(self.env, ex)
+        return nodes.section('',
+            nodes.rubric('', '',
+                nodes.reference(title_text, title_text, refuri=refuri, refdocname=ex.source),
+                *[nodes.Text(' - ' + ex['title'])] if ex['title'] else [],
+                #classes=['caption']
+            ),
+            *sol.children,
+            ids=['solution-' + ('.'.join(map(str, get_exercise_number(self.env, ex))))]
+        )
 
-    # Populate the solutions directive
-    for node in doctree.traverse(solutions):
-        content = []
-        for chapter, exs in hierarchy.items():
-            # Ignore chapters without solutions
-            if not [e for e in exs if e['solution']]:
-                continue
+    def build_solutions(self):
+        chapter = 0
+        elements = nodes.section(ids=['exercises-solutions'])
+        sols = sorted(self.env.exercise_solutions.items(), key=lambda x: x[0])
+        for number, sol in sols:
+            if chapter != number[0]:
+                chapter += 1
+                context = self.get_chapter_elements(chapter)
+                elements += context
+            context += self.get_solution_elements(sol)
+        return elements
 
-            # Create a section per chapter
-            section = nodes.section(ids=[f'solution-chapter-{chapter}'], auto=0)
-            name = _('Chapter') + ' ' + str(chapter)
-            section.append(nodes.title(name, name))
-            content.append(section)
-            # Insert the solutions
-            for ex in [e for e in exs if e['solution']]:
-                description = ex['label']
+    def apply(self, **kwargs):
+        # Build the list of solutions
+        for node in self.document.traverse(solutions):
+            node.replace_self(self.build_solutions())
 
-                para = nodes.paragraph()
-                title = exercise_title(description, description)
-                if app.builder.format in ['latex', 'html']:
-                    ref = nodes.reference('', '')
-                    ref['refdocname'] = ex['docname']
-                    ref['refuri'] = app.builder.get_relative_uri(fromdocname, ex['docname'])
-                    ref['refuri'] += '#' + ex['target']['refid']
-                    ref.append(title)
-                    title = ref
-                para.append(title)
-                content.append(para)
-                content.extend(ex['solution'].children)
+        # Remove the solutions from the document
+        for node in self.document.traverse(solution):
+            node.replace_self([])
 
-        node.replace_self(content)
+def check_config(app, config):
+    # Enable numfig, required for this extension
+    if not config.numfig:
+        logger.error('Numfig config option is disabled, setting it to True')
+        config.numfig = True
 
-    # Remove solution from the exercises
-    for ex in doctree.traverse(exercise):
-        ex.children = list(filter(lambda x: not isinstance(x, solution), ex.children))
+    config.numfig_format.update({'exercise': _('Exercise %s')})
+
 
 def build_finished(app, env):
-    # Inject LaTeX header
-    if env.exercises_all_exercises and hasattr(app.builder, 'context'):
+    if env.exercise_exercises and hasattr(app.builder, 'context'):
         inject_latex_header(app, app.builder.context)
+
 
 def inject_latex_header(app, context):
     context['preamble'] += '\n' + r"%% BEGIN injection for extension exercises"
@@ -290,102 +366,15 @@ def inject_latex_header(app, context):
     })
     context['preamble'] += '\n' + r"%% END injection for extension exercises"
 
+def depart_rubric(self, node):
+    self.add_permalink_ref(node.parent, _('Permalink to this rubric'))
+    self.body.append('</p>\n')
 
-def check_config(app, config):
-    # Enable numfig, required for this extension
-    if not config.numfig:
-        logger.error('Numfig config option is disabled, setting it to True')
-        config.numfig = True
-
-    config.numfig_format.update({'exercise': _('Exercise %s')})
-
-
-def purge(app, env, docname):
-    del app
-    if not hasattr(env, 'exercises_all_exercises'):
-        return
-    env.exercises_all_exercises = [
-        ex for ex in env.exercises_all_exercises
-        if ex['docname'] != docname
-    ]
-
-def visit_html_exercise(self, node, name=''):
-    self.body.append(self.starttag(node, 'div', CLASS=('exercise ' + name)))
-    if hasattr(node, 'exnum'):
-        self.body.append('secnum: %s' % str(node.exnum))
-
-def depart_html_exercise(self, node=None):
-    self.body.append('</div>\n')
-
-def visit_latex_exercise(self, node, name=''):
-    self.body.append('\n\\begin{exercise}')
-    title = texescape.escape(node['title'])
-    if node['title']:
-        self.body.append('[' + title + ']')
-
-def depart_latex_exercise(self, node=None):
-    self.body.append('\\end{exercise}\n')
-
-def visit_html_solution(self, node, name=''):
-    self.visit_admonition(node, name='solution')
-
-
-def depart_html_solution(self, node=None):
-    self.depart_admonition(node)
-
-
-def visit_latex_solution(self, node, name=''):
-    self.visit_admonition(node)
-
-
-def depart_latex_solution(self, node=None):
-    self.depart_admonition(node)
-
-
-def no_visit(self, node=None):
-    del node # unused
-
-
-def visit_exercise_title(self, node):
-    self.visit_strong(node)
-
-
-def depart_exercise_title(self, node):
-    self.depart_strong(node)
-
-
-def visit_latex_exercise_title(self, node):
-    if isinstance(node.parent, exercise):
-        raise nodes.SkipNode
-    else:
-        self.visit_strong(node)
-
-
-def depart_latex_exercise_title(self, node):
-    if isinstance(node.parent, exercise):
-        raise nodes.SkipNode
-    else:
-        self.depart_strong(node)
+def get_visitors(element, builders=[HTMLVisitors, LaTeXVisitors, ManVisitors]):
+    return {builder.name: builder.get_pair(element) for builder in builders}
 
 def setup(app):
-    no_visits = (no_visit, no_visit)
-
     app.add_message_catalog(__name__, path.join(package_dir, 'locales'))
-
-    app.add_enumerable_node(exercise, 'exercise',
-                            html=(visit_html_exercise, depart_html_exercise),
-                            latex=(visit_latex_exercise, depart_latex_exercise),
-                            man=no_visits)
-
-    app.add_node(solution,
-                 html=(visit_html_solution, depart_html_solution),
-                 latex=(visit_latex_solution, depart_latex_solution),
-                 man=no_visits)
-
-    app.add_node(exercise_title,
-                 html=(visit_exercise_title, depart_exercise_title),
-                 latex=(visit_latex_exercise_title, depart_latex_exercise_title),
-                 man=no_visits)
 
     sphinx.locale.admonitionlabels['solution'] = _('Solution')
 
@@ -393,15 +382,22 @@ def setup(app):
     app.add_directive('solution', SolutionDirective)
     app.add_directive('exercises-solutions', SolutionsDirective)
 
+    app.add_enumerable_node(exercise, 'exercise', **get_visitors('exercise'))
+    app.add_node(solution, **get_visitors('solution'))
+    app.add_node(exercise_title, **get_visitors('exercise_title'))
+    app.add_node(unnumbered_title, **get_visitors('unnumbered_title'))
+
     app.connect('config-inited', check_config)
-    app.connect('env-before-read-docs', env_before_read_docs)
-    app.connect('doctree-resolved', process_exercise_nodes)
-    app.connect('env-purge-doc', purge)
     app.connect('env-updated', build_finished)
-    app.add_env_collector(ExercisesCollector)
+
+    app.add_env_collector(Collect)
+    app.add_post_transform(RenameExercises)
+    app.add_post_transform(SolutionsChapter)
 
     app.add_latex_package('tocloft')
     app.add_latex_package('xparse')
+
+    HTML5Translator.depart_rubric = depart_rubric
 
     return {
         'version': '0.1',
