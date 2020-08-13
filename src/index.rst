@@ -50,7 +50,7 @@ Le C pour l'ingénieur
 
 .. appendix::
     :numbered:
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Annexes
     :glob:
 
