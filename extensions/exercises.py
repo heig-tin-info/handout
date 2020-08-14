@@ -30,7 +30,7 @@ from sphinx.locale import get_translation
 from sphinx.writers.html5 import HTML5Translator
 from sphinx.transforms import SphinxTransform
 from sphinx.errors import NoUri
-
+from docutils.writers.html5_polyglot import HTMLTranslator as DocutilsHTMLTranslator
 package_dir = path.abspath(path.dirname(__file__))
 
 _ = get_translation(__name__)
@@ -169,14 +169,13 @@ class HTMLVisitors(Visitors):
     def visit_exercise_title(self, node):
         self.visit_strong(node)
 
-
     def depart_exercise_title(self, node):
         self.depart_strong(node)
         self.add_permalink_ref(node, _('Permalink to this exercise'))
 
     def visit_unnumbered_title(self, node):
-        self.visit_title(node)
-        self.body.pop(-1) # Pop the section number
+        # Unfortunately the only found way to bypass the title numbering
+        DocutilsHTMLTranslator.visit_title(self, node)
 
     def depart_unnumbered_title(self, node):
         self.depart_title(node)
@@ -298,7 +297,7 @@ class SolutionsChapter(SphinxTransform):
     def get_chapter_elements(self, chapter):
         name = _('Chapter') + ' ' + str(chapter)
         return nodes.section('',
-            nodes.title(name, name),
+            unnumbered_title(name, name),
             ids=[f'exercise-solutions-chapter-{chapter}'])
 
     def get_solution_elements(self, sol):
@@ -314,7 +313,7 @@ class SolutionsChapter(SphinxTransform):
             nodes.rubric('', '',
                 nodes.reference(title_text, title_text, refuri=refuri, refdocname=ex.source),
                 *[nodes.Text(' - ' + ex['title'])] if ex['title'] else [],
-                #classes=['caption']
+
             ),
             *sol.children,
             ids=['solution-' + ('.'.join(map(str, get_exercise_number(self.env, ex))))]
