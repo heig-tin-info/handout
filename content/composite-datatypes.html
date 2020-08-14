@@ -441,18 +441,21 @@
 </div>
 <p>Un fait remarquable est que l'opérateur <code class="docutils literal notranslate"><span class="pre">[]</span></code> est commutatif. En effet, l'opérateur <em>crochet</em> est un sucre syntaxique :</p>
 <p>Et cela fonctionne même avec les tableaux à plusieurs dimensions :</p>
-<div class="exercise" id="exercise-0">
-<strong>Exercice 11.1 Assignation</strong><p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
+<div>
+<p class="rubric">Exercice 11.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
+<p>Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.</p>
 </div>
-<div class="exercise" id="exercise-1">
-<strong>Exercice 11.2 Première position</strong><p>Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.</p>
+<div>
+<p class="rubric">Exercice 11.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
+<p>Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.</p>
 <p>Traitez les cas particuliers.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">search</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-2">
-<strong>Exercice 11.3 Déclarations de tableaux</strong><p>Considérant les déclarations suivantes :</p>
+<div>
+<p class="rubric">Exercice 11.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
+<p>Considérant les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define LIMIT 10</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">twelve</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -471,8 +474,9 @@
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-3">
-<strong>Exercice 11.4 Comparaisons</strong><p>Soit deux tableaux <cite>char u[]</cite> et <cite>char v[]</cite>, écrire une fonction comparant leur contenu et retournant :</p>
+<div>
+<p class="rubric">Exercice 11.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
+<p>Soit deux tableaux <cite>char u[]</cite> et <cite>char v[]</cite>, écrire une fonction comparant leur contenu et retournant :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">0</span></code></dt><dd><p>La somme des deux tableaux est égale.</p>
 </dd>
@@ -486,8 +490,9 @@
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-4">
-<strong>Exercice 11.5 Le plus grand et le plus petit</strong><p>Dans le canton de Genève, il existe une tradition ancestrale: l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle &quot;Ainsi périrent les ennemis de la République !&quot;.</p>
+<div>
+<p class="rubric">Exercice 11.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
+<p>Dans le canton de Genève, il existe une tradition ancestrale: l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)">Escalade</a>. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle &quot;Ainsi périrent les ennemis de la République !&quot;.</p>
 <p>Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.</p>
 <p>Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1931
@@ -508,8 +513,9 @@
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-5">
-<strong>Exercice 11.6 L'index magique</strong><p>Un indice magique d'un tableau <code class="docutils literal notranslate"><span class="pre">A[0..n-1]</span></code> est défini tel que la valeur <code class="docutils literal notranslate"><span class="pre">A[i]</span> <span class="pre">==</span> <span class="pre">i</span></code>. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.</p>
+<div>
+<p class="rubric">Exercice 11.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
+<p>Un indice magique d'un tableau <code class="docutils literal notranslate"><span class="pre">A[0..n-1]</span></code> est défini tel que la valeur <code class="docutils literal notranslate"><span class="pre">A[i]</span> <span class="pre">==</span> <span class="pre">i</span></code>. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.</p>
 <p>Exemple :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  0   1   2   3   4   5   6   7   8   9   10
 ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -650,8 +656,9 @@ target type [-Wdiscarded-qualifiers]
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">game</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">};</span>
 </pre></div>
 </div>
-<div class="exercise" id="exercise-6">
-<strong>Exercice 11.7 Détectives privés</strong><p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :</p>
+<div>
+<p class="rubric">Exercice 11.7<a class="headerlink" href="#exercise-6" title="Permalink to this rubric">¶</a></p>
+<p>Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 26%" />
@@ -763,8 +770,9 @@ target type [-Wdiscarded-qualifiers]
 </div>
 <p>Et laquelle complète les valeurs manquantes.</p>
 </div>
-<div class="exercise" id="exercise-7">
-<strong>Exercice 11.8 Pot de peinture</strong><p>À l'instar de l'outil <em>pot de peinture</em> des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.</p>
+<div>
+<p class="rubric">Exercice 11.8<a class="headerlink" href="#exercise-7" title="Permalink to this rubric">¶</a></p>
+<p>À l'instar de l'outil <em>pot de peinture</em> des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.</p>
 <p>L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span> <span class="n">BLACK</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">PURPLE</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">,</span> <span class="n">GREEN</span> <span class="n">YELLOW</span><span class="p">,</span> <span class="n">WHITE</span> <span class="p">}</span> <span class="n">Color</span><span class="p">;</span>
 
@@ -1283,8 +1291,9 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="exercise" id="exercise-8">
-<strong>Exercice 11.9 Mendeleïev</strong><p>Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :</p>
+<div>
+<p class="rubric">Exercice 11.9<a class="headerlink" href="#exercise-8" title="Permalink to this rubric">¶</a></p>
+<p>Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :</p>
 <ul>
 <li><p>Un nom jusqu'à 20 lettres</p></li>
 <li><p>Un symbole jusqu'à 2 lettres</p></li>
@@ -1347,9 +1356,9 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.3.0).
+    Mis à jour le 14 août 2020 (version v0.3.0-4-g14f01f1).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

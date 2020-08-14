@@ -450,23 +450,23 @@ Ensuite, ``[^\n]``. Le marqueur ``[``, terminé par ``]`` cherche à capturer un
 
         #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
 
-            .. code-block:: c
+           .. code-block:: c
 
-                scanf("%c%c%c", &i, &j, &k);
+               scanf("%c%c%c", &i, &j, &k);
 
         #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
 
-            .. code-block:: c
+           .. code-block:: c
 
-                scanf("%f ;%f ;%f", &x, &y, &z);
+               scanf("%f ;%f ;%f", &x, &y, &z);
 
         #. Saisir 3 nombres de type double en affichant avant chaque saisie le nom de la variable et un signe ``=``, dans des variables ``t``, ``u`` et ``v``.
 
-            .. code-block:: c
+           .. code-block:: c
 
-                printf("t="); scanf("%f", &t);
-                printf("u="); scanf("%f", &u);
-                printf("v="); scanf("%f", &v);
+               printf("t="); scanf("%f", &t);
+               printf("u="); scanf("%f", &u);
+               printf("v="); scanf("%f", &v);
 
 Saisie de chaîne de caractères
 ------------------------------
@@ -761,17 +761,19 @@ Dans cet exemple je capture les nombres de 0 à 9 ``0-9`` (10), les caractères 
         #. C est un langage impératif, l'ordre est séquentiel du haut vers le bas
         #. Les étapes sont les suivantes :
 
-            #. Demande de la valeur de ``a`` à l'utilisateur
-            #. Demande de la valeur de ``b`` à l'utilisateur
-            #. Demande de la valeur de ``x`` à l'utilisateur
-            #. Calcul de l'image affine de ``x`` (équation de droite)
-            #. Affichage du résultat
+           #. Demande de la valeur de ``a`` à l'utilisateur
+           #. Demande de la valeur de ``b`` à l'utilisateur
+           #. Demande de la valeur de ``x`` à l'utilisateur
+           #. Calcul de l'image affine de ``x`` (équation de droite)
+           #. Affichage du résultat
+
         #. Que verra l'utilisateur à l'écran ?
 
-            #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+           #. Il verra ``y = 12`` pour ``a = 2; x = 5; b = 2``
+
         #. Quelle est l'utilité de ce programme ?
 
-            #. Le calcul d'un point d'une droite
+           #. Le calcul d'un point d'une droite
 
 .. exercise:: Équation de droite
 

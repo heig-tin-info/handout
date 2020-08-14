@@ -578,8 +578,9 @@
 </pre></div>
 </div>
 <p>L'opérateur agit également comme un <a class="reference internal" href="advanced-topics.html#sequence-point"><span class="std std-ref">Point de séquence</span></a>, c'est-à-dire que l'ordre des étapes est respecté.</p>
-<div class="exercise" id="exercise-0">
-<strong>Exercice 5.1 Opérateur séquentiel</strong><p>Que sera-t-il affiché à l'écran ?</p>
+<div>
+<p class="rubric">Exercice 5.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
+<p>Que sera-t-il affiché à l'écran ?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="o">++</span><span class="n">i</span><span class="p">));</span>
 </pre></div>
@@ -1033,8 +1034,9 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="exercise" id="exercise-1">
-<strong>Exercice 5.2 Masque binaire</strong><p>Soit les déclarations suivantes :</p>
+<div>
+<p class="rubric">Exercice 5.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
+<p>Soit les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mh">0x55</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mh">0xAA</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1051,8 +1053,9 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <li><p><code class="code docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">&amp;</span> <span class="pre">~(1</span> <span class="pre">&lt;&lt;</span> <span class="pre">n);</span></code></p></li>
 </ol>
 </div>
-<div class="exercise" id="exercise-2">
-<strong>Exercice 5.3 Registre système</strong><p>Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :</p>
+<div>
+<p class="rubric">Exercice 5.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
+<p>Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :</p>
 <ul class="simple">
 <li><p>mettre à 1 le bit numéro <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code> étant un entier entre 0 et 15;</p></li>
 <li><p>mettre à 0 le bit numéro <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code> étant un entier entre 0 et 15;</p></li>
@@ -1060,8 +1063,9 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </ul>
 <p>Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle <code class="docutils literal notranslate"><span class="pre">r0</span></code> la variable désignant le registre en mémoire et <code class="docutils literal notranslate"><span class="pre">n</span></code> la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.</p>
 </div>
-<div class="exercise" id="exercise-3">
-<strong>Exercice 5.4 Recherche d'expressions</strong><p>Considérant les déclarations suivantes :</p>
+<div>
+<p class="rubric">Exercice 5.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
+<p>Considérant les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
 </pre></div>
@@ -1080,8 +1084,9 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <li><p><span class="math notranslate nohighlight">\(n \leftarrow \text{la valeur des 4 bits de poids faible de}~n\)</span></p></li>
 </ol>
 </div>
-<div class="exercise" id="exercise-4">
-<strong>Exercice 5.5 Nombres narcissiques</strong><p>Un nombre narcissique ou <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_narcissique">nombre d'Amstrong</a> est  un entier naturel <code class="docutils literal notranslate"><span class="pre">n</span></code> non nul qui est égal à la somme des puissances <code class="docutils literal notranslate"><span class="pre">p</span></code>-ièmes de ses chiffres en base dix, où <code class="docutils literal notranslate"><span class="pre">p</span></code> désigne le nombre de chiffres de <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
+<div>
+<p class="rubric">Exercice 5.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
+<p>Un nombre narcissique ou <a class="reference external" href="https://fr.wikipedia.org/wiki/Nombre_narcissique">nombre d'Amstrong</a> est  un entier naturel <code class="docutils literal notranslate"><span class="pre">n</span></code> non nul qui est égal à la somme des puissances <code class="docutils literal notranslate"><span class="pre">p</span></code>-ièmes de ses chiffres en base dix, où <code class="docutils literal notranslate"><span class="pre">p</span></code> désigne le nombre de chiffres de <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
 \[n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0\]</div>
@@ -1118,9 +1123,9 @@ $ ./armstrong 154
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.3.0).
+    Mis à jour le 14 août 2020 (version v0.3.0-4-g14f01f1).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

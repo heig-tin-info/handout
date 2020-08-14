@@ -526,15 +526,17 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="exercise" id="exercise-0">
-<strong>Exercice 7.1 Et si?</strong><p>Comment se comporte l'exemple suivant :</p>
+<div>
+<p class="rubric">Exercice 7.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
+<p>Comment se comporte l'exemple suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-1">
-<strong>Exercice 7.2 D'autres si?</strong><p>Compte tenu de la déclaration <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">8;</span></code>, indiquer pour chaque expression si elles impriment ou non <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">vaut</span> <span class="pre">8</span></code>:</p>
+<div>
+<p class="rubric">Exercice 7.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
+<p>Compte tenu de la déclaration <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">8;</span></code>, indiquer pour chaque expression si elles impriment ou non <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">vaut</span> <span class="pre">8</span></code>:</p>
 <ol class="arabic">
 <li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span> <span class="n">then</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -663,8 +665,9 @@
 </pre></div>
 </div>
 <p>Séquentiellement une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> teste la condition, puis exécute la séquence associée.</p>
-<div class="exercise" id="exercise-2">
-<strong>Exercice 7.3 Tant que...</strong><p>Comment se comportent ces programmes :</p>
+<div>
+<p class="rubric">Exercice 7.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
+<p>Comment se comportent ces programmes :</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">i=0;while(i&lt;11){i+=2;printf(&quot;%i\n&quot;,i);}</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">i=11;while(i--){printf(&quot;%i\n&quot;,i--);}</span></code></p></li>
@@ -720,8 +723,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="exercise" id="exercise-3">
-<strong>Exercice 7.4 Pour quelques tours</strong><p>Comment est-ce que ces expressions se comportent-elles ?</p>
+<div>
+<p class="rubric">Exercice 7.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
+<p>Comment est-ce que ces expressions se comportent-elles ?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -736,15 +740,17 @@
 <li><p><code class="code docutils literal notranslate"><span class="pre">for</span> <span class="pre">(i</span> <span class="pre">=</span> <span class="pre">12,</span> <span class="pre">k</span> <span class="pre">=</span> <span class="pre">1;</span> <span class="pre">k++</span> <span class="pre">&lt;</span> <span class="pre">5</span> <span class="pre">;</span> <span class="pre">k++,</span> <span class="pre">printf(&quot;%i\n&quot;,</span> <span class="pre">i--</span> <span class="pre">));</span></code></p></li>
 </ol>
 </div>
-<div class="exercise" id="exercise-4">
-<strong>Exercice 7.5 Erreur</strong><p>Identifier les deux erreurs dans ce code suivant :</p>
+<div>
+<p class="rubric">Exercice 7.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
+<p>Identifier les deux erreurs dans ce code suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-5">
-<strong>Exercice 7.6 De un à cent</strong><p>Écrivez un programme affichant les entiers de 1 à 100 en employant :</p>
+<div>
+<p class="rubric">Exercice 7.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
+<p>Écrivez un programme affichant les entiers de 1 à 100 en employant :</p>
 <ol class="arabic simple">
 <li><p>Une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
 <li><p>Une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
@@ -752,8 +758,9 @@
 </ol>
 <p>Quelle est la structure de contrôle la plus adaptée à cette situation ?</p>
 </div>
-<div class="exercise" id="exercise-6">
-<strong>Exercice 7.7 Opérateur virgule dans une boucle</strong><p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
+<div>
+<p class="rubric">Exercice 7.7<a class="headerlink" href="#exercise-6" title="Permalink to this rubric">¶</a></p>
+<p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span> <span class="o">%=</span> <span class="mi">26</span><span class="p">,</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">j</span><span class="p">);</span>
@@ -923,8 +930,9 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="exercise" id="exercise-7">
-<strong>Exercice 7.8 Faute d'erreur</strong><p>Considérons les déclarations suivantes :</p>
+<div>
+<p class="rubric">Exercice 7.8<a class="headerlink" href="#exercise-7" title="Permalink to this rubric">¶</a></p>
+<p>Considérons les déclarations suivantes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
 </pre></div>
@@ -967,8 +975,9 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 </li>
 </ol>
 </div>
-<div class="exercise" id="exercise-8">
-<strong>Exercice 7.9 Cas appropriés</strong><p>Parmi les cas suivants, quelle structure de contrôle utiliser ?</p>
+<div>
+<p class="rubric">Exercice 7.9<a class="headerlink" href="#exercise-8" title="Permalink to this rubric">¶</a></p>
+<p>Parmi les cas suivants, quelle structure de contrôle utiliser ?</p>
 <ol class="arabic simple">
 <li><p>Test qu'une variable est dans un intervalle donné.</p></li>
 <li><p>Actions suivant un choix multiple de l'utilisateur</p></li>
@@ -977,15 +986,17 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <li><p>Demander la ligne suivante du télégramme à l'utilisateur jusqu'à <code class="docutils literal notranslate"><span class="pre">STOP</span></code></p></li>
 </ol>
 </div>
-<div class="exercise" id="exercise-9">
-<strong>Exercice 7.10 Comptons sur les caractères</strong><p>Un texte est passé à un programme par <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Comptez le nombre de caractères transmis.</p>
+<div>
+<p class="rubric">Exercice 7.10<a class="headerlink" href="#exercise-9" title="Permalink to this rubric">¶</a></p>
+<p>Un texte est passé à un programme par <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Comptez le nombre de caractères transmis.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;Hello world&quot;</span> <span class="p">|</span> count-this
 <span class="go">11</span>
 </pre></div>
 </div>
 </div>
-<div class="exercise" id="exercise-10">
-<strong>Exercice 7.11 Esperluette conditionnelle</strong><p>Quel est le problème avec cette ligne de code ?</p>
+<div>
+<p class="rubric">Exercice 7.11<a class="headerlink" href="#exercise-10" title="Permalink to this rubric">¶</a></p>
+<p>Quel est le problème avec cette ligne de code ?</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1008,9 +1019,9 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 10 août 2020 (version v0.3.0).
+    Mis à jour le 14 août 2020 (version v0.3.0-4-g14f01f1).
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
             </div>
           </div>

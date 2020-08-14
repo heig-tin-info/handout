@@ -667,60 +667,60 @@ Le mot clé ``return`` suivi d'une valeur de retour ne peut apparaître que dans
 
         #. Le cas est circonscrit à un intervalle de valeur donnée, le ``if`` est approprié :
 
-            .. code-block:: c
+           .. code-block:: c
 
-                if (i > min && i < max) { /* ... */ }
+               if (i > min && i < max) { /* ... */ }
 
         #. Dans ce cas un `switch` semble le plus approprié
 
-            .. code-block:: c
+           .. code-block:: c
 
-                switch(choice) {
-                    case 0 :
-                        /* ... */
-                        break;
-                    case 1 :
-                        /* ... */
-                }
+               switch(choice) {
+                   case 0 :
+                       /* ... */
+                       break;
+                   case 1 :
+                       /* ... */
+               }
 
         #. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
 
-            .. code-block:: c
+           .. code-block:: c
 
-                size_t pos;
-                while (pos < strlen(str) && str[pos] != c) {
-                    pos++;
-                }
-                if (pos == strlen(str)) {
-                    // Not found
-                } else {
-                    // Found `c` in `str` at position `pos`
-                }
+               size_t pos;
+               while (pos < strlen(str) && str[pos] != c) {
+                   pos++;
+               }
+               if (pos == strlen(str)) {
+                   // Not found
+               } else {
+                   // Found `c` in `str` at position `pos`
+               }
 
         #. La boucle ``for`` semble ici la plus adaptée
 
-            .. code-block:: c
+           .. code-block:: c
 
-                for (size_t i = 100; i < 200; i += 2) {
-                    /* ... */
-                }
+               for (size_t i = 100; i < 200; i += 2) {
+                   /* ... */
+               }
 
         #. Il est nécessaire ici d'assurer au moins un tour de boucle :
 
-            .. code-block:: c
+           .. code-block:: c
 
-                const size_t max_line_length = 64;
-                char format[32];
-                snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
-                unsigned int line = 0;
-                char buffer[max_lines][max_line_length];
-                do {
-                    printf("%d. ", line);
-                } while (
-                    scanf(format, buffer[line]) == 1 &&
-                    strcmp(buffer[line], "STOP") &&
-                    ++line < max_lines
-                );
+               const size_t max_line_length = 64;
+               char format[32];
+               snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
+               unsigned int line = 0;
+               char buffer[max_lines][max_line_length];
+               do {
+                   printf("%d. ", line);
+               } while (
+                   scanf(format, buffer[line]) == 1 &&
+                   strcmp(buffer[line], "STOP") &&
+                   ++line < max_lines
+               );
 
 .. exercise:: Comptons sur les caractères
 

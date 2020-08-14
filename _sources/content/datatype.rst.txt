@@ -1231,19 +1231,19 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         #. En pratique, il obtient un entier, c'est à dire toujours 0.
         #. La promotion implicite des entiers peut être découpée comme suit :
 
-            .. code-block:: c
+           .. code-block:: c
 
-                (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
-                (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
-                (float)percentage_good_parts = (uint32_t)percentage;
+               (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+               (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+               (float)percentage_good_parts = (uint32_t)percentage;
 
-            La division est donc appliquée à des entiers et non des flottants.
+           La division est donc appliquée à des entiers et non des flottants.
 
         #. Une possible correction consiste à forcer le type d'un des membres de la division :
 
-            .. code-block::c
+           .. code-block::c
 
-                percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
+               percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
 
 .. exercise:: Missile Patriot
 
