@@ -393,6 +393,11 @@
 <h1><span class="section-number">4  </span>Numération<a class="headerlink" href="#numeration" title="Lien permanent vers ce titre">¶</a></h1>
 <p id="index-0">La numération désigne le mode de représentation des nombres (p. ex. cardinaux, ordinaux), leur base (système binaire, ternaire, quinaire, décimal ou vicésimal), ainsi que leur codification, IEEE 754, complément à un, complément à deux. Bien comprendre les bases de la numération est important pour l'ingénieur développeur, car il est souvent amené à effectuer des opérations de bas niveau sur les nombres.</p>
 <p>Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.</p>
+<p>Un <strong>bit</strong> est l'unité d'information fondamentale qui peut prendre que deux états : <code class="docutils literal notranslate"><span class="pre">1</span></code> ou <code class="docutils literal notranslate"><span class="pre">0</span></code>. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.</p>
+<div>
+<p class="rubric">Exercice 4.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
+<p>Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?</p>
+</div>
 <div class="section" id="bases">
 <h2><span class="section-number">4.1  </span>Bases<a class="headerlink" href="#bases" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-1">Une base désigne la valeur dont les puissances successives interviennent dans l'écriture des nombres dans la numération positionnelle, laquelle est un procédé par lequel l'écriture des nombres est composée de chiffres ou symboles reliés à leur position voisine par un multiplicateur, appelé base du système de numération.</p>
@@ -405,15 +410,20 @@ j4b12
 九千 零十八
 </pre></div>
 </div>
+<p>Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.</p>
+<div>
+<p class="rubric">Exercice 4.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
+<p>Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre <code class="docutils literal notranslate"><span class="pre">11001</span></code> ?</p>
+</div>
 <div class="section" id="systeme-decimal">
 <h3><span class="section-number">4.1.1  </span>Système décimal<a class="headerlink" href="#systeme-decimal" title="Lien permanent vers ce titre">¶</a></h3>
-<p id="index-2">Le système décimal est le système de numération utilisant la base dix et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas, par exemple les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination <em>quatre-vingts</em>.</p>
+<p id="index-2">Le système décimal est le système de numération utilisant la base <strong>dix</strong> et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination <em>quatre-vingts</em>.</p>
 <p>L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique <code class="docutils literal notranslate"><span class="pre">(1000+100+100+100+100+100+1+1+1+1+1+1)</span></code>. Il s'agit d'une numération additive.</p>
-<div class="figure align-default" id="id1">
+<div class="figure align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/hieroglyph.svg"><img alt="../_images/hieroglyph.svg" src="../_images/hieroglyph.svg" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">1506 en écriture hiéroglyphique</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">1506 en écriture hiéroglyphique</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Notre système de représentation des nombres est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres allant de zéro à neuf :</p>
+<p>Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span>
 </pre></div>
 </div>
@@ -421,29 +431,48 @@ j4b12
 <div class="math notranslate nohighlight">
 \[1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}\]</div>
 <p>La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.</p>
+<div>
+<p class="rubric">Exercice 4.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
+<p>Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?</p>
+</div>
 </div>
 <div class="section" id="systeme-binaire">
 <h3><span class="section-number">4.1.2  </span>Système binaire<a class="headerlink" href="#systeme-binaire" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-3">Le système binaire est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">T</span>
-</pre></div>
-</div>
-<p>En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+0\\
+1
+\end{bmatrix} =
+\begin{bmatrix}
+\text{true}\\
+\text{false}
+\end{bmatrix} =
+\begin{bmatrix}
+T\\
+F
+\end{bmatrix}\end{split}\]</div>
+<p>En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant. Par exemple si l'état <code class="docutils literal notranslate"><span class="pre">0</span></code> est symbolisé par un verre vide et l'état <code class="docutils literal notranslate"><span class="pre">1</span></code> par un verre contenant du liquide. L'état dominant est l'état <code class="docutils literal notranslate"><span class="pre">1</span></code>. En effet, si le verre contient déjà du liquide, en rajouter ne changera pas l'état actuel, il y aura juste plus de liquide dans le verre.</p>
 <p>Un nombre binaire peut être également décomposé en puissance successives :</p>
 <div class="math notranslate nohighlight">
 \[1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}\]</div>
+<p>Le nombre de possibilités pour un nombre de positions <span class="math notranslate nohighlight">\(E\)</span> et une quantité de symboles (ou base) <span class="math notranslate nohighlight">\(b\)</span> de 2 est simplement exprimé par :</p>
+<div class="math notranslate nohighlight">
+\[N = b^E\]</div>
+<p>Avec un seul <code class="docutils literal notranslate"><span class="pre">bit</span></code> il est donc possible d'exprimer 2 valeurs distinctes.</p>
 <div>
-<p class="rubric">Exercice 4.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Combien de valeurs décimales peuvent être représentées avec 10-bits ?</p>
 </div>
 </div>
 <div class="section" id="systeme-octal">
 <h3><span class="section-number">4.1.3  </span>Système octal<a class="headerlink" href="#systeme-octal" title="Lien permanent vers ce titre">¶</a></h3>
-<p id="index-4">Inventé par Charles XII de Suède, le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Il pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.</p>
+<p id="index-4">Inventé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Charles_XII">Charles XII de Suède</a> , le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Ce système pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5 6 7
 </pre></div>
 </div>
-<p>Un nombre octal peut également être décomposé en puissance successives :</p>
+<p>Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.</p>
+<p>Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successives :</p>
 <div class="math notranslate nohighlight">
 \[1607_{8} = 1 \cdot 8^{3} + 6 \cdot 8^{2} + 0 \cdot 8^{1} + 7 \cdot 8^{0}\]</div>
 <p>Au début de l'informatique, la base octale fut très utilisée, car il est très facile de la construire à partir de la numération binaire, en regroupant les chiffres par triplets :</p>
@@ -457,15 +486,19 @@ j4b12
 <span class="n">assert</span><span class="p">(</span><span class="n">octal</span> <span class="o">!=</span> <span class="n">decimal</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Il est également possible de faire référence à un caractère en utilisant l'échappement octal :</p>
+<p>Il est également possible de faire référence à un caractère en utilisant l'échappement octal dans une chaîne de caractère :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">cr</span> <span class="o">=</span> <span class="sc">&#39;\015&#39;</span><span class="p">;</span>
-<span class="kt">char</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hell</span><span class="se">\015</span><span class="s">7</span><span class="se">\040</span><span class="s">World&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hell</span><span class="se">\015</span><span class="s">7</span><span class="se">\040</span><span class="s">World!&quot;</span><span class="p">;</span>
 </pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.</p>
 </div>
 </div>
 <div class="section" id="systeme-hexadecimal">
 <h3><span class="section-number">4.1.4  </span>Système hexadécimal<a class="headerlink" href="#systeme-hexadecimal" title="Lien permanent vers ce titre">¶</a></h3>
-<p id="index-5">Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres.</p>
+<p id="index-5">Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres qui peuvent être soit majuscules ou minuscules. Veillez néanmoins à respecter une certaine cohérence, ne mélangez pas les casses dans un même projet.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5 6 7 8 9 A B C D E F
 </pre></div>
 </div>
@@ -476,8 +509,9 @@ j4b12
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0101&#39;1110&#39;0001₂ = 5E1₁₆
 </pre></div>
 </div>
-<p id="index-6">L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication :</p>
-<table class="docutils align-default">
+<p id="index-6">L'ingénieur qui se respecte doit connaître par coeur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Tableau 4.1 </span><span class="caption-text">Correspondance binaire, octal, hexadécimal</span><a class="headerlink" href="#id3" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 29%" />
 <col style="width: 31%" />
@@ -575,7 +609,7 @@ j4b12
 </tbody>
 </table>
 <p id="index-7">Le fichier <cite>albatros.txt</cite> contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme <code class="docutils literal notranslate"><span class="pre">hexdump</span></code>
-pour lister le contenu hexadécimal de son fichier :</p>
+pour lister le contenu hexadécimal de son fichier et il obtient la sortie suivante sur son terminal :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ hexdump -C albatros.txt
 00000000  53 6f 75 76 65 6e 74 2c  20 70 6f 75 72 20 73 27  |Souvent, pour s&#39;|
 00000010  61 6d 75 73 65 72 2c 20  6c 65 73 20 68 6f 6d 6d  |amuser, les homm|
@@ -607,13 +641,13 @@ pour lister le contenu hexadécimal de son fichier :</p>
 </div>
 <p>Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">é</span></code> de équipage est encodé avec <code class="docutils literal notranslate"><span class="pre">\xc3\xa9</span></code> ce qui est le caractère Unicode <a class="reference external" href="https://unicode-table.com/en/0065/">U+0065</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">é</span></code> de ailé est encodé avec <cite>exccx81</cite>, soit le caractère e suivi du diacritique <code class="docutils literal notranslate"><span class="pre">´</span></code> <a class="reference external" href="https://unicode-table.com/en/0301/">U+0301</a></p></li>
-<li><p>Une espace fine insécable <code class="docutils literal notranslate"><span class="pre">\xe2\x80\xaf</span></code> est utilisée avant les <code class="docutils literal notranslate"><span class="pre">!</span></code>, ce qui est le caractère unicode <a class="reference external" href="https://unicode-table.com/en/202F/">U+202F</a>, ainsi que recommandé par l'Académie française.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">é</span></code> de <em>équipage</em> est encodé avec <code class="docutils literal notranslate"><span class="pre">\xc3\xa9</span></code> ce qui est le caractère Unicode <a class="reference external" href="https://unicode-table.com/en/0065/">U+0065</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">é</span></code> de <em>ailé</em> est encodé avec <cite>exccx81</cite>, soit le caractère e suivi du diacritique <code class="docutils literal notranslate"><span class="pre">´</span></code> <a class="reference external" href="https://unicode-table.com/en/0301/">U+0301</a></p></li>
+<li><p>Une espace fine insécable <code class="docutils literal notranslate"><span class="pre">\xe2\x80\xaf</span></code> est utilisée avant les <code class="docutils literal notranslate"><span class="pre">!</span></code>, ce qui est le caractère unicode <a class="reference external" href="https://unicode-table.com/en/202F/">U+202F</a>, conformément à la recommandation de l'Académie française.</p></li>
 </ul>
 <p>Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le <code class="docutils literal notranslate"><span class="pre">é</span></code>.</p>
 <div>
-<p class="rubric">Exercice 4.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
 <p>Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0xaaaa
 0b1100101
@@ -623,6 +657,15 @@ pour lister le contenu hexadécimal de son fichier :</p>
 </pre></div>
 </div>
 </div>
+<div>
+<p class="rubric">Exercice 4.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
+<p>Tentez de récupérer vous même le fichier <a class="reference download internal" download="" href="../_downloads/a3c2859ae8a5ffe66c491ec0c452a078/albatros.txt"><code class="xref download docutils literal notranslate"><span class="pre">albatros</span></code></a> et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> wget https://.../albatros.txt
+<span class="gp">$</span> hexdump -C albatros.txt
+</pre></div>
+</div>
+<p>Si vous n'avez pas les outils <code class="docutils literal notranslate"><span class="pre">wget</span></code> ou <code class="docutils literal notranslate"><span class="pre">hexdump</span></code>, tentez de les installer via la commande <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">wget</span> <span class="pre">hexdump</span></code>.</p>
+</div>
 </div>
 <div class="section" id="conversions-de-bases">
 <span id="base-convertions"></span><h3><span class="section-number">4.1.5  </span>Conversions de bases<a class="headerlink" href="#conversions-de-bases" title="Lien permanent vers ce titre">¶</a></h3>
@@ -631,9 +674,9 @@ pour lister le contenu hexadécimal de son fichier :</p>
 \[\sum_{i=0}^{n-1} h_i\cdot b^i\]</div>
 <p>où:</p>
 <dl class="simple">
-<dt><span class="math notranslate nohighlight">\(n\)</span></dt><dd><p>Le nombre de chiffres</p>
+<dt><span class="math notranslate nohighlight">\(n\)</span></dt><dd><p>Le nombre de chiffres (ou positions)</p>
 </dd>
-<dt><span class="math notranslate nohighlight">\(b\)</span></dt><dd><p>La base du système d'entrée</p>
+<dt><span class="math notranslate nohighlight">\(b\)</span></dt><dd><p>La base du système d'entrée (ou nombre de symboles)</p>
 </dd>
 <dt><span class="math notranslate nohighlight">\(h_i\)</span></dt><dd><p>La valeur du chiffre à la position <span class="math notranslate nohighlight">\(i\)</span></p>
 </dd>
@@ -649,10 +692,11 @@ pour lister le contenu hexadécimal de son fichier :</p>
 
 Conversion :
 
-AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
+AP7 -&gt; 10 * pow(33, 2) + 23 * pow(33, 1) + 7 * pow(33, 0) -&gt; 11&#39;656
 </pre></div>
 </div>
-<p>La conversion d'une grandeur décimale vers une base quelconque est plus compliquée. La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.</p>
+<p>La conversion d'une grandeur décimale vers une base quelconque est malheureusement plus compliquée et nécessite d'appliquer un algorithme.</p>
+<p>La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.</p>
 <p>Pour chaque division par 2, on note le reste et tant que le quotient n'est pas nul, on itère l'opération. Le résultat en binaire est la suite des restes lus dans le sens inverse :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>n = 209
 
@@ -669,9 +713,9 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </pre></div>
 </div>
 <div>
-<p class="rubric">Exercice 4.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.7<a class="headerlink" href="#exercise-6" title="Permalink to this rubric">¶</a></p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/shadocks.svg"><img alt="../_images/shadocks.svg" height="200px" src="../_images/shadocks.svg" /></a>
+<a class="reference internal image-reference" href="../_images/shadocks.svg"><img alt="../_images/shadocks.svg" height="150px" src="../_images/shadocks.svg" /></a>
 </div>
 <p>Les Shadocks ne connaissent que quatre mots: <code class="docutils literal notranslate"><span class="pre">GA</span></code>, <code class="docutils literal notranslate"><span class="pre">BU</span></code>, <code class="docutils literal notranslate"><span class="pre">ZO</span></code>, <code class="docutils literal notranslate"><span class="pre">MEU</span></code>. La vidéo <a class="reference external" href="https://www.youtube.com/watch?v=lP9PaDs2xgQ">Comment compter comme les Shadocks</a> en explique le principe.</p>
 <p>Convertir <code class="docutils literal notranslate"><span class="pre">−⨼○◿○</span></code> (<code class="docutils literal notranslate"><span class="pre">BU</span> <span class="pre">ZO</span> <span class="pre">GA</span> <span class="pre">MEU</span> <span class="pre">GA</span></code>) en décimal.</p>
@@ -680,8 +724,8 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </div>
 <div class="section" id="entiers-relatifs">
 <h2><span class="section-number">4.2  </span>Entiers relatifs<a class="headerlink" href="#entiers-relatifs" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-8">Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives.</p>
-<p>Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les variables c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.</p>
+<p id="index-8">Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives car il n'existe pas de symboles pour le signe <code class="docutils literal notranslate"><span class="pre">-</span></code> (ni même d'ailleurs <code class="docutils literal notranslate"><span class="pre">+</span></code>).</p>
+<p>Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les <strong>variables</strong> c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.</p>
 <div class="section" id="bit-de-signe">
 <h3><span class="section-number">4.2.1  </span>Bit de signe<a class="headerlink" href="#bit-de-signe" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-9">On peut se réserver un bit de signe, par exemple le 8<sup>ième</sup> bit d'un <code class="docutils literal notranslate"><span class="pre">char</span></code>.</p>
@@ -710,10 +754,10 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </pre></div>
 </div>
 <p>En résumé, la solution utilisant un bit de signe pose deux problèmes :</p>
-<ul class="simple">
-<li><p>Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place</p></li>
-<li><p>Le double zéro (positif et négatif) est gênant</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p>Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place.</p></li>
+<li><p>Le double zéro (positif et négatif) est gênant.</p></li>
+</ol>
 </div>
 <div class="section" id="complement-a-un">
 <h3><span class="section-number">4.2.2  </span>Complément à un<a class="headerlink" href="#complement-a-un" title="Lien permanent vers ce titre">¶</a></h3>
@@ -730,7 +774,7 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 <dt><span class="math notranslate nohighlight">\(y\)</span></dt><dd><p>La valeur à complémenter.</p>
 </dd>
 </dl>
-<p>Ainsi il est facile d'écrire le complément à neuf :</p>
+<p>Ainsi, il est facile d'écrire le complément à neuf :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span>
         <span class="o">|</span>
         <span class="o">|</span> <span class="n">Complément</span> <span class="n">à</span> <span class="mi">9</span>
@@ -765,10 +809,10 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </pre></div>
 </div>
 <p>En résumé, la méthode du complément à 1 :</p>
-<ul class="simple">
-<li><p>Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat</p></li>
-<li><p>Le double zéro (positif et négatif) est gênant</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p>Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).</p></li>
+<li><p>Le double zéro (positif et négatif) est gênant.</p></li>
+</ol>
 </div>
 <div class="section" id="complement-a-deux">
 <span id="twos-complement"></span><h3><span class="section-number">4.2.3  </span>Complément à deux<a class="headerlink" href="#complement-a-deux" title="Lien permanent vers ce titre">¶</a></h3>
@@ -793,20 +837,22 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </pre></div>
 </div>
 <p>Les avantages :</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Les opérations sont triviales.</p></li>
 <li><p>Le problème du double zéro est résolu.</p></li>
 <li><p>On gagne une valeur négative <code class="docutils literal notranslate"><span class="pre">[-128..+127]</span></code> contre <code class="docutils literal notranslate"><span class="pre">[-127..+127]</span> <span class="pre">avec</span> <span class="pre">les</span> <span class="pre">méthodes</span> <span class="pre">précédemment</span> <span class="pre">étudiées</span></code>.</p></li>
-</ul>
+</ol>
+<p>Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs moderne pour représenté les nombres entiers négatifs.</p>
 </div>
 </div>
 <div class="section" id="operations-logiques">
 <h2><span class="section-number">4.3  </span>Opérations logiques<a class="headerlink" href="#operations-logiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les opérations logiques sont introduites par l'<a class="reference external" href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)">algèbre de Boole</a> et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations.</p>
 <div class="section" id="operations-bit-a-bit">
 <h3><span class="section-number">4.3.1  </span>Opérations bit à bit<a class="headerlink" href="#operations-bit-a-bit" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-12">Les <span class="target" id="index-13"></span>opérations bit à bit (<em>bitwise</em>) disponibles en C sont les suivantes :</p>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-number">Tableau 4.1 </span><span class="caption-text">Opérateurs bit à bit</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Tableau 4.2 </span><span class="caption-text">Opérateurs bit à bit</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 30%" />
@@ -820,11 +866,11 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
-<td><p>ET binaire</p></td>
+<td><p>Conjonction (ET)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">(0b1101</span> <span class="pre">&amp;</span> <span class="pre">0b1010)</span> <span class="pre">==</span> <span class="pre">0b1000</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
-<td><p>OU binaire</p></td>
+<td><p>Disjonction (OU)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">(0b1101</span> <span class="pre">|</span> <span class="pre">0b1010)</span> <span class="pre">==</span> <span class="pre">0b1111</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
@@ -845,105 +891,134 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </tr>
 </tbody>
 </table>
-<p>Le ET logique est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 29%" />
-<col style="width: 41%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>A</p></th>
-<th class="head"><p>B</p></th>
-<th class="head"><p>A ∧ B</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-<p>OU logique</p>
-<table class="docutils align-default">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ne pas confondre l'opérateur <code class="docutils literal notranslate"><span class="pre">!</span></code> et l'opérateur <code class="docutils literal notranslate"><span class="pre">~</span></code>. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours <code class="docutils literal notranslate"><span class="pre">0</span></code> et la négation de zéro donnera toujours <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</div>
+<div class="section" id="conjonction">
+<h4><span class="section-number">4.3.1.1  </span>Conjonction<a class="headerlink" href="#conjonction" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La conjonction ou <strong>ET logique</strong> est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.</p>
+<table class="colwidths-given docutils align-center" id="id5">
+<caption><span class="caption-number">Tableau 4.3 </span><span class="caption-text">Conjonction bit à bit</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>A</p></th>
-<th class="head"><p>B</p></th>
-<th class="head"><p>S</p></th>
+<tr class="row-odd"><th class="head stub"><p><span class="math notranslate nohighlight">\(A ∧ B\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=0\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=1\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(B=0\)</span></p></th>
 <td><p>0</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B=1\)</span></p></th>
 <td><p>0</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>1</p></td>
 <td><p>1</p></td>
 </tr>
 </tbody>
 </table>
-<p>OU EXCLUSIF logique</p>
-<table class="docutils align-default">
+<p>Avec cette opération l'état dominant est le <code class="docutils literal notranslate"><span class="pre">0</span></code> et l'état récessif est le <code class="docutils literal notranslate"><span class="pre">1</span></code>. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="n">b1100</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="n">b0011</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="n">b1111</span> <span class="o">&amp;</span> <span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cet opérateur est d'ailleurs souvent utilisé pour imposer une valeur nulle suivant une condition. Dans l'exemple suivant le Balrog est réduit à néant par Gandalf :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">balrog</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1100110101</span><span class="p">;</span>
+<span class="n">gandalf</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">balrog</span> <span class="o">=</span> <span class="n">balrog</span> <span class="o">&amp;</span> <span class="n">gandalf</span><span class="p">;</span> <span class="c1">// You shall not pass!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disjonction">
+<h4><span class="section-number">4.3.1.2  </span>Disjonction<a class="headerlink" href="#disjonction" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La disjonction ou <strong>OU logique</strong> s'apparente à l'opération <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<table class="colwidths-given docutils align-center" id="id6">
+<caption><span class="caption-number">Tableau 4.4 </span><span class="caption-text">Disjonction bit à bit</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
-<col style="width: 29%" />
-<col style="width: 29%" />
-<col style="width: 41%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>A</p></th>
-<th class="head"><p>B</p></th>
-<th class="head"><p>A ^ B</p></th>
+<tr class="row-odd"><th class="head stub"><p><span class="math notranslate nohighlight">\(A ∨ B\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=0\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=1\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>0</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>0</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(B=0\)</span></p></th>
 <td><p>0</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>1</p></td>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B=1\)</span></p></th>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ici l'état dominant est le <code class="docutils literal notranslate"><span class="pre">1</span></code> car il force n'importe quel <code class="docutils literal notranslate"><span class="pre">0</span></code> à changer d'état :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">student</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Veut pas faire ses devoirs ?</span>
+<span class="kt">bool</span> <span class="n">teacher</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">student</span> <span class="o">|</span> <span class="n">teacher</span><span class="p">;</span> <span class="c1">// Tes devoirs tu feras...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disjonction-exclusive">
+<h4><span class="section-number">4.3.1.3  </span>Disjonction exclusive<a class="headerlink" href="#disjonction-exclusive" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le <strong>OU exclusif</strong> symbolisé d'un signe plus entouré d'un cercle est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.</p>
+<p>En électronique sur les symboles CEI, l'opération logique est nommée <code class="docutils literal notranslate"><span class="pre">=1</span></code> car si le résultat de l'addition des deux opérandes est différent de <code class="docutils literal notranslate"><span class="pre">1</span></code>, la sortie sera nulle. Lorsque <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code> valent <code class="docutils literal notranslate"><span class="pre">1</span></code> la somme vaut <code class="docutils literal notranslate"><span class="pre">2</span></code> et donc la sortie est nulle.</p>
+<table class="colwidths-given docutils align-center" id="id7">
+<caption><span class="caption-number">Tableau 4.5 </span><span class="caption-text">Disjonction exclusive bit à bit</span><a class="headerlink" href="#id7" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p><span class="math notranslate nohighlight">\(A \oplus B\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=0\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(A=1\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(B=0\)</span></p></th>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B=1\)</span></p></th>
 <td><p>1</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
 </table>
-<p>Complément à un</p>
-<p>Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inverse de l'entrée en binaire :</p>
-<table class="docutils align-default">
+<p>L'opération présente une propriété très intéressante : elle est réversible.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">1542</span> <span class="o">^</span> <span class="mi">42</span> <span class="o">^</span> <span class="mi">42</span> <span class="o">==</span> <span class="mi">1542</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Par exemple il est possible d'inverser la valeur de deux variables simplement :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">651</span><span class="p">;</span>
+
+<span class="n">a</span> <span class="o">^=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">^=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">^=</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="n">assert</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">651</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4><span class="section-number">4.3.1.4  </span>Complément à un<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le complément à un est simplement la valeur qui permet d'inverser bit à bit une valeur :</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">Tableau 4.6 </span><span class="caption-text">Complément à un</span><a class="headerlink" href="#id8" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -963,11 +1038,12 @@ AP7 -&gt; 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -&gt; 11&#39;656
 </tbody>
 </table>
 </div>
+</div>
 <div class="section" id="operateurs-arithmetiques">
 <h3><span class="section-number">4.3.2  </span>Opérateurs arithmétiques<a class="headerlink" href="#operateurs-arithmetiques" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on se souvent de l'addition :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  ¹¹  ← retenues
+C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  ¹¹    ← retenues
   123₁₀
 +  89₁₀
 -----
@@ -1020,7 +1096,7 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
 </pre></div>
 </div>
 <div>
-<p class="rubric">Exercice 4.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.8<a class="headerlink" href="#exercise-7" title="Permalink to this rubric">¶</a></p>
 <p>Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.</p>
 <p>Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.</p>
 <ol class="arabic simple">
@@ -1049,7 +1125,7 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
 </div>
 <p>En logique booléenne on exprime la négation par une barre p.ex. <span class="math notranslate nohighlight">\(\bar{P}\)</span>.</p>
 <div>
-<p class="rubric">Exercice 4.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.9<a class="headerlink" href="#exercise-8" title="Permalink to this rubric">¶</a></p>
 <p>Utiliser les relations de De Morgan pour simplifier l'expression suivante</p>
 <div class="math notranslate nohighlight">
 \[D \cdot E + \bar{D} + \bar{E}\]</div>
@@ -1074,9 +1150,9 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
 <p>En Python ou en Java, c'est la méthode du <em>commercial rounding</em> qui a été choisie. Elle peut paraître contre-intuitive, car <code class="docutils literal notranslate"><span class="pre">round(3.5)</span></code> donne 4, mais <code class="docutils literal notranslate"><span class="pre">round(4.5)</span></code> donne 4 aussi.</p>
 </div>
 <div>
-<p class="rubric">Exercice 4.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
+<p class="rubric">Exercice 4.10<a class="headerlink" href="#exercise-9" title="Permalink to this rubric">¶</a></p>
 <p>Soit deux variables entières <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code>, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p>
-<p>Testez votre solution</p>
+<p>Testez votre solution...</p>
 </div>
 </div>
 </div>
@@ -1096,7 +1172,7 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 14 août 2020 (version v0.3.0-4-g14f01f1).
+    Mis à jour le 25 août 2020 (version v0.3.0-5-gec21100).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
