@@ -8,6 +8,16 @@ La numération désigne le mode de représentation des nombres (p. ex. cardinaux
 
 Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou l'informaticien technique. Bien comprendre la numération permet de mieux se représenter la manière dont l'ordinateur traite les données au niveau le plus fondamental: le bit.
 
+Un **bit** est l'unité d'information fondamentale qui peut prendre que deux états : ``1`` ou ``0``. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
+
+.. exercise:: Pile ou face
+
+    Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?
+
+    .. solution::
+
+        Il transmet un seul 1 bit : équipe A ou pile ou ``1``, équipe B ou face ou ``0``. Il faut néanmoins encore définir à quoi correspond cette information.
+
 Bases
 =====
 
@@ -26,12 +36,22 @@ Sans cette connaissance à priori du système de numération utilisé, il vous e
     九千十八
     九千 零十八
 
+Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
+
+.. exercise:: Symboles binaires
+
+    Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre ``11001`` ?
+
+    .. solution::
+
+        Le nombre ``11001`` est composé de 5 positions et de deux symboles possibles par position : ``1`` et ``0``. La quantité d'information est donc de 5 bits.
+
 Système décimal
 ---------------
 
 .. index:: système décimal
 
-Le système décimal est le système de numération utilisant la base dix et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas, par exemple les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
+Le système décimal est le système de numération utilisant la base **dix** et le plus utilisé par les humains au vingt et unième siècle, ce qui n'a pas toujours été le cas. Par exemple, les anciennes civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel de base sexagésimale (60), la civilisation maya utilisait un système de base 20 de même que certaines langues celtiques dont il reste aujourd'hui quelques traces en français avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(1000+100+100+100+100+100+1+1+1+1+1+1)``. Il s'agit d'une numération additive.
 
@@ -40,7 +60,7 @@ L'exemple suivant montre l'écriture de 1506 en écriture hiéroglyphique ``(100
 
     1506 en écriture hiéroglyphique
 
-Notre système de représentation des nombres est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres allant de zéro à neuf :
+Notre système de représentation des nombres décimaux est le système de numération indo-arabe qui emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf :
 
 .. code-block::
 
@@ -54,6 +74,16 @@ Un nombre peut être décomposé en puissance successives :
 
 La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
+.. exercise:: Deux mains
+
+    Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?
+
+    .. solution::
+
+        Deux mains de cinq doigts forment une paire composée de 10 doigts. Il existe donc dix possibilités, la base est donc décimale : 10.
+
+        Si plusieurs doigts peuvent être levés à la fois, il faut réduire le système à l'unité de base "le doigt" pouvant prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et 2 symboles par doigts, un nombre binaire est ainsi représenté.
+
 Système binaire
 ---------------
 
@@ -61,17 +91,36 @@ Système binaire
 
 Le système binaire est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
 
-.. code-block::
+.. math::
 
-    0, 1 = false, true = F, T
+    \begin{bmatrix}
+    0\\
+    1
+    \end{bmatrix} =
+    \begin{bmatrix}
+    \text{true}\\
+    \text{false}
+    \end{bmatrix} =
+    \begin{bmatrix}
+    T\\
+    F
+    \end{bmatrix}
 
-En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant.
+En termes techniques ces états sont le plus souvent représentés par des signaux électriques dont souvent l'un des deux états est dit récessif tandis que l'autre est dit dominant. Par exemple si l'état ``0`` est symbolisé par un verre vide et l'état ``1`` par un verre contenant du liquide. L'état dominant est l'état ``1``. En effet, si le verre contient déjà du liquide, en rajouter ne changera pas l'état actuel, il y aura juste plus de liquide dans le verre.
 
 Un nombre binaire peut être également décomposé en puissance successives :
 
 .. math::
 
     1101_{2} = 1 \cdot 2^{3} + 1 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}
+
+Le nombre de possibilités pour un nombre de positions :math:`E` et une quantité de symboles (ou base) :math:`b` de 2 est simplement exprimé par :
+
+.. math::
+
+    N = b^E
+
+Avec un seul ``bit`` il est donc possible d'exprimer 2 valeurs distinctes.
 
 .. exercise:: Base 2
 
@@ -92,13 +141,15 @@ Système octal
 
 .. index:: octal
 
-Inventé par Charles XII de Suède, le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Il pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
+Inventé par `Charles XII de Suède <https://fr.wikipedia.org/wiki/Charles_XII>`_ , le système de numération octal utilise 8 symboles empruntés au système indo-arabe. Ce système pourrait avoir été utilisé par l'homme en comptant soit les jointures des phalanges proximales (trous entre les doigts), ou les doigts différents des pouces.
 
 .. code-block:: text
 
     0 1 2 3 4 5 6 7
 
-Un nombre octal peut également être décomposé en puissance successives :
+Notons que l'utilisation des 8 premiers symboles du système indo-arabe est une convention d'usage bien pratique car tout humain occidental est familier de ces symboles. L'inconvénient est qu'un nombre écrit en octal pourrait être confondu avec un nombre écrit en décimal.
+
+Comme pour le système décimal, un nombre octal peut également être décomposé en puissance successives :
 
 .. math::
 
@@ -119,19 +170,23 @@ En C, un nombre octal est écrit en préfixant la valeur à représenter d'un z�
 
     assert(octal != decimal);
 
-Il est également possible de faire référence à un caractère en utilisant l'échappement octal :
+Il est également possible de faire référence à un caractère en utilisant l'échappement octal dans une chaîne de caractère :
 
 .. code-block:: c
 
     char cr = '\015';
-    char msg = "Hell\0157\040World";
+    char msg = "Hell\0157\040World!";
+
+.. important::
+
+    N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
 
 Système hexadécimal
 -------------------
 
 .. index:: hexadécimal
 
-Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres.
+Ce système de numération positionnel en base 16 est le plus utilisé en informatique pour exprimer des grandeurs binaires. Il utilise les dix symboles du système indo-arabe, plus les lettres de A à F. Il n'y a pas de réel consensus quant à la casse des lettres qui peuvent être soit majuscules ou minuscules. Veillez néanmoins à respecter une certaine cohérence, ne mélangez pas les casses dans un même projet.
 
 .. code-block:: text
 
@@ -151,48 +206,50 @@ Il est très pratique en électronique et en informatique d'utiliser ce système
 
 .. index:: quadruplets
 
-L'ingénieur doit connaître la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication :
+L'ingénieur qui se respecte doit connaître par coeur la correspondance hexadécimale de tous les quadruplets aussi bien que ses tables de multiplication (qu'il connaît d'ailleurs parfaitement, n'est-ce pas ?)
 
-+------------+-------------+--------+---------+
-| Binaire    | Hexadécimal | Octal  | Décimal |
-+============+=============+========+=========+
-| ``0b0000`` | ``0x0``     | ``00`` | ``0``   |
-+------------+-------------+--------+---------+
-| ``0b0001`` | ``0x1``     | ``01`` | ``1``   |
-+------------+-------------+--------+---------+
-| ``0b0010`` | ``0x2``     | ``02`` | ``2``   |
-+------------+-------------+--------+---------+
-| ``0b0011`` | ``0x3``     | ``03`` | ``3``   |
-+------------+-------------+--------+---------+
-| ``0b0100`` | ``0x4``     | ``04`` | ``4``   |
-+------------+-------------+--------+---------+
-| ``0b0101`` | ``0x5``     | ``05`` | ``5``   |
-+------------+-------------+--------+---------+
-| ``0b0110`` | ``0x6``     | ``06`` | ``6``   |
-+------------+-------------+--------+---------+
-| ``0b0111`` | ``0x7``     | ``07`` | ``7``   |
-+------------+-------------+--------+---------+
-| ``0b1000`` | ``0x8``     | ``10`` | ``8``   |
-+------------+-------------+--------+---------+
-| ``0b1001`` | ``0x9``     | ``11`` | ``0``   |
-+------------+-------------+--------+---------+
-| ``0b1010`` | ``0xA``     | ``12`` | ``10``  |
-+------------+-------------+--------+---------+
-| ``0b1011`` | ``0xB``     | ``13`` | ``11``  |
-+------------+-------------+--------+---------+
-| ``0b1100`` | ``0xC``     | ``14`` | ``12``  |
-+------------+-------------+--------+---------+
-| ``0b1101`` | ``0xD``     | ``15`` | ``13``  |
-+------------+-------------+--------+---------+
-| ``0b1110`` | ``0xE``     | ``16`` | ``14``  |
-+------------+-------------+--------+---------+
-| ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
-+------------+-------------+--------+---------+
+.. table:: Correspondance binaire, octal, hexadécimal
+
+    +------------+-------------+--------+---------+
+    | Binaire    | Hexadécimal | Octal  | Décimal |
+    +============+=============+========+=========+
+    | ``0b0000`` | ``0x0``     | ``00`` | ``0``   |
+    +------------+-------------+--------+---------+
+    | ``0b0001`` | ``0x1``     | ``01`` | ``1``   |
+    +------------+-------------+--------+---------+
+    | ``0b0010`` | ``0x2``     | ``02`` | ``2``   |
+    +------------+-------------+--------+---------+
+    | ``0b0011`` | ``0x3``     | ``03`` | ``3``   |
+    +------------+-------------+--------+---------+
+    | ``0b0100`` | ``0x4``     | ``04`` | ``4``   |
+    +------------+-------------+--------+---------+
+    | ``0b0101`` | ``0x5``     | ``05`` | ``5``   |
+    +------------+-------------+--------+---------+
+    | ``0b0110`` | ``0x6``     | ``06`` | ``6``   |
+    +------------+-------------+--------+---------+
+    | ``0b0111`` | ``0x7``     | ``07`` | ``7``   |
+    +------------+-------------+--------+---------+
+    | ``0b1000`` | ``0x8``     | ``10`` | ``8``   |
+    +------------+-------------+--------+---------+
+    | ``0b1001`` | ``0x9``     | ``11`` | ``0``   |
+    +------------+-------------+--------+---------+
+    | ``0b1010`` | ``0xA``     | ``12`` | ``10``  |
+    +------------+-------------+--------+---------+
+    | ``0b1011`` | ``0xB``     | ``13`` | ``11``  |
+    +------------+-------------+--------+---------+
+    | ``0b1100`` | ``0xC``     | ``14`` | ``12``  |
+    +------------+-------------+--------+---------+
+    | ``0b1101`` | ``0xD``     | ``15`` | ``13``  |
+    +------------+-------------+--------+---------+
+    | ``0b1110`` | ``0xE``     | ``16`` | ``14``  |
+    +------------+-------------+--------+---------+
+    | ``0b1111`` | ``0xF``     | ``17`` | ``15``  |
+    +------------+-------------+--------+---------+
 
 .. index:: albatros
 
 Le fichier `albatros.txt` contient un extrait du poème de Baudelaire, l'ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à comprendre et utilise le programme ``hexdump``
-pour lister le contenu hexadécimal de son fichier :
+pour lister le contenu hexadécimal de son fichier et il obtient la sortie suivante sur son terminal :
 
 .. code-block:: text
 
@@ -227,9 +284,9 @@ pour lister le contenu hexadécimal de son fichier :
 
 Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadécimal, chaque caractère encodé sur 8 bits étant symbolisés par deux caractères hexadécimaux, et à droite le texte où chaque caractère non imprimable est remplacé par un point. On observe notamment ici que :
 
-- ``é`` de équipage est encodé avec ``\xc3\xa9`` ce qui est le caractère Unicode :unicode:`U+0065`
-- ``é`` de ailé est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` :unicode:`U+0301`
-- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode :unicode:`U+202F`, ainsi que recommandé par l'Académie française.
+- ``é`` de *équipage* est encodé avec ``\xc3\xa9`` ce qui est le caractère Unicode :unicode:`U+0065`
+- ``é`` de *ailé* est encodé avec `e\xcc\x81`, soit le caractère e suivi du diacritique ``´`` :unicode:`U+0301`
+- Une espace fine insécable ``\xe2\x80\xaf`` est utilisée avant les ``!``, ce qui est le caractère unicode :unicode:`U+202F`, conformément à la recommandation de l'Académie française.
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le ``é``.
 
@@ -255,6 +312,17 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
             129       ≡   129 (n'est-ce pas ?)
             0216      ≡   142
 
+.. exercise:: Albatros
+
+    Tentez de récupérer vous même le fichier :download:`albatros <../../assets/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
+
+    .. code-block:: console
+
+        $ wget https://.../albatros.txt
+        $ hexdump -C albatros.txt
+
+    Si vous n'avez pas les outils ``wget`` ou ``hexdump``, tentez de les installer via la commande ``apt-get install wget hexdump``.
+
 .. _base-convertions:
 
 Conversions de bases
@@ -269,11 +337,11 @@ La conversion d'une base quelconque en système décimal utilise la relation sui
 où:
 
 :math:`n`
-    Le nombre de chiffres
+  Le nombre de chiffres (ou positions)
 :math:`b`
-    La base du système d'entrée
+  La base du système d'entrée (ou nombre de symboles)
 :math:`h_i`
-    La valeur du chiffre à la position :math:`i`
+  La valeur du chiffre à la position :math:`i`
 
 Ainsi, la valeur ``AP7`` exprimée en base tritrigesimale (base 33) et utilisée pour représenter les plaques des véhicules à Hong Kong peut se convertir en décimal après avoir pris connaissance de la correspondance d'un symbole `tritrigesimal <https://en.wikipedia.org/wiki/List_of_numeral_systems>`__ vers le système décimal :
 
@@ -289,9 +357,11 @@ Ainsi, la valeur ``AP7`` exprimée en base tritrigesimale (base 33) et utilisée
 
     Conversion :
 
-    AP7 -> 10 * 33**2 + 23 * 33**1 + 7 * 33**0 -> 11'656
+    AP7 -> 10 * pow(33, 2) + 23 * pow(33, 1) + 7 * pow(33, 0) -> 11'656
 
-La conversion d'une grandeur décimale vers une base quelconque est plus compliquée. La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.
+La conversion d'une grandeur décimale vers une base quelconque est malheureusement plus compliquée et nécessite d'appliquer un algorithme.
+
+La conversion d'un nombre du système décimal au système binaire s'effectue simplement par une suite de divisions pour lesquelles on notera le reste.
 
 Pour chaque division par 2, on note le reste et tant que le quotient n'est pas nul, on itère l'opération. Le résultat en binaire est la suite des restes lus dans le sens inverse :
 
@@ -313,7 +383,7 @@ Pour chaque division par 2, on note le reste et tant que le quotient n'est pas n
 .. exercise:: La numération Shadock
 
     .. figure:: ../../assets/images/shadocks.*
-        :height: 200px
+        :height: 150px
 
     Les Shadocks ne connaissent que quatre mots: ``GA``, ``BU``, ``ZO``, ``MEU``. La vidéo `Comment compter comme les Shadocks <https://www.youtube.com/watch?v=lP9PaDs2xgQ>`__ en explique le principe.
 
@@ -351,9 +421,9 @@ Entiers relatifs
 
 .. index:: Entiers relatifs
 
-Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives.
+Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible qu'en ayant connaissance de son encodage et s'agissant d'entiers, on peut se demander comment stocker des valeurs négatives car il n'existe pas de symboles pour le signe ``-`` (ni même d'ailleurs ``+``).
 
-Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les variables c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
+Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les **variables** c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
 Bit de signe
 ------------
@@ -393,8 +463,8 @@ De plus les additions et soustractions sont difficiles, car il n'est pas possibl
 
 En résumé, la solution utilisant un bit de signe pose deux problèmes :
 
-- Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place
-- Le double zéro (positif et négatif) est gênant
+#. Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place.
+#. Le double zéro (positif et négatif) est gênant.
 
 Complément à un
 ---------------
@@ -420,7 +490,7 @@ où
 :math:`y`
     La valeur à complémenter.
 
-Ainsi il est facile d'écrire le complément à neuf :
+Ainsi, il est facile d'écrire le complément à neuf :
 
 .. code-block::
 
@@ -464,8 +534,8 @@ Reprenons l'exemple précédent de soustraction, on notera que l'opération fonc
 
 En résumé, la méthode du complément à 1 :
 
-- Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat
-- Le double zéro (positif et négatif) est gênant
+#. Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).
+#. Le double zéro (positif et négatif) est gênant.
 
 .. _twos_complement:
 
@@ -474,8 +544,8 @@ Complément à deux
 
 Le :index:`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
-1. Calculer le complément à un du nombre d'entrées.
-2. Ajouter 1 au résultat.
+#. Calculer le complément à un du nombre d'entrées.
+#. Ajouter 1 au résultat.
 
 Oui, et alors, quelle est la valeur ajoutée ? Surprenamment, on résout tous les problèmes amenés par le complément à un :
 
@@ -498,12 +568,16 @@ Au niveau du calcul :
 
 Les avantages :
 
-- Les opérations sont triviales.
-- Le problème du double zéro est résolu.
-- On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédemment étudiées``.
+#. Les opérations sont triviales.
+#. Le problème du double zéro est résolu.
+#. On gagne une valeur négative ``[-128..+127]`` contre ``[-127..+127] avec les méthodes précédemment étudiées``.
+
+Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs moderne pour représenté les nombres entiers négatifs.
 
 Opérations logiques
 ===================
+
+Les opérations logiques sont introduites par l'`algèbre de Boole <https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)>`_ et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations.
 
 Opérations bit à bit
 --------------------
@@ -517,9 +591,9 @@ Les :index:`opérations bit à bit` (*bitwise*) disponibles en C sont les suivan
     +-----------+-------------------+---------------------------------+
     | Opérateur | Description       | Exemple                         |
     +===========+===================+=================================+
-    | ``&``     | ET binaire        | ``(0b1101 & 0b1010) == 0b1000`` |
+    | ``&``     | Conjonction (ET)  | ``(0b1101 & 0b1010) == 0b1000`` |
     +-----------+-------------------+---------------------------------+
-    | ``|``     | OU binaire        | ``(0b1101 | 0b1010) == 0b1111`` |
+    | ``|``     | Disjonction (OU)  | ``(0b1101 | 0b1010) == 0b1111`` |
     +-----------+-------------------+---------------------------------+
     | ``^``     | XOR binaire       | ``(0b1101 ^ 0b1010) == 0b0111`` |
     +-----------+-------------------+---------------------------------+
@@ -530,69 +604,143 @@ Les :index:`opérations bit à bit` (*bitwise*) disponibles en C sont les suivan
     | ``>>``    | Décalage à droite | ``(0b1101 >> 2) == 0b11``       |
     +-----------+-------------------+---------------------------------+
 
-Le ET logique est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
+.. important::
 
-+-----+-----+-------+
-| A   | B   | A ∧ B |
-+=====+=====+=======+
-| 0   | 0   | 0     |
-+-----+-----+-------+
-| 0   | 1   | 0     |
-+-----+-----+-------+
-| 1   | 0   | 0     |
-+-----+-----+-------+
-| 1   | 1   | 1     |
-+-----+-----+-------+
+    Ne pas confondre l'opérateur ``!`` et l'opérateur ``~``. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours ``0`` et la négation de zéro donnera toujours ``1``.
 
-OU logique
+Conjonction
+^^^^^^^^^^^
 
-+-----+-----+-----+
-| A   | B   | S   |
-+=====+=====+=====+
-| 0   | 0   | 0   |
-+-----+-----+-----+
-| 0   | 1   | 1   |
-+-----+-----+-----+
-| 1   | 0   | 1   |
-+-----+-----+-----+
-| 1   | 1   | 1   |
-+-----+-----+-----+
+La conjonction ou **ET logique** est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
-OU EXCLUSIF logique
+.. list-table:: Conjonction bit à bit
+   :widths: 10 10 10
+   :header-rows: 1
+   :stub-columns: 1
+   :align: center
 
-+-----+-----+-------+
-| A   | B   | A ^ B |
-+=====+=====+=======+
-| 0   | 0   | 0     |
-+-----+-----+-------+
-| 0   | 1   | 1     |
-+-----+-----+-------+
-| 1   | 0   | 1     |
-+-----+-----+-------+
-| 1   | 1   | 0     |
-+-----+-----+-------+
+   * - :math:`A ∧ B`
+     - :math:`A=0`
+     - :math:`A=1`
+   * - :math:`B=0`
+     - 0
+     - 0
+   * - :math:`B=1`
+     - 0
+     - 1
+
+Avec cette opération l'état dominant est le ``0`` et l'état récessif est le ``1``. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :
+
+.. code-block:: c
+
+    assert(0b1100 & 0b0011 & 0b1111 & 0 == 0)
+
+Cet opérateur est d'ailleurs souvent utilisé pour imposer une valeur nulle suivant une condition. Dans l'exemple suivant le Balrog est réduit à néant par Gandalf :
+
+.. code-block:: c
+
+    balrog = 0b1100110101;
+    gandalf = 0;
+
+    balrog = balrog & gandalf; // You shall not pass!
+
+Disjonction
+^^^^^^^^^^^
+
+La disjonction ou **OU logique** s'apparente à l'opération ``+``.
+
+.. list-table:: Disjonction bit à bit
+   :widths: 10 10 10
+   :header-rows: 1
+   :stub-columns: 1
+   :align: center
+
+   * - :math:`A ∨ B`
+     - :math:`A=0`
+     - :math:`A=1`
+   * - :math:`B=0`
+     - 0
+     - 1
+   * - :math:`B=1`
+     - 1
+     - 1
+
+Ici l'état dominant est le ``1`` car il force n'importe quel ``0`` à changer d'état :
+
+.. code-block:: c
+
+    bool student = false; // Veut pas faire ses devoirs ?
+    bool teacher = true;
+
+    student = student | teacher; // Tes devoirs tu feras...
+
+Disjonction exclusive
+^^^^^^^^^^^^^^^^^^^^^
+
+Le **OU exclusif** symbolisé d'un signe plus entouré d'un cercle est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
+
+En électronique sur les symboles CEI, l'opération logique est nommée ``=1`` car si le résultat de l'addition des deux opérandes est différent de ``1``, la sortie sera nulle. Lorsque ``A`` et ``B`` valent ``1`` la somme vaut ``2`` et donc la sortie est nulle.
+
+.. list-table:: Disjonction exclusive bit à bit
+   :widths: 10 10 10
+   :header-rows: 1
+   :stub-columns: 1
+   :align: center
+
+   * - :math:`A \oplus B`
+     - :math:`A=0`
+     - :math:`A=1`
+   * - :math:`B=0`
+     - 0
+     - 1
+   * - :math:`B=1`
+     - 1
+     - 0
+
+L'opération présente une propriété très intéressante : elle est réversible.
+
+.. code-block:: c
+
+    assert(1542 ^ 42 ^ 42 == 1542)
+
+Par exemple il est possible d'inverser la valeur de deux variables simplement :
+
+.. code-block:: c
+
+    int a = 123;
+    int b = 651;
+
+    a ^= b;
+    b ^= a;
+    a ^= b;
+
+    assert(a == 651);
+    assert(b == 123);
 
 Complément à un
+^^^^^^^^^^^^^^^
 
-Le complément à un est simplement la valeur qui permet d'obtenir 1, soit l'inverse de l'entrée en binaire :
+Le complément à un est simplement la valeur qui permet d'inverser bit à bit une valeur :
 
-+-----+-----+
-| A   | ¬ A |
-+=====+=====+
-| 0   | 1   |
-+-----+-----+
-| 1   | 0   |
-+-----+-----+
+.. table:: Complément à un
+
+    +-----+-----+
+    | A   | ¬ A |
+    +=====+=====+
+    | 0   | 1   |
+    +-----+-----+
+    | 1   | 0   |
+    +-----+-----+
 
 Opérateurs arithmétiques
 ------------------------
 
 Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
-C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvent de l'addition :
+C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :
 
 .. code-block:: text
 
-      ¹¹  ← retenues
+      ¹¹    ← retenues
       123₁₀
     +  89₁₀
     -----
@@ -742,7 +890,7 @@ Le fonctionnement de la fonction ``round`` n'est pas unanime entre les mathémat
 
     Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
 
-    Testez votre solution
+    Testez votre solution...
 
     .. solution::
 
