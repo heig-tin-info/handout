@@ -417,25 +417,27 @@
             
   <div class="section" id="operateurs">
 <h1><span class="section-number">5  </span>Opérateurs<a class="headerlink" href="#operateurs" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Un <span class="target" id="index-0"></span>opérateur applique une opération à une (opérateur unitaire), deux ou trois (<span class="target" id="index-1"></span>ternaire) entrées.</p>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><p id="index-2">Le langage C est composé d'une multitude d'opérateurs permettant de modifier les valeurs de variables en mémoire. Un <span class="target" id="index-3"></span>opérateur prend habituellement deux opérandes et retourne un résultat. On dit alors que ces opérateurs ont une <a class="reference external" href="https://fr.wikipedia.org/wiki/Arit%C3%A9">arité</a> de 2. Il existe également des opérateurs à arité de 1 dit <a class="reference external" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire">unaire</a> comme l'opposé d'un nombre réel : <span class="math notranslate nohighlight">\(-x\)</span>.</p>
+<p id="index-4">Dans un ordinateur c'est l'unité de calcul arithmétique <a class="reference external" href="https://fr.wikipedia.org/wiki/Unit%C3%A9_arithm%C3%A9tique_et_logique">ALU</a> qui est en charge d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait effectuer plus de 2'000'000'000 opérations par seconde. Cette unité de calcul est consensuellement représentée comme illustré à la figure <a class="reference internal" href="#ual"><span class="std std-numref">Fig. 5.1</span></a>.</p>
 <div class="figure align-default" id="id3">
-<img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-2"></span>ALU) composée de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+<span id="ual"></span><img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-5"></span>ALU) composée de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
+<p>En admettant que l'opération est l'addition, le code C équivalent serait le suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Un opérateur possède plusieurs propriétés :</p>
+<p>Notons qu'un opérateur possède plusieurs propriétés :</p>
 <dl class="simple">
-<dt>Une <span class="target" id="index-3"></span>priorité</dt><dd><p>La multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code> est plus prioritaire que l'addition <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
+<dt>Une <span class="target" id="index-6"></span>priorité</dt><dd><p>La multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code> est plus prioritaire que l'addition <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 </dd>
-<dt>Une <span class="target" id="index-4"></span>associativité</dt><dd><p>L'opérateur d'affectation possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
+<dt>Une <span class="target" id="index-7"></span>associativité</dt><dd><p>L'opérateur d'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code> possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier</p>
 </dd>
-<dt>Un <span class="target" id="index-5"></span>point de séquence</dt><dd><p>Certains opérateurs comme <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">,</span></code> possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus grande que 12, le test <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> ne sera jamais effectué. L'opérateur <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<dt>Un <span class="target" id="index-8"></span>point de séquence</dt><dd><p>Certains opérateurs comme <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> ou <code class="docutils literal notranslate"><span class="pre">,</span></code> possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> la valeur de <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus grande que 12, le test <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> ne sera jamais effectué. L'opérateur <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
 </dd>
 </dl>
 <div class="section" id="operateurs-relationnels">
 <h2><span class="section-number">5.1  </span>Opérateurs relationnels<a class="headerlink" href="#operateurs-relationnels" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un <strong>boolean</strong> c'est-à-dire que le résultat d'une comparaison est soit <strong>vrai</strong>, soit <strong>faux</strong>.</p>
+<p id="index-9">Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un <strong>boolean</strong> c'est-à-dire que le résultat d'une comparaison est soit <strong>vrai</strong>, soit <strong>faux</strong>.</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-number">Tableau 5.1 </span><span class="caption-text">Opérateurs relationnels</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -483,88 +485,216 @@
 </div>
 <p>Les opérateurs relationnels sont le plus souvent utilisés dans des structures de contrôles :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Egaux&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes sont égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pas égaux&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes ne sont pas égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Programmer c'est être minimaliste, dès lors il serait possible de simplifier l'écriture ci-dessus de la façon suivante :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes %s égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">?</span> <span class="s">&quot;sont&quot;</span> <span class="o">:</span> <span class="s">&quot;ne sont pas&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Dans se cas on utilise l'opérateur ternaire <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code> qui permet de s'affranchir d'une structure de contrôle explicite.</p>
 </div>
 </div>
 <div class="section" id="operateurs-arithmetiques">
 <h2><span class="section-number">5.2  </span>Opérateurs arithmétiques<a class="headerlink" href="#operateurs-arithmetiques" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Aux 4 opérations de base, le C ajoute l'opération <a class="reference external" href="https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)">modulo</a>, qui est le reste d'une division entière.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> Addition</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> Soustraction</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> Multiplication</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> Division</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> Modulo</p></li>
-</ul>
+<p id="index-10">Aux 4 opérations de base, le C ajoute l'opération <a class="reference external" href="https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)">modulo</a>, qui est le reste d'une division entière.</p>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Tableau 5.2 </span><span class="caption-text">Opérateurs arithmétiques</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 44%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Opérateur</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Assertion vraie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Soustraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">==</span> <span class="pre">12</span> <span class="pre">-</span> <span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">==</span> <span class="pre">21</span> <span class="pre">*</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">==</span> <span class="pre">5</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Modulo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">13</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">1</span></code></p></td>
+</tr>
+</tbody>
+</table>
 <p>Attention néanmoins aux types des variables impliquées. La division <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">/</span> <span class="pre">2</span></code> donnera <code class="docutils literal notranslate"><span class="pre">2</span></code> et non <code class="docutils literal notranslate"><span class="pre">2.5</span></code> car les deux valeurs fournies sont entières.</p>
 <p>Le modulo est le reste de la division entière. L'assertion suivante est donc vraie : <code class="docutils literal notranslate"><span class="pre">13</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">1</span></code>, car 13 divisé par 4 égal 3 et il reste 1.</p>
-<p>Les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. L'addition de deux entiers 8 bits <code class="docutils literal notranslate"><span class="pre">120</span> <span class="pre">+</span> <span class="pre">120</span></code> ne fera pas <code class="docutils literal notranslate"><span class="pre">240</span></code> car le type ne permet pas de stocker des valeurs plus grandes que <code class="docutils literal notranslate"><span class="pre">127</span></code>.</p>
+<p>Il est important de noter que les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. Par exemple, l'addition de deux entiers 8 bits <code class="docutils literal notranslate"><span class="pre">120</span> <span class="pre">+</span> <span class="pre">120</span></code> ne fera pas <code class="docutils literal notranslate"><span class="pre">240</span></code> car le type ne permet pas de stocker des valeurs plus grandes que <code class="docutils literal notranslate"><span class="pre">127</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int8_t</span> <span class="n">too_small</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">+</span> <span class="mi">120</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">too_small</span> <span class="o">!=</span> <span class="mi">120</span> <span class="o">+</span> <span class="mi">120</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="operateurs-bit-a-bit">
 <h2><span class="section-number">5.3  </span>Opérateurs bit à bit<a class="headerlink" href="#operateurs-bit-a-bit" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les opérations binaires agissent directement sur les bits d'une entrée :</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> ET arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> OU arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> XOR arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> Décalage à gauche</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> Décalage à droite</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> Inversion binaire</p></li>
-</ul>
+<p>Les opérations binaires agissent directement sur les bits d'une entrée, ils ont été vu en détail au chapitre sur la numération et ils sont listés sur la table <a class="reference internal" href="numeration.html#bitwise-operators"><span class="std std-numref">Tableau 4.2</span></a>.</p>
 </div>
 <div class="section" id="operateurs-d-affectation">
 <h2><span class="section-number">5.4  </span>Opérateurs d'affectation<a class="headerlink" href="#operateurs-d-affectation" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> Affectation simple</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">+=</span></code> Affectation par addition</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-=</span></code> Affectation par soustraction</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*=</span></code> Affectation par multiplication</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/=</span></code> Affectation par division</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">%=</span></code> Affectation par modulo</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code> Affectation par ET arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">|=</span></code> Affectation par OU arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">^=</span></code> Affectation par XOR arithmétique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code> Affectation par décalage à gauche</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> Affectation par décalage à droite</p></li>
-</ul>
-<p>Les opérateurs d'affectation combinés peuvent tous des sucres syntaxiques : <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code> est strictement équivalent à <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.  De la même manière <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;&lt;=</span> <span class="pre">b</span></code> est une autre manière d'écrire <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">&lt;&lt;</span> <span class="pre">b</span></code>.</p>
+<p id="index-11">Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-number">Tableau 5.3 </span><span class="caption-text">Opérateurs d'affectation</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 48%" />
+<col style="width: 17%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Opérateur</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Exemple</p></th>
+<th class="head"><p>Équivalence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>Affectation simple</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
+<td><p>Affectation par addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
+<td><p>Affectation par soustraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
+<td><p>Affectation par multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
+<td><p>Affectation par division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
+<td><p>Affectation par modulo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code></p></td>
+<td><p>Affectation par conjonction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|=</span></code></p></td>
+<td><p>Affectation par disjonction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">^=</span></code></p></td>
+<td><p>Affectation par XOR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code></p></td>
+<td><p>Affectation par décalage gauche</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code></p></td>
+<td><p>Affectation par décalage droite</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">y</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="operateurs-logiques">
 <h2><span class="section-number">5.5  </span>Opérateurs logiques<a class="headerlink" href="#operateurs-logiques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> et <code class="docutils literal notranslate"><span class="pre">|</span></code>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> ET logique</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">||</span></code> OU logique</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <span class="target" id="index-12"></span>ET logique</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">||</span></code> <span class="target" id="index-13"></span>OU logique</p></li>
 </ul>
+<p>Le résultat d'une opération logique est toujours un <span class="target" id="index-14"></span>booléen (valeur 0 ou 1). Ainsi l'expression suivante affecte <code class="docutils literal notranslate"><span class="pre">1</span></code> à <code class="docutils literal notranslate"><span class="pre">x</span></code> : <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">12</span> <span class="pre">&amp;&amp;</span> <span class="pre">3</span> <span class="pre">+</span> <span class="pre">2</span></code>.</p>
 </div>
 <div class="section" id="operateurs-d-incrementation">
 <h2><span class="section-number">5.6  </span>Opérateurs d'incrémentation<a class="headerlink" href="#operateurs-d-incrementation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les opérateurs d'incrémentation sont régulièrement un motif d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">()++</span></code> Post-incrémentation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">++()</span></code> Pré-incrémentation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">()--</span></code> Post-décrémentation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--()</span></code> Pré-décrémentation</p></li>
 </ul>
+<p>La pré-incrémentation ou pré-décrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou pré-décrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.</p>
+<p>Notons qu'on peut toujours décomposer ces opérateurs en deux instructions explicites. Le code :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>est équivalent à :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>De même :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>est équivalent à :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="operateur-ternaire">
 <h2><span class="section-number">5.7  </span>Opérateur ternaire<a class="headerlink" href="#operateur-ternaire" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">()?():()</span></code> Opérateur ternaire</p></li>
-</ul>
+<p>L'opérateur ternaire permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une arité de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">()</span><span class="o">?</span><span class="p">()</span><span class="o">:</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse. <strong>valeur = (condition ? valeur si condition vraie : valeur si condition fausse);</strong></p>
-<p>Important : seule la valeur utilisée pour le résultat est évaluée.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">val_max</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">);</span>  <span class="c1">// retourne la valeur max entre a et b</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Seule la valeur utilisée pour le résultat est évaluée. Par exemple, dans le code <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span> <span class="pre">?</span> <span class="pre">++y</span> <span class="pre">:</span> <span class="pre">++x</span></code>, seulement <code class="docutils literal notranslate"><span class="pre">x</span></code> ou <code class="docutils literal notranslate"><span class="pre">y</span></code> sera incrémenté.</p>
+</div>
+<p>On utilise volontiers cet opérateur lorsque dans les deux cas d'un embranchement, la même valeur est modifiée :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">min</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On remarque dans cet exemple une répétition <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">=</span></code>. Une façon plus élégante et permettant de réduire l'écriture est d'utiliser l'opérateur ternaire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">max</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="operateur-de-transtypage">
 <h2><span class="section-number">5.8  </span>Opérateur de transtypage<a class="headerlink" href="#operateur-de-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">()()</span></code></p></li>
-</ul>
+<p>Le transtypage permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un <strong>type</strong> et le second une <strong>valeur</strong>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">type</span><span class="p">)(</span><span class="n">valeur</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="operateur-sequentiel">
 <h2><span class="section-number">5.9  </span>Opérateur séquentiel<a class="headerlink" href="#operateur-sequentiel" title="Lien permanent vers ce titre">¶</a></h2>
@@ -818,8 +948,8 @@ et post-incrémentation ou post-décrémentation.</p>
 <p>La <strong>précédence</strong> est un anglicisme de <em>precedence</em> (priorité) qui concerne la priorité des opérateurs, ou l'ordre dans lequel les opérateurs sont exécutés. Chacun connaît la priorité des quatre opérateurs de base (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>), mais le C et ses nombreux opérateurs sont bien plus complexes.</p>
 <p>La table suivante indique les règles à suivre pour les précédences des opérateurs en C.
 La précédence</p>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-number">Tableau 5.2 </span><span class="caption-text">Priorité des opérateurs</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-number">Tableau 5.4 </span><span class="caption-text">Priorité des opérateurs</span><a class="headerlink" href="#id7" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 11%" />
 <col style="width: 24%" />
@@ -992,7 +1122,7 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </div>
 <div class="section" id="valeurs-gauches">
 <h2><span class="section-number">5.15  </span>Valeurs gauches<a class="headerlink" href="#valeurs-gauches" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une <span class="target" id="index-6"></span>valeur gauche (<code class="docutils literal notranslate"><span class="pre">lvalue</span></code>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
+<p>Une <span class="target" id="index-15"></span>valeur gauche (<code class="docutils literal notranslate"><span class="pre">lvalue</span></code>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>    <span class="c1">// (1)</span>
@@ -1020,7 +1150,7 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 </div>
 <div class="section" id="optimisation">
 <h2><span class="section-number">5.16  </span>Optimisation<a class="headerlink" href="#optimisation" title="Lien permanent vers ce titre">¶</a></h2>
-<p id="index-7">Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code class="docutils literal notranslate"><span class="pre">-O2</span></code> sous <code class="docutils literal notranslate"><span class="pre">gcc</span></code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
+<p id="index-16">Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code class="docutils literal notranslate"><span class="pre">-O2</span></code> sous <code class="docutils literal notranslate"><span class="pre">gcc</span></code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
 <p>Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
@@ -1123,7 +1253,7 @@ $ ./armstrong 154
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 25 août 2020 (version v0.3.0-5-gec21100).
+    Mis à jour le 26 août 2020 (version v0.3.0-6-g96e4526).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

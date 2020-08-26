@@ -2,30 +2,44 @@
 Opérateurs
 ==========
 
-Un :index:`opérateur` applique une opération à une (opérateur unitaire), deux ou trois (:index:`ternaire`) entrées.
+.. index:: opérateur
+.. index:: arité
+.. index:: unaire
+
+Le langage C est composé d'une multitude d'opérateurs permettant de modifier les valeurs de variables en mémoire. Un :index:`opérateur` prend habituellement deux opérandes et retourne un résultat. On dit alors que ces opérateurs ont une `arité <https://fr.wikipedia.org/wiki/Arit%C3%A9>`_ de 2. Il existe également des opérateurs à arité de 1 dit `unaire <https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire>`_ comme l'opposé d'un nombre réel : :math:`-x`.
+
+.. index:: ALU
+
+Dans un ordinateur c'est l'unité de calcul arithmétique `ALU <https://fr.wikipedia.org/wiki/Unit%C3%A9_arithm%C3%A9tique_et_logique>`_ qui est en charge d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait effectuer plus de 2'000'000'000 opérations par seconde. Cette unité de calcul est consensuellement représentée comme illustré à la figure :numref:`ual`.
+
+.. _ual:
 
 .. figure:: ../../assets/figures/dist/processor/alu.*
     :alt: ALU
 
     Unité de calcul arithmétique (:index:`ALU`) composée de deux entrées ``A`` et ``B``, d'une sortie ``C`` et d'un mode opératoire ``O``.
 
+En admettant que l'opération est l'addition, le code C équivalent serait le suivant :
+
 .. code-block:: c
 
     c = a + b;
 
-Un opérateur possède plusieurs propriétés :
+Notons qu'un opérateur possède plusieurs propriétés :
 
 Une :index:`priorité`
     La multiplication ``*`` est plus prioritaire que l'addition ``+``
 
 Une :index:`associativité`
-    L'opérateur d'affectation possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
+    L'opérateur d'affectation ``=`` possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
 
 Un :index:`point de séquence`
     Certains opérateurs comme ``&&``, ``||``, ``?`` ou ``,`` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression ``i < 12 && j > 2`` la valeur de ``i`` est plus grande que 12, le test ``j > 2`` ne sera jamais effectué. L'opérateur ``&&`` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation ``=``.
 
 Opérateurs relationnels
 =======================
+
+.. index:: opérateur relationnel
 
 Les opérateurs relationnels permettent de comparer deux entités. Le résultat d'un opérateur relationnel est toujours un **boolean** c'est-à-dire que le résultat d'une comparaison est soit **vrai**, soit **faux**.
 
@@ -54,88 +68,167 @@ Les opérateurs relationnels sont le plus souvent utilisés dans des structures 
 .. code-block:: c
 
     if (a == b) {
-        printf("Egaux");
+        printf("Les opérandes sont égaux.\n");
     } else {
-        printf("Pas égaux");
+        printf("Les opérandes ne sont pas égaux.\n");
     }
+
+.. note::
+
+    Programmer c'est être minimaliste, dès lors il serait possible de simplifier l'écriture ci-dessus de la façon suivante :
+
+    .. code-block:: c
+
+        printf("Les opérandes %s égaux.\n", a == b ? "sont" : "ne sont pas");
+
+    Dans se cas on utilise l'opérateur ternaire ``? :`` qui permet de s'affranchir d'une structure de contrôle explicite.
 
 Opérateurs arithmétiques
 ========================
 
+.. index:: modulo
+
 Aux 4 opérations de base, le C ajoute l'opération `modulo <https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)>`__, qui est le reste d'une division entière.
 
-- ``+`` Addition
-- ``-`` Soustraction
-- ``*`` Multiplication
-- ``/`` Division
-- ``%`` Modulo
+.. table:: Opérateurs arithmétiques
+
+    =========  =====================  ==================
+    Opérateur  Description            Assertion vraie
+    =========  =====================  ==================
+    ``+``      Addition               ``5 == 2 + 3``
+    ``-``      Soustraction           ``8 == 12 - 4``
+    ``*``      Multiplication         ``42 == 21 * 2``
+    ``/``      Division               ``2 == 5 / 2``
+    ``%``      Modulo                 ``13 % 4 == 1``
+    =========  =====================  ==================
 
 Attention néanmoins aux types des variables impliquées. La division ``5 / 2`` donnera ``2`` et non ``2.5`` car les deux valeurs fournies sont entières.
 
 Le modulo est le reste de la division entière. L'assertion suivante est donc vraie : ``13 % 4 == 1``, car 13 divisé par 4 égal 3 et il reste 1.
 
-Les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. L'addition de deux entiers 8 bits ``120 + 120`` ne fera pas ``240`` car le type ne permet pas de stocker des valeurs plus grandes que ``127``.
+Il est important de noter que les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. Par exemple, l'addition de deux entiers 8 bits ``120 + 120`` ne fera pas ``240`` car le type ne permet pas de stocker des valeurs plus grandes que ``127`` :
+
+.. code-block:: c
+
+    int8_t too_small = 120 + 120;
+    assert(too_small != 120 + 120);
 
 Opérateurs bit à bit
 ====================
 
-Les opérations binaires agissent directement sur les bits d'une entrée :
-
-- ``&`` ET arithmétique
-- ``|`` OU arithmétique
-- ``^`` XOR arithmétique
-- ``<<`` Décalage à gauche
-- ``>>`` Décalage à droite
-- ``~`` Inversion binaire
+Les opérations binaires agissent directement sur les bits d'une entrée, ils ont été vu en détail au chapitre sur la numération et ils sont listés sur la table :numref:`bitwise-operators`.
 
 Opérateurs d'affectation
 ========================
 
-- ``=`` Affectation simple
-- ``+=`` Affectation par addition
-- ``-=`` Affectation par soustraction
-- ``*=`` Affectation par multiplication
-- ``/=`` Affectation par division
-- ``%=`` Affectation par modulo
-- ``&=`` Affectation par ET arithmétique
-- ``|=`` Affectation par OU arithmétique
-- ``^=`` Affectation par XOR arithmétique
-- ``<<=`` Affectation par décalage à gauche
-- ``>>=`` Affectation par décalage à droite
+.. index:: sucre syntaxique
 
-Les opérateurs d'affectation combinés peuvent tous des sucres syntaxiques : ``a += b`` est strictement équivalent à ``a = a + b``.  De la même manière ``a <<= b`` est une autre manière d'écrire ``a = a << b``.
+Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une variable. En C il existe des sucres syntaxiques permettant de simplifier l'écriture lorsqu'une affectation est couplée à un autre opérateur.
+
+.. table:: Opérateurs d'affectation
+
+    =========  ===============================  ===========  ==============
+    Opérateur  Description                      Exemple      Équivalence
+    =========  ===============================  ===========  ==============
+    ``=``      Affectation simple               ``x = y``    ``x = y``
+    ``+=``     Affectation par addition         ``x += y``   ``x = x + y``
+    ``-=``     Affectation par soustraction     ``x -= y``   ``x = x - y``
+    ``*=``     Affectation par multiplication   ``x *= y``   ``x = x * y``
+    ``/=``     Affectation par division         ``x /= y``   ``x = x / y``
+    ``%=``     Affectation par modulo           ``x %= y``   ``x = x % y``
+    ``&=``     Affectation par conjonction      ``x &= y``   ``x = x & y``
+    ``|=``     Affectation par disjonction      ``x |= y``   ``x = x | y``
+    ``^=``     Affectation par XOR              ``x ^= y``   ``x = x ^ y``
+    ``<<=``    Affectation par décalage gauche  ``x <<= y``  ``x = x << y``
+    ``>>=``    Affectation par décalage droite  ``x >>= y``  ``x = x >> y``
+    =========  ===============================  ===========  ==============
 
 Opérateurs logiques
 ===================
 
-- ``&&`` ET logique
-- ``||`` OU logique
+Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères ``&`` et ``|``.
+
+- ``&&`` :index:`ET logique`
+- ``||`` :index:`OU logique`
+
+Le résultat d'une opération logique est toujours un :index:`booléen` (valeur 0 ou 1). Ainsi l'expression suivante affecte ``1`` à ``x`` : ``x = 12 && 3 + 2``.
 
 Opérateurs d'incrémentation
 ===========================
+
+Les opérateurs d'incrémentation sont régulièrement un motif d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :
 
 - ``()++`` Post-incrémentation
 - ``++()`` Pré-incrémentation
 - ``()--`` Post-décrémentation
 - ``--()`` Pré-décrémentation
 
-Opérateur ternaire
-==================
+La pré-incrémentation ou pré-décrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou pré-décrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.
 
-- ``()?():()`` Opérateur ternaire
-
-Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse. **valeur = (condition ? valeur si condition vraie : valeur si condition fausse);**
-
-Important : seule la valeur utilisée pour le résultat est évaluée.
+Notons qu'on peut toujours décomposer ces opérateurs en deux instructions explicites. Le code :
 
 .. code-block:: c
 
-    val_max = (a > b ? a : b);  // retourne la valeur max entre a et b
+    y = x++;
+
+est équivalent à :
+
+.. code-block:: c
+
+    y = x;
+    x = x + 1;
+
+De même :
+
+.. code-block:: c
+
+    y = ++x;
+
+est équivalent à :
+
+.. code-block:: c
+
+    x = x + 1;
+    y = x;
+
+Opérateur ternaire
+==================
+
+L'opérateur ternaire permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une arité de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
+
+.. code-block:: c
+
+    ()?():()
+
+Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse. **valeur = (condition ? valeur si condition vraie : valeur si condition fausse);**
+
+.. note::
+
+    Seule la valeur utilisée pour le résultat est évaluée. Par exemple, dans le code ``x > y ? ++y : ++x``, seulement ``x`` ou ``y`` sera incrémenté.
+
+On utilise volontiers cet opérateur lorsque dans les deux cas d'un embranchement, la même valeur est modifiée :
+
+.. code-block:: c
+
+    if (a > b)
+        max = a;
+    else
+        min = b;
+
+On remarque dans cet exemple une répétition ``max =``. Une façon plus élégante et permettant de réduire l'écriture est d'utiliser l'opérateur ternaire :
+
+.. code-block:: c
+
+    max = a > b ? a : b;
 
 Opérateur de transtypage
 ========================
 
-- ``()()``
+Le transtypage permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un **type** et le second une **valeur**.
+
+.. code-block:: c
+
+    (type)(valeur)
 
 Opérateur séquentiel
 ====================
