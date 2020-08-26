@@ -586,6 +586,8 @@ Opérations bit à bit
 
 Les :index:`opérations bit à bit` (*bitwise*) disponibles en C sont les suivantes :
 
+.. _bitwise-operators:
+
 .. table:: Opérateurs bit à bit
 
     +-----------+-------------------+---------------------------------+
