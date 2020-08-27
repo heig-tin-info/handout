@@ -224,11 +224,22 @@ On remarque dans cet exemple une répétition ``max =``. Une façon plus éléga
 Opérateur de transtypage
 ========================
 
-Le transtypage permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un **type** et le second une **valeur**.
+.. index:: cast
+
+Le :index:`transtypage` ou *cast* permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un **type** et le second une **valeur**.
 
 .. code-block:: c
 
     (type)(valeur)
+
+Dans l'exemple suivant, le résultat de la division est un entier car la promotion implicite de type reste un entier ``int``. La valeur ``c`` vaudra donc le résultat de la division entière alors que dans le second cas, ``b`` est *casté* en un ``double`` ce qui force une division en virgule flottante.
+
+.. code-block:: c
+
+    int a = 5, b = 2;
+    double c = a / b;
+    double d = a / (double)(b);
+    assert(c == 2.0 && d == 2.5);
 
 Opérateur séquentiel
 ====================
@@ -261,197 +272,48 @@ L'opérateur agit également comme un :ref:`Point de séquence <sequence_point>`
 Opérateur sizeof
 ================
 
-- ``sizeof``
+.. index:: sizeof
 
-Les opérateurs logiques
-=======================
-
-Ils permettent de coupler des opérateurs de comparaison entre eux pour
-effectuer des tests un peu plus complexes.
-
-ET logique
-----------
+Cet opérateur est *unaire* et retourne la taille en **byte** de la variable ou du type passé en argument. Il n'existe pas de symbole particulier et son usage est très similaire à l'appel d'une fonction :
 
 .. code-block:: c
 
-    resultat = condition1 && condition2;
+    int32_t foo = 42;
+    assert(sizeof(foo) == 4);
+    assert(sizeof(int64_t) == 64 / 8);
 
-Table de vérité
-
-+--------------+--------------+------------+
-| Condition 1  | Condition 2  | résultat   |
-+==============+==============+============+
-| 0            | 0            | 0          |
-+--------------+--------------+------------+
-| 0            | 1            | 0          |
-+--------------+--------------+------------+
-| 1            | 0            | 0          |
-+--------------+--------------+------------+
-| 1            | 1            | 1          |
-+--------------+--------------+------------+
-
-OU logique
-----------
+L'opérateur ``sizeof`` est très utile durant le débogage pour connaître la taille en mémoire d'une variable ou celle d'un type. On l'utilise en pratique pour connaître la taille d'un tableau lors d'une boucle itérative :
 
 .. code-block:: c
 
-    resultat = condition1 || condition2;
+    int32_t array[128];
+    for (int i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
+       array[i] = i * 10;
+    }
 
-Table de vérité
+Dans l'exemple ci-dessus, ``sizeof(array)`` retourne la taille de l'espace mémoire occupé par le tableau ``array``, soit :math:`128 \cdot 4` bytes. Pour obtenir le nombre d'éléments dans le tableau, il faut alors diviser ce résultat par la taille effective de chaque élément du tableau. L'élément ``array[0]`` est donc un ``int32_t`` et sa taille vaut donc 4 bytes.
 
-+--------------+--------------+------------+
-| Condition 1  | Condition 2  | Résultat   |
-+==============+==============+============+
-| 0            | 0            | 0          |
-+--------------+--------------+------------+
-| 0            | 1            | 1          |
-+--------------+--------------+------------+
-| 1            | 0            | 1          |
-+--------------+--------------+------------+
-| 1            | 1            | 1          |
-+--------------+--------------+------------+
+.. note::
 
-Inversion logique
------------------
-
-.. code-block:: c
-
-    resultat = !condition1;
-
-Table de vérité
-
-+--------------+------------+
-| Condition    | Résultat   |
-+==============+============+
-| 0            | 1          |
-+--------------+------------+
-| 1            | 0          |
-+--------------+------------+
-
-Les opérateurs bit à bit
-========================
-
-Ils permettent d'effectuer des opérations binaires bit à bit sur des
-types entiers.
-
-Inversion logique ou complément à 1
------------------------------------
-
-C'est un opérateur unaire dont l'écriture est :
-
-.. code-block:: c
-
-    uint8_t a=0x55; // 0101 0101 (binaire)
-    uint8_t r=0x00;
-
-    r = ~a; // résultat r=0xAA (1010 1010)
-
-ET logique
-----------
-
-.. code-block:: c
-
-    uint8_t a=0x55; // 0101 0101 (binaire)
-    uint8_t b=0x0F; // 0000 1111
-    uint8_t r=0x00;
-
-    r = a & b;  // résultat r=0x05 (0000 0101)
-
-OU logique
-----------
-
-.. code-block:: c
-
-    uint8_t a=0x55; // 0101 0101 (binaire)
-    uint8_t b=0x0F; // 0000 1111
-    uint8_t r=0x00;
-
-    r = a | b;  // résultat r=0x5F (0101 1111)
-
-OU EXCLUSIF logique
--------------------
-
-.. code-block:: c
-
-    uint8_t a=0x55; // 0101 0101 (binaire)
-    uint8_t b=0x0F; // 0000 1111
-    uint8_t r=0x00;
-
-    r = a ^ b;  // résultat r=0x5A (0101 1010)
-
-Décalage à droite
------------------
-
-.. code-block:: c
-
-    uint8_t a=0xAA; // 1010 1010 (binaire)
-    uint8_t r=0x00;
-
-    r = a >> 1  // résultat r=0x55 (0101 0101)
-
-Pour le décalage à droite de valeurs signées, le signe est conservé.
-Cette opération s'apparente à une division par 2.
-
-Décalage à gauche
------------------
-
-.. code-block:: c
-
-    uint8_t a=0xAA; // 1010 1010 (binaire)
-    uint8_t r=0x00;
-
-    r = a << 1  // résultat r=0x54 (0101 0100)
-
-Cette opération s'apparente à une multiplication par 2.
-
-Les opérateurs d'incrémentation (++) et de décrémentation (--)
-==============================================================
-
-Ces opérateurs, qui ne s'appliquent que sur des nombres entiers,
-permettent d'ajouter 1 ou de retrancher 1 à une variable, et ce de
-manière optimisée pour le processeur qui exécute le programme.
-
-Ils peuvent, en outre, être exécutés avant ou après l'évaluation de
-l'opération. On parle alors de pré incrémentation ou pré décrémentation
-et post-incrémentation ou post-décrémentation.
-
-- pré incrémentation
+    Dans l'exemple ci-dessus, il est possible de s'affranchir de la taille effective du tableau en utilisant une sentinelle. Si le dernier élément du tableau à une valeur particulière et que le reste est initialisé à zéro, il suffit de parcourir le tableau jusqu'à cette valeur :
 
     .. code-block:: c
 
-        int32_t i=0, j=0;
+        int32_t array[128] = { [127]=-1 };
+        int i = 0;
+        while (array[i] != -1) {
+            array[i++] = i * 10;
+        }
 
-        j = ++i;    // on obtient i=1 et j=1
-
-- post-incrémentation
-
-    .. code-block:: c
-
-        int32_t i=0, j=0;
-
-        j = i++;    // on obtient i=1 et j=0
-
-- pré décrémentation
-
-    .. code-block:: c
-
-        int32_t i=0, j=0;
-
-        j = --i;    // on obtient i=-1 et j=-1
-
-- post-décrémentation
-
-    .. code-block:: c
-
-        int32_t i=0, j=0;
-
-        j = i--;    // on obtient i=-1 et j=0
-
+    Cette écriture reste malgré tout très mauvaise car le tableau de 128 éléments doit être initialisé à priori ce qui mène aux mêmes performances. D'autre part l'histoire racontée par le développeur est moins claire que la première implémentation.
 
 .. _precedence:
 
 Priorité des opérateurs
 =======================
+
+.. index:: précédence
+.. index:: priorité des opérateurs
 
 La **précédence** est un anglicisme de *precedence* (priorité) qui concerne la priorité des opérateurs, ou l'ordre dans lequel les opérateurs sont exécutés. Chacun connaît la priorité des quatre opérateurs de base (``+``, ``-``, ``*``, ``/``), mais le C et ses nombreux opérateurs sont bien plus complexes.
 
@@ -535,7 +397,7 @@ Selon la précédence de chaque opérateur ainsi que son associativité on a :
 
 .. code-block:: text
 
-    [ ] 1
+    []  1
     ++  2
     /   3
     +   4
@@ -553,11 +415,13 @@ L'écriture en notation polonaise inversée donnerait alors
 Associativité
 -------------
 
+.. index:: associativité
+
 L'associativité des opérateurs (`operator associativity <https://en.wikipedia.org/wiki/Operator_associativity>`__) décrit la manière dont sont évaluées les expressions.
 
-Une associativité à gauche pour l'opérateur `~` signifie que l'expression ``a ~ b ~ c`` sera évaluée ``((a) ~ b) ~ c`` alors qu'une associativité à droite sera ``a ~ (b ~ (c))``.
+Une associativité à gauche pour l'opérateur ``~`` signifie que l'expression ``a ~ b ~ c`` sera évaluée ``((a) ~ b) ~ c`` alors qu'une associativité à droite sera ``a ~ (b ~ (c))``.
 
-Il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
+Note qu'il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
 
 Représentation mémoire des types de données
 -------------------------------------------
@@ -581,6 +445,8 @@ La **promotion** est l'action de promouvoir un type de donnée en un autre type 
 Valeurs gauches
 ===============
 
+.. index:: lvalue
+
 Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans ``x = y``, ``x`` est une valeur gauche. Néanmoins, l'expression ``x = y`` est aussi une valeur gauche :
 
 .. code-block:: c
@@ -593,11 +459,11 @@ Une :index:`valeur gauche` (``lvalue``) est une particularité de certains langa
 1. L'associativité de ``=`` est à droite donc cette expression est équivalente à ``x = (y = (z))`` qui évite toute ambiguïté.
 2. En forçant l'associativité à gauche, on essaie d'assigner ``z`` à une *lvalue* et le compilateur s'en plaint :
 
-    .. code-block:: text
+   .. code-block:: text
 
-        4:8: error: lvalue required as left operand of assignment
-            (x = y) = z;
-                    ^
+       4:8: error: lvalue required as left operand of assignment
+         (x = y) = z;
+                 ^
 
 Voici quelques exemples de valeurs gauches :
 
@@ -686,9 +552,9 @@ De même que ce test n'effectuera pas une division, mais testera simplement le d
 
     Un nombre narcissique ou `nombre d'Amstrong <https://fr.wikipedia.org/wiki/Nombre_narcissique>`__ est  un entier naturel ``n`` non nul qui est égal à la somme des puissances ``p``-ièmes de ses chiffres en base dix, où ``p`` désigne le nombre de chiffres de ``n``:
 
-        .. math::
+    .. math::
 
-            n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
+        n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
 
     Par exemple :
 
