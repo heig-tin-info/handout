@@ -22,7 +22,7 @@ extensions = [
     'exercises',
     'unicode',
     'appendix',
-    'gtag',
+    #'gtag',
     'hlist',
     'fix-short-caption',
     'fix-literal-block'

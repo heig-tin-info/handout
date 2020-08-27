@@ -372,6 +372,20 @@ def depart_rubric(self, node):
 def get_visitors(element, builders=[HTMLVisitors, LaTeXVisitors, ManVisitors]):
     return {builder.name: builder.get_pair(element) for builder in builders}
 
+def add_css_context(app, pathname, templatename, context, doctree):
+    header = """
+    <style type="text/css">
+        p.rubric {
+            font-weight: bold;
+        }
+
+        p.rubric:hover > a.headerlink {
+            visibility: visible;
+        }
+    </style>
+    """
+    context["metatags"] = header
+
 def setup(app):
     app.add_message_catalog(__name__, path.join(package_dir, 'locales'))
 
@@ -388,7 +402,7 @@ def setup(app):
 
     app.connect('config-inited', check_config)
     app.connect('env-updated', build_finished)
-
+    app.connect("html-page-context", add_css_context)
     app.add_env_collector(Collect)
     app.add_post_transform(RenameExercises)
     app.add_post_transform(SolutionsChapter)

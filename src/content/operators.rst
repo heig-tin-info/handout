@@ -194,7 +194,9 @@ est équivalent à :
 Opérateur ternaire
 ==================
 
-L'opérateur ternaire permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une arité de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
+.. index:: opérateur ternaire
+
+L'opérateur ternaire aussi appelé :index:`opérateur conditionnel` permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une :index:`arité` de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
 
 .. code-block:: c
 
