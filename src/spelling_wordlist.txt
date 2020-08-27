@@ -11,6 +11,7 @@ around
 autodocumentation
 back
 Backus
+Balrog
 Barto
 Bash
 Bern
@@ -64,6 +65,7 @@ from
 fseek
 ftell
 Galton
+Gandalf
 gcc
 géocentré
 GFlops
