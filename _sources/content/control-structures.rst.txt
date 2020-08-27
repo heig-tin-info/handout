@@ -15,6 +15,8 @@ Ces structures de contrôles sont toujours composées de :
 - Répétitions
 - Appels de fonctions
 
+Sans :index:`structure de contrôle`, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
+
 Séquences
 =========
 
@@ -24,7 +26,7 @@ En C, chaque instruction est séparée de la suivante par un point virgule ``;``
 
     k = 8; k *= 2;
 
-Une séquence est une suite d'instructions regroupées en un bloc matérialisé par des accolades ``{}``:
+Une :index:`séquence` est une suite d'instructions regroupées en un bloc matérialisé par des accolades ``{}``:
 
 .. code-block:: c
 
@@ -40,6 +42,8 @@ Une séquence est une suite d'instructions regroupées en un bloc matérialisé 
 Les embranchements
 ==================
 
+.. index:: embranchement
+
 Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix *vrai* et un choix *faux*, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :
 
 1. ``if``, ``if else``
@@ -51,7 +55,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)
 
-Les embranchements s'appuient sur les séquences :
+Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence regroupant le code la composant :
 
 .. code-block:: c
 
@@ -66,6 +70,8 @@ Les embranchements s'appuient sur les séquences :
 
 if..else
 --------
+
+.. index:: if..else, if, else
 
 Le mot clé ``if`` est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le ``else`` est exécuté.
 
@@ -216,12 +222,59 @@ L'instruction ``if`` permet également l'embranchement multiple, lorsque les con
         if (!((i < 8) || (i > 8)))
             printf("i vaut 8\n");
 
+.. note::
+
+    Notons que formellement, la grammaire C ne connait pas ``else if`` il s'agit d'une construction implicite dans laquelle un ``if`` ou ``if..else`` est la condition du ``else`` parent. Hiérarchiquement, on devrait écrire :
+
+    .. code-block:: c
+
+        if (x)
+            a = 1;
+        else
+            if (y)
+                a = 2;
+            else
+                if (z)
+                    a = 3;
+                else
+                    a = 4;
+
+    Pour preuve, il suffit de jeter un oeil à la grammaire C :
+
+    .. code-block:: text
+
+        selection_statement
+            : IF '(' expression ')' statement
+            | IF '(' expression ')' statement ELSE statement
+            | SWITCH '(' expression ')' statement
+            ;
+
+
 .. _switch:
 
 ``switch``
 ----------
 
-L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire, l'instruction ``switch`` peut-être utilisée :
+.. index:: switch
+
+L'instruction ``switch`` n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un ``switch`` :
+
+.. code-block:: c
+
+    if (defcon == 1)
+        printf("Guerre nucléaire imminente");
+    else if (defcon == 2)
+        printf("Prochaine étape, guerre nucléaire");
+    else if (defcon == 3)
+        printf("Accroissement de la préparation des forces");
+    else if (defcon == 4)
+        printf("Mesures de sécurité renforcées et renseignements accrus");
+    else if (defcon == 5
+        printf("Rien à signaler, temps de paix");
+    else
+        printf("ERREUR: Niveau d'alerte DEFCON invalide");
+
+Voici l'expression utilisant ``switch``. Notez que chaque condition est plus clair :
 
 .. code-block:: c
 
@@ -246,11 +299,11 @@ L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire,
             printf("ERREUR: Niveau d'alerte DEFCON invalide");
     }
 
+.. index:: default, break
+
 La valeur par défaut ``default`` est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.
 
-La structure d'un ``switch`` est composée d'une condition ``switch (condition)`` suivie d'une séquence ``{}``. Les instructions de cas ``case 42:`` sont appelés *labels*. L'instruction ``break`` termine l'exécution de la séquence ``switch``.
-
-Les labels peuvent être chaînés sans instructions intermédiaires ni ``break``:
+La structure d'un ``switch`` est composée d'une condition ``switch (condition)`` suivie d'une séquence ``{}``. Les instructions de cas ``case 42:`` sont appelés *labels*. Notez la présence de l'instruction ``break`` qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni ``break``:
 
 .. code-block:: c
 
@@ -281,7 +334,9 @@ Notons quelques observations :
 Les boucles
 ===========
 
-Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
+Une :index:`boucle` est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
+
+.. index:: for, while, do..while
 
 - ``for``
 - ``while``

@@ -4,15 +4,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <style type="text/css">
+        p.rubric {
+            font-weight: bold;
+        }
 
-      gtag('config', 'UA-145664552-1');
-    </script>
+        p.rubric:hover > a.headerlink {
+            visibility: visible;
+        }
+    </style>
     
       <title>Index</title>
     
@@ -404,7 +404,7 @@
 <h2 id="Symboles">Symboles</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="content/operators.html#index-23">-O2</a>
+      <li><a href="content/operators.html#index-26">-O2</a>
 </li>
       <li><a href="content/programming.html#index-2">1801</a>
 </li>
@@ -468,11 +468,11 @@
 </li>
       <li><a href="content/introduction.html#index-26">apprendre</a>
 </li>
-      <li><a href="content/operators.html#index-1">arité</a>
+      <li><a href="content/operators.html#index-1">arité</a>, <a href="content/operators.html#index-17">[1]</a>
 </li>
       <li><a href="content/numeration.html#index-15">arrondi</a>
 </li>
-      <li><a href="content/operators.html#index-20">associativité</a>, <a href="content/operators.html#index-7">[1]</a>
+      <li><a href="content/operators.html#index-23">associativité</a>, <a href="content/operators.html#index-7">[1]</a>
 </li>
       <li><a href="content/foundations.html#index-6">auto</a>, <a href="content/scopes.html#index-0">[1]</a>
 </li>
@@ -500,11 +500,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content/datatype.html#index-16">booléens</a>
 </li>
+      <li><a href="content/control-structures.html#index-6">boucle</a>
+</li>
       <li><a href="content/datatype.html#index-2">boutisme</a>
 </li>
       <li><a href="backmatter/glossary.html#term-BPMN"><strong>BPMN</strong></a>
 </li>
-      <li><a href="content/foundations.html#index-6">break</a>
+      <li><a href="content/control-structures.html#index-5">break</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
       <li><a href="content/introduction.html#index-4">Brian Kernighan</a>
 </li>
@@ -538,7 +540,7 @@
 </li>
       <li><a href="content/foundations.html#index-8">casse</a>
 </li>
-      <li><a href="content/operators.html#index-15">cast</a>
+      <li><a href="content/operators.html#index-18">cast</a>
 </li>
       <li><a href="content/numeration.html#index-10">CDC6600</a>
 </li>
@@ -599,15 +601,17 @@
 </li>
       <li><a href="content/numeration.html#index-14">De Morgan</a>
 </li>
-      <li><a href="content/foundations.html#index-6">default</a>
+      <li><a href="content/control-structures.html#index-5">default</a>, <a href="content/foundations.html#index-6">[1]</a>
+</li>
+      <li><a href="content/foundations.html#index-11">déclaration</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="content/foundations.html#index-11">déclaration</a>
-</li>
       <li><a href="content/foundations.html#index-3">digraphes</a>
 </li>
       <li><a href="content/foundations.html#index-6">do</a>
+</li>
+      <li><a href="content/control-structures.html#index-7">do..while</a>
 </li>
       <li><a href="content/foundations.html#index-6">double</a>
 </li>
@@ -619,7 +623,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content/introduction.html#index-23">Ed</a>
 </li>
-      <li><a href="content/foundations.html#index-6">else</a>
+      <li><a href="content/control-structures.html#index-3">else</a>, <a href="content/foundations.html#index-6">[1]</a>
+</li>
+      <li><a href="content/control-structures.html#index-2">embranchement</a>
 </li>
       <li><a href="content/datatype.html#index-2">endianess</a>
 </li>
@@ -627,10 +633,10 @@
 </li>
       <li><a href="content/datatype.html#index-4">entiers naturels</a>
 </li>
-      <li><a href="content/numeration.html#index-8">Entiers relatifs</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/numeration.html#index-8">Entiers relatifs</a>
+</li>
       <li><a href="content/foundations.html#index-6">enum</a>
 </li>
       <li><a href="content/foundations.html#index-4">EOL</a>
@@ -661,7 +667,7 @@
 </li>
       <li><a href="content/data-structures.html#index-9">Floyd</a>
 </li>
-      <li><a href="content/foundations.html#index-6">for</a>
+      <li><a href="content/control-structures.html#index-7">for</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -701,12 +707,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content/foundations.html#index-7">identificateur</a>
 </li>
-      <li><a href="content/foundations.html#index-6">if</a>
+      <li><a href="content/control-structures.html#index-3">if</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
-      <li><a href="content/foundations.html#index-6">inline</a>
+      <li><a href="content/control-structures.html#index-3">if..else</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/foundations.html#index-6">inline</a>
+</li>
       <li><a href="content/foundations.html#index-6">int</a>
 </li>
       <li><a href="content/datatype.html#index-1">ISO 80000-2</a>
@@ -765,7 +773,7 @@
 </li>
       <li><a href="content/introduction.html#index-43">ls</a>
 </li>
-      <li><a href="content/operators.html#index-21">lvalue</a>
+      <li><a href="content/operators.html#index-24">lvalue</a>
 </li>
   </ul></td>
 </tr></table>
@@ -809,10 +817,14 @@
 </li>
       <li><a href="content/operators.html#index-0">opérateur</a>, <a href="content/operators.html#index-3">[1]</a>
 </li>
+      <li><a href="content/operators.html#index-16">opérateur conditionnel</a>
+</li>
       <li><a href="content/operators.html#index-9">opérateur relationnel</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/operators.html#index-15">opérateur ternaire</a>
+</li>
       <li><a href="content/numeration.html#index-13">opérations bit à bit</a>
 </li>
       <li><a href="content/programming.html#index-7">ordinateur</a>
@@ -841,7 +853,7 @@
 </li>
       <li><a href="backmatter/glossary.html#term-POSIX"><strong>POSIX</strong></a>
 </li>
-      <li><a href="content/operators.html#index-18">précédence</a>
+      <li><a href="content/operators.html#index-21">précédence</a>
 </li>
       <li><a href="content/datatype.html#index-10">précision simple</a>
 </li>
@@ -858,7 +870,7 @@
       </ul></li>
       <li><a href="content/operators.html#index-6">priorité</a>
 </li>
-      <li><a href="content/operators.html#index-19">priorité des opérateurs</a>
+      <li><a href="content/operators.html#index-22">priorité des opérateurs</a>
 </li>
       <li><a href="content/programming.html#index-0">programmation</a>
 </li>
@@ -912,11 +924,13 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/control-structures.html#index-1">séquence</a>
+</li>
       <li><a href="content/foundations.html#index-6">short</a>
 </li>
       <li><a href="content/foundations.html#index-6">signed</a>
 </li>
-      <li><a href="content/foundations.html#index-6">sizeof</a>, <a href="content/operators.html#index-17">[1]</a>
+      <li><a href="content/foundations.html#index-6">sizeof</a>, <a href="content/operators.html#index-20">[1]</a>
 </li>
       <li><a href="content/introduction.html#index-10">standardisation</a>
 </li>
@@ -926,9 +940,11 @@
 </li>
       <li><a href="content/composite-datatypes.html#index-0">struct</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
+      <li><a href="content/control-structures.html#index-0">structure de contrôle</a>
+</li>
       <li><a href="content/operators.html#index-11">sucre syntaxique</a>
 </li>
-      <li><a href="content/foundations.html#index-6">switch</a>
+      <li><a href="content/control-structures.html#index-4">switch</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
       <li><a href="content/numeration.html#index-2">système décimal</a>
 </li>
@@ -960,7 +976,7 @@
 </li>
       <li><a href="content/introduction.html#index-35">transcription</a>
 </li>
-      <li><a href="content/operators.html#index-16">transtypage</a>
+      <li><a href="content/operators.html#index-19">transtypage</a>
 </li>
       <li><a href="content/foundations.html#index-3">trigraphes</a>
 </li>
@@ -1002,7 +1018,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="content/foundations.html#index-10">valeur</a>
 </li>
-      <li><a href="content/operators.html#index-22">valeur gauche</a>
+      <li><a href="content/operators.html#index-25">valeur gauche</a>
 </li>
       <li><a href="content/foundations.html#index-9">variable</a>
 </li>
@@ -1032,7 +1048,7 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="content/foundations.html#index-6">while</a>
+      <li><a href="content/control-structures.html#index-7">while</a>, <a href="content/foundations.html#index-6">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1048,7 +1064,7 @@
             <div class="inner"><ul class="page-nav">
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 27 août 2020 (version v0.3.0-7-g6bb5d29).
+    Mis à jour le 27 août 2020 (version v0.3.0-8-ga086960).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

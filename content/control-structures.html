@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <style type="text/css">
+        p.rubric {
+            font-weight: bold;
+        }
 
-      gtag('config', 'UA-145664552-1');
-    </script>
+        p.rubric:hover > a.headerlink {
+            visibility: visible;
+        }
+    </style>
     
       <title>7 Structures de contrôle</title>
     
@@ -406,13 +406,14 @@
 <li><p>Répétitions</p></li>
 <li><p>Appels de fonctions</p></li>
 </ul>
+<p>Sans <span class="target" id="index-0"></span>structure de contrôle, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.</p>
 <div class="section" id="sequences">
 <h2><span class="section-number">7.1  </span>Séquences<a class="headerlink" href="#sequences" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En C, chaque instruction est séparée de la suivante par un point virgule <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/003B/">U+003B</a>):</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">k</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Une séquence est une suite d'instructions regroupées en un bloc matérialisé par des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
+<p>Une <span class="target" id="index-1"></span>séquence est une suite d'instructions regroupées en un bloc matérialisé par des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
     <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
@@ -426,7 +427,7 @@
 </div>
 <div class="section" id="les-embranchements">
 <h2><span class="section-number">7.2  </span>Les embranchements<a class="headerlink" href="#les-embranchements" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix <em>vrai</em> et un choix <em>faux</em>, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :</p>
+<p id="index-2">Les embranchements sont des instructions de prise de décision. Une prise de décision peut être binaire, lorsqu'il y a un choix <em>vrai</em> et un choix <em>faux</em>, ou multiple lorsque la condition est scalaire. En C il y en a trois type d'embranchements :</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">switch</span></code></p></li>
@@ -435,7 +436,7 @@
 <div class="figure align-default" id="id3">
 <img alt="Diagrammes BPMN" src="../_images/branching-diagram.svg" /><p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
-<p>Les embranchements s'appuient sur les séquences :</p>
+<p>Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence regroupant le code la composant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;odd</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -448,7 +449,7 @@
 </div>
 <div class="section" id="if-else">
 <h3><span class="section-number">7.2.1  </span>if..else<a class="headerlink" href="#if-else" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le mot clé <code class="docutils literal notranslate"><span class="pre">if</span></code> est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté.</p>
+<p id="index-3">Le mot clé <code class="docutils literal notranslate"><span class="pre">if</span></code> est toujours suivi d'une condition entre parenthèses qui est évaluée. Si la condition est vraie, le premier bloc est exécuté, sinon, le second bloc situé après le <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté.</p>
 <p>Les enchaînements possibles sont :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
@@ -586,10 +587,49 @@
 </li>
 </ol>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notons que formellement, la grammaire C ne connait pas <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> il s'agit d'une construction implicite dans laquelle un <code class="docutils literal notranslate"><span class="pre">if</span></code> ou <code class="docutils literal notranslate"><span class="pre">if..else</span></code> est la condition du <code class="docutils literal notranslate"><span class="pre">else</span></code> parent. Hiérarchiquement, on devrait écrire :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="nf">if</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="nf">if</span> <span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pour preuve, il suffit de jeter un oeil à la grammaire C :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>selection_statement
+    : IF &#39;(&#39; expression &#39;)&#39; statement
+    | IF &#39;(&#39; expression &#39;)&#39; statement ELSE statement
+    | SWITCH &#39;(&#39; expression &#39;)&#39; statement
+    ;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="switch">
 <span id="id2"></span><h3><span class="section-number">7.2.2  </span><code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L'embranchement multiple, lorsque la condition n'est pas binaire, mais scalaire, l'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> peut-être utilisée :</p>
+<p id="index-4">L'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code class="docutils literal notranslate"><span class="pre">switch</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Voici l'expression utilisant <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Notez que chaque condition est plus clair :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span> <span class="o">:</span>
@@ -612,9 +652,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>La valeur par défaut <code class="docutils literal notranslate"><span class="pre">default</span></code> est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.</p>
-<p>La structure d'un <code class="docutils literal notranslate"><span class="pre">switch</span></code> est composée d'une condition <code class="docutils literal notranslate"><span class="pre">switch</span> <span class="pre">(condition)</span></code> suivie d'une séquence <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Les instructions de cas <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">42:</span></code> sont appelés <em>labels</em>. L'instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> termine l'exécution de la séquence <code class="docutils literal notranslate"><span class="pre">switch</span></code>.</p>
-<p>Les labels peuvent être chaînés sans instructions intermédiaires ni <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
+<p id="index-5">La valeur par défaut <code class="docutils literal notranslate"><span class="pre">default</span></code> est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.</p>
+<p>La structure d'un <code class="docutils literal notranslate"><span class="pre">switch</span></code> est composée d'une condition <code class="docutils literal notranslate"><span class="pre">switch</span> <span class="pre">(condition)</span></code> suivie d'une séquence <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Les instructions de cas <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">42:</span></code> sont appelés <em>labels</em>. Notez la présence de l'instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">coffee</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">case</span> <span class="nl">IRISH_COFFEE</span> <span class="p">:</span>
@@ -644,8 +683,8 @@
 </div>
 <div class="section" id="les-boucles">
 <h2><span class="section-number">7.3  </span>Les boucles<a class="headerlink" href="#les-boucles" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
-<ul class="simple">
+<p>Une <span class="target" id="index-6"></span>boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :</p>
+<ul class="simple" id="index-7">
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">do</span></code> .. <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
@@ -1019,7 +1058,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 27 août 2020 (version v0.3.0-7-g6bb5d29).
+    Mis à jour le 27 août 2020 (version v0.3.0-8-ga086960).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
