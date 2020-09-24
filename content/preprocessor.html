@@ -405,6 +405,10 @@
             
   <div class="section" id="preprocesseur">
 <h1><span class="section-number">16  </span>Préprocesseur<a class="headerlink" href="#preprocesseur" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/preprocessor.svg"><img alt="../_images/preprocessor.svg" src="../_images/preprocessor.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 16.1 </span><span class="caption-text">Illustration du mécanisme de pré-processing avant la compilation</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
 <p>Comme nous l'avons vu en introduction (c.f. <a class="reference internal" href="introduction.html#structured-text"><span class="std std-numref">Section 1.6</span></a>), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
 <p>Le coeur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (<code class="docutils literal notranslate"><span class="pre">#</span></code>), <em>hash</em> en anglais et utilisé récemment comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (<code class="docutils literal notranslate"><span class="pre">♯</span></code>) présent sur les pavés numériques de téléphone.</p>
 <p>Le vocabulaire du préprocesseur est le suivant :</p>
@@ -415,9 +419,9 @@
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">#undef</span></code></dt><dd><p>Détruis une définition existante</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">defined</span></code> ou <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code></dt><dd><p>Teste si une définition existe</p>
+<dt><code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">defined</span></code></dt><dd><p>Teste si une définition existe</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">#if</span></code> .. <code class="docutils literal notranslate"><span class="pre">#elif</span></code> .. <code class="docutils literal notranslate"><span class="pre">#else</span></code> .. <code class="docutils literal notranslate"><span class="pre">#endif</span></code></dt><dd><p>Test conditionnel (similaire à l'instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> du langage C)</p>
+<dt><code class="docutils literal notranslate"><span class="pre">#if</span></code> .. <code class="docutils literal notranslate"><span class="pre">#endif</span></code></dt><dd><p>Test conditionnel (similaire à l'instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> du langage C)</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">#</span></code></dt><dd><p>Opérateur de conversion en chaîne de caractères</p>
 </dd>
@@ -762,7 +766,7 @@ OWNER_NAME
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 27 août 2020 (version v0.3.0-8-ga086960).
+    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

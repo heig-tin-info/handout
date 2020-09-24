@@ -4,7 +4,7 @@ Fonctions
 
 .. figure:: ../../assets/images/hamilton.*
     :alt: Margaret Hamilton, directrice projet AGC
-    :scale: 60%
+    :scale: 40%
 
     Margaret Hamilton la directrice du projet Apollo Guidance Computer (AGC) à côté du code du projet.
 
@@ -19,6 +19,11 @@ Une fonction est donc un ensemble de code exécutable délimité du programme pr
 - D'un identifiant unique
 - D'une valeur de retour
 - De paramètres d'appel
+
+.. figure:: ../../assets/images/functions.*
+    :scale: 40%
+
+    Agencement de fonctions
 
 L'utilisation des fonctions permet :
 

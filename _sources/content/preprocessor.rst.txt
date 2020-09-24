@@ -2,6 +2,12 @@
 Préprocesseur
 =============
 
+.. figure:: ../../assets/images/preprocessor.*
+    :align: center
+    :width: 100 %
+
+    Illustration du mécanisme de pré-processing avant la compilation
+
 Comme nous l'avons vu en introduction (c.f. :numref:`structured_text`), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.
 
 Le coeur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (``#``), *hash* en anglais et utilisé récemment comme `hashtag <https://fr.wikipedia.org/wiki/Hashtag>`__ sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (``♯``) présent sur les pavés numériques de téléphone.
@@ -17,10 +23,10 @@ Le vocabulaire du préprocesseur est le suivant :
 ``#undef``
     Détruis une définition existante
 
-``#if defined`` ou ``#ifdef``
+``#if defined``
     Teste si une définition existe
 
-``#if`` .. ``#elif`` .. ``#else`` .. ``#endif``
+``#if`` .. ``#endif``
     Test conditionnel (similaire à l'instruction ``if`` du langage C)
 
 ``#``

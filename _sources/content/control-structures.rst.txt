@@ -52,6 +52,7 @@ Les embranchements sont des instructions de prise de décision. Une prise de dé
 
 .. figure:: ../../assets/figures/dist/control-structure/branching-diagram.*
     :alt: Diagrammes BPMN
+    :width: 60%
 
     Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)
 
