@@ -103,7 +103,7 @@
 \newcommand\frontpage{
     \begin{localsize}{12}
     \thispagestyle{empty}
-    \begin{textblock}{20}(0,10)
+    \begin{textblock}{20}(10,10)
     \includegraphics[height=2.5cm]{heig-vd-small.pdf}
     \end{textblock}
     \newgeometry{left=7.5cm} %defines the geometry for the titlepage
@@ -161,6 +161,7 @@
 
 \frontmatter
 <%= maketitle %>
+\thispagestyle{empty}
 <%= tableofcontents %>
 
 <%= body %>

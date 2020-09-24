@@ -166,21 +166,23 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
   \par
 \end{center}
 \mbox{}\relax}
+\thispagestyle{empty}
 \makeatother
 
 % Listing
-\definecolor{gh-gray}{rgb}{0.937,0.941,0.945}
+\definecolor{code-background}{HTML}{DFE2E5}
+\definecolor{comment-color}{HTML}{5C5D5E}
 
 %% Inline code
 % Pretty with background color
 \usepackage{longfbox}
 \fboxset{
     rounded,
-    background-color=gh-gray,
+    background-color=code-background,
     border-width=0pt,
-    border-color=gh-gray,
+    border-color=code-background,
     border-radius=2pt,
-    padding={0.4ex,0.5ex}
+    padding={0.4ex,0.5ex},
 }
 \protect\def\sphinxcode#1{\lfbox{\footnotesize\texttt{#1}}}
 
@@ -307,8 +309,8 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
   language=C,
   style=FiraCodeStyle,
   basicstyle=\setlength{\lineskip}{0pt}\ttfamily\footnotesize,
-  commentstyle=\rmfamily\itshape\color{gray},
-  aboveskip=1.5em,
+  commentstyle=\rmfamily\itshape\color{comment-color},
+  aboveskip=1em,
   belowskip=1em,
   breaklines=true
 }
@@ -318,7 +320,7 @@ overlay={\node[anchor=north west,outer sep=1mm] at (frame.north west) {
 \surroundwithmdframed[
 roundcorner=3pt,
 hidealllines=true,
-backgroundcolor=gh-gray,
+backgroundcolor=code-background,
 innerleftmargin=15pt,
 innertopmargin=0pt,
 innerbottommargin=0pt]{lstlisting}

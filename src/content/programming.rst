@@ -191,12 +191,14 @@ Historique
     - 14.668 GFlops/watt
     - 600 GiB de mémoire RAM
 
-Fonctionnement de l'ordinateur
-==============================
+.. todo:: Chapitre sur le fonctionnement de l'ordinateur
+ 
+.. Fonctionnement de l'ordinateur
+.. ==============================
 
-Machine de Turing
------------------
+.. Machine de Turing
+.. -----------------
 
-.. exercise:: Alain Turing
+.. .. exercise:: Alain Turing
 
-    Comment est mort Alain Turing et pourquoi est-il connu ?
+..     Comment est mort Alain Turing et pourquoi est-il connu ?

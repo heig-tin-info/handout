@@ -114,7 +114,7 @@ Un environnement de développement intégré, ou `IDE <https://fr.wikipedia.org/
     :align: center
     :width: 80 %
 
-    Représentation graphique des notions de compilateur, IDE, toolchain, ...
+    Représentation graphique des notions de compilateur, IDE, toolchain...
 
 À titre d'exemple on peut citer quelques outils bien connus des développeurs. Choisissez celui que vous pensez être le plus adapté à vos besoins, consultez l'internet, trouvez votre optimal :
 
@@ -317,6 +317,7 @@ Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dir
 Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle l'exécutable binaire est créé.
 
 .. figure:: ../../assets/figures/dist/software-life-cycle/build-cycle.*
+    :width: 60 %
 
     Cycle de compilation illustré
 

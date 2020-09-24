@@ -1,0 +1,31 @@
+# TO DO
+
+- [x] Comments colors plus foncé 
+- [x] Figure cycle de compilation illustré trop grande
+- [x] Figure preprocessing 
+- [x] Top Padding Code Blocks
+- [x] Figure embranchements plus petite
+- [x] Resize Margaret Hamilton
+- [x] Image fonctions chapitre 10
+- [x] Code examples background a bit darker
+- [x] Chapitre 2.6 fonctionnement de l'orginateur
+- [ ] No page number first title page (thispagestyle empty not working)
+- [ ] Distinction de différents caracètres figure trop grosse, figure pas jolie
+- [ ] Indications comme notes (admonitions)
+- [ ] Figure marcel proust page coupée en haut et en bas (carafes)
+- [ ] Table d'opérations binaires centrer dans colonnes
+- [ ] Opérateur de transtypage avant opérateur séquentiel ajouter chapitre
+- [ ] Table types entiers standard... Trop grande... 
+- [ ] Avoid breaking code-blocks on multiple pages for certain blocs
+- [ ] Caractères Arabes, Coréens et Ourdou
+- [ ] Avoid breaking Notes if smaller than...
+- [ ] Rename "Types composites" en "Types de données composites"
+- [ ] Guillemets avant Bosley et Sabrina
+- [ ] Mise en page sudo apt-get install libgmp-dev
+- [ ] Préprocesseur glitch à #elif
+- [ ] Auto Width of descriptions (Extensions des fichiers, trop large)
+- [ ] Mieux expliquer les algorithmes de tris
+- [ ] Tests unitaires, fonctionnels et frameworks de test
+- [ ] Légende figure Rasoir d'Ockham
+- [ ] Chapitre ligne de commande, l'essentiel
+- [ ] Force figure to be there LaTeX (Preprocessing)
