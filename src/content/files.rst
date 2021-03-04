@@ -269,7 +269,7 @@ La lecture, écriture dans un fichier s'effectue de manière analogue aux foncti
 
     Équivalent à ``getchar`` (ISO/IEC 9899 §7.19.7.6-2)
 
-``int fputc(FILE *stream, char char)``
+``int fputc(char char, FILE *stream)``
 
     Équivalent à ``putchar`` (ISO/IEC 9899 §7.19.7.9-2)
 
