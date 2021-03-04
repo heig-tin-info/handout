@@ -235,7 +235,7 @@ Le manuel `man fseek <http://man7.org/linux/man-pages/man3/fseek.3.html>`__ indi
 ftell
 -----
 
-Il est parfois utile de savoir où se trouve le curseur. ``ftell()`` retourne la position actuelle du curseur dans un fichier ouvert.
+Il est parfois utile de savoir où se trouve le curseur. ``ftell(FILE* fp)`` retourne la position actuelle du curseur dans un fichier ouvert.
 
 .. code-block:: c
 
@@ -243,7 +243,7 @@ Il est parfois utile de savoir où se trouve le curseur. ``ftell()`` retourne la
 
     FILE *fp = fopen(filename, 'r');
     fseek(fp, 0, SEEK_END);
-    long int size = ftell();
+    long int size = ftell(fp);
 
     printf("The file %s has a size of %ld Bytes\n", filename, size);
 
