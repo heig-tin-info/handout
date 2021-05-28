@@ -23,9 +23,9 @@ RUN apt-get install -y python3 python3-pip
 
 RUN pip3 install -U docutils==0.15.2
 RUN pip3 install sphinx==3.2.1
+RUN pip3 install sphinxcontrib-spelling
 RUN pip3 install sphinxcontrib-svg2pdfconverter
 RUN pip3 install sphinx-heigvd-theme==0.5.2
-RUN pip3 install sphinxcontrib-spelling
 
 RUN apt-get update
 

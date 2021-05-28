@@ -42,7 +42,7 @@ pull:
 	docker-compose build
 
 clean:
-	$(RM) -rf _build _static
+	$(DOCKER) $(RM) -rf $(BUILDDIR) _static
 
 spellcheck:
 	@$(DOCKER) $(SPHINXBUILD) -b spelling "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
