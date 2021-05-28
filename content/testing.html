@@ -442,15 +442,15 @@
 </pre></div>
 </div>
 <p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc u.c -fno-stack-protector
-<span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc u.c -fno-stack-protector
+<span class="gp">$ </span>./a.out
 <span class="go">Password: starwars</span>
 <span class="go">Correct Password</span>
 <span class="go">Now, you have the root access!</span>
 </pre></div>
 </div>
 <p>Très bien, maintenant testons avec un mauvais mot de passe :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">Password: startrek</span>
 <span class="go">Wrong Password</span>
 </pre></div>
@@ -483,8 +483,8 @@
        title="Chapitre suivant"><span class="section-number">21  </span>Structures de données →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

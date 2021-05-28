@@ -660,8 +660,8 @@ pour lister le contenu hexadécimal de son fichier et il obtient la sortie suiva
 <div>
 <p class="rubric">Exercice 4.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
 <p>Tentez de récupérer vous même le fichier <a class="reference download internal" download="" href="../_downloads/a3c2859ae8a5ffe66c491ec0c452a078/albatros.txt"><code class="xref download docutils literal notranslate"><span class="pre">albatros</span></code></a> et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> wget https://.../albatros.txt
-<span class="gp">$</span> hexdump -C albatros.txt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget https://.../albatros.txt
+<span class="gp">$ </span>hexdump -C albatros.txt
 </pre></div>
 </div>
 <p>Si vous n'avez pas les outils <code class="docutils literal notranslate"><span class="pre">wget</span></code> ou <code class="docutils literal notranslate"><span class="pre">hexdump</span></code>, tentez de les installer via la commande <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">wget</span> <span class="pre">hexdump</span></code>.</p>
@@ -923,11 +923,11 @@ AP7 -&gt; 10 * pow(33, 2) + 23 * pow(33, 1) + 7 * pow(33, 0) -&gt; 11&#39;656
 </tbody>
 </table>
 <p>Avec cette opération l'état dominant est le <code class="docutils literal notranslate"><span class="pre">0</span></code> et l'état récessif est le <code class="docutils literal notranslate"><span class="pre">1</span></code>. Il suffit qu'une seule valeur soit à zéro pour forcer le résultat à zéro :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="n">b1100</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="n">b0011</span> <span class="o">&amp;</span> <span class="mi">0</span><span class="n">b1111</span> <span class="o">&amp;</span> <span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mb">0b1100</span> <span class="o">&amp;</span> <span class="mb">0b0011</span> <span class="o">&amp;</span> <span class="mb">0b1111</span> <span class="o">&amp;</span> <span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Cet opérateur est d'ailleurs souvent utilisé pour imposer une valeur nulle suivant une condition. Dans l'exemple suivant le Balrog est réduit à néant par Gandalf :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">balrog</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b1100110101</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">balrog</span> <span class="o">=</span> <span class="mb">0b1100110101</span><span class="p">;</span>
 <span class="n">gandalf</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="n">balrog</span> <span class="o">=</span> <span class="n">balrog</span> <span class="o">&amp;</span> <span class="n">gandalf</span><span class="p">;</span> <span class="c1">// You shall not pass!</span>
@@ -1116,8 +1116,8 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
 </div>
 <p>Ces opérations logiques sont très utiles en programmation où elles permettent de simplifier certains algorithmes.</p>
 <p>À titre d'exemple, les opérations suivantes sont donc équivalentes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b110010011</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b001110101</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mb">0b110010011</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mb">0b001110101</span><span class="p">;</span>
 
 <span class="n">assert</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span> <span class="o">==</span> <span class="o">~</span><span class="n">a</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">b</span><span class="p">);</span>
 <span class="n">assert</span><span class="p">(</span><span class="o">~</span><span class="n">a</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">b</span> <span class="o">==</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">));</span>
@@ -1171,8 +1171,8 @@ C'est-à-dire en utilisant une retenue (<em>carry</em>). En base décimale, on s
        title="Chapitre suivant"><span class="section-number">5  </span>Opérateurs →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

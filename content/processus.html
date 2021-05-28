@@ -479,7 +479,7 @@
 </pre></div>
 </div>
 <p>Avec un visualiseur hexadécimal, on peut extraire le langage machine du binaire exécutable. L'utilitaire <code class="docutils literal notranslate"><span class="pre">hexdump</span></code> est appelé avec deux options <code class="docutils literal notranslate"><span class="pre">-s</span></code> pour spécifier l'adresse de début, on choisi ici celle du début de la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> <code class="docutils literal notranslate"><span class="pre">0x680</span></code>, et <code class="docutils literal notranslate"><span class="pre">-n</span></code> pour n'extraire que les premiers 256 octets :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> hexdump -s0x680 -n256 a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>hexdump -s0x680 -n256 a.out
 <span class="go">0000680 5541 5441 8d48 5935 0002 5500 bf53 0001</span>
 <span class="go">0000690 0000 8348 18ec 4864 048b 2825 0000 4800</span>
 <span class="go">00006a0 4489 0824 c031 a5e8 ffff 48ff 748d 0424</span>
@@ -501,7 +501,7 @@
 <p>Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs <code class="docutils literal notranslate"><span class="pre">41</span> <span class="pre">55</span></code> puis <code class="docutils literal notranslate"><span class="pre">41</span> <span class="pre">54</span></code> puis <code class="docutils literal notranslate"><span class="pre">48</span> <span class="pre">8d</span> <span class="pre">35</span> <span class="pre">59</span></code> se retrouvent directement dans le <em>dump</em>: <code class="docutils literal notranslate"><span class="pre">5541</span> <span class="pre">5441</span> <span class="pre">8d48</span></code>. Si les valeurs sont interverties c'est parce qu'un PC est <em>little-endian</em> (c.f. <a class="reference internal" href="datatype.html#endianess"><span class="std std-numref">Section 6.3</span></a>), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.</p>
 <p>Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> sera un fichier image du <a class="reference external" href="https://fr.wikipedia.org/wiki/JPEG">Join Photographic Experts Group</a> et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension <code class="docutils literal notranslate"><span class="pre">.exe</span></code> est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.</p>
 <p>Sous POSIX (Linux, macOS, UNIX), les <em>flags</em> d'un fichier qualifient son type. Le programme <code class="docutils literal notranslate"><span class="pre">ls</span></code> permet de visualiser les flags du programme <code class="docutils literal notranslate"><span class="pre">Fibonacci</span></code> que nous avons compilé:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -al a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -al a.out
 <span class="go">-rwxr-xr-x 1 root ftp 8.3K Jul 17 09:53 Fibonacci</span>
 </pre></div>
 </div>
@@ -578,7 +578,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> argverbose --help -h<span class="o">=</span><span class="m">12</span> <span class="m">3</span>.14 <span class="s1">&#39;Baguette au beurre&#39;</span> <span class="s1">$&#39;\t-Lait\n\t-Viande\n\t-Oeufs\f&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>argverbose --help -h<span class="o">=</span><span class="m">12</span> <span class="m">3</span>.14 <span class="s1">&#39;Baguette au beurre&#39;</span> <span class="s1">$&#39;\t-Lait\n\t-Viande\n\t-Oeufs\f&#39;</span>
 <span class="go">Liste des arguments et options passés au programme :</span>
 <span class="go">0. ./a.out</span>
 <span class="go">1. --help</span>
@@ -603,7 +603,7 @@
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Options</span> <span class="p">{</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Options</span> <span class="p">{</span>
     <span class="kt">bool</span> <span class="n">is_verbose</span><span class="p">;</span>
 
     <span class="kt">bool</span> <span class="n">has_add</span><span class="p">;</span>
@@ -624,7 +624,7 @@
     <span class="k">static</span> <span class="kt">int</span> <span class="n">verbose_flag</span><span class="p">;</span>  <span class="c1">// Set by --verbose/--brief</span>
 
     <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
-        <span class="k">static</span> <span class="k">struct</span> <span class="n">option</span> <span class="n">long_options</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">struct</span> <span class="nc">option</span> <span class="n">long_options</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="c1">// These options set a flag.</span>
             <span class="p">{</span><span class="s">&quot;verbose&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span> <span class="nb">true</span><span class="p">},</span>
             <span class="p">{</span><span class="s">&quot;brief&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span> <span class="nb">false</span><span class="p">},</span>
@@ -646,7 +646,7 @@
         <span class="n">c</span> <span class="o">=</span> <span class="n">getopt_long</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;abc:d:f:&quot;</span><span class="p">,</span> <span class="n">long_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">option_index</span><span class="p">);</span>
 
         <span class="c1">// Detect the end of the options.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
         <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">case</span> <span class="sc">&#39;a&#39;</span><span class="o">:</span>
@@ -732,14 +732,14 @@
 </dd>
 </dl>
 <p>Par exemple le programme <code class="docutils literal notranslate"><span class="pre">printf</span></code> retourne dans le cas précis l'erreur 130 :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">printf</span> <span class="s1">&#39;%d&#39;</span> <span class="m">42</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">printf</span> <span class="s1">&#39;%d&#39;</span> <span class="m">42</span>
 <span class="go">42</span>
-<span class="gp">$</span> <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="gp">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
 <span class="go">0</span>
 
-<span class="gp">$</span> <span class="nb">printf</span> <span class="s1">&#39;%d&#39;</span> <span class="s1">&#39;I am not a number&#39;</span>
+<span class="gp">$ </span><span class="nb">printf</span> <span class="s1">&#39;%d&#39;</span> <span class="s1">&#39;I am not a number&#39;</span>
 <span class="go">printf: I am not a number: invalid number</span>
-<span class="gp">$</span> <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="gp">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
 <span class="go">130</span>
 </pre></div>
 </div>
@@ -780,8 +780,8 @@
 </pre></div>
 </div>
 <p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;Bonjour&quot;</span> <span class="p">|</span> tr <span class="s1">&#39;A-Za-z&#39;</span> <span class="s1">&#39;N-ZA-Mn-za-m&#39;</span> &gt; data.txt
-<span class="gp">$</span> cat data.txt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;Bonjour&quot;</span> <span class="p">|</span> tr <span class="s1">&#39;A-Za-z&#39;</span> <span class="s1">&#39;N-ZA-Mn-za-m&#39;</span> &gt; data.txt
+<span class="gp">$ </span>cat data.txt
 <span class="go">Obawbhe</span>
 </pre></div>
 </div>
@@ -823,7 +823,7 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
 <div>
 <p class="rubric">Exercice 8.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
 <p>En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> fortune <span class="p">|</span> cowsay <span class="p">|</span> lolcat
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>fortune <span class="p">|</span> cowsay <span class="p">|</span> lolcat
 </pre></div>
 </div>
 <p>Quelle est sa structure et que fait-elle ?</p>
@@ -844,8 +844,8 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
        title="Chapitre suivant"><span class="section-number">9  </span>Entrées Sorties →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -728,10 +728,10 @@ n ≡ 7
 <p class="rubric"><a class="reference external" href="../content/datatype.html#exercise-7">Exercice 6.8</a> - Conversion de types<a class="headerlink" href="#solution-6.8" title="Permalink to this rubric">¶</a></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">;</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>    <span class="c1">// Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>  <span class="c1">// Incorrect, valeur signée dans un conteneur non signé</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>  <span class="c1">// Incorrect, valeur signée dans un conteneur non signé</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>    <span class="c1">// Incorrect, valeur signée dans un conteneur non signé</span>
 </pre></div>
 </div>
@@ -778,7 +778,7 @@ n = 8
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">10000000.000000</span>
 </pre></div>
 </div>
@@ -1164,7 +1164,7 @@ provoque un arrêt</p></td>
 </div>
 <p>Ce programme risque de ne pas bien détecter l’orthogonalité de certains vecteurs, car le test d’égalité à 0 avec les virgules flottantes pourrait mal fonctionner. En effet, pour deux vecteurs orthogonaux, les erreurs de calcul en virgule flottante pourraient amener à un produit scalaire calculé très proche, mais cependant différent de zéro.
 On peut corriger ce problème en modifiant le test pour vérifier si le produit scalaire est très petit, par exemple compris entre <code class="docutils literal notranslate"><span class="pre">-0.000001</span></code> et <code class="docutils literal notranslate"><span class="pre">+0.000001</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dot_product</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1E-6</span> <span class="o">&amp;&amp;</span> <span class="n">dot_product</span> <span class="o">&lt;=</span> <span class="mf">1E-6</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dot_product</span> <span class="o">&gt;=</span> <span class="mf">-1E-6</span> <span class="o">&amp;&amp;</span> <span class="n">dot_product</span> <span class="o">&lt;=</span> <span class="mf">1E-6</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Ce qui peut encore s’écrire en utilisant la fonction valeur absolue :</p>
@@ -1368,7 +1368,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">index_of</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">search</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">!=</span> <span class="n">search</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1398,7 +1398,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 
     <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">:</span> <span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1426,7 +1426,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">_magic_index</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">start</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">end</span> <span class="o">&lt;</span> <span class="n">start</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">end</span> <span class="o">&lt;</span> <span class="n">start</span><span class="p">)</span> <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">mid</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
@@ -1455,7 +1455,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <p class="rubric"><a class="reference external" href="../content/standard-library.html#exercise-0">Exercice 15.1</a> - Arc-cosinus<a class="headerlink" href="#solution-15.1" title="Permalink to this rubric">¶</a></p>
 <p>En cherchant <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">acos</span> <span class="pre">header</span></code> dans Google, on trouve que la fonction <code class="docutils literal notranslate"><span class="pre">acos</span></code> est définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>.</p>
 <p>Une autre solution est d'utiliser sous Linux la commande <code class="docutils literal notranslate"><span class="pre">apropos</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> apropos acos
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apropos acos
 <span class="go">acos (3)     - arc cosine function</span>
 <span class="go">acosf (3)    - arc cosine function</span>
 <span class="go">acosh (3)    - inverse hyperbolic cosine function</span>
@@ -1471,7 +1471,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </pre></div>
 </div>
 <p>Le premier résultat permet ensuite de voir :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> man acos <span class="p">|</span> head -10
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>man acos <span class="p">|</span> head -10
 <span class="go">ACOS(3)    Linux Programmer&#39;s Manual         ACOS(3)</span>
 
 <span class="go">NAME</span>
@@ -1504,8 +1504,8 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
        title="Chapitre suivant">Bibliographie →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

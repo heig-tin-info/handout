@@ -691,7 +691,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </pre></div>
 </div>
 <p>La première étape est de s'assurer que le fichier <code class="docutils literal notranslate"><span class="pre">test.c</span></code> contient bien notre programme. Pour ce faire on utilise un autre programme <a class="reference external" href="https://fr.wikipedia.org/wiki/Cat_(Unix)">cat</a> qui ne fait rien d'autre que lire le fichier passé en argument et de l'afficher sur la console :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat hello.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat hello.c
 <span class="gp">#</span>include &lt;stdio.h&gt;
 
 <span class="go">int main(void)</span>
@@ -702,23 +702,23 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </pre></div>
 </div>
 <p>À présent on peut utiliser notre compilateur par défaut: <code class="docutils literal notranslate"><span class="pre">cc</span></code> pour <em>C Compiler</em>. Ce compilateur prends en argument un fichier C et sans autre option, il génèrera un fichier <a class="reference external" href="https://fr.wikipedia.org/wiki/A.out">a.out</a> pour <em>assembler output</em>. C'est un fichier exécutable que l'on peut donc exécuter.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc hello.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc hello.c
 </pre></div>
 </div>
 <p>Il ne s'est rien passé, c'est une bonne nouvelle. La philosophie Unix est qu'un programme soit le plus discret possible, comme tout s'est bien passé, inutile d'informer l'utilisateur.</p>
 <p id="index-43">On s'attend donc à trouver dans le répertoire courant, notre fichier source ainsi que le résultat de la compilation. Utilisons le programme <a class="reference external" href="https://fr.wikipedia.org/wiki/Ls">ls</a> pour le vérifier</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls
 <span class="go">hello.c       a.out</span>
 </pre></div>
 </div>
 <p id="index-44">Très bien ! À présent, exécutons le programme en prenant soin de préfixer le nom par <code class="docutils literal notranslate"><span class="pre">./</span></code> car étant un programme local <code class="docutils literal notranslate"><span class="pre">a.out</span></code> ne peut pas être accédé directement. Imaginons qu'un fourbe hacker ait décidé de créer dans ce répertoire un programme nommé <code class="docutils literal notranslate"><span class="pre">ls</span></code> qui efface toutes vos données. La ligne de commande ci-dessus aurait eu un effet désastreux. Pour remédier à ce problème de sécurité, tout programme local doit être explicitement nommé.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">hello, world</span>
 </pre></div>
 </div>
 <p>Félicitations, le programme s'est exécuté.</p>
 <p>Pouvons nous en savoir plus sur ce programme ? On pourrait s'intéresser à la date de création de ce programme ainsi qu'à sa taille sur le disque. Une fois de plus <code class="docutils literal notranslate"><span class="pre">ls</span></code> nous sera utile, mais cette fois-ci avec l'option <code class="docutils literal notranslate"><span class="pre">l</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -l a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -l a.out
 <span class="go">-rwxr-xr-- 1 ycr iai 8.2K Jul 24 09:50 a.out*</span>
 </pre></div>
 </div>
@@ -775,8 +775,8 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
        title="Chapitre suivant"><span class="section-number">2  </span>La programmation →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

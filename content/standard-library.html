@@ -465,7 +465,7 @@
 </pre></div>
 </div>
 <p>Puis on compile :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc gmp.c
 <span class="go">gmp.c:1:10: fatal error: gmp.h: No such file or directory</span>
 <span class="gp">#</span>include &lt;gmp.h&gt;
 <span class="go">        ^~~~~~~</span>
@@ -474,11 +474,11 @@
 </div>
 <p>Aïe! La bibliothèque n'est pas installée.</p>
 <dl>
-<dt>Debian/Ubuntu</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo apt-get install libgmp-dev
+<dt>Debian/Ubuntu</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install libgmp-dev
 </pre></div>
 </div>
 </dd>
-<dt>Mac OS X</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> brew install gmp
+<dt>Mac OS X</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew install gmp
 </pre></div>
 </div>
 </dd>
@@ -488,7 +488,7 @@
 </dd>
 </dl>
 <p>Deuxième tentative :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc gmp.c
 <span class="go">/tmp/cc2FxDSy.o: In function `main&#39;:</span>
 <span class="go">gmp.c:(.text+0x6f): undefined reference to `__gmpz_init&#39;</span>
 <span class="go">gmp.c:(.text+0x80): undefined reference to `__gmpz_set_ui&#39;</span>
@@ -503,9 +503,9 @@
 </pre></div>
 </div>
 <p>Cette fois-ci on peut lire que le compilateur à fait sont travail, mais ne parvient pas à trouver les symboles des fonctions que l'on utilise p.ex. <code class="docutils literal notranslate"><span class="pre">__gmpz_add_ui</span></code>. C'est normal parce que l'on n'a pas renseigné la bibliothèque à utiliser.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c -lgmp
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc gmp.c -lgmp
 
-<span class="gp">$</span> ./a.out
+<span class="gp">$ </span>./a.out
 <span class="go">19810983098510928501928599999999999990</span>
 <span class="go">19810983098510928501928600000000000002</span>
 <span class="go">392475051329485669436248957939688603493163430354043714007714400000000000004</span>
@@ -513,19 +513,19 @@
 </div>
 <p>Cette manière de faire utilise le fichier <code class="docutils literal notranslate"><span class="pre">libgmp.so</span></code> qui est la bibliothèque <strong>dynamique</strong>, c'est-à-dire que ce fichier est nécessaire pour que le programme puisse fonctionner. Si je donne mon exécutable à un ami qui n'as pas install libgmp sur son ordinateur, il ne sera pas capable de l'exécuter.</p>
 <p>Alternativement on peut compiler le même programme en utilisant la librairie <strong>statique</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 </pre></div>
 </div>
 <p>C'est-à-dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> ~167 KiB
-<span class="gp">$</span> gcc gmp.c -l:libgmp.a
-<span class="gp">$</span> size a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>~167 KiB
+<span class="gp">$ </span>gcc gmp.c -l:libgmp.a
+<span class="gp">$ </span>size a.out
 <span class="go">text    data     bss     dec     hex filename</span>
 <span class="go">155494     808      56  156358   262c6 ./a.out</span>
 
-<span class="gp">#</span> ~8.5 KiB
-<span class="gp">$</span> gcc gmp.c -lgmp
-<span class="gp">$</span> size a.out
+<span class="gp"># </span>~8.5 KiB
+<span class="gp">$ </span>gcc gmp.c -lgmp
+<span class="gp">$ </span>size a.out
 <span class="go">text    data     bss     dec     hex filename</span>
 <span class="go">2752     680      16    3448     d78 ./a.out</span>
 </pre></div>
@@ -559,7 +559,7 @@
 <li><p>La bibliothèque est installée sur l'ordinateur</p></li>
 <li><p>Le lien vers la bibliothèque dynamique est mentionné à la compilation</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc ncurses-hello.c -ohello -lncurses
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc ncurses-hello.c -ohello -lncurses
 </pre></div>
 </div>
 </div>
@@ -606,8 +606,8 @@
 </pre></div>
 </div>
 <p>Pour créer une bibliothèque statique rien de plus facile. Le compilateur crée l'objet, l'archiver crée l'amalgame :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -c -o caesar.o caesar.c
-<span class="gp">$</span> ar rcs caesar.a caesar.o
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc -c -o caesar.o caesar.c
+<span class="gp">$ </span>ar rcs caesar.a caesar.o
 </pre></div>
 </div>
 <p>Puis il suffit d'écrire un programme pour utiliser cette bibliothèque :</p>
@@ -627,7 +627,7 @@
 </pre></div>
 </div>
 <p>Et de compiler le tout. Ici on utilise <code class="docutils literal notranslate"><span class="pre">-I.</span></code> et <code class="docutils literal notranslate"><span class="pre">-L.</span></code> pour dire au compilateur de chercher le fichier d'en-tête et la bibliothèque dans le répertoire courant.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc encrypt.c -I. -L. -l:caesar.a
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc encrypt.c -I. -L. -l:caesar.a
 </pre></div>
 </div>
 <p>La procédure sous Windows est plus compliquée et ne sera pas décrite ici.</p>
@@ -641,20 +641,20 @@
 </ul>
 <p>L'avantage principal est de ne pas charger pour rien chaque exécutable compilé de fonctionnalités qui pourraient très bien être partagées. L'inconvénient est que l'utilisateur du programme doit impérativement avoir installé la bibliothèque. Dans un environnement POSIX les bibliothèques dynamiques disposent d'un emplacement spécifique ou elles sont toute stockées. Malheureusement sous Windows le consensus est plus partagé et il n'est pas rare de voir plusieurs applications différentes héberger une copie des <em>dll</em> localement si bien que l'avantage de la bibliothèque dynamique est anéanti par un défaut de cohérence.</p>
 <p>Reprenant l'exemple de César vu plus haut, on peut créer une bibliothèque dynamique :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -shared -o libcaesar.so caesar.o
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc -shared -o libcaesar.so caesar.o
 </pre></div>
 </div>
 <p>Puis compiler notre programme pour utiliser cette bibliothèque. Avec une bibliothèque dynamique, il faut spécifier au compilateur quels sont les chemins vers lesquels il pourra trouver les bibliothèques installées. Comme ici on ne souhaite pas <strong>installer</strong> la bibliothèque et la rendre disponible pour tous les programmes, il faut ajouter aux chemins par défaut, le chemin local <code class="docutils literal notranslate"><span class="pre">$(pwd</span> <span class="pre">.)</span></code>, en créant une <strong>variable d'environnement</strong> nommée <code class="docutils literal notranslate"><span class="pre">LIBRARY_PATH</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> gcc encrypt.c -I. -lcaesar
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> gcc encrypt.c -I. -lcaesar
 </pre></div>
 </div>
 <p>Le problème est identique à l'exécution, car il faut spécifier (ici avec <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>) le chemin ou le système d'exploitation s'attendra à trouver la bibliothèque.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out ferrugineux
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out ferrugineux
 <span class="go">sreehtvarhk</span>
 </pre></div>
 </div>
 <p>Car sinon c'est l'erreur :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out Hey?
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span> .<span class="k">)</span> ./a.out Hey?
 <span class="go">./a.out: error while loading shared libraries: libcaesar.so :</span>
 <span class="go">cannot open shared object file: No such file or directory</span>
 </pre></div>
@@ -1002,8 +1002,8 @@ les deux régions mémoire se superposent.</p>
        title="Chapitre suivant"><span class="section-number">16  </span>Préprocesseur →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -504,7 +504,7 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span>
     <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 <span class="k">else</span>
-    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
@@ -594,10 +594,10 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">else</span>
-    <span class="nf">if</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="nf">if</span> <span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="p">)</span>
             <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
         <span class="k">else</span>
             <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
@@ -618,16 +618,16 @@
 <p id="index-4">L'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code class="docutils literal notranslate"><span class="pre">switch</span></code> :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">5</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span>
 <span class="k">else</span>
-    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Voici l'expression utilisant <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Notez que chaque condition est plus clair :</p>
@@ -1029,7 +1029,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div>
 <p class="rubric">Exercice 7.10<a class="headerlink" href="#exercise-9" title="Permalink to this rubric">¶</a></p>
 <p>Un texte est passé à un programme par <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Comptez le nombre de caractères transmis.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;Hello world&quot;</span> <span class="p">|</span> count-this
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;Hello world&quot;</span> <span class="p">|</span> count-this
 <span class="go">11</span>
 </pre></div>
 </div>
@@ -1058,8 +1058,8 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
        title="Chapitre suivant"><span class="section-number">8  </span>Programmes et Processus →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

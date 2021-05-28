@@ -629,13 +629,13 @@
 </pre></div>
 </div>
 <p>Cette fonction utilise l'entrée standard <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">Quelle est votre nombre favori ? 2</span>
 <span class="go">Saviez-vous que votre nombre favori, 2, est pair ?</span>
 </pre></div>
 </div>
 <p>soit d'exécuter ce programme en fournissant le nécessaire à stdin :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;23&quot;</span> <span class="p">|</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;23&quot;</span> <span class="p">|</span> ./a.out
 <span class="go">Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impair ?</span>
 </pre></div>
 </div>
@@ -665,7 +665,7 @@
 </pre></div>
 </div>
 <p>il affichera chacun des nombres dans l'ordre d'apparition :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat &lt;&lt; EOF <span class="p">|</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat &lt;&lt; EOF <span class="p">|</span> ./a.out
 <span class="go">456 123 789     456 12</span>
 <span class="go">456 1</span>
 <span class="go">    2378</span>
@@ -704,7 +704,7 @@ poussière
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">quantity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;litres&quot;</span><span class="p">);</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s">&quot;lait&quot;</span><span class="p">);</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
-<span class="n">quantity</span> <span class="o">=</span> <span class="o">-</span><span class="mf">12.8</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;degrees&quot;</span><span class="p">);</span>
+<span class="n">quantity</span> <span class="o">=</span> <span class="mf">-12.8</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;degrees&quot;</span><span class="p">);</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// &quot;C&quot; échoue lors du test de &quot;d&quot; (de)</span>
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &quot;b&quot; de &quot;beaucoup&quot; échoue contre &quot;%f&quot; s&#39;attendant à un float</span>
@@ -801,7 +801,7 @@ poussière
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">a. jardinage</span>
 <span class="go">b. age</span>
 </pre></div>
@@ -998,8 +998,8 @@ retturn EXIT_FAILURE;
        title="Chapitre suivant"><span class="section-number">10  </span>Fonctions →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

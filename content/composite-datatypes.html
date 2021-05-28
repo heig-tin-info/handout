@@ -507,7 +507,7 @@
 </pre></div>
 </div>
 <p>Votre programme sera exécuté comme suit :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat years.txt <span class="p">|</span> marmite
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat years.txt <span class="p">|</span> marmite
 <span class="go">2004</span>
 <span class="go">1931</span>
 </pre></div>
@@ -586,12 +586,12 @@
 <div class="section" id="initialisation-a-une-valeur-particuliere">
 <h3><span class="section-number">11.1.3  </span>Initialisation à une valeur particulière<a class="headerlink" href="#initialisation-a-une-valeur-particuliere" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette écriture n'est pas normalisée <strong>C99</strong>, mais est généralement compatible avec la majorité des compilateurs.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span> <span class="mi">0</span> <span class="p">...</span> <span class="mi">1023</span> <span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span> <span class="mi">0</span> <span class="p">...</span> <span class="mi">1023</span> <span class="p">]</span> <span class="o">=</span> <span class="mi">-1</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>En <strong>C99</strong>, il n'est pas possible d'initialiser un type composé à une valeur unique. La manière traditionnelle reste la boucle itérative :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -886,7 +886,7 @@ target type [-Wdiscarded-qualifiers]
 <h3><span class="section-number">11.3.1  </span>Structures nommées<a class="headerlink" href="#structures-nommees" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'écriture que l'on a vu initialement <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">};</span></code> est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">nom;</span></code>. Néanmoins la structure est toujours anonyme.</p>
 <p>Le langage C prévoit la possibilité de nommer une structure pour une utilisation ultérieure en rajoutant un nom après le mot clé <code class="docutils literal notranslate"><span class="pre">struct</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
     <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
@@ -894,23 +894,23 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <p>Pour ne pas confondre un nom de structure avec un nom de variable, on préférera un identificateur en capitales ou en écriture <em>camel-case</em>. Maintenant qu'elle est nommée, il est possible de déclarer plusieurs variables de ce type ailleurs dans le code :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">foo</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">Point</span> <span class="n">bar</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">foo</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">Point</span> <span class="n">bar</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Dans cet exemple, on déclare deux variables <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> de type <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code>. Il est donc possible d'accéder à <code class="docutils literal notranslate"><span class="pre">foo.x</span></code> ou <code class="docutils literal notranslate"><span class="pre">bar.z</span></code>.</p>
 <p>Rien n'empêche de déclarer une structure nommée et d'également déclarer une variable par la même occasion :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
     <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">foo</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">Point</span> <span class="n">bar</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">Point</span> <span class="n">bar</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Notons que les noms de structures sont stockés dans un espace de noms différent de celui des variables. C'est-à-dire qu'il n'y a pas de collision possible et qu'un identifiant de fonction ou de variable ne pourra jamais être comparé à un identifiant de structure. Aussi, l'écriture suivante, bien que perturbante, est tout à fait possible :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">point</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">x</span><span class="p">;</span> <span class="kt">double</span> <span class="n">y</span><span class="p">;</span> <span class="kt">double</span> <span class="n">z</span><span class="p">;</span> <span class="p">};</span>
-<span class="k">struct</span> <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">point</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">x</span><span class="p">;</span> <span class="kt">double</span> <span class="n">y</span><span class="p">;</span> <span class="kt">double</span> <span class="n">z</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="nc">point</span> <span class="n">point</span><span class="p">;</span>
 <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -918,31 +918,31 @@ target type [-Wdiscarded-qualifiers]
 <div class="section" id="id1">
 <h3><span class="section-number">11.3.2  </span>Initialisation<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet <code class="docutils literal notranslate"><span class="pre">[]</span></code> mais avec l'opérateur <code class="docutils literal notranslate"><span class="pre">.</span></code>. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> serait identique à un tableau de trois <code class="docutils literal notranslate"><span class="pre">double</span></code> et par conséquent l'initialisation suivante est possible :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">3060426.957</span><span class="p">,</span> <span class="mf">3192003.220</span><span class="p">,</span> <span class="mf">4581359.381</span> <span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">3060426.957</span><span class="p">,</span> <span class="mf">3192003.220</span><span class="p">,</span> <span class="mf">4581359.381</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>Néanmoins on préfèrera la notation suivante, équivalente :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mf">3060426.957</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mf">3192003.220</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mf">4581359.381</span> <span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">point</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mf">3060426.957</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mf">3192003.220</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mf">4581359.381</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>Comme pour un tableau, les valeurs omises sont initialisées à zéro. Et de la même manière qu'un tableau, il est possible d'initialiser une structure à zéro avec <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">{0};</span></code>.</p>
 <p>Il faut savoir que <strong>C99</strong> restreint l'ordre dans lequel les éléments peuvent être initialisés. Ce dernier doit être l'ordre dans lequel les variables sont déclarées dans la structure.</p>
 <p>Notons que des structures comportant des types différents peuvent aussi être initialisées de la même manière :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Product</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Product</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">weight</span><span class="p">;</span> <span class="c1">// Grams</span>
     <span class="kt">double</span> <span class="n">price</span><span class="p">;</span> <span class="c1">// Swiss francs</span>
     <span class="kt">int</span> <span class="n">category</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="k">struct</span> <span class="n">Product</span> <span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">321</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s">&quot;Pomme Golden&quot;</span><span class="p">};</span>
+<span class="k">struct</span> <span class="nc">Product</span> <span class="n">apple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">321</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s">&quot;Pomme Golden&quot;</span><span class="p">};</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="tableaux-de-structures">
 <h3><span class="section-number">11.3.3  </span>Tableaux de structures<a class="headerlink" href="#tableaux-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure est un type comme un autre. Tout ce qui peut être fait avec <code class="docutils literal notranslate"><span class="pre">char</span></code> ou <code class="docutils literal notranslate"><span class="pre">double</span></code> peut donc être fait avec <code class="docutils literal notranslate"><span class="pre">struct</span></code>. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
     <span class="p">{.</span><span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">},</span>
     <span class="p">{.</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span>
@@ -957,8 +957,8 @@ target type [-Wdiscarded-qualifiers]
 <div class="section" id="structures-en-parametres">
 <h3><span class="section-number">11.3.4  </span>Structures en paramètres<a class="headerlink" href="#structures-en-parametres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="nf">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">generate_point</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
         <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(),</span>
         <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(),</span>
         <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span>
@@ -969,30 +969,30 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <p>Il est également possible de passer une structure en paramètre d'une fonction :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">norm</span><span class="p">(</span><span class="k">struct</span> <span class="n">point</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">norm</span><span class="p">(</span><span class="k">struct</span> <span class="nc">point</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">z</span> <span class="o">*</span> <span class="n">p</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">12.54</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8.12</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.68</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">12.54</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">-8.12</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.68</span> <span class="p">};</span>
 
     <span class="kt">double</span> <span class="n">n</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Contrairement aux tableaux, les structures sont toujours passées par valeur, c'est-à-dire que l'entier du contenu de la structure sera copié sur la pile (<em>stack</em>) en cas d'appel à une fonction. En revanche, en cas de passage par pointeur, seule l'adresse de la structure est passée à la fonction appelée qui peut dès lors modifier le contenu :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
     <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="k">struct</span> <span class="n">Point</span> <span class="n">m</span><span class="p">,</span> <span class="k">struct</span> <span class="n">Point</span> <span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">m</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">Point</span> <span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
     <span class="n">n</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
     <span class="n">foo</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%g, %g</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1007,7 +1007,7 @@ target type [-Wdiscarded-qualifiers]
 <div class="section" id="structures-flexibles">
 <h3><span class="section-number">11.3.5  </span>Structures flexibles<a class="headerlink" href="#structures-flexibles" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Introduits avec C99, les membres de structures flexibles ou <em>flexible array members</em> (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Vector</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Vector</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span> <span class="c1">// name of the vector</span>
     <span class="kt">size_t</span> <span class="n">len</span><span class="p">;</span> <span class="c1">// length of the vector</span>
     <span class="kt">double</span> <span class="n">array</span><span class="p">[];</span> <span class="c1">// flexible array member</span>
@@ -1015,7 +1015,7 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <p>Cette écriture permet par exemple de réserver un espace mémoire plus grand que la structure de base, et d'utiliser le reste de l'espace comme tableau flexible.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">vector</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Vector</span> <span class="o">*</span><span class="n">vector</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
 <span class="n">strcpy</span><span class="p">(</span><span class="n">vector</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;Mon vecteur&quot;</span><span class="p">);</span>
 <span class="n">vector</span><span class="o">-&gt;</span><span class="n">len</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">-</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">4</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vector</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -1028,14 +1028,14 @@ target type [-Wdiscarded-qualifiers]
 <h3><span class="section-number">11.3.6  </span>Structure de structures<a class="headerlink" href="#structure-de-structures" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On comprend aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.</p>
 <p>Nous déclarons ici une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Line</span></code> composée de <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">a</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Line</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 <p>L'accès à ces différentes valeurs s'effectue de la façon suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="n">line</span> <span class="o">=</span> <span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span><span class="p">,</span> <span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">33</span><span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Line</span> <span class="n">line</span> <span class="o">=</span> <span class="p">{.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span><span class="p">,</span> <span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">33</span><span class="p">};</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%g, %g&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1043,7 +1043,7 @@ target type [-Wdiscarded-qualifiers]
 <div class="section" id="alignement-memoire">
 <h3><span class="section-number">11.3.7  </span>Alignement mémoire<a class="headerlink" href="#alignement-memoire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Line</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Line</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// Chaque point est un double, codé sur 8 bytes.</span>
 </pre></div>
 </div>
 <p>Ci-dessous est représenté l'offset mémoire (en bytes) à laquelle est stocké chaque membre de la structure, ainsi que l'élément correspondant.</p>
@@ -1062,7 +1062,7 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <p>Néanmoins dans certains cas, le compilateur se réserve le droit d'optimiser l' <a class="reference external" href="https://fr.wikipedia.org/wiki/Alignement_en_m%C3%A9moire">alignement mémoire</a>. Une architecture 32-bits aura plus de facilité à accéder à des grandeurs de 32 bits or, une structure composée de plusieurs entiers 8-bits demanderait au processeur un coût additionnel pour optimiser le stockage d'information. Considérons par exemple la structure suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">NoAlign</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">NoAlign</span>
 <span class="p">{</span>
     <span class="kt">int8_t</span> <span class="n">c</span><span class="p">;</span>
     <span class="kt">int32_t</span> <span class="n">d</span><span class="p">;</span>
@@ -1086,7 +1086,7 @@ target type [-Wdiscarded-qualifiers]
 </pre></div>
 </div>
 <p>Pour éviter ces manœuvres, le compilateur, selon l'architecture donnée, va insérer des éléments de rembourrage (<em>padding</em>) pour forcer l'alignement mémoire et ainsi optimiser les lectures. La même structure que ci-dessus sera fort probablement implémentée de la façon suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Align</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Align</span>
 <span class="p">{</span>
     <span class="kt">int8_t</span> <span class="n">c</span><span class="p">;</span>
     <span class="kt">int8_t</span> <span class="n">__pad1</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// Inséré par le compilateur</span>
@@ -1108,7 +1108,7 @@ target type [-Wdiscarded-qualifiers]
 <p>Le compromis est qu'une voiture supplémentaire est nécessaire, mais le processeur n'a plus besoin de réagencer les passagers.
 L'accès à <code class="docutils literal notranslate"><span class="pre">d</span></code> est ainsi facilité au détriment d'une perte substantielle de l'espace de stockage.</p>
 <p>Ceci étant, en changeant l'ordre des éléments dans la structure pour que chaque membre soit aligné sur 32-bits, il est possible d'obtenir un meilleur compromis :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Align</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Align</span>
 <span class="p">{</span>
     <span class="kt">int32_t</span> <span class="n">d</span><span class="p">;</span>
     <span class="kt">int64_t</span> <span class="n">i</span><span class="p">;</span>
@@ -1126,7 +1126,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </div>
 <p>L'option <code class="docutils literal notranslate"><span class="pre">-Wpadded</span></code> de GCC permet lever une alerte lorsqu'une structure est alignée par le compilateur. Si l'on utilise par exemple une structure pour écrire un fichier binaire respectant un format précis par exemple l'en-tête d'un fichier BMP. Et que cette structure <code class="docutils literal notranslate"><span class="pre">BitmapFileHeader</span></code> est enregistrée avec <code class="docutils literal notranslate"><span class="pre">fwrite(header,</span> <span class="pre">sizeof(BitmapFileHeader),</span> <span class="pre">...)</span></code>. Si le compilateur rajoute des éléments de rembourrage, le fichier BMP serait alors compromis. Il faudrait donc considérer l'alerte <code class="docutils literal notranslate"><span class="pre">Wpadded</span></code> comme une erreur critique.</p>
 <p>Pour pallier à ce problème, lorsqu'une structure mémoire doit être respectée dans un ordre précis. Une option de compilation non standard existe. La directive <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">pack</span></code> permet de forcer un type d'alignement pour une certaine structure. Considérons par exemple la structure suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Test</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Test</span>
 <span class="p">{</span>
     <span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
@@ -1175,7 +1175,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </pre></div>
 </div>
 <p>Activer le bit <code class="docutils literal notranslate"><span class="pre">stp</span></code> (bit numéro 12) devient une opération triviale :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">I2CMDR</span> <span class="n">i2cmdr</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">I2CMDR</span> <span class="n">i2cmdr</span><span class="p">;</span>
 
 <span class="n">i2cmdr</span><span class="p">.</span><span class="n">stp</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 </pre></div>
@@ -1194,7 +1194,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="k">union</span> <span class="n">Mixed</span>
+<span class="k">union</span> <span class="nc">Mixed</span>
 <span class="p">{</span>
     <span class="kt">int32_t</span> <span class="n">signed32</span><span class="p">;</span>
     <span class="kt">uint32_t</span> <span class="n">unsigned32</span><span class="p">;</span>
@@ -1204,8 +1204,8 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">union</span> <span class="n">Mixed</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="p">.</span><span class="n">signed8</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="n">b11011011</span><span class="p">,</span> <span class="mi">0</span><span class="n">b0100100</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01001001</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01000000</span><span class="p">}</span>
+    <span class="k">union</span> <span class="nc">Mixed</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">.</span><span class="n">signed8</span> <span class="o">=</span> <span class="p">{</span><span class="mb">0b11011011</span><span class="p">,</span> <span class="mb">0b0100100</span><span class="p">,</span> <span class="mb">0b01001001</span><span class="p">,</span> <span class="mb">0b01000000</span><span class="p">}</span>
     <span class="p">};</span>
 
     <span class="n">printf</span><span class="p">(</span>
@@ -1224,7 +1224,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </pre></div>
 </div>
 <p>Les unions sont très utilisées en combinaison avec des champs de bits. Pour reprendre l'exemple du champ de bit évoqué plus haut, on peut souhaiter accéder au registre soit sous la forme d'un entier 16-bits soit via chacun de ses bits indépendamment.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="n">i2cmdr</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="nc">i2cmdr</span> <span class="p">{</span>
     <span class="k">struct</span> <span class="p">{</span>
         <span class="kt">int</span>  <span class="nl">bc</span>  <span class="p">:</span><span class="mi">3</span><span class="p">;</span>
         <span class="kt">bool</span> <span class="nl">fdf</span> <span class="p">:</span><span class="mi">1</span><span class="p">;</span>
@@ -1263,12 +1263,12 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 <h2><span class="section-number">11.7  </span>Compound Literals<a class="headerlink" href="#compound-literals" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Naïvement traduit en <em>littéraux composés</em>, un <em>compound literal</em> est une méthode de création d'un type composé &quot;à la volée&quot; utilisé de la même façon que les transtypages.</p>
 <p>Reprenons notre structure Point <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code> vue plus haut. Si l'on souhaite changer la valeur du point <code class="docutils literal notranslate"><span class="pre">p</span></code> il faudrait on pourrait écrire ceci :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Point</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// Déclaré plus haut</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// Déclaré plus haut</span>
 
 <span class="c1">// ...</span>
 
 <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -1278,7 +1278,7 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
 </pre></div>
 </div>
 <p>Néanmoins cette écriture mènera à une erreur de compilation, car le compilateur cherchera à déterminer le type de l'expression <code class="docutils literal notranslate"><span class="pre">{.x=1,</span> <span class="pre">.y=2,</span> <span class="pre">.z=3}</span></code>. Il est alors essentiel d'utiliser la notation suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">Point</span><span class="p">){.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="nc">Point</span><span class="p">){.</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span>
 </pre></div>
 </div>
 <p>Cette notation de littéraux composés peut également s'appliquer aux tableaux. L'exemple suivant montre l'initialisation d'un tableau à la volée passé à la fonction <code class="docutils literal notranslate"><span class="pre">foo</span></code> :</p>
@@ -1355,8 +1355,8 @@ L'accès à <code class="docutils literal notranslate"><span class="pre">d</span
        title="Chapitre suivant"><span class="section-number">12  </span>Les  fichiers →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

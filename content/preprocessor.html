@@ -456,16 +456,16 @@ OWNER_NAME
 </pre></div>
 </div>
 <p>Il est possible d'appeler le préprocesseur directement avec l'option <code class="docutils literal notranslate"><span class="pre">-E</span></code>. Des directives <code class="docutils literal notranslate"><span class="pre">define</span></code> peuvent être renseignées depuis la ligne de commande :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc -xc -E test.txt <span class="se">\</span>
-    -DDATE<span class="o">=</span><span class="m">22</span> -DHOUR<span class="o">=</span><span class="m">9</span>:00 <span class="se">\</span>
-    -DFEMALE <span class="se">\</span>
-    -DOWNER_NAME<span class="o">=</span><span class="s2">&quot;Adam&quot;</span> -DPOSITION<span class="o">=</span>employee
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc -xc -E test.txt <span class="se">\</span>
+<span class="go">    -DDATE=22 -DHOUR=9:00 \</span>
+<span class="go">    -DFEMALE \</span>
+<span class="go">    -DOWNER_NAME=&quot;Adam&quot; -DPOSITION=employee</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;test.txt&quot;</span>
 <span class="go">Bonjour Madame,</span>
 
 <span class="go">Veuillez noter votre prochain rendez-vous le 22, à 9:00 heure.</span>
@@ -514,23 +514,23 @@ OWNER_NAME
 </dd>
 </dl>
 <p>L'inclusion de fichier est simplement du remplacement de chaînes :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;Ce début de phrase est ici&quot;</span> &gt; head.h
-<span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;, mais cette fin est là.&quot;</span> &gt; tail.h
-<span class="gp">$</span> <span class="nb">echo</span> -e <span class="s1">&#39;#include &quot;head.h&quot;\n#include &quot;tail.h&quot;\n&#39;</span> &gt; main.c
-<span class="gp">$</span> gcc -E main.c -o-
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
-<span class="gp">#</span> <span class="m">31</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
-<span class="gp">#</span> <span class="m">32</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;head.h&quot;</span> <span class="m">1</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;Ce début de phrase est ici&quot;</span> &gt; head.h
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;, mais cette fin est là.&quot;</span> &gt; tail.h
+<span class="gp">$ </span><span class="nb">echo</span> -e <span class="s1">&#39;#include &quot;head.h&quot;\n#include &quot;tail.h&quot;\n&#39;</span> &gt; main.c
+<span class="gp">$ </span>gcc -E main.c -o-
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;&lt;built-in&gt;&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp"># </span><span class="m">31</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span>
+<span class="gp"># </span><span class="m">32</span> <span class="s2">&quot;&lt;command-line&gt;&quot;</span> <span class="m">2</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;main.c&quot;</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;head.h&quot;</span> <span class="m">1</span>
 <span class="go">Ce début de phrase est ici</span>
-<span class="gp">#</span> <span class="m">2</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
-<span class="gp">#</span> <span class="m">1</span> <span class="s2">&quot;tail.h&quot;</span> <span class="m">1</span>
+<span class="gp"># </span><span class="m">2</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
+<span class="gp"># </span><span class="m">1</span> <span class="s2">&quot;tail.h&quot;</span> <span class="m">1</span>
 <span class="go">, mais cette fin est là.</span>
-<span class="gp">#</span> <span class="m">3</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
+<span class="gp"># </span><span class="m">3</span> <span class="s2">&quot;main.c&quot;</span> <span class="m">2</span>
 </pre></div>
 </div>
 <p>La directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> est principalement utilisée pour inclure des fichiers d'en-tête (<em>header</em>), mais rarement (jamais), des fichiers C.</p>
@@ -554,7 +554,7 @@ OWNER_NAME
 </pre></div>
 </div>
 <p>Il est ainsi possible de définir la taille du tableau à la compilation avec :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc main.c -DWINDOW_SIZE<span class="o">=</span><span class="m">42</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc main.c -DWINDOW_SIZE<span class="o">=</span><span class="m">42</span>
 </pre></div>
 </div>
 <p>Notons qu'au pré-processing, toute occurrence d'un symbole défini est remplacée par le contenu de sa définition. <strong>C'est un remplacement de chaîne bête, idiot et naïf</strong>. Il est par conséquent possible d'écrire :</p>
@@ -565,7 +565,7 @@ OWNER_NAME
 
 <span class="n">MAIN</span>
 <span class="n">BEGIN</span>
-    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span> <span class="n">EOF</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span> <span class="n">EOF</span><span class="p">);</span>
 <span class="n">END</span>
 </pre></div>
 </div>
@@ -650,28 +650,28 @@ OWNER_NAME
 </pre></div>
 </div>
 <p>De la même manière que pour les définissions simple, il s'agit d'un remplacement de chaîne :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat test.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat test.c
 <span class="gp">#</span>define MIN<span class="o">(</span>x, y<span class="o">)</span> <span class="o">((</span>x<span class="o">)</span> &lt; <span class="o">(</span>y<span class="o">)</span> ? <span class="o">(</span>x<span class="o">)</span> : <span class="o">(</span>y<span class="o">))</span>
 
 <span class="go">int main(void) {</span>
 <span class="go">    return MIN(23, 12);</span>
 <span class="go">}</span>
 
-<span class="gp">$</span> gcc -E test.c -o-
+<span class="gp">$ </span>gcc -E test.c -o-
 <span class="go">int main(void) {</span>
 <span class="go">    return ((23) &lt; (12) ? (23) : (12));</span>
 <span class="go">}</span>
 </pre></div>
 </div>
 <p>Notez que l'absence d'espace entre le nom de la macro et la parenthèse est importante. L'exemple suivant le démontre :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat test.c
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat test.c
 <span class="gp">#</span>define ADD <span class="o">(</span>x, y<span class="o">)</span> <span class="o">((</span>x<span class="o">)</span> + <span class="o">(</span>y<span class="o">))</span>
 
 <span class="go">int main(void) {</span>
 <span class="go">    return ADD(23, 12);</span>
 <span class="go">}</span>
 
-<span class="gp">$</span> gcc -E test.c -o-
+<span class="gp">$ </span>gcc -E test.c -o-
 <span class="go">int main(void) {</span>
 <span class="go">    return (x, y) ((x) + (y))(23, 12);</span>
 <span class="go">}</span>
@@ -765,8 +765,8 @@ OWNER_NAME
        title="Chapitre suivant"><span class="section-number">17  </span>Algorithmes et conception →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

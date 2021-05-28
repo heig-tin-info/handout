@@ -454,7 +454,7 @@
         <span class="kt">uint16_t</span> <span class="n">u16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
         <span class="kt">uint32_t</span> <span class="n">u32</span><span class="p">;</span>
         <span class="kt">float</span> <span class="n">f32</span><span class="p">;</span>
-    <span class="p">}</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="n">b01000000</span><span class="p">,</span> <span class="mi">0</span><span class="n">b01001001</span><span class="p">,</span> <span class="mi">0</span><span class="n">b00001111</span><span class="p">,</span> <span class="mi">0</span><span class="n">b11011011</span> <span class="p">};</span>
+    <span class="p">}</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span> <span class="mb">0b01000000</span><span class="p">,</span> <span class="mb">0b01001001</span><span class="p">,</span> <span class="mb">0b00001111</span><span class="p">,</span> <span class="mb">0b11011011</span> <span class="p">};</span>
 
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;&#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hhu, %hhu, %hhu, %hhu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
@@ -1361,7 +1361,7 @@ capable de recevoir la valeur (attention aux valeurs maxi).</p>
 <p>La variable sh (<em>short</em> sur 16 bit) ne peut contenir la valeur réelle.
 Lors du transtypage, il y a modification de la valeur ce qui conduit à
 des erreurs de calculs par la suite.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=-</span><span class="mi">123</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mi">-123</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
 </pre></div>
 </div>
@@ -1391,10 +1391,10 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <p>Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">;</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="p">;</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1533,7 +1533,7 @@ correspondant.</p>
 \[\sum_{k=1}^{\inf} k = -\frac{1}{12}\]</div>
 <p>Vous ne le croyez pas et décider d'utiliser le superordinateur <a class="reference external" href="https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste">Pensées Profondes</a> pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur <code class="docutils literal notranslate"><span class="pre">n</span></code> à laquelle s'arrêter.</p>
 <p>Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme <code class="docutils literal notranslate"><span class="pre">time</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">time</span> ./a.out <span class="m">1000000000</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">time</span> ./a.out <span class="m">1000000000</span>
 <span class="go">500000000500000000</span>
 
 <span class="go">real    0m0.180s</span>
@@ -1593,8 +1593,8 @@ correspondant.</p>
        title="Chapitre suivant"><span class="section-number">7  </span>Structures de contrôle →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

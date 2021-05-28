@@ -657,10 +657,10 @@ structure contenant des données ainsi qu'un pointeur sur un élément
 précédent et un autre sur l'élément suivant. Ces pointeurs sont du même
 type que la structure dans laquelle ils sont déclarés et cela impose un
 style d'écriture spécifique :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">sElement</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">sElement</span> <span class="p">{</span>
 
-  <span class="k">struct</span> <span class="n">sElement</span> <span class="o">*</span><span class="n">precedent</span><span class="p">;</span> <span class="c1">// pointeur sur l&#39;élément précédent</span>
-  <span class="k">struct</span> <span class="n">sElement</span> <span class="o">*</span><span class="n">suivant</span><span class="p">;</span>   <span class="c1">// pointeur sur l&#39;élément suivant</span>
+  <span class="k">struct</span> <span class="nc">sElement</span> <span class="o">*</span><span class="n">precedent</span><span class="p">;</span> <span class="c1">// pointeur sur l&#39;élément précédent</span>
+  <span class="k">struct</span> <span class="nc">sElement</span> <span class="o">*</span><span class="n">suivant</span><span class="p">;</span>   <span class="c1">// pointeur sur l&#39;élément suivant</span>
 
   <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">data</span><span class="p">;</span>  <span class="c1">// donnée de la liste chaînée</span>
 
@@ -950,7 +950,7 @@ placera le symbole &amp; pour lui donner l'adresse de la variable.</p>
 <div class="section" id="cdecl">
 <h3><span class="section-number">14.7.1  </span>cdecl<a class="headerlink" href="#cdecl" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il existe un programme nommé <a class="reference external" href="https://github.com/paul-j-lucas/cdecl">cdecl</a> qui permet de décoder de complexes déclaration c :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cdecl <span class="s1">&#39;char (*(*x[3])())[5]&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cdecl <span class="s1">&#39;char (*(*x[3])())[5]&#39;</span>
 <span class="go">declare x as array 3 of pointer to function returning pointer to array 5 of char</span>
 </pre></div>
 </div>
@@ -1063,8 +1063,8 @@ une même région mémoire.</p>
        title="Chapitre suivant"><span class="section-number">15  </span>Bibliothèques →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

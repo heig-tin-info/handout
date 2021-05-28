@@ -439,7 +439,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>Les outils binaires (<a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Binutils">binutils</a>) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au débogage. Certains de ces outils sont très pratiques, mais nombreux sont les développeurs qui ne les connaissent pas.</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">nm</span></code></dt><dd><p>Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> nm a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nm a.out
 <span class="go">0000000000200dc8 d _DYNAMIC</span>
 <span class="go">0000000000200fb8 d _GLOBAL_OFFSET_TABLE_</span>
 <span class="go">00000000000006f0 R _IO_stdin_used</span>
@@ -465,7 +465,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>On observe notamment que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">strings</span></code></dt><dd><p>Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débogue qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world</span></code>. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> strings a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>strings a.out
 <span class="go">/lib64/ld-linux-x86-64.so.2</span>
 <span class="go">libc.so.6</span>
 <span class="go">printf</span>
@@ -499,7 +499,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">size</span></code></dt><dd><p>Lister la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou <code class="docutils literal notranslate"><span class="pre">84d</span></code> bytes.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> size a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>size a.out
 <span class="go">text    data     bss     dec     hex filename</span>
 <span class="go">1517     600       8    2125     84d a.out</span>
 </pre></div>
@@ -551,7 +551,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <span class="n">Q</span> <span class="nf">q_add_sat</span><span class="p">(</span><span class="n">Q</span> <span class="n">a</span><span class="p">,</span> <span class="n">Q</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int32_t</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&gt;</span> <span class="mh">0x7FFF</span> <span class="o">?</span> <span class="mh">0x7FFF</span> <span class="o">:</span> <span class="n">res</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">res</span><span class="p">;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">res</span><span class="p">;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -584,7 +584,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kr">inline</span> <span class="n">Q</span> <span class="nf">q_sat</span><span class="p">(</span><span class="kt">int32_t</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mh">0x7FFF</span> <span class="o">?</span> <span class="mh">0x7FFF</span> <span class="o">:</span> <span class="n">x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">x</span><span class="p">;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -641,7 +641,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 
     <span class="c1">// The remaining parameters to `mmap()` are not important for this use case,</span>
     <span class="c1">// but the manpage for `mmap` explains their purpose.</span>
-    <span class="k">return</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">protection</span><span class="p">,</span> <span class="n">visibility</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">protection</span><span class="p">,</span> <span class="n">visibility</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -766,8 +766,8 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
        title="Chapitre suivant"><span class="section-number">23  </span>Pièges →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

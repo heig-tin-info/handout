@@ -433,11 +433,11 @@ SPACE \040 Space
 <span class="kt">int</span> <span class="n">L</span><span class="p">){</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="k">for</span><span class="p">(</span> <span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span>
 <span class="mi">16</span><span class="o">&gt;</span><span class="n">l</span><span class="p">;</span>                           <span class="n">o</span><span class="o">+=</span><span class="n">l</span>
 <span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span>                            <span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
-<span class="n">o</span><span class="o">+=</span><span class="n">l</span>                     <span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="p">{</span> <span class="p">;</span> <span class="p">}</span>
+<span class="n">o</span><span class="o">+=</span><span class="n">l</span>                     <span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="mi">-1</span><span class="p">);</span> <span class="p">{</span> <span class="p">;</span> <span class="p">}</span>
 <span class="k">if</span> <span class="p">(</span>                    <span class="n">pread</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">O</span><span class="o">+</span><span class="n">o</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;</span>
 <span class="mi">2</span><span class="p">)</span><span class="cm">/*                    */</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="n">L</span><span class="o">&gt;&gt;=</span><span class="mi">7</span><span class="o">&amp;</span><span class="n">o</span><span class="p">;</span>
 <span class="n">L</span><span class="o">%=</span><span class="mi">1</span>                     <span class="o">&lt;&lt;</span><span class="n">l</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="o">?</span><span class="mi">256</span><span class="o">-</span><span class="n">L</span><span class="o">?</span><span class="n">e</span><span class="p">(</span>
-<span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>                            <span class="p">,</span><span class="n">c</span><span class="o">||</span>
+<span class="n">L</span><span class="mi">-1</span><span class="p">)</span>                            <span class="p">,</span><span class="n">c</span><span class="o">||</span>
 <span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="n">c</span>                            <span class="o">=</span><span class="n">L</span><span class="p">),</span>
 <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                            <span class="o">:</span><span class="p">(</span> <span class="n">O</span>
 <span class="o">+=</span><span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="o">&amp;</span><span class="mi">7</span><span class="p">)</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">o</span><span class="o">+</span><span class="n">l</span><span class="o">&gt;&gt;</span><span class="mi">3</span><span class="p">,</span><span class="n">I</span><span class="o">=</span><span class="n">L</span><span class="p">)</span><span class="o">:</span><span class="n">putchar</span><span class="p">(</span>
@@ -739,11 +739,11 @@ SPACE \040 Space
 <p>Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>      <span class="c1">// Grandeur valant le nombre d&#39;heures sur l&#39;horloge du Palais du Quirinal à Rome</span>
 <span class="mi">12u</span>    <span class="c1">// Grandeur non signée</span>
-<span class="mi">6l</span>     <span class="c1">// Grandeur entière signée codée sur un entier long</span>
+<span class="mf">6l</span>     <span class="c1">// Grandeur entière signée codée sur un entier long</span>
 <span class="mi">42ul</span>   <span class="c1">// Grandeur entière non signée codée sur un entier long</span>
 <span class="mo">010</span>    <span class="c1">// Grandeur octale valant 8 en décimal</span>
 <span class="mh">0xa</span>    <span class="c1">// Grandeur hexadécimale valant 10 en décimal</span>
-<span class="mi">0</span><span class="n">b111</span>  <span class="c1">// Grandeur binaire valant 7 en décimal</span>
+<span class="mb">0b111</span>  <span class="c1">// Grandeur binaire valant 7 en décimal</span>
 <span class="mf">33.</span>    <span class="c1">// Grandeur réelle exprimée en virgule flottante</span>
 <span class="sc">&#39;0&#39;</span>    <span class="c1">// Grandeur caractère valant 48 en décimal</span>
 </pre></div>
@@ -909,8 +909,8 @@ désactiver cette portion de code.</p>
        title="Chapitre suivant"><span class="section-number">4  </span>Numération →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

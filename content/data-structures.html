@@ -416,7 +416,7 @@
 <p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Type_abstrait">type de donnée abstrait</a> (<strong>ADT</strong> pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.</p>
 <p>Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire.</p>
 <p>L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Unknown</span> <span class="o">*</span><span class="n">Known</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Unknown</span> <span class="o">*</span><span class="n">Known</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">Known</span> <span class="n">foo</span><span class="p">;</span> <span class="c1">// Autorisé, le type est incomplet</span>
@@ -436,9 +436,9 @@
 <p>En plus, il existe un compteur d'accès <code class="docutils literal notranslate"><span class="pre">count</span></code> qui s'incrémente lorsque l'on assigne une valeur et se décrémente lorsque l'on récupère une valeur.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Foo</span> <span class="n">Foo</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Foo</span> <span class="n">Foo</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">Foo</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
 <span class="p">};</span>
@@ -466,7 +466,7 @@
 <p>Pour s'en protéger, on a recours à la compilation séparée (voir chapitre <a class="reference internal" href="translation-units.html#translationunits"><span class="std std-ref">Compilation séparée</span></a>) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier <code class="docutils literal notranslate"><span class="pre">foobar.h</span></code> contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Foo</span> <span class="n">Foo</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Foo</span> <span class="n">Foo</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">init</span><span class="p">(</span><span class="n">Foo</span><span class="o">**</span> <span class="n">foo</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">get</span><span class="p">(</span><span class="n">Foo</span><span class="o">*</span> <span class="n">foo</span><span class="p">);</span>
@@ -636,7 +636,7 @@
 <span class="cp">#define MOD(A, M) (((A % M) + M) % M)</span>
 <span class="cp">#define NEXT(A) (((A) + 1) % SIZE)</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Ring</span> <span class="p">{</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Ring</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">buffer</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>
     <span class="kt">int</span> <span class="n">head</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">tail</span><span class="p">;</span>
@@ -680,12 +680,12 @@
 <p id="index-7">On s'aperçoit vite avec les tableaux que certaines opérations sont plus coûteuses que d'autres. Ajouter ou supprimer un élément à la fin du tableau coûte <span class="math notranslate nohighlight">\(O(1)\)</span> amorti, mais ajouter ou supprimer un élément à l'intérieur du tableau coûte <span class="math notranslate nohighlight">\(O(n)\)</span> du fait qu'il est nécessaire de déplacer tous les éléments qui suivent l'élément concerné.</p>
 <p>Une possible solution à ce problème serait de pouvoir s'affranchir du lien entre les éléments et leurs positions en mémoire relative les uns aux autres.</p>
 <p>Pour illustrer cette idée, imaginons un tableau statique dans lequel chaque élément est décrit par la structure suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Element</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">index_next_element</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Element</span> <span class="n">elements</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="k">struct</span> <span class="nc">Element</span> <span class="n">elements</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 </pre></div>
 </div>
 <p>Considérons les dix premiers éléments de la séquence de nombre <a class="reference external" href="https://oeis.org/A130826">A130826</a> dans un tableau statique. Ensuite, répartissons ces valeurs aléatoirement dans notre tableau <cite>elements</cite> déclaré plus haut entre les indices 0 et 19.</p>
@@ -693,14 +693,14 @@
 <img alt="../_images/static-linked-list.svg" src="../_images/static-linked-list.svg" /><p class="caption"><span class="caption-number">Fig. 21.7 </span><span class="caption-text">Construction d'une liste chainée à l'aide d'un tableau</span><a class="headerlink" href="#id8" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>On observe sur la figure ci-dessus que les éléments n'ont plus besoin de se suivre en mémoire, car il est possible facilement de chercher l'élément suivant de la liste avec cette relation :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Element</span> <span class="n">current</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-<span class="k">struct</span> <span class="n">Element</span> <span class="n">next</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Element</span> <span class="n">current</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">struct</span> <span class="nc">Element</span> <span class="n">next</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">current</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>De même, insérer une nouvelle valeur <cite>13</cite> après la valeur <cite>42</cite> est très facile:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Recherche de l&#39;élément contenant la valeur 42</span>
-<span class="k">struct</span> <span class="n">Element</span> <span class="n">el</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">42</span> <span class="o">&amp;&amp;</span> <span class="n">el</span><span class="p">.</span><span class="n">index_next_element</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">Element</span> <span class="n">el</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">42</span> <span class="o">&amp;&amp;</span> <span class="n">el</span><span class="p">.</span><span class="n">index_next_element</span> <span class="o">!=</span> <span class="mi">-1</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">el</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="n">el</span><span class="p">.</span><span class="n">index_next_element</span><span class="p">];</span>
 <span class="p">}</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">42</span><span class="p">)</span> <span class="n">abort</span><span class="p">();</span>
@@ -709,14 +709,14 @@
 <span class="k">const</span> <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">index_next_element</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">index_next_element</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span>
         <span class="k">break</span><span class="p">;</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">index_next_element</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">elements</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">index_next_element</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">);</span>
 
 <span class="c1">// Création d&#39;un nouvel élément</span>
-<span class="k">struct</span> <span class="n">Element</span> <span class="n">new</span> <span class="o">=</span> <span class="p">(</span><span class="n">Element</span><span class="p">){</span>
+<span class="k">struct</span> <span class="nc">Element</span> <span class="n">new</span> <span class="o">=</span> <span class="p">(</span><span class="n">Element</span><span class="p">){</span>
     <span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span>
-    <span class="p">.</span><span class="n">index_next_element</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">.</span><span class="n">index_next_element</span> <span class="o">=</span> <span class="mi">-1</span>
 <span class="p">};</span>
 
 <span class="c1">// Insertion de l&#39;élément quelque part dans le tableau</span>
@@ -798,28 +798,28 @@ qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.<
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="n">Point</span>
+<span class="k">struct</span> <span class="nc">Point</span>
 <span class="p">{</span>
     <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">Element</span>
+<span class="k">struct</span> <span class="nc">Element</span>
 <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">Element</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">Point</span> <span class="n">point</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">Element</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">Element</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">};</span>
-    <span class="k">struct</span> <span class="n">Element</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">};</span>
-    <span class="k">struct</span> <span class="n">Element</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Element</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Element</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="nc">Element</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">};</span>
 
     <span class="n">a</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
 
-    <span class="k">struct</span> <span class="n">Element</span><span class="o">*</span> <span class="n">walk</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">Element</span><span class="o">*</span> <span class="n">walk</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
@@ -996,17 +996,17 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <li><p>La valeur de l'enfant de droite est supérieure à celle de son parent</p></li>
 </ul>
 <p>Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">patient</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">patient</span> <span class="p">{</span>
     <span class="kt">size_t</span> <span class="n">id</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">firstname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
     <span class="kt">char</span> <span class="n">lastname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
     <span class="kt">uint8_t</span> <span class="n">age</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">patient</span> <span class="n">data</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">patient</span> <span class="n">data</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">Node</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1065,7 +1065,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <div class="section" id="queue-prioritaire">
 <h2><span class="section-number">21.9  </span>Queue prioritaire<a class="headerlink" href="#queue-prioritaire" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-10">Une queue prioritaire ou <em>priority queue</em>, est une queue dans laquelle les éléments sont traités par ordre de priorité. Imaginons des personnalités, toutes atteintes d'une rage de dents et qui font la queue chez un dentiste aux mœurs discutables. Ce dernier ne prendra pas ses patients par ordre d'arrivée, mais, par importance aristocratique.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Person</span> <span class="p">{</span>
    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
    <span class="k">enum</span> <span class="n">SocialStatus</span> <span class="p">{</span>
        <span class="n">PEON</span><span class="p">;</span>
@@ -1134,7 +1134,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </pre></div>
 </div>
 <p>Rechercher <code class="docutils literal notranslate"><span class="pre">&quot;Mia&quot;</span></code> et obtenir <code class="docutils literal notranslate"><span class="pre">&quot;Mia&quot;</span></code> n'est certainement pas l'exemple le plus utile. Néanmoins il est possible d'encoder plus qu'une chaîne de caractère et utiliser plutôt une structure de donnée :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Person</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span> <span class="cm">/* &#39;\0&#39; */</span><span class="p">];</span>
     <span class="k">struct</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">month</span><span class="p">;</span>
@@ -1153,7 +1153,7 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </pre></div>
 </div>
 <p>Dans ce cas, le calcul du hash se ferait sur la première clé d'un élément :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">hash_person</span><span class="p">(</span><span class="k">struct</span> <span class="n">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">hash_person</span><span class="p">(</span><span class="k">struct</span> <span class="nc">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">person</span><span class="p">.</span><span class="n">name</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="o">++</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">sum</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
@@ -1189,7 +1189,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <p>Lorsque le nombre de collisions est négligeable par rapport à la table de hachage la recherche d'un élément est toujours en moyenne égale à <span class="math notranslate nohighlight">\(O(1)\)</span>, mais lorsque le nombre de collisions est prépondérant, la complexité se rapproche de celle de la recherche linéaire <span class="math notranslate nohighlight">\(O(n)\)</span> et on perd tout avantage à cette structure de donnée.</p>
 <p>Dans le cas extrême, pour garantir un accès unitaire pour tous les noms de trois lettres, il faudrait un tableau de hachage d'une taille <span class="math notranslate nohighlight">\(26^3 = 17576\)</span> personnes. L'empreinte mémoire peut être considérablement réduite en stockant non pas une structure <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Person</span></code> mais plutôt l'adresse vers cette structure :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Person</span> <span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">NULL</span> <span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Person</span> <span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">*</span> <span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">NULL</span> <span class="p">};</span>
 </pre></div>
 </div>
 <p>Dans ce cas exagéré, la fonction de hachage pourrait être la suivante :</p>
@@ -1246,7 +1246,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </pre></div>
 </div>
 <p>Cette approche nous donne une assez bonne répartition :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
 <span class="go">Bea : 2</span>
 <span class="go">Tim : 3</span>
 <span class="go">Len : 0</span>
@@ -1262,7 +1262,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </pre></div>
 </div>
 <p>Dans la pratique, on utilisera volontiers des fonctions de hachage utilisées en cryptographies tels que <a class="reference external" href="https://en.wikipedia.org/wiki/MD5">MD5</a> ou <cite>SHA</cite>. Considérons par exemple la première partie du poème Chanson de Pierre Corneille :</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cat chanson.txt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat chanson.txt
 <span class="go">Si je perds bien des maîtresses,</span>
 <span class="go">J&#39;en fais encor plus souvent,</span>
 <span class="go">Et mes voeux et mes promesses</span>
@@ -1270,7 +1270,7 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <span class="go">Et mes voeux et mes promesses</span>
 <span class="go">Ne sont jamais que du vent.</span>
 
-<span class="gp">$</span> md5sum chanson.txt
+<span class="gp">$ </span>md5sum chanson.txt
 <span class="go">699bfc5c3fd42a06e99797bfa635f410  chanson.txt</span>
 </pre></div>
 </div>
@@ -1315,8 +1315,8 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> gcc hash.c -lcrypto
-<span class="gp">$</span> ./a.out
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc hash.c -lcrypto
+<span class="gp">$ </span>./a.out
 <span class="go">4. La poule ou l&#39;oeuf?</span>
 <span class="go">3. Les pommes sont cuites!</span>
 <span class="go">7. Aussi lentement que possible</span>
@@ -1524,8 +1524,8 @@ int main() {
        title="Chapitre suivant"><span class="section-number">22  </span>Avancé →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2020.
-    Mis à jour le 24 sept. 2020 (version v0.3.0-9-g55801cb).
+      &#169; Copyright HEIG-VD(c) 2021.
+    Mis à jour le 28 mai 2021 (version v0.3.0-12-g1b9a9a1).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
