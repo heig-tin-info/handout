@@ -667,6 +667,71 @@ int diff = 3 // pair 11, 8
 <li><p>Retour à (1) jusqu'à ce que tous les éléments soient sortis de l'arbre.</p></li>
 </ol>
 </div>
+<div class="section" id="quick-sort">
+<h3><span class="section-number">17.6.2  </span>Quick Sort<a class="headerlink" href="#quick-sort" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Tri_rapide">tri rapide</a> est l'algorithme de tri par référence dans la plupart des langage de programmation. Selon le compilateur C que vous utilisez, la fonction <code class="docutils literal notranslate"><span class="pre">qsort</span></code> implémente cette méthode de tri en <span class="math notranslate nohighlight">\(O(n log n)\)</span>.</p>
+<p>Quick sort est théoriquement plus lent que le Heap sort avec dans le pire des cas en <span class="math notranslate nohighlight">\(O(n^2)\)</span>. Néanmoins, en s'appuyant que cette <a class="reference external" href="https://stackoverflow.com/a/1853219/2612235">réponse</a> StackOverflow, quick sort reste meilleur pour de grands tableaux car les embranchements sont moins fréquents, et le cache processeur est donc mieux utilisé.</p>
+<p>Cet algorithme utilise la notion de <strong>pivot</strong>. Le pivot est un élément qui est choisi pour être le point autour duquel sont agencé les éléments. La méthode de tri est la suivante :</p>
+<ol class="arabic simple">
+<li><p>Choix d'un pivot</p></li>
+<li><p>Paritionnement : tous les éléments plus petit que le pivot sont déplacé à gauche et tous les éléments plus grands sont à droite. L'élément pivot est ainsi positionné à sa bonne place dans le tableau.</p></li>
+<li><p>Appel récursif pour la partie gauche et droite.</p></li>
+</ol>
+<p>Considérons le tableau suivant. Les valeurs ne sont pas triées. La première étape consiste à choisir un pivot. Il existe plusieurs technique :</p>
+<ul class="simple">
+<li><p>Choisir le premier élément comme pivot</p></li>
+<li><p>Choisir le dernier élément comme pivot</p></li>
+<li><p>Choisir l'élément médian comme pivot</p></li>
+</ul>
+<p>Dans cet exemple, le dernier élément <code class="docutils literal notranslate"><span class="pre">6</span></code> sera arbitrairement choisi comme pivot.</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/quicksort.svg"><img alt="../_images/quicksort.svg" src="../_images/quicksort.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 17.2 </span><span class="caption-text">Représentation du tableau à trier avec son pivot.</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>L'étape de paritionnement utilise l'algorithme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">partition</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pivot</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">low</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">low</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">pivot</span><span class="p">])</span>
+            <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">pivot</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Voici comment <code class="docutils literal notranslate"><span class="pre">partition(a,</span> <span class="pre">0,</span> <span class="pre">10,</span> <span class="pre">10)</span></code> modifie le tableau (voir <a class="reference external" href="../../assets/src/partition.c">code source</a>) :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2 9 4 1 b 5 a 7 3 8 6
+2 4 9 1 b 5 a 7 3 8 6
+2 4 1 9 b 5 a 7 3 8 6
+2 4 1 5 b 9 a 7 3 8 6
+2 4 1 5 3 9 a 7 b 8 6
+2 4 1 5 3 6 a 7 b 8 9
+</pre></div>
+</div>
+<p>On constate que la valeur <cite>6</cite> choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments <code class="docutils literal notranslate"><span class="pre">0</span></code> à <code class="docutils literal notranslate"><span class="pre">4</span></code> et `` 6``  à <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/quicksort-2.svg"><img alt="../_images/quicksort-2.svg" src="../_images/quicksort-2.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 17.3 </span><span class="caption-text">Tri rapide après le premier partitionnement.</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Voici une autre représentation (voir <a class="reference external" href="../../assets/src/quicksort.c">code source</a>) :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>  <span class="mi">9</span>  <span class="mi">5</span>  <span class="mi">2</span>  <span class="n">b</span>  <span class="mi">4</span>  <span class="n">a</span>  <span class="mi">7</span>  <span class="mi">3</span>  <span class="mi">8</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">2</span>  <span class="mi">4</span>  <span class="mi">3</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">a</span>  <span class="mi">7</span>  <span class="n">b</span>  <span class="mi">8</span>  <span class="mi">9</span>
+<span class="mi">1</span>  <span class="mi">5</span>  <span class="mi">2</span>  <span class="mi">4</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">1</span>  <span class="mi">2</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="mi">4</span>  <span class="mi">5</span>
+<span class="mi">1</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="mi">1</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="mi">4</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+        <span class="mi">4</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+                <span class="n">a</span>  <span class="mi">7</span>  <span class="n">b</span>  <span class="mi">8</span> <span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+                <span class="mi">7</span>  <span class="mi">8</span> <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">a</span>  <span class="n">b</span>
+                <span class="mi">7</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+                <span class="mi">7</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+                        <span class="n">a</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+                        <span class="n">a</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="type-d-algorithmes">
 <h2><span class="section-number">17.7  </span>Type d'algorithmes<a class="headerlink" href="#type-d-algorithmes" title="Lien permanent vers ce titre">¶</a></h2>
@@ -759,7 +824,7 @@ int diff = 3 // pair 11, 8
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 29 mai 2021 (version v0.3.0-16-gbfefe10).
+    Mis à jour le 29 mai 2021 (version v0.3.0-17-g6a62f9f).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
