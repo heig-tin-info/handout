@@ -302,7 +302,11 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#ligne-de-commande" class="reference internal">Ligne de commande</a></li>
+                  <li class="toctree-l2"><a href="#navigation" class="reference internal">Navigation</a></li>
+                
+                  <li class="toctree-l2"><a href="#affichage" class="reference internal">Affichage</a></li>
+                
+                  <li class="toctree-l2"><a href="#pipe" class="reference internal">Pipe</a></li>
                 
               </ul>
             
@@ -388,7 +392,7 @@
   <div class="section" id="ligne-de-commande">
 <h1><span class="section-number">C  </span>Ligne de commande<a class="headerlink" href="#ligne-de-commande" title="Lien permanent vers ce titre">¶</a></h1>
 <p>La maîtrise de la ligne de commande n'est pas indispensable pour ce cours, mais la compréhension de quelques commandes est utile pour bien comprendre les exemples donnés.</p>
-<p>Dans un environnement <strong>POSIX</strong> l'interaction avec le système s'effectue pour la plupart du temps via un terminal. Le programme utilisé pour interagir avec le système d'exploitation est appelé un <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_interpreter">interpréteur de commande</a>. Sous Windows vous utilisez le programme <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> ou <code class="docutils literal notranslate"><span class="pre">PowerShell.exe</span></code>. Sous Linux vous utilisez très souvent un dérivé du <a class="reference external" href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell</a> nom éponyme de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_R._Bourne">Stephen Bourne</a> et apparu en 1979. La compatibilité est toujours maintenue aujourd'hui via son successeur <a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> dont le nom est un acronyme de <em>Bourne-again shell</em>.</p>
+<p>Dans un environnement <strong>POSIX</strong> l'interaction avec le système s'effectue pour la plupart du temps via un terminal. Le programme utilisé pour interagir avec le système d'exploitation est appelé un <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_interpreter">interpréteur de commande</a>. Sous Windows vous utilisez le programme <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> ou <code class="docutils literal notranslate"><span class="pre">PowerShell.exe</span></code>. Sous Linux vous utilisez très souvent un dérivé de <a class="reference external" href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell</a> nom éponyme de <a class="reference external" href="https://en.wikipedia.org/wiki/Stephen_R._Bourne">Stephen Bourne</a> et apparu en 1979. La compatibilité est toujours maintenue aujourd'hui via son successeur <a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> dont le nom est un acronyme de <em>Bourne-again shell</em>.</p>
 <p>Bash est écrit en C et les sources sont naturellement disponibles sur internet. Lorsque vous lancez Bash, vous aurez un simple prompt :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>
 </pre></div>
@@ -396,6 +400,43 @@
 <p>Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom d'un programme. Voici un exemple :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat foo.txt <span class="p">|</span> hexdump -C -n100
 </pre></div>
+</div>
+<div class="section" id="navigation">
+<h2><span class="section-number">C.1  </span>Navigation<a class="headerlink" href="#navigation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour naviguer dans l'arborescence, le programme <code class="docutils literal notranslate"><span class="pre">cd</span></code> est utilisé. Il est l'acronyme de <em>change directory</em>. Ce programme prend en argument un chemin relatif ou absolu.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> /usr
+<span class="go">/usr$ cd bin</span>
+<span class="go">/usr/bin$ cd .</span>
+<span class="go">/usr/bin$ cd ..</span>
+<span class="go">/usr/$ cd /var/tmp</span>
+<span class="go">/var/tmp$ cd</span>
+<span class="go">~$</span>
+</pre></div>
+</div>
+<p>La dernière commande est singulière : si <code class="docutils literal notranslate"><span class="pre">cd</span></code> est appelé sans argument, il nous ramène dans notre répertoire personnel nommé <em>home</em> et abbrégé <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p>
+</div>
+<div class="section" id="affichage">
+<h2><span class="section-number">C.2  </span>Affichage<a class="headerlink" href="#affichage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'affichage du contenu courant de l'arborescence est possible avec le programme <code class="docutils literal notranslate"><span class="pre">ls</span></code> pour <em>list structure</em>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls /usr/bin/as*
+<span class="go">/usr/bin/as                 /usr/bin/asciitopgm     /usr/bin/assistant</span>
+<span class="go">/usr/bin/asan_symbolize     /usr/bin/aspell         /usr/bin/asy</span>
+<span class="go">/usr/bin/asan_symbolize-10  /usr/bin/aspell-import</span>
+<span class="gp">$ </span>ls -al /usr/bin/as*
+<span class="go">-rwxr-xr-x 1 root root  38K 2020-04-20 07:12 /usr/bin/asan_symbolize-10</span>
+<span class="go">-rwxr-xr-x 1 root root 9.9K 2016-04-23 13:53 /usr/bin/asciitopgm</span>
+<span class="go">-rwxr-xr-x 1 root root 167K 2020-03-22 16:33 /usr/bin/aspell</span>
+<span class="go">-rwxr-xr-x 1 root root 2.0K 2020-03-22 16:33 /usr/bin/aspell-import</span>
+<span class="go">lrwxrwxrwx 1 root root    9 2020-03-22 16:55 /usr/bin/assistant -&gt; qtchooser</span>
+<span class="go">-rwxr-xr-x 1 root root 4.3M 2020-02-10 15:52 /usr/bin/asy</span>
+</pre></div>
+</div>
+<p>On utilise souvent les options <code class="docutils literal notranslate"><span class="pre">a</span></code> (pour <em>all</em>) et <code class="docutils literal notranslate"><span class="pre">l</span></code> (pour <em>long</em>) permettant d'afficher les résultats avec plus de détails. Dans l'ordre on peut lire les permissions du fichier, le propriétaire, le groupe, la taille du fichier, sa date de dernière modification et enfin son nom.</p>
+</div>
+<div class="section" id="pipe">
+<h2><span class="section-number">C.3  </span>Pipe<a class="headerlink" href="#pipe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le signe pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> permet de rediriger le flux de sortie d'un programme vers le flux d'entrée d'un autre programme et ainsi les exécuter à la chaîne.</p>
+<p>Il se peut que vous souhaitiez rediriger la sortie d'erreur vers la sortie standard et ainsi concaténer les deux flux sur l'entrée standard d'un autre programme.</p>
 </div>
 </div>
 
@@ -413,7 +454,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 28 mai 2021 (version v0.3.0-13-g7046809).
+    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

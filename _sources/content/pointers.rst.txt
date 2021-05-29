@@ -88,7 +88,7 @@ Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque
 
 La valeur ``NULL`` corresponds à l'adresse nulle ``0x00000000``. On utilise cette convention pour bien indiquer qu'il s'agit d'une adresse et non d'une valeur scalaire.
 
-À tout moment la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :
+À tout moment, la valeur du pointeur peut être assignée à l'adresse d'un entier puisque nous avons déclaré un pointeur sur un entier :
 
 .. code-block:: c
 
@@ -110,18 +110,25 @@ Vous ne le saviez pas, mais 𝄽 *plot twist* 𝄽 la variable ``array`` est un 
 
 .. code-block:: c
 
-    printf("%d", *array);
+    printf("%d", *array); // Affiche 0
 
 La différence entre un **tableau** et un **pointeur** est la suivante :
 
 - Il n'est pas possible d'assigner une adresse à un tableau
 - Il n'est pas possible d'assigner des valeurs à un pointeur
 
-D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un sucre syntaxique :
+D'ailleurs, l'opérateur crochet ``[]`` n'est rien d'autre qu'un `sucre syntaxique <https://fr.wikipedia.org/wiki/Sucre_syntaxique>`__:
 
 .. code-block:: c
 
    a[b] == *(a + b);
+
+Bien que ce soit une très mauvaise idée, il est tout à fait possible d'écrire le code suivant puisque l'addition est commutative :
+
+.. code-block:: c
+
+   assert(4[a] == a[4]);
+
 
 Arithmétique de pointeurs
 =========================
@@ -220,47 +227,59 @@ Initialisation d'un pointeur sur une structure
 ----------------------------------------------
 
 De la même manière qu'avec les types standards, on peut définir un
-pointeur sur une structure de donnée.
+pointeur sur une structure de données.
 
 .. code-block:: c
 
-    typedef struct {
+    typedef struct Date {
+        unsigned char day;
+        unsigned char month;
+        unsigned int  year;
+    } Date;
 
-      unsigned char jour;
-      unsigned char mois;
-      unsigned int  annee;
-
-    } sDate, *pDate;
-
-L'exemple précédent définit un type de donnée *sDate* ainsi qu'un
-pointeur sur le même type de donnée : *pDate*. On pourrait donc
-initialiser un pointeur sur une structure de la façon suivante :
+L'exemple précédent définit un type de donnée *Date*. On pourrait donc
+initialiser un pointeur sur cette structure de la façon suivante :
 
 .. code-block:: c
 
-    sDate date_depart;
-    pDate p;            // pointeur sur un type sDate
+    Date date;
+    Date *p;  // Pointeur sur un type Date
 
-    p=&date_depart;     // initialisation du pointeur sur un type structuré
+    p = &date;  // Initialisation du pointeur sur un type structuré
+
+Le pointeur reste un pointeur, soit un espace mémoire qui contient une adresse vers la structure ``Date``. En conséquence, la taille de ce pointeur est de 8 bytes sur une machine 64 bits :
+
+.. code-block:: c
+
+    Date *p;
+    assert(sizeof(p) == 8);
+
 
 Utilisation d'un pointeur sur une structure
 -------------------------------------------
 
 On a vu que les champs d'une structure sont accessibles au travers du
-:math:`.` faisant la liaison entre la variable et le champ. Cela est
+``.`` faisant la liaison entre la variable et le champ. Cela est
 valable si la variable est du type structuré. Si la variable est du type
-pointeur sur une structure, on remplacera le :math:`.` par :math:`->`.
+pointeur sur une structure, on remplacera le ``.`` par ``->``.
 
 .. code-block:: c
 
-    sDate date_depart;
-    pDate p;            // pointeur sur un type sDate
+    Date date;
+    Date *p;
 
-    p=&date_depart;     // initialisation du pointeur sur un type structuré
+    p = &date;
 
-    p->jour=29;         // accès aux champs de la structure
-    p->mois=12;         // depuis  un pointeur
-    p->annee=1964;
+    p->day = 29;
+    p->month = 12;
+    p->year = 1964;
+
+La syntaxe ``->`` est un sucre syntaxique. Les deux écritures suivantes sont par conséquent équivalentes :
+
+.. code-block:: c
+
+    p->year
+    (*p).year
 
 Utilisation d'un pointeur récursif sur une structure
 ----------------------------------------------------
@@ -273,35 +292,32 @@ style d'écriture spécifique :
 
 .. code-block:: c
 
-    typedef struct sElement {
-
-      struct sElement *precedent; // pointeur sur l'élément précédent
-      struct sElement *suivant;   // pointeur sur l'élément suivant
-
-      unsigned long data;  // donnée de la liste chaînée
-
-    } sElement, *pElement;
+    typedef struct Element {
+      struct Element *prev;  // Pointeur sur l'élément précédent
+      struct Element *next;  // Pointeur sur l'élément suivant
+      unsigned long data;  // Donnée d'une liste chaînée
+    } Element;
 
 Exemple d'utilisation :
 
 .. code-block:: c
 
-    sElement e[3]; // 3 éléments dans la liste
+    Element e[3];
 
-    // premier élément de la liste
-    e[0].precedent = NULL;
-    e[0].suivant   = &e[1];
+    // Premier élément de la liste
+    e[0].prev = NULL;
+    e[0].next = &e[1];
 
-    // second élément de la liste
-    e[1].precedent = &e[0];
-    e[1].suivant   = &e[2];
+    // Second élément de la liste
+    e[1].prev = &e[0];
+    e[1].next = &e[2];
 
     // troisième élément de la liste
-    e[2].precedent = &e[1];
-    e[2].suivant   = NULL;
+    e[2].prev = &e[1];
+    e[2].next = NULL;
 
 Pointeurs et paramètres de fonctions
-------------------------------------
+====================================
 
 Les fonctions comportent une liste de paramètres permettant de retourner
 une information au programme appelant. Il est souvent indispensable de
@@ -317,16 +333,15 @@ de la manière suivante :
 
 .. code-block:: c
 
-    type fonction(type * param);
+    type fonction(Type *param);
 
-Cette fonction reçoit un paramètre (*param*) qui est un pointeur sur un
-type particulier.
+Cette fonction reçoit un paramètre (*param*) qui est un pointeur sur le type ``Type``.
 
 Exemple de prototype :
 
 .. code-block:: c
 
-    int calcul(double x, double * pres);
+    int compute(double x, double *pres);
 
 La fonction *calcul* prend 2 paramètres. Le premier (*x*) est du type
 double. Le second (*pres*) est un pointeur sur un double. Il sera donc
@@ -336,43 +351,37 @@ variable dans laquelle la fonction placera le résultat du calcul.
 .. code-block:: c
 
     int calcul(double x, double * pres) {
-
-      *pres = x * 2.;  // calcul du double de x
-                      // place le resultat à l'adresse pres
-
-      return 0;       // code retour = 0 (int)
+        *pres = x * 2.;  // calcul du double de x
+                         // place le resultat à l'adresse pres
+        return 0;  // code retour = 0 (int)
     }
 
     int main() {
+        double value = 7.;
+        double r = 0.;
+        int res = 0;
 
-      double valeur = 7.;
-      double r = 0.;
-      int code_ret=0;
-
-      code_ret=calcul (valeur, &r);
-      // r vaut maintenant 14.
-      return 0;
+        res = compute(value, &r);
+        // res vaut maintenant 14.
     }
 
 Lors de l'appel d'une fonction recevant un pointeur comme paramètre, on
-placera le symbole & pour lui donner l'adresse de la variable.
+placera le symbole ``&`` pour lui donner l'adresse de la variable.
 
 Transtypage de pointeurs (cast)
 ===============================
 
 Le ``cast`` de pointeur s'avère nécessaire lorsqu'un pointeur du type ``void`` est déclaré, comme c'est le cas pour la fonction de copie mémoire ``memcpy``. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :
 
-::
+.. code-block:: c
 
     char message[] = "Mind the gap, please!";
-
     int array[128];
-
     struct { int a; char b; float c[3] } elements[128];
 
 Il faudrait donc autant de fonction ``memcpy`` que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie ``void`` et qui permet sans autre :
 
-::
+.. code-block:: c
 
     void *ptr;
 
@@ -386,13 +395,13 @@ L'intérêt d'un pointeur, c'est justement de pointer une région mémoire et le
 
 Or, le titre de cette section étant le transtypage, il doit donc y avoir moyen de s'en sortir par une pirouette programmatique dans laquelle je déclare un nouveau pointeur du type char auquel j'associe la valeur de ptr par un **cast explicite**.
 
-::
+.. code-block:: c
 
     char *iptr = (char*)ptr;
 
 Dès lors, l'arithmétique est redevient possible ``iptr++``. Pourquoi ne pas avoir utilisé ce subterfuge plus tôt me direz-vous ? En effet, il m'aurait été possible d'écrire ``char *ptr = (char*)elements;`` directement et sans détour, mais ceci aurait alors mené à ce prototype-ci :
 
-::
+.. code-block:: c
 
     void *memcpy(char* dest, const char* src, size_t n);
 
@@ -404,7 +413,7 @@ Autrement dit, il n'est pas nécessaire, ni recommandé de faire un transtypage 
 
 Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité serait :
 
-::
+.. code-block:: c
 
     void memcpy(void *dest, void *src, size_t n)
     {
@@ -417,7 +426,7 @@ Et quant à l'implémentation de cette fonction me direz-vous ? Une possibilité
 
 Où plus concis :
 
-::
+.. code-block:: c
 
     void memcpy(void *dest, void *src, size_t n)
     {
@@ -662,9 +671,9 @@ Naïvement l'exécution suivante devrait fonctionner, mais les deux pointeurs so
     │0│1│2│0│1│2│3│4│5│6│ Opération avec `memmove` (fonction standard)
     └─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard ``memmove`` de ``<stdlib.h>`` fonctionne car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.
+Notre simple fonction de déplacement mémoire ne fonctionne pas avec des régions mémoires qui s'enchevêtrent. En revanche, la fonction standard ``memmove`` de ``<stdlib.h>`` fonctionne, car elle autorise, au détriment d'une plus grande complexité, de gérer ce type de situation.
 
-Notons que sa fonction voisine ``memcpy`` ne dois **jamais** être utilisée en cas d'*aliasing*. Cette fonction se veut performante, c'est à dire qu'elle peut être implémentée en suivant le même principe que notre exemple ``memory_move``. Le standard **C99** ne défini pas le comportement de ``memcpy`` pour des pointeurs qui se chevauchent.
+Notons que sa fonction voisine ``memcpy`` ne dois **jamais** être utilisée en cas d'*aliasing*. Cette fonction se veut performante, c'est-à-dire qu'elle peut être implémentée en suivant le même principe que notre exemple ``memory_move``. Le standard **C99** ne définit pas le comportement de ``memcpy`` pour des pointeurs qui se chevauchent.
 
 ------
 

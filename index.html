@@ -383,8 +383,8 @@
 <li><p>Unité <strong>Informatique 1</strong> (<a class="reference internal" href="appendix/unit.html#info1"><span class="std std-ref">Info1</span></a>)</p></li>
 <li><p>Unité <strong>Informatique 2</strong> (<a class="reference internal" href="appendix/unit.html#info2"><span class="std std-ref">Info2</span></a>)</p></li>
 </ul>
-<p>La version actuelle : v0.3.0-13-g7046809</p>
-<p>Date : mai 28, 2021</p>
+<p>La version actuelle : v0.3.0-15-g204777d</p>
+<p>Date : mai 29, 2021</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Table des matières</span></p>
 <ul>
@@ -526,11 +526,12 @@
 <li class="toctree-l2"><a class="reference internal" href="content/pointers.html#arithmetique-de-pointeurs">14.2  Arithmétique de pointeurs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/pointers.html#pointeur-et-chaines-de-caracteres">14.3  Pointeur et chaînes de caractères</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/pointers.html#structures-et-pointeurs">14.4  Structures et pointeurs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#transtypage-de-pointeurs-cast">14.5  Transtypage de pointeurs (cast)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#pointeurs-de-fonctions">14.6  Pointeurs de fonctions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#la-regle-gauche-droite">14.7  La règle gauche-droite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#initialisation-par-transtypage">14.8  Initialisation par transtypage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#enchevetrement-ou-aliasing">14.9  Enchevêtrement ou <em>Aliasing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#pointeurs-et-parametres-de-fonctions">14.5  Pointeurs et paramètres de fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#transtypage-de-pointeurs-cast">14.6  Transtypage de pointeurs (cast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#pointeurs-de-fonctions">14.7  Pointeurs de fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#la-regle-gauche-droite">14.8  La règle gauche-droite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#initialisation-par-transtypage">14.9  Initialisation par transtypage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/pointers.html#enchevetrement-ou-aliasing">14.10  Enchevêtrement ou <em>Aliasing</em></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="content/standard-library.html">15  Bibliothèques</a><ul>
@@ -547,10 +548,10 @@
 <li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#extensions-des-fichiers">16.2  Extensions des fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#inclusion-de-fichiers">16.3  Inclusion de fichiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#definitions">16.4  Définitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#macros">16.5  Macros</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#debogage">16.6  Débogage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#caractere-d-echappement">16.7  Caractère d'échappement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#id1">16.8  Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#debogage">16.5  Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#caractere-d-echappement">16.6  Caractère d'échappement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#macros">16.7  Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#concatenation">16.8  Concaténation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#directives-conditionnelles">16.9  Directives conditionnelles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/preprocessor.html#commentaires">16.10  Commentaires</a></li>
 </ul>
@@ -571,6 +572,7 @@
 <li class="toctree-l2"><a class="reference internal" href="content/translation-units.html#module-logiciel">18.3  Module logiciel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/translation-units.html#compilation-avec-assemblage-differe">18.4  Compilation avec assemblage différé</a></li>
 <li class="toctree-l2"><a class="reference internal" href="content/translation-units.html#fichiers-d-en-tete-header">18.5  Fichiers d'en-tête (<em>header</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/translation-units.html#en-profondeur">18.6  En profondeur</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="content/scopes.html">19  Portée et visibilité</a><ul>
@@ -664,7 +666,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 28 mai 2021 (version v0.3.0-13-g7046809).
+    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

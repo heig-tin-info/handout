@@ -249,6 +249,8 @@
                 
                   <li class="toctree-l2"><a href="#fichiers-d-en-tete-header" class="reference internal">Fichiers d'en-tête (header)</a></li>
                 
+                  <li class="toctree-l2"><a href="#en-profondeur" class="reference internal">En profondeur</a></li>
+                
               </ul>
             
           </li>
@@ -524,19 +526,19 @@ réinventer la roue à chaque application !</p>
 <p>Vous noterez que l'extension de <code class="docutils literal notranslate"><span class="pre">foobar</span></code> n'est pas <code class="docutils literal notranslate"><span class="pre">.h</span></code> puisque le contenu n'est pas un fichier d'en-tête. <code class="docutils literal notranslate"><span class="pre">.def</span></code> ou n'importe quelle autre extension pourrait donc faire l'affaire ici.</p>
 <p>Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> à l'emplacement de la définition <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;foobar.def&quot;</span></code>. Voyons-le en détail :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat &lt;&lt; EOF &gt; main.c
-<span class="go">→ int main() {</span>
-<span class="go">→     #include &quot;foobar.def&quot;</span>
-<span class="go">→     #include &quot;foobar.def&quot;</span>
-<span class="go">→ }</span>
-<span class="go">→ EOF</span>
+<span class="go">int main() {</span>
+<span class="gp">    #</span>include <span class="s2">&quot;foobar.def&quot;</span>
+<span class="gp">    #</span>include <span class="s2">&quot;foobar.def&quot;</span>
+<span class="go">}</span>
+<span class="go">EOF</span>
 
 <span class="gp">$ </span>cat &lt;&lt; EOF &gt; foobar.def
-<span class="go">→ #ifdef FOO</span>
-<span class="go">→ printf(&quot;hello foo!\n&quot;);</span>
-<span class="go">→ #else</span>
-<span class="go">→ printf(&quot;hello bar!\n&quot;);</span>
-<span class="go">→ #endif</span>
-<span class="go">→ EOF</span>
+<span class="gp">#</span>ifdef FOO
+<span class="go">printf(&quot;hello foo!\n&quot;);</span>
+<span class="gp">#</span><span class="k">else</span>
+<span class="go">printf(&quot;hello bar!\n&quot;);</span>
+<span class="gp">#</span>endif
+<span class="go">EOF</span>
 
 <span class="gp">$ </span>gcc -E main.c <span class="p">|</span> sed <span class="s1">&#39;/^#/ d&#39;</span>
 <span class="go">int main() {</span>
@@ -630,6 +632,149 @@ réinventer la roue à chaque application !</p>
 <p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code class="docutils literal notranslate"><span class="pre">#endif</span></code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <code class="docutils literal notranslate"><span class="pre">bar.h</span></code> n'apparaît pas dans le fichier <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code>.</p>
 </div>
 </div>
+<div class="section" id="en-profondeur">
+<h2><span class="section-number">18.6  </span>En profondeur<a class="headerlink" href="#en-profondeur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier <code class="docutils literal notranslate"><span class="pre">foo.c</span></code> :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gcc foo.c
+/usr/bin/ld: /usr/lib/x86_64-linux-gnu/Scrt1.o: <span class="k">in</span> <span class="k">function</span> <span class="s1">&#39;_start&#39;</span>:
+<span class="o">(</span>.text+0x24<span class="o">)</span>: undefined reference to <span class="s1">&#39;main&#39;</span>
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+</pre></div>
+</div>
+<p>Le <em>linker</em> se termine avec une erreur : <em>référence à 'main' inexistante</em>.</p>
+<p>En revanche, il est possible de compiler un objet, c'est à dire générer les instructions assembleur. La fonction <code class="docutils literal notranslate"><span class="pre">bar</span></code> étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire <em>moi j'appelle cette fonction ou qu'elle se trouve</em>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$objdump</span> -d foo.o
+
+foo.o:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+<span class="m">0000000000000000</span> &lt;foo&gt;:
+ <span class="m">0</span>:   f3 0f 1e fa       endbr64
+ <span class="m">4</span>:   <span class="m">55</span>                push   %rbp
+ <span class="m">5</span>:   <span class="m">48</span> <span class="m">89</span> e5          mov    %rsp,%rbp
+ <span class="m">8</span>:   <span class="m">48</span> <span class="m">83</span> ec <span class="m">10</span>       sub    <span class="nv">$0</span>x10,%rsp
+ c:   <span class="m">89</span> 7d <span class="nb">fc</span>          mov    %edi,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+ f:   8b <span class="m">45</span> <span class="nb">fc</span>          mov    -0x4<span class="o">(</span>%rbp<span class="o">)</span>,%eax
+<span class="m">12</span>:   <span class="m">89</span> c7             mov    %eax,%edi
+<span class="m">14</span>:   e8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    callq  <span class="m">19</span> &lt;foo+0x19&gt;
+<span class="m">19</span>:   <span class="m">83</span> c0 2a          add    <span class="nv">$0</span>x2a,%eax
+1c:   c9                leaveq
+1d:   c3                retq
+</pre></div>
+</div>
+<p>On constate à la ligne <code class="docutils literal notranslate"><span class="pre">19</span></code> que l'addition à bien lieu <code class="docutils literal notranslate"><span class="pre">eax</span> <span class="pre">+</span> <span class="pre">42</span></code>, et que l'appel de la fonction <cite>bar</cite> se produit à la ligne <code class="docutils literal notranslate"><span class="pre">14</span></code>.</p>
+<p>Maintenant considérons le programme principal :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">foo</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En générant l'objet <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-c</span> <span class="pre">main.c</span></code>, on peut également afficher l'assembleur généré avec <code class="docutils literal notranslate"><span class="pre">objdump</span></code> :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$objdump</span> -d main.o
+
+main.o:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+<span class="m">0000000000000000</span> &lt;bar&gt;:
+ <span class="m">0</span>:   f3 0f 1e fa             endbr64
+ <span class="m">4</span>:   <span class="m">55</span>                      push   %rbp
+ <span class="m">5</span>:   <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+ <span class="m">8</span>:   <span class="m">89</span> 7d <span class="nb">fc</span>                mov    %edi,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+ b:   8b <span class="m">45</span> <span class="nb">fc</span>                mov    -0x4<span class="o">(</span>%rbp<span class="o">)</span>,%eax
+ e:   <span class="m">01</span> c0                   add    %eax,%eax
+<span class="m">10</span>:   5d                      pop    %rbp
+<span class="m">11</span>:   c3                      retq
+
+<span class="m">0000000000000012</span> &lt;main&gt;:
+<span class="m">12</span>:   f3 0f 1e fa             endbr64
+<span class="m">16</span>:   <span class="m">55</span>                      push   %rbp
+<span class="m">17</span>:   <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+1a:   bf 2a <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x2a,%edi
+1f:   e8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          callq  <span class="m">24</span> &lt;main+0x12&gt;
+<span class="m">24</span>:   <span class="m">89</span> c6                   mov    %eax,%esi
+<span class="m">26</span>:   <span class="m">48</span> 8d 3d <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    lea    0x0<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 2d &lt;main+0x1b&gt;</span>
+2d:   b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+<span class="m">32</span>:   e8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          callq  <span class="m">37</span> &lt;main+0x25&gt;
+<span class="m">37</span>:   b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+3c:   5d                      pop    %rbp
+3d:   c3                      retq
+</pre></div>
+</div>
+<p>On observe l'appel de la fonction <code class="docutils literal notranslate"><span class="pre">foo</span></code> à la ligne <code class="docutils literal notranslate"><span class="pre">1f</span></code> et l'appel de <code class="docutils literal notranslate"><span class="pre">printf</span></code> à la ligne <code class="docutils literal notranslate"><span class="pre">32</span></code>.</p>
+<p>L'assemblage de ces deux fichiers en un exécutable résoud les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc foo.o main.o
+$ objdump -d a.out
+
+a.out:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+<span class="m">0000000000001149</span> &lt;foo&gt;:
+    <span class="m">1149</span>:       f3 0f 1e fa             endbr64
+    114d:       <span class="m">55</span>                      push   %rbp
+    114e:       <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+    <span class="m">1151</span>:       <span class="m">48</span> <span class="m">83</span> ec <span class="m">10</span>             sub    <span class="nv">$0</span>x10,%rsp
+    <span class="m">1155</span>:       <span class="m">89</span> 7d <span class="nb">fc</span>                mov    %edi,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    <span class="m">1158</span>:       8b <span class="m">45</span> <span class="nb">fc</span>                mov    -0x4<span class="o">(</span>%rbp<span class="o">)</span>,%eax
+    115b:       <span class="m">89</span> c7                   mov    %eax,%edi
+    115d:       e8 <span class="m">05</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          callq  <span class="m">1167</span> &lt;bar&gt;
+    <span class="m">1162</span>:       <span class="m">83</span> c0 2a                add    <span class="nv">$0</span>x2a,%eax
+    <span class="m">1165</span>:       c9                      leaveq
+    <span class="m">1166</span>:       c3                      retq
+
+<span class="m">0000000000001167</span> &lt;bar&gt;:
+    <span class="m">1167</span>:       f3 0f 1e fa             endbr64
+    116b:       <span class="m">55</span>                      push   %rbp
+    116c:       <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+    116f:       <span class="m">89</span> 7d <span class="nb">fc</span>                mov    %edi,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    <span class="m">1172</span>:       8b <span class="m">45</span> <span class="nb">fc</span>                mov    -0x4<span class="o">(</span>%rbp<span class="o">)</span>,%eax
+    <span class="m">1175</span>:       <span class="m">01</span> c0                   add    %eax,%eax
+    <span class="m">1177</span>:       5d                      pop    %rbp
+    <span class="m">1178</span>:       c3                      retq
+
+<span class="m">0000000000001179</span> &lt;main&gt;:
+    <span class="m">1179</span>:       f3 0f 1e fa             endbr64
+    117d:       <span class="m">55</span>                      push   %rbp
+    117e:       <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+    <span class="m">1181</span>:       bf 2a <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x2a,%edi
+    <span class="m">1186</span>:       e8 be ff ff ff          callq  <span class="m">1149</span> &lt;foo&gt;
+    118b:       <span class="m">89</span> c6                   mov    %eax,%esi
+    118d:       <span class="m">48</span> 8d 3d <span class="m">70</span> 0e <span class="m">00</span> <span class="m">00</span>    lea    0xe70<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+    <span class="m">1194</span>:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+    <span class="m">1199</span>:       e8 b2 fe ff ff          callq  <span class="m">1050</span> &lt;printf@plt&gt;
+    119e:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+    11a3:       5d                      pop    %rbp
+    11a4:       c3                      retq
+    11a5:       <span class="m">66</span> 2e 0f 1f <span class="m">84</span> <span class="m">00</span> <span class="m">00</span>    nopw   %cs:0x0<span class="o">(</span>%rax,%rax,1<span class="o">)</span>
+    11ac:       <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+    11af:       <span class="m">90</span>                      nop
+</pre></div>
+</div>
+<p>On constate que les appels de fonctions ont été bien remplacés par les bon noms :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">115d</span></code> Appel de <code class="docutils literal notranslate"><span class="pre">bar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1186</span></code> Appel de <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1199</span></code> Appel de <code class="docutils literal notranslate"><span class="pre">printf</span></code></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -646,7 +791,7 @@ réinventer la roue à chaque application !</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 28 mai 2021 (version v0.3.0-13-g7046809).
+    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

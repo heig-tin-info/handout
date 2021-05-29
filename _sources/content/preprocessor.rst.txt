@@ -236,10 +236,6 @@ Un symbole défini soit par la ligne de commande ``-DFOO=1``, soit par la direct
 
 Généralement on évitera de faire appel à ``#undef`` car le bon programmeur aura forcé la définition d'une directive en amont pour contraindre le développement en aval.
 
-Macros
-======
-
-On appel **macro** une fonction définie au niveau du préprocesseur.
 
 Débogage
 ========
@@ -331,6 +327,27 @@ Notez que l'absence d'espace entre le nom de la macro et la parenthèse est impo
         return (x, y) ((x) + (y))(23, 12);
     }
 
+Concaténation
+=============
+
+Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention il est nécessaire de passer par une macro pour que cela fonctionne :
+
+.. code-block:: c
+
+    int foobar = 42;
+
+    #define CONCAT(a, b) a ## b
+    printf("%d", CONCAT(foo, bar));
+
+En appelant seulement le préprocesseur on constate ce résultat :
+
+.. code-block:: sh
+
+    $ gcc -E ww.c
+    int foobar = 42;
+
+    printf("%d", foobar);
+
 Directives conditionnelles
 ==========================
 
@@ -374,7 +391,7 @@ Imaginons que la constante ``M_PI`` soit définie dans le header ``<math.h>``:
 
 .. code-block:: c
 
-    #define M_PI        3.14159265358979323846
+    #define M_PI  3.14159265358979323846
 
 Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :
 

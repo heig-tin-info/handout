@@ -563,6 +563,92 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
 <h3><span class="section-number">19.4.5  </span><code class="docutils literal notranslate"><span class="pre">volatile</span></code><a class="headerlink" href="#volatile" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-4">Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypothèse d'optimisation concernant cette variable. Elle indique que son contenu peut être modifié en tout temps en arrière-plan par le système d'exploitation ou le matériel. Ce mot clé est davantage utilisé en programmation système, ou sur microcontrôleurs.</p>
 <p>L'usage de cette classe de stockage réduit les performances d'un programme puisqu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation</p>
+<p>Considérons le cas du progamme suivant :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On notera que les 4 lignes où <code class="docutils literal notranslate"><span class="pre">i</span></code> successivement assigné à 1 et 0 sont inutiles car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé on obtiens le listing suivant :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc main.c
+$ objdump -d a.out
+
+a.out:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+<span class="m">0000000000001149</span> &lt;main&gt;:
+    <span class="m">1149</span>:       f3 0f 1e fa             endbr64
+    114d:       <span class="m">55</span>                      push   %rbp
+    114e:       <span class="m">48</span> <span class="m">89</span> e5                mov    %rsp,%rbp
+    <span class="m">1151</span>:       <span class="m">48</span> <span class="m">83</span> ec <span class="m">10</span>             sub    <span class="nv">$0</span>x10,%rsp
+    <span class="m">1155</span>:       c7 <span class="m">45</span> <span class="nb">fc</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    movl   <span class="nv">$0</span>x0,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    115c:       c7 <span class="m">45</span> <span class="nb">fc</span> <span class="m">01</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    movl   <span class="nv">$0</span>x1,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    <span class="m">1163</span>:       c7 <span class="m">45</span> <span class="nb">fc</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    movl   <span class="nv">$0</span>x0,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    116a:       c7 <span class="m">45</span> <span class="nb">fc</span> <span class="m">01</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    movl   <span class="nv">$0</span>x1,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    <span class="m">1171</span>:       c7 <span class="m">45</span> <span class="nb">fc</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    movl   <span class="nv">$0</span>x0,-0x4<span class="o">(</span>%rbp<span class="o">)</span>
+    <span class="m">1178</span>:       8b <span class="m">45</span> <span class="nb">fc</span>                mov    -0x4<span class="o">(</span>%rbp<span class="o">)</span>,%eax
+    117b:       <span class="m">89</span> c6                   mov    %eax,%esi
+    117d:       <span class="m">48</span> 8d 3d <span class="m">80</span> 0e <span class="m">00</span> <span class="m">00</span>    lea    0xe80<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+    <span class="m">1184</span>:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+    <span class="m">1189</span>:       e8 c2 fe ff ff          callq  <span class="m">1050</span> &lt;printf@plt&gt;
+    118e:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
+    <span class="m">1193</span>:       c9                      leaveq
+    <span class="m">1194</span>:       c3                      retq
+    <span class="m">1195</span>:       <span class="m">66</span> 2e 0f 1f <span class="m">84</span> <span class="m">00</span> <span class="m">00</span>    nopw   %cs:0x0<span class="o">(</span>%rax,%rax,1<span class="o">)</span>
+    119c:       <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+    119f:       <span class="m">90</span>                      nop
+</pre></div>
+</div>
+<p>Les lignes <code class="docutils literal notranslate"><span class="pre">1155</span></code> à <code class="docutils literal notranslate"><span class="pre">1171</span></code> reflètent bien le comportement attendu. En revanche, si le programme est compilé avec l'optimisation, notez la différence :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc main.c -O2
+$ objdump -d a.out
+
+a.out:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+<span class="m">0000000000001060</span> &lt;main&gt;:
+    <span class="m">1060</span>:       f3 0f 1e fa             endbr64
+    <span class="m">1064</span>:       <span class="m">48</span> <span class="m">83</span> ec <span class="m">08</span>             sub    <span class="nv">$0</span>x8,%rsp
+    <span class="m">1068</span>:       <span class="m">31</span> d2                   xor    %edx,%edx
+    106a:       <span class="m">48</span> 8d <span class="m">35</span> <span class="m">93</span> 0f <span class="m">00</span> <span class="m">00</span>    lea    0xf93<span class="o">(</span>%rip<span class="o">)</span>,%rsi        <span class="c1"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+    <span class="m">1071</span>:       <span class="m">31</span> c0                   xor    %eax,%eax
+    <span class="m">1073</span>:       bf <span class="m">01</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x1,%edi
+    <span class="m">1078</span>:       e8 d3 ff ff ff          callq  <span class="m">1050</span> &lt;__printf_chk@plt&gt;
+    107d:       <span class="m">31</span> c0                   xor    %eax,%eax
+    107f:       <span class="m">48</span> <span class="m">83</span> c4 <span class="m">08</span>             add    <span class="nv">$0</span>x8,%rsp
+    <span class="m">1083</span>:       c3                      retq
+    <span class="m">1084</span>:       <span class="m">66</span> 2e 0f 1f <span class="m">84</span> <span class="m">00</span> <span class="m">00</span>    nopw   %cs:0x0<span class="o">(</span>%rax,%rax,1<span class="o">)</span>
+    108b:       <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+    108e:       <span class="m">66</span> <span class="m">90</span>                   xchg   %ax,%ax
+</pre></div>
+</div>
+<p>Les lignes ont disparues !</p>
+<p>Afin d'éviter cette optimisation il faut marquer la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> comme <code class="docutils literal notranslate"><span class="pre">volatile</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">volatile</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="extern">
 <h3><span class="section-number">19.4.6  </span><code class="docutils literal notranslate"><span class="pre">extern</span></code><a class="headerlink" href="#extern" title="Lien permanent vers ce titre">¶</a></h3>
@@ -608,7 +694,7 @@ préservé même lorsque l'on sort du bloc où elles ont été déclarées.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 28 mai 2021 (version v0.3.0-13-g7046809).
+    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -235,13 +235,13 @@
                 
                   <li class="toctree-l2"><a href="#definitions" class="reference internal">Définitions</a></li>
                 
-                  <li class="toctree-l2"><a href="#macros" class="reference internal">Macros</a></li>
-                
                   <li class="toctree-l2"><a href="#debogage" class="reference internal">Débogage</a></li>
                 
                   <li class="toctree-l2"><a href="#caractere-d-echappement" class="reference internal">Caractère d'échappement</a></li>
                 
-                  <li class="toctree-l2"><a href="#id1" class="reference internal">Macros</a></li>
+                  <li class="toctree-l2"><a href="#macros" class="reference internal">Macros</a></li>
+                
+                  <li class="toctree-l2"><a href="#concatenation" class="reference internal">Concaténation</a></li>
                 
                   <li class="toctree-l2"><a href="#directives-conditionnelles" class="reference internal">Directives conditionnelles</a></li>
                 
@@ -405,9 +405,9 @@
             
   <div class="section" id="preprocesseur">
 <h1><span class="section-number">16  </span>Préprocesseur<a class="headerlink" href="#preprocesseur" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/preprocessor.svg"><img alt="../_images/preprocessor.svg" src="../_images/preprocessor.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 16.1 </span><span class="caption-text">Illustration du mécanisme de pré-processing avant la compilation</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16.1 </span><span class="caption-text">Illustration du mécanisme de pré-processing avant la compilation</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Comme nous l'avons vu en introduction (c.f. <a class="reference internal" href="introduction.html#structured-text"><span class="std std-numref">Section 1.6</span></a>), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation.</p>
 <p>Le coeur de cette opération est appelé <strong>préprocesseur</strong>. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon (<code class="docutils literal notranslate"><span class="pre">#</span></code>), <em>hash</em> en anglais et utilisé récemment comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Hashtag">hashtag</a> sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif <em>pound</em> (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (<code class="docutils literal notranslate"><span class="pre">♯</span></code>) présent sur les pavés numériques de téléphone.</p>
@@ -599,14 +599,10 @@ OWNER_NAME
 <p>Généralement on évitera de faire appel à <code class="docutils literal notranslate"><span class="pre">#undef</span></code> car le bon programmeur aura forcé la définition d'une directive en amont pour contraindre le développement en aval.</p>
 </div>
 </div>
-<div class="section" id="macros">
-<h2><span class="section-number">16.5  </span>Macros<a class="headerlink" href="#macros" title="Lien permanent vers ce titre">¶</a></h2>
-<p>On appel <strong>macro</strong> une fonction définie au niveau du préprocesseur.</p>
-</div>
 <div class="section" id="debogage">
-<h2><span class="section-number">16.6  </span>Débogage<a class="headerlink" href="#debogage" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">16.5  </span>Débogage<a class="headerlink" href="#debogage" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="error">
-<h3><span class="section-number">16.6.1  </span>#error<a class="headerlink" href="#error" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">16.5.1  </span>#error<a class="headerlink" href="#error" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Cette directive génère une erreur avec le texte qui suit la directive :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if !(KERNEL_SIZE % 2)</span>
 <span class="cp">#    error Le noyau du filtre est pair</span>
@@ -615,7 +611,7 @@ OWNER_NAME
 </div>
 </div>
 <div class="section" id="directives-speciales">
-<h3><span class="section-number">16.6.2  </span>Directives spéciales<a class="headerlink" href="#directives-speciales" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">16.5.2  </span>Directives spéciales<a class="headerlink" href="#directives-speciales" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le standard définit certains symboles utiles pour le débogage :</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">__LINE__</span></code></dt><dd><p>Est remplacé par le numéro de la ligne sur laquelle est placé ce symbole</p>
@@ -634,7 +630,7 @@ OWNER_NAME
 </div>
 </div>
 <div class="section" id="caractere-d-echappement">
-<h2><span class="section-number">16.7  </span>Caractère d'échappement<a class="headerlink" href="#caractere-d-echappement" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">16.6  </span>Caractère d'échappement<a class="headerlink" href="#caractere-d-echappement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'anti-slash (<code class="docutils literal notranslate"><span class="pre">backslash</span></code>) est interprété par le préprocesseur comme un saut de ligne virtuel. Il permet par exemple de casser les longues lignes :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TRACE printf(&quot;Le programme est passé &quot; \</span>
 <span class="cp">    &quot; dans le fichier %s&quot; \</span>
@@ -643,8 +639,8 @@ OWNER_NAME
 </pre></div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2><span class="section-number">16.8  </span>Macros<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="macros">
+<h2><span class="section-number">16.7  </span>Macros<a class="headerlink" href="#macros" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une macro est une définition qui prend des arguments en paramètre :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MIN(x, y) ((x) &lt; (y) ? (x) : (y))</span>
 </pre></div>
@@ -675,6 +671,23 @@ OWNER_NAME
 <span class="go">int main(void) {</span>
 <span class="go">    return (x, y) ((x) + (y))(23, 12);</span>
 <span class="go">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="concatenation">
+<h2><span class="section-number">16.8  </span>Concaténation<a class="headerlink" href="#concatenation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Parfois il est utile de vouloir concaténer deux symboles comme si ce n'était qu'un seul. Attention il est nécessaire de passer par une macro pour que cela fonctionne :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">foobar</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="cp">#define CONCAT(a, b) a ## b</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>En appelant seulement le préprocesseur on constate ce résultat :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ gcc -E ww.c
+int <span class="nv">foobar</span> <span class="o">=</span> <span class="m">42</span><span class="p">;</span>
+
+printf<span class="o">(</span><span class="s2">&quot;%d&quot;</span>, foobar<span class="o">)</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +724,7 @@ OWNER_NAME
 <h3><span class="section-number">16.9.2  </span>Include guard<a class="headerlink" href="#include-guard" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La protection des fichiers d'en-tête permet d'éviter d'inclure un fichier s'il a déjà été inclus.</p>
 <p>Imaginons que la constante <code class="docutils literal notranslate"><span class="pre">M_PI</span></code> soit définie dans le header <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define M_PI        3.14159265358979323846</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define M_PI  3.14159265358979323846</span>
 </pre></div>
 </div>
 <p>Si ce fichier d'en-tête est inclus à nouveau, le préprocesseur générera une erreur, car le symbole est déjà défini. Pour éviter ce genre d'erreur, les fichiers d'en-tête sont protégés par un garde :</p>
@@ -766,7 +779,7 @@ OWNER_NAME
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 28 mai 2021 (version v0.3.0-13-g7046809).
+    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
