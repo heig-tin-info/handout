@@ -981,14 +981,26 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </div>
 <div class="section" id="liste-chainee-deroulee-unrolled-linked-list">
 <h2><span class="section-number">21.6  </span>Liste chaînée déroulée (Unrolled linked list)<a class="headerlink" href="#liste-chainee-deroulee-unrolled-linked-list" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec <cite>malloc</cite>.</p>
+<div class="figure align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/unrolled-linked-list.svg"><img alt="../_images/unrolled-linked-list.svg" src="../_images/unrolled-linked-list.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 21.11 </span><span class="caption-text">Liste chaînée déroulée</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">count</span><span class="p">;</span>  <span class="c1">// Nombre d&#39;éléments</span>
+    <span class="kt">int</span> <span class="n">elements</span><span class="p">[];</span> <span class="c1">// Membre flexible contenant les éléments</span>
+<span class="p">}</span> <span class="n">Node</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="arbre-binaire-de-recherche">
 <h2><span class="section-number">21.7  </span>Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'objectif de cette section n'est pas d'entrer dans les détails des <a class="reference external" href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires</a> dont la théorie requiert un ouvrage dédié, mais de vous sensibiliser à l'existence de ces structures de données qui sont à la base de beaucoup de langage de haut niveau comme C++, Python ou C#.</p>
 <p>L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un <code class="docutils literal notranslate"><span class="pre">left</span></code> et un <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
-<div class="figure align-default" id="id13">
+<div class="figure align-default" id="id14">
 <a class="reference internal image-reference" href="../_images/binary-tree.svg"><img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /></a>
-<p class="caption"><span class="caption-number">Fig. 21.11 </span><span class="caption-text">Arbre binaire équilibré</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 21.12 </span><span class="caption-text">Arbre binaire équilibré</span><a class="headerlink" href="#id14" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :</p>
 <ul class="simple">
@@ -1029,8 +1041,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <h2><span class="section-number">21.8  </span>Heap<a class="headerlink" href="#heap" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La structure de donnée <code class="docutils literal notranslate"><span class="pre">heap</span></code> aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit &quot;presque complet&quot;, dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.</p>
 <p>Un tas peut aisément être représenté sous forme de tableau en utilisant la règle suivante :</p>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-number">Tableau 21.3 </span><span class="caption-text">Opération d'accès à un élément d'un <em>heap</em></span><a class="headerlink" href="#id14" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-number">Tableau 21.3 </span><span class="caption-text">Opération d'accès à un élément d'un <em>heap</em></span><a class="headerlink" href="#id15" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 37%" />
@@ -1057,9 +1069,9 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 </tr>
 </tbody>
 </table>
-<div class="figure align-default" id="id15">
+<div class="figure align-default" id="id16">
 <a class="reference internal image-reference" href="../_images/heap.svg"><img alt="../_images/heap.svg" src="../_images/heap.svg" /></a>
-<p class="caption"><span class="caption-number">Fig. 21.12 </span><span class="caption-text">Représentation d'un <em>heap</em></span><a class="headerlink" href="#id15" title="Lien permanent vers cette image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 21.13 </span><span class="caption-text">Représentation d'un <em>heap</em></span><a class="headerlink" href="#id16" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="queue-prioritaire">
@@ -1102,8 +1114,8 @@ calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment don
 <h2><span class="section-number">21.10  </span>Tableau de Hachage<a class="headerlink" href="#tableau-de-hachage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les tableaux de hachage (<em>Hash Table</em>) sont une structure particulière dans laquelle une fonction dite de <em>hachage</em> est utilisée pour transformer les entrées en des indices d'un tableau.</p>
 <p>L'objectif est de stocker des chaînes de caractères correspondant a des noms simples ici utilisés pour l'exemple. Une possible répartition serait la suivante :</p>
-<div class="figure align-default" id="id16">
-<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /><p class="caption"><span class="caption-number">Fig. 21.13 </span><span class="caption-text">Tableau de hachage simple</span><a class="headerlink" href="#id16" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id17">
+<img alt="../_images/hash-linear.svg" src="../_images/hash-linear.svg" /><p class="caption"><span class="caption-number">Fig. 21.14 </span><span class="caption-text">Tableau de hachage simple</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Si l'on cherche l'indice correspondant à <code class="docutils literal notranslate"><span class="pre">Ada</span></code>, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractère. Pour calculer cet indice aussi appelé <em>hash</em>, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Nom    Valeurs ASCII     Somme  Modulo 10</span>
@@ -1214,8 +1226,8 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 <div class="section" id="chainage">
 <h3><span class="section-number">21.10.3  </span>Chaînage<a class="headerlink" href="#chainage" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le <span class="target" id="index-13"></span>chaînage ou <em>chaining</em> est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.</p>
-<div class="figure align-default" id="id17">
-<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /><p class="caption"><span class="caption-number">Fig. 21.14 </span><span class="caption-text">Chaînage d'une table de hachage</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image">¶</a></p>
+<div class="figure align-default" id="id18">
+<img alt="../_images/hash-table.svg" src="../_images/hash-table.svg" /><p class="caption"><span class="caption-number">Fig. 21.15 </span><span class="caption-text">Chaînage d'une table de hachage</span><a class="headerlink" href="#id18" title="Lien permanent vers cette image">¶</a></p>
 </div>
 </div>
 <div class="section" id="fonction-de-hachage">
@@ -1317,14 +1329,14 @@ Len -&gt; {76, 101, 110} -&gt; 287 -&gt; 1
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc hash.c -lcrypto
 <span class="gp">$ </span>./a.out
-<span class="go">4. La poule ou l&#39;oeuf?</span>
-<span class="go">3. Les pommes sont cuites!</span>
-<span class="go">7. Aussi lentement que possible</span>
-<span class="go">2. La poule ou l&#39;oeuf.</span>
+<span class="go">1. La poule ou l&#39;oeuf?</span>
+<span class="go">2. Les pommes sont cuites!</span>
+<span class="go">3. Aussi lentement que possible</span>
+<span class="go">4. La poule ou l&#39;oeuf.</span>
 <span class="go">5. La poule ou l&#39;oeuf!</span>
 <span class="go">6. Aussi vite que nécessaire</span>
 <span class="go">8. Il ne faut pas lâcher la proie pour l’ombre.</span>
-<span class="go">1. Le mieux est l&#39;ennemi du bien</span>
+<span class="go">9. Le mieux est l&#39;ennemi du bien</span>
 </pre></div>
 </div>
 <p>On peut constater qu'ici les indices sont bien répartis et que la fonction de hachage choisie semble uniforme.</p>
@@ -1429,8 +1441,8 @@ int main() {
 </pre></div>
 </div>
 <p>Le tableau suivant résume les performances obtenues pour les différentes structures de données que nous avons vu dans ce chapitre :</p>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-number">Tableau 21.4 </span><span class="caption-text">Comparaison des performances des structures récursives</span><a class="headerlink" href="#id18" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-number">Tableau 21.4 </span><span class="caption-text">Comparaison des performances des structures récursives</span><a class="headerlink" href="#id19" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 14%" />
@@ -1525,7 +1537,7 @@ int main() {
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 29 mai 2021 (version v0.3.0-15-g204777d).
+    Mis à jour le 29 mai 2021 (version v0.3.0-16-gbfefe10).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
