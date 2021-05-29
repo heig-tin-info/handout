@@ -164,19 +164,19 @@ Dans cet exemple, le préprocesseur ne fait qu'inclure le contenu du fichier ``f
 .. code-block:: console
 
     $ cat << EOF > main.c
-    → int main() {
-    →     #include "foobar.def"
-    →     #include "foobar.def"
-    → }
-    → EOF
+    int main() {
+        #include "foobar.def"
+        #include "foobar.def"
+    }
+    EOF
 
     $ cat << EOF > foobar.def
-    → #ifdef FOO
-    → printf("hello foo!\n");
-    → #else
-    → printf("hello bar!\n");
-    → #endif
-    → EOF
+    #ifdef FOO
+    printf("hello foo!\n");
+    #else
+    printf("hello bar!\n");
+    #endif
+    EOF
 
     $ gcc -E main.c | sed '/^#/ d'
     int main() {
@@ -292,3 +292,162 @@ Alternativement, il existe une solution **non standard**, mais supportée par la
     } Bar;
 
 Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un ``#endif`` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier ``bar.h`` n'apparaît pas dans le fichier ``BAR_H``.
+
+En profondeur
+=============
+
+Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier ``foo.c`` :
+
+.. code-block:: c
+
+    int bar(int);
+
+    int foo(int a) {
+        return bar(a) + 42;
+    }
+
+Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :
+
+.. code-block:: sh
+
+    gcc foo.c
+    /usr/bin/ld: /usr/lib/x86_64-linux-gnu/Scrt1.o: in function '_start':
+    (.text+0x24): undefined reference to 'main'
+    collect2: error: ld returned 1 exit status
+
+Le *linker* se termine avec une erreur : *référence à 'main' inexistante*.
+
+En revanche, il est possible de compiler un objet, c'est à dire générer les instructions assembleur. La fonction ``bar`` étant manquante, le compilateur suppose qu'elle existe quelque part en mémoire et se contentera de dire *moi j'appelle cette fonction ou qu'elle se trouve*.
+
+.. code-block:: sh
+
+    $objdump -d foo.o
+
+    foo.o:     file format elf64-x86-64
+
+    Disassembly of section .text:
+
+    0000000000000000 <foo>:
+     0:   f3 0f 1e fa       endbr64
+     4:   55                push   %rbp
+     5:   48 89 e5          mov    %rsp,%rbp
+     8:   48 83 ec 10       sub    $0x10,%rsp
+     c:   89 7d fc          mov    %edi,-0x4(%rbp)
+     f:   8b 45 fc          mov    -0x4(%rbp),%eax
+    12:   89 c7             mov    %eax,%edi
+    14:   e8 00 00 00 00    callq  19 <foo+0x19>
+    19:   83 c0 2a          add    $0x2a,%eax
+    1c:   c9                leaveq
+    1d:   c3                retq
+
+On constate à la ligne ``19`` que l'addition à bien lieu ``eax + 42``, et que l'appel de la fonction `bar` se produit à la ligne ``14``.
+
+Maintenant considérons le programme principal :
+
+.. code-block:: c
+
+    #include <stdio.h>
+
+    int foo(int);
+
+    int bar(int a) {
+        return a * 2;
+    }
+
+    int main() {
+        printf("%d", foo(42));
+    }
+
+En générant l'objet ``gcc -c main.c``, on peut également afficher l'assembleur généré avec ``objdump`` :
+
+.. code-block:: sh
+
+    $objdump -d main.o
+
+    main.o:     file format elf64-x86-64
+
+    Disassembly of section .text:
+
+    0000000000000000 <bar>:
+     0:   f3 0f 1e fa             endbr64
+     4:   55                      push   %rbp
+     5:   48 89 e5                mov    %rsp,%rbp
+     8:   89 7d fc                mov    %edi,-0x4(%rbp)
+     b:   8b 45 fc                mov    -0x4(%rbp),%eax
+     e:   01 c0                   add    %eax,%eax
+    10:   5d                      pop    %rbp
+    11:   c3                      retq
+
+    0000000000000012 <main>:
+    12:   f3 0f 1e fa             endbr64
+    16:   55                      push   %rbp
+    17:   48 89 e5                mov    %rsp,%rbp
+    1a:   bf 2a 00 00 00          mov    $0x2a,%edi
+    1f:   e8 00 00 00 00          callq  24 <main+0x12>
+    24:   89 c6                   mov    %eax,%esi
+    26:   48 8d 3d 00 00 00 00    lea    0x0(%rip),%rdi        # 2d <main+0x1b>
+    2d:   b8 00 00 00 00          mov    $0x0,%eax
+    32:   e8 00 00 00 00          callq  37 <main+0x25>
+    37:   b8 00 00 00 00          mov    $0x0,%eax
+    3c:   5d                      pop    %rbp
+    3d:   c3                      retq
+
+On observe l'appel de la fonction ``foo`` à la ligne ``1f`` et l'appel de ``printf`` à la ligne ``32``.
+
+L'assemblage de ces deux fichiers en un exécutable résoud les liens en modifiant les adresses d'appel des fonctions puisqu'elles sont maintenant connues (notons que certaines lignes ont été retirées pour plus de lisibilité) :
+
+.. code-block:: sh
+
+    $ gcc foo.o main.o
+    $ objdump -d a.out
+
+    a.out:     file format elf64-x86-64
+
+    Disassembly of section .text:
+
+    0000000000001149 <foo>:
+        1149:       f3 0f 1e fa             endbr64
+        114d:       55                      push   %rbp
+        114e:       48 89 e5                mov    %rsp,%rbp
+        1151:       48 83 ec 10             sub    $0x10,%rsp
+        1155:       89 7d fc                mov    %edi,-0x4(%rbp)
+        1158:       8b 45 fc                mov    -0x4(%rbp),%eax
+        115b:       89 c7                   mov    %eax,%edi
+        115d:       e8 05 00 00 00          callq  1167 <bar>
+        1162:       83 c0 2a                add    $0x2a,%eax
+        1165:       c9                      leaveq
+        1166:       c3                      retq
+
+    0000000000001167 <bar>:
+        1167:       f3 0f 1e fa             endbr64
+        116b:       55                      push   %rbp
+        116c:       48 89 e5                mov    %rsp,%rbp
+        116f:       89 7d fc                mov    %edi,-0x4(%rbp)
+        1172:       8b 45 fc                mov    -0x4(%rbp),%eax
+        1175:       01 c0                   add    %eax,%eax
+        1177:       5d                      pop    %rbp
+        1178:       c3                      retq
+
+    0000000000001179 <main>:
+        1179:       f3 0f 1e fa             endbr64
+        117d:       55                      push   %rbp
+        117e:       48 89 e5                mov    %rsp,%rbp
+        1181:       bf 2a 00 00 00          mov    $0x2a,%edi
+        1186:       e8 be ff ff ff          callq  1149 <foo>
+        118b:       89 c6                   mov    %eax,%esi
+        118d:       48 8d 3d 70 0e 00 00    lea    0xe70(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+        1194:       b8 00 00 00 00          mov    $0x0,%eax
+        1199:       e8 b2 fe ff ff          callq  1050 <printf@plt>
+        119e:       b8 00 00 00 00          mov    $0x0,%eax
+        11a3:       5d                      pop    %rbp
+        11a4:       c3                      retq
+        11a5:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1)
+        11ac:       00 00 00
+        11af:       90                      nop
+
+On constate que les appels de fonctions ont été bien remplacés par les bon noms :
+
+- ``115d`` Appel de ``bar``
+- ``1186`` Appel de ``foo``
+- ``1199`` Appel de ``printf``
+

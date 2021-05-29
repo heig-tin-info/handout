@@ -223,6 +223,102 @@ Cette classe de stockage indique au compilateur qu'il ne peut faire aucune hypot
 
 L'usage de cette classe de stockage réduit les performances d'un programme puisqu'elle empêche l'optimisation du code et le contenu de cette variable devra être rechargé à chaque utilisation
 
+Considérons le cas du progamme suivant :
+
+.. code-block:: c
+
+    #include <stdio.h>
+
+    int main() {
+        int i = 0;
+
+        i = 1;
+        i = 0;
+        i = 1;
+        i = 0;
+
+        printf("%d", i);
+    }
+
+On notera que les 4 lignes où ``i`` successivement assigné à 1 et 0 sont inutiles car dans tous les cas, la valeur 0 sera affichée. Si le programme est compilé on obtiens le listing suivant :
+
+.. code-block:: sh
+
+    $ gcc main.c
+    $ objdump -d a.out
+
+    a.out:     file format elf64-x86-64
+
+    Disassembly of section .text:
+
+    0000000000001149 <main>:
+        1149:       f3 0f 1e fa             endbr64
+        114d:       55                      push   %rbp
+        114e:       48 89 e5                mov    %rsp,%rbp
+        1151:       48 83 ec 10             sub    $0x10,%rsp
+        1155:       c7 45 fc 00 00 00 00    movl   $0x0,-0x4(%rbp)
+        115c:       c7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)
+        1163:       c7 45 fc 00 00 00 00    movl   $0x0,-0x4(%rbp)
+        116a:       c7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)
+        1171:       c7 45 fc 00 00 00 00    movl   $0x0,-0x4(%rbp)
+        1178:       8b 45 fc                mov    -0x4(%rbp),%eax
+        117b:       89 c6                   mov    %eax,%esi
+        117d:       48 8d 3d 80 0e 00 00    lea    0xe80(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+        1184:       b8 00 00 00 00          mov    $0x0,%eax
+        1189:       e8 c2 fe ff ff          callq  1050 <printf@plt>
+        118e:       b8 00 00 00 00          mov    $0x0,%eax
+        1193:       c9                      leaveq
+        1194:       c3                      retq
+        1195:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1)
+        119c:       00 00 00
+        119f:       90                      nop
+
+Les lignes ``1155`` à ``1171`` reflètent bien le comportement attendu. En revanche, si le programme est compilé avec l'optimisation, notez la différence :
+
+.. code-block:: sh
+
+    $ gcc main.c -O2
+    $ objdump -d a.out
+
+    a.out:     file format elf64-x86-64
+
+    Disassembly of section .text:
+
+    0000000000001060 <main>:
+        1060:       f3 0f 1e fa             endbr64
+        1064:       48 83 ec 08             sub    $0x8,%rsp
+        1068:       31 d2                   xor    %edx,%edx
+        106a:       48 8d 35 93 0f 00 00    lea    0xf93(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+        1071:       31 c0                   xor    %eax,%eax
+        1073:       bf 01 00 00 00          mov    $0x1,%edi
+        1078:       e8 d3 ff ff ff          callq  1050 <__printf_chk@plt>
+        107d:       31 c0                   xor    %eax,%eax
+        107f:       48 83 c4 08             add    $0x8,%rsp
+        1083:       c3                      retq
+        1084:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1)
+        108b:       00 00 00
+        108e:       66 90                   xchg   %ax,%ax
+
+Les lignes ont disparues !
+
+Afin d'éviter cette optimisation il faut marquer la variable ``i`` comme ``volatile``:
+
+.. code-block:: c
+
+    #include <stdio.h>
+
+    int main() {
+        volatile int i = 0;
+
+        i = 1;
+        i = 0;
+        i = 1;
+        i = 0;
+
+        printf("%d", i);
+    }
+
+
 ``extern``
 ----------
 

@@ -1,21 +1,12 @@
 # TO DO
 
-- [x] Comments colors plus foncé 
-- [x] Figure cycle de compilation illustré trop grande
-- [x] Figure preprocessing 
-- [x] Top Padding Code Blocks
-- [x] Figure embranchements plus petite
-- [x] Resize Margaret Hamilton
-- [x] Image fonctions chapitre 10
-- [x] Code examples background a bit darker
-- [x] Chapitre 2.6 fonctionnement de l'orginateur
 - [ ] No page number first title page (thispagestyle empty not working)
 - [ ] Distinction de différents caracètres figure trop grosse, figure pas jolie
 - [ ] Indications comme notes (admonitions)
 - [ ] Figure marcel proust page coupée en haut et en bas (carafes)
 - [ ] Table d'opérations binaires centrer dans colonnes
 - [ ] Opérateur de transtypage avant opérateur séquentiel ajouter chapitre
-- [ ] Table types entiers standard... Trop grande... 
+- [ ] Table types entiers standard... Trop grande...
 - [ ] Avoid breaking code-blocks on multiple pages for certain blocs
 - [ ] Caractères Arabes, Coréens et Ourdou
 - [ ] Avoid breaking Notes if smaller than...

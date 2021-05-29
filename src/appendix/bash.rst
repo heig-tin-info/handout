@@ -57,3 +57,20 @@ L'affichage du contenu courant de l'arborescence est possible avec le programme 
     -rwxr-xr-x 1 root root 4.3M 2020-02-10 15:52 /usr/bin/asy
 
 On utilise souvent les options ``a`` (pour *all*) et ``l`` (pour *long*) permettant d'afficher les résultats avec plus de détails. Dans l'ordre on peut lire les permissions du fichier, le propriétaire, le groupe, la taille du fichier, sa date de dernière modification et enfin son nom.
+
+Pipe
+====
+
+Le signe pipe ``|`` permet de rediriger le flux de sortie d'un programme vers le flux d'entrée d'un autre programme et ainsi les exécuter à la chaîne.
+
+.. code-block::text
+
+    $ echo "Bonjour" | cowsay
+
+Il se peut que vous souhaitiez rediriger la sortie d'erreur vers la sortie standard et ainsi concaténer les deux flux sur l'entrée standard d'un autre programme.
+
+.. code-block::text
+
+    $ echo "Bonjour" 2>&1 | cowsay
+
+
