@@ -635,6 +635,21 @@ L'avantage principal étant le gain de place en mémoire.
 Liste chaînée déroulée (Unrolled linked list)
 =============================================
 
+Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec `malloc`.
+
+.. figure:: ../../assets/figures/dist/data-structure/unrolled-linked-list.*
+    :scale: 70%
+
+    Liste chaînée déroulée
+
+.. code-block:: c
+
+    typedef struct Node {
+        struct Node *next;
+        size_t count;  // Nombre d'éléments
+        int elements[]; // Membre flexible contenant les éléments
+    } Node;
+
 Arbre binaire de recherche
 ==========================
 
@@ -1019,14 +1034,14 @@ Le *hash* de ce texte est exprimé en hexadécimal ( ``0x699bfc5c3fd42a06e99797b
 
     $ gcc hash.c -lcrypto
     $ ./a.out
-    4. La poule ou l'oeuf?
-    3. Les pommes sont cuites!
-    7. Aussi lentement que possible
-    2. La poule ou l'oeuf.
+    1. La poule ou l'oeuf?
+    2. Les pommes sont cuites!
+    3. Aussi lentement que possible
+    4. La poule ou l'oeuf.
     5. La poule ou l'oeuf!
     6. Aussi vite que nécessaire
     8. Il ne faut pas lâcher la proie pour l’ombre.
-    1. Le mieux est l'ennemi du bien
+    9. Le mieux est l'ennemi du bien
 
 On peut constater qu'ici les indices sont bien répartis et que la fonction de hachage choisie semble uniforme.
 
