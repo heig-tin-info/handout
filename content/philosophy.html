@@ -395,34 +395,100 @@
             
   <div class="section" id="philosophie">
 <h1><span class="section-number">24  </span>Philosophie<a class="headerlink" href="#philosophie" title="Lien permanent vers ce titre">¶</a></h1>
-<p>La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur, les vaudois l'appelant parfois: <strong>le bon sens paysan</strong> comme l'aurait sans doute confirmé feu <a class="reference external" href="https://fr.wikipedia.org/wiki/Jean_Villard">Jean Villard dit Gilles</a>.</p>
+<p>La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: <strong>le bon sens paysan</strong> comme l'aurait sans doute confirmé feu <a class="reference external" href="https://fr.wikipedia.org/wiki/Jean_Villard">Jean Villard dit Gilles</a>.</p>
 <div class="section" id="rasoir-d-ockham">
 <span id="ockham"></span><h2><span class="section-number">24.1  </span>Rasoir d'Ockham<a class="headerlink" href="#rasoir-d-ockham" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="figure align-default">
+<div class="figure align-default" id="id25">
 <img alt="../_images/razor.jpg" src="../_images/razor.jpg" />
+<p class="caption"><span class="caption-number">Fig. 24.1 </span><span class="caption-text">Illustration humoristique du rasoir d'Ockham</span><a class="headerlink" href="#id25" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham">rasoir d'Ockham</a> expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise <a class="reference external" href="https://en.wikipedia.org/wiki/Les_Shadoks">Shadok</a>: &quot;Pourquoi faire simple quand on peut faire compliqué ?&quot;</p>
 <p>En philosophie un <a class="reference external" href="https://fr.wikipedia.org/wiki/Rasoir_(philosophie)">rasoir</a> est un principe qui permet de <em>raser</em> des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.</p>
-<p>Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.</p>
+<p>Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.</p>
 </div>
 <div class="section" id="principes-de-programmation">
 <h2><span class="section-number">24.2  </span>Principes de programmation<a class="headerlink" href="#principes-de-programmation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Également appelés <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_idiom">programming idioms</a>, ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.</p>
 <div class="section" id="dry">
 <span id="id1"></span><h3><span class="section-number">24.2.1  </span>DRY<a class="headerlink" href="#dry" title="Lien permanent vers ce titre">¶</a></h3>
-<p><strong>Ne vous répétez pas</strong> (<em>Don't Repeat Yourself</em>)! Je répète, <strong>ne vous répétez pas</strong>! Il s'agit d'une philosophie de développement logiciel évitant la <a class="reference external" href="https://fr.wikipedia.org/wiki/Duplication_de_code">redondance de code</a>. L'excellent livre <a class="reference external" href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a> de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :</p>
+<p><strong>Ne vous répétez pas</strong> (<em>Don't Repeat Yourself</em>)! Je répète, <strong>ne vous répétez pas</strong> ! Il s'agit d'une philosophie de développement logiciel évitant la <a class="reference external" href="https://fr.wikipedia.org/wiki/Duplication_de_code">redondance de code</a>. L'excellent livre <a class="reference external" href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a> de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :</p>
 <blockquote>
 <div><p>Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.</p>
 </div></blockquote>
-<p>En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">C</kbd> suivi de <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">V</kbd>. Dupliquer du code et quelle que soit l'envergure de texte concerné est <strong>toujours</strong> une mauvaise pratique, car c'est le plus souvent le signe d'un <a class="reference external" href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a> qui indique que le code peut être simplifié et optimisé.</p>
+<p>En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">C</kbd> suivi de <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">V</kbd>. Dupliquer du code et quelle que soit l'envergure de texte concerné est <strong>toujours</strong> une mauvaise pratique, car c'est le plus souvent le signe évident d'un <a class="reference external" href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a> indiquant que le code peut être simplifié et optimisé.</p>
+<p>Le code suivant comprend une erreur <strong>DRY</strong> car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction <code class="docutils literal notranslate"><span class="pre">display</span></code> reçois un pointeur sur un fichier, il est donc possible de simplifier ce code.</p>
+<p><a href="#id2"><span class="problematic" id="id3">``</span></a><a href="#id4"><span class="problematic" id="id5">`</span></a>c
+FILE <a href="#id6"><span class="problematic" id="id7">*</span></a>fp = NULL;
+if (argc &gt; 1) {</p>
+<blockquote>
+<div><p>fp = fopen(argv[1], &quot;r&quot;);
+display(fp);</p>
+</div></blockquote>
+<p>}
+else {</p>
+<blockquote>
+<div><p>display(stdin);</p>
+</div></blockquote>
+<div class="section" id="id8">
+<h4><span class="section-number">24.2.1.1  </span>}<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Voici la version corrigée :</p>
+<p><code class="docutils literal notranslate"><span class="pre">`c</span>
+<span class="pre">FILE</span> <span class="pre">*fp</span> <span class="pre">=</span> <span class="pre">argc</span> <span class="pre">&gt;</span> <span class="pre">1</span> <span class="pre">?</span> <span class="pre">fopen(argv[1],</span> <span class="pre">&quot;r&quot;)</span> <span class="pre">:</span> <span class="pre">stdin;</span>
+<span class="pre">display(fp);</span>
+<span class="pre">`</span></code></p>
+</div>
 </div>
 <div class="section" id="kiss">
 <h3><span class="section-number">24.2.2  </span>KISS<a class="headerlink" href="#kiss" title="Lien permanent vers ce titre">¶</a></h3>
-<p><a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Il est similaire au rasoir d'Ockham, mais grandement plus commun en informatique. Énoncé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
+<p><a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
+<p>La fonction suivante n'est pas <strong>KISS</strong> car elle est responsable de plusieurs tâches : vérifier les valeurs d'un set de donnée et les afficher :</p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>c
+int process(Data <a href="#id13"><span class="problematic" id="id14">*</span></a>data, size_t size) {</p>
+<blockquote>
+<div><p>// Check consistency and display
+for (int i = 0; i &lt; size; i++) {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if (data[i].value &lt;= 0)</dt><dd><p>data[i].value = 1;</p>
+</dd>
+</dl>
+<p>printf(&quot;%lfn&quot;, 20 * log10(data[i].value));</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<div class="section" id="id15">
+<h4><span class="section-number">24.2.2.1  </span>}<a class="headerlink" href="#id15" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il serait préférable de la découper en deux sous-fonctions :</p>
+<p><a href="#id16"><span class="problematic" id="id17">``</span></a><a href="#id18"><span class="problematic" id="id19">`</span></a>c
+#define TO_LOG(a) (20 * log10(a))</p>
+<dl>
+<dt>int fix_data(Data <a href="#id20"><span class="problematic" id="id21">*</span></a>data, const size_t size) {</dt><dd><dl class="simple">
+<dt>for (int i = 0; i &lt; size; i++) {</dt><dd><dl class="simple">
+<dt>if (data[i].value &lt;= 0)</dt><dd><p>data[i].value = 1;</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+<dl class="simple">
+<dt>int display(const Data <a href="#id22"><span class="problematic" id="id23">*</span></a>data, const size_t size) {</dt><dd><dl class="simple">
+<dt>for (int i = 0; i &lt; size; i++)</dt><dd><p>printf(&quot;%lfn&quot;, TO_LOG(data[i].value));</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="id24">
+<h4><span class="section-number">24.2.2.2  </span>}<a class="headerlink" href="#id24" title="Lien permanent vers ce titre">¶</a></h4>
+</div>
 </div>
 <div class="section" id="yagni">
 <h3><span class="section-number">24.2.3  </span>YAGNI<a class="headerlink" href="#yagni" title="Lien permanent vers ce titre">¶</a></h3>
-<p>YAGNI est un anglicisme de <em>you ain't gonna need it</em> qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (<a class="reference external" href="https://fr.wikipedia.org/wiki/Extreme_programming">Extreme Programming</a>) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.</p>
-<p>Ce principe combat le biais du développeur à vouloir sans cesse démarré de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.</p>
+<p>YAGNI est un anglicisme de <em>you ain't gonna need it</em> qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (<a class="reference external" href="https://fr.wikipedia.org/wiki/Extreme_programming">Extreme Programming</a>) qui stipule qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.</p>
+<p>Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de satisfaire au cahier des charges convenu avec le partenaire/client.</p>
 </div>
 <div class="section" id="ssot">
 <h3><span class="section-number">24.2.4  </span>SSOT<a class="headerlink" href="#ssot" title="Lien permanent vers ce titre">¶</a></h3>
@@ -433,11 +499,9 @@
 <li><p>Stocker la même image, le même document dans différents formats</p></li>
 <li><p>Stocker dans une base de données le nom <em>Doe</em>, prénom <em>John</em> ainsi que le nom complet <em>John Doe</em></p></li>
 <li><p>Avoir un commentaire C ayant deux vérités contradictoires :</p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">206</span><span class="p">;</span> <span class="c1">// Size of Hafþór Júlíus Björnsson which is 205 cm</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">206</span><span class="p">;</span> <span class="c1">// Size of Hafþór Júlíus Björnsson which is 205 cm</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p>Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)</p></li>
 </ul>
@@ -469,6 +533,8 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea—let&#39;s do more of those!
 </pre></div>
 </div>
+<p>Un code est meilleur s'il est beau, esthétique, que les noms des variables, l'alignement et la mise en forme sont cohérents et forment une unité.</p>
+<p>Un code se doit être explicite, et réellement traduire l'intention du développeur. Il est ainsi préférable d'écrire <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">=</span> <span class="pre">v</span> <span class="pre">/</span> <span class="pre">4</span></code> plutôt que <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">&gt;&gt;=</span> <span class="pre">2</span></code>.</p>
 </div>
 <div class="section" id="the-code-taste">
 <h2><span class="section-number">24.4  </span>The code taste<a class="headerlink" href="#the-code-taste" title="Lien permanent vers ce titre">¶</a></h2>
@@ -557,26 +623,21 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p>Un fichier est plus long que <strong>1000 lignes</strong>.</p></li>
 <li><p><strong>Ligne Dieu</strong>, une ligne beaucoup trop longue et <em>de facto</em> illisible.</p></li>
 <li><p>Une fonction à plus de <strong>trois</strong> paramètres</p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
     <span class="kt">bool</span> <span class="n">with_milk</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">cow_milk</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number_of_sugars</span><span class="p">);</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p><strong>Copier coller</strong>, du code est dupliqué</p></li>
 <li><p>Les commentaires expliquent le comment du code et non le pourquoi</p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
 <span class="kt">double</span> <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">cst</span><span class="p">);</span>
 <span class="n">u</span> <span class="o">/=</span> <span class="mf">1.11123445143</span><span class="p">;</span> <span class="c1">// division par une constante inférieure à 2</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -587,11 +648,9 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p>Usage de <code class="docutils literal notranslate"><span class="pre">goto</span></code></p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
         <span class="k">goto</span> <span class="n">end</span><span class="p">;</span>
@@ -606,27 +665,23 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <span class="nl">end</span><span class="p">:</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
-<li><dl>
-<dt>Plusieurs variables avec des noms très similaires</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">advice</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">advise</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
-</pre></div>
-</div>
-</dd>
-</dl>
+<li><p>Plusieurs variables avec des noms très similaires
+.. code-block:: c</p>
+<blockquote>
+<div><p>int advice = 11;
+int advise = 12;</p>
+</div></blockquote>
 </li>
 <li><p><strong>Action à distance</strong> par l'emploi immodéré de variables globales</p></li>
 <li><p><strong>Ancre de bateau</strong>, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p></li>
 <li><p><strong>Cyclomatisme aigu</strong>, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p></li>
 <li><p><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</p>
-<blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">finished</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p><strong>Objet divin</strong> quand un composant logiciel assure trop de fonctions essentielles (KISS)</p></li>
 <li><p><strong>Coulée de lave</strong> lorsqu'un code immature est mis en production</p></li>
@@ -649,7 +704,7 @@ Namespaces are one honking great idea—let&#39;s do more of those!
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 29 mai 2021 (version v0.3.0-17-g6a62f9f).
+    Mis à jour le 30 mai 2021 (version v0.3.0-18-gec2c0c2).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
