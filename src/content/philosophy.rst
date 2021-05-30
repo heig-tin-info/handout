@@ -2,7 +2,7 @@
 Philosophie
 ===========
 
-La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur, les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu `Jean Villard dit Gilles <https://fr.wikipedia.org/wiki/Jean_Villard>`__.
+La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu `Jean Villard dit Gilles <https://fr.wikipedia.org/wiki/Jean_Villard>`__.
 
 .. _ockham:
 
@@ -11,37 +11,93 @@ Rasoir d'Ockham
 
 .. figure:: ../../assets/images/razor.*
 
+    Illustration humoristique du rasoir d'Ockham
+
 Le `rasoir d'Ockham <https://fr.wikipedia.org/wiki/Rasoir_d%27Ockham>`__ expose en substance que les multiples ne doivent pas être utilisés sans nécessité. C'est un principe d'économie, de simplicité et de parcimonie. Il peut être résumé par la devise `Shadok <https://en.wikipedia.org/wiki/Les_Shadoks>`__: "Pourquoi faire simple quand on peut faire compliqué ?"
 
 En philosophie un `rasoir <https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>`__ est un principe qui permet de *raser* des explications improbables d'un phénomène. Ce principe tient son nom de Guillaume d'Ockham (XIVe siècle) alors qu'il date probablement d'Empédocle (Ἐμπεδοκλῆς) vers 450 av. J.-C.
 
-Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent un développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et simple à comprendre pour celui qui chercherait à contribuer au projet d'autrui.
+Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.
 
 Principes de programmation
 ==========================
+
+Également appelés `programming idioms <https://en.wikipedia.org/wiki/Programming_idiom>`__, ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.
 
 .. _dry:
 
 DRY
 ---
 
-**Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas**! Il s'agit d'une philosophie de développement logiciel évitant la `redondance de code <https://fr.wikipedia.org/wiki/Duplication_de_code>`__. L'excellent livre `The Pragmatic Programmer <https://en.wikipedia.org/wiki/The_Pragmatic_Programmer>`__ de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :
+**Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas** ! Il s'agit d'une philosophie de développement logiciel évitant la `redondance de code <https://fr.wikipedia.org/wiki/Duplication_de_code>`__. L'excellent livre `The Pragmatic Programmer <https://en.wikipedia.org/wiki/The_Pragmatic_Programmer>`__ de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :
 
     Dans un système, toute connaissance doit avoir une représentation unique, non ambiguë, faisant autorité.
 
-En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`C` suivi de :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`V`. Dupliquer du code et quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe d'un `code smell <https://fr.wikipedia.org/wiki/Code_smell>`__ qui indique que le code peut être simplifié et optimisé.
+En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`C` suivi de :kbd:`CTRL` (:kbd:`⌘`) + :kbd:`V`. Dupliquer du code et quelle que soit l'envergure de texte concerné est **toujours** une mauvaise pratique, car c'est le plus souvent le signe évident d'un `code smell <https://fr.wikipedia.org/wiki/Code_smell>`__ indiquant que le code peut être simplifié et optimisé.
+
+Le code suivant comprend une erreur **DRY** car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction ``display`` reçois un pointeur sur un fichier, il est donc possible de simplifier ce code.
+
+```c
+FILE *fp = NULL;
+if (argc > 1) {
+    fp = fopen(argv[1], "r");
+    display(fp);
+}
+else {
+    display(stdin);
+}
+```
+
+Voici la version corrigée :
+
+```c
+FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
+display(fp);
+```
 
 KISS
 ----
 
-`Keep it simple, stupid <https://fr.wikipedia.org/wiki/Principe_KISS>`__ est une ligne directrice de conception qui encourage la simplicité d'un développement. Il est similaire au rasoir d'Ockham, mais grandement plus commun en informatique. Énoncé par `Eric Steven Raymond <https://fr.wikipedia.org/wiki/Eric_Raymond>`__ puis par le `Zen de Python <https://fr.wikipedia.org/wiki/Zen_de_Python>`__ un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du *shell* (``ls``, ``cat``, ``echo``, ``grep``, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.
+`Keep it simple, stupid <https://fr.wikipedia.org/wiki/Principe_KISS>`__ est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par `Eric Steven Raymond <https://fr.wikipedia.org/wiki/Eric_Raymond>`__ puis par le `Zen de Python <https://fr.wikipedia.org/wiki/Zen_de_Python>`__ un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du *shell* (``ls``, ``cat``, ``echo``, ``grep``, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.
+
+La fonction suivante n'est pas **KISS** car elle est responsable de plusieurs tâches : vérifier les valeurs d'un set de donnée et les afficher :
+
+```c
+int process(Data *data, size_t size) {
+    // Check consistency and display
+    for (int i = 0; i < size; i++) {
+        if (data[i].value <= 0)
+            data[i].value = 1;
+
+        printf("%lf\n", 20 * log10(data[i].value));
+    }
+}
+```
+
+Il serait préférable de la découper en deux sous-fonctions :
+
+```c
+#define TO_LOG(a) (20 * log10(a))
+
+int fix_data(Data *data, const size_t size) {
+    for (int i = 0; i < size; i++) {
+        if (data[i].value <= 0)
+            data[i].value = 1;
+    }
+}
+
+int display(const Data *data, const size_t size) {
+    for (int i = 0; i < size; i++)
+        printf("%lf\n", TO_LOG(data[i].value));
+}
+```
 
 YAGNI
 -----
 
-YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui déclare qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
+YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP (`Extreme Programming <https://fr.wikipedia.org/wiki/Extreme_programming>`__) qui stipule qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
-Ce principe combat le biais du développeur à vouloir sans cesse démarré de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de respecter le cahier des charges convenu avec le partenaire/client.
+Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de satisfaire au cahier des charges convenu avec le partenaire/client.
 
 SSOT
 ----
@@ -55,9 +111,9 @@ Un programme qui respecte ce principe évite la duplication des données. Des d�
 - Stocker dans une base de données le nom *Doe*, prénom *John* ainsi que le nom complet *John Doe*
 - Avoir un commentaire C ayant deux vérités contradictoires :
 
-    .. code-block:: c
+  .. code-block:: c
 
-        int height = 206; // Size of Hafþór Júlíus Björnsson which is 205 cm
+      int height = 206; // Size of Hafþór Júlíus Björnsson which is 205 cm
 
 - Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)
 
@@ -91,6 +147,10 @@ Voici le texte original anglais :
     If the implementation is hard to explain, it's a bad idea.
     If the implementation is easy to explain, it may be a good idea.
     Namespaces are one honking great idea—let's do more of those!
+
+Un code est meilleur s'il est beau, esthétique, que les noms des variables, l'alignement et la mise en forme sont cohérents et forment une unité.
+
+Un code se doit être explicite, et réellement traduire l'intention du développeur. Il est ainsi préférable d'écrire ``u = v / 4`` plutôt que ``u >>= 2``.
 
 The code taste
 ==============
@@ -196,68 +256,69 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 - **Ligne Dieu**, une ligne beaucoup trop longue et *de facto* illisible.
 - Une fonction à plus de **trois** paramètres
 
-    .. code-block:: c
+  .. code-block:: c
 
-        void make_coffee(int size, int mode, int mouture, int cup_size,
-            bool with_milk, bool cow_milk, int number_of_sugars);
+      void make_coffee(int size, int mode, int mouture, int cup_size,
+          bool with_milk, bool cow_milk, int number_of_sugars);
 
 - **Copier coller**, du code est dupliqué
 - Les commentaires expliquent le comment du code et non le pourquoi
 
-    .. code-block:: c
+  .. code-block:: c
 
-        // Additionne une constante avec une autre pour ensuite l'utiliser
-        double u = (a + cst);
-        u /= 1.11123445143; // division par une constante inférieure à 2
+      // Additionne une constante avec une autre pour ensuite l'utiliser
+      double u = (a + cst);
+      u /= 1.11123445143; // division par une constante inférieure à 2
 
 - **Arbre de Noël**, plus de deux structures de contrôles sont impliquées
 
-    .. code-block:: c
+  .. code-block:: c
 
-        if (a > 2) {
-            if (b < 8) {
-                if (c ==12) {
-                    if (d == 0) {
-                        exception(a, b, c, d);
-                    }
-                }
-            }
-        }
+      if (a > 2) {
+          if (b < 8) {
+              if (c ==12) {
+                  if (d == 0) {
+                      exception(a, b, c, d);
+                  }
+              }
+          }
+      }
 
 - Usage de ``goto``
 
-    .. code-block:: c
+  .. code-block:: c
 
-        loop:
-            i +=1;
-            if (i > 100)
-                goto end;
-        happy:
-            happy();
-            if (j > 10):
-                goto sad;
-        sad:
-            sad();
-            if (k < 50):
-                goto happy;
-        end:
+      loop:
+          i +=1;
+          if (i > 100)
+              goto end;
+      happy:
+          happy();
+          if (j > 10):
+              goto sad;
+      sad:
+          sad();
+          if (k < 50):
+              goto happy;
+      end:
 
 - Plusieurs variables avec des noms très similaires
-    .. code-block:: c
+  .. code-block:: c
 
-        int advice = 11;
-        int advise = 12;
+      int advice = 11;
+      int advise = 12;
 
 - **Action à distance** par l'emploi immodéré de variables globales
 - **Ancre de bateau**, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)
 - **Cyclomatisme aigu**, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple
 - **Attente active**, une boucle qui ne contient qu'une instruction de test, attendant la condition
 
-    .. code-block:: c
+  .. code-block:: c
 
-        while (true) {
-            if (finished) break;
-        }
+      while (true) {
+          if (finished) break;
+      }
+
 - **Objet divin** quand un composant logiciel assure trop de fonctions essentielles (KISS)
 - **Coulée de lave** lorsqu'un code immature est mis en production
 - **Chirurgie au fusil de chasse** quand l'ajout d'une fonctionnalité logicielle demande des changements multiples et disparates dans le code (`Shotgun surgery <https://en.wikipedia.org/wiki/Shotgun_surgery>`__).
