@@ -18,6 +18,20 @@ Le générateur de nombre pseudo-aléatoire Kerberos
 La division entière sur Pentium
     En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division :math:`4195835.0/3145727.0` menait à :math:`1.33374` au lieu de :math:`1.33382`
 
+SQuaRE
+======
+
+La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme **SQuaRE** (*Software product Quality Requirements and Evaluation*) défini le standard international. Voici quelques critères d'un code de qualité :
+
+- Maintenabilié
+- Modifiabilité
+- Testabilité
+- Analisabilité
+- Stabilité
+- Changeabilité
+- Réutilisabilité
+- Compréhensibilité
+
 Hacking
 =======
 

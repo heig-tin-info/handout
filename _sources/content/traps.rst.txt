@@ -61,18 +61,18 @@ Observations :
 
 - Toujours protéger les paramètres des macros avec des parenthèses
 
-    .. code-block:: c
+  .. code-block:: c
 
-        #define ABS(x) ((x) >= 0 ? (x): -(x))
+      #define ABS(x) ((x) >= 0 ? (x): -(x))
 
 - Toujours protéger une macro à plusieurs instructions par une boucle vide :
 
-    .. code-block:: c
+  .. code-block:: c
 
-        #define ERROR(str) do { \
-            printf("Erreur: %s\r\n", str); \
-            log(str); \
-        } while (0)
+      #define ERROR(str) do { \
+          printf("Erreur: %s\r\n", str); \
+          log(str); \
+      } while (0)
 
 Pré/Post incrémentation avec une macro
 --------------------------------------

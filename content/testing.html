@@ -251,6 +251,8 @@
             
               <ul>
                 
+                  <li class="toctree-l2"><a href="#square" class="reference internal">SQuaRE</a></li>
+                
                   <li class="toctree-l2"><a href="#hacking" class="reference internal">Hacking</a></li>
                 
                   <li class="toctree-l2"><a href="#tests-unitaires" class="reference internal">Tests unitaires</a></li>
@@ -405,10 +407,24 @@
 <dt>La division entière sur Pentium</dt><dd><p>En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division <span class="math notranslate nohighlight">\(4195835.0/3145727.0\)</span> menait à <span class="math notranslate nohighlight">\(1.33374\)</span> au lieu de <span class="math notranslate nohighlight">\(1.33382\)</span></p>
 </dd>
 </dl>
+<div class="section" id="square">
+<h2><span class="section-number">20.1  </span>SQuaRE<a class="headerlink" href="#square" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme <strong>SQuaRE</strong> (<em>Software product Quality Requirements and Evaluation</em>) défini le standard international. Voici quelques critères d'un code de qualité :</p>
+<ul class="simple">
+<li><p>Maintenabilié</p></li>
+<li><p>Modifiabilité</p></li>
+<li><p>Testabilité</p></li>
+<li><p>Analisabilité</p></li>
+<li><p>Stabilité</p></li>
+<li><p>Changeabilité</p></li>
+<li><p>Réutilisabilité</p></li>
+<li><p>Compréhensibilité</p></li>
+</ul>
+</div>
 <div class="section" id="hacking">
-<h2><span class="section-number">20.1  </span>Hacking<a class="headerlink" href="#hacking" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">20.2  </span>Hacking<a class="headerlink" href="#hacking" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="buffer-overflow">
-<h3><span class="section-number">20.1.1  </span>Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">20.2.1  </span>Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant &quot;le jardinage mémoire&quot;. Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
 <p>Considérons le programme suivant :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -459,13 +475,13 @@
 </div>
 </div>
 <div class="section" id="tests-unitaires">
-<h2><span class="section-number">20.2  </span>Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">20.3  </span>Tests unitaires<a class="headerlink" href="#tests-unitaires" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
 <div class="section" id="tests-fonctionnels">
-<h2><span class="section-number">20.3  </span>Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">20.4  </span>Tests fonctionnels<a class="headerlink" href="#tests-fonctionnels" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
 <div class="section" id="framework-de-tests">
-<h2><span class="section-number">20.4  </span>Framework de tests<a class="headerlink" href="#framework-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">20.5  </span>Framework de tests<a class="headerlink" href="#framework-de-tests" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Unity</p>
 </div>
 </div>
@@ -484,7 +500,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 mai 2021 (version v0.3.0-18-gec2c0c2).
+    Mis à jour le 30 mai 2021 (version v0.3.0-19-g007ce5b).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

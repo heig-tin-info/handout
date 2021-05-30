@@ -263,7 +263,7 @@ On notera que les 4 lignes où ``i`` successivement assigné à 1 et 0 sont inut
         1171:       c7 45 fc 00 00 00 00    movl   $0x0,-0x4(%rbp)
         1178:       8b 45 fc                mov    -0x4(%rbp),%eax
         117b:       89 c6                   mov    %eax,%esi
-        117d:       48 8d 3d 80 0e 00 00    lea    0xe80(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+        117d:       48 8d 3d 80 0e 00 00    lea    0xe80(%rip),%rdi
         1184:       b8 00 00 00 00          mov    $0x0,%eax
         1189:       e8 c2 fe ff ff          callq  1050 <printf@plt>
         118e:       b8 00 00 00 00          mov    $0x0,%eax
@@ -288,7 +288,7 @@ Les lignes ``1155`` à ``1171`` reflètent bien le comportement attendu. En reva
         1060:       f3 0f 1e fa             endbr64
         1064:       48 83 ec 08             sub    $0x8,%rsp
         1068:       31 d2                   xor    %edx,%edx
-        106a:       48 8d 35 93 0f 00 00    lea    0xf93(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+        106a:       48 8d 35 93 0f 00 00    lea    0xf93(%rip),%rsi
         1071:       31 c0                   xor    %eax,%eax
         1073:       bf 01 00 00 00          mov    $0x1,%edi
         1078:       e8 d3 ff ff ff          callq  1050 <__printf_chk@plt>

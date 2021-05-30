@@ -37,23 +37,23 @@ En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnett
 
 Le code suivant comprend une erreur **DRY** car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction ``display`` reçois un pointeur sur un fichier, il est donc possible de simplifier ce code.
 
-```c
-FILE *fp = NULL;
-if (argc > 1) {
-    fp = fopen(argv[1], "r");
-    display(fp);
-}
-else {
-    display(stdin);
-}
-```
+.. code-block:: c
+
+    FILE *fp = NULL;
+    if (argc > 1) {
+        fp = fopen(argv[1], "r");
+        display(fp);
+    }
+    else {
+        display(stdin);
+    }
 
 Voici la version corrigée :
 
-```c
-FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
-display(fp);
-```
+.. code-block:: c
+
+    FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
+    display(fp);
 
 KISS
 ----
@@ -62,35 +62,36 @@ KISS
 
 La fonction suivante n'est pas **KISS** car elle est responsable de plusieurs tâches : vérifier les valeurs d'un set de donnée et les afficher :
 
-```c
-int process(Data *data, size_t size) {
-    // Check consistency and display
-    for (int i = 0; i < size; i++) {
-        if (data[i].value <= 0)
-            data[i].value = 1;
+.. code-block:: c
 
-        printf("%lf\n", 20 * log10(data[i].value));
+    int process(Data *data, size_t size) {
+        // Check consistency and display
+        for (int i = 0; i < size; i++) {
+            if (data[i].value <= 0)
+                data[i].value = 1;
+
+            printf("%lf\n", 20 * log10(data[i].value));
+        }
     }
-}
-```
+
 
 Il serait préférable de la découper en deux sous-fonctions :
 
-```c
-#define TO_LOG(a) (20 * log10(a))
+.. code-block:: c
 
-int fix_data(Data *data, const size_t size) {
-    for (int i = 0; i < size; i++) {
-        if (data[i].value <= 0)
-            data[i].value = 1;
+    #define TO_LOG(a) (20 * log10(a))
+
+    int fix_data(Data *data, const size_t size) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].value <= 0)
+                data[i].value = 1;
+        }
     }
-}
 
-int display(const Data *data, const size_t size) {
-    for (int i = 0; i < size; i++)
-        printf("%lf\n", TO_LOG(data[i].value));
-}
-```
+    int display(const Data *data, const size_t size) {
+        for (int i = 0; i < size; i++)
+            printf("%lf\n", TO_LOG(data[i].value));
+    }
 
 YAGNI
 -----
@@ -303,6 +304,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
       end:
 
 - Plusieurs variables avec des noms très similaires
+
   .. code-block:: c
 
       int advice = 11;
