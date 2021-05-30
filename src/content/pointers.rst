@@ -461,8 +461,8 @@ On observe qu'il n'y a aucun appel de fonction à ``memcpy`` comme c'est le cas 
         sub     sp, sp, #60
 
         // Inline memcpy
-        mov     ip, sp                  // Destination address
-        add     lr, sp, #28             // Source address (char b located 28 octets after a)
+        mov     ip, sp      // Destination address
+        add     lr, sp, #28 // Source address (char b located 28 octets after a)
 
         ldmia   lr!, {r0, r1, r2, r3}   // Load 4 x 32-bits
         stmia   ip!, {r0, r1, r2, r3}   // Store 4 x 32-bits

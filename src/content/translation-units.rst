@@ -5,8 +5,8 @@
 Compilation séparée
 ===================
 
-Translation unit
-================
+Unité de traduction
+===================
 
 En programmation, on appelle *translation unit* (unité de traduction), un code qui peut être **compilé** en un **objet** sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.
 
@@ -385,7 +385,7 @@ En générant l'objet ``gcc -c main.c``, on peut également afficher l'assembleu
     1a:   bf 2a 00 00 00          mov    $0x2a,%edi
     1f:   e8 00 00 00 00          callq  24 <main+0x12>
     24:   89 c6                   mov    %eax,%esi
-    26:   48 8d 3d 00 00 00 00    lea    0x0(%rip),%rdi        # 2d <main+0x1b>
+    26:   48 8d 3d 00 00 00 00    lea    0x0(%rip),%rdi
     2d:   b8 00 00 00 00          mov    $0x0,%eax
     32:   e8 00 00 00 00          callq  37 <main+0x25>
     37:   b8 00 00 00 00          mov    $0x0,%eax
@@ -435,7 +435,7 @@ L'assemblage de ces deux fichiers en un exécutable résoud les liens en modifia
         1181:       bf 2a 00 00 00          mov    $0x2a,%edi
         1186:       e8 be ff ff ff          callq  1149 <foo>
         118b:       89 c6                   mov    %eax,%esi
-        118d:       48 8d 3d 70 0e 00 00    lea    0xe70(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+        118d:       48 8d 3d 70 0e 00 00    lea    0xe70(%rip),%rdi
         1194:       b8 00 00 00 00          mov    $0x0,%eax
         1199:       e8 b2 fe ff ff          callq  1050 <printf@plt>
         119e:       b8 00 00 00 00          mov    $0x0,%eax

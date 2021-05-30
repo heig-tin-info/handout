@@ -472,9 +472,9 @@ Autres bibliothèques
 =====================
 
 - GNU C Library (`glibc <https://www.gnu.org/software/libc/>`__)
-    - C11
-    - POSIX.1-2008
-    - IEEE 754-2008
+  - C11
+  - POSIX.1-2008
+  - IEEE 754-2008
 
 POSIX C Library
 ---------------
@@ -482,26 +482,20 @@ POSIX C Library
 Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes :
 
 - La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
-
-    - ``<sys/socket.h>``
-    - ``<sharedmemory.h>``
+  - ``<sys/socket.h>``
+  - ``<sharedmemory.h>``
 - La communication sur le réseau e.g. internet
-
-    - ``<sys/socket.h>``
-    - ``<arpa/inet.h>``
-    - ``<net/if.h>``
+  - ``<sys/socket.h>``
+  - ``<arpa/inet.h>``
+  - ``<net/if.h>``
 - Les tâches
-
-    - ``<thread.h>``
+  - ``<thread.h>``
 - Les traductions de chaînes p.ex. français vers anglais
-
-    - ``<iconv.h>``
+  - ``<iconv.h>``
 - Les fonctions avancées de recherche de texte
-
-    - ``<regex.h>``
+  - ``<regex.h>``
 - Le log centralisé des messages (d'erreur)
-
-    - ``<syslog.h>``
+  - ``<syslog.h>``
 
 Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application *bare-metal*. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme `POSIX <https://en.wikipedia.org/wiki/POSIX>`__ (ISO/IEC 9945).
 
@@ -529,7 +523,7 @@ L'accès à cet API est offert par un unique point d'entrée `windows.h <https:/
 ``<wincon.h>``
     L'accès à la console
 
-La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de `LSTATUS` pour la fonction `RegCreateKeyExW <https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw>` permettant de créer une entrée dans la base de registre.
+La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de `LSTATUS` pour la fonction `RegCreateKeyExW <https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw>`__ permettant de créer une entrée dans la base de registre.
 
 Un bon point d'entrée est le `Microsoft API and reference catalog <https://msdn.microsoft.com/library>`__.
 
