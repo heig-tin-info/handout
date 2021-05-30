@@ -207,6 +207,81 @@ Voici l'algorithme modifié :
 
 Sa complexité est ainsi réduite à :math:`O(2\cdot n)` et donc :math:`O(n)`. En revanche, l'approche dynamique demande un espace mémoire supplémentaire. On n'a rien sans rien et l'éternel dilemme mémoire versus performance s'applique toujours.
 
+Algorithmes célèbres
+====================
+
+Exponentiation rapide
+---------------------
+
+Cet algorithme permet de calculer rapidement des puissances entières (:math:`a^n`). La méthode naïve consiste à calculer les puissances avec une boucle :
+
+.. code-block:: c
+
+    long long pow(long long a, long long n) {
+        for (int i = 0; i < n - 1; i++) {
+            a *= a;
+        }
+    }
+
+La complexité de cet algorithme est :math:`O(n)`. Il est possible de faire mieux en :math:`O(n log n)`.
+
+.. code-block:: c
+
+    long long bin_pow(long long a, long long b) {
+        if (b == 0) return 1;
+        long long res = bin_pow(a, b / 2);
+        return res * res * (b % 2 ? a : 1);
+    }
+
+Comme évoqué plus haut, un algorithme récursif est souvent moins performant que sa variante itérative. Voici l'implémentation itérative :
+
+.. code-block:: c
+
+    long long bin_pow(long long a, long long b) {
+        long long res = 1;
+        while (b > 0) {
+            if (b & 1) res = res * a;
+            a *= a;
+            b /= 2;
+        }
+        return res;
+    }
+
+Racine carrée inverse rapide
+----------------------------
+
+Cet algorithme a été développé chez Silicon Graphics au début des années 90. Il a été utilisé dans des jeux vidéos comme `Quake III Arena <https://fr.wikipedia.org/wiki/Quake_III_Arena>`__ pour améliorer la performance du calcul des angles d'incidence dans la réflexion des lumières.
+
+.. code-block:: c
+
+    float Q_rsqrt(float number)
+    {
+        const float threehalfs = 1.5F;
+
+        float x2 = number * 0.5F;
+        float y = number;
+        long i = *(long *) &y; // Evil floating point bit level hacking
+        i = 0x5f3759df - (i >> 1); // What the fuck?
+        y = *(float *) &i;
+        y = y * (threehalfs - (x2 * y * y)); // 1st iteration
+    #if BETTER
+        y = y * (threehalfs - (x2 * y * y)); // 2nd iteration
+    #endif
+        return y;
+    }
+
+Cet algorithme de `racine carrée inverse rapide <https://fr.wikipedia.org/wiki/Racine_carr%C3%A9e_inverse_rapide>`__ utilise une constante magique ``0x5f3759df``. L'implémentation proposée ci-dessus est extraite du code source du jeu Quake III arena (`q_math.c <https://github.com/id-Software/Quake-III-Arena/blob/dbe4ddb10315479fc00086f08e25d968b4b43c49/code/game/q_math.c#L552>`__) disponible sur GitHub.
+
+Ce n'est pas un algorithme très académique, il s'agit d'un `kludge <https://fr.wikipedia.org/wiki/Kludge>`__, une solution irrespectueuse des règles de l'art de la programmation, car la valeur ``y`` est transtypée en un ``long`` (``i = *(long *)&y``. C'est cette astuce qui permet de tirer avantage que les valeurs en virgule flottantes sont exprimées en puissances de 2.
+
+Algorithme de Rabin-Karp
+------------------------
+
+Cet algorithme `Rabin-Karp <https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp>`__ permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est :math:`O(n + m)`.
+
+.. literalinclude:: ../../assets/src/rabin-karp.c
+    :language: c
+
 Algorithmes de tris
 ===================
 
