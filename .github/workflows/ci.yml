@@ -56,7 +56,7 @@ jobs:
           name: html
       - run: ls -al html
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+        uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           BRANCH: gh-pages
