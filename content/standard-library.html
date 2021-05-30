@@ -897,65 +897,30 @@ les deux régions mémoire se superposent.</p>
 <div class="section" id="autres-bibliotheques">
 <h2><span class="section-number">15.6  </span>Autres bibliothèques<a class="headerlink" href="#autres-bibliotheques" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
-<li><dl class="simple">
-<dt>GNU C Library (<a class="reference external" href="https://www.gnu.org/software/libc/">glibc</a>)</dt><dd><ul>
-<li><p>C11</p></li>
-<li><p>POSIX.1-2008</p></li>
-<li><p>IEEE 754-2008</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>GNU C Library (<a class="reference external" href="https://www.gnu.org/software/libc/">glibc</a>)
+- C11
+- POSIX.1-2008
+- IEEE 754-2008</p></li>
 </ul>
 <div class="section" id="posix-c-library">
 <h3><span class="section-number">15.6.1  </span>POSIX C Library<a class="headerlink" href="#posix-c-library" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la <em>toolchain</em> soit compatible <strong>C99</strong>. Il existe néanmoins toute une collection d'autres fonctions manquantes :</p>
-<ul>
-<li><p>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sharedmemory.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>La communication sur le réseau e.g. internet</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;arpa/inet.h&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;net/if.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Les tâches</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;thread.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Les traductions de chaînes p.ex. français vers anglais</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;iconv.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Les fonctions avancées de recherche de texte</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;regex.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Le log centralisé des messages (d'erreur)</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
+<ul class="simple">
+<li><p>La communication entre les processus (deux programmes qui souhaitent communiquer entre eux)
+- <code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code>
+- <code class="docutils literal notranslate"><span class="pre">&lt;sharedmemory.h&gt;</span></code></p></li>
+<li><p>La communication sur le réseau e.g. internet
+- <code class="docutils literal notranslate"><span class="pre">&lt;sys/socket.h&gt;</span></code>
+- <code class="docutils literal notranslate"><span class="pre">&lt;arpa/inet.h&gt;</span></code>
+- <code class="docutils literal notranslate"><span class="pre">&lt;net/if.h&gt;</span></code></p></li>
+<li><p>Les tâches
+- <code class="docutils literal notranslate"><span class="pre">&lt;thread.h&gt;</span></code></p></li>
+<li><p>Les traductions de chaînes p.ex. français vers anglais
+- <code class="docutils literal notranslate"><span class="pre">&lt;iconv.h&gt;</span></code></p></li>
+<li><p>Les fonctions avancées de recherche de texte
+- <code class="docutils literal notranslate"><span class="pre">&lt;regex.h&gt;</span></code></p></li>
+<li><p>Le log centralisé des messages (d'erreur)
+- <code class="docutils literal notranslate"><span class="pre">&lt;syslog.h&gt;</span></code></p></li>
 </ul>
 <p>Toutes ces bibliothèques additionnelles ne sont pas nécessairement disponibles sur votre ordinateur ou pour le système cible, surtout si vous convoitez une application <em>bare-metal</em>. Elles dépendent grandement du système d'exploitation utilisé, mais une tentative de normalisation existe et se nomme <a class="reference external" href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> (ISO/IEC 9945).</p>
 <p>Généralement la vaste majorité des distributions Linux et Unix sont compatibles avec le standard POSIX et les bibliothèques ci-dessus seront disponibles à moins que vous ne visiez une architecture différente de celle sur laquelle s'exécute votre compilateur.</p>
@@ -976,7 +941,7 @@ les deux régions mémoire se superposent.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;wincon.h&gt;</span></code></dt><dd><p>L'accès à la console</p>
 </dd>
 </dl>
-<p>La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de <cite>LSTATUS</cite> pour la fonction <cite>RegCreateKeyExW &lt;https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw&gt;</cite> permettant de créer une entrée dans la base de registre.</p>
+<p>La documentation est disponible en ligne depuis le site de Microsoft, mais n'est malheureusement pas complète et souvent il est difficile de savoir sur quel site trouver la bonne version de la bonne documentation. Par exemple, il n'y a aucune documentation claire de <cite>LSTATUS</cite> pour la fonction <a class="reference external" href="https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexw">RegCreateKeyExW</a> permettant de créer une entrée dans la base de registre.</p>
 <p>Un bon point d'entrée est le <a class="reference external" href="https://msdn.microsoft.com/library">Microsoft API and reference catalog</a>.</p>
 <p>Quelques observations :</p>
 <ul class="simple">
@@ -1003,7 +968,7 @@ les deux régions mémoire se superposent.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 mai 2021 (version v0.3.0-20-gfe07e44).
+    Mis à jour le 30 mai 2021 (version v0.3.0-21-g720137d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

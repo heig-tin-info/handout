@@ -239,7 +239,7 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#translation-unit" class="reference internal">Translation unit</a></li>
+                  <li class="toctree-l2"><a href="#unite-de-traduction" class="reference internal">Unité de traduction</a></li>
                 
                   <li class="toctree-l2"><a href="#diviser-pour-mieux-regner" class="reference internal">Diviser pour mieux régner</a></li>
                 
@@ -397,8 +397,8 @@
             
   <div class="section" id="compilation-separee">
 <span id="translationunits"></span><h1><span class="section-number">18  </span>Compilation séparée<a class="headerlink" href="#compilation-separee" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="translation-unit">
-<h2><span class="section-number">18.1  </span>Translation unit<a class="headerlink" href="#translation-unit" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="unite-de-traduction">
+<h2><span class="section-number">18.1  </span>Unité de traduction<a class="headerlink" href="#unite-de-traduction" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En programmation, on appelle <em>translation unit</em> (unité de traduction), un code qui peut être <strong>compilé</strong> en un <strong>objet</strong> sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.</p>
 </div>
 <div class="section" id="diviser-pour-mieux-regner">
@@ -710,7 +710,7 @@ Disassembly of section .text:
 1a:   bf 2a <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x2a,%edi
 1f:   e8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          callq  <span class="m">24</span> &lt;main+0x12&gt;
 <span class="m">24</span>:   <span class="m">89</span> c6                   mov    %eax,%esi
-<span class="m">26</span>:   <span class="m">48</span> 8d 3d <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    lea    0x0<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 2d &lt;main+0x1b&gt;</span>
+<span class="m">26</span>:   <span class="m">48</span> 8d 3d <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>    lea    0x0<span class="o">(</span>%rip<span class="o">)</span>,%rdi
 2d:   b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
 <span class="m">32</span>:   e8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          callq  <span class="m">37</span> &lt;main+0x25&gt;
 <span class="m">37</span>:   b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
@@ -757,7 +757,7 @@ Disassembly of section .text:
     <span class="m">1181</span>:       bf 2a <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x2a,%edi
     <span class="m">1186</span>:       e8 be ff ff ff          callq  <span class="m">1149</span> &lt;foo&gt;
     118b:       <span class="m">89</span> c6                   mov    %eax,%esi
-    118d:       <span class="m">48</span> 8d 3d <span class="m">70</span> 0e <span class="m">00</span> <span class="m">00</span>    lea    0xe70<span class="o">(</span>%rip<span class="o">)</span>,%rdi        <span class="c1"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+    118d:       <span class="m">48</span> 8d 3d <span class="m">70</span> 0e <span class="m">00</span> <span class="m">00</span>    lea    0xe70<span class="o">(</span>%rip<span class="o">)</span>,%rdi
     <span class="m">1194</span>:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
     <span class="m">1199</span>:       e8 b2 fe ff ff          callq  <span class="m">1050</span> &lt;printf@plt&gt;
     119e:       b8 <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>          mov    <span class="nv">$0</span>x0,%eax
@@ -791,7 +791,7 @@ Disassembly of section .text:
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 mai 2021 (version v0.3.0-20-gfe07e44).
+    Mis à jour le 30 mai 2021 (version v0.3.0-21-g720137d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -810,8 +810,8 @@ placera le symbole <code class="docutils literal notranslate"><span class="pre">
     sub     sp, sp, #60
 
     // Inline memcpy
-    mov     ip, sp                  // Destination address
-    add     lr, sp, #28             // Source address (char b located 28 octets after a)
+    mov     ip, sp      // Destination address
+    add     lr, sp, #28 // Source address (char b located 28 octets after a)
 
     ldmia   lr!, {r0, r1, r2, r3}   // Load 4 x 32-bits
     stmia   ip!, {r0, r1, r2, r3}   // Store 4 x 32-bits
@@ -1067,7 +1067,7 @@ une même région mémoire.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 mai 2021 (version v0.3.0-20-gfe07e44).
+    Mis à jour le 30 mai 2021 (version v0.3.0-21-g720137d).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

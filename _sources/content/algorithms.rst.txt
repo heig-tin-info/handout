@@ -152,6 +152,8 @@ Diagrammes visuels
 - Diagrammes en flux
 - Structogrammes
 - Diagramme d'activités
+- Machines d'états (`UML state machine <https://en.wikipedia.org/wiki/UML_state_machine>`__)
+- `BPMN <https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation>`__ (*Business Process Model and Notation*)
 
 Récursivité
 ===========
