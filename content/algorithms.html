@@ -243,6 +243,8 @@
                 
                   <li class="toctree-l2"><a href="#programmation-dynamique" class="reference internal">Programmation dynamique</a></li>
                 
+                  <li class="toctree-l2"><a href="#algorithmes-celebres" class="reference internal">Algorithmes célèbres</a></li>
+                
                   <li class="toctree-l2"><a href="#algorithmes-de-tris" class="reference internal">Algorithmes de tris</a></li>
                 
                   <li class="toctree-l2"><a href="#type-d-algorithmes" class="reference internal">Type d'algorithmes</a></li>
@@ -586,10 +588,160 @@ int diff = 3 // pair 11, 8
 </div>
 <p>Sa complexité est ainsi réduite à <span class="math notranslate nohighlight">\(O(2\cdot n)\)</span> et donc <span class="math notranslate nohighlight">\(O(n)\)</span>. En revanche, l'approche dynamique demande un espace mémoire supplémentaire. On n'a rien sans rien et l'éternel dilemme mémoire versus performance s'applique toujours.</p>
 </div>
+<div class="section" id="algorithmes-celebres">
+<h2><span class="section-number">17.6  </span>Algorithmes célèbres<a class="headerlink" href="#algorithmes-celebres" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="exponentiation-rapide">
+<h3><span class="section-number">17.6.1  </span>Exponentiation rapide<a class="headerlink" href="#exponentiation-rapide" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cet algorithme permet de calculer rapidement des puissances entières (<span class="math notranslate nohighlight">\(a^n\)</span>). La méthode naïve consiste à calculer les puissances avec une boucle :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="kt">long</span> <span class="n">pow</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">a</span> <span class="o">*=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La complexité de cet algorithme est <span class="math notranslate nohighlight">\(O(n)\)</span>. Il est possible de faire mieux en <span class="math notranslate nohighlight">\(O(n log n)\)</span>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="kt">long</span> <span class="n">bin_pow</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="n">bin_pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">res</span> <span class="o">*</span> <span class="n">res</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Comme évoqué plus haut, un algorithme récursif est souvent moins performant que sa variante itérative. Voici l'implémentation itérative :</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="kt">long</span> <span class="n">bin_pow</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+        <span class="n">a</span> <span class="o">*=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="n">b</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="racine-carree-inverse-rapide">
+<h3><span class="section-number">17.6.2  </span>Racine carrée inverse rapide<a class="headerlink" href="#racine-carree-inverse-rapide" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cet algorithme a été développé chez Silicon Graphics au début des années 90. Il a été utilisé dans des jeux vidéos comme <a class="reference external" href="https://fr.wikipedia.org/wiki/Quake_III_Arena">Quake III Arena</a> pour améliorer la performance du calcul des angles d'incidence dans la réflexion des lumières.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="nf">Q_rsqrt</span><span class="p">(</span><span class="kt">float</span> <span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">threehalfs</span> <span class="o">=</span> <span class="mf">1.5F</span><span class="p">;</span>
+
+    <span class="kt">float</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mf">0.5F</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">number</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">long</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">;</span> <span class="c1">// Evil floating point bit level hacking</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mh">0x5f3759df</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// What the fuck?</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">threehalfs</span> <span class="o">-</span> <span class="p">(</span><span class="n">x2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span><span class="p">));</span> <span class="c1">// 1st iteration</span>
+<span class="cp">#if BETTER</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">threehalfs</span> <span class="o">-</span> <span class="p">(</span><span class="n">x2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span><span class="p">));</span> <span class="c1">// 2nd iteration</span>
+<span class="cp">#endif</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cet algorithme de <a class="reference external" href="https://fr.wikipedia.org/wiki/Racine_carr%C3%A9e_inverse_rapide">racine carrée inverse rapide</a> utilise une constante magique <code class="docutils literal notranslate"><span class="pre">0x5f3759df</span></code>. L'implémentation proposée ci-dessus est extraite du code source du jeu Quake III arena (<a class="reference external" href="https://github.com/id-Software/Quake-III-Arena/blob/dbe4ddb10315479fc00086f08e25d968b4b43c49/code/game/q_math.c#L552">q_math.c</a>) disponible sur GitHub.</p>
+<p>Ce n'est pas un algorithme très académique, il s'agit d'un <a class="reference external" href="https://fr.wikipedia.org/wiki/Kludge">kludge</a>, une solution irrespectueuse des règles de l'art de la programmation, car la valeur <code class="docutils literal notranslate"><span class="pre">y</span></code> est transtypée en un <code class="docutils literal notranslate"><span class="pre">long</span></code> (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">*(long</span> <span class="pre">*)&amp;y</span></code>. C'est cette astuce qui permet de tirer avantage que les valeurs en virgule flottantes sont exprimées en puissances de 2.</p>
+</div>
+<div class="section" id="algorithme-de-rabin-karp">
+<h3><span class="section-number">17.6.3  </span>Algorithme de Rabin-Karp<a class="headerlink" href="#algorithme-de-rabin-karp" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Cet algorithme <a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp">Rabin-Karp</a> permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est <span class="math notranslate nohighlight">\(O(n + m)\)</span>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define CHARS_IN_ALPHABET 256</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Rabin-Karp algorithm</span>
+<span class="cm"> * @param needle Motif à rechercher</span>
+<span class="cm"> * @param haystack Texte d&#39;entrée</span>
+<span class="cm"> * @param matches La liste des occurences trouvées</span>
+<span class="cm"> * @param size La taille du tableau matches</span>
+<span class="cm"> * @return Le nombre d&#39;occurences trouvées</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">search</span><span class="p">(</span><span class="kt">char</span> <span class="n">needle</span><span class="p">[],</span> <span class="kt">char</span> <span class="n">haystack</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">matches</span><span class="p">[],</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">101</span><span class="p">;</span> <span class="c1">// A prime number</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">needle</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">haystack</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">M</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span> <span class="o">*</span> <span class="n">CHARS_IN_ALPHABET</span><span class="p">)</span> <span class="o">%</span> <span class="n">q</span><span class="p">;</span>
+
+    <span class="c1">// Compute the hash value of pattern and first</span>
+    <span class="c1">// window of text</span>
+    <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Hash value for pattern</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Hash value for haystack</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">M</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">CHARS_IN_ALPHABET</span> <span class="o">*</span> <span class="n">p</span> <span class="o">+</span> <span class="n">needle</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">q</span><span class="p">;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">CHARS_IN_ALPHABET</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">haystack</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">q</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Slide the pattern over text one by one</span>
+    <span class="kt">size_t</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">M</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Check the hash values of current window of text</span>
+        <span class="c1">// and pattern. If the hash values match then only</span>
+        <span class="c1">// check for characters on by one</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Check for characters one by one</span>
+            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">haystack</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">M</span><span class="p">)</span>
+                <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+
+            <span class="c1">// Save the position found</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">M</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">)</span>
+                    <span class="n">matches</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Calculate hash value for next window of text.</span>
+        <span class="c1">// Remove leading digit and add trailing digit.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">M</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">CHARS_IN_ALPHABET</span> <span class="o">*</span>
+                <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">haystack</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="n">haystack</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">M</span><span class="p">])</span> <span class="o">%</span> <span class="n">q</span><span class="p">;</span>
+            <span class="n">t</span> <span class="o">+=</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="nl">q</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">test_search</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">text</span><span class="p">[]</span> <span class="o">=</span>
+        <span class="s">&quot;Le courage n&#39;est pas l&#39;absence de peur, &quot;</span>
+        <span class="s">&quot;mais la capacité de vaincre ce qui fait peur.&quot;</span>
+        <span class="s">&quot;On ne peut vaincre sa destinée.&quot;</span>
+        <span class="s">&quot;A vaincre sans barils, on triomphe sans boire.&quot;</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">matches</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="s">&quot;vaincre&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">61</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">97</span><span class="p">);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">120</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">test_search</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="algorithmes-de-tris">
-<h2><span class="section-number">17.6  </span>Algorithmes de tris<a class="headerlink" href="#algorithmes-de-tris" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">17.7  </span>Algorithmes de tris<a class="headerlink" href="#algorithmes-de-tris" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="heap-sort">
-<h3><span class="section-number">17.6.1  </span>Heap Sort<a class="headerlink" href="#heap-sort" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">17.7.1  </span>Heap Sort<a class="headerlink" href="#heap-sort" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'algorithme <a class="reference external" href="https://fr.wikipedia.org/wiki/Tri_par_tas">Heap Sort</a> aussi appelé &quot;Tri par tas&quot; est l'un des algorithmes de tri les plus performants offrant une complexité en temps de <span class="math notranslate nohighlight">\(O(n\cdot log(n))\)</span> et une complexité en espace de <span class="math notranslate nohighlight">\(O(1)\)</span>. Il s'appuie sur le concept d'arbre binaire.</p>
 <p>Prenons l'exemple du tableau ci-dessous et deux règles suivantes :</p>
 <ul class="simple">
@@ -670,7 +822,7 @@ int diff = 3 // pair 11, 8
 </ol>
 </div>
 <div class="section" id="quick-sort">
-<h3><span class="section-number">17.6.2  </span>Quick Sort<a class="headerlink" href="#quick-sort" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">17.7.2  </span>Quick Sort<a class="headerlink" href="#quick-sort" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le <a class="reference external" href="https://fr.wikipedia.org/wiki/Tri_rapide">tri rapide</a> est l'algorithme de tri par référence dans la plupart des langage de programmation. Selon le compilateur C que vous utilisez, la fonction <code class="docutils literal notranslate"><span class="pre">qsort</span></code> implémente cette méthode de tri en <span class="math notranslate nohighlight">\(O(n log n)\)</span>.</p>
 <p>Quick sort est théoriquement plus lent que le Heap sort avec dans le pire des cas en <span class="math notranslate nohighlight">\(O(n^2)\)</span>. Néanmoins, en s'appuyant que cette <a class="reference external" href="https://stackoverflow.com/a/1853219/2612235">réponse</a> StackOverflow, quick sort reste meilleur pour de grands tableaux car les embranchements sont moins fréquents, et le cache processeur est donc mieux utilisé.</p>
 <p>Cet algorithme utilise la notion de <strong>pivot</strong>. Le pivot est un élément qui est choisi pour être le point autour duquel sont agencé les éléments. La méthode de tri est la suivante :</p>
@@ -736,9 +888,9 @@ int diff = 3 // pair 11, 8
 </div>
 </div>
 <div class="section" id="type-d-algorithmes">
-<h2><span class="section-number">17.7  </span>Type d'algorithmes<a class="headerlink" href="#type-d-algorithmes" title="Lien permanent vers ce titre">¶</a></h2>
+<h2><span class="section-number">17.8  </span>Type d'algorithmes<a class="headerlink" href="#type-d-algorithmes" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="algorithmes-en-ligne-incremental">
-<h3><span class="section-number">17.7.1  </span>Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Lien permanent vers ce titre">¶</a></h3>
+<h3><span class="section-number">17.8.1  </span>Algorithmes en ligne (incrémental)<a class="headerlink" href="#algorithmes-en-ligne-incremental" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Un algorithme incrémental ou <a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_online">online</a> est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.</p>
 <p>Un exemple typique est le <a class="reference external" href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_secr%C3%A9taire">problème de la secrétaire</a>. On souhaite recruter une nouvelle secrétaire et le recruteur voit défiler les candidats. Il doit décider à chaque entretien s'il engage ou non le candidat et ne peut pas attendre la fin du processus d'entretiens pour obtenir le score attribué à chaque candidat. Il ne peut comparer la performance de l'un qu'à celle de deux déjà entrevus. L'objectif est de trouver la meilleure stratégie.</p>
 <p>La solution à ce problème est de laisser passer 37% des candidats sans les engager. Ceci correspond à une proportion de <span class="math notranslate nohighlight">\(1/e\)</span>. Ensuite il suffit d'attendre un ou une candidate meilleure que tous ceux/celles du premier échantillon.</p>
@@ -826,7 +978,7 @@ int diff = 3 // pair 11, 8
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 mai 2021 (version v0.3.0-21-g720137d).
+    Mis à jour le 30 mai 2021 (version v0.3.0-22-gff14f86).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
