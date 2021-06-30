@@ -335,6 +335,11 @@ Notons quelques observations :
 Les boucles
 ===========
 
+.. figure:: ../../assets/images/road-runner.*
+
+    Bien choisir sa structure de contrôle
+
+
 Une :index:`boucle` est une structure itérative permettant de répéter l'exécution d'une séquence. En C il existe trois types de boucles :
 
 .. index:: for, while, do..while
