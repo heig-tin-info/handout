@@ -419,24 +419,24 @@
 <p>Une fois compilé en <a class="reference external" href="https://fr.wikipedia.org/wiki/Langage_machine">langage machine</a>, il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est <a class="reference external" href="https://en.wikipedia.org/wiki/Bare_machine">bare metal</a>, qu'il s'exécute à même le métal.</p>
 <p>Un exécutable binaire doit être compilé pour la bonne architecture matérielle. Un programme compilé pour un processeur INTEL ne pourra pas s'exécuter sur un processeur ARM, c'est pourquoi on utilise différents compilateurs en fonctions des architectures cibles. L'opération de compiler un programme pour une autre architecture, ou un autre système d'exploitation que celui sur lequel est installé le compilateur s'appelle la compilation croisée (<a class="reference external" href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>).</p>
 <p>Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">next_term</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the number of terms: &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Fibonacci Series: &quot;</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, &quot;</span><span class="p">,</span> <span class="n">t1</span><span class="p">);</span>
-        <span class="n">next_term</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
-        <span class="n">t1</span> <span class="o">=</span> <span class="n">t2</span><span class="p">;</span>
-        <span class="n">t2</span> <span class="o">=</span> <span class="n">next_term</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">next_term</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the number of terms: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Fibonacci Series: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">next_term</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_term</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Une fois <a class="reference external" href="https://fr.wikipedia.org/wiki/Assembly_(informatique)">assemblé</a> le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :</p>
@@ -545,10 +545,10 @@
 <li><p><kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">C</kbd>-<kbd class="kbd docutils literal notranslate">t</kbd></kbd> envoie le signal <code class="docutils literal notranslate"><span class="pre">SIGINFO</span></code> permettant de visualiser certaines informations liées à l'exécution du processus.</p></li>
 </ul>
 <p>Si le programme suivant est exécuté, il sera bloquant, c'est-à-dire qu'à moins d'envoyer un signal d'interruption, il ne sera pas possible d'interrompre le processus :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span><span class="p">(;;);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(;;);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -567,15 +567,15 @@
 </ul>
 <p>Un argument est une chaîne de caractères utilisée comme entrée au programme. Un programme peut avoir plusieurs arguments.</p>
 <p>En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre <code class="docutils literal notranslate"><span class="pre">argv</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Liste des arguments et options passés au programme:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Liste des arguments et options passés au programme:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  %u. %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  %u. %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>argverbose --help -h<span class="o">=</span><span class="m">12</span> <span class="m">3</span>.14 <span class="s1">&#39;Baguette au beurre&#39;</span> <span class="s1">$&#39;\t-Lait\n\t-Viande\n\t-Oeufs\f&#39;</span>
@@ -598,99 +598,99 @@
 <h3><span class="section-number">8.2.2  </span>Extension GNU<a class="headerlink" href="#extension-gnu" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension <a class="reference external" href="https://fr.wikipedia.org/wiki/GNU">GNU</a> et son en-tête <code class="docutils literal notranslate"><span class="pre">&lt;getopt.h&gt;</span></code> permet l'accès à la fonction <code class="docutils literal notranslate"><span class="pre">getopt_long</span></code> laquelle permet d'interpréter aussi les options longues <code class="docutils literal notranslate"><span class="pre">--version</span></code> qui sont devenues très répandue.</p>
 <p>Ci-dessous une possible utilisation de cette fonction :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;getopt.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;getopt.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Options</span> <span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">is_verbose</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Options</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_verbose</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span> <span class="n">has_add</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">has_append</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">has_delete</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">has_create</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_add</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_append</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_delete</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_create</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">char</span> <span class="o">*</span><span class="n">create_name</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">delete_name</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">file_name</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Options</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">create_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">delete_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">file_name</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Options</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Options</span> <span class="nf">parse_options</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">Options</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">Options</span><span class="w"> </span><span class="nf">parse_options</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Options</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 
-    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">verbose_flag</span><span class="p">;</span>  <span class="c1">// Set by --verbose/--brief</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">verbose_flag</span><span class="p">;</span><span class="w">  </span><span class="c1">// Set by --verbose/--brief</span>
 
-    <span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
-        <span class="k">static</span> <span class="k">struct</span> <span class="nc">option</span> <span class="n">long_options</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="c1">// These options set a flag.</span>
-            <span class="p">{</span><span class="s">&quot;verbose&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span> <span class="nb">true</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;brief&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span> <span class="nb">false</span><span class="p">},</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">option</span><span class="w"> </span><span class="n">long_options</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// These options set a flag.</span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;verbose&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">no_argument</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;brief&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">no_argument</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">verbose_flag</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">},</span><span class="w"></span>
 
-            <span class="c1">// These options don’t set a flag. We distinguish them by their</span>
-            <span class="c1">// indices.</span>
-            <span class="p">{</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;append&quot;</span><span class="p">,</span> <span class="n">no_argument</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;delete&quot;</span><span class="p">,</span> <span class="n">required_argument</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;create&quot;</span><span class="p">,</span> <span class="n">required_argument</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;file&quot;</span><span class="p">,</span> <span class="n">required_argument</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;f&#39;</span><span class="p">},</span>
+<span class="w">            </span><span class="c1">// These options don’t set a flag. We distinguish them by their</span>
+<span class="w">            </span><span class="c1">// indices.</span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">no_argument</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;append&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">no_argument</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;delete&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">required_argument</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;create&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">required_argument</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="s">&quot;file&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">required_argument</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;f&#39;</span><span class="p">},</span><span class="w"></span>
 
-            <span class="c1">// Sentinel marking the end of the structure.</span>
-            <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">}};</span>
+<span class="w">            </span><span class="c1">// Sentinel marking the end of the structure.</span>
+<span class="w">            </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}};</span><span class="w"></span>
 
-        <span class="c1">// getopt_long stores the option index here.</span>
-        <span class="kt">int</span> <span class="n">option_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// getopt_long stores the option index here.</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">option_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">c</span> <span class="o">=</span> <span class="n">getopt_long</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;abc:d:f:&quot;</span><span class="p">,</span> <span class="n">long_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">option_index</span><span class="p">);</span>
+<span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getopt_long</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;abc:d:f:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">long_options</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">option_index</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Detect the end of the options.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="mi">-1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Detect the end of the options.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">case</span> <span class="sc">&#39;a&#39;</span><span class="o">:</span>
-                <span class="n">options</span><span class="p">.</span><span class="n">has_add</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">options</span><span class="p">.</span><span class="n">has_add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">case</span> <span class="sc">&#39;b&#39;</span><span class="o">:</span>
-                <span class="n">options</span><span class="p">.</span><span class="n">has_append</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">options</span><span class="p">.</span><span class="n">has_append</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">case</span> <span class="sc">&#39;c&#39;</span><span class="o">:</span>
-                <span class="n">options</span><span class="p">.</span><span class="n">create_name</span> <span class="o">=</span> <span class="n">optarg</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">options</span><span class="p">.</span><span class="n">create_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optarg</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">case</span> <span class="sc">&#39;d&#39;</span><span class="o">:</span>
-                <span class="n">options</span><span class="p">.</span><span class="n">delete_name</span> <span class="o">=</span> <span class="n">optarg</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">options</span><span class="p">.</span><span class="n">delete_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optarg</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
-                <span class="n">options</span><span class="p">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="n">optarg</span><span class="p">;</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;f&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">options</span><span class="p">.</span><span class="n">file_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optarg</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">case</span> <span class="sc">&#39;?&#39;</span><span class="o">:</span>
-                <span class="c1">// getopt_long already printed an error message.</span>
-                <span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;?&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// getopt_long already printed an error message.</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-            <span class="k">default</span><span class="o">:</span>
-                <span class="n">abort</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">is_verbose</span> <span class="o">=</span> <span class="n">verbose_flag</span><span class="p">;</span>
+<span class="w">            </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">abort</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">options</span><span class="p">.</span><span class="n">is_verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">verbose_flag</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">// Parses the remaining command line arguments if got any</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">optind</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">optind</span><span class="o">++</span><span class="p">]);</span>
+<span class="w">    </span><span class="c1">// Parses the remaining command line arguments if got any</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">optind</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">optind</span><span class="o">++</span><span class="p">]);</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="n">options</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">options</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Options</span> <span class="n">options</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Options</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_options</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c1">// ...</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -712,13 +712,13 @@
 <li><p>Les pointeurs de fichiers sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stderr</span></code></p></li>
 </ul>
 <p>C'est la fonction <code class="docutils literal notranslate"><span class="pre">__libc_start_main</span></code> de la bibliothèque standard qui a la responsabilité d'appeler la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>. Voici son prototype :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">__libc_start_main</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">main</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span><span class="p">),</span>
-    <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">ubp_av</span><span class="p">,</span>
-    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">init</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
-    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
-    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">rtld_fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span>
-    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">stack_end</span><span class="p">)</span>
-<span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">__libc_start_main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">main</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">ubp_av</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">init</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">rtld_fini</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">stack_end</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -762,21 +762,21 @@
 </pre></div>
 </div>
 <p>Bien vite, on préfèrera utiliser <code class="docutils literal notranslate"><span class="pre">printf</span></code> qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (<em>tokens</em>) de formater des variables :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello</span><span class="se">\v</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %s, %f&quot;</span><span class="p">,</span> <span class="mh">0x12</span><span class="p">,</span> <span class="s">&quot;World!&quot;</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello</span><span class="se">\v</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %s, %f&quot;</span><span class="p">,</span><span class="w"> </span><span class="mh">0x12</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;World!&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1415</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire <code class="docutils literal notranslate"><span class="pre">stderr</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">stdout</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">fprintf</span></code> permet de spécifier le flux standard de sortie :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;Sortie standard</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Sortie d&#39;erreur standard</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sortie standard</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sortie d&#39;erreur standard</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pourquoi, me direz-vous, faut-il séparer la sortie standard du canal d'erreur? Le plus souvent un programme n'est pas utilisé seul, mais en conjonction avec d'autres programmes :</p>
@@ -792,32 +792,32 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
 <div class="section" id="boucle-d-attente">
 <h2><span class="section-number">8.5  </span>Boucle d'attente<a class="headerlink" href="#boucle-d-attente" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(;;)</span> <span class="p">{}</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>consommera 100% des ressources du processeur. En d'autres termes, le processeur dépensera toute son énergie à faire 150 millions de calculs par seconde, pour rien. Et les autres processus n'auront que très peu de ressources disponibles pour tourner.</p>
 <p>Il est grandement préférable d'utiliser des appels système pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard <code class="docutils literal notranslate"><span class="pre">sleep</span></code> pour demander au noyau d'être mis en attente pour une période de temps spécifiée en paramètre.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(;;)</span> <span class="p">{</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span> <span class="cm">/* seconds */</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="cm">/* seconds */</span><span class="p">);</span><span class="w"></span>
 
-        <span class="p">...</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche enter.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(;;)</span> <span class="p">{</span>
-        <span class="n">getchar</span><span class="p">();</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vous avez pressé la touche enter (</span><span class="se">\\</span><span class="s">n)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">getchar</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vous avez pressé la touche enter (</span><span class="se">\\</span><span class="s">n)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
@@ -845,7 +845,7 @@ La commande suivante <code class="docutils literal notranslate"><span class="pre
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

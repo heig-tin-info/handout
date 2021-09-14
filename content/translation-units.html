@@ -424,36 +424,36 @@
 pourvoir utiliser correctement les fonctions du module de gestion des
 nombres complexes. Exemple :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// fichier main.c</span>
-<span class="cp">#include</span> <span class="cpf">&quot;complex.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;complex.h&quot;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Complex</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">real</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="p">.</span><span class="n">imag</span> <span class="o">=</span> <span class="mf">-3.</span> <span class="p">};</span>
-    <span class="n">complex_fprint</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">c1</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">real</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">imag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-3.</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">complex_fprint</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// fichier complex.h</span>
 <span class="cp">#ifndef COMPLEX_H</span>
 <span class="cp">#define COMPLEX_H</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Complex</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">real</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">imag</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Complex</span><span class="p">,</span> <span class="o">*</span><span class="n">pComplex</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Complex</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">real</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">imag</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Complex</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pComplex</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">complex_fprint</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Complex</span> <span class="n">c</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">complex_fprint</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
 
 <span class="cp">#endif </span><span class="c1">// COMPLEX_H</span>
 </pre></div>
 </div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// fichier complex.c</span>
-<span class="cp">#include</span> <span class="cpf">&quot;complex.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;complex.h&quot;</span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">complex_fprint</span><span class="p">(</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">fp</span><span class="p">,</span> <span class="k">const</span> <span class="n">Complex</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s">&quot;%+.3lf + %+.3lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">imag</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">complex_fprint</span><span class="p">(</span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Complex</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%+.3lf + %+.3lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">real</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">imag</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Un des avantages majeurs à la création de modules est qu'un module
@@ -509,17 +509,17 @@ réinventer la roue à chaque application !</p>
 </ul>
 <p>Nous l'avons vu dans le chapitre sur le préprocesseur, la directive <code class="docutils literal notranslate"><span class="pre">#include</span></code> ne fais qu'inclure le contenu du fichier cible à l'emplacement de la directive. Il est donc possible (mais fort déconseillé), d'avoir la situation suivante :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.c</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="cp">#include</span> <span class="cpf">&quot;foobar.def&quot;</span><span class="cp"></span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foobar.def&quot;</span><span class="cp"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Et le fichier <code class="docutils literal notranslate"><span class="pre">foobar.def</span></code> pourrait contenir :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// foobar.def</span>
 <span class="cp">#ifdef FOO</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello foo!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello foo!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#else</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello bar!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello bar!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="cp">#endif</span>
 </pre></div>
 </div>
@@ -613,9 +613,9 @@ réinventer la roue à chaque application !</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef BAR_H</span>
 <span class="cp">#define BAR_H</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Bar</span> <span class="p">{</span>
-<span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Bar</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span><span class="w"></span>
 
 <span class="cp">#endif </span><span class="c1">// BAR_H</span>
 </pre></div>
@@ -624,9 +624,9 @@ réinventer la roue à chaque application !</p>
 <p>Alternativement, il existe une solution <strong>non standard</strong>, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">Bar</span> <span class="p">{</span>
-<span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Bar</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un <code class="docutils literal notranslate"><span class="pre">#endif</span></code> à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier <code class="docutils literal notranslate"><span class="pre">bar.h</span></code> n'apparaît pas dans le fichier <code class="docutils literal notranslate"><span class="pre">BAR_H</span></code>.</p>
@@ -635,11 +635,11 @@ réinventer la roue à chaque application !</p>
 <div class="section" id="en-profondeur">
 <h2><span class="section-number">18.6  </span>En profondeur<a class="headerlink" href="#en-profondeur" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier <code class="docutils literal notranslate"><span class="pre">foo.c</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="mi">42</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Puisqu'il ne contient pas de fonction main, il n'est pas possible de compiler ce fichier en un exécutable car il manque un point d'entrée :</p>
@@ -673,17 +673,17 @@ Disassembly of section .text:
 </div>
 <p>On constate à la ligne <code class="docutils literal notranslate"><span class="pre">19</span></code> que l'addition à bien lieu <code class="docutils literal notranslate"><span class="pre">eax</span> <span class="pre">+</span> <span class="pre">42</span></code>, et que l'appel de la fonction <cite>bar</cite> se produit à la ligne <code class="docutils literal notranslate"><span class="pre">14</span></code>.</p>
 <p>Maintenant considérons le programme principal :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">foo</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>En générant l'objet <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-c</span> <span class="pre">main.c</span></code>, on peut également afficher l'assembleur généré avec <code class="docutils literal notranslate"><span class="pre">objdump</span></code> :</p>
@@ -791,7 +791,7 @@ Disassembly of section .text:
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

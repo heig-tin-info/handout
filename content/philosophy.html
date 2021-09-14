@@ -417,19 +417,19 @@
 </div></blockquote>
 <p>En d'autres termes, le programmeur doit avoir sans cesse à l'esprit une sonnette d'alarme prête à vrombir lorsque qu'il presse machinalement <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">C</kbd> suivi de <kbd class="kbd docutils literal notranslate">CTRL</kbd> (<kbd class="kbd docutils literal notranslate">⌘</kbd>) + <kbd class="kbd docutils literal notranslate">V</kbd>. Dupliquer du code et quelle que soit l'envergure de texte concerné est <strong>toujours</strong> une mauvaise pratique, car c'est le plus souvent le signe évident d'un <a class="reference external" href="https://fr.wikipedia.org/wiki/Code_smell">code smell</a> indiquant que le code peut être simplifié et optimisé.</p>
 <p>Le code suivant comprend une erreur <strong>DRY</strong> car la fonction display est appelée deux fois. Dans les deux cas de figure, la fonction <code class="docutils literal notranslate"><span class="pre">display</span></code> reçois un pointeur sur un fichier, il est donc possible de simplifier ce code.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">display</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">display</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Voici la version corrigée :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">?</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="n">stdin</span><span class="p">;</span>
-<span class="n">display</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">stdin</span><span class="p">;</span><span class="w"></span>
+<span class="n">display</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -437,31 +437,31 @@
 <h3><span class="section-number">24.2.2  </span>KISS<a class="headerlink" href="#kiss" title="Lien permanent vers ce titre">¶</a></h3>
 <p><a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_KISS">Keep it simple, stupid</a> est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Eric_Raymond">Eric Steven Raymond</a> puis par le <a class="reference external" href="https://fr.wikipedia.org/wiki/Zen_de_Python">Zen de Python</a> un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du <em>shell</em> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.</p>
 <p>La fonction suivante n'est pas <strong>KISS</strong> car elle est responsable de plusieurs tâches : vérifier les valeurs d'un set de donnée et les afficher :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">process</span><span class="p">(</span><span class="n">Data</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Check consistency and display</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Data</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Check consistency and display</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">));</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">log10</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il serait préférable de la découper en deux sous-fonctions :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TO_LOG(a) (20 * log10(a))</span>
 
-<span class="kt">int</span> <span class="nf">fix_data</span><span class="p">(</span><span class="n">Data</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="k">const</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fix_data</span><span class="p">(</span><span class="n">Data</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">display</span><span class="p">(</span><span class="k">const</span> <span class="n">Data</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="k">const</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">TO_LOG</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">));</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TO_LOG</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +479,7 @@
 <li><p>Stocker la même image, le même document dans différents formats</p></li>
 <li><p>Stocker dans une base de données le nom <em>Doe</em>, prénom <em>John</em> ainsi que le nom complet <em>John Doe</em></p></li>
 <li><p>Avoir un commentaire C ayant deux vérités contradictoires :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">206</span><span class="p">;</span> <span class="c1">// Size of Hafþór Júlíus Björnsson which is 205 cm</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">206</span><span class="p">;</span><span class="w"> </span><span class="c1">// Size of Hafþór Júlíus Björnsson which is 205 cm</span>
 </pre></div>
 </div>
 </li>
@@ -520,21 +520,21 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <h2><span class="section-number">24.4  </span>The code taste<a class="headerlink" href="#the-code-taste" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans une <a class="reference external" href="https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux">conférence</a> TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé <em>code taste</em> traduisible par <em>avoir du goût pour le code</em>.</p>
 <p>Il évoqua l'exemple C suivant et demanda à l'auditoire si ce code est de bon goût :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="n">Entry</span><span class="o">*</span> <span class="n">entry</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Entry</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-    <span class="n">Entry</span><span class="o">*</span> <span class="n">walk</span> <span class="o">=</span> <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">walk</span> <span class="o">!=</span> <span class="n">entry</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">prev</span> <span class="o">=</span> <span class="n">walk</span><span class="p">;</span>
-        <span class="n">walk</span> <span class="o">=</span> <span class="n">walk</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">walk</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">walk</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">walk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">walk</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">prev</span><span class="p">)</span>
-        <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">prev</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il répondit que ce code est de mauvais goût, qu'il est <em>vilain</em> et <em>moche</em>, car ce test placé après la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> jure avec le reste du code et que parce que ce code semble laid, il doit y avoir une meilleure implémentation de meilleur goût. On dit dans ce cas de figure que le code <em>sent</em>, ce test est de trop, et il doit y avoir un moyen d'éviter de traiter un cas particulier en utilisant un algorithme meilleur.</p>
@@ -544,36 +544,36 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p>Sinon il faut modifier l'élément précédent <code class="docutils literal notranslate"><span class="pre">prev-&gt;next</span></code></p></li>
 </ul>
 <p>Après avoir longuement questionné l'auditoire, il présente cette nouvelle implémentation :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="n">Entry</span><span class="o">*</span> <span class="n">entry</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Entry</span><span class="o">**</span> <span class="n">indirect</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">remove_list_entry</span><span class="p">(</span><span class="n">List</span><span class="o">*</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">Entry</span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Entry</span><span class="o">**</span><span class="w"> </span><span class="n">indirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">((</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span> <span class="o">!=</span> <span class="n">entry</span><span class="p">)</span>
-        <span class="n">indirect</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">entry</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">indirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">indirect</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
 
-    <span class="o">*</span><span class="n">indirect</span> <span class="o">=</span> <span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="o">*</span><span class="n">indirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La fonction originale de 10 lignes de code a été réduite à 4 lignes et bien que le nombre de lignes compte moins que la lisibilité du code, cette nouvelle implémentation élimine le traitement des cas d'exception en utilisant un adressage indirect beaucoup plus élégant.</p>
 <p>Un autre exemple similaire et plus simple à comprendre est présenté par Brian Barto sur un article publié sur <a class="reference external" href="https://medium.com/&#64;bartobri/applying-the-linus-tarvolds-good-taste-coding-requirement-99749f37684a">Medium</a>. Il donne l'exemple de l'initialisation à zéro de la bordure d'un tableau bidimensionnel :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span><span class="p">;</span> <span class="o">++</span><span class="n">row</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span><span class="p">;</span> <span class="o">++</span><span class="n">col</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Top Edge</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">row</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">col</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Top Edge</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Left Edge</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Left Edge</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">==</span> <span class="n">GRID_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Right Edge</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Right Edge</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">GRID_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Bottom Edge</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GRID_SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bottom Edge</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>On constate plusieurs fautes de goût :</p>
@@ -583,15 +583,15 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p>La complexité de l'algorithme est de <span class="math notranslate nohighlight">\(O(n^2)\)</span> alors que l'on ne s'intéresse qu'à la bordure du tableau.</p></li>
 </ul>
 <p>Voici une solution plus élégante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">size_t</span> <span class="n">length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">init</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Edges initialisation</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">init</span><span class="p">;</span> <span class="c1">// Top and Left</span>
-    <span class="n">grid</span><span class="p">[</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">init</span><span class="p">;</span> <span class="c1">// Bottom and Right</span>
-<span class="p">}</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init</span><span class="p">;</span><span class="w"> </span><span class="c1">// Top and Left</span>
+<span class="w">    </span><span class="n">grid</span><span class="p">[</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bottom and Right</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -603,52 +603,52 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p>Un fichier est plus long que <strong>1000 lignes</strong>.</p></li>
 <li><p><strong>Ligne Dieu</strong>, une ligne beaucoup trop longue et <em>de facto</em> illisible.</p></li>
 <li><p>Une fonction à plus de <strong>trois</strong> paramètres</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mouture</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cup_size</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">with_milk</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">cow_milk</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number_of_sugars</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mouture</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cup_size</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">with_milk</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">cow_milk</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number_of_sugars</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Copier coller</strong>, du code est dupliqué</p></li>
 <li><p>Les commentaires expliquent le comment du code et non le pourquoi</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Additionne une constante avec une autre pour ensuite l&#39;utiliser</span>
-<span class="kt">double</span> <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">cst</span><span class="p">);</span>
-<span class="n">u</span> <span class="o">/=</span> <span class="mf">1.11123445143</span><span class="p">;</span> <span class="c1">// division par une constante inférieure à 2</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cst</span><span class="p">);</span><span class="w"></span>
+<span class="n">u</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mf">1.11123445143</span><span class="p">;</span><span class="w"> </span><span class="c1">// division par une constante inférieure à 2</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Arbre de Noël</strong>, plus de deux structures de contrôles sont impliquées</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">exception</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">exception</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 <li><p>Usage de <code class="docutils literal notranslate"><span class="pre">goto</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span>
-    <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="k">goto</span> <span class="n">end</span><span class="p">;</span>
-<span class="nl">happy</span><span class="p">:</span>
-    <span class="n">happy</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
-        <span class="k">goto</span> <span class="n">sad</span><span class="p">;</span>
-<span class="nl">sad</span><span class="p">:</span>
-    <span class="n">sad</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span><span class="o">:</span>
-        <span class="k">goto</span> <span class="n">happy</span><span class="p">;</span>
-<span class="nl">end</span><span class="p">:</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">loop</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"></span>
+<span class="nl">happy</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">happy</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">sad</span><span class="p">;</span><span class="w"></span>
+<span class="nl">sad</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">sad</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">happy</span><span class="p">;</span><span class="w"></span>
+<span class="nl">end</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 <li><p>Plusieurs variables avec des noms très similaires</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">advice</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">advise</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">advice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">advise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -656,9 +656,9 @@ Namespaces are one honking great idea—let&#39;s do more of those!
 <li><p><strong>Ancre de bateau</strong>, un composant inutilisé, mais gardé dans le logiciel pour des raisons politiques (YAGNI)</p></li>
 <li><p><strong>Cyclomatisme aigu</strong>, quand trop de structures de contrôles sont nécessaires pour traiter un problème apparemment simple</p></li>
 <li><p><strong>Attente active</strong>, une boucle qui ne contient qu'une instruction de test, attendant la condition</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">finished</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">finished</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -683,7 +683,7 @@ Namespaces are one honking great idea—let&#39;s do more of those!
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

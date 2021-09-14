@@ -448,27 +448,27 @@
 <p>Qu'en pensez-vous ?</p>
 <p>Lorsque l'on souhaite programmer à bas niveau, vous voyez que la notion de type de donnée est essentielle, car en dehors d'une interprétation subjective: &quot;c'est forcément PI la bonne réponse&quot;, rien ne permet à l'ordinateur d'interpréter convenablement l'information enregistrée en mémoire.</p>
 <p>Le typage permet de résoudre toute ambiguïté.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">union</span> <span class="p">{</span>
-        <span class="kt">uint8_t</span> <span class="n">u8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-        <span class="kt">uint16_t</span> <span class="n">u16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-        <span class="kt">uint32_t</span> <span class="n">u32</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">f32</span><span class="p">;</span>
-    <span class="p">}</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{</span> <span class="mb">0b01000000</span><span class="p">,</span> <span class="mb">0b01001001</span><span class="p">,</span> <span class="mb">0b00001111</span><span class="p">,</span> <span class="mb">0b11011011</span> <span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">u8</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">u16</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">u32</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">f32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mb">0b01000000</span><span class="p">,</span><span class="w"> </span><span class="mb">0b01001001</span><span class="p">,</span><span class="w"> </span><span class="mb">0b00001111</span><span class="p">,</span><span class="w"> </span><span class="mb">0b11011011</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;&#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hhu, %hhu, %hhu, %hhu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hu, %hu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span>
-    <span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 3 to byte 0</span>
-        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff0000</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 1 to byte 2</span>
-        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff00</span><span class="p">)</span> <span class="o">|</span> <span class="c1">// move byte 2 to byte 1</span>
-        <span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff000000</span><span class="p">)</span> <span class="c1">// byte 0 to byte 3</span>
-    <span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;&#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;, &#39;%c&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hhu, %hhu, %hhu, %hhu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%hu, %hu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u16</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">// move byte 3 to byte 0</span>
+<span class="w">        </span><span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff0000</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">// move byte 1 to byte 2</span>
+<span class="w">        </span><span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff00</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="c1">// move byte 2 to byte 1</span>
+<span class="w">        </span><span class="p">((</span><span class="n">u</span><span class="p">.</span><span class="n">u32</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff000000</span><span class="p">)</span><span class="w"> </span><span class="c1">// byte 0 to byte 3</span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">f32</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -795,7 +795,7 @@
 <div>
 <p class="rubric">Exercice 6.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Quel sera le contenu de <code class="docutils literal notranslate"><span class="pre">j</span></code> après l'exécution de l'instruction suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1067,17 +1067,17 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <p id="index-14">L'UTF-8 est capable d'encoder 11'112'064 caractères en utilisant de 1 à 4 octets. <a class="reference external" href="https://fr.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, dont nous avons déjà parlé en <a class="reference internal" href="introduction.html#thompson"><span class="std std-ref">introduction</span></a> est à l'origine de ce standard. Par exemple le <em>devanagari</em> caractère <code class="docutils literal notranslate"><span class="pre">ह</span></code> utilisé en Sanskrit possède la dénomination unicode <a class="reference external" href="https://unicode-table.com/en/0939/">U+0939</a> et s'encode sur 3 octets: <code class="docutils literal notranslate"><span class="pre">0xE0</span> <span class="pre">0xA4</span> <span class="pre">0xB9</span></code></p>
 <p>En programmation C, un caractère <code class="docutils literal notranslate"><span class="pre">char</span></code> ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension.</p>
 <p>Voici par exemple comment déclarer une variable contenant le caractère dollar :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;$&#39;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;$&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Attention donc au caractère <code class="docutils literal notranslate"><span class="pre">'3'</span></code> qui correspond à la grandeur hexadécimale <code class="docutils literal notranslate"><span class="pre">0x33</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;3&#39;</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;3&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Le caractère %c vaut 0x%x en hexadécimal ou %d en décimal.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1085,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <h2><span class="section-number">6.7  </span>Chaîne de caractères<a class="headerlink" href="#chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une <span class="target" id="index-15"></span>chaîne de caractères est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit <code class="docutils literal notranslate"><span class="pre">NUL</span></code> ou <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
 <p>La chaîne de caractère <code class="docutils literal notranslate"><span class="pre">Hello</span></code> sera en mémoire stockée en utilisant les codes ASCII suivants.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  H   E   L   L   O  \0
@@ -1125,10 +1125,10 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <div>
 <p class="rubric">Exercice 6.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
 <p>Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
-<span class="kt">short</span> <span class="n">sh1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">f1</span> <span class="o">=</span> <span class="mf">7.0f</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">short</span><span class="w"> </span><span class="n">sh1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0f</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -1160,10 +1160,10 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <p>Un <a class="reference external" href="https://fr.wikipedia.org/wiki/Bool%C3%A9en">booléen</a> est un type de donnée à deux états consensuellement nommés <em>vrai</em> (<code class="docutils literal notranslate"><span class="pre">true</span></code>) et <em>faux</em> (<code class="docutils literal notranslate"><span class="pre">false</span></code>) et destiné à représenter les états en logique booléenne (Nom venant de <a class="reference external" href="https://fr.wikipedia.org/wiki/George_Boole">George Boole</a> fondateur de l'algèbre éponyme).</p>
 <p>La convention est d'utiliser <code class="docutils literal notranslate"><span class="pre">1</span></code> pour mémoriser un état vrai, et <code class="docutils literal notranslate"><span class="pre">0</span></code> pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.</p>
 <p>Les <span class="target" id="index-16"></span>booléens ont étés introduits formellement en C avec <strong>C99</strong> et nécessitent l'inclusion du fichier d'en-tête <code class="docutils literal notranslate"><span class="pre">stdbool.h</span></code>. Avant cela le type boolean était <code class="docutils literal notranslate"><span class="pre">_Bool</span></code> et définir les états vrais et faux était à la charge du développeur.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
 
-<span class="kt">bool</span> <span class="n">is_enabled</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">has_tail</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">is_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">has_tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Afin de faciliter la lecture du code, il est courant de préfixer les variables booléennes avec les préfixes <code class="docutils literal notranslate"><span class="pre">is_</span></code> ou <code class="docutils literal notranslate"><span class="pre">has_</span></code>.</p>
@@ -1174,56 +1174,56 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 <p>Ce style d'écriture permet de définir un type de données contenant un
 nombre fini de valeurs. Ces valeurs sont nommées textuellement et
 définies numériquement dans le type énuméré.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">ColorCode</span> <span class="p">{</span>
-    <span class="n">COLOR_BLACK</span><span class="p">,</span> <span class="c1">// Vaut zéro par défaut</span>
-    <span class="n">COLOR_BROWN</span><span class="p">,</span>
-    <span class="n">COLOR_RED</span><span class="p">,</span>
-    <span class="n">COLOR_ORANGE</span><span class="p">,</span>
-    <span class="n">COLOR_YELLOW</span><span class="p">,</span>
-    <span class="n">COLOR_GREEN</span><span class="p">,</span>
-    <span class="n">COLOR_BLUE</span><span class="p">,</span>
-    <span class="n">COLOR_PURPLE</span><span class="p">,</span>
-    <span class="n">COLOR_GRAY</span><span class="p">,</span>
-    <span class="n">COLOR_WHITE</span>
-<span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">ColorCode</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_BLACK</span><span class="p">,</span><span class="w"> </span><span class="c1">// Vaut zéro par défaut</span>
+<span class="w">    </span><span class="n">COLOR_BROWN</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_RED</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_ORANGE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_YELLOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_GREEN</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_BLUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_PURPLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_GRAY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_WHITE</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le type d'une énumération est apparenté à un entier <code class="docutils literal notranslate"><span class="pre">int</span></code>. Sans autre précisions, la première valeur vaut 0, la suivante 1, etc.</p>
 <p>Il est possible de forcer les valeurs de la manière suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">enum</span> <span class="n">country_codes</span> <span class="p">{</span>
-    <span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
-    <span class="n">CODE_FRANCE</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span>
-    <span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">}</span> <span class="n">CountryCodes</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_FRANCE</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">CountryCodes</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>ou encore :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">enum</span> <span class="n">country_codes</span> <span class="p">{</span>
-    <span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span>
-    <span class="n">CODE_BELGIUM</span><span class="o">=</span><span class="mi">32</span>
-    <span class="n">CODE_FRANCE</span><span class="p">,</span> <span class="c1">// Sera 33...</span>
-    <span class="n">CODE_SPAIN</span><span class="p">,</span> <span class="c1">// Sera 34...</span>
-    <span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">}</span> <span class="n">CountryCodes</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_SWITZERLAND</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_BELGIUM</span><span class="o">=</span><span class="mi">32</span><span class="w"></span>
+<span class="w">    </span><span class="n">CODE_FRANCE</span><span class="p">,</span><span class="w"> </span><span class="c1">// Sera 33...</span>
+<span class="w">    </span><span class="n">CODE_SPAIN</span><span class="p">,</span><span class="w"> </span><span class="c1">// Sera 34...</span>
+<span class="w">    </span><span class="n">CODE_US</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">CountryCodes</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pour ne pas confondre un type énuméré avec une variable, on utilise souvent la convention d'une notation en capitales. Pour éviter d’éventuelles collisions avec d'autres types, un préfixe est souvent ajouté.</p>
 <p>L'utilisation d'un type énuméré peut être la suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">call</span><span class="p">(</span><span class="k">enum</span> <span class="n">country_codes</span> <span class="n">code</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">switch</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="nl">CODE_SWITZERLAND</span> <span class="p">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Switzerland, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">CODE_BELGIUM</span> <span class="p">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Belgium, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="nl">CODE_FRANCE</span> <span class="p">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling France, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;No calls to this country are allowed yet!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="k">enum</span><span class="w"> </span><span class="n">country_codes</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">CODE_SWITZERLAND</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Switzerland, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">CODE_BELGIUM</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling Belgium, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">CODE_FRANCE</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Calling France, please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;No calls to this country are allowed yet!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1234,13 +1234,13 @@ définies numériquement dans le type énuméré.</p>
 <div class="section" id="type-vide-void">
 <h2><span class="section-number">6.11  </span>Type vide (<em>void</em>)<a class="headerlink" href="#type-vide-void" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-18">Le type <code class="docutils literal notranslate"><span class="pre">void</span></code> est particulier. Il s'agit d'un type dit <strong>incomplet</strong>, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">shout</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hey!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">shout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hey!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il peut être également utilisé comme type générique comme la fonction de copie mémoire <code class="docutils literal notranslate"><span class="pre">memcpy</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="kr">restrict</span> <span class="n">src</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">void</span></code> ne peut être utilisé que dans les contextes suivants :</p>
@@ -1291,9 +1291,9 @@ passe directement à un type <em>int</em>.</p>
 <div>
 <p class="rubric">Exercice 6.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
 <p>Soit les instructions suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Donnez le type et la valeur des expressions suivantes :</p>
@@ -1311,11 +1311,11 @@ passe directement à un type <em>int</em>.</p>
 <div>
 <p class="rubric">Exercice 6.7<a class="headerlink" href="#exercise-6" title="Permalink to this rubric">¶</a></p>
 <p>Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-<span class="kt">short</span> <span class="n">sh</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -1337,8 +1337,8 @@ la valeur représentée !</p>
 <h4><span class="section-number">6.12.1.1  </span>Transtypage d'un entier en réel<a class="headerlink" href="#transtypage-d-un-entier-en-reel" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La conversion d'un entier (signé ou non) en réel (<em>double</em> ou <em>float</em>)
 n'a pas d'effet particulier. Le type</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">l</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">l</span><span class="p">;</span> <span class="c1">// valeur : 3 =&gt; OK</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">l</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 3 =&gt; OK</span>
 </pre></div>
 </div>
 <p>A l'exécution, la valeur de <span class="math notranslate nohighlight">\(d\)</span> sera la même que <span class="math notranslate nohighlight">\(l\)</span>.</p>
@@ -1348,21 +1348,21 @@ n'a pas d'effet particulier. Le type</p>
 <p>La conversion d'un nombre réel (<em>double</em> ou <em>float</em>) en entier (signé)
 doit être étudiée pour éviter tout problème. Le type entier doit être
 capable de recevoir la valeur (attention aux valeurs maxi).</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span>
-<span class="kt">long</span> <span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 3 =&gt; perte de précision</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">3.9</span><span class="p">;</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 3 =&gt; perte de précision</span>
 </pre></div>
 </div>
 <p>A l'exécution, la valeur de <span class="math notranslate nohighlight">\(l\)</span> sera la partie entière de
 <span class="math notranslate nohighlight">\(d\)</span>. Il n'y a pas d'arrondi.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mh">0x12345678</span><span class="p">;</span>
-<span class="kt">short</span> <span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 0x5678 =&gt; changement de valeur</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mh">0x12345678</span><span class="p">;</span><span class="w"></span>
+<span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0x5678 =&gt; changement de valeur</span>
 </pre></div>
 </div>
 <p>La variable sh (<em>short</em> sur 16 bit) ne peut contenir la valeur réelle.
 Lors du transtypage, il y a modification de la valeur ce qui conduit à
 des erreurs de calculs par la suite.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mi">-123</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">-123</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="o">=</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 65413 =&gt; changement de valeur</span>
 </pre></div>
 </div>
 <p>L'utilisation d'un type non signé pour convertir un nombre réel conduit
@@ -1372,8 +1372,8 @@ des erreurs de calculs par la suite.</p>
 <h4><span class="section-number">6.12.1.3  </span>Transtypage d'un double en float<a class="headerlink" href="#transtypage-d-un-double-en-float" title="Lien permanent vers ce titre">¶</a></h4>
 <p>La conversion d'un nombre réel de type <em>double</em> en réel de type <em>float</em>
 pose un problème de précision de calcul.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span> <span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mf">0.1111111111111111</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// valeur : 0.1111111119389533 =&gt; perte de précision</span>
 </pre></div>
 </div>
 <p>À l'exécution, il y a une perte de précision lors de la conversion ce
@@ -1381,45 +1381,45 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div>
 <p class="rubric">Exercice 6.8<a class="headerlink" href="#exercise-7" title="Permalink to this rubric">¶</a></p>
 <p>On considère les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">j</span><span class="p">;</span>
-<span class="kt">long</span> <span class="n">k</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">l</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">j</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mi">-20</span><span class="p">;</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e6</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-20</span><span class="p">;</span><span class="w"></span>
+<span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-20</span><span class="p">;</span><span class="w"></span>
+<span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div>
 <p class="rubric">Exercice 6.9<a class="headerlink" href="#exercise-8" title="Permalink to this rubric">¶</a></p>
 <p>Que valent les valeurs de <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">15</span> <span class="o">/</span> <span class="n">p</span><span class="p">;</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">1.1</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="mi">15</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div>
 <p class="rubric">Exercice 6.10<a class="headerlink" href="#exercise-9" title="Permalink to this rubric">¶</a></p>
 <p>Soit les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">condition</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">20</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">x</span> <span class="o">||</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">50</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">60</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Donner la valeur de <code class="docutils literal notranslate"><span class="pre">condition</span></code> évaluée avec les valeurs suivantes de <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code>:</p>
@@ -1437,20 +1437,20 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <p>Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée <strong>LLP64</strong>.</p>
 <p>Pour chaque exemple, donner la valeur des variables après exécution du code.</p>
 <ol class="arabic">
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
-<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32767</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
-<span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32767</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">--</span><span class="p">;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="o">--</span><span class="n">i</span><span class="p">;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -1460,12 +1460,12 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div>
 <p class="rubric">Exercice 6.12<a class="headerlink" href="#exercise-11" title="Permalink to this rubric">¶</a></p>
 <p>Considérons les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">3.3</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">7.7</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.7</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Que vaut le type et la valeur des expressions suivantes ?</p>
@@ -1486,7 +1486,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.</p>
 <div>
 <p class="rubric">Exercice 6.13<a class="headerlink" href="#exercise-12" title="Permalink to this rubric">¶</a></p>
 <p>Que vaut <code class="docutils literal notranslate"><span class="pre">x</span></code>?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">10000000.</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10000000.</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1546,12 +1546,12 @@ correspondant.</p>
 <div>
 <p class="rubric">Exercice 6.17<a class="headerlink" href="#exercise-16" title="Permalink to this rubric">¶</a></p>
 <p>La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span> <span class="n">inspected_parts</span><span class="p">,</span> <span class="n">bad_parts</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">percentage_good_parts</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">,</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">percentage_good_parts</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>À un moment du programme, on peut lire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_good_parts</span> <span class="o">=</span> <span class="p">(</span><span class="n">inspected_parts</span> <span class="o">-</span> <span class="n">bad_parts</span><span class="p">)</span> <span class="o">/</span> <span class="n">inspected_parts</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_good_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inspected_parts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bad_parts</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inspected_parts</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Sachant que <code class="docutils literal notranslate"><span class="pre">inspected_parts</span> <span class="pre">=</span> <span class="pre">2000</span></code> et <code class="docutils literal notranslate"><span class="pre">bad_parts</span> <span class="pre">=</span> <span class="pre">200</span></code>:</p>
@@ -1594,7 +1594,7 @@ correspondant.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

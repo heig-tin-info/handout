@@ -47,7 +47,7 @@ Vous l'aurez compris à lecture de cette introduction, le langage C possède un 
 .. index:: 2019
 .. index:: C99
 
-Le standard le plus couramment utilisé en 2019 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__.
+Le standard le plus couramment utilisé en 2021 est encore `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__. C11 le remplace peu à peu dans l'industrie.
 
 .. table:: Normes internationales du language C
 
@@ -493,7 +493,7 @@ Décortiquons tout cela :
 
 .. exercise:: Standardisation
 
-    Quel est le standard C à utiliser en 2019 et pourquoi ?
+    Quel est le standard C à utiliser en 2021 et pourquoi ?
 
     .. solution::
 

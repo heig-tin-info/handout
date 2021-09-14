@@ -423,7 +423,7 @@
 <div class="section" id="standardisation">
 <span id="index-10"></span><h2><span class="section-number">1.2  </span>Standardisation<a class="headerlink" href="#standardisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Vous l'aurez compris à lecture de cette introduction, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.</p>
-<span class="target" id="index-11"></span><p id="index-12">Le standard le plus couramment utilisé en 2019 est encore <a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>.</p>
+<span class="target" id="index-11"></span><p id="index-12">Le standard le plus couramment utilisé en 2021 est encore <a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99</a>. C11 le remplace peu à peu dans l'industrie.</p>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-number">Tableau 1.1 </span><span class="caption-text">Normes internationales du language C</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
@@ -673,13 +673,13 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 <div class="section" id="hello-world">
 <span id="hello"></span><span id="index-42"></span><h2><span class="section-number">1.11  </span>Hello World!<a class="headerlink" href="#hello-world" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il est traditionnellement coutume depuis la publication en 1978 du livre <a class="reference external" href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> de reprendre l'exemple de Brian Kernighan comme premier programme.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Ce programme est composé de deux parties. L'inclusion de la <em>library</em> standard d'entrées sorties (<em>STandarD Inputs Outputs</em>) qui définit la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code>, et le programme principal nommé <code class="docutils literal notranslate"><span class="pre">main</span></code>. Tout ce qui se situe à l'intérieur des accolades <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code> appartient au programme <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
@@ -741,7 +741,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 </div>
 <div>
 <p class="rubric">Exercice 1.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
-<p>Quel est le standard C à utiliser en 2019 et pourquoi ?</p>
+<p>Quel est le standard C à utiliser en 2021 et pourquoi ?</p>
 </div>
 <div>
 <p class="rubric">Exercice 1.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
@@ -776,7 +776,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

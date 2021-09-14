@@ -410,14 +410,14 @@
 <div class="section" id="sequences">
 <h2><span class="section-number">7.1  </span>Séquences<a class="headerlink" href="#sequences" title="Lien permanent vers ce titre">¶</a></h2>
 <p>En C, chaque instruction est séparée de la suivante par un point virgule <code class="docutils literal notranslate"><span class="pre">;</span></code> (<a class="reference external" href="https://unicode-table.com/en/003B/">U+003B</a>):</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">k</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Une <span class="target" id="index-1"></span>séquence est une suite d'instructions regroupées en un bloc matérialisé par des accolades <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -438,14 +438,14 @@
 <p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Exemples d'embranchements dans les diagrammes de flux BPMN (Business Process Modelling Notation) et NSD (Nassi-Shneiderman)</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Les embranchements s'appuient naturellement sur les séquences puisque chaque branche est composée d'une séquence regroupant le code la composant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;odd</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;even</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;odd</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;even</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="section" id="if-else">
@@ -460,79 +460,79 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> + <code class="docutils literal notranslate"><span class="pre">else</span></code></p></li>
 </ul>
 <p>Une condition n'est pas nécessairement unique, mais peut-être la concaténation logique de plusieurs conditions séparées :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">((</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">110</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">210</span><span class="p">))</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">((</span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">110</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">210</span><span class="p">))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Remarquons qu'au passage cet exemple peut être simplifié:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">110</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">210</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">110</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="mi">200</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">210</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d est valide&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur %d n&#39;est pas valide&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notons quelques erreurs courantes :</p>
 <ul>
 <li><p>Il est courant de placer un point virgule derrière un <code class="docutils literal notranslate"><span class="pre">if</span></code>. Le point virgule correspondant à une instruction vide, c'est cette instruction qui sera exécutée si la condition du test est vraie.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span> <span class="c1">// ALWAYS executed</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// ALWAYS executed</span>
 </pre></div>
 </div>
 </li>
 <li><p>Le test de la valeur d'une variable s'écrit avec l'opérateur d'égalité <code class="docutils literal notranslate"><span class="pre">==</span></code> et non l'opérateur d'affectation <code class="docutils literal notranslate"><span class="pre">=</span></code>. Ici, l'évaluation de la condition vaut la valeur affectée à la variable.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>               <span class="c1">// set z to zero !!</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span> <span class="c1">// NEVER executed</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">               </span><span class="c1">// set z to zero !!</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// NEVER executed</span>
 </pre></div>
 </div>
 </li>
 <li><p>L'oubli des accolades pour déclarer un bloc d'instructions</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span>
-    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="k">else</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;z est nul&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 </ul>
 <p>L'instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> permet également l'embranchement multiple, lorsque les conditions ne peuvent pas être regroupées :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est impaire.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire et supérieure à 500.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">5</span><span class="p">))</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire, inférieur à 500 et divisible par 5.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur ne satisfait aucune condition établie.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est impaire.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire et supérieure à 500.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur est paire, inférieur à 500 et divisible par 5.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La valeur ne satisfait aucune condition établie.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
 <p class="rubric">Exercice 7.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
 <p>Comment se comporte l'exemple suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -540,49 +540,49 @@
 <p class="rubric">Exercice 7.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Compte tenu de la déclaration <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">8;</span></code>, indiquer pour chaque expression si elles impriment ou non <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">vaut</span> <span class="pre">8</span></code>:</p>
 <ol class="arabic">
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span> <span class="n">then</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8&quot;</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">))</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">))</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">^</span> <span class="mi">8</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)))</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i vaut 8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -591,16 +591,16 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Notons que formellement, la grammaire C ne connait pas <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> il s'agit d'une construction implicite dans laquelle un <code class="docutils literal notranslate"><span class="pre">if</span></code> ou <code class="docutils literal notranslate"><span class="pre">if..else</span></code> est la condition du <code class="docutils literal notranslate"><span class="pre">else</span></code> parent. Hiérarchiquement, on devrait écrire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">else</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="p">)</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-        <span class="k">else</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pour preuve, il suffit de jeter un oeil à la grammaire C :</p>
@@ -616,62 +616,62 @@
 <div class="section" id="switch">
 <span id="id2"></span><h3><span class="section-number">7.2.2  </span><code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Lien permanent vers ce titre">¶</a></h3>
 <p id="index-4">L'instruction <code class="docutils literal notranslate"><span class="pre">switch</span></code> n'est pas fondamentale et certain langage de programmation comme Python ne la connaisse pas. Elle permet essentiellement de simplifier l'écriture pour minimiser les répétitions. On l'utilise lorsque les conditions multiples portent toujours sur la même variable. Par exemple, le code suivant peut être réécrit plus simplement en utilisant un <code class="docutils literal notranslate"><span class="pre">switch</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">defcon</span> <span class="o">==</span> <span class="mi">5</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span>
-<span class="k">else</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Voici l'expression utilisant <code class="docutils literal notranslate"><span class="pre">switch</span></code>. Notez que chaque condition est plus clair :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">defcon</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">case</span> <span class="mi">1</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">2</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">3</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">4</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">5</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">defcon</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Guerre nucléaire imminente&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Prochaine étape, guerre nucléaire&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accroissement de la préparation des forces&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Mesures de sécurité renforcées et renseignements accrus&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Rien à signaler, temps de paix&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR: Niveau d&#39;alerte DEFCON invalide&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p id="index-5">La valeur par défaut <code class="docutils literal notranslate"><span class="pre">default</span></code> est optionnelle mais recommandée pour traiter les cas d'erreurs possibles.</p>
 <p>La structure d'un <code class="docutils literal notranslate"><span class="pre">switch</span></code> est composée d'une condition <code class="docutils literal notranslate"><span class="pre">switch</span> <span class="pre">(condition)</span></code> suivie d'une séquence <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Les instructions de cas <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">42:</span></code> sont appelés <em>labels</em>. Notez la présence de l'instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> qui est nécessaire pour terminer l'exécution de chaque condition. Par ailleurs, les labels peuvent être chaînés sans instructions intermédiaires ni <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">coffee</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">case</span> <span class="nl">IRISH_COFFEE</span> <span class="p">:</span>
-        <span class="n">add_whisky</span><span class="p">();</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">coffee</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">IRISH_COFFEE</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_whisky</span><span class="p">();</span><span class="w"></span>
 
-    <span class="k">case</span> <span class="nl">CAPPUCCINO</span> <span class="p">:</span>
-    <span class="k">case</span> <span class="nl">MACCHIATO</span> <span class="p">:</span>
-        <span class="n">add_milk</span><span class="p">();</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">CAPPUCCINO</span> <span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">MACCHIATO</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_milk</span><span class="p">();</span><span class="w"></span>
 
-    <span class="k">case</span> <span class="nl">ESPRESSO</span> <span class="p">:</span>
-    <span class="k">case</span> <span class="nl">AMERICANO</span> <span class="p">:</span>
-        <span class="n">add_coffee</span><span class="p">();</span>
-        <span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">ESPRESSO</span> <span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">AMERICANO</span> <span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_coffee</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">default</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR 418: Type de café inconnu&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;ERREUR 418: Type de café inconnu&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notons quelques observations :</p>
@@ -700,11 +700,11 @@
 <h3><span class="section-number">7.3.1  </span>while<a class="headerlink" href="#while" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La structure <code class="docutils literal notranslate"><span class="pre">while</span></code> répète une séquence <strong>tant que</strong> la condition est vraie.</p>
 <p>Dans l'exemple suivant tant que le poids d'un objet déposé sur une balance est inférieur à une valeur constante, une masse est ajoutée et le système patiente avant stabilisation.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">get_weight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">420</span> <span class="cm">/* newtons */</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">add_one_kg</span><span class="p">();</span>
-    <span class="n">wait</span><span class="p">(</span><span class="mi">5</span> <span class="cm">/* seconds */</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="cm">/* newtons */</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">add_one_kg</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="cm">/* seconds */</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Séquentiellement une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> teste la condition, puis exécute la séquence associée.</p>
@@ -725,12 +725,12 @@
 <div class="section" id="do-while">
 <h3><span class="section-number">7.3.2  </span>do..while<a class="headerlink" href="#do-while" title="Lien permanent vers ce titre">¶</a></h3>
 <p>De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle <code class="docutils literal notranslate"><span class="pre">do</span></code>...<code class="docutils literal notranslate"><span class="pre">while</span></code> permet justement ceci :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">do</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Veuillez attendre encore %d seconde(s)</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Veuillez attendre encore %d seconde(s)</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Contrairement à la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>, la séquence est ici exécutée <strong>au moins une fois</strong>.</p>
@@ -738,10 +738,10 @@
 <div class="section" id="for">
 <h3><span class="section-number">7.3.3  </span>for<a class="headerlink" href="#for" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est un <code class="docutils literal notranslate"><span class="pre">while</span></code> amélioré qui permet en une ligne de résumer les conditions de la boucle :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span> <span class="cm">/* expression 2 */</span><span class="p">;</span> <span class="cm">/* expression 3 */</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="cm">/* séquence */</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* expression 1 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 2 */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* expression 3 */</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* séquence */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -753,23 +753,23 @@
 </dd>
 </dl>
 <p>Voici comment répéter 10x un bloc de code :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">something</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">something</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notons que les portions de <code class="docutils literal notranslate"><span class="pre">for</span></code> sont optionnels et que la structure suivante est strictement identique à la boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(;</span> <span class="n">get_weight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">420</span> <span class="p">;)</span>
-<span class="p">{</span>
-    <span class="cm">/* ... */</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">get_weight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">420</span><span class="w"> </span><span class="p">;)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
 <p class="rubric">Exercice 7.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Comment est-ce que ces expressions se comportent-elles ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -786,8 +786,8 @@
 <div>
 <p class="rubric">Exercice 7.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
 <p>Identifier les deux erreurs dans ce code suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -804,10 +804,10 @@
 <div>
 <p class="rubric">Exercice 7.7<a class="headerlink" href="#exercise-6" title="Permalink to this rubric">¶</a></p>
 <p>Expliquez quelle est la fonctionnalité globale du programme ci-dessous :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span> <span class="o">%=</span> <span class="mi">26</span><span class="p">,</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">j</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">j</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Proposer une meilleure implémentation de ce programme.</p>
@@ -816,58 +816,58 @@
 <div class="section" id="boucles-infinies">
 <h3><span class="section-number">7.3.4  </span>Boucles infinies<a class="headerlink" href="#boucles-infinies" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort <em>La boucle principale</em> aussi nommée <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">run loop</a>. Lorsqu'un programme est exécuté <em>bare-metal</em>, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> telle que :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">main_loop</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// Boucle principale</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">main_loop</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Boucle principale</span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(;;)</span>
-    <span class="p">{</span>
-        <span class="n">main_loop</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">main_loop</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il y a différentes variantes de boucles infinies :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span> <span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="k">do</span> <span class="p">{</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notions que l'expression <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1)</span></code> que l'on rencontre fréquemment dans des exemples est faux syntaxiquement. Une condition de validité devrait être un booléen, soit vrai, soit faux. Or, la valeur scalaire <code class="docutils literal notranslate"><span class="pre">1</span></code> devrait préalablement être transformée en une valeur booléenne. Il est donc plus juste d'écrire <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1</span> <span class="pre">==</span> <span class="pre">1)</span></code> ou simplement <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(true)</span></code>.</p>
 <p>On préférera néanmoins l'écriture <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(;;)</span></code> qui ne fait pas intervenir de conditions extérieures, car, avant <strong>C99</strong> définir la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> était à la charge du développeur et on pourrait s'imaginer cette plaisanterie de mauvais goût :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">_Bool</span> <span class="nb">true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">_Bool</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal <strong>SIGINT</strong> (c.f. <a class="reference internal" href="processus.html#signals"><span class="std std-numref">Section 8.1.4</span></a>). On rajoute alors une condition de sortie à la boucle principale :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
 
-<span class="k">static</span> <span class="k">volatile</span> <span class="kt">bool</span> <span class="n">is_running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">dummy</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">is_running</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dummy</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">sigint_handler</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sigint_handler</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">is_running</span><span class="p">)</span>
-    <span class="p">{</span>
-       <span class="cm">/* ... */</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">is_running</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="cm">/* ... */</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -923,29 +923,29 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="section" id="continue">
 <h3><span class="section-number">7.4.2  </span><code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#continue" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">continue</span></code> ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">airplane_seat</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">airplane_seat</span> <span class="o">==</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">continue</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">airplane_seat</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">airplane_seat</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Dans cet avion il y a un siège numéro %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">airplane_seat</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Dans cet avion il y a un siège numéro %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">airplane_seat</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette structure est équivalente à l'utilisation d'un goto avec un label placé à la fin de la séquence de boucle, mais promettez-moi que vous n'utiliserez jamais cet exemple :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">goto</span> <span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="cm">/* ... */</span>
+<span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
 
-    <span class="nl">next</span><span class="p">:</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="nl">next</span><span class="p">:</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -956,63 +956,63 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div class="section" id="return">
 <h3><span class="section-number">7.4.4  </span><code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#return" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le mot clé <code class="docutils literal notranslate"><span class="pre">return</span></code> suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas <code class="docutils literal notranslate"><span class="pre">void</span></code>. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span> <span class="n">password</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">password</span> <span class="o">==</span> <span class="mi">4710</span> <span class="cm">/* MacGuyver: A Retrospective 1986 */</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">open_door</span><span class="p">();</span>
-        <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="hll">        <span class="k">return</span><span class="p">;</span>
-</span>    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">password</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4710</span><span class="w"> </span><span class="cm">/* MacGuyver: A Retrospective 1986 */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">open_door</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">tries</span><span class="o">++</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">alert_security_guards</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tries</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">alert_security_guards</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
 <p class="rubric">Exercice 7.8<a class="headerlink" href="#exercise-7" title="Permalink to this rubric">¶</a></p>
 <p>Considérons les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Indiquer la nature de l'erreur dans les expressions suivantes :</p>
 <ol class="arabic">
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
-    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0 est interdit !</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0 est interdit !</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">100</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bravo.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span> <span class="o">:</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pas encore.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bravo.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pas encore.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="p">}</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
-<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">i</span><span class="p">);</span>
-<span class="p">}</span>
+<li><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -1040,7 +1040,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 <div>
 <p class="rubric">Exercice 7.11<a class="headerlink" href="#exercise-10" title="Permalink to this rubric">¶</a></p>
 <p>Quel est le problème avec cette ligne de code ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">mask</span><span class="o">==</span><span class="n">bits</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1062,7 +1062,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

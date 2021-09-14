@@ -413,12 +413,12 @@
 <div>
 <p class="rubric">Exercice 9.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
 <p>Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="kt">char</span> <span class="o">*</span><span class="n">words</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Albédo&quot;</span><span class="p">,</span> <span class="s">&quot;Bigre&quot;</span><span class="p">,</span> <span class="s">&quot;Maringouin&quot;</span><span class="p">,</span> <span class="s">&quot;Pluripotent&quot;</span><span class="p">,</span> <span class="s">&quot;Entrechat&quot;</span><span class="p">,</span>
-    <span class="s">&quot;Caracoler&quot;</span> <span class="s">&quot;Palinodie&quot;</span><span class="p">,</span> <span class="s">&quot;Sémillante&quot;</span><span class="p">,</span> <span class="s">&quot;Atavisme&quot;</span><span class="p">,</span> <span class="s">&quot;Cyclothymie&quot;</span><span class="p">,</span>
-    <span class="s">&quot;Idiosyncratique&quot;</span><span class="p">,</span> <span class="s">&quot;Entéléchie&quot;</span><span class="p">};</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">words</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Albédo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bigre&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Maringouin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pluripotent&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Entrechat&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;Caracoler&quot;</span><span class="w"> </span><span class="s">&quot;Palinodie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sémillante&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Atavisme&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cyclothymie&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;Idiosyncratique&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Entéléchie&quot;</span><span class="p">};</span><span class="w"></span>
 
 <span class="cp">#if 0</span><span class="c"></span>
 <span class="c">    srand(time(NULL));   // Initialization, should only be called once.</span>
@@ -439,89 +439,89 @@
 </div>
 <p>Comme on ne sait pas à priori combien de caractères on aura, et que ces caractères sont fournis depuis le chiffre le moins significatif, il faudra inverser la chaîne de caractères produite.</p>
 <p>Voici un exemple possible d'implémentation :</p>
-<div class="highlight-c notranslate" id="iota-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate" id="iota-c"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="o">*</span><span class="n">a</span> <span class="o">^=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">b</span> <span class="o">^=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">a</span> <span class="o">^=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">length</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">start</span><span class="o">++</span><span class="p">,</span> <span class="n">end</span><span class="o">--</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">swap</span><span class="p">(</span><span class="n">str</span> <span class="o">+</span> <span class="n">start</span><span class="p">,</span> <span class="n">str</span> <span class="o">+</span> <span class="n">end</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">start</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="o">--</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">my_itoa</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">is_negative</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">my_itoa</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_negative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
-        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">is_negative</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">is_negative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">num</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">rem</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
-        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">rem</span> <span class="o">+</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>
-        <span class="n">num</span> <span class="o">/=</span> <span class="n">base</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">rem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">num</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">is_negative</span><span class="p">)</span>
-        <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;-&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_negative</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">reverse</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">reverse</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette implémentation pourrait être utilisée de la façon suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
 
-    <span class="n">itoa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">itoa</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="printf">
 <h2><span class="section-number">9.3  </span>printf<a class="headerlink" href="#printf" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi <code class="docutils literal notranslate"><span class="pre">printf</span></code> rend l'opération bien plus aisée en utilisant des marques substitutives (<em>placeholder</em>). Ces spécifié débutent par le caractère <code class="docutils literal notranslate"><span class="pre">%</span></code> suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise <code class="docutils literal notranslate"><span class="pre">%d</span></code> pour formater un entier non signé.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int32_t</span> <span class="n">earth_perimeter</span> <span class="o">=</span> <span class="mi">40075</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La circonférence de la terre vaut vaut %d km&quot;</span><span class="p">,</span> <span class="n">earth_perimeter</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">earth_perimeter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40075</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La circonférence de la terre vaut vaut %d km&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">earth_perimeter</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le standard <strong>C99</strong> défini le prototype de <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme étant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">format</span><span class="p">,</span> <span class="p">...);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il définit que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> prend en paramètre un format suivi de <code class="docutils literal notranslate"><span class="pre">...</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> comme toutes celles de la même catégorie sont dites <a class="reference external" href="https://fr.wikipedia.org/wiki/Fonction_variadique#C">variadiques</a>, c'est-à-dire qu'elles peuvent prendre un nombre variable d'arguments. Il y aura autant d'arguments additionnels que de marqueurs utilisés dans le format. Ainsi le format <code class="docutils literal notranslate"><span class="pre">&quot;Mes</span> <span class="pre">nombres</span> <span class="pre">préférés</span> <span class="pre">sont</span> <span class="pre">%d</span> <span class="pre">et</span> <span class="pre">%d,</span> <span class="pre">mais</span> <span class="pre">surtout</span> <span class="pre">%s&quot;</span></code> demandera trois paramètres additionnels :</p>
 <p>La fonction retourne le nombre de caractères formatés ou <code class="docutils literal notranslate"><span class="pre">-1</span></code> en cas d'erreur.</p>
 <p>La construction d'un marqueur est loin d'être simple, mais heureusement on n'a pas besoin de tout connaître et la page Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Printf_format_string">printf format string</a> est d'une grande aide. Le format de construction est le suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">[</span><span class="n">parameter</span><span class="p">][</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">type</span><span class="w"></span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -598,12 +598,12 @@
 <div>
 <p class="rubric">Exercice 9.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Indiquez les erreurs dans les instructions suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">40.</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%*d, %*d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%6.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mh">0x9f</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d, %d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mf">40.</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%*d, %*d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%6.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%10s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9f</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -613,19 +613,19 @@
 <h2><span class="section-number">9.4  </span>Entrées formatées<a class="headerlink" href="#entrees-formatees" title="Lien permanent vers ce titre">¶</a></h2>
 <p>À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou <em>parser</em> une chaîne de caractères, c'est-à-dire faire une <a class="reference external" href="https://fr.wikipedia.org/wiki/Analyse_syntaxique">analyse syntaxique</a> de son contenu pour en extraire de l'information.</p>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">scanf</span></code> est par exemple utilisée à cette fin :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">favorite</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">favorite</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quelle est votre nombre favori ? &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">favorite</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quelle est votre nombre favori ? &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">favorite</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saviez-vous que votre nombre favori, %d, est %s ?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
-        <span class="n">favorite</span><span class="p">,</span>
-        <span class="n">favorite</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">?</span> <span class="s">&quot;impair&quot;</span> <span class="o">:</span> <span class="s">&quot;pair&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saviez-vous que votre nombre favori, %d, est %s ?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">favorite</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">favorite</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;impair&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;pair&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette fonction utilise l'entrée standard <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Il est donc possible soit d'exécuter ce programme en mode interactif :</p>
@@ -646,16 +646,16 @@
 <p>Cette fonction tient son origine une nouvelle fois de <a class="reference external" href="https://en.wikipedia.org/wiki/ALGOL_68">ALGOL 68</a> (<code class="docutils literal notranslate"><span class="pre">readf</span></code>), elle est donc très ancienne.</p>
 <p>La compréhension de <code class="docutils literal notranslate"><span class="pre">scanf</span></code> n'est pas évidente et il est utile de se familiariser sur son fonctionnement à l'aide de quelques exemples.</p>
 <p>Le programme suivant lit un entier et le place dans la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>. <code class="docutils literal notranslate"><span class="pre">scanf</span></code> retourne le nombre d'assignements réussis. Ici, il n'y a qu'un <em>placeholder</em>, on s'attend naturellement à lire <code class="docutils literal notranslate"><span class="pre">1</span></code> si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Si le code est exécuté avec une suite arbitraire de nombres :</p>
@@ -681,14 +681,14 @@
 </pre></div>
 </div>
 <p>Voyons un exemple plus complexe (c.f. C99 §7.19.6.2-19).</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">quantity</span><span class="p">;</span>
-<span class="kt">char</span> <span class="n">units</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">quantity</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">units</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span><span class="w"> </span><span class="n">item</span><span class="p">[</span><span class="mi">21</span><span class="p">];</span><span class="w"></span>
 
-<span class="k">do</span> <span class="p">{</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f%20s de %20s&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quant</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%*[^</span><span class="se">\n</span><span class="s">]&quot;</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">feof</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">ferror</span><span class="p">(</span><span class="n">stdin</span><span class="p">));</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f%20s de %20s&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">quant</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%*[^</span><span class="se">\n</span><span class="s">]&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">feof</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">ferror</span><span class="p">(</span><span class="n">stdin</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Lorsqu'exécuté avec ce contenu :</p>
@@ -701,58 +701,58 @@ poussière
 </pre></div>
 </div>
 <p>Le programme se déroule comme suit :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">quantity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;litres&quot;</span><span class="p">);</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s">&quot;lait&quot;</span><span class="p">);</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;litres&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lait&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">quantity</span> <span class="o">=</span> <span class="mf">-12.8</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;degrees&quot;</span><span class="p">);</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// &quot;C&quot; échoue lors du test de &quot;d&quot; (de)</span>
+<span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-12.8</span><span class="p">;</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;degrees&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;C&quot; échoue lors du test de &quot;d&quot; (de)</span>
 
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &quot;b&quot; de &quot;beaucoup&quot; échoue contre &quot;%f&quot; s&#39;attendant à un float</span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;b&quot; de &quot;beaucoup&quot; échoue contre &quot;%f&quot; s&#39;attendant à un float</span>
 
-<span class="n">quantity</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="s">&quot;KG&quot;</span><span class="p">);</span> <span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s">&quot;poussière&quot;</span><span class="p">);</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">units</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;KG&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;poussière&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &quot;100e&quot; échoue contre &quot;%f&quot;, car &quot;100e3&quot; serait un nombre valable</span>
-<span class="n">count</span> <span class="o">=</span> <span class="n">EOF</span><span class="p">;</span> <span class="c1">// Fin de fichier</span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;100e&quot; échoue contre &quot;%f&quot;, car &quot;100e3&quot; serait un nombre valable</span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EOF</span><span class="p">;</span><span class="w"> </span><span class="c1">// Fin de fichier</span>
 </pre></div>
 </div>
 <p>Dans cet exemple, la boucle <code class="docutils literal notranslate"><span class="pre">do</span></code>... <code class="docutils literal notranslate"><span class="pre">while</span></code> est utilisée, car il n'est pas simplement possible de traiter le cas <code class="docutils literal notranslate"><span class="pre">while(scanf(...)</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> puisque l'exemple cherche à montrer les cas particuliers où justement, la capture échoue. Il est nécessaire alors de faire appel à des fonctions de plus bas niveau <code class="docutils literal notranslate"><span class="pre">feof</span></code> pour détecter si la fin du fichier est atteinte, et <code class="docutils literal notranslate"><span class="pre">ferror</span></code> pour détecter une éventuelle erreur sur le flux d'entrée.</p>
 <p>La directive <code class="docutils literal notranslate"><span class="pre">scanf(&quot;%*[^\n]&quot;);</span></code> étant un peu particulier, il peut valoir la peine de s'y attarder un peu. Le <em>flag</em> <code class="docutils literal notranslate"><span class="pre">*</span></code>, différent de <code class="docutils literal notranslate"><span class="pre">printf</span></code> indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;24 kayaks 42&quot;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;24 kayaks 42&quot;</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;%d%*s%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-    <span class="n">assert</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">24</span><span class="p">);</span>
-    <span class="n">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d%*s%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Ensuite, <code class="docutils literal notranslate"><span class="pre">[^\n]</span></code>. Le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code>, terminé par <code class="docutils literal notranslate"><span class="pre">]</span></code> cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des <a class="reference external" href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re">expressions régulières</a> très utilisées en informatique. Le caractère <code class="docutils literal notranslate"><span class="pre">^</span></code> à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères <strong>qui ne sont pas acceptés</strong>. C'est une sorte de négation. Dans le cas présent, cette directive <code class="docutils literal notranslate"><span class="pre">scanf</span></code> cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à <code class="docutils literal notranslate"><span class="pre">C</span></code> de <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>, le pointeur de fichier est bloqué au caractère <code class="docutils literal notranslate"><span class="pre">C</span></code> et au prochain tour de boucle, <code class="docutils literal notranslate"><span class="pre">scanf</span></code> échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.</p>
 <div>
 <p class="rubric">Exercice 9.3<a class="headerlink" href="#exercise-2" title="Permalink to this rubric">¶</a></p>
 <p>Considérant les déclarations :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Donnez les valeurs de chacune des variables après exécution. Chaque ligne est indépendante des autres.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;1 12.5&quot;</span><span class="p">,</span> <span class="s">&quot;%d %d, &amp;j, &amp;k);</span>
-<span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;12.5&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">%</span><span class="n">f</span><span class="p">);</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123 123&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123a 123&quot;</span><span class="p">,</span> <span class="s">&quot;%d %f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;%2d%2d%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;1 12.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d %d, &amp;j, &amp;k);</span>
+<span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;12.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d %f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123 123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d %f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;123a 123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d %f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sscanf</span><span class="p">(</span><span class="s">&quot;%2d%2d%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div>
 <p class="rubric">Exercice 9.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -790,15 +790,15 @@ poussière
 <div class="section" id="saisie-de-chaine-de-caracteres">
 <h3><span class="section-number">9.4.2  </span>Saisie de chaîne de caractères<a class="headerlink" href="#saisie-de-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Lors d'une saisie de chaîne de caractères, il est nécessaire de <strong>toujours</strong> indiquer une taille maximum de chaîne comme <code class="docutils literal notranslate"><span class="pre">%20s</span></code> qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son <code class="docutils literal notranslate"><span class="pre">\0</span></code>. Sinon, il y a risque de <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
-    <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Râteau&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Râteau&quot;</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;jardinage&quot;</span><span class="p">;</span>
-    <span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jardinage&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sscanf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a. %s</span><span class="se">\n</span><span class="s">b. %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;a. %s</span><span class="se">\n</span><span class="s">b. %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./a.out
@@ -818,32 +818,32 @@ poussière
 <div class="section" id="saisie-arbitraire">
 <h3><span class="section-number">9.4.3  </span>Saisie arbitraire<a class="headerlink" href="#saisie-arbitraire" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur <code class="docutils literal notranslate"><span class="pre">[</span></code> pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en <a class="reference external" href="https://en.wikipedia.org/wiki/Base64">tetrasexagesimal</a> (base 64). Je peux écrire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">input</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Q2hvY29sYXQ&quot;</span><span class="p">;</span>
-<span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
-<span class="n">sscanf</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="s">&quot;%127[0-9A-Za-z+/]&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">output</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Q2hvY29sYXQ&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">output</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
+<span class="n">sscanf</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%127[0-9A-Za-z+/]&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">output</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans cet exemple je capture les nombres de 0 à 9 <code class="docutils literal notranslate"><span class="pre">0-9</span></code> (10), les caractères majuscules et minuscules <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> (52), ainsi que les caractères <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.</p>
 <div>
 <p class="rubric">Exercice 9.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
 <p>Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span> <span class="n">i</span><span class="p">;</span>
-<span class="kt">long</span> <span class="n">j</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">u</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%u&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -893,29 +893,29 @@ retturn EXIT_FAILURE;
 <div>
 <p class="rubric">Exercice 9.10<a class="headerlink" href="#exercise-9" title="Permalink to this rubric">¶</a></p>
 <p>Considérez le programme suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;a = &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">float</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;b = &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;b = &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;y = %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;y = %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -937,26 +937,26 @@ retturn EXIT_FAILURE;
 <div>
 <p class="rubric">Exercice 9.13<a class="headerlink" href="#exercise-12" title="Permalink to this rubric">¶</a></p>
 <p>Considérons le programme suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): &quot;</span><span class="p">);</span>
-    <span class="kt">float</span> <span class="n">angle_degre</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">angle_degrees</span><span class="p">);</span>
-    <span class="kt">float</span> <span class="n">angle_radian</span> <span class="o">=</span> <span class="n">angle_degrees</span> <span class="o">*</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mf">45.</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Quel angle mesurez-vous en visant le sommet du bâtiment (en degrés): &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">angle_degre</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">angle_degrees</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">angle_radian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle_degrees</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">45.</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;À quelle distance vous trouvez vous du bâtiment (en mètres): &quot;</span><span class="p">);</span>
-    <span class="kt">float</span> <span class="n">distance</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;À quelle distance vous trouvez vous du bâtiment (en mètres): &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">distance</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">float</span> <span class="n">height</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">tan</span><span class="p">(</span><span class="n">angle_radian</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;La hauteur du bâtiment est : %g mètres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tan</span><span class="p">(</span><span class="n">angle_radian</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;La hauteur du bâtiment est : %g mètres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -999,7 +999,7 @@ retturn EXIT_FAILURE;
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -429,23 +429,23 @@ SPACE \040 Space
 </div>
 <p id="index-3">Un fait historique intéressant est que les premiers ordinateurs ne disposaient pas d'un clavier ayant tous ces symboles et la commission responsable de standardiser C a intégré au standard les <strong>trigraphes</strong> et plus tard les <strong>digraphes</strong> qui sont des combinaisons de caractères de base qui remplacent les caractères impossibles à saisir directement. Ainsi <code class="docutils literal notranslate"><span class="pre">&lt;:</span></code> est le digraphe de <code class="docutils literal notranslate"><span class="pre">[</span></code> et <code class="docutils literal notranslate"><span class="pre">??&lt;</span></code> est le trigraphe de <code class="docutils literal notranslate"><span class="pre">{</span></code>. Néanmoins vous conviendrez cher lecteur que ces alternatives ne devraient être utilisées que dans des cas extrêmes et justifiables.</p>
 <p>Retenez que C peut être un langage extrêmement cryptique tant il est permissif sur sa syntaxe. Il existe d'ailleurs un concours international d'obfuscation, le <a class="reference external" href="https://www.ioccc.org/">The International Obfuscated C Code Contest</a> qui prime des codes les plus subtils et illisibles comme le code suivant écrit par <a class="reference external" href="https://www.ioccc.org/2015/mills2">Chris Mills</a>. Il s'agit d'ailleurs d'un exemple qui compile parfaitement sur la plupart des compilateurs.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="kt">void</span> <span class="nf">e</span><span class="p">(</span>
-<span class="kt">int</span> <span class="n">L</span><span class="p">){</span> <span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="k">for</span><span class="p">(</span> <span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span>
-<span class="mi">16</span><span class="o">&gt;</span><span class="n">l</span><span class="p">;</span>                           <span class="n">o</span><span class="o">+=</span><span class="n">l</span>
-<span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span>                            <span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
-<span class="n">o</span><span class="o">+=</span><span class="n">l</span>                     <span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="mi">-1</span><span class="p">);</span> <span class="p">{</span> <span class="p">;</span> <span class="p">}</span>
-<span class="k">if</span> <span class="p">(</span>                    <span class="n">pread</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">O</span><span class="o">+</span><span class="n">o</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;</span>
-<span class="mi">2</span><span class="p">)</span><span class="cm">/*                    */</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="n">L</span><span class="o">&gt;&gt;=</span><span class="mi">7</span><span class="o">&amp;</span><span class="n">o</span><span class="p">;</span>
-<span class="n">L</span><span class="o">%=</span><span class="mi">1</span>                     <span class="o">&lt;&lt;</span><span class="n">l</span><span class="p">;</span> <span class="n">L</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="o">?</span><span class="mi">256</span><span class="o">-</span><span class="n">L</span><span class="o">?</span><span class="n">e</span><span class="p">(</span>
-<span class="n">L</span><span class="mi">-1</span><span class="p">)</span>                            <span class="p">,</span><span class="n">c</span><span class="o">||</span>
-<span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="n">c</span>                            <span class="o">=</span><span class="n">L</span><span class="p">),</span>
-<span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                            <span class="o">:</span><span class="p">(</span> <span class="n">O</span>
-<span class="o">+=</span><span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="o">&amp;</span><span class="mi">7</span><span class="p">)</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">o</span><span class="o">+</span><span class="n">l</span><span class="o">&gt;&gt;</span><span class="mi">3</span><span class="p">,</span><span class="n">I</span><span class="o">=</span><span class="n">L</span><span class="p">)</span><span class="o">:</span><span class="n">putchar</span><span class="p">(</span>
-    <span class="n">L</span><span class="p">);</span> <span class="p">}</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">char</span><span class="o">**</span><span class="n">o</span><span class="p">){</span>
-                <span class="k">for</span><span class="p">(</span>
-            <span class="cm">/*          ////      */</span>
-            <span class="n">open</span><span class="p">(</span><span class="mi">1</span><span class="p">[</span><span class="n">o</span><span class="p">],</span><span class="mi">0</span><span class="p">);</span> <span class="p">;</span> <span class="n">e</span><span class="p">(</span><span class="n">I</span><span class="o">++</span>
-            <span class="p">))</span>                    <span class="p">;}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">I</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="n">O</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">e</span><span class="p">(</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">L</span><span class="p">){</span><span class="w"> </span><span class="n">o</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;&gt;++</span><span class="n">l</span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="mi">16</span><span class="o">&gt;</span><span class="n">l</span><span class="p">;</span><span class="w">                           </span><span class="n">o</span><span class="o">+=</span><span class="n">l</span><span class="w"></span>
+<span class="o">&lt;&lt;</span><span class="n">l</span><span class="o">-</span><span class="w">                            </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="n">o</span><span class="o">+=</span><span class="n">l</span><span class="w">                     </span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="mi">-1</span><span class="p">);</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w">                    </span><span class="n">pread</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">&amp;</span><span class="n">L</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">O</span><span class="o">+</span><span class="n">o</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;</span><span class="w"></span>
+<span class="mi">2</span><span class="p">)</span><span class="cm">/*                    */</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="n">L</span><span class="o">&gt;&gt;=</span><span class="mi">7</span><span class="o">&amp;</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="n">L</span><span class="o">%=</span><span class="mi">1</span><span class="w">                     </span><span class="o">&lt;&lt;</span><span class="n">l</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="o">?</span><span class="mi">256</span><span class="o">-</span><span class="n">L</span><span class="o">?</span><span class="n">e</span><span class="p">(</span><span class="w"></span>
+<span class="n">L</span><span class="mi">-1</span><span class="p">)</span><span class="w">                            </span><span class="p">,</span><span class="n">c</span><span class="o">||</span><span class="w"></span>
+<span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="n">c</span><span class="w">                            </span><span class="o">=</span><span class="n">L</span><span class="p">),</span><span class="w"></span>
+<span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="w">                            </span><span class="o">:</span><span class="p">(</span><span class="w"> </span><span class="n">O</span><span class="w"></span>
+<span class="o">+=</span><span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="o">&amp;</span><span class="mi">7</span><span class="p">)</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">o</span><span class="o">+</span><span class="n">l</span><span class="o">&gt;&gt;</span><span class="mi">3</span><span class="p">,</span><span class="n">I</span><span class="o">=</span><span class="n">L</span><span class="p">)</span><span class="o">:</span><span class="n">putchar</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">L</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="kt">char</span><span class="o">**</span><span class="n">o</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="cm">/*          ////      */</span><span class="w"></span>
+<span class="w">            </span><span class="n">open</span><span class="p">(</span><span class="mi">1</span><span class="p">[</span><span class="n">o</span><span class="p">],</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">I</span><span class="o">++</span><span class="w"></span>
+<span class="w">            </span><span class="p">))</span><span class="w">                    </span><span class="p">;}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -578,22 +578,22 @@ SPACE \040 Space
 <div class="section" id="declaration">
 <span id="index-11"></span><h3><span class="section-number">3.5.1  </span>Déclaration<a class="headerlink" href="#declaration" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;€&#39;</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">temperature</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">neptune_stone_height</span> <span class="o">=</span> <span class="mf">376.86</span><span class="p">;</span>
-<span class="kt">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Jarvis, il faut parfois savoir &quot;</span>
-    <span class="s">&quot;courir avant de savoir marcher.&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;€&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">neptune_stone_height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">376.86</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">message</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Jarvis, il faut parfois savoir &quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;courir avant de savoir marcher.&quot;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il n'est pas nécessaire d'associer une valeur initiale à une variable, une déclaration peut se faire sans initialisation comme montré dans l'exemple suivant dans lequel on réserver trois variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
 <p class="rubric">Exercice 3.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Considérons les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notez après chaque affectation, le contenu des différentes variables :</p>
@@ -723,7 +723,7 @@ SPACE \040 Space
 <h2><span class="section-number">3.6  </span>Les constantes<a class="headerlink" href="#les-constantes" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une constante par opposition à une variable voit son contenu fixe et immuable.</p>
 <p>Formellement, une constante se déclare comme une variable, mais préfixée du mot-clé <code class="docutils literal notranslate"><span class="pre">const</span></code>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">double</span> <span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">12.67</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">scale_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.67</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -737,15 +737,15 @@ SPACE \040 Space
 <div class="section" id="constantes-litterales">
 <h2><span class="section-number">3.7  </span>Constantes littérales<a class="headerlink" href="#constantes-litterales" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>      <span class="c1">// Grandeur valant le nombre d&#39;heures sur l&#39;horloge du Palais du Quirinal à Rome</span>
-<span class="mi">12u</span>    <span class="c1">// Grandeur non signée</span>
-<span class="mf">6l</span>     <span class="c1">// Grandeur entière signée codée sur un entier long</span>
-<span class="mi">42ul</span>   <span class="c1">// Grandeur entière non signée codée sur un entier long</span>
-<span class="mo">010</span>    <span class="c1">// Grandeur octale valant 8 en décimal</span>
-<span class="mh">0xa</span>    <span class="c1">// Grandeur hexadécimale valant 10 en décimal</span>
-<span class="mb">0b111</span>  <span class="c1">// Grandeur binaire valant 7 en décimal</span>
-<span class="mf">33.</span>    <span class="c1">// Grandeur réelle exprimée en virgule flottante</span>
-<span class="sc">&#39;0&#39;</span>    <span class="c1">// Grandeur caractère valant 48 en décimal</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span><span class="w">      </span><span class="c1">// Grandeur valant le nombre d&#39;heures sur l&#39;horloge du Palais du Quirinal à Rome</span>
+<span class="mi">12u</span><span class="w">    </span><span class="c1">// Grandeur non signée</span>
+<span class="mf">6l</span><span class="w">     </span><span class="c1">// Grandeur entière signée codée sur un entier long</span>
+<span class="mi">42ul</span><span class="w">   </span><span class="c1">// Grandeur entière non signée codée sur un entier long</span>
+<span class="mo">010</span><span class="w">    </span><span class="c1">// Grandeur octale valant 8 en décimal</span>
+<span class="mh">0xa</span><span class="w">    </span><span class="c1">// Grandeur hexadécimale valant 10 en décimal</span>
+<span class="mb">0b111</span><span class="w">  </span><span class="c1">// Grandeur binaire valant 7 en décimal</span>
+<span class="mf">33.</span><span class="w">    </span><span class="c1">// Grandeur réelle exprimée en virgule flottante</span>
+<span class="sc">&#39;0&#39;</span><span class="w">    </span><span class="c1">// Grandeur caractère valant 48 en décimal</span>
 </pre></div>
 </div>
 <div>
@@ -777,8 +777,8 @@ SPACE \040 Space
 <p>Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.</p>
 <p>Historiquement, et fort malheureusement, le symbole choisi pour cet opérateur est le signe égal <code class="docutils literal notranslate"><span class="pre">=</span></code> or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation.</p>
 <p>Pour mieux saisir la nuance, considérons le programme suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Mathématiquement, la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> devrait être égale à 42 ce qui n'est pas le cas en C où il faut lire, séquentiellement l'exécution du code, car oui, C est un langage impératif (c.f. <a class="reference internal" href="introduction.html#paradigms"><span class="std std-numref">Section 1.7</span></a>). Ainsi, dans l'ordre on lit :</p>
@@ -791,32 +791,32 @@ SPACE \040 Space
 <p>En C, l'opérateur d'égalité que nous verrons plus loin s'écrit <code class="docutils literal notranslate"><span class="pre">==</span></code> (deux <code class="docutils literal notranslate"><span class="pre">=</span></code> concaténés).</p>
 <p>Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à <strong>droite</strong> de l'opérateur est affectée à la variable située à <strong>gauche</strong> de l'opérateur.</p>
 <p>S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur <code class="docutils literal notranslate"><span class="pre">+</span></code> et dans l'exemple suivant il faut lire que <code class="docutils literal notranslate"><span class="pre">42</span></code> est assigné à <code class="docutils literal notranslate"><span class="pre">c</span></code>, que la valeur de <code class="docutils literal notranslate"><span class="pre">c</span></code> est ensuite assigné à <code class="docutils literal notranslate"><span class="pre">b</span></code> et enfin la valeur de <code class="docutils literal notranslate"><span class="pre">b</span></code> est assignée à <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Nous verrons <a class="reference internal" href="operators.html#precedence"><span class="std std-numref">Section 5.11</span></a> que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.</p>
 <div>
 <p class="rubric">Exercice 3.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Donnez les valeurs de <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code> après l'exécution des instructions ci-dessous :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">/</span> <span class="n">p</span><span class="p">;</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div>
 <p class="rubric">Exercice 3.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
 <p>On considère les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Donnez les valeurs des variables <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> et <code class="docutils literal notranslate"><span class="pre">k</span></code> après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* 1 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">);</span>
-<span class="cm">/* 2 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
-<span class="cm">/* 3 */</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* 1 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/* 2 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="cm">/* 3 */</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -836,7 +836,7 @@ SPACE \040 Space
 </li>
 <li><p>Les commentaires de blocs</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* This is a</span>
-<span class="cm">   Multi-line comment */</span>
+<span class="cm">   Multi-line comment */</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -877,7 +877,7 @@ désactiver cette portion de code.</p>
 <span class="cm"> * Long description of the translation unit.</span>
 <span class="cm"> *</span>
 <span class="cm"> * NOTE: Important notes about this code</span>
-<span class="cm"> */</span>
+<span class="cm"> */</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que :</p>
@@ -888,8 +888,8 @@ désactiver cette portion de code.</p>
 <div>
 <p class="rubric">Exercice 3.6<a class="headerlink" href="#exercise-5" title="Permalink to this rubric">¶</a></p>
 <p>Comment récririez-vous ce programme?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">register</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">the_element_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">the_element_index</span> <span class="o">&lt;</span> <span class="n">number_of_elements</span><span class="p">;</span> <span class="n">the_element_index</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">array_of_elements</span><span class="p">[</span><span class="n">the_element_index</span><span class="p">]</span> <span class="o">=</span>  <span class="n">the_element_index</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">register</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">number_of_elements</span><span class="p">;</span><span class="w"> </span><span class="n">the_element_index</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">array_of_elements</span><span class="p">[</span><span class="n">the_element_index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">the_element_index</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -910,7 +910,7 @@ désactiver cette portion de code.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

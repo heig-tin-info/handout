@@ -481,30 +481,30 @@
 <div class="section" id="la-pile">
 <h2><span class="section-number">13.4  </span>La pile<a class="headerlink" href="#la-pile" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Lorsqu'un programme s'exécute, l'ordre dont les fonctions s'exécutent n'est pas connu à priori. L'ordre d'exécution des fonctions dans l'exemple suivant est inconnu par le programme et donc les éventuelles variables locales utilisées par ces fonctions doivent dynamiquement être allouées.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="kt">double</span> <span class="nf">square</span><span class="p">(</span><span class="kt">double</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
-<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">double</span> <span class="nf">cube</span><span class="p">(</span><span class="kt">double</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">cube</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">num</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">num</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cube</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Lors d'un appel de fonction, le compilateur ajoute avant la première instruction du code caché permettant d'empiler sur un espace mémoire dédié (<em>stack</em>) les variables locales dont il a besoin ainsi que certaines informations tel que l'adresse mémoire de retour.</p>
@@ -515,26 +515,26 @@
 zone mémoire dont on vient de calculer la taille. On utilisera la
 fonction <em>malloc</em> (memory allocation) pour réserver de la mémoire. Cette
 fonction n'initialise pas la zone réservée.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="kt">size_t</span><span class="p">;</span>
-<span class="kt">void</span><span class="o">*</span> <span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="kt">size_t</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il est nécessaire d'inclure le fichier <em>stdlib.h</em> pour utiliser les
 fonctions d'allocation mémoire. Par exemple, pour réserver un tableau de
 n valeurs de type <em>double</em> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="kt">double</span> <span class="o">*</span> <span class="n">zone_acquisition</span><span class="p">;</span> <span class="c1">// pointeur sur la zone à réserver</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">zone_acquisition</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointeur sur la zone à réserver</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">zone_acquisition</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
+<span class="n">zone_acquisition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="section" id="allocation-dynamique-sur-le-tas-avec-mise-a-zero">
 <h3><span class="section-number">13.5.1  </span>Allocation dynamique sur le tas avec mise à zéro<a class="headerlink" href="#allocation-dynamique-sur-le-tas-avec-mise-a-zero" title="Lien permanent vers ce titre">¶</a></h3>
 <p>On utilisera la fonction <em>calloc</em> (memory allocation) pour réserver de
 la mémoire avec initialisation automatique de la zone réservée.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span> <span class="nf">calloc</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">calloc</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette fonction réserve <em>count</em> x <em>size</em> octets en mémoire et
@@ -544,7 +544,7 @@ l'initialise à zéro.</p>
 <h3><span class="section-number">13.5.2  </span>Modification de la taille d'une zone déjà allouée sur le tas<a class="headerlink" href="#modification-de-la-taille-d-une-zone-deja-allouee-sur-le-tas" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Si l'on veut agrandir une zone déjà allouée avec <em>malloc</em> ou <em>calloc</em>,
 on utilisera la fonction suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span> <span class="nf">realloc</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">realloc</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Elle permet de :</p>
@@ -563,21 +563,21 @@ l'espace supplémentaire est non initialisé</p></li>
 <h3><span class="section-number">13.5.3  </span>Libération<a class="headerlink" href="#liberation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Le tas n'étant pas extensible à l'infini, il faut libérer la mémoire dès
 que l'on n'en a plus l'utilité.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">free</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">memblock</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">memblock</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Une fois libérée, la mémoire (donc son pointeur) ne doit plus être
 utilisée sous peine de corrompre des données du système.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="kt">double</span> <span class="o">*</span> <span class="n">zone_acquisition</span><span class="p">;</span> <span class="c1">// pointeur sur la zone à réserver</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">zone_acquisition</span><span class="p">;</span><span class="w"> </span><span class="c1">// pointeur sur la zone à réserver</span>
 
-<span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">zone_acquisition</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span> <span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">zone_acquisition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// utilisation...</span>
 
-<span class="n">free</span><span class="p">(</span><span class="n">zone_acquisition</span><span class="p">);</span> <span class="c1">// libère la mémoire</span>
+<span class="n">free</span><span class="p">(</span><span class="n">zone_acquisition</span><span class="p">);</span><span class="w"> </span><span class="c1">// libère la mémoire</span>
 </pre></div>
 </div>
 <p>De la même manière, il ne faut pas libérer un bloc qui n'a pas été
@@ -600,7 +600,7 @@ d'un espace suffisant et continu) et qu'elle ne nécessite pas de
 libération.</p>
 <p>On utilisera la fonction <em>alloca</em> (memory allocation) pour réserver de
 la mémoire. Cette fonction n'initialise pas la zone réservée.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span> <span class="nf">alloca</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">alloca</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il est nécessaire d'inclure le fichier <em>malloc.h</em> pour utiliser cette
@@ -698,7 +698,7 @@ de spécifier la taille de la pile ; c'est une de ses nombreuses options.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

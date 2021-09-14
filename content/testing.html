@@ -427,34 +427,34 @@
 <h3><span class="section-number">20.2.1  </span>Buffer overflow<a class="headerlink" href="#buffer-overflow" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant &quot;le jardinage mémoire&quot;. Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.</p>
 <p>Considérons le programme suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">check_password</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;starwars&quot;</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Wrong Password </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">check_password</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;starwars&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Wrong Password </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Correct Password </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Correct Password </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">is_authorized</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">is_authorized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Password: &quot;</span><span class="p">);</span>
-    <span class="n">gets</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
-    <span class="n">is_authorized</span> <span class="o">=</span> <span class="n">check_password</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Password: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_authorized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">check_password</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">is_authorized</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Now, you have the root access! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">is_authorized</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Now, you have the root access! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>À priori, c'est un programme tout à fait correct. Si l'utilisateur entre le bon mot de passe, il se voit octroyer des privilèges administrateurs. Testons ce programme :</p>
@@ -500,7 +500,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

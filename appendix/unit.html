@@ -652,7 +652,7 @@
 <tr class="row-even"><td><p>46</p></td>
 <td><p>8</p></td>
 <td><p>Structure de contrôles</p></td>
-<td><p>07 Chaînes</p></td>
+<td><p>07 Chaînes (par équipe)</p></td>
 </tr>
 <tr class="row-odd"><td><p>47</p></td>
 <td><p>9</p></td>
@@ -681,28 +681,28 @@
 <tr class="row-even"><td><p>52</p></td>
 <td colspan="3" rowspan="2"><p>Vacances de Noël</p></td>
 </tr>
-<tr class="row-odd"><td><p>53</p></td>
+<tr class="row-odd"><td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-even"><td><p>2</p></td>
 <td><p>14</p></td>
 <td><p>Ergonomie et dialogues</p></td>
 <td rowspan="3"><p>12 Tableau des scores</p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
+<tr class="row-odd"><td><p>3</p></td>
 <td><p>15</p></td>
 <td><p><strong>TE2</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>3</p></td>
+<tr class="row-even"><td><p>4</p></td>
 <td><p>16</p></td>
 <td><p>Exercices de révision</p></td>
 </tr>
-<tr class="row-odd"><td><p>4</p></td>
+<tr class="row-odd"><td><p>5</p></td>
 <td colspan="3"><p><strong>Préparation Examens</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
+<tr class="row-even"><td><p>6</p></td>
 <td colspan="3"><p><strong>Examens</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>6</p></td>
+<tr class="row-odd"><td><p>7</p></td>
 <td colspan="3"><p>Relâches</p></td>
 </tr>
 </tbody>
@@ -1002,27 +1002,27 @@
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define QUIZ_WEIGHT (.1) </span><span class="c1">// Percent</span>
 <span class="cp">#define EXAM_WEIGHT (.5) </span><span class="c1">// Percent</span>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">notes</span> <span class="p">{</span>
-    <span class="kt">size_t</span> <span class="n">size</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">values</span><span class="p">[];</span>
-<span class="p">}</span> <span class="n">Notes</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">notes</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">values</span><span class="p">[];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">Notes</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">float</span> <span class="nf">sum</span><span class="p">(</span><span class="n">Notes</span> <span class="o">*</span><span class="n">notes</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">float</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">notes</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">notes</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">float</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Notes</span><span class="w"> </span><span class="o">*</span><span class="n">notes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">notes</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">notes</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">float</span> <span class="nf">mark</span><span class="p">(</span><span class="n">Notes</span> <span class="n">tes</span><span class="p">,</span> <span class="n">Notes</span> <span class="n">quizzes</span><span class="p">,</span> <span class="n">Notes</span> <span class="n">labs</span><span class="p">,</span> <span class="kt">float</span> <span class="n">exam</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-    <span class="n">sum</span><span class="p">(</span><span class="n">tes</span><span class="p">)</span> <span class="o">+</span> <span class="n">QUIZ_WEIGHT</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">quizzes</span><span class="p">)</span>
-    <span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
-        <span class="p">(</span><span class="n">EXAM_WEIGHT</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">tes</span><span class="p">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">QUIZ_WEIGHT</span> <span class="o">*</span> <span class="n">quizzes</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
-    <span class="p">)</span> <span class="o">+</span>
-            <span class="p">(</span><span class="n">EXAM_WEIGHT</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">labs</span><span class="p">)</span> <span class="o">/</span> <span class="n">labs</span><span class="p">.</span><span class="n">size</span> <span class="o">+</span>
-        <span class="n">EXAM_WEIGHT</span> <span class="o">*</span> <span class="n">exam</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">float</span><span class="w"> </span><span class="nf">mark</span><span class="p">(</span><span class="n">Notes</span><span class="w"> </span><span class="n">tes</span><span class="p">,</span><span class="w"> </span><span class="n">Notes</span><span class="w"> </span><span class="n">quizzes</span><span class="p">,</span><span class="w"> </span><span class="n">Notes</span><span class="w"> </span><span class="n">labs</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">exam</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">sum</span><span class="p">(</span><span class="n">tes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">QUIZ_WEIGHT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">quizzes</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="n">EXAM_WEIGHT</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">tes</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">QUIZ_WEIGHT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">quizzes</span><span class="p">.</span><span class="n">size</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="n">EXAM_WEIGHT</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">labs</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">labs</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">        </span><span class="n">EXAM_WEIGHT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">exam</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Les règles sont :</p>
@@ -1048,7 +1048,7 @@
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

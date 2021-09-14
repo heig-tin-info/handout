@@ -541,19 +541,19 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <div class="section" id="addition">
 <h3><span class="section-number">22.4.1  </span>Addition<a class="headerlink" href="#addition" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L'addition peut se faire avec ou sans saturation :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="kt">int16_t</span> <span class="n">Q</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">Q</span> <span class="n">Q12</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">Q</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">Q12</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Q</span> <span class="nf">q_add</span><span class="p">(</span><span class="n">Q</span> <span class="n">a</span><span class="p">,</span> <span class="n">Q</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="n">Q</span><span class="w"> </span><span class="nf">q_add</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">Q</span> <span class="nf">q_add_sat</span><span class="p">(</span><span class="n">Q</span> <span class="n">a</span><span class="p">,</span> <span class="n">Q</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int32_t</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&gt;</span> <span class="mh">0x7FFF</span> <span class="o">?</span> <span class="mh">0x7FFF</span> <span class="o">:</span> <span class="n">res</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">res</span><span class="p">;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="n">Q</span><span class="w"> </span><span class="nf">q_add_sat</span><span class="p">(</span><span class="n">Q</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span><span class="w"></span>
+<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -582,23 +582,23 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 └─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
 </pre></div>
 </div>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kr">inline</span> <span class="n">Q</span> <span class="nf">q_sat</span><span class="p">(</span><span class="kt">int32_t</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mh">0x7FFF</span> <span class="o">?</span> <span class="mh">0x7FFF</span> <span class="o">:</span> <span class="n">x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">?</span> <span class="mi">-1</span> <span class="o">*</span> <span class="mh">0x8000</span> <span class="o">:</span> <span class="n">x</span><span class="p">;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kr">inline</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="nf">q_sat</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">0x7FFF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x8000</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kr">inline</span> <span class="kt">int16_t</span> <span class="nf">q_mul</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">b</span><span class="p">,</span> <span class="kt">char</span> <span class="n">q</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int32_t</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span>
-    <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">sat</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">q</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sat</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kr">inline</span> <span class="kt">int16_t</span> <span class="nf">q12_mul</span><span class="p">(</span><span class="kt">int16_t</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">q_mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="nf">q12_mul</span><span class="p">(</span><span class="kt">int16_t</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">q_mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -615,60 +615,60 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <p>Vous avez déjà vu les flux au chapitre précédent, et les sockets ne font pas partie de ce cours d'introduction.</p>
 <p>Notons que la mémoire partagée est un mécanisme propre à chaque système d'exploitation. Sous POSIX elle est normalisée et donc un programme compatible POSIX et utilisant la mémoire partagée pourra fonctionner sous Linux, WSL ou macOS, mais pas sous Windows.</p>
 <p>C'est principalement l'appel système <code class="docutils literal notranslate"><span class="pre">mmap</span></code> qui est utilisé. Il permet de mapper ou démapper des fichiers ou des périphériques dans la mémoire.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="o">*</span><span class="nf">mmap</span><span class="p">(</span>
-    <span class="kt">void</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span>
-    <span class="kt">size_t</span> <span class="n">length</span><span class="p">,</span> <span class="c1">// Size in bytes</span>
-    <span class="kt">int</span> <span class="n">prot</span><span class="p">,</span>      <span class="o">//</span> <span class="n">Access</span> <span class="n">protection</span> <span class="p">(</span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="o">/</span><span class="n">execute</span><span class="p">)</span>
-    <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span>     <span class="c1">// Attributs (shared/private/anonymous...)</span>
-    <span class="kt">int</span> <span class="n">fd</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">offset</span>
-<span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">mmap</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="c1">// Size in bytes</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="p">,</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="n">Access</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="o">/</span><span class="n">execute</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span><span class="w">     </span><span class="c1">// Attributs (shared/private/anonymous...)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Voici un exemple permettant de réserver un espace partagé en écriture et en lecture entre deux processus :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/mman.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span><span class="cp"></span>
 
-<span class="kt">void</span><span class="o">*</span> <span class="nf">create_shared_memory</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Accessible en lecture et écriture</span>
-    <span class="kt">int</span> <span class="n">protection</span> <span class="o">=</span> <span class="n">PROT_READ</span> <span class="o">|</span> <span class="n">PROT_WRITE</span><span class="p">;</span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">create_shared_memory</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Accessible en lecture et écriture</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">// D&#39;autres processus peuvent accéder à cet espace</span>
-    <span class="c1">// lequel est anonyme</span>
-    <span class="c1">// so only this process and its children will be able to use it:</span>
-    <span class="kt">int</span> <span class="n">visibility</span> <span class="o">=</span> <span class="n">MAP_SHARED</span> <span class="o">|</span> <span class="n">MAP_ANONYMOUS</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// D&#39;autres processus peuvent accéder à cet espace</span>
+<span class="w">    </span><span class="c1">// lequel est anonyme</span>
+<span class="w">    </span><span class="c1">// so only this process and its children will be able to use it:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">visibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAP_SHARED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">MAP_ANONYMOUS</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">// The remaining parameters to `mmap()` are not important for this use case,</span>
-    <span class="c1">// but the manpage for `mmap` explains their purpose.</span>
-    <span class="k">return</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">protection</span><span class="p">,</span> <span class="n">visibility</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// The remaining parameters to `mmap()` are not important for this use case,</span>
+<span class="w">    </span><span class="c1">// but the manpage for `mmap` explains their purpose.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">protection</span><span class="p">,</span><span class="w"> </span><span class="n">visibility</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="section" id="file-memory-mapping">
 <h3><span class="section-number">22.5.1  </span>File memory mapping<a class="headerlink" href="#file-memory-mapping" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Traditionnellement lorsque l'on souhaite travailler sur un fichier, il convient de l'ouvrir avec <code class="docutils literal notranslate"><span class="pre">fopen</span></code> et de lire son contenu. Lorsque cela est nécessaire, ce fichier est copié en mémoire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SEEK_END</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">filesize</span> <span class="o">=</span> <span class="n">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
-<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-<span class="kt">char</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">filesize</span><span class="p">);</span>
-<span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">filesize</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">fp</span><span class="p">);</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">filesize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">filesize</span><span class="p">);</span><span class="w"></span>
+<span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">filesize</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette copie n'est pas nécessairement nécessaire. Une approche <strong>POSIX</strong>, qui n'est donc pas couverte par le standard <strong>C99</strong> consiste à lier le fichier dans un espace mémoire partagé.</p>
 <p>Ceci nécessite l'utilisation de fonctions bas niveau.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/mman.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">,</span> <span class="mo">0600</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">addr</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">PROT_READ</span> <span class="o">|</span> <span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_SHARED</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Espace mappé à %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">addr</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Premiers caractères du fichiers : %.*s...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">addr</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;foo.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">,</span><span class="w"> </span><span class="mo">0600</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_SHARED</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Espace mappé à %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Premiers caractères du fichiers : %.*s...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Les avantages de cette méthode sont :</p>
@@ -682,66 +682,66 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
 <div class="section" id="collecteur-de-dechets-garbage-collector">
 <h2><span class="section-number">22.6  </span>Collecteur de déchets (<em>garbage collector</em>)<a class="headerlink" href="#collecteur-de-dechets-garbage-collector" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Le C est un langage primitif qui ne gère pas automatiquement la libération des ressources allouées dynamiquement. L'exemple suivant est évocateur :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="nf">get_number</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">num</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-    <span class="o">*</span><span class="n">num</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">get_number</span><span class="p">());</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">get_number</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace de la taille d'un entier et lui assigne une valeur aléatoire. Dans le programme principal, l'adresse retournée est déréférencée pour être affichée sur la sortie standard.</p>
 <p>A la fin de l'exécution de la boucle for, une centaine d'espaces mémoire sont maintenant dans les <a class="reference external" href="https://fr.wikipedia.org/wiki/Limbes">limbes</a>. Comme le pointeur retourné n'a jamais été mémorisé, il n'est plus possible de libérer cet espace mémoire avec <code class="docutils literal notranslate"><span class="pre">free</span></code>.</p>
 <p>On dit que le programme à une <a class="reference external" href="https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire">fuite mémoire</a>. En admettant que ce programme reste résidant en mémoire, il peut arriver un moment où le programme peut aller jusqu'à utiliser toute la RAM disponible. Dans ce cas, il est probable que <code class="docutils literal notranslate"><span class="pre">malloc</span></code> retourne <code class="docutils literal notranslate"><span class="pre">NULL</span></code> et qu'une erreur de segmentation apparaisse lors du <code class="docutils literal notranslate"><span class="pre">printf</span></code>.</p>
 <p>Allons plus loin dans notre exemple et considérons le code suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">new_value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">NULL</span> <span class="p">};</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Foo aime %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">count</span><span class="p">]);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Foo aime %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">new_value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">NULL</span> <span class="p">};</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">new_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">values</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bar aime %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">count</span><span class="p">]);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bar aime %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">count</span><span class="p">]);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span><span class="o">*</span> <span class="nf">get_number</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">number</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-    <span class="o">*</span><span class="n">number</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">1000</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">get_number</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">experiment_iterations</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">experiment_iterations</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="o">*</span><span class="n">num</span> <span class="o">=</span> <span class="n">get_number</span><span class="p">();</span>
-        <span class="n">foo</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-        <span class="n">bar</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-        <span class="cp">#if 0</span><span class="c"> // ...</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">experiment_iterations</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_number</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">foo</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">bar</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="cp">#if 0</span><span class="c"> // ...</span>
 <span class="c">            free(num) ??</span>
 <span class="cp">        #endif</span>
-    <span class="p">};</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">get_number</span></code> alloue dynamiquement un espace mémoire et assigne un nombre aléatoire. Les fonctions <code class="docutils literal notranslate"><span class="pre">foo</span></code> et <code class="docutils literal notranslate"><span class="pre">bar</span></code> reçoivent en paramètre un pointeur sur un entier. Chacune à le choix de mémoriser ce pointeur et de clamer sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code> qu'elle aime un des nombres mémorisés.</p>
@@ -767,7 +767,7 @@ de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

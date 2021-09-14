@@ -451,13 +451,13 @@
 </div>
 <p>Souvent, le vieux Kamaji répète les mêmes suites d'opération et ce, peu importe les herbes qu'il manipule, une fois placées dans les petits casiers (registres), il pourrait travailler les yeux fermés.</p>
 <p>On pourrait résumer ce travail par une fonction C, ici prenant un rhizome et deux herbes en entrée et générant un mélange en sortie.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">blend</span> <span class="nf">slice_and_blend</span><span class="p">(</span><span class="n">rootstock</span> <span class="n">a</span><span class="p">,</span> <span class="n">herb</span> <span class="n">b</span><span class="p">,</span> <span class="n">herb</span> <span class="n">c</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">blend</span><span class="w"> </span><span class="nf">slice_and_blend</span><span class="p">(</span><span class="n">rootstock</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">herb</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pour des recettes complexes, il se pourrait que la fonction <code class="docutils literal notranslate"><span class="pre">slice_and_blend</span></code> soit appelée plusieurs fois à la suite, mais avec des ingrédients différents. De même que cette fonction fait appel à une autre fonction plus simple tel que <code class="docutils literal notranslate"><span class="pre">slice</span></code> (découper) ou <code class="docutils literal notranslate"><span class="pre">blend_together</span></code> (incorporer).</p>
 <p>Et le contexte dans tout cela ? Il existe selon le langage de programmation et l'architecture processeur ce que l'on appelle les <a class="reference external" href="https://en.wikipedia.org/wiki/Calling_convention">conventions d'appel</a>. C'est-à-dire les règles qui régissent les interactions entre les appels de fonctions. Dans notre exemple, on adoptera peut-être la convention que n'importe quelle fonction trouvera ses ingrédients d'entrées dans les casiers R1, R2 et R3 et que le résultat de la fonction, ici le <em>blend</em>, sera placé dans le casier R8. Ainsi peu importe les herbes en entrée, le vieux Kamaji peut travailler les yeux fermés, piochant simplement dans R1, R2 et R3.</p>
 <p>On observe néanmoins dans la recette évoquée plus haut qu'il utilise d'autres casiers, R4, et R5. Il faut donc faire très attention à ce qu'une autre fonction peut-être la fonction <code class="docutils literal notranslate"><span class="pre">slice</span></code>, n'utilise pas dans sa propre recette le casier R5, car sinon, c'est la catastrophe.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">herb</span> <span class="nf">slice</span><span class="p">(</span><span class="n">herb</span> <span class="n">a</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">herb</span><span class="w"> </span><span class="nf">slice</span><span class="p">(</span><span class="n">herb</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Kamaji entrepose temporairement les feuilles de menthe verte dans R5 et lorsqu'il en a besoin, plus tard, après avoir découpé les fleurs de <a class="reference external" href="https://fr.wikipedia.org/wiki/Mol%C3%A8ne_(plante)">molène</a> que R5 contient des tiges d'une autre plante.</p>
@@ -477,16 +477,16 @@
 <p class="caption"><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Sauvegarde des registres du processeur et convention d'appel de fonction.</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>Ce coût est faible, très faible, un ordinateur fonctionnant à 3 GHz et une fonction complexe utilisant tous les registres disponibles, mettons 10 registres, consommera entre l'appel de la fonction et son retour 0.000'000'003 seconde, ça va, c'est raisonnable. Sauf que, si la fonction ne comporte qu'une seule opération comme ci-dessous, l'overhead sera aussi plus faible.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="stack">
 <h3><span class="section-number">10.1.2  </span>Stack<a class="headerlink" href="#stack" title="Lien permanent vers ce titre">¶</a></h3>
 <p>En français la <a class="reference external" href="https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution">pile d'exécution</a>, est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le <em>stack</em> est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le <em>stack</em>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">c1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d1</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">quaternion_norm</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont empilés et dépilés les éléments au besoin. À chaque appel d'une fonction, la valeur des registres à sauvegarder est empilée et au retour d'une fonction les registres sont dépilés si bien que la fonction d'appel retrouve le <em>stack</em> dans le même état qu'il était avant l'appel d'une fonction enfant.</p>
@@ -501,35 +501,35 @@
 <p>Notons qu'il n'y a pas d'accolades ici.</p>
 <p>Rappelons-le, C est un langage impératif et déclaratif, c'est-à-dire que les instructions sont séquentielles et que les déclarations du code sont interprétées dans l'ordre ou elles apparaissent. Si bien si je veux appeler la fonction <code class="docutils literal notranslate"><span class="pre">make_coffee</span></code>, il faut qu'elle ait été déclarée avant, c'est à dire plus haut.</p>
 <p>Le code suivant fonctionne :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">)&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">)&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">make_coffee</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Mais celui-ci ne fonctionnera pas, car <code class="docutils literal notranslate"><span class="pre">make_coffee</span></code> n'est pas connu au moment de l'appel :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">make_coffee</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">)&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">)&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Si pour une raison connue seule du développeur on souhaite déclarer la fonction après <code class="docutils literal notranslate"><span class="pre">main</span></code>, on peut ajouter le prototype de la fonction avant cette dernière. C'est ce que l'on appelle la déclaration avancée ou <a class="reference external" href="https://fr.wikipedia.org/wiki/D%C3%A9claration_avanc%C3%A9e">forward declaration</a>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">make_coffee</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">make_coffee</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">make_coffee</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please wait...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Un <strong>prototype</strong> de fonction diffère de son <strong>implémentation</strong> par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les <a class="reference internal" href="#calling-conventions"><span class="std std-ref">conventions d'appel</span></a> de la fonction.</p>
@@ -569,33 +569,33 @@
 <ul>
 <li><p>Pour indiquer l'absence de valeur de retour :</p>
 <blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Pour indiquer l'absence de paramètres :</p>
 <blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Pour indiquer que la valeur de retour n'est pas utilisée par le parent :</p>
 <blockquote>
-<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 </ul>
 <p>La déclaration suivante est formellement fausse, car la fonction ne possède pas un prototype complet. En effet, le nombre de paramètres n'est pas contraint et le code suivant est valide au sens de <strong>C99</strong>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">dummy</span><span class="p">()</span> <span class="p">{}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">dummy</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">dummy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="n">dummy</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">144</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dummy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">dummy</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">144</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser <code class="docutils literal notranslate"><span class="pre">void</span></code> lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.</p>
@@ -610,27 +610,27 @@
 <li><p>Par référence</p></li>
 </ul>
 <p>En C, fondamentalement, tous les paramètres sont passés par valeur, c'est-à-dire que la valeur d'une variable est copiée à l'appel de la fonction. Dans l'exemple suivant, la valeur affichée sera bel et bien <code class="docutils literal notranslate"><span class="pre">33</span></code> et non <code class="docutils literal notranslate"><span class="pre">42</span></code></p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">alter</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">9</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">alter</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
-    <span class="n">alter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">alter</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans certains cas, on souhaite utiliser plus d'une valeur de retour et l'on peut utiliser un tableau. Dans l'exemple suivant, la valeur affichée sera cette fois-ci <code class="docutils literal notranslate"><span class="pre">42</span></code> et non <code class="docutils literal notranslate"><span class="pre">33</span></code>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">alter</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">9</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">alter</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">array</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">};</span>
-    <span class="n">alter</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">alter</span><span class="p">(</span><span class="n">array</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Par abus de langage et en comparaison avec d'autres langages de programmation, on appellera ceci un passage par référence, car ce n'est pas une copie du tableau qui est passée à la fonction <code class="docutils literal notranslate"><span class="pre">alter</span></code>, mais seulement une référence sur ce tableau.</p>
@@ -641,20 +641,20 @@
 <h2><span class="section-number">10.5  </span>Récursion<a class="headerlink" href="#recursion" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle-même.</p>
 <p>Au chapitre sur les fonctions, nous avions donné l'exemple du calcul de la somme de la suite de Fibonacci jusqu'à <code class="docutils literal notranslate"><span class="pre">n</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">next_term</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">sum</span> <span class="o">+=</span> <span class="n">t1</span><span class="p">;</span>
-        <span class="n">next_term</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
-        <span class="n">t1</span> <span class="o">=</span> <span class="n">t2</span><span class="p">;</span>
-        <span class="n">t2</span> <span class="o">=</span> <span class="n">next_term</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">next_term</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">next_term</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_term</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il peut sembler plus logique de raisonner de façon récursive. Quelle que soit l'itération à laquelle l'on soit, l'assertion suivante est valable :</p>
@@ -662,11 +662,11 @@
 <div><p>fib(n) == fib(n - 1) + fib(n - 2)</p>
 </div></blockquote>
 <p>Donc pourquoi ne pas réécrire cette fonction en employant ce caractère récursif ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le code est beaucoup plus simple a écrire, et même à lire. Néanmoins cet algorithme est notoirement connu pour être mauvais en terme de performance. Calculer <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code> revient à la chaîne d'appel suivant.</p>
@@ -720,33 +720,33 @@ fib(x)  13x
 <p>La seconde fonction <code class="docutils literal notranslate"><span class="pre">memoize_has</span></code> vérifie si une valeur de correspondance existe pour l'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>. Elle retourne <code class="docutils literal notranslate"><span class="pre">true</span></code> en cas de correspondance et <code class="docutils literal notranslate"><span class="pre">false</span></code> sinon.</p>
 <p>La troisième fonction <code class="docutils literal notranslate"><span class="pre">memoize_get</span></code> retourne la valeur de sortie correspondante à la valeur d'entrée <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
 <p>Notre fonction récursive sera ainsi modifiée comme suit :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">memoize_has</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">return</span> <span class="n">memoize_get</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">memoize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">));</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">memoize_has</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">memoize_get</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">memoize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. Notons que cette implémentation est très élémentaire et n'est valable que pour des entrées inférieures à 1000. Il sera possible ultérieurement de perfectionner ces fonctions, mais nous aurons pour cela besoin de concepts qui n'ont pas encore été abordés, tels que les structures de données complexes.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SIZE 1000</span>
 
-<span class="kt">bool</span> <span class="n">cache_input</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
-<span class="kt">int</span> <span class="n">cache_output</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">cache_input</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cache_output</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">memoize</span><span class="p">(</span><span class="kt">int</span> <span class="n">input</span><span class="p">,</span> <span class="kt">int</span> <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cache_input</span><span class="p">[</span><span class="n">input</span> <span class="o">%</span> <span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n">cache_output</span><span class="p">[</span><span class="n">input</span> <span class="o">%</span> <span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">output</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">memoize</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cache_input</span><span class="p">[</span><span class="n">input</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">SIZE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cache_output</span><span class="p">[</span><span class="n">input</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">SIZE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">output</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">bool</span> <span class="nf">memoize_has</span><span class="p">(</span><span class="kt">int</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">cache_input</span><span class="p">[</span><span class="n">input</span> <span class="o">%</span> <span class="n">SIZE</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">memoize_has</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cache_input</span><span class="p">[</span><span class="n">input</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">memoize_get</span><span class="p">(</span><span class="kt">int</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">cache_output</span><span class="p">[</span><span class="n">input</span> <span class="o">%</span> <span class="n">SIZE</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">memoize_get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cache_output</span><span class="p">[</span><span class="n">input</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div>
@@ -762,10 +762,10 @@ fib(x)  13x
 <p>On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.</p>
 <p>Dans le code du programme, les trois variables suivantes seront utilisées :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Available coins in the parking ticket machine</span>
-<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ncoin_10</span><span class="p">,</span> <span class="n">ncoin_20</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ncoin_10</span><span class="p">,</span><span class="w"> </span><span class="n">ncoin_20</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// How much money the user inserted into the machine (in cents)</span>
-<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">amount_payed</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amount_payed</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :</p>
@@ -781,21 +781,21 @@ fib(x)  13x
 <div>
 <p class="rubric">Exercice 10.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Considérons le programme suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
-    <span class="k">else</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Quel sont les types et les valeurs retournées par les expressions ci-dessous ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mf">-1.2</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mf">-1.6</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span><span class="w"></span>
+<span class="n">f</span><span class="p">(</span><span class="mf">-1.2</span><span class="p">)</span><span class="w"></span>
+<span class="n">f</span><span class="p">(</span><span class="mf">1.6</span><span class="p">)</span><span class="w"></span>
+<span class="n">f</span><span class="p">(</span><span class="mf">-1.6</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Quel est votre conclusion sur cette fonction ?</p>
@@ -803,33 +803,33 @@ fib(x)  13x
 <div>
 <p class="rubric">Exercice 10.5<a class="headerlink" href="#exercise-4" title="Permalink to this rubric">¶</a></p>
 <p>Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
 
-<span class="kt">long</span> <span class="nf">get_integer</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">ok</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">result</span><span class="p">;</span>
-    <span class="k">do</span>
-    <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter a integer value: &quot;</span><span class="p">);</span>
-        <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span> <span class="c1">// Empty input buffer</span>
-        <span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Incorrect value.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">long</span><span class="w"> </span><span class="nf">get_integer</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">ok</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">do</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter a integer value: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span><span class="w"> </span><span class="c1">// Empty input buffer</span>
+<span class="w">        </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">result</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Incorrect value.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">long</span> <span class="n">a</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">b</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_integer</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_integer</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :</p>
@@ -855,7 +855,7 @@ fib(x)  13x
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

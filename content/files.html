@@ -460,14 +460,14 @@
 <h2><span class="section-number">12.2  </span>Format d'un fichier<a class="headerlink" href="#format-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_texte">fichier texte</a>. C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un <a class="reference external" href="https://fr.wikipedia.org/wiki/Fichier_binaire">fichier binaire</a>.</p>
 <p>La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">password</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;un mot de passe secret&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">password</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">password</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;un mot de passe secret&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">password</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Si nous le compilons et cherchons dans son code binaire :</p>
@@ -487,16 +487,16 @@
 <div class="section" id="ouverture-d-un-fichier">
 <h2><span class="section-number">12.3  </span>Ouverture d'un fichier<a class="headerlink" href="#ouverture-d-un-fichier" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Sous POSIX, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;toto&quot;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fd</span><span class="p">);</span>
-    <span class="n">getchar</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;toto&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">getchar</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Lorsque le programme ci-dessus est exécuté, il va demander l'ouverture du fichier <code class="docutils literal notranslate"><span class="pre">toto</span></code> en lecture et recevoir un descripteur de fichier <code class="docutils literal notranslate"><span class="pre">fd</span></code> (<em>file descriptor</em>) positif en cas de succès ou négatif en cas d'erreur.</p>
@@ -517,18 +517,18 @@
 </ul>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> est en réalité un appel système qui n'est standardisé que sous POSIX, c'est-à-dire que son utilisation n'est pas portable. L'exemple cité est principalement évoqué pour mieux comprendre le mécanisme de fond pour l'accès aux fichiers.</p>
 <p>En réalité la bibliothèque standard, respectueuse de C99, dispose d'une fonction <code class="docutils literal notranslate"><span class="pre">fopen</span></code> pour <em>file open</em> qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;toto&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;toto&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span> <span class="c1">// Error the file cannot be accessed</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error the file cannot be accessed</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="c1">// ...</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le mode d'ouverture du fichier peut être :</p>
@@ -548,7 +548,7 @@
 </dl>
 <p>Sous Windows et pour soucis de compatibilité, selon la norme C99, le flag <code class="docutils literal notranslate"><span class="pre">b</span></code> pour <em>binary</em> existe. Pour ouvrir un fichier en mode binaire on peut alors écrire <code class="docutils literal notranslate"><span class="pre">rb+</span></code>.</p>
 <p>L'ouverture d'un fichier cause, selon le mode, un accès exclusif au fichier. C'est-à-dire que d'autres programmes ne pourront pas accéder à ce fichier. Il est donc essentiel de toujours refermer l'accès à un fichier dès lors que l'opération de lecture ou d'écriture est terminée :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">flose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">flose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>On peut noter que sous POSIX, écrire sur <code class="docutils literal notranslate"><span class="pre">stdout</span></code> ou <code class="docutils literal notranslate"><span class="pre">stderr</span></code> est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.</p>
@@ -578,7 +578,7 @@
 <p>La navigation dans un fichier n'est possible que si le fichier est <em>seekable</em>. Généralement les pointeurs de fichiers <code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> et <code class="docutils literal notranslate"><span class="pre">stderr</span></code> ne sont pas <em>seekable</em>, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.</p>
 <div class="section" id="fseek">
 <h3><span class="section-number">12.4.1  </span>fseek<a class="headerlink" href="#fseek" title="Lien permanent vers ce titre">¶</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">offset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">whence</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">whence</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Le manuel <a class="reference external" href="http://man7.org/linux/man-pages/man3/fseek.3.html">man fseek</a> indique les trois constantes possibles pour <code class="docutils literal notranslate"><span class="pre">whence</span></code>:</p>
@@ -594,13 +594,13 @@
 <div class="section" id="ftell">
 <h3><span class="section-number">12.4.2  </span>ftell<a class="headerlink" href="#ftell" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Il est parfois utile de savoir où se trouve le curseur. <code class="docutils literal notranslate"><span class="pre">ftell()</span></code> retourne la position actuelle du curseur dans un fichier ouvert.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">filename</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;foo&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">filename</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">);</span>
-<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SEEK_END</span><span class="p">);</span>
-<span class="kt">long</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">ftell</span><span class="p">();</span>
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;r&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">();</span><span class="w"></span>
 
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;The file %s has a size of %ld Bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;The file %s has a size of %ld Bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -641,10 +641,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">fread(void</span> <span class="pre">*ptr,</span> <span class="pre">size_t</span> <span class="pre">size,</span> <span class="pre">size_t</span> <span class="pre">nmemb,</span> <span class="pre">FILE</span> <span class="pre">*stream)</span></code></p>
 <blockquote>
 <div><p>Lecture arbitraire de <code class="docutils literal notranslate"><span class="pre">nmemb</span> <span class="pre">*</span> <span class="pre">size</span></code> bytes depuis le flux <code class="docutils literal notranslate"><span class="pre">stream</span></code> dans le buffer <code class="docutils literal notranslate"><span class="pre">ptr</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<span class="n">fread</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">),</span> <span class="n">stdin</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">fread</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">),</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">echo</span> -e <span class="s2">&quot;0123abcdefgh&quot;</span> <span class="p">|</span> ./a.out
@@ -670,17 +670,17 @@
 <p><code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">buffered</span></code> (<code class="docutils literal notranslate"><span class="pre">_IO_LBF</span></code>)</p>
 <p>Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fichier, il doit générer un appel système et donc interrompre le noyau. Un programme qui écrirait caractère par caractère sur la sortie standard agirait de la même manière qu'un employé des postes qui irait distribuer son courrier en ne prenant qu'une enveloppe à la fois, de la centrale de distribution au destinataire.</p>
 <p>Par défaut, un pointeur de fichier est <em>fully buffered</em>. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système <code class="docutils literal notranslate"><span class="pre">write</span></code>, une fois par caractère.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;--no-buffering&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_IONBF</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;--no-buffering&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">setvbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">_IONBF</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;c&#39;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="sc">&#39;c&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cependant le comportement réel est différent. Seulement si le buffer est désactivé que le programme interrompt le noyau pour chaque caractère :</p>
@@ -703,17 +703,17 @@
 </pre></div>
 </div>
 <p>Le changement de mode peut être effectué avec la fonction <code class="docutils literal notranslate"><span class="pre">setbuf</span></code> ou <code class="docutils literal notranslate"><span class="pre">setvbuf</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
 
-    <span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setbuf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">fputs</span><span class="p">(</span><span class="s">&quot;Allo ?&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fputs</span><span class="p">(</span><span class="s">&quot;Allo ?&quot;</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">fflush</span></code> force l'écriture malgré l'utilisation d'un buffer.</p>
@@ -728,16 +728,16 @@
 </ul>
 <p>sont ouverts au début du programme. Le premier fichier ouvert par exemple avec <code class="docutils literal notranslate"><span class="pre">fopen</span></code> sera très probablement assigné à l'identifiant <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 <p>Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme <code class="docutils literal notranslate"><span class="pre">strace</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">FILE</span> <span class="o">*</span><span class="n">fd</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-    <span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fd</span><span class="p">);</span>
-    <span class="n">fputc</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
-    <span class="n">fputc</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fputc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">stderr</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pour mémoire <code class="docutils literal notranslate"><span class="pre">strace</span></code> permet de capturer les appels systèmes du programme passé en argument et de les afficher. Deux particularités de la commande exécutée sont <code class="docutils literal notranslate"><span class="pre">2&gt;&amp;1</span></code> qui redirige <code class="docutils literal notranslate"><span class="pre">stderr</span></code> vers <code class="docutils literal notranslate"><span class="pre">stdout</span></code> afin de pouvoir rediriger le flux vers <code class="docutils literal notranslate"><span class="pre">grep</span></code>. Ensuite <code class="docutils literal notranslate"><span class="pre">grep</span></code> permet de filtrer la sortie pour n'afficher que les lignes contenant <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code> ou <code class="docutils literal notranslate"><span class="pre">close</span></code>:</p>
@@ -935,13 +935,13 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
 <p>Idéalement on utilise comme caractère de remplissage le caractère nulle <code class="docutils literal notranslate"><span class="pre">\0</span></code>, mais le caractère espace peut aussi convenir à condition que les données ne contiennent pas d'espace.</p>
 <p>La lecture aléatoire de ce type de fichier est facilitée, car la position de chaque entrée est connue à l'avance, on sait par exemple que le pays est stocké sur 11 caractères, la ville sur 9 caractères et chaque température sur 7 caractères.</p>
 <p>L'utilisation de <code class="docutils literal notranslate"><span class="pre">fseek</span></code> est par conséquent utile :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">temperature</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">line</span> <span class="o">*</span> <span class="p">(</span><span class="mi">11</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">SEEK_SET</span><span class="p">);</span>
-<span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">11</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="n">month</span> <span class="o">*</span> <span class="mi">7</span> <span class="n">SEEK_CUR</span><span class="p">);</span>
-<span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;%lf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span><span class="w"></span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">SEEK_CUR</span><span class="p">);</span><span class="w"></span>
+<span class="n">fscanf</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%lf&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temperature</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.</p>
@@ -995,28 +995,28 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
 <div>
 <p class="rubric">Exercice 12.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Considérez les deux programmes ci-dessous très similaires.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saisir un texte:&quot;</span><span class="p">);</span>
-    <span class="n">gets</span><span class="p">(</span><span class="n">texte</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Texte: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">texte</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saisir un texte:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">texte</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Texte: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">texte</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saisir un texte:&quot;</span><span class="p">);</span>
-    <span class="n">fgets</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Texte: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">texte</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Saisir un texte:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Texte: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">texte</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -1043,7 +1043,7 @@ Russie    Yakutsk -38.6 -33.8 -20.1 -4.8 7.5  16.4 19.5 15.2 6.1  -7.8 -27.0 -37
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

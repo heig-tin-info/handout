@@ -417,7 +417,7 @@
 <span id="ual"></span><img alt="ALU" src="../_images/alu.svg" /><p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Unité de calcul arithmétique (<span class="target" id="index-5"></span>ALU) composée de deux entrées <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>, d'une sortie <code class="docutils literal notranslate"><span class="pre">C</span></code> et d'un mode opératoire <code class="docutils literal notranslate"><span class="pre">O</span></code>.</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
 </div>
 <p>En admettant que l'opération est l'addition, le code C équivalent serait le suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notons qu'un opérateur possède plusieurs propriétés :</p>
@@ -473,22 +473,22 @@
 </tbody>
 </table>
 <p>Un opérateur relationnel est plus prioritaire que l'opérateur d'affectation et donc l'écriture suivante applique le test d'égalité entre <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> et le résultat de ce test <code class="docutils literal notranslate"><span class="pre">1</span></code> ou <code class="docutils literal notranslate"><span class="pre">0</span></code> sera affecté à la variable <code class="docutils literal notranslate"><span class="pre">c</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Les opérateurs relationnels sont le plus souvent utilisés dans des structures de contrôles :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes sont égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes ne sont pas égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes sont égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes ne sont pas égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Programmer c'est être minimaliste, dès lors il serait possible de simplifier l'écriture ci-dessus de la façon suivante :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes %s égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">?</span> <span class="s">&quot;sont&quot;</span> <span class="o">:</span> <span class="s">&quot;ne sont pas&quot;</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Les opérandes %s égaux.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;sont&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;ne sont pas&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans se cas on utilise l'opérateur ternaire <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code> qui permet de s'affranchir d'une structure de contrôle explicite.</p>
@@ -536,8 +536,8 @@
 <p>Attention néanmoins aux types des variables impliquées. La division <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">/</span> <span class="pre">2</span></code> donnera <code class="docutils literal notranslate"><span class="pre">2</span></code> et non <code class="docutils literal notranslate"><span class="pre">2.5</span></code> car les deux valeurs fournies sont entières.</p>
 <p>Le modulo est le reste de la division entière. L'assertion suivante est donc vraie : <code class="docutils literal notranslate"><span class="pre">13</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">1</span></code>, car 13 divisé par 4 égal 3 et il reste 1.</p>
 <p>Il est important de noter que les opérateurs arithmétiques sont tributaires des types sur lesquels ils s'appliquent. Par exemple, l'addition de deux entiers 8 bits <code class="docutils literal notranslate"><span class="pre">120</span> <span class="pre">+</span> <span class="pre">120</span></code> ne fera pas <code class="docutils literal notranslate"><span class="pre">240</span></code> car le type ne permet pas de stocker des valeurs plus grandes que <code class="docutils literal notranslate"><span class="pre">127</span></code> :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int8_t</span> <span class="n">too_small</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">+</span> <span class="mi">120</span><span class="p">;</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">too_small</span> <span class="o">!=</span> <span class="mi">120</span> <span class="o">+</span> <span class="mi">120</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int8_t</span><span class="w"> </span><span class="n">too_small</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">120</span><span class="p">;</span><span class="w"></span>
+<span class="n">assert</span><span class="p">(</span><span class="n">too_small</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">120</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -642,28 +642,28 @@
 </ul>
 <p>La pré-incrémentation ou pré-décrémentation effectue en premier la modification de la variable impliquée puis retourne le résultat de cette variable modifiée. Dans le cas de la post-incrémentation ou pré-décrémentation, la valeur actuelle de la variable est d'abord retournée, puis dans un second temps cette variable est incrémentée.</p>
 <p>Notons qu'on peut toujours décomposer ces opérateurs en deux instructions explicites. Le code :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>est équivalent à :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>De même :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>est équivalent à :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="operateur-ternaire">
 <h2><span class="section-number">5.7  </span>Opérateur ternaire<a class="headerlink" href="#operateur-ternaire" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-15">L'opérateur ternaire aussi appelé <span class="target" id="index-16"></span>opérateur conditionnel permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une <span class="target" id="index-17"></span>arité de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">()</span><span class="o">?</span><span class="p">()</span><span class="o">:</span><span class="p">()</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">()</span><span class="o">?</span><span class="p">()</span><span class="o">:</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cet opérateur permet sur une seule ligne d'évaluer une expression et de renvoyer une valeur ou une autre selon que l'expression est vraie ou fausse. <strong>valeur = (condition ? valeur si condition vraie : valeur si condition fausse);</strong></p>
@@ -672,48 +672,48 @@
 <p>Seule la valeur utilisée pour le résultat est évaluée. Par exemple, dans le code <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span> <span class="pre">?</span> <span class="pre">++y</span> <span class="pre">:</span> <span class="pre">++x</span></code>, seulement <code class="docutils literal notranslate"><span class="pre">x</span></code> ou <code class="docutils literal notranslate"><span class="pre">y</span></code> sera incrémenté.</p>
 </div>
 <p>On utilise volontiers cet opérateur lorsque dans les deux cas d'un embranchement, la même valeur est modifiée :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
-    <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-<span class="k">else</span>
-    <span class="n">min</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>On remarque dans cet exemple une répétition <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">=</span></code>. Une façon plus élégante et permettant de réduire l'écriture est d'utiliser l'opérateur ternaire :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">max</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nl">a</span> <span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="operateur-de-transtypage">
 <h2><span class="section-number">5.8  </span>Opérateur de transtypage<a class="headerlink" href="#operateur-de-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-18">Le <span class="target" id="index-19"></span>transtypage ou <em>cast</em> permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier car son premier opérande doit être un <strong>type</strong> et le second une <strong>valeur</strong>.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">type</span><span class="p">)(</span><span class="n">valeur</span><span class="p">)</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">type</span><span class="p">)(</span><span class="n">valeur</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans l'exemple suivant, le résultat de la division est un entier car la promotion implicite de type reste un entier <code class="docutils literal notranslate"><span class="pre">int</span></code>. La valeur <code class="docutils literal notranslate"><span class="pre">c</span></code> vaudra donc le résultat de la division entière alors que dans le second cas, <code class="docutils literal notranslate"><span class="pre">b</span></code> est <em>casté</em> en un <code class="docutils literal notranslate"><span class="pre">double</span></code> ce qui force une division en virgule flottante.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">b</span><span class="p">);</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="mf">2.0</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="n">assert</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">2.5</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="operateur-sequentiel">
 <h2><span class="section-number">5.9  </span>Opérateur séquentiel<a class="headerlink" href="#operateur-sequentiel" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'opérateur séquentiel (<em>comma operator</em>) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée soit aux déclarations de variables, soit au boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans le cas ci-dessus, il n'est pas possible de séparer les instructions <code class="docutils literal notranslate"><span class="pre">i++</span></code> et <code class="docutils literal notranslate"><span class="pre">j--</span></code> par un point virgule, l'opérateur virgule permet alors de combiner plusieurs instructions en une seule.</p>
 <p>Une particularité de cet opérateur est que seule la dernière valeur est retournée :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">3</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">assert</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>L'opérateur agit également comme un <a class="reference internal" href="advanced-topics.html#sequence-point"><span class="std std-ref">Point de séquence</span></a>, c'est-à-dire que l'ordre des étapes est respecté.</p>
 <div>
 <p class="rubric">Exercice 5.1<a class="headerlink" href="#exercise-0" title="Permalink to this rubric">¶</a></p>
 <p>Que sera-t-il affiché à l'écran ?</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="o">++</span><span class="n">i</span><span class="p">));</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -721,27 +721,27 @@
 <div class="section" id="operateur-sizeof">
 <h2><span class="section-number">5.10  </span>Opérateur sizeof<a class="headerlink" href="#operateur-sizeof" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-20">Cet opérateur est <em>unaire</em> et retourne la taille en <strong>byte</strong> de la variable ou du type passé en argument. Il n'existe pas de symbole particulier et son usage est très similaire à l'appel d'une fonction :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-<span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
-<span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span> <span class="o">==</span> <span class="mi">64</span> <span class="o">/</span> <span class="mi">8</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
+<span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>L'opérateur <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> est très utile durant le débogage pour connaître la taille en mémoire d'une variable ou celle d'un type. On l'utilise en pratique pour connaître la taille d'un tableau lors d'une boucle itérative :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dans l'exemple ci-dessus, <code class="docutils literal notranslate"><span class="pre">sizeof(array)</span></code> retourne la taille de l'espace mémoire occupé par le tableau <code class="docutils literal notranslate"><span class="pre">array</span></code>, soit <span class="math notranslate nohighlight">\(128 \cdot 4\)</span> bytes. Pour obtenir le nombre d'éléments dans le tableau, il faut alors diviser ce résultat par la taille effective de chaque élément du tableau. L'élément <code class="docutils literal notranslate"><span class="pre">array[0]</span></code> est donc un <code class="docutils literal notranslate"><span class="pre">int32_t</span></code> et sa taille vaut donc 4 bytes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Dans l'exemple ci-dessus, il est possible de s'affranchir de la taille effective du tableau en utilisant une sentinelle. Si le dernier élément du tableau à une valeur particulière et que le reste est initialisé à zéro, il suffit de parcourir le tableau jusqu'à cette valeur :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="mi">127</span><span class="p">]</span><span class="o">=</span><span class="mi">-1</span> <span class="p">};</span>
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">-1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int32_t</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">[</span><span class="mi">127</span><span class="p">]</span><span class="o">=</span><span class="mi">-1</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cette écriture reste malgré tout très mauvaise car le tableau de 128 éléments doit être initialisé à priori ce qui mène aux mêmes performances. D'autre part l'histoire racontée par le développeur est moins claire que la première implémentation.</p>
@@ -878,10 +878,10 @@ La précédence</p>
 </tbody>
 </table>
 <p>Considérons l'exemple suivant :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">};</span>
-<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">23</span> <span class="o">+</span> <span class="mi">34</span> <span class="o">/</span> <span class="o">++</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">23</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">34</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Selon la précédence de chaque opérateur ainsi que son associativité on a :</p>
@@ -927,10 +927,10 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <div class="section" id="valeurs-gauches">
 <h2><span class="section-number">5.12  </span>Valeurs gauches<a class="headerlink" href="#valeurs-gauches" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-24">Une <span class="target" id="index-25"></span>valeur gauche (<code class="docutils literal notranslate"><span class="pre">lvalue</span></code>) est une particularité de certains langages de programmation qui définissent ce qui peut se trouver à gauche d'une affectation. Ainsi dans <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> est une valeur gauche. Néanmoins, l'expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> est aussi une valeur gauche :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>    <span class="c1">// (1)</span>
-<span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>  <span class="c1">// (2)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w">    </span><span class="c1">// (1)</span>
+<span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w">  </span><span class="c1">// (2)</span>
 </pre></div>
 </div>
 <ol class="arabic">
@@ -954,22 +954,22 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <h2><span class="section-number">5.13  </span>Optimisation<a class="headerlink" href="#optimisation" title="Lien permanent vers ce titre">¶</a></h2>
 <p id="index-26">Le compilateur est en règle général plus malin que le développeur. L'optimiseur de code (lorsque compilé avec <code class="docutils literal notranslate"><span class="pre">-O2</span></code> sous <code class="docutils literal notranslate"><span class="pre">gcc</span></code>), va regrouper certaines instructions, modifier l'ordre de certaines déclarations pour réduire soit l'empreinte mémoire du code, soit accélérer son exécution.</p>
 <p>Ainsi l'expression suivante, ne sera pas calculée à l'exécution, mais à la compilation :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>De même que ce test n'effectuera pas une division, mais testera simplement le dernier bit de <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Pair&quot;</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Impair&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Pair&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Impair&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <hr class="docutils" />
 <div>
 <p class="rubric">Exercice 5.2<a class="headerlink" href="#exercise-1" title="Permalink to this rubric">¶</a></p>
 <p>Soit les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mh">0x55</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mh">0xAA</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x55</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xAA</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable <code class="docutils literal notranslate"><span class="pre">m</span></code> après exécution de chacune des instructions suivantes :</p>
@@ -998,8 +998,8 @@ type <code class="docutils literal notranslate"><span class="pre">double</span><
 <div>
 <p class="rubric">Exercice 5.4<a class="headerlink" href="#exercise-3" title="Permalink to this rubric">¶</a></p>
 <p>Considérant les déclarations suivantes :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Traduire en C les expressions mathématiques ci-dessous; pour chacune, proposer plusieurs écritures différentes lorsque c'est possible. Le symbole <span class="math notranslate nohighlight">\(\leftarrow\)</span> signifie <em>assignation</em></p>
@@ -1053,7 +1053,7 @@ $ ./armstrong 154
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 30 juin 2021 (version v0.3.0-23-g6f7bff5).
+    Mis à jour le 14 sept. 2021 (version v0.3.0-24-g3b85685).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
