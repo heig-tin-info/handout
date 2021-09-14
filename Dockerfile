@@ -25,7 +25,7 @@ RUN pip3 install -U docutils==0.15.2
 RUN pip3 install sphinx==3.2.1
 RUN pip3 install sphinxcontrib-spelling
 RUN pip3 install sphinxcontrib-svg2pdfconverter
-RUN pip3 install sphinx-heigvd-theme==0.5.2
+RUN pip3 install git+https://github.com/heig-vd-tin/sphinx-heigvd-theme.git@d94eb8791106a84abfb49ee683d061ce4d66e889
 
 RUN apt-get update
 

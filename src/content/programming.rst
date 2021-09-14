@@ -10,10 +10,10 @@ Il ne serait pas raisonnable de vous enseigner la programmation C sans au préal
 
 .. index:: algorithmique, programmation
 
-**Algorithmique et Programmation**, il y donc deux questions à éclairer :
+**Algorithmique et Programmation**, il y donc deux questions à éclaircir :
 
-- Qu'est-ce que l'algorithmique ?
-- Qu'est-ce que la programmation ?
+1. Qu'est-ce que l'algorithmique ?
+2. Qu'est-ce que la programmation ?
 
 Algorithmique
 =============
@@ -192,7 +192,7 @@ Historique
     - 600 GiB de mémoire RAM
 
 .. todo:: Chapitre sur le fonctionnement de l'ordinateur
- 
+
 .. Fonctionnement de l'ordinateur
 .. ==============================
 
