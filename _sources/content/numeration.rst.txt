@@ -525,12 +525,12 @@ Reprenons l'exemple précédent de soustraction, on notera que l'opération fonc
 .. code-block::
 
       00000010 (2)
-    + 11111010 (5)
+    + 11111010 (-5)
     ----------
-      11111100 (-3)
+      11111101 (-3)
     -        1
     ----------
-      11111100 (-3)
+      11111011 (-4)
 
 En résumé, la méthode du complément à 1 :
 
