@@ -3,9 +3,9 @@
 
 void swap(char* a, char* b)
 {
-    *a ^= *b;
-    *b ^= *a;
-    *a ^= *b;
+    char old_a = a;
+    a = b;
+    b = old_a;
 }
 
 void reverse(char* str, size_t length)
