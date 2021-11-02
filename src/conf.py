@@ -7,7 +7,7 @@ import datetime
 now = datetime.datetime.now()
 sys.path.append(os.path.abspath("../extensions"))
 
-project = 'Le C pour l\'ingenieur'
+project = 'Le C pour l\'ingénieur'
 author = 'Prof. Yves Chevallier'
 copyright = f'HEIG-VD(c) {now.year}'
 release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
