@@ -43,7 +43,7 @@
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <span class="site-name">Le C pour l&#39;ingenieur</span>
+      <span class="site-name">Le C pour l&#39;ingénieur</span>
     
   </router-link>
 
@@ -444,9 +444,9 @@
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">old_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old_a</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"></span>
@@ -998,8 +998,8 @@ retturn EXIT_FAILURE;
        title="Chapitre suivant"><span class="section-number">10  </span>Fonctions →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 06 oct. 2021 (version v0.3.0-25-g156464d).
+      &#169; Copyright HEIG-VD(c) 2022.
+    Mis à jour le 27 janv. 2022 (version v0.3.0-28-gc6502fd).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

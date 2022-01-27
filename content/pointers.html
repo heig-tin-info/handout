@@ -43,7 +43,7 @@
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <span class="site-name">Le C pour l&#39;ingenieur</span>
+      <span class="site-name">Le C pour l&#39;ingénieur</span>
     
   </router-link>
 
@@ -469,7 +469,7 @@
 <span class="kt">int</span><span class="w"> </span><span class="n">freezing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="nl">boiling</span> <span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">freezing</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="n">boiling</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">freezing</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -620,7 +620,7 @@
 <h3><span class="section-number">14.4.1  </span>Initialisation d'un pointeur sur une structure<a class="headerlink" href="#initialisation-d-un-pointeur-sur-une-structure" title="Lien permanent vers ce titre">¶</a></h3>
 <p>De la même manière qu'avec les types standards, on peut définir un
 pointeur sur une structure de données.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Date</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Date</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">month</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">year</span><span class="p">;</span><span class="w"></span>
@@ -670,9 +670,9 @@ structure contenant des données ainsi qu'un pointeur sur un élément
 précédent et un autre sur l'élément suivant. Ces pointeurs sont du même
 type que la structure dans laquelle ils sont déclarés et cela impose un
 style d'écriture spécifique :</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Element</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">struct</span> <span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l&#39;élément précédent</span>
-<span class="w">  </span><span class="k">struct</span> <span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l&#39;élément suivant</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l&#39;élément précédent</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Element</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointeur sur l&#39;élément suivant</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">  </span><span class="c1">// Donnée d&#39;une liste chaînée</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span><span class="w"></span>
 </pre></div>
@@ -743,7 +743,7 @@ placera le symbole <code class="docutils literal notranslate"><span class="pre">
 <p>Le <code class="docutils literal notranslate"><span class="pre">cast</span></code> de pointeur s'avère nécessaire lorsqu'un pointeur du type <code class="docutils literal notranslate"><span class="pre">void</span></code> est déclaré, comme c'est le cas pour la fonction de copie mémoire <code class="docutils literal notranslate"><span class="pre">memcpy</span></code>. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">message</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mind the gap, please!&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
-<span class="k">struct</span> <span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Il faudrait donc autant de fonction <code class="docutils literal notranslate"><span class="pre">memcpy</span></code> que de type possible, ce qui n'est ni raisonnable, ni même imaginable. Face à ce dilemme, on utilise un pointeur neutre, celui qui n'envie personne et que personne n'envie <code class="docutils literal notranslate"><span class="pre">void</span></code> et qui permet sans autre :</p>
@@ -963,10 +963,10 @@ placera le symbole <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="initialisation-par-transtypage">
 <h2><span class="section-number">14.9  </span>Initialisation par transtypage<a class="headerlink" href="#initialisation-par-transtypage" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span> <span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">}){</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">}){</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vector</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
 <span class="p">}</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
@@ -1066,8 +1066,8 @@ une même région mémoire.</p>
        title="Chapitre suivant"><span class="section-number">15  </span>Bibliothèques →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 06 oct. 2021 (version v0.3.0-25-g156464d).
+      &#169; Copyright HEIG-VD(c) 2022.
+    Mis à jour le 27 janv. 2022 (version v0.3.0-28-gc6502fd).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>

@@ -43,7 +43,7 @@
     <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <span class="site-name">Le C pour l&#39;ingenieur</span>
+      <span class="site-name">Le C pour l&#39;ingénieur</span>
     
   </router-link>
 
@@ -1175,35 +1175,35 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 <div class="section" id="solution-9.9">
 <p class="rubric"><a class="reference external" href="../content/stdio.html#exercise-8">Exercice 9.9</a> - Crampes de doigts<a class="headerlink" href="#solution-9.9" title="Permalink to this rubric">¶</a></p>
 <p>Une fois la correction effectuée, vous utilisez l'outil de <code class="docutils literal notranslate"><span class="pre">diff</span></code> pour montrer les différences :</p>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>1,3c1,3
-&lt;         #include &lt;stdio.h&gt;
-&lt;         #include &lt;stdlib.h&gt;
-&lt;         int main()
-<span class="gd">---</span>
-&gt;         #include &lt;std_io.h&gt;
-&gt;         #jnclude &lt;stdlib.h&gt;
-&gt;         INT Main()
-5c5
-&lt;         int a, b, sum;
-<span class="gd">---</span>
-&gt;         int a, sum;
-9c9
-&lt;         scanf(&quot;%d&quot;, &amp;a);
-<span class="gd">---</span>
-&gt;         scanf(&quot;%d&quot;, a);
-14,16c14,16
-&lt;         /* Affichage du résultat */
-&lt;         sum = a + b;
-&lt;         printf(&quot;%d + %d = %d\n&quot;, a, b, sum);
-<span class="gd">---</span>
-&gt;         /* Affichage du résultat
-&gt;         somme = a - b;
-&gt;         Printf(&quot;%d + %d = %d\n&quot;, a, b, sum);
-18c18,19
-&lt;         return EXIT_SUCCESS;
-<span class="gd">---</span>
-&gt;         return EXIT_FAILURE;
-&gt;         }
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w">1,3c1,3</span>
+<span class="w">&lt;         #include &lt;stdio.h&gt;</span>
+<span class="w">&lt;         #include &lt;stdlib.h&gt;</span>
+<span class="w">&lt;         int main()</span>
+<span class="gd">---</span><span class="w"></span>
+<span class="w">&gt;         #include &lt;std_io.h&gt;</span>
+<span class="w">&gt;         #jnclude &lt;stdlib.h&gt;</span>
+<span class="w">&gt;         INT Main()</span>
+<span class="w">5c5</span>
+<span class="w">&lt;         int a, b, sum;</span>
+<span class="gd">---</span><span class="w"></span>
+<span class="w">&gt;         int a, sum;</span>
+<span class="w">9c9</span>
+<span class="w">&lt;         scanf(&quot;%d&quot;, &amp;a);</span>
+<span class="gd">---</span><span class="w"></span>
+<span class="w">&gt;         scanf(&quot;%d&quot;, a);</span>
+<span class="w">14,16c14,16</span>
+<span class="w">&lt;         /* Affichage du résultat */</span>
+<span class="w">&lt;         sum = a + b;</span>
+<span class="w">&lt;         printf(&quot;%d + %d = %d\n&quot;, a, b, sum);</span>
+<span class="gd">---</span><span class="w"></span>
+<span class="w">&gt;         /* Affichage du résultat</span>
+<span class="w">&gt;         somme = a - b;</span>
+<span class="w">&gt;         Printf(&quot;%d + %d = %d\n&quot;, a, b, sum);</span>
+<span class="w">18c18,19</span>
+<span class="w">&lt;         return EXIT_SUCCESS;</span>
+<span class="gd">---</span><span class="w"></span>
+<span class="w">&gt;         return EXIT_FAILURE;</span>
+<span class="w">&gt;         }</span>
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1312,7 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
 </div>
 <p>Une manière plus compacte, mais moins lisible serait :</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nl">a</span> <span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nl">a</span> <span class="p">:</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
@@ -1504,8 +1504,8 @@ On peut corriger ce problème en modifiant le test pour vérifier si le produit 
        title="Chapitre suivant">Bibliographie →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright HEIG-VD(c) 2021.
-    Mis à jour le 06 oct. 2021 (version v0.3.0-25-g156464d).
+      &#169; Copyright HEIG-VD(c) 2022.
+    Mis à jour le 27 janv. 2022 (version v0.3.0-28-gc6502fd).
     <br>
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
 </div>
