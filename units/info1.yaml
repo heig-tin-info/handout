@@ -4,17 +4,17 @@
 title:
     name: Informatique 1
     tag: info1
-    id: 5637
+    id: 6488
 domain: Ingénierie et Architecture
 filière: Génie électrique
-orientation:
-    name: Électronique et Automatisation industrielle
-    id: EAI
+orientations:
+  ? EAI
+  ? EEM 
+  ? MI 
 formation: Plein temps
 validityDate:
-    - 2018-2019
-    - 2019-2020
-author: François Birling
+    - 2021-2022
+author: Pierre Bressy
 charge:
     academicHours: 150
     inClassAcademicHours: 96
@@ -44,23 +44,21 @@ planning:
             - hours: 6
               chapters:
                 - Fonctions
+                - Passage par valeur et par adresse
             - hours: 8
               chapters:
-                - Types avanceés
-                    - Tableaux
-                    - Structures
-                    - Chaînes de caractères
+                - Tableaux
+                - Chaînes de caractères
             - hours: 4
               chapters:
-                - Introduction à l'analyse et à la conception
+                - Introduction à l'analyse et à la conception (découpage du problème)
             - hours: 4
               chapters:
-                - Controle continu et corrections
+                - Contrôle continu et corrections
         laboratory:
             - hours: 2
               chapters:
-                - Environnement de travail (réseau informatique)
-                - Outils bureautique
+                - Mise en place de l'environnement de travail.
             - hours: 2
               chapters:
                 - Environnement de développement intégré
@@ -73,7 +71,7 @@ planning:
                 - Dialogues utilisateurs
             - hours: 10
               chapters:
-                - Utilisation des structures de contrôle.
+                - Utilisation des structures de contrôle (if, for, while, do..while, switch).
             - hours: 8
               chapters:
                 - Type de données composés
@@ -82,35 +80,39 @@ planning:
                 - Mini projet.
 prerequisites: |
     L'étudiant-e doit connaître et savoir utiliser les notions suivantes
-        - utilisation d'un système d'exploitation, notamment la gestion de fichiers
-        - bases des outils de bureautique.
-    L'unité préparatoire d'informatique UPI permet d'acquérir ces connaissances.
-    Conditions pour la programmation automatique de cette unité :
-    L'étudiant-e doit avoir obtenu une note supérieure ou égale à la limite de compensation dans les unités :
-    néant. L'étudiant-e doit avoir suivi ou suivre en parallèle les unités : néant.
+        - utilisation générale d'un système d'exploitation graphique notamment 
+          la gestion de fichiers et les bases des outils de bureautique,
+        - notation binaire, octale et hexadécimale et de l’algèbre booléenne élémentaire.
 goals:
     classroom:
-        - Expliquer les principes généraux de représentation de l'information dans les ordinateurs.
-        - Décrire la marche à suivre et les outils nécessaires pour créer un programme.
-        - Citer les éléments du langage C utilisés couramment pour écrire des programmes.
-        - Choisir le type de données simple approprié pour représenter les informations du monde réel.
-        - Concevoir et programmer un dialogue opérateur en mode console, formater un affichage pour le rendre lisible.
-        - Calculer la valeur d'une expression construite avec différents opérateurs du langage C et en déterminer le type.
+        - Expliquer les principes généraux de représentation de l’information dans les ordinateurs.
+        - Décrire la marche à suivre et les outils nécessaires pour créer un programme exécutable.
+        - Assurer la traçabilité du code source de la conception à la livraison du programme.
+        - Citer les éléments syntaxiques du langage C utilisé couramment pour écrire des programmes.
+        - Choisir le type de données le plus adapté pour représenter une information physique.
+        - Concevoir et programmer un dialogue opérateur en mode console.
+        - Formater un affichage sur la sortie standard pour le rendre lisible.
+        - Calculer la valeur d’une expression construite avec différents opérateurs du langage C et en déterminer le type de stockage résultant.
         - Choisir la structure de contrôle appropriée pour résoudre un problème algorithmique simple.
-        - Concevoir et implanter un algorithme imbriquant jusqu'à 3 niveaux de structure de contrôle.
-        - Créer une fonction utilisant le passage de paramètres par valeur, par adresse et/ou le retour d'un résultat.
-        - Construire et utiliser un type de données composé (tableau, structure).
-        - Utiliser les principales fonctions des bibliothèques `math.h` et `string.h`
-        - Corriger la présentation, les erreurs de syntaxe et de sémantique dans un programme fourni.
+        - Concevoir et implémenter un algorithme imbriquant jusqu’à trois niveaux de structure de contrôle.
+        - Créer une fonction impliquant un passage de paramètre par valeur et par adresse.
+        - Utiliser le « type tableau » multidimensionnel et manipuler ses éléments constituants.
+        - Manipulation simple de chaînes de caractères en utilisant la bibliothèque standard.
+        - Mettre en œuvre des algorithmes utilisant des fonctions mathématiques de la bibliothèque standard.
+        - Déboguer un programme informatique en utilisant des points d’arrêt.
+        - Interagir avec un programme exécutable via les arguments et les flux d’entrées sorties.
+        - Connaître les idiomes (patron d’implémentation) de base (SSOT, DRY, KISS).   
     laboratory:
-        - Installer et configurer un environnement de développement intégré (EDI) pour le langage C.
-        - Créer des programmes avec un EDI (éditer un code source, le compiler, le tester, le déverminer).
-        - Créer un programme gérant un menu en mode console et affichant des résultats sous forme tabulaire.
+        - Installer et configurer un environnement de développement intégré (IDE) pour le langage C.
+        - Créer des programmes avec un IDE et compiler un programme en ligne de commande.
+        - Construire une liste d’arguments.
+        - Créer un programme gérant un menu en mode console et affichant des résultats sous forme structurée.
         - Mettre au point itérativement un programme pour atteindre un fonctionnement fiable et ergonomique.
-        - Comprendre un cahier des charges, identifier et clarifier les exigences importantes, et s'y conformer.
-        - Analyser de manière autonome les problèmes rencontrés et formuler une question précise.
-        - Livrer un logiciel de façon professionnelle (organisation des livrables, gestion des exigences et du délai).
+        - Comprendre un cahier des charges, identifier et clarifier les exigences importantes, et s’y conformer.
+        - Analyser de manière autonome les problèmes rencontrés et proposer une solution implémentable.
+        - Livrer un logiciel en assurant sa traçabilité en respectant un délai.
         - Citer des applications pratiques de la programmation en relation avec ses futurs débouchés professionnels.
+        - Chercher des solutions par soi-même en utilisant internet.
 plan:
   - Numération
     - Bases (système décimal, hexadécimal, octal, binaire)
@@ -155,7 +157,7 @@ plan:
     - Expressions
     - Promotion et promotion implicite
   - Conception
-    - Choix des structures de controles adaptées à des problèmes
+    - Choix des structures de contrôles adaptées à des problèmes
     - Algorithmes simple (min, max, moyenne, ...)
       - Manipulation de chaînes
       - Manipulation de tableaux
