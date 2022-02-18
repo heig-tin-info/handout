@@ -17,7 +17,7 @@ Ce référentiel contient le polycopié d'informatique 1 et 2 disponible en form
 git clone https://github.com/heig-vd-tin/info-handout.git
 cd info-handout
 git submodule init
-git submodulee update
+git submodule update
 make
 ```
 
@@ -25,7 +25,7 @@ make
 
 Les nouvelles releases sont automatiquement générées par GitHub Actions :
 
-- A chaque nouveau tag, les version PDF et MAN sont généréesws
+- A chaque nouveau tag, les version PDF et MAN sont générées
 - A chaque commit sur la branche `master` une version HTML est générée
 
 ## Build
