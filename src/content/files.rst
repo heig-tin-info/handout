@@ -77,7 +77,7 @@ La frontière est parfois assez mince, car parfois le fichier binaire peut conte
     #include <stdio.h>
     #include <string.h>
 
-    int main(char* argc, char** argv)
+    int main(int* argc, char* argv[])
     {
         static const char password[] = "un mot de passe secret";
         return strcmp(argv[1], password);
