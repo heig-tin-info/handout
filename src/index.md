@@ -15,7 +15,7 @@
 ```
 
 ```{toctree}
-:caption: "Table des mati\xE8res"
+:caption: "Table des matières"
 :glob: true
 :maxdepth: 2
 :numbered: true
