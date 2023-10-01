@@ -1,93 +1,73 @@
-""" Configuration file for the Sphinx documentation builder. """
 import os
 import sys
-import subprocess
-import datetime
+sys.path.append(os.path.abspath("extensions"))
 
-now = datetime.datetime.now()
-sys.path.append(os.path.abspath("../extensions"))
-
-project = 'Le C pour l\'ingénieur'
-author = 'Prof. Yves Chevallier'
-copyright = f'HEIG-VD(c) {now.year}'
-release = subprocess.check_output(["git", "describe"]).strip().decode('utf8')
+project = 'Test'
+copyright = '2023, Yves'
+author = 'Yves'
 
 extensions = [
-    'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages',
-    'sphinx.ext.todo',
-    'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.spelling',
-    'listings',
-    'exercises',
-    'unicode',
-    'appendix',
-    #'gtag',
-    'hlist',
-    'fix-short-caption',
-    'fix-literal-block'
+    "myst_parser",
+    "sphinx_exercise",
+    "sphinx_togglebutton",
+    "sphinx.ext.mathjax",
+    'sphinx_copybutton',
+    "sphinx_design",
+    "sphinx_prompt",
+    "sphinx_tippy",
+    "unicode",
 ]
 
-googleanalytics_id = 'UA-145664552-1'
-
-source_suffix = ['.rst']
-
-templates_path = ['../assets/templates']
-
-master_doc = 'index'
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'fr'
-smartquotes = False
 
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'summary/*.rst']
+master_doc = "index"
 
-html_theme = 'heigvd'
-html_secnumber_suffix = '  '
-html_last_updated_fmt = r'%d %b %Y (version ' + release + ')'
+html_theme =  "pydata_sphinx_theme"
+html_static_path = ['_static']
+html_logo = "_static/2020-slim.svg"
+html_title = "Le C pour l'ingénieur"
 
-numfig = True
-
-pygments_style = "colorful"
-
-latex_additional_files = [
-    '../assets/templates/sphinx.sty',
-    '../assets/templates/footnotehyper-sphinx.sty'
-]
-
-latex_docclass = {
-    'manual': 'book'
+html_theme_options = {
+   "logo": {
+      "image_light": "_static/2020-slim.svg",
+      "image_dark": "_static/2020-slim-white.svg",
+      "text": "Le C pour l'ingénieur",
+   },
+   "show_nav_level": 2,
+   "show_toc_level": 2,
+   "pygment_dark_style": "lightbulb",
+}
+html_context = {
+    "github_user": "heig-tin-info",
+    "github_repo": "handout",
+    "github_version": "master",
 }
 
-
-
-latex_use_xindy = False
-
-latex_engine = 'xelatex'
-latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '10pt',
-    'babel': r'\usepackage[french]{babel}',
-    'inputenc': '',
-    'utf8extra': '',
-    'fontpkg': '',
-    'fncychap': '',
-    'printindex': '',
-    'maketitle': r'\maketitle',
-    'preamble': open('../assets/templates/preamble.tex').read()
-}
-
-latex_logo = '../assets/images/heig-vd-small.pdf'
-
-summary_title = 'Résumé du premier semestre'
-latex_documents = [
-    ('index', 'handout.tex', None, author, 'manual'),
-    ('summary/summary', 'summary.tex', summary_title, author, 'manual')
+myst_enable_extensions = [
+    "dollarmath",
+    "amsmath",
+    "deflist",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "colon_fence",
+    "smartquotes",
+    "replacements",
+    "linkify",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+    "attrs_inline",
+    "attrs_block",
 ]
 
-man_pages = [
-    ('index', 'info', None, author, 1),
-    ('summary/summary', 'summary', summary_title, author, 1)
-]
+latex_engine = "xelatex"
 
-spelling_lang='fr_CH'
-spelling_show_suggestions=True
+#tippy_props = {"placement": "auto-start", "maxWidth": 500, "interactive": False, "arrow": True}
+tippy_add_class = "has-tippy"
+
+html_static_path = ['_static']
+html_css_files = ["tippy.css"]
