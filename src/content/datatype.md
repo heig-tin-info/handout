@@ -1,6 +1,6 @@
-# Types de données
+## Types de données
 
-## Typage
+### Typage
 
 ```{index} typage
 ```
@@ -22,7 +22,7 @@ Les ingénieurs sont friands des standards et qui plus est lorsqu'ils sont  inte
 
 (storage)=
 
-## Stockage et interprétation
+### Stockage et interprétation
 
 Rappelez-vous qu'un ordinateur ne peut stocker l'information que sous forme binaire et qu'il n'est à même de manipuler ces informations que par paquets de bytes. Aussi un ordinateur 64-bits manipulera avec aisance des paquets de 64-bits, mais plus difficilement des paquets de 32-bits. Ajoutons qu'il existe encore des microcontrôleurs 8-bits utilisés dans des dispositifs à faible consommation et qui peinent à manipuler des types de plus grande taille. Stocker une température avec une trop grande précision et effectuer des opérations mathématiques sur toute la précision serait une erreur, car le microcontrôleur n'est simplement pas adapté à manipuler ce type d'information.
 
@@ -83,7 +83,7 @@ int main() {
 
 (endianess)=
 
-## Boutisme
+### Boutisme
 
 :::{figure} ../../assets/images/endian.*
 :::
@@ -103,13 +103,13 @@ Faut-il la lire de gauche à droite ou de droite à gauche? Cela vous paraît tr
 
 Imaginons qu'un programme exécuté sur un microcontrôleur *big-endian* 8-bit envoie par Bluetooth la valeur `1'111'704'645`, qui correspond au nombre de photons ayant frappé un détecteur optique. Il transmet donc les 4 octets suivants: `0x42, 0x43, 0x44, 0x45`. L'ordinateur qui reçoit les informations décode `1'162'101'570`. Les deux ordinateurs n'interprètent pas les données de la même façon, et c'est un problème que la plupart des ingénieurs électroniciens rencontrent un jour dans leur carrière.
 
-## Les nombres entiers
+### Les nombres entiers
 
 Les {index}`nombres entiers` sont des nombres sans virgule et incluant le zéro. Ils peuvent donc être négatifs, nuls ou positifs. Mathématiquement ils appartiennent à l'ensemble des [entiers relatifs](https://fr.wikipedia.org/wiki/Entier_relatif).
 
 Comme aucun ordinateur ne dispose d'un espace de stockage infini, ces nombres excluent les infinis positifs et négatifs, et sont donc bornés, cela va de soi.
 
-### Les entiers naturels
+#### Les entiers naturels
 
 ```{index} entiers naturels
 ```
@@ -144,7 +144,7 @@ Voici quelques exemples des valeurs minimales et maximales possibles selon le no
 
 Notez l'importance du $-1$ dans la définition du maximum, car la valeur minimum $0$ fait partie de l'information même si elle représente une quantité nulle. Il y a donc 256 valeurs possibles pour un nombre entier non signé 8-bits, bien que la valeur maximale ne soit que de 255.
 
-### Les entiers relatifs
+#### Les entiers relatifs
 
 Mathématiquement un {index}`entier relatif` appartient à l'ensemble $\mathbb{Z}$:
 
@@ -174,7 +174,7 @@ Voici quelques exemples de valeurs minimales et maximales selon le nombre de bit
 
 En mémoire ces nombres sont stockés en utilisant le {ref}`complément à deux <twos_complement>` qui fait l'objet d'une section à part entière.
 
-### Les entiers bornés
+#### Les entiers bornés
 
 Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
@@ -183,7 +183,7 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 
 À l'origine le standard C restait flou quant au nombre de bits utilisés pour chacun des types et aucune réelle cohérence n'existait pour la construction d'un type. Le modificateur `signed` était optionnel, le préfixe `long` ne pouvait s'appliquer qu'au type `int` et `long` et la confusion entre `long` (préfixe) et `long` (type) restait possible. En fait, la plupart des développeurs s'y perdaient et s'y perd toujours ce qui menait à des problèmes de compatibilités des programmes entre eux.
 
-#### Types standards
+##### Types standards
 
 La construction d'un type entier C est la suivante :
 
@@ -194,8 +194,8 @@ La construction d'un type entier C est la suivante :
 
 Ce qu'il faut retenir c'est que chaque type de donnée offre une profondeur d'au moins $N$ bits, ce qui est l'information minimale essentielle pour le programmeur. La liste des types de données standards en C pour les entiers est donnée au {numref}`standard-integers`.
 
-```{eval-rst}
-.. todo:: Table too big on LaTeX
+```{todo}
+Table too big on LaTeX
 ```
 
 (standard-integers)=
@@ -257,7 +257,7 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 Flux de construction d'un entier standardisé
 :::
 
-#### Types réformés
+##### Types réformés
 
 Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de bits de l'entier doit être maîtrisé.
 
@@ -291,8 +291,7 @@ Voici les types standards qu'il est recommandé d'utiliser lorsque le nombre de 
 
 Les types rapides, moins utilisés vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
-```{eval-rst}
-.. exercise:: Expressions arithmétiques entières
+```{exercise} Expressions arithmétiques entières
 
     Donnez la valeur des expressions ci-dessous :
 
@@ -312,8 +311,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
         -8 % -3
 ```
 
-```{eval-rst}
-.. exercise:: Débordement
+```{exercise} Débordement
 
     Quel sera le contenu de ``j`` après l'exécution de l'instruction suivante :
 
@@ -322,7 +320,7 @@ Les types rapides, moins utilisés vont automatiquement choisir le type adapté 
         uint16_t j = 1024 * 64;
 ```
 
-#### Modèle de donnée
+##### Modèle de donnée
 
 Comme nous l'avons évoqué plus haut, la taille des entiers `short`, `int`, ... n'est pas précisément définie par le standard. On sait qu'un `int` contient **au moins** 16-bits, mais il peut, selon l'architecture, et aussi le modèle de donnée, prendre n'importe quelle valeur supérieure. Ceci pose des problèmes de portabilité possibles si le développeur n'est pas suffisamment consciencieux et qu'il ne s'appuie pas sur une batterie de tests automatisés.
 
@@ -330,9 +328,6 @@ Admettons que ce développeur sans scrupule développe un programme complexe sur
 
 La première solution est de toujours utiliser les types proposés par `<stdint.h>` lorsque la taille du type nécessaire est supérieure à la valeur garantie. L'autre solution est de se fier au modèle de données :
 
-```{eval-rst}
-.. todo:: Inline text are sometime too wide
-```
 
 ```{eval-rst}
 .. list-table:: Modèle de données
@@ -391,7 +386,7 @@ La première solution est de toujours utiliser les types proposés par `<stdint.
 
 ```
 
-## Les nombres réels
+### Les nombres réels
 
 Mathématiquement, les [nombres réels](https://fr.wikipedia.org/wiki/Nombre_r%C3%A9el) $\mathbb{R}$, sont des nombres qui peuvent être représentés par une partie entière, et une liste finie ou infinie de décimales. En informatique, stocker une liste infinie de décimale demanderait une quantité infinie de mémoire et donc, la [précision arithmétique](https://fr.wikipedia.org/wiki/Pr%C3%A9cision_arithm%C3%A9tique) est contrainte.
 
@@ -400,7 +395,7 @@ le besoin de pouvoir stocker des nombres réels s'est rapidement fait sentir. La
 
 Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement né) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
 
-### Virgule fixe
+#### Virgule fixe
 
 ```{index} virgule fixe
 ```
@@ -436,7 +431,7 @@ Cependant, il manque une information. Un ordinateur, sans yeux et sans bon sens,
 
 Cette solution est élégante, mais demande à présent 11-bits contre 8-bits initialement. Un ordinateur n'étant doué que pour manipuler des paquets de bits souvent supérieurs à 8, il faudrait ici soit étendre inutilement le nombre de bits utilisés pour la position de la virgule à 8, soit tenter d'intégrer cette information, dans les 8-bits initiaux.
 
-### Virgule flottante
+#### Virgule flottante
 
 ```{index} virgule flottante
 ```
@@ -513,7 +508,7 @@ Prenons le temps de faire quelques observations.
 - Un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante.
 - Bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé.
 
-### Simple précision
+#### Simple précision
 
 ```{index} float
 ```
@@ -558,12 +553,11 @@ Vient s'ajouter les valeurs particulières suivantes :
 1 11111111 00000000000000000000000₂ ≡ ff80 0000₁₆ ≡ −inf
 ```
 
-### Double précision
+#### Double précision
 
 La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants.
 
-```{eval-rst}
-.. exercise:: Expressions arithmétiques flottantes
+```{exercise} Expressions arithmétiques flottantes
 
     Donnez la valeur des expressions ci-dessous :
 
@@ -578,7 +572,7 @@ La double précision est similaire à la simple précision, mais avec une mantis
         1.3E30 + 1.
 ```
 
-## Les caractères
+### Les caractères
 
 ```{index} caractère
 ```
@@ -642,7 +636,7 @@ char c = '$';
 Attention donc au caractère `'3'` qui correspond à la grandeur hexadécimale `0x33`:
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     char c = '3';
@@ -651,7 +645,7 @@ int main(void) {
 }
 ```
 
-## Chaîne de caractères
+### Chaîne de caractères
 
 Une {index}`chaîne de caractères` est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`.
 
@@ -675,8 +669,7 @@ char string[] = "Hello";
  0x05 00000000
 ```
 
-```{eval-rst}
-.. exercise:: Constantes littérales caractérielles
+```{exercise} Constantes littérales caractérielles
 
     Indiquez si les constantes littérales suivantes sont valides ou invalides.
 
@@ -699,8 +692,7 @@ char string[] = "Hello";
         #. ``"Hello \world !\n"``
 ```
 
-```{eval-rst}
-.. exercise:: Chaînes de formatage
+```{exercise} Chaînes de formatage
 
     Pour les instructions ci-dessous, indiquer quel est l'affichage obtenu.
 
@@ -735,7 +727,7 @@ char string[] = "Hello";
 
 (booleans)=
 
-## Les booléens
+### Les booléens
 
 Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destiné à représenter les états en logique booléenne (Nom venant de [George Boole](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme).
 
@@ -744,7 +736,7 @@ La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un �
 Les {index}`booléens` ont étés introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `stdbool.h`. Avant cela le type boolean était `_Bool` et définir les états vrais et faux était à la charge du développeur.
 
 ```c
-#include <stdbool.h>
+##include <stdbool.h>
 
 bool is_enabled = false;
 bool has_tail = true;
@@ -754,7 +746,7 @@ Afin de faciliter la lecture du code, il est courant de préfixer les variables 
 
 À titre d'exemple, si l'on souhaite stocker le genre d'un individu (mâle, ou femelle), on pourrait utiliser la variable `is_male`.
 
-## Énumérations
+### Énumérations
 
 Ce style d'écriture permet de définir un type de données contenant un
 nombre fini de valeurs. Ces valeurs sont nommées textuellement et
@@ -821,11 +813,11 @@ void call(enum country_codes code) {
 }
 ```
 
-## Type incomplet
+### Type incomplet
 
 Un {index}`type incomplet` est un qualificatif de type de donnée décrivant un objet dont sa taille en mémoire n'est pas connue.
 
-## Type vide (*void*)
+### Type vide (*void*)
 
 ```{index} void
 ```
@@ -850,7 +842,7 @@ Le mot clé `void` ne peut être utilisé que dans les contextes suivants :
 - Comme type de retour pour une fonction indiquant que cette fonction ne retourne rien `void display(char c)`
 - Comme pointeur dont le type de destination n'est pas spécifié `void* ptr`
 
-## Promotion implicite
+### Promotion implicite
 
 Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur.
 C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein
@@ -876,8 +868,7 @@ Aussi, la plupart des types de taille inférieure à `int` sont automatiquement 
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
 
-```{eval-rst}
-.. exercise:: Expressions mixtes
+```{exercise} Expressions mixtes
 
     Soit les instructions suivantes :
 
@@ -899,8 +890,7 @@ passe directement à un type *int*.
     #. ``(n + 1.0) / n``
 ```
 
-```{eval-rst}
-.. exercise:: Promotion numérique
+```{exercise} Promotion numérique
 
     Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
 
@@ -918,7 +908,7 @@ passe directement à un type *int*.
     #. ``c + sh * f / i + d;``
 ```
 
-### Effets du transtypage
+#### Effets du transtypage
 
 Le changement de type forcé (transtypage) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
@@ -927,7 +917,7 @@ est plus important, il n'y a pas de problème. À l'inverse, on peut
 rencontrer des erreurs sur la précision ou une modification radicale de
 la valeur représentée !
 
-#### Transtypage d'un entier en réel
+##### Transtypage d'un entier en réel
 
 La conversion d'un entier (signé ou non) en réel (*double* ou *float*)
 n'a pas d'effet particulier. Le type
@@ -939,7 +929,7 @@ double d=(double)l; // valeur : 3 => OK
 
 A l'exécution, la valeur de $d$ sera la même que $l$.
 
-#### Transtypage d'un réel en entier
+##### Transtypage d'un réel en entier
 
 La conversion d'un nombre réel (*double* ou *float*) en entier (signé)
 doit être étudiée pour éviter tout problème. Le type entier doit être
@@ -970,7 +960,7 @@ unsigned short sh=(unsigned short)d; // valeur : 65413 => changement de valeur
 L'utilisation d'un type non signé pour convertir un nombre réel conduit
 également à une modification de la valeur numérique.
 
-#### Transtypage d'un double en float
+##### Transtypage d'un double en float
 
 La conversion d'un nombre réel de type *double* en réel de type *float*
 pose un problème de précision de calcul.
@@ -983,8 +973,7 @@ float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 À l'exécution, il y a une perte de précision lors de la conversion ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
-```{eval-rst}
-.. exercise:: Conversion de types
+```{exercise} Conversion de types
 
     On considère les déclarations suivantes :
 
@@ -1021,8 +1010,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
             l = k;    // Incorrect, valeur signée dans un conteneur non signé
 ```
 
-```{eval-rst}
-.. exercise:: Un casting explicite
+```{exercise} Un casting explicite
 
     Que valent les valeurs de ``p``, ``x`` et ``n``:
 
@@ -1044,8 +1032,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
             n = 8
 ```
 
-```{eval-rst}
-.. exercise:: Opérateurs de relation et opérateurs logiques
+```{exercise} Opérateurs de relation et opérateurs logiques
 
     Soit les déclarations suivantes :
 
@@ -1089,8 +1076,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         #. ``true``
 ```
 
-```{eval-rst}
-.. exercise:: Casse-tête
+```{exercise} Casse-tête
 
     Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
 
@@ -1116,8 +1102,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
 ______________________________________________________________________
 
-```{eval-rst}
-.. exercise:: Évaluation d'expressions
+```{exercise} Évaluation d'expressions
 
     Considérons les déclarations suivantes :
 
@@ -1145,8 +1130,7 @@ ______________________________________________________________________
     #. ``d + f == sh + lg``
 ```
 
-```{eval-rst}
-.. exercise:: Précision des flottants
+```{exercise} Précision des flottants
 
     Que vaut ``x``?
 
@@ -1173,8 +1157,7 @@ ______________________________________________________________________
             10000000.000000
 ```
 
-```{eval-rst}
-.. exercise:: Type de donnée idoine
+```{exercise} Type de donnée idoine
 
     Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
 
@@ -1189,8 +1172,7 @@ ______________________________________________________________________
     #. Nombre d'impulsions reçues par un capteur de position incrémental
 ```
 
-```{eval-rst}
-.. exercise:: Construction d'expressions
+```{exercise} Construction d'expressions
 
     On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
     à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
@@ -1206,8 +1188,7 @@ ______________________________________________________________________
     correspondant.
 ```
 
-```{eval-rst}
-.. exercise:: Somme des entiers
+```{exercise} Somme des entiers
 
     Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
 
@@ -1251,8 +1232,7 @@ ______________________________________________________________________
             }
 ```
 
-```{eval-rst}
-.. exercise:: Système de vision industriel
+```{exercise} Système de vision industriel
 
     La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
@@ -1295,8 +1275,7 @@ ______________________________________________________________________
                percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
 ```
 
-```{eval-rst}
-.. exercise:: Missile Patriot
+```{exercise} Missile Patriot
 
     Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 

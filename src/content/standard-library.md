@@ -1,4 +1,4 @@
-# Bibliothèques
+## Bibliothèques
 
 :::{figure} ../../assets/images/library.*
 Bibliothèque du Trinity College de Dublin
@@ -12,19 +12,19 @@ Une *library*, à l'instar d'une bibliothèque, contient du contenu (livre écri
 
 Dans ce chapitre on donnera plusieurs exemples sur un environnement POSIX. Sous Windows, les procédures choses sont plus compliquées, mais les concepts restent les mêmes.
 
-## Exemple: libgmp
+### Exemple: libgmp
 
 Voyons ensemble le cas de [libgmp](https://packages.debian.org/buster/libgmp-dev). Il s'agit d'une bibliothèque de fonctionnalités très utilisée et permettant le calcul arithmétique multiprécision en C. En observant le détail du paquet logiciel Debian on peut lire que `libgmp` est disponible pour différentes architectures `amd64`, `arm64`, `s390x`, `i386`, ... Un développement sur un Raspberry-PI nécessitera `arm64` alors qu'un développement sur un PC utilisera `amd64`. En [cliquant](https://packages.debian.org/buster/amd64/libgmp-dev/filelist) sur l'architecture désirée on peut voir que ce paquet se compose des fichiers suivants (list réduite aux fichiers concernant C :
 
 ```
-# Fichier d'en-tête C
+## Fichier d'en-tête C
 /usr/include/x86_64-linux-gnu/gmp.h
 
-# Bibliothèque compilée pour l'architecture visée (ici amd64)
+## Bibliothèque compilée pour l'architecture visée (ici amd64)
 /usr/lib/x86_64-linux-gnu/libgmp.a
 /usr/lib/x86_64-linux-gnu/libgmp.so
 
-# Documentation de la libgmp
+## Documentation de la libgmp
 /usr/share/doc/libgmp-dev/AUTHORS
 /usr/share/doc/libgmp-dev/README
 /usr/share/doc/libgmp-dev/changelog.gz
@@ -56,7 +56,7 @@ Puis on compile :
 ```console
 $ gcc gmp.c
 gmp.c:1:10: fatal error: gmp.h: No such file or directory
-#include <gmp.h>
+##include <gmp.h>
         ^~~~~~~
 compilation terminated.
 ```
@@ -117,20 +117,20 @@ $ gcc gmp.c /usr/lib/x86_64-linux-gnu/libgmp.a
 C'est-à-dire qu'à la compilation toutes les fonctionnalités ont été intégrées à l'exécutable et il ne dépend de plus rien d'autre que le système d'exploitation. Je peux prendre ce fichier le donner à quelqu'un qui utilise la même architecture et il pourra l'exécuter. En revanche, la taille du programme est plus grosse :
 
 ```console
-# ~167 KiB
+## ~167 KiB
 $ gcc gmp.c -l:libgmp.a
 $ size a.out
 text    data     bss     dec     hex filename
 155494     808      56  156358   262c6 ./a.out
 
-# ~8.5 KiB
+## ~8.5 KiB
 $ gcc gmp.c -lgmp
 $ size a.out
 text    data     bss     dec     hex filename
 2752     680      16    3448     d78 ./a.out
 ```
 
-## Exemple: ncurses
+### Exemple: ncurses
 
 La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses) traduction de *nouvelles malédictions* est une évolution de [curses](https://fr.wikipedia.org/wiki/Curses) développé originellement par [Ken Arnold](https://en.wikipedia.org/wiki/Ken_Arnold) . Il s'agit d'une bibliothèque pour la création d'interfaces graphique en ligne de commande, toujours très utilisée.
 
@@ -145,7 +145,7 @@ Exemple d'interface graphique écrite avec `ncurses`. Ici la configuration du no
 L'écriture d'un programme Hello World avec cette bibliothèque pourrait être :
 
 ```c
-#include <ncurses.h>
+##include <ncurses.h>
 
 int main()
 {
@@ -168,7 +168,7 @@ La compilation n'est possible que si :
 $ gcc ncurses-hello.c -ohello -lncurses
 ```
 
-## Bibliothèques statiques
+### Bibliothèques statiques
 
 Une *static library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
 
@@ -210,7 +210,7 @@ $ gcc encrypt.c -I. -L. -l:caesar.a
 
 La procédure sous Windows est plus compliquée et ne sera pas décrite ici.
 
-## Bibliothèques dynamiques
+### Bibliothèques dynamiques
 
 Une *dynamic library* est un fichier binaire compilé pour une architecture donnée et portant les extensions :
 
@@ -246,7 +246,7 @@ $ LIBRARY_PATH=$(pwd .) ./a.out Hey?
 cannot open shared object file: No such file or directory
 ```
 
-## Bibliothèques standard
+### Bibliothèques standard
 
 Les bibliothèques standard ([C standard library](https://fr.wikipedia.org/wiki/Biblioth%C3%A8que_standard_du_C)) sont une collection normalisée d'en-têtes portables. C'est à dire que quelque soit le compilateur et l'architecture cible, cette collection sera accessible.
 
@@ -300,8 +300,7 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
 
 : Accès au fonctions lecture et de conversion de date et d'heure.
 
-```{eval-rst}
-.. exercise:: Arc-cosinus
+```{exercise} Arc-cosinus
 
     La fonction Arc-Cosinus ``acos`` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension ``.h``.
 
@@ -348,17 +347,16 @@ Le standard **C99** définit un certain nombre d'en-têtes dont les plus utilis�
         Sous Windows avec Visual Studio, il suffit d'écrire ``acos`` dans un fichier source et d'appuyer sur ``F1``. L'IDE redirige l'utilisateur sur l'aide Microsoft `acos-acosf-acosl <https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl>`__ qui indique que le header source est ``<math.h>``.
 ```
 
-```{eval-rst}
-.. exercise:: Date
+```{exercise} Date
 
     Lors du formatage d'une date, on y peut y lire ``%w``, par quoi sera remplacé ce *token* ?
 ```
 
-### Fonctions d'intérêt
+#### Fonctions d'intérêt
 
 Il serait inutile ici de lister toutes les fonctions, les bibliothèques standard étant largement documentées sur internet. Il ne fait aucun doute que le développeur sera trouver comment calculer un sinus avec la fonction `sin`. Néanmoins l'existence de certaines fonctions peut passer inaperçues et c'est de celles-ci don't j'aimerais parler.
 
-#### Math
+##### Math
 
 ```{eval-rst}
 .. table:: Constantes mathématiques
@@ -409,7 +407,7 @@ Notons par exemple que la fonction `hypot` peut très bien être émulée facile
 
 Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
 
-#### Chaînes de caractères
+##### Chaînes de caractères
 
 `strcopy(dst, src)`
 
@@ -421,7 +419,7 @@ Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables
 : Identique à `memcpy` mais traite les cas particuliers lorsque
   les deux régions mémoire se superposent.
 
-#### Types de données
+##### Types de données
 
 Test d'une propriété d'un caractère passé en paramètre
 
@@ -455,7 +453,7 @@ Test d'une propriété d'un caractère passé en paramètre
     +--------------+------------------------------------------+
 ```
 
-#### Limites
+##### Limites
 
 ```{eval-rst}
 .. table:: Valeurs limites pour les entiers signés et non signés
@@ -489,14 +487,14 @@ Test d'une propriété d'un caractère passé en paramètre
     +------------------+---------------+
 ```
 
-## Autres bibliothèques
+### Autres bibliothèques
 
 - GNU C Library ([glibc](https://www.gnu.org/software/libc/))
   \- C11
   \- POSIX.1-2008
   \- IEEE 754-2008
 
-### POSIX C Library
+#### POSIX C Library
 
 Le standard C ne définit que le minimum vital et qui est valable sur toutes les architectures pour autant que la *toolchain* soit compatible **C99**. Il existe néanmoins toute une collection d'autres fonctions manquantes :
 
@@ -524,11 +522,11 @@ Le support POSIX sous Windows (Win32) n'est malheureusement que partiel et il n'
 
 Un point d'entrée de l'API POSIX est la bibliothèque `<unistd.h>`.
 
-### GNU GLIBC
+#### GNU GLIBC
 
 La bibliothèque portable [GNULIB](https://www.gnu.org/software/gnulib/) est la bibliothèque standard référencée sous Linux par `libc6`.
 
-### Windows C library
+#### Windows C library
 
 La bibliothèque Windows [Windoes API](https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list) offre une interface au système de fichier, au registre Windows, aux imprimantes, à l'interface de fenêtrage, à la console et au réseau.
 

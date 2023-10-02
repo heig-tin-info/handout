@@ -1,4 +1,4 @@
-# Structures de contrôle
+## Structures de contrôle
 
 Les structures de contrôle appartiennent aux langages de programmation dits [structurés](https://fr.wikipedia.org/wiki/Programmation_structur%C3%A9e). Elles permettent de modifier l'ordre des opérations lors de l'exécution du code. Il y a trois catégories de structures de contrôle en C :
 
@@ -15,7 +15,7 @@ Ces structures de contrôles sont toujours composées de :
 
 Sans {index}`structure de contrôle`, un programme se comportera toujours de la même manière et ne pourra pas être sensible à des évènement extérieurs puisque le flux d'exécution ne pourra pas être modifié conditionnellement.
 
-## Séquences
+### Séquences
 
 En C, chaque instruction est séparée de la suivante par un point virgule `;` ({unicode}`U+003B`):
 
@@ -36,7 +36,7 @@ Une {index}`séquence` est une suite d'instructions regroupées en un bloc maté
 N'allez pas confondre le point virgule `;` ({unicode}`U+003B`) avec le `;` ({unicode}`U+037E`), le point d'interrogation grec (ερωτηματικό). Certains farceurs aiment à le remplacer dans le code de camarades ce qui génère naturellement des erreurs de compilation.
 :::
 
-## Les embranchements
+### Les embranchements
 
 ```{index} embranchement
 ```
@@ -67,7 +67,7 @@ else
 }
 ```
 
-### if..else
+#### if..else
 
 ```{index} if..else, if, else
 ```
@@ -159,8 +159,7 @@ else
 }
 ```
 
-```{eval-rst}
-.. exercise:: Et si?
+```{exercise} Et si?
 
     Comment se comporte l'exemple suivant :
 
@@ -170,12 +169,9 @@ else
             printf("i is %d\n", i);
 ```
 
-```{eval-rst}
-.. exercise:: D'autres si?
+```{exercise} D'autres si?
 
     Compte tenu de la déclaration ``int i = 8;``, indiquer pour chaque expression si elles impriment ou non ``i vaut 8``:
-
-    .. todo:: Fix box around code...
 
     #. .. code-block:: c
 
@@ -253,7 +249,7 @@ selection_statement
 
 (switch)=
 
-### `switch`
+#### `switch`
 
 ```{index} switch
 ```
@@ -333,7 +329,7 @@ Notons quelques observations :
 - Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement e.g. `{12, 13, 14, 15}`.
 - L'ordre des cas d'un `switch` n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.
 
-## Les boucles
+### Les boucles
 
 :::{figure} ../../assets/images/road-runner.*
 Bien choisir sa structure de contrôle
@@ -352,7 +348,7 @@ Une {index}`boucle` est une structure itérative permettant de répéter l'exéc
 Aperçu des trois structure de boucles
 :::
 
-### while
+#### while
 
 La structure `while` répète une séquence **tant que** la condition est vraie.
 
@@ -368,8 +364,7 @@ while (get_weight() < 420 /* newtons */)
 
 Séquentiellement une boucle `while` teste la condition, puis exécute la séquence associée.
 
-```{eval-rst}
-.. exercise:: Tant que...
+```{exercise} Tant que...
 
     Comment se comportent ces programmes :
 
@@ -382,7 +377,7 @@ Séquentiellement une boucle `while` teste la condition, puis exécute la séque
     #. ``i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }``
 ```
 
-### do..while
+#### do..while
 
 De temps en temps il est nécessaire de tester la condition à la sortie de la séquence et non à l'entrée. La boucle `do`...`while` permet justement ceci :
 
@@ -397,7 +392,7 @@ do {
 
 Contrairement à la boucle `while`, la séquence est ici exécutée **au moins une fois**.
 
-### for
+#### for
 
 La boucle `for` est un `while` amélioré qui permet en une ligne de résumer les conditions de la boucle :
 
@@ -438,8 +433,7 @@ for (; get_weight() < 420 ;)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Pour quelques tours
+```{exercise} Pour quelques tours
 
     Comment est-ce que ces expressions se comportent-elles ?
 
@@ -457,8 +451,7 @@ for (; get_weight() < 420 ;)
     #. :code:`for (i = 12, k = 1; k++ < 5 ; k++, printf("%i\n", i-- ));`
 ```
 
-```{eval-rst}
-.. exercise:: Erreur
+```{exercise} Erreur
 
     Identifier les deux erreurs dans ce code suivant :
 
@@ -468,8 +461,7 @@ for (; get_weight() < 420 ;)
             printf("%d\n", i);
 ```
 
-```{eval-rst}
-.. exercise:: De un à cent
+```{exercise} De un à cent
 
     Écrivez un programme affichant les entiers de 1 à 100 en employant :
 
@@ -480,8 +472,7 @@ for (; get_weight() < 420 ;)
     Quelle est la structure de contrôle la plus adaptée à cette situation ?
 ```
 
-```{eval-rst}
-.. exercise:: Opérateur virgule dans une boucle
+```{exercise} Opérateur virgule dans une boucle
 
     Expliquez quelle est la fonctionnalité globale du programme ci-dessous :
 
@@ -495,7 +486,7 @@ for (; get_weight() < 420 ;)
     Proposer une meilleure implémentation de ce programme.
 ```
 
-### Boucles infinies
+#### Boucles infinies
 
 Une boucle infinie n'est jamais terminée. On rencontre souvent ce type de boucle dans ce que l'on appelle à tort *La boucle principale* aussi nommée [run loop](https://en.wikipedia.org/wiki/Event_loop). Lorsqu'un programme est exécuté *bare-metal*, c'est à dire directement à même le microcontrôleur et sans système d'exploitation, il est fréquent d'y trouver une fonction `main` telle que :
 
@@ -537,9 +528,9 @@ while (true) { /* ... */ }
 Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c.f. {numref}`signals`). On rajoute alors une condition de sortie à la boucle principale :
 
 ```c
-#include <stdlib.h>
-#include <signal.h>
-#include <stdbool.h>
+##include <stdlib.h>
+##include <signal.h>
+##include <stdbool.h>
 
 static volatile bool is_running = true;
 
@@ -561,7 +552,7 @@ int main(void)
 }
 ```
 
-## Les sauts
+### Les sauts
 
 Il existe 4 instructions en C permettant de contrôler le déroulement de
 l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un autre endroit du programme.
@@ -574,7 +565,7 @@ l'exécution d'un programme. Elles déclenchent un saut inconditionnel vers un a
 - `goto`: interrompt l'exécution et saute à un label situé ailleurs dans la fonction
 - `return`
 
-### `goto`
+#### `goto`
 
 Il s'agit de l'instruction la plus controversée en C. Cherchez sur internet et les détracteurs sont nombreux, et ils ont partiellement raison, car dans la très vaste majorité des cas où vous pensez avoir besoin de `goto`, une autre solution plus élégante existe.
 
@@ -585,7 +576,7 @@ Néanmoins, il est important de comprendre que `goto` était dans certain langag
 L'un des seuls cas de figure autorisés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retours existent dans une fonction ceci évitant de répéter du code :
 
 ```
-#include <time.h>
+##include <time.h>
 
 int parse_message(int message)
 {
@@ -608,7 +599,7 @@ int parse_message(int message)
 }
 ```
 
-### `continue`
+#### `continue`
 
 Le mot clé `continue` ne peut exister qu'à l'intérieur d'une boucle. Il permet d'interrompre le cycle en cours et directement passer au cycle suivant.
 
@@ -640,11 +631,11 @@ while (true)
 }
 ```
 
-### `break`
+#### `break`
 
 Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avions déjà évoqué l'utilisation dans un `switch` (c.f. {numref}`switch`).
 
-### `return`
+#### `return`
 
 Le mot clé `return` suivi d'une valeur de retour ne peut apparaître que dans une fonction dont le type de retour n'est pas `void`. Ce mot-clé permet de stopper l'exécution d'une fonction et de retourner à son point d'appel.
 
@@ -668,8 +659,7 @@ void unlock(int password)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Faute d'erreur
+```{exercise} Faute d'erreur
 
     Considérons les déclarations suivantes :
 
@@ -719,8 +709,7 @@ void unlock(int password)
             }
 ```
 
-```{eval-rst}
-.. exercise:: Cas appropriés
+```{exercise} Cas appropriés
 
     Parmi les cas suivants, quelle structure de contrôle utiliser ?
 
@@ -790,8 +779,7 @@ void unlock(int password)
                );
 ```
 
-```{eval-rst}
-.. exercise:: Comptons sur les caractères
+```{exercise} Comptons sur les caractères
 
     Un texte est passé à un programme par ``stdin``. Comptez le nombre de caractères transmis.
 
@@ -801,8 +789,7 @@ void unlock(int password)
         11
 ```
 
-```{eval-rst}
-.. exercise:: Esperluette conditionnelle
+```{exercise} Esperluette conditionnelle
 
     Quel est le problème avec cette ligne de code ?
 

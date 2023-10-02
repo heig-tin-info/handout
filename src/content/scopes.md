@@ -1,4 +1,4 @@
-# Portée et visibilité
+## Portée et visibilité
 
 Ce chapitre se concentre sur quatre caractéristiques d'une variable :
 
@@ -13,7 +13,7 @@ Dans les quatre cas, elles décrivent l'accessibilité, c'est à dire jusqu'à o
 Brouillard matinal sur le [Golden Gate Bridge](https://fr.wikipedia.org/wiki/Golden_Gate_Bridge), San Francisco.
 :::
 
-## Espace de nommage
+### Espace de nommage
 
 L'espace de nommage ou `namespace` est un concept différent de celui existant dans d'autres langages tel que C++. Le standard **C99** décrit 4 types possibles pour un identifiant :
 
@@ -21,7 +21,7 @@ L'espace de nommage ou `namespace` est un concept différent de celui existant d
 - noms de structures (`struct`), d'unions (`union`), d'énumération (`enum`),
 - identifiants
 
-## Portée
+### Portée
 
 La portée ou [scope](<https://en.wikipedia.org/wiki/Scope_(computer_science)>) décrit jusqu'à où une variable est accessible.
 
@@ -46,7 +46,7 @@ int main(int)
 }
 ```
 
-### Variable shadowing
+#### Variable shadowing
 
 On dit qu'une variable est *shadowed* ou *masquée* si sa déclaration masque une variable préalablement déclarée :
 
@@ -60,7 +60,7 @@ for(size_t i = 0; i < 10; i++) {
 printf("%d", i); // Accès à `i = 23`
 ```
 
-## Visibilité
+### Visibilité
 
 Selon l'endroit où est déclarée une variable, elle ne sera pas nécessairement visible partout ailleurs. Une variable **locale** n'est accessible qu'à partir de sa déclaration et jusqu'à la fin du bloc dans laquelle elle est déclarée.
 
@@ -86,7 +86,7 @@ Une variable déclarée globalement, c'est à dire en dehors d'une fonction à u
 En revanche la variable `j`, bien qu'elle ait ait une durée de vie sur toute l'exécution du programme et que sa portée est globale, elle ne pourra être accédée depuis `main` car elle n'est pas visible.
 
 ```text
-#include <stdio.h>
+##include <stdio.h>
                              //  i
 int i;                       //  ┬
                              //  │
@@ -100,7 +100,7 @@ int j;                       //  ┴ ┬
 Le mot clé `extern` permet non pas de déclarer la variable `j` mais de renseigner le compilateur qu'il existe *ailleurs* une variable `j`. C'est ce que l'on appelle une déclaration avancée ou *forward-declaration*. Dans ce cas, bien que `j` soit déclaré après la fonction principale, elle est maintenant visible.
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
                         // j
 extern int j;           // ┬   Déclaration en amont de `j`
@@ -144,13 +144,13 @@ Dans le cas où l'on voudrait restreindre l'accessibilité d'une variable au mod
 
 En écrivant `static int foo;` dans `foo.c`, la variable n'est plus accessible en dehors du module même avec une déclaration en avance. On dit que sa portée est réduite au module.
 
-## Qualificatif de type
+### Qualificatif de type
 
 Les variables en C peuvent être créées de différentes manières. Selon la manière dont elles pourront être utilisées, il est courant de les classer en catégories.
 
 Une classe de stockage peut être implicite à une déclaration de variable ou explicite, en ajoutant un attribut devant la déclaration de celle-ci.
 
-### `auto`
+#### `auto`
 
 ```{index} auto
 ```
@@ -166,7 +166,7 @@ auto type identificateur = valeur_initiale;
 Pour les variables automatiques, le mot-clé *auto* n'est pas
 obligatoire, et n'est pas recommandé en **C99**, car son utilisation est implicite.
 
-### `register`
+#### `register`
 
 ```{index} classe de stockage; register, register
 ```
@@ -175,14 +175,14 @@ Ce mot clé incite le compilateur à utiliser un registre processeur pour stocke
 
 Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de boucles. La traditionnelle variable `i` utilisée dans les boucles `for` était déclarées `register int i = 0;`. Les compilateurs modernes savent aujourd'hui identifier les variables les plus souvent utilisées. L'usage de ce mot clé n'est donc plus recommandé depuis **C99**.
 
-### `const`
+#### `const`
 
 ```{index} classe de stockage; const, const
 ```
 
 Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type `const` pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.
 
-### `static`
+#### `static`
 
 ```{index} classe de stockage; static, static
 ```
@@ -207,7 +207,7 @@ La fonction suivante est *statique* au module dans lequel elle est déclarée. I
 static int add(int a, int b) { return a + b; }
 ```
 
-### `volatile`
+#### `volatile`
 
 ```{index} classe de stockage; volatile, volatile
 ```
@@ -219,7 +219,7 @@ L'usage de cette classe de stockage réduit les performances d'un programme puis
 Considérons le cas du progamme suivant :
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main() {
     int i = 0;
@@ -297,7 +297,7 @@ Les lignes ont disparues !
 Afin d'éviter cette optimisation il faut marquer la variable `i` comme `volatile`:
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main() {
     volatile int i = 0;
@@ -311,7 +311,7 @@ int main() {
 }
 ```
 
-### `extern`
+#### `extern`
 
 ```{index} classe de stockage; extern, extern
 ```
@@ -322,7 +322,7 @@ Cette classe est utilisée pour signaler que la variable ou la fonction associé
 extern int foo;
 ```
 
-### `restrict`
+#### `restrict`
 
 ```{index} classe de stockage; restrict, restrict
 ```

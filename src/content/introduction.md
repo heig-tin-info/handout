@@ -1,8 +1,8 @@
-# Introduction
+## Introduction
 
 (thompson)=
 
-## Historique
+### Historique
 
 Le langage de programmation **C** est la suite naturelle du langage **B** créé dans la toute fin des années soixante par un grand pionnier de l'informatique moderne: [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson).
 
@@ -53,7 +53,7 @@ Les pères fondateurs du C
 ```{index} standardisation
 ```
 
-## Standardisation
+### Standardisation
 
 Vous l'aurez compris à lecture de cette introduction, le langage C possède un grand historique, et il a fallu attendre près de 20 ans après sa création pour voir apparaître la première standardisation internationale.
 
@@ -103,8 +103,7 @@ Vous entendrez ou lirez souvent des références à **ANSI C** ou **K&R**, préf
 
 Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'aurez probablement jamais le moindre plaisir à y plonger les yeux. L'investissement est pourtant parfois nécessaire pour comprendre certaines subtilités du langage qui sont rarement expliquées dans les livres. Pourquoi diable écrire un livre qui détaille l'implémentation C alors qu'il existe déjà ?
 
-```{eval-rst}
-.. exercise:: Standardisation
+```{exercise} Standardisation
 
     Ouvrez le standard `C99 <http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf>`__ et cherchez la valeur maximale possible de la constante ``ULLONG_MAX``. Que vaut-elle ?
 
@@ -113,7 +112,7 @@ Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'
         Au paragraphe §5.2.4.2.1-1 on peut lire que ``ULLONG_MAX`` est encodé sur 64-bits et donc que sa valeur est :math:`2^{64}-1` donc `18'446'744'073'709'551'615`.
 ```
 
-## Environnement de développement
+### Environnement de développement
 
 Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les *smartphones* disposent aujourd'hui d'une fonctionnalité de suggestion automatique de mots; les éditeurs de texte orienté programmation disposent de fonctionnalités similaires qui complètent automatiquement le code selon le contexte.
 
@@ -187,8 +186,7 @@ Représentation graphique des notions de compilateur, IDE, toolchain...
 
 : Prononcé "hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
 
-```{eval-rst}
-.. exercise:: Eclipse
+```{exercise} Eclipse
 
     Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
 
@@ -200,7 +198,7 @@ Représentation graphique des notions de compilateur, IDE, toolchain...
 ```{index} anglais
 ```
 
-## L'Anglais
+### L'Anglais
 
 En programmation, quel que soit le langage utilisé, la langue **anglaise** est omniprésente. D'une part les mots clés des langages de programmation sont majoritairement empruntés à l'anglais, mais souvent les outils de développement ne sont disponibles qu'en anglais. Il existe une raison à cela. Un article de journal publié dans une revue locale sera certainement lu par madame Machin et monsieur Bidule, mais n'aura aucun intérêt pour les habitants de l'antipode néo-zélandais. En programmation, le code se veut **réutilisable** pour économiser des coûts de développement. On réutilise ainsi volontiers des algorithmes écrits par un vénérable japonais, ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour faciliter la mise en commun de ces différents blocs logiciels et surtout pour que chacun puisse dépanner le code des autres, il est essentiel qu'une langue commune soit choisie et l'anglais est le choix le plus naturel.
 
@@ -227,8 +225,7 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 
 : La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements macOS/Linux/Unix et POSIX compatible.
 
-```{eval-rst}
-.. exercise:: Pêche
+```{exercise} Pêche
 
     Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
@@ -245,7 +242,7 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 ```{index} pêcher
 ```
 
-## Apprendre à pêcher
+### Apprendre à pêcher
 
 Un jeune homme s'en va à la mer avec son père et lui demande: papa, j'ai faim, comment ramènes-tu du poisson? Le père fier, lance sa ligne à la mer et lui ramène un beau poisson. Plus tard, alors que le jeune homme revient d'une balade sur les estrans, il demande à son père: papa, j'ai faim, me ramènerais-tu du poisson? Le père, sort de son étui sa plus belle canne et l'équipant d'un bel hameçon lance sa ligne à la mer et ramène un gros poisson. Durant longtemps, le jeune homme mange ainsi à sa faim cependant que le père ramène du poisson pour son fils.
 
@@ -259,7 +256,7 @@ Aussi, cet ouvrage se veut être un guide pour apprendre à apprendre le dévelo
 
 (structured-text)=
 
-## Programmation texte structurée
+### Programmation texte structurée
 
 ```{index} alphabet
 ```
@@ -300,7 +297,7 @@ Les grammaires des langages de programmation sont souvent formalisées à l'aide
 
 (paradigms)=
 
-## Les paradigmes de programmation
+### Les paradigmes de programmation
 
 Chaque langage de programmation que ce soit C, C++, Python, ADA, COBOL et Lisp sont d'une manière générale assez proche les uns des autres. Nous citions par exemple le langage B, précurseur du C (c.f. {numref}`thompson`). Ces deux langages, et bien que leurs syntaxes soient différentes, ils demeurent assez proches, comme l'espagnol et l'italien qui partagent des racines latines. En programmation on dit que ces langages partagent le même [paradigme de programmation](<https://fr.wikipedia.org/wiki/Paradigme_(programmation)>).
 
@@ -335,7 +332,7 @@ Des langages de plus haut niveau comme Python ou C# apportent davantage de parad
 ```{index} cycle de développement
 ```
 
-## Cycle de développement
+### Cycle de développement
 
 ```{index} transcription
 ```
@@ -360,7 +357,7 @@ Le modèle en cascade suivant résume le cycle de développement d'un programme.
 Modèle en cascade
 :::
 
-## Cycle de compilation
+### Cycle de compilation
 
 Le langage C à une particularité que d'autres langages n'ont pas, c'est-à-dire qu'il comporte une double grammaire. Le processus de compilation s'effectue donc en deux passes.
 
@@ -380,7 +377,7 @@ Voyons plus en détail chacune de ces étapes.
 ```{index} préprocesseur
 ```
 
-### Préprocesseur (*pre-processing*)
+#### Préprocesseur (*pre-processing*)
 
 La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise :
 
@@ -398,7 +395,7 @@ Processus de pré-processing
 ```{index} build
 ```
 
-### Compilation (*build*)
+#### Compilation (*build*)
 
 La phase de compilation consiste en une analyse syntaxique du fichier à compiler puis en sa traduction en langage assembleur pour le processeur cible. Le fichier généré est un fichier binaire (extension `.o` ou `.obj`) qui sera utilisé pour la phase suivante. Lors de la *compilation*, des erreurs peuvent survenir et empêcher le déroulement complet de la génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
 
@@ -415,7 +412,7 @@ Traduction d'un programme C pré-processé en objet binaire
 ```{index} link
 ```
 
-### Édition de liens (*link*)
+#### Édition de liens (*link*)
 
 La phase d'édition de liens permet de rassembler le fichier binaire issu de la compilation et les autres fichiers binaires nécessaires au programme pour former un exécutable complet. Les autres fichiers binaires sont appelés des **librairies**. Elles peuvent appartenir au système (installée avec l'environnement de développement) ou provenir d'autres applications avec lesquelles votre programme doit interagir. Lors de l'édition de liens, des erreurs peuvent survenir et empêcher le
 déroulement complet de génération de l'exécutable final. Là encore, la correction des erreurs passe toujours par un examen minutieux des messages d'erreur, en commençant toujours par le premier.
@@ -424,7 +421,7 @@ déroulement complet de génération de l'exécutable final. Là encore, la corr
 Édition des liens de plusieurs objets
 :::
 
-## Une affaire de consensus
+### Une affaire de consensus
 
 En informatique comme dans la société humaine, il y a les religieux, les prosélytes, les dogmatiques, les fanatiques, les contestataires et les maximalistes. Le plus souvent les motifs de fâcheries concernent les outils que ces derniers utilisent et ceux dont on doit taire le nom. Ils se portent parfois sur les conventions de codage à respecter, l'encodage des fichiers, le choix de l'[EOL](https://fr.wikipedia.org/wiki/Fin_de_ligne), l'interdiction du `goto`, le respect inconditionnel des règles [MISRA](https://en.wikipedia.org/wiki/MISRA_C). Il existe ainsi de longues guerres de croyances, parfois vielles de plusieurs générations et qui perdurent souvent par manque d'ouverture d'esprit et surtout parce que la bonne attitude à adopter n'est pas enseignée dans les écoles supérieures là où les dogmes s'établissent et pénètrent les esprits dociles, faute au biais d'[ancrage mental](<https://fr.wikipedia.org/wiki/Ancrage_(psychologie)>). L'enseignant devrait être sensible à ces aspects fondamentaux et devrait viser l'impartialité en visant l'ouverture l'esprit et le culte du bon sens de l'ingénieur.
 
@@ -454,7 +451,7 @@ En somme, restez ouvert aux autres points de vues, cherchez à adopter le consen
 
 (hello)=
 
-## Hello World!
+### Hello World!
 
 Il est traditionnellement coutume depuis la publication en 1978 du livre [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language) de reprendre l'exemple de Brian Kernighan comme premier programme.
 
@@ -480,7 +477,7 @@ La première étape est de s'assurer que le fichier `test.c` contient bien notre
 
 ```console
 $ cat hello.c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void)
 {
@@ -543,8 +540,7 @@ a.out         Nom du fichier
 
 % Liste des exercices du chapitre:
 
-```{eval-rst}
-.. exercise:: Auteurs
+```{exercise} Auteurs
 
     Qui a inventé le C ?
 
@@ -553,8 +549,7 @@ a.out         Nom du fichier
         Brian Kernighan et Dennis Ritchie en 1972
 ```
 
-```{eval-rst}
-.. exercise:: Standardisation
+```{exercise} Standardisation
 
     Quel est le standard C à utiliser en 2021 et pourquoi ?
 
@@ -566,8 +561,7 @@ a.out         Nom du fichier
         que d'adopter un standard plus récent qui n'apporte que peu de changements.
 ```
 
-```{eval-rst}
-.. exercise:: Paradigmes
+```{exercise} Paradigmes
 
     Quels sont les paradigmes de programmation supportés par C ?
 
@@ -576,8 +570,7 @@ a.out         Nom du fichier
         C supporte les paradigmes impératifs, structurés et procédural.
 ```
 
-```{eval-rst}
-.. exercise:: Langage impératif
+```{exercise} Langage impératif
 
     Pourriez-vous définir ce qu'est la programmation impérative ?
 
@@ -587,8 +580,7 @@ a.out         Nom du fichier
         C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
 ```
 
-```{eval-rst}
-.. exercise:: Coulée de lave
+```{exercise} Coulée de lave
 
     Qu'est-ce qu'une coulée de lave en informatique ?
 
@@ -602,8 +594,7 @@ a.out         Nom du fichier
         Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
 ```
 
-```{eval-rst}
-.. exercise:: Cat
+```{exercise} Cat
 
     Qu'est-ce que ``cat``?
 

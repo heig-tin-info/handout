@@ -1,9 +1,6 @@
-# Types composites
+## Types composites
 
-```{index} struct
-```
-
-## Tableaux
+### Tableaux
 
 Les [tableaux](<https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn%C3%A9es)>) (*arrays*) représentent une séquence finie d'éléments d'un type donné que l'on peut accéder par leur position (indice) dans la séquence. Un tableau est par conséquent une liste indexée de variable du même type.
 
@@ -57,81 +54,83 @@ int main(void) {
 
 Un fait remarquable est que l'opérateur `[]` est commutatif. En effet, l'opérateur *crochet* est un sucre syntaxique :
 
-% code-block::c
-%
-% a[b] == *(a + b)
+```c
+a[b] == *(a + b)
+```
 
 Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
-% code-block::c
-%
-% a[1][2] == *(*(a + 1) + 2))
+```c
+a[1][2] == *(*(a + 1) + 2))
+```
 
-```{eval-rst}
-.. exercise:: Assignation
-
+```{exercise} Assignation
+:label: assignation
     Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
 
-    .. solution::
+````{solution} assignation
+:label: solution-assignation
 
-        .. code-block:: c
+```{code-block} c
+int8_t a[50];
+for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
+    a[i] = i;
+}
+```
+````
 
-            int8_t a[50];
-            for (size_t i = 0; i < sizeof(a) / sizeof(a[0]; i++) {
-                a[i] = i;
-            }
+````{exercise} Première position
+:label: premiere-position
+
+Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
+
+Traitez les cas particuliers.
+
+```{code-block} c
+int index_of(int *array, size_t size, int search);
+```
+````
+
+````{solution} premiere-position
+:label: solution-premiere-position
+
+```{code-block} c
+int index_of(int *array, size_t size, int search) {
+    int i = 0;
+    while (i < size && array[i++] != search);
+    return i == size ? -1 : i;
+}
+```
+````
+
+````{exercise} Déclarations de tableaux
+:label: declarations-de-tableaux
+
+Considérant les déclarations suivantes :
+
+```{code-block} c
+    #define LIMIT 10
+    const int twelve = 12;
+    int i = 3;
 ```
 
-```{eval-rst}
-.. exercise:: Première position
+Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
 
-    Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
-
-    Traitez les cas particuliers.
-
-    .. code-block:: c
-
-        int index_of(int *array, size_t size, int search);
-
-    .. solution::
-
-        .. code-block:: c
-
-            int index_of(int *array, size_t size, int search) {
-                int i = 0;
-                while (i < size && array[i++] != search);
-                return i == size ? -1 : i;
-            }
+```{code-block} c
+    int t(3);
+    int k, t[3], l;
+    int i[3], l = 2;
+    int t[LIMITE];
+    int t[i];
+    int t[douze];
+    int t[LIMITE + 3];
+    float t[3, /* five */ 5];
+    float t[3]        [5];
 ```
+````
 
-```{eval-rst}
-.. exercise:: Déclarations de tableaux
-
-    Considérant les déclarations suivantes :
-
-    .. code-block:: c
-
-        #define LIMIT 10
-        const int twelve = 12;
-        int i = 3;
-
-    Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
-
-    .. code-block:: c
-
-        int t(3);
-        int k, t[3], l;
-        int i[3], l = 2;
-        int t[LIMITE];
-        int t[i];
-        int t[douze];
-        int t[LIMITE + 3];
-        float t[3, /* five */ 5];
-        float t[3]        [5];
-```
-
-```{eval-rst}
-.. exercise:: Comparaisons
+````{exercise} Comparaisons
+:label: exercise-comparaisons
 
     Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
 
@@ -146,134 +145,137 @@ Et cela fonctionne même avec les tableaux à plusieurs dimensions :
 
     Le prototype de la fonction à écrire est :
 
-    .. code-block:: c
-
+    ```{code-block} c
         int comp(char a[], char b[], size_t length);
+    ```
+````
 
-    .. solution::
+````{solution} exercise-comparaisons
+:label: solution-exercise-comparaisons
 
-        .. code-block:: c
+```{code-block} c
+int comp(char a[], char b[], size_t length) {
+    int sum_a = 0, sum_b = 0;
 
-            int comp(char a[], char b[], size_t length) {
-                int sum_a = 0, sum_b = 0;
+    for (size_t i = 0; i < length; i++) {
+        sum_a += a[i];
+        sum_b += b[i];
+    }
 
-                for (size_t i = 0; i < length; i++) {
-                    sum_a += a[i];
-                    sum_b += b[i];
-                }
+    return sum_b - sum_a;
+}
+```
+````
 
-                return sum_b - sum_a;
-            }
+````{exercise} Le plus grand et le plus petit
+:label: exercise-le-plus-grand-et-le-plus-petit
+
+Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
+
+Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
+
+Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
+
+```{code-block} c
+1931
+1986
+1996
+1981
+1979
+1999
+2004
+1978
+1964
+```
+Votre programme sera exécuté comme suit :
+
+```{code-block} c
+$ cat years.txt | marmite
+2004
+1931
+```
+````
+
+````{exercise} L'index magique
+:label: exercise-l-index-magique
+
+Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+
+Exemple :
+
+```{code-block} text
+    0   1   2   3   4   5   6   7   8   9   10
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                    ^
+```
+````
+
+````{solution} exercise-l-index-magique
+:label: solution-l-index-magique
+
+Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
+
+```{code-block} c
+int magic_index(int[] array) {
+    const size_t size = sizeof(array) / sizeof(array[0]);
+
+    size_t i = 0;
+
+    while (i < size && array[i] != i) i++;
+
+    return i == size ? -1 : i;
+}
 ```
 
-```{eval-rst}
-.. exercise:: Le plus grand et le plus petit
+La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
 
-    Dans le canton de Genève, il existe une tradition ancestrale: l'`Escalade <https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)>`__. En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
+Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
 
-    Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
-
-    Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
-
-    .. code-block:: text
-
-        1931
-        1986
-        1996
-        1981
-        1979
-        1999
-        2004
-        1978
-        1964
-
-    Votre programme sera exécuté comme suit :
-
-    .. code-block:: console
-
-        $ cat years.txt | marmite
-        2004
-        1931
+```{code-block} text
+    0   1   2   3   4   5   6   7   8   9   10
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                                ^
 ```
 
-```{eval-rst}
-.. exercise:: L'index magique
+La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
 
-    Un indice magique d'un tableau ``A[0..n-1]`` est défini tel que la valeur ``A[i] == i``. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
 
-    Exemple :
-
-    .. code-block:: text
-
-          0   1   2   3   4   5   6   7   8   9   10
-        ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
-        │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
-        └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                      ^
-
-    .. solution::
-
-        Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
-
-        .. code-block:: c
-
-            int magic_index(int[] array) {
-                const size_t size = sizeof(array) / sizeof(array[0]);
-
-                size_t i = 0;
-
-                while (i < size && array[i] != i) i++;
-
-                return i == size ? -1 : i;
-            }
-
-        La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
-
-        Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
-
-        .. code-block:: text
-
-              0   1   2   3   4   5   6   7   8   9   10
-            ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
-            │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
-            └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                          ^
-
-        La première valeur magique est ``7``. Est-ce qu'une approche dichotomique est possible ?
-
-        Prenons le milieu du tableau ``A[5] = 4``. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
-
-        .. code-block:: text
-
-              0   1   2   3   4
-            ┌───┬───┬───┬───┬───┐
-            │ -1│ 0 │ 1 │ 2 │ 3 │
-            └───┴───┴───┴───┴───┘
-
-        On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur médiane.
-
-        Il est possible de répéter cette approche de façon dichotomique :
-
-        .. code-block:: c
-
-            int magic_index(int[] array) {
-                return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
-            }
-
-            int _magic_index(int[] array, size_t start, size_t end) {
-                if (end < start) return -1;
-                int mid = (start + end) / 2;
-                if (array[mid] == mid) {
-                    return mid;
-                } else if (array[mid] > mid) {
-                    return _magic_index(array, start, mid - 1);
-                } else {
-                    return _magic_index(array, mid + 1, end);
-                }
-            }
+```{code-block} text
+    0   1   2   3   4
+┌───┬───┬───┬───┬───┐
+│ -1│ 0 │ 1 │ 2 │ 3 │
+└───┴───┴───┴───┴───┘
 ```
 
-### Initialisation
+On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est ``A[mid] < mid`` où ``mid`` est la valeur médiane.
+
+Il est possible de répéter cette approche de façon dichotomique :
+
+```{code-block} c
+int magic_index(int[] array) {
+    return _magic_index(array, 0, sizeof(array) / sizeof(array[0]) - 1);
+}
+
+int _magic_index(int[] array, size_t start, size_t end) {
+    if (end < start) return -1;
+    int mid = (start + end) / 2;
+    if (array[mid] == mid) {
+        return mid;
+    } else if (array[mid] > mid) {
+        return _magic_index(array, start, mid - 1);
+    } else {
+        return _magic_index(array, mid + 1, end);
+    }
+}
+```
+````
+
+#### Initialisation
 
 Lors de la déclaration d'un tableau, le compilateur réserve un espace mémoire de la taille suffisante pour contenir tous les éléments du tableaux. La déclaration suivante :
 
@@ -342,7 +344,7 @@ int array[10];
 array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 ```
 
-### Initialisation à zéro
+#### Initialisation à zéro
 
 Enfin, un sucre syntaxique `{0}` permet d'initialiser tout un tableau à zéro. En effet, la valeur 0 est inscrite à l'indice zéro, les autres valeurs sont par défaut initialisé à zéro si non mentionnées :
 
@@ -352,7 +354,7 @@ int32_t sequence[6] = {0};
 
 Cette écriture est nécessaire pour les variables locales, car, nous verrons plus loin (c.f. {numref}`memory-management`) les variables globales sont placées dans le segment mémoire `.bss` et sont initialisées à zéro au démarrage du programme. Toute variable globale est donc initialisée à zéro par défaut.
 
-### Initialisation à une valeur particulière
+#### Initialisation à une valeur particulière
 
 Cette écriture n'est pas normalisée **C99**, mais est généralement compatible avec la majorité des compilateurs.
 
@@ -367,7 +369,7 @@ for (size_t i = 0; i < sizeof(array)/sizeof(array[0]); i++)
     array[i] = -1;
 ```
 
-### Tableaux non modifiables
+#### Tableaux non modifiables
 
 À présent que l'on sait initialiser un tableau, il peut être utile de définir un tableau avec un contenu qui n'est pas modifiable. Le mot clé `const` est utilisé à cette fin.
 
@@ -396,7 +398,7 @@ warning: initialization discards ‘const’ qualifier from pointer
 target type [-Wdiscarded-qualifiers]
 ```
 
-### Tableaux multidimensionnels
+#### Tableaux multidimensionnels
 
 Il est possible de déclarer un tableau à plusieurs dimensions. Si par exemple on souhaite définir une grille de jeu du *tic-tac-toe* ou morpion, il faudra une grille de 3x3.
 
@@ -451,74 +453,72 @@ Notons que l'écriture suivante est similaire, car un tableau multidimensionnel 
 char game[][3] = {'o', 'x', 'x', 'x', 'o', 'o', 'x', 'o', 'x'};
 ```
 
-```{eval-rst}
-.. exercise:: Détectives privés
+````{exercise} Détectives privés
+:label: exercise-detectives-prives
 
-    Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
+Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 
-    =========  =======  =======   ======  ======
-    ` `        Bosley   Sabrina   Jill    Kelly
-    =========  =======  =======   ======  ======
-    Janvier    414.38   222.72    99.17   153.81
-    Février    403.41   390.61    174.39  18.11
-    Mars       227.55   73.86     291.08  416.55
-    Avril      220.20   342.25    139.45  86.98
-    Mai         13.46   172.66    252.33  265.32
-    Juin       259.37   378.72    173.02  208.43
-    Juillet    327.06   16.53     391.05  266.84
-    Août        50.82   3.37      201.71  170.84
-    Septembre  450.78   9.33      111.63  337.07
-    Octobre    434.45   77.80     459.46  479.17
-    Novembre   420.13   474.69    343.64  273.28
-    Décembre   147.76   250.73    201.47  9.75
-    =========  =======  =======   ======  ======
+=========  =======  =======   ======  ======
+` `        Bosley   Sabrina   Jill    Kelly
+=========  =======  =======   ======  ======
+Janvier    414.38   222.72    99.17   153.81
+Février    403.41   390.61    174.39  18.11
+Mars       227.55   73.86     291.08  416.55
+Avril      220.20   342.25    139.45  86.98
+Mai         13.46   172.66    252.33  265.32
+Juin       259.37   378.72    173.02  208.43
+Juillet    327.06   16.53     391.05  266.84
+Août        50.82   3.37      201.71  170.84
+Septembre  450.78   9.33      111.63  337.07
+Octobre    434.45   77.80     459.46  479.17
+Novembre   420.13   474.69    343.64  273.28
+Décembre   147.76   250.73    201.47  9.75
+=========  =======  =======   ======  ======
 
-    Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
+Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
 
-    .. code-block:: c
-
-        double accounts[][] = {
-            {414.38, 222.72,  99.17, 153.81, 0},
-            {403.41, 390.61, 174.39, 18.11,  0},
-            {227.55,  73.86, 291.08, 416.55, 0},
-            {220.20, 342.25, 139.45, 86.98,  0},
-            {13.46 , 172.66, 252.33, 265.32, 0},
-            {259.37, 378.72, 173.02, 208.43, 0},
-            {327.06,  16.53, 391.05, 266.84, 0},
-            {50.82 ,   3.37, 201.71, 170.84, 0},
-            {450.78,   9.33, 111.63, 337.07, 0},
-            {434.45,  77.80, 459.46, 479.17, 0},
-            {420.13, 474.69, 343.64, 273.28, 0},
-            {147.76, 250.73, 201.47, 9.75,   0},
-            {  0,      0,      0,    0,      0}
-        };
-
-    Et laquelle complète les valeurs manquantes.
+```{code-block} c
+double accounts[][] = {
+    {414.38, 222.72,  99.17, 153.81, 0},
+    {403.41, 390.61, 174.39, 18.11,  0},
+    {227.55,  73.86, 291.08, 416.55, 0},
+    {220.20, 342.25, 139.45, 86.98,  0},
+    {13.46 , 172.66, 252.33, 265.32, 0},
+    {259.37, 378.72, 173.02, 208.43, 0},
+    {327.06,  16.53, 391.05, 266.84, 0},
+    {50.82 ,   3.37, 201.71, 170.84, 0},
+    {450.78,   9.33, 111.63, 337.07, 0},
+    {434.45,  77.80, 459.46, 479.17, 0},
+    {420.13, 474.69, 343.64, 273.28, 0},
+    {147.76, 250.73, 201.47, 9.75,   0},
+    {  0,      0,      0,    0,      0}
+};
 ```
 
-```{eval-rst}
-.. exercise:: Pot de peinture
+Et laquelle complète les valeurs manquantes.
+````
 
-    À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
+````{exercise} Pot de peinture
 
-    L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
+À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
 
-    .. code-block::
+L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
 
-        typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
+```{code-block} c
+typedef enum { BLACK, RED, PURPLE, BLUE, GREEN YELLOW, WHITE } Color;
 
-        #if 0 // Image declaration example
-        Color image[100][100];
-        #endif
+##if 0 // Image declaration example
+Color image[100][100];
+##endif
 
-        boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
-
-    .. hint::
-
-        Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
+boolean paint(Color* image, size_t rows, size_t cols, Color fill_color);
 ```
 
-## Chaînes de caractères
+:::{hint}
+Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
+:::
+
+### Chaînes de caractères
 
 Une chaîne de caractères est représentée en mémoire comme une succession de bytes, chacun représentant un caractère ASCII spécifique. La chaîne de caractère `hello` contient donc 5 caractères et sera stockée en mémoire sur 5 bytes. Une chaîne de caractère est donc équivalente à un tableau de `char`.
 
@@ -560,7 +560,7 @@ char str[] = {
 };
 ```
 
-### Tableaux de chaînes de caractères
+#### Tableaux de chaînes de caractères
 
 Un tableau de chaîne de caractères est identique à un tableau multidimensionnel :
 
@@ -590,7 +590,7 @@ char conjunctions[][10] = {
 
 Notons que la valeur `0` est strictement identique au caractère 0 de la table ASCII `'\0'`. La chaîne de caractère `"mais"` aura une taille de 5 caractères, ponctuée de la sentinelle `\0`.
 
-## Structures
+### Structures
 
 Les structures sont des déclarations spécifiques permettant de regrouper une liste de variables dans un même bloc mémoire et permettant de s'y référer à partir d'une référence commune. Historiquement le type `struct` a été dérivé de `ALGOL 68`. Il est également utilisé en C++ et est similaire à une classe.
 
@@ -640,7 +640,7 @@ Comme `point` n'est pas une primitive standard, mais un container à primitive, 
 
 Ces coordonnées sont un clin d'œil aux [Pierres du Niton](https://fr.wikipedia.org/wiki/Pierres_du_Niton) qui sont deux blocs de roche erratiques déposés par le glacier du Rhône lors de son retrait après la dernière glaciation. Les coordonnées sont exprimées selon un repère géocentré ; l'origine étant le centre de la Terre. Ces pierres sont donc situées à 4.5 km du centre de la terre, et donc un sacré défi pour [Axel Lidenbrock](https://fr.wikipedia.org/wiki/Voyage_au_centre_de_la_Terre) et son fulmicoton.
 
-### Structures nommées
+#### Structures nommées
 
 L'écriture que l'on a vu initialement `struct { ... };` est appelée structure anonyme, c'est-à-dire qu'elle n'a pas de nom. Telle quelle elle ne peut pas être utilisée et elle ne sert donc pas à grand chose. En revanche, il est possible de déclarer une variable de ce type en ajoutant un identificateur à la fin de la déclaration `struct { ... } nom;`. Néanmoins la structure est toujours anonyme.
 
@@ -682,7 +682,7 @@ struct point point;
 point.x = 42;
 ```
 
-### Initialisation
+#### Initialisation
 
 Une structure se comporte à peu de chose près comme un tableau sauf que les éléments de la structure ne s'accèdent pas avec l'opérateur crochet `[]` mais avec l'opérateur `.`. Néanmoins une structure est représentée en mémoire comme un contenu linéaire. Notre structure `struct Point` serait identique à un tableau de trois `double` et par conséquent l'initialisation suivante est possible :
 
@@ -713,7 +713,7 @@ struct Product {
 struct Product apple = {321, 0.75, 24, "Pomme Golden"};
 ```
 
-### Tableaux de structures
+#### Tableaux de structures
 
 Une structure est un type comme un autre. Tout ce qui peut être fait avec `char` ou `double` peut donc être fait avec `struct`. Et donc, il est aussi possible de déclarer un tableau de structures. Ici, donnons l'exemple d'un tableau de points initialisés :
 
@@ -731,7 +731,7 @@ Assigner une nouvelle valeur à un point est facile :
 point[2].x = 12;
 ```
 
-### Structures en paramètres
+#### Structures en paramètres
 
 L'intérêt d'une structure est de pouvoir passer ou retourner un ensemble de données à une fonction. On a vu qu'une fonction ne permet de retourner qu'une seule primitive. Une structure est ici considérée comme un seul container et l'écriture suivante est possible :
 
@@ -787,7 +787,7 @@ Le résultat affiché sera `0.0, 1.0`. Seule la seconde valeur est modifiée.
 Lorsqu'un membre d'une structure est accédé, via son pointeur, on utilise la notation `->` au lieu de `.` car il est nécessaire de déréférencer le pointeur. Il s'agit d'un sucre syntaxique permettant d'écrire `p->x` au lieu de `(*p).x`
 :::
 
-### Structures flexibles
+#### Structures flexibles
 
 Introduits avec C99, les membres de structures flexibles ou *flexible array members* (§6.7.2.1) sont un membre de type tableau d'une structure défini sans dimension. Ces membres ne peuvent apparaître qu'à la fin d'une structure.
 
@@ -811,7 +811,7 @@ for (int i = 0; i < vector->len; i++)
 
 Ce type d'écriture est souvent utilisé pour des contenus ayant un en-tête fixe comme des images BMP ou des fichiers sons WAVE.
 
-### Structure de structures
+#### Structure de structures
 
 On comprend aisément que l'avantage des structures et le regroupement de variables. Une structure peut être la composition d'autres types composites.
 
@@ -831,7 +831,7 @@ struct Line line = {.a.x = 23, .a.y = 12, .b.z = 33};
 printf("%g, %g", line.a.x, line.b.x);
 ```
 
-### Alignement mémoire
+#### Alignement mémoire
 
 Une structure est agencée en mémoire dans l'ordre de sa déclaration. C'est donc un agencement linéaire en mémoire :
 
@@ -967,7 +967,7 @@ En revanche si elle est décrite en utilisant un *packing* sur 8-bits, avec `#pr
     A         B
 ```
 
-## Champs de bits
+### Champs de bits
 
 Les champs de bits sont des structures dont une information supplémentaire est ajoutée: le nombre de bits utilisés.
 
@@ -1010,13 +1010,13 @@ i2cmdr |= 1 << 12;
 
 Notons que les champs de bits, ainsi que les structures seront déclarées différemment selon que l'architecture cible est *little-endian* ou *big-endian*.
 
-## Unions
+### Unions
 
 Une [union](https://en.wikipedia.org/wiki/Union_type) est une variable qui peut avoir plusieurs représentations d'un même contenu mémoire. Rappelez-vous, au {numref}`storage` nous nous demandions quelle était l'interprétation d'un contenu mémoire donné. Il est possible en C d'avoir toutes les interprétations à la fois :
 
 ```c
-#include <stdint.h>
-#include <stdio.h>
+##include <stdint.h>
+##include <stdio.h>
 
 union Mixed
 {
@@ -1071,7 +1071,7 @@ union i2cmdr {
 };
 ```
 
-## Création de types
+### Création de types
 
 Le mot clé `typedef` permet de déclarer un nouveau type. Il est particulièrement utilisé conjointement avec les structures et les unions afin de s'affranchir de la lourdeur d'écriture (préfixe `struct`), et dans le but de cacher la complexité d'un type à l'utilisateur qui le manipule.
 
@@ -1086,7 +1086,7 @@ typedef struct {
 Point add(Point a, Point b);
 ```
 
-## Compound Literals
+### Compound Literals
 
 Naïvement traduit en *littéraux composés*, un *compound literal* est une méthode de création d'un type composé "à la volée" utilisé de la même façon que les transtypages.
 
@@ -1127,8 +1127,7 @@ void main() {
 }
 ```
 
-```{eval-rst}
-.. exercise:: Mendeleïev
+```{exercise} Mendeleïev
 
     Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :
 

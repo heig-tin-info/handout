@@ -1,6 +1,6 @@
-# Les  fichiers
+## Les  fichiers
 
-## Système de fichiers
+### Système de fichiers
 
 Dans un environnement POSIX tout est fichier. `stdin` est un fichier, une souris USB est un fichier, un clavier est un fichier, un terminal est un fichier, un programme est un fichier.
 
@@ -56,22 +56,22 @@ Le chemin `/usr/bin/.././bin/../../home/john/documents` est correct, mais il n'e
 
 Lorsqu'un programme s'exécute, son contexte d'exécution est toujours par rapport à son emplacement dans le système de fichier donc le chemin peut être soit relatif, soit absolu.
 
-### Navigation
+#### Navigation
 
 Sous Windows (PowerShell) ou un système **POSIX** (Bash/Sh/Zsh), la navigation dans une arborescence peut être effectuée en ligne de commande à l'aide des commandes (programmes) suivants :
 
 - `ls` est un raccourci du nom *list*, ce programme permet d'afficher sur la sortie standard le contenu d'un répertoire.
 - `cd` pour *change directory* permet de naviguer dans l'arborescence. Le programme prend en argument un chemin absolu ou relatif. En cas d'absence d'arguments, le programme redirige vers le répertoire de l'utilisateur courant.
 
-## Format d'un fichier
+### Format d'un fichier
 
 Un fichier peut avoir un contenu arbitraire; une suite de zéros et d’un binaire. Selon l'interprétation, un fichier pourrait contenir une image, un texte ou un programme. Le cas particulier ou le contenu est lisible par un éditeur de texte, on appelle ce fichier un [fichier texte](https://fr.wikipedia.org/wiki/Fichier_texte). C'est-à-dire que chaque caractère est encodé sur 8-bit et que la table ASCII est utilisée pour traduire le contenu en un texte intelligible. Lorsque le contenu n'est pas du texte, on l'appelle un [fichier binaire](https://fr.wikipedia.org/wiki/Fichier_binaire).
 
 La frontière est parfois assez mince, car parfois le fichier binaire peut contenir du texte intelligible, la preuve avec ce programme :
 
 ```c
-#include <stdio.h>
-#include <string.h>
+##include <stdio.h>
+##include <string.h>
 
 int main(int* argc, char* argv[])
 {
@@ -96,14 +96,14 @@ $ gcc example.c
 
 Sous un système POSIX, il n'existe aucune distinction formelle entre un fichier binaire et un fichier texte. En revanche sous Windows il existe une subtile différence concernant surtout le caractère de fin de ligne. La commande `copy a.txt + b.txt c.txt` considère des fichiers textes et ajoutera automatiquement une fin de ligne entre chaque partie concaténée, mais celle-ci `copy /b a.bin + b.bin c.bin` ne le fera pas.
 
-## Ouverture d'un fichier
+### Ouverture d'un fichier
 
 Sous POSIX, un programme doit demander au système d'exploitation l'accès à un fichier soit en lecture, soit en écriture soit les deux. Le système d'exploitation retourne un descripteur de fichier qui est simplement un entier unique pour le programme.
 
 ```c
-#include <fcntl.h>
-#include <stdio.h>
-#include <sys/stat.h>
+##include <fcntl.h>
+##include <stdio.h>
+##include <sys/stat.h>
 
 int main(void)
 {
@@ -137,7 +137,7 @@ La fonction `open` est en réalité un appel système qui n'est standardisé que
 En réalité la bibliothèque standard, respectueuse de C99, dispose d'une fonction `fopen` pour *file open* qui offre plus de fonctionnalités. Ouvrir un fichier se résume donc à
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void)
 {
@@ -187,8 +187,7 @@ flose(fp);
 
 On peut noter que sous POSIX, écrire sur `stdout` ou `stderr` est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.
 
-```{eval-rst}
-.. exercise:: Numéro de ligne
+```{exercise} Numéro de ligne
 
     Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
 
@@ -211,13 +210,13 @@ On peut noter que sous POSIX, écrire sur `stdout` ou `stderr` est exactement la
         $ grep foo.txt bulbe
 ```
 
-## Navigation dans un fichier
+### Navigation dans un fichier
 
 Lorsqu'un fichier est ouvert, un curseur virtuel est positionné soit au début soit à la fin du fichier. Lorsque des données sont lues ou écrites, c'est à la position de ce curseur, lequel peut être déplacé en utilisant plusieurs fonctions utilitaires.
 
 La navigation dans un fichier n'est possible que si le fichier est *seekable*. Généralement les pointeurs de fichiers `stdin`, `stdout` et `stderr` ne sont pas *seekable*, et il n'est pas possible de se déplacer dans le fichier, mais seulement écrire dedans.
 
-### fseek
+#### fseek
 
 ```c
 int fseek(FILE *stream, long int offset, int whence)
@@ -237,7 +236,7 @@ Le manuel [man fseek](http://man7.org/linux/man-pages/man3/fseek.3.html) indique
 
 : Positionne le curseur à la fin du fichier.
 
-### ftell
+#### ftell
 
 Il est parfois utile de savoir où se trouve le curseur. `ftell()` retourne la position actuelle du curseur dans un fichier ouvert.
 
@@ -251,11 +250,11 @@ long int size = ftell();
 printf("The file %s has a size of %ld Bytes\n", filename, size);
 ```
 
-### rewind
+#### rewind
 
 L'appel `rewind()` est équivalent à `(void) fseek(stream, 0L, SEEK_SET)` et permet de se positionner au début du fichier.
 
-## Lecture / Écriture
+### Lecture / Écriture
 
 La lecture, écriture dans un fichier s'effectue de manière analogue aux fonctions que nous avons déjà vues `printf` et `scanf` pour les flux standards (*stdout*, *stderr*), mais en utilisant les pendants fichiers :
 
@@ -310,7 +309,7 @@ Les nouvelles fonctions à connaître sont les suivantes :
 
 > La fonction est similaire à `fread` mais pour écrire sur un flux.
 
-## Buffer de fichier
+### Buffer de fichier
 
 Pour améliorer les performances, C99 prévoit (§7.19.3-3), un espace tampon pour les descripteurs de fichiers qui peuvent être :
 
@@ -327,8 +326,8 @@ Il faut comprendre qu'à chaque instant un programme souhaite écrire dans un fi
 Par défaut, un pointeur de fichier est *fully buffered*. C'est-à-dire que dans le cas du programme suivant devrait exécuter 10x l'appel système `write`, une fois par caractère.
 
 ```c
-#include <stdio.h>
-#include <string.h>
+##include <stdio.h>
+##include <string.h>
 
 int main(int argc, char* argv[])
 {
@@ -364,7 +363,7 @@ write(1, "c", 1c)                        = 1
 Le changement de mode peut être effectué avec la fonction `setbuf` ou `setvbuf`:
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     char buf[1024];
@@ -379,7 +378,7 @@ int main(void) {
 
 La fonction `fflush` force l'écriture malgré l'utilisation d'un buffer.
 
-## Fichiers et Flux
+### Fichiers et Flux
 
 Historiquement les descripteurs de fichiers sont appelés `FILE` alors qu'ils sont préférablement appelés `streams` en C++. Un fichier au même titre que `stdin`, `stdout` et `stderr` sont des flux de données. La norme POSIX, décrit que par défaut les flux :
 
@@ -392,7 +391,7 @@ sont ouverts au début du programme. Le premier fichier ouvert par exemple avec 
 Pour se convaincre de cela, on peut exécuter l'exemple suivant avec le programme `strace`:
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     char c = fgetc(stdin);
@@ -417,7 +416,7 @@ write(1, "l", 1l)                        = 1
 
 On peut voir qu’on lit `k\n` sur le flux `0`, soit `stdin`, puis que le fichier `file` est ouvert, il porte l'identifiant `3`, enfin on écrit sur `1`, `2` et `3`.
 
-## Formats de sérialisation
+### Formats de sérialisation
 
 Souvent les fichiers sont utilisés pour stocker de l'information organisée en grille, par exemple, la liste des températures maximales par ville et par mois :
 
@@ -435,7 +434,7 @@ Il existe plusieurs manières d'écrire ces informations dans un fichier :
 - Écriture avec remplissage
 - Utiliser un langage de sérialisation de haut niveau comme JSON, YAML ou XML
 
-### Format tabulé
+#### Format tabulé
 
 Un fichier dit tabulé, utilise une [sentinelle](https://fr.wikipedia.org/wiki/Valeur_sentinelle), souvent le caractère de tabulation `\t` pour séparer les données. Chaque ligne du tableau est physiquement séparée de la suivante avec un `\n`:
 
@@ -483,7 +482,7 @@ $ hexdump -C data.dat
 
 L'inconvénient de ce format est que pour obtenir directement la température du mois de mars à Berlin, sachant que Berlin est la quatrième ligne du fichier, il est nécessaire de parcourir le fichier depuis le début, car la longueur des lignes n'est à priori pas connue. On dit que la lecture séquentielle est facilitée, mais la lecture aléatoire est plus lente.
 
-### Format avec remplissage
+#### Format avec remplissage
 
 Pour pallier au défaut du format tabulé, il est possible d'écrire le fichier en utilisant un caractère de remplissage. Dans le fichier suivant, les mois de mai sont toujours alignés avec la
 48e colonne :
@@ -519,7 +518,7 @@ fscanf(fd, "%lf", &temperature);
 
 L'inconvénient de ce format de fichier est la place qu'il prend en mémoire. L'autre problème est que si le nom d'une ville dépasse les 9 caractères alloués, il faut réécrire tout le fichier. Généralement ce problème est contourné en allouant des champs d'une taille suffisante, par exemple 256 caractères pour le nom des villes.
 
-### Format sérialisé
+#### Format sérialisé
 
 Des langages de sérialisation permettent de structurer de l'information en utilisant un format spécifique. Ici [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation) :
 
@@ -570,8 +569,7 @@ En C, on pourra utiliser la bibliothèque logicielle [json-c](https://github.com
 
 ______________________________________________________________________
 
-```{eval-rst}
-.. exercise:: Variantes
+```{exercise} Variantes
 
     Considérez les deux programmes ci-dessous très similaires.
 

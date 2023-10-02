@@ -1,10 +1,10 @@
-# Philosophie
+## Philosophie
 
 La philosophie d'un bon développeur repose sur plusieurs principes de programmation relevant majoritairement du bon sens de l'ingénieur. Les vaudois l'appelant parfois: **le bon sens paysan** comme l'aurait sans doute confirmé feu [Jean Villard dit Gilles](https://fr.wikipedia.org/wiki/Jean_Villard).
 
 (ockham)=
 
-## Rasoir d'Ockham
+### Rasoir d'Ockham
 
 :::{figure} ../../assets/images/razor.*
 Illustration humoristique du rasoir d'Ockham
@@ -16,13 +16,13 @@ En philosophie un [rasoir](<https://fr.wikipedia.org/wiki/Rasoir_(philosophie)>)
 
 Il trouve admirablement bien sa place en programmation où le programmeur ne peut conserver une vue d'ensemble sur un logiciel qui est par nature invisible à ses yeux. Seuls la simplicité et l'art de la conception logicielle sauvent le développeur de la noyade, car un programme peut rester simple, quelle que soit sa taille si chaque strate de conception reste évidente et compréhensible pour celui qui chercherait à contribuer au projet d'autrui.
 
-## Principes de programmation
+### Principes de programmation
 
 Également appelés [programming idioms](https://en.wikipedia.org/wiki/Programming_idiom), ces principes sont des lignes directrices aidant le développeur à organiser son code pour le rendre plus lisible, plus maintenable, et moins sensible aux erreurs humaines.
 
 (dry)=
 
-### DRY
+#### DRY
 
 **Ne vous répétez pas** (*Don't Repeat Yourself*)! Je répète, **ne vous répétez pas** ! Il s'agit d'une philosophie de développement logiciel évitant la [redondance de code](https://fr.wikipedia.org/wiki/Duplication_de_code). L'excellent livre [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer) de Andrew Hunt et David Thomas décrit cette philosophie en ces termes :
 
@@ -50,7 +50,7 @@ FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
 display(fp);
 ```
 
-### KISS
+#### KISS
 
 [Keep it simple, stupid](https://fr.wikipedia.org/wiki/Principe_KISS) est une ligne directrice de conception qui encourage la simplicité d'un développement. Elle est similaire au rasoir d'Ockham, mais plus commune en informatique. Énoncé par [Eric Steven Raymond](https://fr.wikipedia.org/wiki/Eric_Raymond) puis par le [Zen de Python](https://fr.wikipedia.org/wiki/Zen_de_Python) un programme ne doit faire qu'une chose, et une chose simple. C'est une philosophie grandement respectée dans l'univers Unix/Linux. Chaque programme de base du *shell* (`ls`, `cat`, `echo`, `grep`, ...) ne fait qu'une tâche simple, le nom est court et simple à retenir.
 
@@ -71,7 +71,7 @@ int process(Data *data, size_t size) {
 Il serait préférable de la découper en deux sous-fonctions :
 
 ```c
-#define TO_LOG(a) (20 * log10(a))
+##define TO_LOG(a) (20 * log10(a))
 
 int fix_data(Data *data, const size_t size) {
     for (int i = 0; i < size; i++) {
@@ -86,13 +86,13 @@ int display(const Data *data, const size_t size) {
 }
 ```
 
-### YAGNI
+#### YAGNI
 
 YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par: vous n'en aurez pas besoin. C'est un principe très connu en développent Agile XP ([Extreme Programming](https://fr.wikipedia.org/wiki/Extreme_programming)) qui stipule qu'un développeur logiciel ne devrait pas implémenter une fonctionnalité à un logiciel tant que celle-ci n'est pas absolument nécessaire.
 
 Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de satisfaire au cahier des charges convenu avec le partenaire/client.
 
-### SSOT
+#### SSOT
 
 Ce principe tient son acronyme de [single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth). Il adresse principalement un défaut de conception relatif aux métadonnées que peuvent être les paramètres d'un algorithme, le modèle d'une base de données ou la méthode usitée d'un programme à collecter des données.
 
@@ -112,7 +112,7 @@ Un programme qui respecte ce principe évite la duplication des données. Des d�
 
 - Conserver une copie des mêmes données sous des formats différents (un tableau de données brutes et un tableau des mêmes données, mais triées)
 
-## Zen de Python
+### Zen de Python
 
 Python est un langage de programmation qui devient très populaire, il est certes moins performant que C, mais il se veut être de très haut niveau.
 
@@ -146,7 +146,7 @@ Un code est meilleur s'il est beau, esthétique, que les noms des variables, l'a
 
 Un code se doit être explicite, et réellement traduire l'intention du développeur. Il est ainsi préférable d'écrire `u = v / 4` plutôt que `u >>= 2`.
 
-## The code taste
+### The code taste
 
 Dans une [conférence](https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux) TED en 2016, le créateur de Linux, Linus Torvald évoqua un principe nommé *code taste* traduisible par *avoir du goût pour le code*.
 
@@ -237,7 +237,7 @@ for (size_t i = 0; i < length; i++)
 
 (code-smell)=
 
-## L'odeur du code
+### L'odeur du code
 
 Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs des [antipatterns](https://fr.wikipedia.org/wiki/Antipattern). Voici quelques indicateurs les plus courants :
 

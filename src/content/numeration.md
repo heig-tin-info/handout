@@ -1,4 +1,4 @@
-# Numération
+## Numération
 
 ```{index} numération
 ```
@@ -9,8 +9,7 @@ Ce chapitre n'est essentiel qu'au programmeur de bas niveau, l'électronicien ou
 
 Un **bit** est l'unité d'information fondamentale qui peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. L'assemblage de plusieurs bits permet de stocker de l'information plus complexe.
 
-```{eval-rst}
-.. exercise:: Pile ou face
+```{exercise} Pile ou face
 
     Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?
 
@@ -19,7 +18,7 @@ Un **bit** est l'unité d'information fondamentale qui peut prendre que deux ét
         Il transmet un seul 1 bit : équipe A ou pile ou ``1``, équipe B ou face ou ``0``. Il faut néanmoins encore définir à quoi correspond cette information.
 ```
 
-## Bases
+### Bases
 
 ```{index} base
 ```
@@ -39,8 +38,7 @@ j4b12
 
 Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche à droite) la base du système de numération utilisé est essentielle pour décoder ces nombres. Cette base définit combien de symboles différents possibles peuvent être utilisés pour coder une position.
 
-```{eval-rst}
-.. exercise:: Symboles binaires
+```{exercise} Symboles binaires
 
     Dans la notation binaire, composés de 1 et de 0, combien de symboles existent et combien de positions y-a-t-il dans le nombre ``11001`` ?
 
@@ -49,7 +47,7 @@ Outre la position des symboles (l'ordre dans lequel ils apparaissent de gauche �
         Le nombre ``11001`` est composé de 5 positions et de deux symboles possibles par position : ``1`` et ``0``. La quantité d'information est donc de 5 bits.
 ```
 
-### Système décimal
+#### Système décimal
 
 ```{index} système décimal
 ```
@@ -78,8 +76,7 @@ $$
 
 La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la manipulation de dix états ce qui est difficile avec les systèmes logiques à deux états; le stockage d'un bit en mémoire étant généralement assuré par des transistors.
 
-```{eval-rst}
-.. exercise:: Deux mains
+```{exercise} Deux mains
 
     Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour représenter un chiffre. Les doigts peuvent être soit levés, soit baissés mais un seul doigt peut être levé. Quelle est la base utilisée ?
 
@@ -90,7 +87,7 @@ La base dix n'est pas utilisée dans les ordinateurs, car elle nécessite la man
         Si plusieurs doigts peuvent être levés à la fois, il faut réduire le système à l'unité de base "le doigt" pouvant prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et 2 symboles par doigts, un nombre binaire est ainsi représenté.
 ```
 
-### Système binaire
+#### Système binaire
 
 ```{index} binaire
 ```
@@ -128,8 +125,7 @@ $$
 
 Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
 
-```{eval-rst}
-.. exercise:: Base 2
+```{exercise} Base 2
 
     Combien de valeurs décimales peuvent être représentées avec 10-bits ?
 
@@ -144,7 +140,7 @@ Avec un seul `bit` il est donc possible d'exprimer 2 valeurs distinctes.
         Soit les nombres de 0 à 1023.
 ```
 
-### Système octal
+#### Système octal
 
 ```{index} octal
 ```
@@ -189,7 +185,7 @@ char msg = "Hell\0157\040World!";
 N'essayez pas de préfixer vos nombres avec des zéros lorsque vous programmer car ces nombres seraient alors interprétés en octal et non en décimal.
 :::
 
-### Système hexadécimal
+#### Système hexadécimal
 
 ```{index} hexadécimal
 ```
@@ -301,8 +297,7 @@ Il lit à gauche l'offset mémoire de chaque ligne, au milieu le contenu hexadé
 
 Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami ingénieur il concerne probablement les deux manières distinctes utilisées pour encoder le `é`.
 
-```{eval-rst}
-.. exercise:: Les chiffres hexadécimaux
+```{exercise} Les chiffres hexadécimaux
 
     Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :
 
@@ -325,8 +320,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
             0216      ≡   142
 ```
 
-```{eval-rst}
-.. exercise:: Albatros
+```{exercise} Albatros
 
     Tentez de récupérer vous même le fichier :download:`albatros <../../assets/src/albatros.txt>` et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
 
@@ -340,7 +334,7 @@ Ce fichier est donc convenablement encodé en UTF-8 quant au bogue de notre ami 
 
 (base-convertions)=
 
-### Conversions de bases
+#### Conversions de bases
 
 La conversion d'une base quelconque en système décimal utilise la relation suivante :
 
@@ -399,8 +393,7 @@ n = 209
 209 == 0b11010001
 ```
 
-```{eval-rst}
-.. exercise:: La numération Shadock
+```{exercise} La numération Shadock
 
     .. figure:: ../../assets/images/shadocks.*
         :height: 150px
@@ -437,7 +430,7 @@ n = 209
             Depuis un terminal Python vous pouvez simplement utiliser ``int("12030", 4)``
 ```
 
-## Entiers relatifs
+### Entiers relatifs
 
 ```{index} Entiers relatifs
 ```
@@ -446,7 +439,7 @@ Vous le savez maintenant, l'interprétation d'une valeur binaire n'est possible 
 
 Une approche naïve est de réserver une partie de la mémoire pour des entiers positifs et une autre pour des entiers négatifs et stocker la correspondance binaire/décimale simplement. L'ennui pour les **variables** c'est que le contenu peut changer et qu'il serait préférable de stocker le signe avec la valeur.
 
-### Bit de signe
+#### Bit de signe
 
 ```{index} Bit de signe
 ```
@@ -487,7 +480,7 @@ En résumé, la solution utilisant un bit de signe pose deux problèmes :
 1. Les opérations ne sont plus triviales, et un algorithme particulier doit être mis en place.
 2. Le double zéro (positif et négatif) est gênant.
 
-### Complément à un
+#### Complément à un
 
 ```{index} Complément à un, CDC6600
 ```
@@ -563,7 +556,7 @@ En résumé, la méthode du complément à 1 :
 
 (twos-complement)=
 
-### Complément à deux
+#### Complément à deux
 
 Le {index}`complément à deux` n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens dans laquelle les étapes nécessaires sont :
 
@@ -597,11 +590,11 @@ Les avantages :
 
 Vous l'aurez compris, le complément à deux est le mécanisme le plus utilisé dans les ordinateurs moderne pour représenté les nombres entiers négatifs.
 
-## Opérations logiques
+### Opérations logiques
 
 Les opérations logiques sont introduites par l'[algèbre de Boole](<https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)>) et permettent de combiner plusieurs grandeurs binaires en utilisant des opérations.
 
-### Opérations bit à bit
+#### Opérations bit à bit
 
 ```{index} bitwise
 ```
@@ -634,7 +627,7 @@ Les {index}`opérations bit à bit` (*bitwise*) disponibles en C sont les suivan
 Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
 :::
 
-#### Conjonction
+##### Conjonction
 
 La conjonction ou **ET logique** est identique à la multiplication appliquée bit à bit et ne génère pas de retenue.
 
@@ -671,7 +664,7 @@ gandalf = 0;
 balrog = balrog & gandalf; // You shall not pass!
 ```
 
-#### Disjonction
+##### Disjonction
 
 La disjonction ou **OU logique** s'apparente à l'opération `+`.
 
@@ -702,7 +695,7 @@ bool teacher = true;
 student = student | teacher; // Tes devoirs tu feras...
 ```
 
-#### Disjonction exclusive
+##### Disjonction exclusive
 
 Le **OU exclusif** symbolisé d'un signe plus entouré d'un cercle est une opération curieuse mais extrêmement puissante et utilisée en cryptographie.
 
@@ -746,7 +739,7 @@ assert(a == 651);
 assert(b == 123);
 ```
 
-#### Complément à un
+##### Complément à un
 
 Le complément à un est simplement la valeur qui permet d'inverser bit à bit une valeur :
 
@@ -762,7 +755,7 @@ Le complément à un est simplement la valeur qui permet d'inverser bit à bit u
     +-----+-----+
 ```
 
-### Opérateurs arithmétiques
+#### Opérateurs arithmétiques
 
 Les opérations arithmétiques nécessitent le plus souvent d'une communication entre les bits.
 C'est-à-dire en utilisant une retenue (*carry*). En base décimale, on se souvient de l'addition que l'on écrivait dans les petites écoles :
@@ -792,8 +785,7 @@ En arithmétique binaire, c'est exactement la même chose :
  101001100₂
 ```
 
-```{eval-rst}
-.. exercise:: Additions binaires
+```{exercise} Additions binaires
 
     Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
 
@@ -846,7 +838,7 @@ En arithmétique binaire, c'est exactement la même chose :
                    1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
 ```
 
-### Lois de De Morgan
+#### Lois de De Morgan
 
 ```{index} De Morgan
 ```
@@ -872,8 +864,7 @@ assert(~a & ~b == ~(a | b));
 
 En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
 
-```{eval-rst}
-.. exercise:: De Morgan
+```{exercise} De Morgan
 
     Utiliser les relations de De Morgan pour simplifier l'expression suivante
 
@@ -891,7 +882,7 @@ En logique booléenne on exprime la négation par une barre p.ex. $\bar{P}$.
 
 ```
 
-### Arrondi
+#### Arrondi
 
 ```{index} arrondi, rounding, truncate
 ```
@@ -914,8 +905,7 @@ Le fonctionnement de la fonction `round` n'est pas unanime entre les mathématic
 En Python ou en Java, c'est la méthode du *commercial rounding* qui a été choisie. Elle peut paraître contre-intuitive, car `round(3.5)` donne 4, mais `round(4.5)` donne 4 aussi.
 :::
 
-```{eval-rst}
-.. exercise:: Swap sans valeur intermédiaire
+```{exercise} Swap sans valeur intermédiaire
 
     Soit deux variables entières ``a`` et ``b``, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR ``^``.
 

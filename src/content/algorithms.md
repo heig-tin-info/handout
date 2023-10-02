@@ -1,6 +1,6 @@
 (algorithms)=
 
-# Algorithmes et conception
+## Algorithmes et conception
 
 L'algorithmique est le domaine scientifique qui étudie les algorithmes, une suite finie et non ambiguë d'opérations ou d'instructions permettant de résoudre un problème ou de traiter des données.
 
@@ -20,7 +20,7 @@ Pour être qualifiées d'algorithmes, certaines propriétés doivent être respe
 4. **Finitude**, un algorithme doit comporter un nombre fini d'étapes.
 5. **Répétable**, un algorithme doit fournir un résultat répétable.
 
-## Complexité d'un algorithme
+### Complexité d'un algorithme
 
 Il est souvent utile de savoir quelle est la complexité d'un algorithme afin de le comparer à un autre algorithme équivalent. Il existe deux indicateurs :
 
@@ -122,8 +122,7 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 }
 ```
 
-```{eval-rst}
-.. exercise:: Triangle évanescent
+```{exercise} Triangle évanescent
 
     Quel serait l'algorithme permettant d'afficher :
 
@@ -138,17 +137,16 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
     et dont la taille peut varier ?
 ```
 
-```{eval-rst}
-.. exercise:: L'entier manquant
+```{exercise} L'entier manquant
 
     On vous donne un gros fichier de 3'000'000'000 entiers positifs 32-bits, il vous faut générer un entier qui n'est pas dans la liste. Le hic, c'est que vous n'avez que 500 MiB de mémoire de travail. Quel algorithme proposez-vous ?
 
     Une fois le travail terminé, votre manager vient vous voir pour vous annoncer que le cahier des charges a été modifié. Le client dit qu'il n'a que 10 MiB. Pensez-vous pouvoir résoudre le problème quand même ?
 ```
 
-## Machines d'états
+### Machines d'états
 
-## Diagrammes visuels
+### Diagrammes visuels
 
 - Diagrammes en flux
 - Structogrammes
@@ -156,12 +154,11 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 - Machines d'états ([UML state machine](https://en.wikipedia.org/wiki/UML_state_machine))
 - [BPMN](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (*Business Process Model and Notation*)
 
-## Récursivité
+### Récursivité
 
 La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une autoréférence. Il peut s'agit en C d'une fonction qui s'appelle elle-même.
 
-```{eval-rst}
-.. exercise:: La plus petite différence
+```{exercise} La plus petite différence
 
     Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
 
@@ -178,7 +175,7 @@ La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une 
     #. Quelle est la complexité de votre algorithme ?
 ```
 
-## Programmation dynamique
+### Programmation dynamique
 
 La programmation dynamique est une méthode algorithmique datant des années 1950, mais devenue populaire ces dernières années. Elle permet de coupler des algorithmes récursifs avec le concept de mémoïsation.
 
@@ -208,9 +205,9 @@ int fibonacci(int n) {
 
 Sa complexité est ainsi réduite à $O(2\cdot n)$ et donc $O(n)$. En revanche, l'approche dynamique demande un espace mémoire supplémentaire. On n'a rien sans rien et l'éternel dilemme mémoire versus performance s'applique toujours.
 
-## Algorithmes célèbres
+### Algorithmes célèbres
 
-### Exponentiation rapide
+#### Exponentiation rapide
 
 Cet algorithme permet de calculer rapidement des puissances entières ($a^n$). La méthode naïve consiste à calculer les puissances avec une boucle :
 
@@ -246,7 +243,7 @@ long long bin_pow(long long a, long long b) {
 }
 ```
 
-### Racine carrée inverse rapide
+#### Racine carrée inverse rapide
 
 Cet algorithme a été développé chez Silicon Graphics au début des années 90. Il a été utilisé dans des jeux vidéos comme [Quake III Arena](https://fr.wikipedia.org/wiki/Quake_III_Arena) pour améliorer la performance du calcul des angles d'incidence dans la réflexion des lumières.
 
@@ -261,9 +258,9 @@ float Q_rsqrt(float number)
     i = 0x5f3759df - (i >> 1); // What the fuck?
     y = *(float *) &i;
     y = y * (threehalfs - (x2 * y * y)); // 1st iteration
-#if BETTER
+##if BETTER
     y = y * (threehalfs - (x2 * y * y)); // 2nd iteration
-#endif
+##endif
     return y;
 }
 ```
@@ -272,7 +269,7 @@ Cet algorithme de [racine carrée inverse rapide](https://fr.wikipedia.org/wiki/
 
 Ce n'est pas un algorithme très académique, il s'agit d'un [kludge](https://fr.wikipedia.org/wiki/Kludge), une solution irrespectueuse des règles de l'art de la programmation, car la valeur `y` est transtypée en un `long` (`i = *(long *)&y`. C'est cette astuce qui permet de tirer avantage que les valeurs en virgule flottantes sont exprimées en puissances de 2.
 
-### Algorithme de Rabin-Karp
+#### Algorithme de Rabin-Karp
 
 Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp) permet la recherche d'une sous-chaîne de caractère. Sa complexité moyenne est $O(n + m)$.
 
@@ -280,9 +277,9 @@ Cet algorithme [Rabin-Karp](https://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Ka
 :language: c
 ```
 
-## Algorithmes de tris
+### Algorithmes de tris
 
-### Heap Sort
+#### Heap Sort
 
 L'algorithme [Heap Sort](https://fr.wikipedia.org/wiki/Tri_par_tas) aussi appelé "Tri par tas" est l'un des algorithmes de tri les plus performants offrant une complexité en temps de $O(n\cdot log(n))$ et une complexité en espace de $O(1)$. Il s'appuie sur le concept d'arbre binaire.
 
@@ -376,7 +373,7 @@ Le dernier élément est sorti du tableau et notre arbre ressemble maintenant à
 3. Sortie du dernier élément de l'arbre.
 4. Retour à (1) jusqu'à ce que tous les éléments soient sortis de l'arbre.
 
-### Quick Sort
+#### Quick Sort
 
 Le [tri rapide](https://fr.wikipedia.org/wiki/Tri_rapide) est l'algorithme de tri par référence dans la plupart des langage de programmation. Selon le compilateur C que vous utilisez, la fonction `qsort` implémente cette méthode de tri en $O(n log n)$.
 
@@ -454,9 +451,9 @@ Voici une autre représentation (voir [code source](../../assets/src/quicksort.c
                         a [b]
 ```
 
-## Type d'algorithmes
+### Type d'algorithmes
 
-### Algorithmes en ligne (incrémental)
+#### Algorithmes en ligne (incrémental)
 
 Un algorithme incrémental ou [online](https://fr.wikipedia.org/wiki/Algorithme_online) est un algorithme qui peut s'exécuter sur un flux de données continu en entrée. C'est-à-dire qu'il est en mesure de prendre des décisions sans avoir besoin d'une visibilité complète sur le set de données.
 
@@ -466,8 +463,7 @@ La solution à ce problème est de laisser passer 37% des candidats sans les eng
 
 ______________________________________________________________________
 
-```{eval-rst}
-.. exercise:: Intégrateur de Kahan
+```{exercise} Intégrateur de Kahan
 
     L'intégrateur de Kahan (`Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`__) est une solution élégante pour pallier à la limite de résolution des types de données.
 
@@ -496,8 +492,7 @@ ______________________________________________________________________
     #. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
 ```
 
-```{eval-rst}
-.. exercise:: Robot aspirateur affamé
+```{exercise} Robot aspirateur affamé
 
     Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
 

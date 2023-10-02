@@ -1,6 +1,6 @@
 (memory-management)=
 
-# Gestion de la mémoire
+## Gestion de la mémoire
 
 Vous l'aurez appris à vos dépens, l'erreur *Segmentation fault* (erreur de segmentation) arrive souvent lors du développement. Ce chapitre s'intéresse à la mémoire et vulgarise les concepts de segmentation et traite de l'allocation dynamique.
 
@@ -34,7 +34,7 @@ La mémoire d'un programme est découpée en [segments de données](https://fr.w
       - La chaîne d'appel de fonction ainsi que toutes les variables locales sont mémorisées dans ce segment.
 ```
 
-## Allocation statique
+### Allocation statique
 
 Jusqu'ici toutes les variables que nous avons déclarées ont été déclarées statiquement. C'est-à-dire que le compilateur est capable a priori de savoir combien de place prend telle ou telle variable et les agencer en mémoire dans les bons segments. On appelle cette méthode d'allocation de mémoire l'allocation statique.
 
@@ -44,7 +44,7 @@ La [déclaration statique](https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9mo
 static int64_t vector[1024] = {0};
 ```
 
-## Allocation dynamique
+### Allocation dynamique
 
 Il est des circonstances ou un programme ne sait pas combien de mémoire il a besoin. Par exemple un programme qui compterait le nombre d'occurrences de chaque mot dans un texte devra se construire un index de tous les mots qu'il découvre lors de la lecture du fichier d'entrée. A priori ce fichier d'entrée étant inconnu au moment de l'exécution du programme, l'espace mémoire nécessaire à construire ce dictionnaire de mots est également inconnu.
 
@@ -74,7 +74,7 @@ L'allocation se fait sur le `tas` (*heap*) qui est de taille variable. À chaque
 Allocation et libération mémoire
 :::
 
-## Mémoire de programme
+### Mémoire de programme
 
 Les segments mémoires sont une construction de la bibliothèque standard, selon la bibliothèque utilisée et à fortiori le système d'exploitation utilisé, l'agencement mémoire peut varier.
 
@@ -88,13 +88,13 @@ Organisation de mémoire d'un programme
 
 On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se percutent c'est le crash avec l'erreur bien connue [stack overflow](https://fr.wikipedia.org/wiki/D%C3%A9passement_de_pile).
 
-## La pile
+### La pile
 
 Lorsqu'un programme s'exécute, l'ordre dont les fonctions s'exécutent n'est pas connu à priori. L'ordre d'exécution des fonctions dans l'exemple suivant est inconnu par le programme et donc les éventuelles variables locales utilisées par ces fonctions doivent dynamiquement être allouées.
 
 ```c
-#include <stdio.h>
-#include <stdlib.h>
+##include <stdio.h>
+##include <stdlib.h>
 
 double square(double num) {
     return num * num
@@ -121,7 +121,7 @@ int main(void) {
 
 Lors d'un appel de fonction, le compilateur ajoute avant la première instruction du code caché permettant d'empiler sur un espace mémoire dédié (*stack*) les variables locales dont il a besoin ainsi que certaines informations tel que l'adresse mémoire de retour.
 
-## Allocation dynamique sur le tas
+### Allocation dynamique sur le tas
 
 L'allocation dynamique permet de réserver - lors de l'exécution - une
 zone mémoire dont on vient de calculer la taille. On utilisera la
@@ -146,7 +146,7 @@ n = 100;
 zone_acquisition = (double*)malloc(n * sizeof(double));
 ```
 
-### Allocation dynamique sur le tas avec mise à zéro
+#### Allocation dynamique sur le tas avec mise à zéro
 
 On utilisera la fonction *calloc* (memory allocation) pour réserver de
 la mémoire avec initialisation automatique de la zone réservée.
@@ -158,7 +158,7 @@ void * calloc (size_t count, size_t size);
 Cette fonction réserve *count* x *size* octets en mémoire et
 l'initialise à zéro.
 
-### Modification de la taille d'une zone déjà allouée sur le tas
+#### Modification de la taille d'une zone déjà allouée sur le tas
 
 Si l'on veut agrandir une zone déjà allouée avec *malloc* ou *calloc*,
 on utilisera la fonction suivante :
@@ -178,7 +178,7 @@ Elle permet de :
 - le bloc réalloué est initialisé avec le contenu du bloc ptr ;
   l'espace supplémentaire est non initialisé
 
-### Libération
+#### Libération
 
 Le tas n'étant pas extensible à l'infini, il faut libérer la mémoire dès
 que l'on n'en a plus l'utilité.
@@ -215,7 +215,7 @@ libération, ces problèmes peuvent survenir immédiatement, ou après
 plusieurs jours de fonctionnement, ce qui complique grandement les
 opérations de debug...
 
-### Allocation dynamique sur la pile
+#### Allocation dynamique sur la pile
 
 L'allocation dynamique sur la pile est équivalente à l'allocation sur
 le tas sauf qu'elle est plus rapide (pas de recherche par le système
@@ -236,7 +236,7 @@ que le pointeur ayant reçu l'adresse de la zone mémoire réservée ne soit
 pas exploité en dehors de la fonction (puisque la zone est libérée quand
 on en sort).
 
-### Limite d'utilisation de la pile
+#### Limite d'utilisation de la pile
 
 L'espace mémoire utilisé par la pile est une zone dont l'usage est
 uniquement dédié au programme. Si plusieurs programmes cohabitent en
@@ -272,7 +272,7 @@ allez piétiner les zones mémoires voisines sans en avoir la permission.
 Le compilateur (en réalité l'éditeur de liens - le *linker*) vous permet
 de spécifier la taille de la pile ; c'est une de ses nombreuses options.
 
-## Variables automatiques
+### Variables automatiques
 
 Une variable est dite *automatique* lorsque sa déclaration est faite au sein d'une fonction. La variable d'itération `int i` dans une boucle `for` est dite automatique. C'est-à-dire que le compilateur a le choix de placer cette variable :
 
@@ -281,7 +281,7 @@ Une variable est dite *automatique* lorsque sa déclaration est faite au sein d'
 
 Jadis, le mot clé `register` était utiliser pour forcer le compilateur à placer une variable locale dans un registre processeur pour obtenir de meilleures performances. Aujourd'hui, les compilateurs sont assez malins pour déterminer automatiquement les variables souvent utilisées.
 
-## Fragmentation mémoire
+### Fragmentation mémoire
 
 On peut observer à la figure {numref}`fig-allocation` qu'après un appel successif de `malloc` et de `free` des espaces mémoire non utilisés peuvent apparaître entre des régions utilisées. Ces *trous* sont appelés fragmentation mémoire.
 
@@ -293,7 +293,7 @@ Fragmentation mémoire
 
 Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire sont malvenues. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : [éteindre puis redémarrer](https://www.youtube.com/watch?v=nn2FB1P_Mn8).
 
-### MMU
+#### MMU
 
 Les systèmes d'exploitation modernes (Windows, Linux, macOS...) utilisent tous un dispositif matériel nommé [MMU](https://en.wikipedia.org/wiki/Memory_management_unit) pour *Memory Management Unit*. La MMU est en charge de créer un espace mémoire **virtuel** entre l'espace physique. Cela crée une indirection supplémentaire, mais permet de réorganiser la mémoire physique sans compromettre le système.
 
@@ -307,13 +307,13 @@ Dans la figure ci-dessous. La mémoire physique est représentée à droite en t
 Mémoire virtuelle
 :::
 
-#### Erreurs de segmentation (*segmentation fault*)
+##### Erreurs de segmentation (*segmentation fault*)
 
 Lorsqu'un programme tente d'accéder à un espace mémoire qui n'est pas mappé dans la MMU, ou que cet espace mémoire ne permet pas le type d'accès souhaité : par exemple une écriture dans une page en lecture seule. Le système d'exploitation tue le processus avec une erreur *Segmentation Fault*. C'est la raison pour laquelle, il n'est pas systématique d'avoir une erreur de segmentation en cas de jardinage mémoire. Tant que les valeurs modifiées sont localisées au sein d'un bloc mémoire autorisé, il n'y aura pas d'erreur.
 
 L'erreur de segmentation est donc générée par le système d'exploitation en levant le signal **SIGSEGV** (Violation d'accès à un segment mémoire, ou erreur de segmentation).
 
-### Memory Pool
+#### Memory Pool
 
 Un *memory pool* est une méthode faisant appel à de l'allocation dynamique de blocs de taille fixe. Lorsqu'un programme doit très régulièrement allouer et désallouer de la mémoire, il est préférable que les blocs mémoires aient une taille fixe. De cette façon, après un `free`, la mémoire libérée est assez grande pour une allocation ultérieure.
 

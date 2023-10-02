@@ -1,4 +1,4 @@
-# Programmes et Processus
+## Programmes et Processus
 
 :::{figure} ../../assets/images/vintage-programmer.*
 :scale: 60%
@@ -6,7 +6,7 @@
 Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
 :::
 
-## Qu'est-ce qu'un programme?
+### Qu'est-ce qu'un programme?
 
 Un [programme informatique](https://fr.wikipedia.org/wiki/Programme_informatique) est un ensemble d'opérations destinées à être exécutées par un ordinateur.
 
@@ -18,13 +18,13 @@ Un programme peut se décliner sous plusieurs formes :
 
 Un processus est l'état d'un programme en cours d'exécution. Lorsqu'un programme est exécuté, il devient processus pendant un temps donné. Les [systèmes d'exploitation](https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation) tels que Windows sont dits [multitâches](https://fr.wikipedia.org/wiki/Multit%C3%A2che), il peuvent par conséquent faire tourner plusieurs processus en parallèle. Le temps processeur est ainsi partagé entre chaque processus.
 
-### Code source
+#### Code source
 
 Le **code source** est généralement écrit par un ingénieur/développeur/informaticien. Il s'agit le plus souvent d'un fichier texte lisible par un être humain et souvent pourvu de commentaires facilitant sa compréhension. Selon le langage de programmation utilisé, la programmation peut être graphique comme avec les diagrammes [Ladder](https://fr.wikipedia.org/wiki/Langage_Ladder) utilisés dans les automates programmables et respectant la norme [IEC 61131-3](https://fr.wikipedia.org/wiki/CEI_61131-3), ou [LabView](www.ni.com/en-us/shop/labview.html) un outil de développement graphique.
 
 Le plus souvent le code source est organisé en une [arborescence](https://fr.wikipedia.org/wiki/Arborescence) de fichiers. Des programmes complexes comme le noyau Linux contiennent plus de 100'000 fichiers et 10 millions de lignes de code, pour la plupart écrites en C.
 
-### Exécutable binaire
+#### Exécutable binaire
 
 Une fois compilé en [langage machine](https://fr.wikipedia.org/wiki/Langage_machine), il en résulte un fichier qui peut être exécuté soit par un système d'exploitation, soit sur une plateforme embarquée à microcontrôleur sans l'intermédiaire d'un système d'exploitation. On dit que ce type de programme est [bare metal](https://en.wikipedia.org/wiki/Bare_machine), qu'il s'exécute à même le métal.
 
@@ -130,7 +130,7 @@ Ce programme peut-être exécuté par tout le monde, mais modifié que par l'uti
 
 (inputs-outputs)=
 
-### Entrées sorties
+#### Entrées sorties
 
 Tout programme doit pouvoir interagir avec son environnement. À l'époque des téléscripteurs, un programme interagissait avec un clavier et une imprimante matricielle. Avec l'arrivée des systèmes d'exploitation, le champ d'action fut réduit à des entrées :
 
@@ -151,7 +151,7 @@ Résumé des interactions avec un programme
 
 (signals)=
 
-### Signaux
+#### Signaux
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](<https://fr.wikipedia.org/wiki/Signal_(informatique)>). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
 
@@ -172,7 +172,7 @@ int main(void)
 }
 ```
 
-## Arguments et options
+### Arguments et options
 
 L'interpréteur de commande `cmd.exe` sous Windows ou `bash` sous Linux, fonctionne de façon assez similaire. L'**invite de commande** nommée *prompt* en anglais invite l'utilisateur à entrer une commande. Sous [DOS](https://fr.wikipedia.org/wiki/DOS) puis sous Windows cet invite de commande ressemble à ceci :
 
@@ -192,7 +192,7 @@ Un argument est une chaîne de caractères utilisée comme entrée au programme.
 En C, c'est au développeur de distinguer les options des arguments, car ils sont tous passés par le paramètre `argv`:
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(int argc, char *argv[]) {
     printf("Liste des arguments et options passés au programme:\n");
@@ -216,7 +216,7 @@ Liste des arguments et options passés au programme :
     -Oeufs
 ```
 
-### Norme POSIX
+#### Norme POSIX
 
 Le standard POSIX décrit une façon de distinguer des *options* passées à un programme. Par exemple, le programme [cowsay](https://en.wikipedia.org/wiki/Cowsay) peut être paramétré pour changer son comportement en utilisant des `options` standards comme `-d`. La fonction `getopt` disponible dans la bibliothèque `<unistd.h>` permet de facilement interpréter ces options.
 
@@ -224,7 +224,7 @@ Le standard POSIX décrit une façon de distinguer des *options* passées à un 
 %
 % int getopt(int, char * const [], const char *);
 
-### Extension GNU
+#### Extension GNU
 
 Malheureusement, la norme POSIX ne spécifie que les options dites courtes (un tiret suivi d'un seul caractère). Une extension [GNU](https://fr.wikipedia.org/wiki/GNU) et son en-tête `<getopt.h>` permet l'accès à la fonction `getopt_long` laquelle permet d'interpréter aussi les options longues `--version` qui sont devenues très répandue.
 
@@ -239,15 +239,15 @@ Ci-dessous une possible utilisation de cette fonction :
 :language: c
 ```
 
-### Windows
+#### Windows
 
 Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://en.wikipedia.org/wiki/OpenVMS), le caractère *slash* pour identifier ses options. Alors que sous POSIX l'affichage de la liste des fichiers s'écrira peut-être `ls -l -s D*`, sous Windows on utilisera `dir /q d* /o:s`.
 
-## Fonction main
+### Fonction main
 
 Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://en.wikipedia.org/wiki/BIOS) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](hello) n'est pas la première, mais est appelé.
 
-### Qui appelle main ?
+#### Qui appelle main ?
 
 Un exécutable binaire à un format particulier appelé **ELF** ([Executable and Linkable Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)) qui contient un **point d'entrée** qui sera l'adresse mémoire de début du programme. Sous un système POSIX ce point d'entrée est nommé `_init`. C'est lui qui est responsable de récolter les informations transmises par le système d'exploitation. Ce dernier transmet sur la **pile** du programme :
 
@@ -268,7 +268,7 @@ int __libc_start_main(int (*main) (int, char**, char**),
 );
 ```
 
-### Valeur de retour
+#### Valeur de retour
 
 La fonction `main` renvoie toujours une valeur de retour qui agit comme le statut de sortie d'un programme ([exit status](https://en.wikipedia.org/wiki/Exit_status)). Sous POSIX et sous Windows, le programme parent s'attend à recevoir une valeur 32-bits à la fin de l'exécution d'un programme. L'interprétation est la suivante :
 
@@ -294,14 +294,14 @@ $ echo $?
 130
 ```
 
-## Entrées sorties standards
+### Entrées sorties standards
 
 Le fichier d'en-tête `stdio.h` ([man stdio](http://man7.org/linux/man-pages/man3/stdio.3.html)) permet de simplifier l'interaction avec les fichiers. Sous Linux et MacOS principalement, mais d'une certaine manière également sous Windows, les canaux d'échanges entre un programme et son hôte (*shell*, gestionnaire de fenêtre, autre programme), se font par l'intermédiaire de fichiers particuliers nommés `stdin`, `stdout` et `stderr`.
 
 La fonction de base est `putchar` qui écrit un caractère sur `stdout`:
 
 ```console
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     putchar('H');
@@ -316,7 +316,7 @@ int main(void) {
 Bien vite, on préfèrera utiliser `printf` qui simplifie le formatage de chaînes de caractères et qui permet à l'aide de marqueurs (*tokens*) de formater des variables :
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     printf("Hello\v");
@@ -327,7 +327,7 @@ int main(void) {
 Il peut être nécessaire, surtout lorsqu'il s'agit d'erreurs qui ne concernent pas la sortie standard du programme, d'utiliser le bon canal de communication, c'est-à-dire `stderr` au lieu de `stdout`. La fonction `fprintf` permet de spécifier le flux standard de sortie :
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     fprintf(stdout, "Sortie standard\n");
@@ -348,7 +348,7 @@ La commande suivante `cat` lis le contenu du fichier dont le nom est passé en a
 
 Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostique et les erreurs.
 
-## Boucle d'attente
+### Boucle d'attente
 
 Comme évoqué, un programme est souvent destiné à tourner sur un système d'exploitation. Un programme simple comme celui-ci :
 
@@ -363,7 +363,7 @@ consommera 100% des ressources du processeur. En d'autres termes, le processeur 
 Il est grandement préférable d'utiliser des appels système pour indiquer au noyau du système d'exploitation que le processus souhaite être mis en pause pour un temps donné. Le programme suivant utilise la fonction standard `sleep` pour demander au noyau d'être mis en attente pour une période de temps spécifiée en paramètre.
 
 ```c
-#include <unistd.h>
+##include <unistd.h>
 
 int main(void) {
     for(;;) {
@@ -376,7 +376,7 @@ int main(void) {
 Alternativement, lorsqu'un programme attend un retour de l'utilisateur par exemple en demandant la saisie au clavier d'informations, le système d'exploitation est également mis en attente et le processus ne consomme pas de ressources CPU. Le programme ci-dessous attend que l'utilisateur presse la touche enter.
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void) {
     for(;;) {
@@ -386,8 +386,7 @@ int main(void) {
 }
 ```
 
-```{eval-rst}
-.. exercise:: La fortune, la vache qui dit et le chat drôle
+```{exercise} La fortune, la vache qui dit et le chat drôle
 
     En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
 

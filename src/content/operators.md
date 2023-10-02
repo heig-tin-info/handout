@@ -1,4 +1,4 @@
-# Opérateurs
+## Opérateurs
 
 ```{index} opérateur
 ```
@@ -44,7 +44,7 @@ Un {index}`point de séquence`
 
 : Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garanti l'ordre des choses ce qui n'est pas le cas avec l'affectation `=`.
 
-## Opérateurs relationnels
+### Opérateurs relationnels
 
 ```{index} opérateur relationnel
 ```
@@ -93,7 +93,7 @@ printf("Les opérandes %s égaux.\n", a == b ? "sont" : "ne sont pas");
 Dans se cas on utilise l'opérateur ternaire `? :` qui permet de s'affranchir d'une structure de contrôle explicite.
 :::
 
-## Opérateurs arithmétiques
+### Opérateurs arithmétiques
 
 ```{index} modulo
 ```
@@ -125,11 +125,11 @@ int8_t too_small = 120 + 120;
 assert(too_small != 120 + 120);
 ```
 
-## Opérateurs bit à bit
+### Opérateurs bit à bit
 
 Les opérations binaires agissent directement sur les bits d'une entrée, ils ont été vu en détail au chapitre sur la numération et ils sont listés sur la table {numref}`bitwise-operators`.
 
-## Opérateurs d'affectation
+### Opérateurs d'affectation
 
 ```{index} sucre syntaxique
 ```
@@ -156,7 +156,7 @@ Les opérateurs d'affectation permettent d'assigner de nouvelles valeurs à une 
     =========  ===============================  ===========  ==============
 ```
 
-## Opérateurs logiques
+### Opérateurs logiques
 
 Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondus avec leur petits frères `&` et `|`.
 
@@ -165,7 +165,7 @@ Les opérateurs logiques sont au nombre de deux et ne doivent pas être confondu
 
 Le résultat d'une opération logique est toujours un {index}`booléen` (valeur 0 ou 1). Ainsi l'expression suivante affecte `1` à `x` : `x = 12 && 3 + 2`.
 
-## Opérateurs d'incrémentation
+### Opérateurs d'incrémentation
 
 Les opérateurs d'incrémentation sont régulièrement un motif d'arrachage de cheveux pour les étudiants. En effet, ces opérateurs sont très particuliers à ce sens qu'il se décomposent en deux étapes : l'affectation et l'obtention du résultat. Il existe 4 opérateurs d'incrémentation :
 
@@ -202,7 +202,7 @@ x = x + 1;
 y = x;
 ```
 
-## Opérateur ternaire
+### Opérateur ternaire
 
 ```{index} opérateur ternaire
 ```
@@ -234,7 +234,7 @@ On remarque dans cet exemple une répétition `max =`. Une façon plus élégant
 max = a > b ? a : b;
 ```
 
-## Opérateur de transtypage
+### Opérateur de transtypage
 
 ```{index} cast
 ```
@@ -254,7 +254,7 @@ double d = a / (double)(b);
 assert(c == 2.0 && d == 2.5);
 ```
 
-## Opérateur séquentiel
+### Opérateur séquentiel
 
 L'opérateur séquentiel (*comma operator*) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée soit aux déclarations de variables, soit au boucles `for`:
 
@@ -272,8 +272,7 @@ assert(3 == (1, 2, 3))
 
 L'opérateur agit également comme un {ref}`Point de séquence <sequence_point>`, c'est-à-dire que l'ordre des étapes est respecté.
 
-```{eval-rst}
-.. exercise:: Opérateur séquentiel
+```{exercise} Opérateur séquentiel
 
     Que sera-t-il affiché à l'écran ?
 
@@ -283,7 +282,7 @@ L'opérateur agit également comme un {ref}`Point de séquence <sequence_point>`
         printf("%d", (++i, i++, ++i));
 ```
 
-## Opérateur sizeof
+### Opérateur sizeof
 
 ```{index} sizeof
 ```
@@ -323,7 +322,7 @@ Cette écriture reste malgré tout très mauvaise car le tableau de 128 élémen
 
 (precedence)=
 
-## Priorité des opérateurs
+### Priorité des opérateurs
 
 ```{index} précédence
 ```
@@ -430,7 +429,7 @@ L'écriture en notation polonaise inversée donnerait alors
 34, i, 0, [], ++,  /, 5, 23, +, +, 0xFF, y, <<, &, x, =
 ```
 
-### Associativité
+#### Associativité
 
 ```{index} associativité
 ```
@@ -441,7 +440,7 @@ Une associativité à gauche pour l'opérateur `~` signifie que l'expression `a 
 
 Note qu'il ne faut pas confondre l'associativité *évaluée de gauche à droite* qui est une associativité à *gauche*.
 
-### Représentation mémoire des types de données
+#### Représentation mémoire des types de données
 
 Nous avons vu au chapitre sur les types de données que les types C
 définis par défaut sont représentés en mémoire sur 1, 2, 4 ou 8 octets.
@@ -459,7 +458,7 @@ type `double`). Voici les règles de base :
 
 La **promotion** est l'action de promouvoir un type de donnée en un autre type de donnée plus général. On parle de promotion implicite des entiers lorsqu'un type est promu en un type plus grand automatiquement par le compilateur.
 
-## Valeurs gauches
+### Valeurs gauches
 
 ```{index} lvalue
 ```
@@ -489,7 +488,7 @@ Voici quelques exemples de valeurs gauches :
 - `++x`
 - `(x ? y : z)`
 
-## Optimisation
+### Optimisation
 
 ```{index} -O2
 ```
@@ -514,8 +513,7 @@ if (a % 2) {
 
 ______________________________________________________________________
 
-```{eval-rst}
-.. exercise:: Masque binaire
+```{exercise} Masque binaire
 
     Soit les déclarations suivantes :
 
@@ -536,8 +534,7 @@ ______________________________________________________________________
     #. :code:`m = e & ~(1 << n);`
 ```
 
-```{eval-rst}
-.. exercise:: Registre système
+```{exercise} Registre système
 
     Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
 
@@ -548,8 +545,7 @@ ______________________________________________________________________
     Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle ``r0`` la variable désignant le registre en mémoire et ``n`` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
 ```
 
-```{eval-rst}
-.. exercise:: Recherche d'expressions
+```{exercise} Recherche d'expressions
 
     Considérant les déclarations suivantes :
 
@@ -572,8 +568,7 @@ ______________________________________________________________________
     #. :math:`n \leftarrow \text{la valeur des 4 bits de poids faible de}~n`
 ```
 
-```{eval-rst}
-.. exercise:: Nombres narcissiques
+```{exercise} Nombres narcissiques
 
     Un nombre narcissique ou `nombre d'Amstrong <https://fr.wikipedia.org/wiki/Nombre_narcissique>`__ est  un entier naturel ``n`` non nul qui est égal à la somme des puissances ``p``-ièmes de ses chiffres en base dix, où ``p`` désigne le nombre de chiffres de ``n``:
 

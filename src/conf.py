@@ -15,6 +15,7 @@ extensions = [
     "sphinx_design",
     "sphinx_prompt",
     "sphinx_tippy",
+    "sphinx.ext.todo",
     "unicode",
 ]
 
@@ -26,8 +27,8 @@ language = 'fr'
 master_doc = "index"
 
 html_theme = "pydata_sphinx_theme"
-html_static_path = ['../_static']
-html_logo = "../_static/2020-slim.svg"
+html_static_path = ['_static']
+html_logo = "_static/2020-slim.svg"
 html_title = "Le C pour l'ingénieur"
 
 html_theme_options = {

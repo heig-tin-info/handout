@@ -1,4 +1,4 @@
-# Entrées Sorties
+## Entrées Sorties
 
 Comme nous l'avons vu (c.f. {numref}`inputs_outputs`) un programme dispose de canaux d'entrées sorties `stdin`, `stdout` et `stderr`. Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute une panoplie de fonctions pour formater les sorties et interpréter les entrées.
 
@@ -10,7 +10,7 @@ La fonction phare est bien entendu `printf` pour le formatage de chaîne de cara
 
 La liste citée est non exhaustive, mais largement documentée ici: [\<stdio.h>](http://man7.org/linux/man-pages/man3/stdio.3.html).
 
-## Sorties non formatées
+### Sorties non formatées
 
 Si l'on souhaite simplement écrire du texte sur la sortie standard, deux fonctions sont disponibles :
 
@@ -22,8 +22,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
 
 : Pour imprimer une chaîne de caractères
 
-```{eval-rst}
-.. exercise:: Mot du jour
+```{exercise} Mot du jour
 
     Écrire un programme qui retourne un mot parmi une liste de mot, de façon aléatoire.
 
@@ -62,7 +61,7 @@ Si l'on souhaite simplement écrire du texte sur la sortie standard, deux foncti
             }
 ```
 
-## Sorties formatées
+### Sorties formatées
 
 Convertir un nombre en une chaîne de caractères n'est pas trivial. Prenons l'exemple de la valeur `123`. Il faut pour cela diviser itérativement le nombre par 10 et calculer le reste :
 
@@ -85,7 +84,7 @@ Voici un exemple possible d'implémentation :
 Cette implémentation pourrait être utilisée de la façon suivante :
 
 ```c
-#include <stdlib.h>
+##include <stdlib.h>
 
 int main(void)
 {
@@ -96,12 +95,12 @@ int main(void)
 }
 ```
 
-## printf
+### printf
 
 Vous conviendrez que devoir manuellement convertir chaque valeur n'est pas des plus pratique, c'est pourquoi `printf` rend l'opération bien plus aisée en utilisant des marques substitutives (*placeholder*). Ces spécifié débutent par le caractère `%` suivi du formatage que l'on veut appliquer à une variable passée en paramètres. L'exemple suivant utilise `%d` pour formater un entier non signé.
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main()
 {
@@ -154,7 +153,7 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 Formatage d'un marqueur
 :::
 
-### Exemples
+#### Exemples
 
 ```{index} printf; format
 ```
@@ -185,8 +184,7 @@ Formatage d'un marqueur
     +-------------------------------------+-------------------+--------+
 ```
 
-```{eval-rst}
-.. exercise:: Quelque bogues bien formatés
+```{exercise} Quelque bogues bien formatés
 
     Indiquez les erreurs dans les instructions suivantes :
 
@@ -200,14 +198,14 @@ Formatage d'un marqueur
         printf("%10s\n", 0x9f);
 ```
 
-## Entrées formatées
+### Entrées formatées
 
 À l'instar de la sortie formatée, il est possible de lire les saisies au clavier ou *parser* une chaîne de caractères, c'est-à-dire faire une [analyse syntaxique](https://fr.wikipedia.org/wiki/Analyse_syntaxique) de son contenu pour en extraire de l'information.
 
 La fonction `scanf` est par exemple utilisée à cette fin :
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main()
 {
@@ -239,7 +237,7 @@ Quel est votre nombre favori ? Saviez-vous que votre nombre favori, 23, est impa
 
 On observe ici un comportement différent, car le retour clavier lorsque la touche *enter* est pressée n'est pas transmis au programme, mais c'est le shell qui l'intercepte.
 
-### scanf
+#### scanf
 
 Le format de `scanf` se rapproche de `printf` mais en plus simple. Le [man scanf](https://linux.die.net/man/3/scanf) ou même la page Wikipedia de [scanf](https://en.wikipedia.org/wiki/Scanf_format_string) renseigne sur son format.
 
@@ -250,7 +248,7 @@ La compréhension de `scanf` n'est pas évidente et il est utile de se familiari
 Le programme suivant lit un entier et le place dans la variable `n`. `scanf` retourne le nombre d'assignements réussis. Ici, il n'y a qu'un *placeholder*, on s'attend naturellement à lire `1` si la fonction réussit. Le programme écrit ensuite les nombres dans l'ordre d'apparition.
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int main(void)
 {
@@ -335,8 +333,8 @@ Dans cet exemple, la boucle `do`... `while` est utilisée, car il n'est pas simp
 La directive `scanf("%*[^\n]");` étant un peu particulier, il peut valoir la peine de s'y attarder un peu. Le *flag* `*`, différent de `printf` indique d'ignorer la capture en cours. L'exemple suivant montre comment ignorer un mot.
 
 ```c
-#include <assert.h>
-#include <stdio.h>
+##include <assert.h>
+##include <stdio.h>
 
 int main(void) {
     int a, b;
@@ -350,8 +348,7 @@ int main(void) {
 
 Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séquence de caractères parmi une liste de caractères acceptés. Cette syntaxe est inspirée des [expressions régulières](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re) très utilisées en informatique. Le caractère `^` à une signification particulière, il indique que l'on cherche à capturer une séquence de caractères parmi une liste de caractères **qui ne sont pas acceptés**. C'est une sorte de négation. Dans le cas présent, cette directive `scanf` cherche à consommer tous les caractères jusqu'à une fin de ligne, car, dans le cas ou la capture échoue à `C` de `Celsius`, le pointeur de fichier est bloqué au caractère `C` et au prochain tour de boucle, `scanf` échouera au même endroit. Cette instruction est donc utilisée pour repartir sur des bases saines en sautant à la prochaine ligne.
 
-```{eval-rst}
-.. exercise:: scanf sur des entiers et des réels
+```{exercise} scanf sur des entiers et des réels
 
     Considérant les déclarations :
 
@@ -371,8 +368,7 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
         i = sscanf("%2d%2d%f", &j, &k, &f);
 ```
 
-```{eval-rst}
-.. exercise:: Saisie de valeurs
+```{exercise} Saisie de valeurs
 
     Considérant les déclarations suivantes, donner la valeur des variables après l'exécution des instructions données avec les captures associées :
 
@@ -452,8 +448,7 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
         +------+----------+--------+--------+-------------------------------+
 ```
 
-```{eval-rst}
-.. exercise:: Chaînes de formats
+```{exercise} Chaînes de formats
 
     #. Saisir 3 caractères consécutifs dans des variables ``i``, ``j``, ``k``.
     #. Saisir 3 nombres de type float séparés par un point-virgule et un nombre quelconque d'espaces dans des variables ``x``, ``y`` et ``z``.
@@ -482,7 +477,7 @@ Ensuite, `[^\n]`. Le marqueur `[`, terminé par `]` cherche à capturer une séq
                printf("v="); scanf("%f", &v);
 ```
 
-### Saisie de chaîne de caractères
+#### Saisie de chaîne de caractères
 
 Lors d'une saisie de chaîne de caractères, il est nécessaire de **toujours** indiquer une taille maximum de chaîne comme `%20s` qui limite la capture à 20 caractères, soit une chaîne de 21 caractères avec son `\0`. Sinon, il y a risque de [fuite mémoire](https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire) :
 
@@ -515,7 +510,7 @@ En mémoire, ces deux variables sont adjacentes et naturellement `a[7]` est équ
 └─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
 ```
 
-### Saisie arbitraire
+#### Saisie arbitraire
 
 Comme brièvement évoqué plus haut, il est possible d'utiliser le marqueur `[` pour capturer une séquence de caractères. Imaginons que je souhaite capturer un nombre en [tetrasexagesimal](https://en.wikipedia.org/wiki/Base64) (base 64). Je peux écrire :
 
@@ -527,8 +522,7 @@ sscanf(input, "%127[0-9A-Za-z+/]", &output);
 
 Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères majuscules et minuscules `A-Za-z` (52), ainsi que les caractères `+`, `/` (2), soit 64 caractères. Le buffer d'entrée étant fixé à 128 positions, la saisie est contrainte à 127 caractères imprimables.
 
-```{eval-rst}
-.. exercise:: Bugs
+```{exercise} Bugs
 
     Parmi les instructions ci-dessous, indiquez celles qui sont correctes et celle qui comporte des erreurs. Pour celles comportant des erreurs, détaillez la nature des anomalies.
 
@@ -605,8 +599,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
 ```
 
-```{eval-rst}
-.. exercise:: Test de saisir correcte
+```{exercise} Test de saisir correcte
 
     Écrivez un programme déclarant des variables réelles ``x``, ``y`` et ``z``, permettant de
     saisir leur valeur en une seule instruction, et vérifiant que les 3 valeurs ont bien
@@ -625,8 +618,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
             printf("Erreur de saisie.\n");
 ```
 
-```{eval-rst}
-.. exercise:: Produit scalaire
+```{exercise} Produit scalaire
 
     Écrire un programme effectuant les opérations suivantes :
 
@@ -671,8 +663,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
             if (fabs(dot_product) <= 1E-6)
 ```
 
-```{eval-rst}
-.. exercise:: Crampes de doigts
+```{exercise} Crampes de doigts
 
     Votre collègue n'a pas cessé de se plaindre de crampes... aux doigts... Il a écrit le programme suivant avant de prendre congé pour se rendre chez son médecin.
 
@@ -739,8 +730,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
 ```
 
-```{eval-rst}
-.. exercise:: Géométrie affine
+```{exercise} Géométrie affine
 
     Considérez le programme suivant :
 
@@ -797,8 +787,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
            #. Le calcul d'un point d'une droite
 ```
 
-```{eval-rst}
-.. exercise:: Équation de droite
+```{exercise} Équation de droite
 
     L'exercice précédent souffre de nombreux défauts. Sauriez-vous les identifier et perfectionner l'implémentation de ce programme ?
 
@@ -818,14 +807,12 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
             :language: c
 ```
 
-```{eval-rst}
-.. exercise:: Loi d'Ohm
+```{exercise} Loi d'Ohm
 
     Écrivez un programme demandant deux réels ``tension`` et ``résistance``, et affichez ensuite le ``courant``. Prévoir un test pour le cas où la résistance serait nulle.
 ```
 
-```{eval-rst}
-.. exercise:: Tour Eiffel
+```{exercise} Tour Eiffel
 
     Considérons le programme suivant :
 
@@ -859,8 +846,7 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
     #. Implémentez-le et testez-le.
 ```
 
-```{eval-rst}
-.. exercise:: Hyperloop
+```{exercise} Hyperloop
 
     `Hyperloop <https://fr.wikipedia.org/wiki/Hyperloop>`__ (aussi orthographié **Hyperl∞p**) est un projet ambitieux d'Elon Musk visant à construire un moyen de transport ultra rapide utilisant des capsules voyageant dans un tube sous vide. Ce projet est analogue à celui étudié en suisse et nommé `Swissmetro <https://fr.wikipedia.org/wiki/Swissmetro>`__, mais abandonné en 2009.
 

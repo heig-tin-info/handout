@@ -1,4 +1,4 @@
-# Qualité et Testabilité
+## Qualité et Testabilité
 
 Surveiller et assurer la qualité d'un code est primordial dans toute institution et quelques soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
 
@@ -20,7 +20,7 @@ La division entière sur Pentium
 
 : En 1993, une erreur sur le silicium des processeurs Pentium, fleuron technologique de l'époque, menait à des erreurs de calcul en virgule flottante. Par exemple la division $4195835.0/3145727.0$ menait à $1.33374$ au lieu de $1.33382$
 
-## SQuaRE
+### SQuaRE
 
 La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiques définissant la qualité d'un logiciel. L'acronyme **SQuaRE** (*Software product Quality Requirements and Evaluation*) défini le standard international. Voici quelques critères d'un code de qualité :
 
@@ -33,17 +33,17 @@ La norme ISO/IEC 25010 (qui remplace ISO/IEC 9126-1) décrit les caractéristiqu
 - Réutilisabilité
 - Compréhensibilité
 
-## Hacking
+### Hacking
 
-### Buffer overflow
+#### Buffer overflow
 
 L'attaque par buffer overflow est un type d'attaque typique permettant de modifier le comportement d'un programme en exploitant "le jardinage mémoire". Lorsqu'un programme a mal été conçu et que les tests de dépassement n'ont pas été correctement implémentés, il est souvent possible d'accéder à des comportements de programmes imprévus.
 
 Considérons le programme suivant :
 
 ```c
-#include <stdio.h>
-#include <string.h>
+##include <stdio.h>
+##include <string.h>
 
 int check_password(char *str) {
     if(strcmp(str, "starwars"))
@@ -92,10 +92,10 @@ Wrong Password
 
 Et maintenant, essayons avec un mot de passe magique...
 
-## Tests unitaires
+### Tests unitaires
 
-## Tests fonctionnels
+### Tests fonctionnels
 
-## Framework de tests
+### Framework de tests
 
 Unity

@@ -1,6 +1,6 @@
 (pointers)=
 
-# Pointeurs
+## Pointeurs
 
 [Attention les vélos](https://fr.wikiquote.org/wiki/Le_Jour_de_gloire), on s'attaque à un sujet délicat, difficile, scabreux, mais nécessaire. Un sujet essentiel, indispensable et fantastique: les [pointeurs](<https://fr.wikipedia.org/wiki/Pointeur_(programmation)>).
 
@@ -75,7 +75,7 @@ Résumons :
 - Il peut être **déréférencé** pour en obtenir la valeur de l'élément qu'il pointe
 - **L'adresse d'une variable** peut être obtenue avec une esperluette
 
-## Pointeur simple
+### Pointeur simple
 
 Le format le plus simple d'un pointeur sur un entier s'écrit avec l'astérisque `*`:
 
@@ -126,7 +126,7 @@ Bien que ce soit une très mauvaise idée, il est tout à fait possible d'écrir
 assert(4[a] == a[4]);
 ```
 
-## Arithmétique de pointeurs
+### Arithmétique de pointeurs
 
 Fondamentalement un pointeur est une variable qui contient un [ordinal](https://fr.wikipedia.org/wiki/Nombre_ordinal), c'est-à-dire qu'il peut être imaginé l'ajout à un pointeur une grandeur finie :
 
@@ -204,7 +204,7 @@ De même, l'exercice peut être répété avec des tableaux à deux dimensions :
     ==============  ===============  ===============  ===================
 ```
 
-## Pointeur et chaînes de caractères
+### Pointeur et chaînes de caractères
 
 ```c
 static const char* conjonctions[] = {
@@ -218,9 +218,9 @@ Pointeur sur une chaîne de caractère
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
 
-## Structures et pointeurs
+### Structures et pointeurs
 
-### Initialisation d'un pointeur sur une structure
+#### Initialisation d'un pointeur sur une structure
 
 De la même manière qu'avec les types standards, on peut définir un
 pointeur sur une structure de données.
@@ -250,7 +250,7 @@ Date *p;
 assert(sizeof(p) == 8);
 ```
 
-### Utilisation d'un pointeur sur une structure
+#### Utilisation d'un pointeur sur une structure
 
 On a vu que les champs d'une structure sont accessibles au travers du
 `.` faisant la liaison entre la variable et le champ. Cela est
@@ -275,7 +275,7 @@ p->year
 (*p).year
 ```
 
-### Utilisation d'un pointeur récursif sur une structure
+#### Utilisation d'un pointeur récursif sur une structure
 
 Lorsqu'on utilise des listes chaînées, on a besoin de créer une
 structure contenant des données ainsi qu'un pointeur sur un élément
@@ -309,7 +309,7 @@ e[2].prev = &e[1];
 e[2].next = NULL;
 ```
 
-## Pointeurs et paramètres de fonctions
+### Pointeurs et paramètres de fonctions
 
 Les fonctions comportent une liste de paramètres permettant de retourner
 une information au programme appelant. Il est souvent indispensable de
@@ -317,7 +317,7 @@ pouvoir fournir à une fonction des paramètres qu'elle peut modifier lors
 de son exécution. Pour se faire, on passera par l'utilisation de
 pointeurs.
 
-### Paramètres sous la forme de pointeurs
+#### Paramètres sous la forme de pointeurs
 
 Le prototype d'une fonction recevant un (ou plusieurs) pointeur s'écrit
 de la manière suivante :
@@ -359,7 +359,7 @@ int main() {
 Lors de l'appel d'une fonction recevant un pointeur comme paramètre, on
 placera le symbole `&` pour lui donner l'adresse de la variable.
 
-## Transtypage de pointeurs (cast)
+### Transtypage de pointeurs (cast)
 
 Le `cast` de pointeur s'avère nécessaire lorsqu'un pointeur du type `void` est déclaré, comme c'est le cas pour la fonction de copie mémoire `memcpy`. En effet, cette fonction accepte en entrée un pointeur vers une région mémoire source, et un pointeur vers une région mémoire de destination. D'un cas d'utilisation à un autre, le format de ces régions mémoires peut être de nature très différente :
 
@@ -427,8 +427,8 @@ void memcpy(void *dest, void *src, size_t n)
 Or, rien de tout ceci n'est juste. `memcpy` est une fonction fondamentale en C, ce pourquoi nous nous y attardons temps. Elle est constamment utilisée et doit être extrêmement performante. Aussi, si le compilateur cible une architecture 64-bits pourquoi diable copier les éléments par paquet de 8-bits. C'est un peu comme si notre facteur, au début de ce chapitre, aurait fait ses allers-retours avec en tête qu'un octet par trajet. L'implémentation dépend donc de l'architecture cible et doit tenir compte des éventuels effets de bords. Par exemple s'il faut copier un tableau de 9 x 32 bits. Une architecture 64-bits aura une grande facilité à copier les 8 premiers octets, mais quant au dernier, il s'agit d'un cas particulier et selon la taille de la copie et l'architecture du processeur, l'implémentation devra être ajustée. C'est pourquoi ce type très bas niveau de fonction est l'affaire d'une cuisine interne du compilateur et dont le développeur ne doit pas se soucier. Vous êtes comme [Thomas l'apôtre](<https://fr.wikipedia.org/wiki/Thomas_(ap%C3%B4tre)>), et ne me croyez pas ? Alors, digressons et essayons :
 
 ```c
-#include <string.h>
-#include <stdio.h>
+##include <string.h>
+##include <stdio.h>
 
 int main(void)
 {
@@ -477,7 +477,7 @@ main :
 
 Vous pouvez jouer avec cet exemple [ici](<https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'%23include+%3Cstring.h%3E%0A%23include+%3Cstdio.h%3E%0A%0Aint+main(void)%0A%7B%0A++++char+a%5B%5D+%3D+%22La+Broye+c!'est+fantastique!!%22%3B%0A++++char+b%5Bsizeof(a)%5D%3B%0A%0A++++memcpy(a,+b,+sizeof(a))%3B%0A%0A++++printf(%22%25s+%25s%22,+a,+b)%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:armg820,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',libraryCode:'1',trim:'1'),lang:c%2B%2B,libs:!(),options:'-O2',source:1),l:'5',n:'0',o:'ARM+gcc+8.2+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4>).
 
-## Pointeurs de fonctions
+### Pointeurs de fonctions
 
 Un pointeur peut pointer n'importe où en mémoire, et donc il peut également pointer non pas sur une variable, mais sur une fonction. Les pointeurs de fonctions sont très utiles pour des fonctions de rappel ([callback](https://fr.wikipedia.org/wiki/Fonction_de_rappel)).
 
@@ -515,7 +515,7 @@ int (*callback)(int)
 ^^^                   and returning an int
 ```
 
-## La règle gauche-droite
+### La règle gauche-droite
 
 Cette [règle](http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html) est une recette magique permettant de correctement décortiquer une déclaration C contenant des pointeurs. Il faut tout d'abord lire :
 
@@ -583,7 +583,7 @@ int *p[];
    > ^^^
    > ```
 
-### cdecl
+#### cdecl
 
 Il existe un programme nommé [cdecl](https://github.com/paul-j-lucas/cdecl) qui permet de décoder de complexes déclaration c :
 
@@ -594,7 +594,7 @@ declare x as array 3 of pointer to function returning pointer to array 5 of char
 
 Une version en ligne est également [disponible](https://cdecl.org/).
 
-## Initialisation par transtypage
+### Initialisation par transtypage
 
 L'utilisation de structure peut être utile pour initialiser un type de donnée en utilisant un autre type de donnée. Nous citons ici deux exemples.
 
@@ -609,7 +609,7 @@ union {
 } data;
 ```
 
-## Enchevêtrement ou *Aliasing*
+### Enchevêtrement ou *Aliasing*
 
 Travailler avec les pointeurs demande une attention particulière à tous
 les problèmes d'*alisasing* dans lesquels différents pointeurs pointent sur
@@ -670,8 +670,7 @@ ______________________________________________________________________
 
 % exercises
 
-```{eval-rst}
-.. exercise:: Esperluettes cascadées
+```{exercise} Esperluettes cascadées
 
     Quel est le type de :
 
@@ -681,8 +680,7 @@ ______________________________________________________________________
 
 ```
 
-```{eval-rst}
-.. exercise:: Passage par adresse
+```{exercise} Passage par adresse
 
     Donnez les valeurs affichées par ce programme pour les variables ``a`` à ``e``.
 

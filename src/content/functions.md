@@ -1,4 +1,4 @@
-# Fonctions
+## Fonctions
 
 :::{figure} ../../assets/images/hamilton.*
 :alt: Margaret Hamilton, directrice projet AGC
@@ -38,7 +38,7 @@ En revanche, une fonction apporte quelques désavantages qui à l'échelle des o
 
 (calling-conventions)=
 
-## Conventions d'appel
+### Conventions d'appel
 
 Dans le [Voyage de Chihiro](https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro) (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
@@ -96,7 +96,7 @@ Dans les conventions d'appel, il faut donc également donner la responsabilité 
 
 En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à ce soucier du processeur, du nom des registres, de la correspondance entre le nom des herbes et le casier ou elles sont entreposées. Néanmoins, l'électronicien développeur, proche du matériel doit parfois bien comprendre ces mécanismes et ce qu'ils coûtent (en temps et en place mémoire) à l'exécution d'un programme.
 
-### Overhead
+#### Overhead
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
@@ -114,7 +114,7 @@ int add(int a, int b) {
 }
 ```
 
-### Stack
+#### Stack
 
 En français la [pile d'exécution](https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution), est un emplacement mémoire utilisé pour sauvegarder les registres du processeur entre les appels de fonctions, sauvegarder les adresses de retour des fonctions qui sont analogue à sauvegarder le numéro de page du livre de recettes: p 443. Recette du Bras de Vénus: commencer par réaliser une génoise de 300g (p. 225). Une fois la génoise terminée, il faut se rappeler de retourner à la page 443. Enfin le *stack* est utilisé pour mémoriser les paramètres des fonctions supplémentaires qui ne tiendraient pas dans les registres d'entrées. La convention d'appel de la plupart des architectures prévoie généralement 3 registres pour les paramètres d'entrées, ci bien qu'une fonction à 4 paramètres, pourrait bien aussi utiliser le *stack*:
 
@@ -126,7 +126,7 @@ La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont em
 
 (function-prototype)=
 
-## Prototype
+### Prototype
 
 Le [prototype](https://en.wikipedia.org/wiki/Function_prototype) d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction `printf` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier `<stdio.h>` et il est déclaré sous la forme :
 
@@ -178,7 +178,7 @@ int make_coffee(void) {
 
 Un **prototype** de fonction diffère de son **implémentation** par fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les {ref}`conventions d'appel <calling_conventions>` de la fonction.
 
-## Syntaxe
+### Syntaxe
 
 La syntaxe d'écriture d'une fonction peut être assez compliquée et la source de vérité est issue de la grammaire du langage, qui n'est pas nécessairement accessible au profane. Or, depuis **C99**, une fonction prend la forme :
 
@@ -212,7 +212,7 @@ Implémentation
 
 : On poursuit avec l'implémentation du code `{ ... }`
 
-### void
+#### void
 
 Le type `void` est à une signification particulière dans la syntaxe d'une fonction. Il peut être utilisé de trois manières différentes :
 
@@ -247,7 +247,7 @@ int main(void) {
 
 Aussi, il est impératif de toujours écrire des prototypes complets et d'explicitement utiliser `void` lorsque la fonction ne prend aucun paramètre en entrée. Si vous utilisez un compilateur C++, une déclaration incomplète génèrera une erreur.
 
-## Paramètres
+### Paramètres
 
 Comme nous l'avons vu plus haut, pour de meilleures performances à l'exécution, il est préférable de s'en tenir à un maximum de trois paramètres, c'est également plus lisible pour le développeur, mais rien n'empêche d'en avoir plus.
 
@@ -290,7 +290,7 @@ En des termes plus corrects, mais nous verrons cela au chapitre sur les pointeur
 
 Retenez simplement que lors d'un passage par référence, on cherche à rendre la valeur passée en paramètre modifiable par le *caller*.
 
-## Récursion
+### Récursion
 
 La récursion, caractère d'un processus, d'un mécanisme récursif, c'est à dire qui peut être répété un nombre indéfini de fois par l'application de la même règle, est une méthode d'écriture dans laquelle une fonction s'appelle elle-même.
 
@@ -376,7 +376,7 @@ Généralement les algorithmes récursifs (s'appelant eux-mêmes) sont moins per
 
 Notons que tout algorithme récursif peut être écrit en un algorithme itératif, mais ce n'est pas toujours facile.
 
-## Mémoïsation
+### Mémoïsation
 
 En informatique la [mémoïsation](https://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation) est une technique d'optimisation du code souvent utilisée conjointement avec des algorithmes récursifs. Cette technique est largement utilisée en [programmation dynamique](https://fr.wikipedia.org/wiki/Programmation_dynamique).
 
@@ -408,7 +408,7 @@ int fib(int n)
 Quant aux trois fonctions utilitaires, voici une proposition d'implémentation. Notons que cette implémentation est très élémentaire et n'est valable que pour des entrées inférieures à 1000. Il sera possible ultérieurement de perfectionner ces fonctions, mais nous aurons pour cela besoin de concepts qui n'ont pas encore été abordés, tels que les structures de données complexes.
 
 ```c
-#define SIZE 1000
+##define SIZE 1000
 
 bool cache_input[SIZE] = { false };
 int cache_output[SIZE];
@@ -428,8 +428,7 @@ int memoize_get(int input) {
 }
 ```
 
-```{eval-rst}
-.. exercise:: Dans la moyenne
+```{exercise} Dans la moyenne
 
     Écrire une fonction ``mean`` qui reçoit 3 paramètres réels et qui retourne la moyenne.
 
@@ -442,8 +441,7 @@ int memoize_get(int input) {
             }
 ```
 
-```{eval-rst}
-.. exercise:: Le plus petit
+```{exercise} Le plus petit
 
     Écrire une fonction ``min`` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
 
@@ -469,8 +467,7 @@ int memoize_get(int input) {
             }
 ```
 
-```{eval-rst}
-.. exercise:: Algorithme de retour de monnaie
+```{exercise} Algorithme de retour de monnaie
 
     On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
 
@@ -533,8 +530,7 @@ int memoize_get(int input) {
             }
 ```
 
-```{eval-rst}
-.. exercise:: La fonction f
+```{exercise} La fonction f
 
     Considérons le programme suivant :
 
@@ -561,8 +557,7 @@ int memoize_get(int input) {
     Quel est votre conclusion sur cette fonction ?
 ```
 
-```{eval-rst}
-.. exercise:: Mauvaise somme
+```{exercise} Mauvaise somme
 
     Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
 

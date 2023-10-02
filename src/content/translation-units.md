@@ -1,12 +1,12 @@
 (translationunits)=
 
-# Compilation séparée
+## Compilation séparée
 
-## Unité de traduction
+### Unité de traduction
 
 En programmation, on appelle *translation unit* (unité de traduction), un code qui peut être **compilé** en un **objet** sans autre dépendance externe. Le plus souvent, une unité de traduction correspond à un fichier C.
 
-## Diviser pour mieux régner
+### Diviser pour mieux régner
 
 De même qu'un magasine illustré est divisé en sections pour accroître la lisibilité (sport, news, annonces, météo) de même un code source est organisé en éléments fonctionnels le plus souvent séparés en plusieurs fichiers et ces derniers parfois maintenus par différents développeurs.
 
@@ -36,7 +36,7 @@ nombres complexes. Exemple :
 
 ```c
 // fichier main.c
-#include "complex.h"
+##include "complex.h"
 
 int main() {
     Complex c1 = { .real = 1., .imag = -3. };
@@ -46,10 +46,10 @@ int main() {
 
 ```c
 // fichier complex.h
-#ifndef COMPLEX_H
-#define COMPLEX_H
+##ifndef COMPLEX_H
+##define COMPLEX_H
 
-#include <stdio.h>
+##include <stdio.h>
 
 typedef struct Complex {
     double real;
@@ -58,12 +58,12 @@ typedef struct Complex {
 
 void complex_fprint(FILE *fp, const Complex c);
 
-#endif // COMPLEX_H
+##endif // COMPLEX_H
 ```
 
 ```c
 // fichier complex.c
-#include "complex.h"
+##include "complex.h"
 
 void complex_fprint(FILE* fp, const Complex c) {
     fprintf(fp, "%+.3lf + %+.3lf\n", c.real, c.imag);
@@ -84,7 +84,7 @@ gcc complex.o main.o -oprogram -lm
 
 Nous verrons plus bas les éléments théoriques vous permettant de mieux comprendre ces lignes.
 
-## Module logiciel
+### Module logiciel
 
 Les applications modernes dépendent souvent de nombreux modules logiciels externes aussi utilisés dans d'autres projets. C'est avantageux à plus d'un titre :
 
@@ -97,7 +97,7 @@ Lorsque vous utilisez la fonction `printf`, vous dépendez d'un module externe n
 
 Un module logiciel peut se composer de fichiers sources, c'est-à-dire un ensemble de fichiers `.c` et `.h` ainsi qu'une documentation et un script de compilation (`Makefile`). Alternativement, un module logiciel peut se composer de bibliothèques déjà compilées sous la forme de fichiers `.h`, `.a` et `.so`. Sous Windows on rencontre fréquemment l'extension `.dll`. Ces fichiers compilés ne donnent pas accès au code source, mais permettent d'utiliser les fonctionnalités quelles offrent dans des programmes C en mettant à disposition un ensemble de fonctions documentées.
 
-## Compilation avec assemblage différé
+### Compilation avec assemblage différé
 
 Lorsque nous avions compilé notre premier exemple [Hello World](hello) nous avions simplement appelé `gcc` avec le fichier source `hello.c` qui nous avait créé un exécutable `a.out`. En réalité, GCC est passé par plusieurs sous-étapes de compilation :
 
@@ -120,7 +120,7 @@ Notons que généralement, seul deux étapes de GCC sont utilisées :
 1. Compilation avec `gcc -c <fichier.c>`, ceci génère automatiquement un fichier `.o` du même nom que le fichier d'entrée.
 2. Édition des liens avec `gcc <fichier1.o> <fichier2.o> ...`, ceci génère automatiquement un fichier exécutable `a.out`.
 
-## Fichiers d'en-tête (*header*)
+### Fichiers d'en-tête (*header*)
 
 Les fichiers d'en-tête (`.h`) sont des fichiers écrits en langage C, mais qui ne contiennent pas d'implémentation de fonctions. Un tel fichier ne contient donc pas de `while`, de `for` ou même de `if`. Par convention ces fichiers ne contiennent que :
 
@@ -141,11 +141,11 @@ Et le fichier `foobar.def` pourrait contenir :
 
 ```c
 // foobar.def
-#ifdef FOO
+##ifdef FOO
 printf("hello foo!\n");
-#else
+##else
 printf("hello bar!\n");
-#endif
+##endif
 ```
 
 Vous noterez que l'extension de `foobar` n'est pas `.h` puisque le contenu n'est pas un fichier d'en-tête. `.def` ou n'importe quelle autre extension pourrait donc faire l'affaire ici.
@@ -161,11 +161,11 @@ int main() {
 EOF
 
 $ cat << EOF > foobar.def
-#ifdef FOO
+##ifdef FOO
 printf("hello foo!\n");
-#else
+##else
 printf("hello bar!\n");
-#endif
+##endif
 EOF
 
 $ gcc -E main.c | sed '/^#/ d'
@@ -193,7 +193,7 @@ Notons qu'ici le prototype est précédé par le mot clé `extern`. Il s'agit d'
 
 Un fichier d'en-tête contiendra donc tout le nécessaire utile à pouvoir utiliser une bibliothèque externe.
 
-### Protection de réentrance
+#### Protection de réentrance
 
 La protection de réentrence aussi nommée *header guards* est une solution au problème d'inclusion multiple. Si par exemple on définit dans un fichier d'en-tête un nouveau type et que l'on inclus ce fichier, mais que ce dernier est déjà inclus par une autre bibliothèque une erreur de compilation apparaîtra :
 
@@ -259,14 +259,14 @@ On y retrouve la définition de `Bar` deux fois et donc, le compilateur génère
 Une solution à ce problème est d'ajouter des gardes d'inclusion multiple par exemple avec ceci:
 
 ```c
-#ifndef BAR_H
-#define BAR_H
+##ifndef BAR_H
+##define BAR_H
 
 typedef struct Bar {
 int b, a, r;
 } Bar;
 
-#endif // BAR_H
+##endif // BAR_H
 ```
 
 Si aucune définition du type `#define BAR_H` n'existe, alors le fichier `bar.h` n'a jamais été inclus auparavant et le contenu de la directive `#ifndef BAR_H` dans lequel on commence par définir `BAR_H` est exécuté. Lors d'une future inclusion de `bar.h`, la valeur de `BAR_H` aura déjà été définie et le contenu de la directive `#ifndef BAR_H` ne sera jamais exécuté.
@@ -274,7 +274,7 @@ Si aucune définition du type `#define BAR_H` n'existe, alors le fichier `bar.h`
 Alternativement, il existe une solution **non standard**, mais supportée par la plupart des compilateurs. Elle fait intervenir un pragma :
 
 ```c
-#pragma once
+##pragma once
 
 typedef struct Bar {
 int b, a, r;
@@ -283,7 +283,7 @@ int b, a, r;
 
 Cette solution est équivalente à la méthode traditionnelle et présente plusieurs avantages. C'est tout d'abord une solution atomique qui ne nécessite pas un `#endif` à la fin du fichier. Il n'y a ensuite pas de conflit avec la règle SSOT, car le nom du fichier `bar.h` n'apparaît pas dans le fichier `BAR_H`.
 
-## En profondeur
+### En profondeur
 
 Pour mieux comprendre la compilation séparée, tentons d'observer le code assembleur généré. Considérons le fichier `foo.c` :
 
@@ -334,7 +334,7 @@ On constate à la ligne `19` que l'addition à bien lieu `eax + 42`, et que l'ap
 Maintenant considérons le programme principal :
 
 ```c
-#include <stdio.h>
+##include <stdio.h>
 
 int foo(int);
 

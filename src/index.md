@@ -1,18 +1,10 @@
+---
+html_theme.sidebar_secondary.remove: true
+---
+
 # Le C pour l'ingénieur
 
-```{eval-rst}
-.. include:: frontmatter/preface.rst
-```
-
-:::{only} latex
-```{eval-rst}
-.. include:: frontmatter/introduction.rst
-```
-:::
-
-```{raw} latex
-\mainmatter
-```
+Cours de C pour les étudiants en ingénierie
 
 ```{toctree}
 :caption: "Table des matières"
@@ -20,49 +12,26 @@
 :maxdepth: 2
 :numbered: true
 
-content/introduction
-content/programming
-content/foundations
-content/numeration
-content/operators
-content/datatype
-content/control-structures
-content/processus
-content/stdio
-content/functions
-content/composite-datatypes
-content/files
-content/memory-management
-content/pointers
-content/standard-library
-content/preprocessor
-content/algorithms
-content/translation-units
-content/scopes
-content/testing
-content/data-structures
-content/advanced-topics
-content/traps
-content/philosophy
+content/index
+
 ```
 
 ```{raw} latex
 \appendix
 ```
 
-```{eval-rst}
-.. appendix::
-    :numbered:
-    :maxdepth: 1
-    :caption: Annexes
-    :glob:
+```{toctree}
+:caption: "Annexes"
+:glob: true
+:maxdepth: 2
+:numbered: true
 
-    appendix/vscode
-    appendix/grammar
-    appendix/bash
-    appendix/development
-    appendix/unit
-    appendix/laboratories
+appendix/vscode
+appendix/grammar
+appendix/bash
+appendix/development
+appendix/unit
+appendix/laboratories
 ```
 
 ```{raw} latex
@@ -86,6 +55,5 @@ backmatter/glossary
 \printindex
 ```
 
-```{eval-rst}
-.. include:: backmatter/colophon.rst
+```{include} backmatter/colophon.rst
 ```

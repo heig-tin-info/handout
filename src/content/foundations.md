@@ -1,4 +1,4 @@
-# Généralités du langage
+## Généralités du langage
 
 Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il traite des généralités propres au langage, mais aussi des notions élémentaires permettant d'interpréter du code source.
 
@@ -7,7 +7,7 @@ Notons que ce chapitre est transversal, à la sa première lecture, le profane n
 ```{index} alphabet
 ```
 
-## L'alphabet
+### L'alphabet
 
 ```{index} Chiffres arabes
 ```
@@ -72,7 +72,7 @@ c=0)                            :( O
 ```{index} EOL
 ```
 
-## Fin de lignes (EOL)
+### Fin de lignes (EOL)
 
 ```{index} téléscripteurs
 ```
@@ -90,7 +90,7 @@ Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`
 Distinction de différents caractères non imprimables
 :::
 
-## Mots clés
+### Mots clés
 
 Le langage de programmation C tel que défini par C11 comporte environ 37 mots clés :
 
@@ -162,7 +162,7 @@ Notons que les mots clés `true` et `false` décrits à la {numref}`booleans` ne
 
 (identifiers)=
 
-## Identificateurs
+### Identificateurs
 
 ```{index} identificateur
 ```
@@ -193,8 +193,7 @@ Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'express
 ```
 :::
 
-```{eval-rst}
-.. exercise:: Validité des identificateurs
+```{exercise} Validité des identificateurs
 
     Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
 
@@ -242,7 +241,7 @@ Il est possible d'exprimer la syntaxe d'un identificateur à l'aide de l'express
 ```{index} variable
 ```
 
-## Variables
+### Variables
 
 Une variable est un symbole qui associe un nom **identificateur** à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
 
@@ -261,7 +260,7 @@ Une variable est définie par :
 ```{index} déclaration
 ```
 
-### Déclaration
+#### Déclaration
 
 Avant de pouvoir être utilisée, une variable doit être déclarée afin que le compilateur puisse réserver un emplacement en mémoire pour stocker sa valeur. Voici quelques déclarations valides en C :
 
@@ -279,8 +278,7 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 int i, j, k;
 ```
 
-```{eval-rst}
-.. exercise:: Affectation de variables
+```{exercise} Affectation de variables
 
     Considérons les déclarations suivantes :
 
@@ -318,7 +316,7 @@ int i, j, k;
         =====  ================  =====  =====  =====  =====
 ```
 
-### Convention de nommage
+#### Convention de nommage
 
 Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation exprime que :
 
@@ -344,7 +342,7 @@ Selon les standards adoptés chaque société on trouve ceux qui préfèrent nom
     +--------------+------------------+----------------------+
 ```
 
-### Variable métasyntaxiques
+#### Variable métasyntaxiques
 
 Souvent lors d'exemples donnés en programmation on utilise des variables génériques dites [métasyntaxiques](https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique). En français les valeurs `toto`, `titi`, `tata` et `tutu` sont régulièrement utilisées tandis qu'en anglais
 `foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](<https://en.wikipedia.org/wiki/Spam_(Monty_Python)>) des Monthy Python.
@@ -353,7 +351,7 @@ Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lu
 
 On trouvera une [table](http://www.catb.org/jargon/html/M/metasyntactic-variable.html) des différents noms les plus courants utilisés dans différentes langues.
 
-## Les constantes
+### Les constantes
 
 Une constante par opposition à une variable voit son contenu fixe et immuable.
 
@@ -367,11 +365,11 @@ const double scale_factor = 12.67;
 Il ne faut pas confondre la **constante** qui est une variable immuable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Le fichier d'en-tête `math.h` définit par exemple la constante `M_PI` sous forme de macro.
 
 ```c
-#define M_PI 3.14159265358979323846
+##define M_PI 3.14159265358979323846
 ```
 :::
 
-## Constantes littérales
+### Constantes littérales
 
 Les constantes littérales représentent des grandeurs scalaires numériques ou de caractères et initialisées lors de la phase de compilation.
 
@@ -387,8 +385,7 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
 '0'    // Grandeur caractère valant 48 en décimal
 ```
 
-```{eval-rst}
-.. exercise:: Constances littérales
+```{exercise} Constances littérales
 
     Pour les entrées suivantes, indiquez lesquelles sont correctes.
 
@@ -413,7 +410,7 @@ Les constantes littérales représentent des grandeurs scalaires numériques ou 
         #. ``02``
 ```
 
-## Opérateur d'affectation
+### Opérateur d'affectation
 
 Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable.
 
@@ -447,8 +444,7 @@ a = b = c = 42;
 
 Nous verrons {numref}`precedence` que l'associativité de chaque opérateur détermine s'il agit de gauche à droite ou de droite à gauche.
 
-```{eval-rst}
-.. exercise:: Affectations simples
+```{exercise} Affectations simples
 
     Donnez les valeurs de ``x``, ``n``, ``p`` après l'exécution des instructions ci-dessous :
 
@@ -470,8 +466,7 @@ Nous verrons {numref}`precedence` que l'associativité de chaque opérateur dét
             n ≡ 7
 ```
 
-```{eval-rst}
-.. exercise:: Trop d'égalités
+```{exercise} Trop d'égalités
 
     On considère les déclarations suivantes :
 
@@ -514,7 +509,7 @@ Nous verrons {numref}`precedence` que l'associativité de chaque opérateur dét
 
 ```
 
-## Commentaires
+### Commentaires
 
 Comme en français et ainsi qu'illustré par la {numref}`proust`, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lu que par le développeur qui possède le code source.
 
@@ -557,11 +552,11 @@ Si d'aventure vous souhaitez exclure temporairement du code de la compilation, u
 désactiver cette portion de code.
 
 ```c
-#if 0 // TODO: Check if divisor could still be null at this point.
+##if 0 // TODO: Check if divisor could still be null at this point.
 if (divisor == 0) {
     return -1; // Error
 }
-#endif
+##endif
 ```
 
 D'une manière générale l'utilisation des commentaires ne devrait pas être utilisée pour :
@@ -590,8 +585,7 @@ Le format des commentaires est par essence libre au développeur, mais il est g�
 - Les commentaires soient concis et précis.
 - Les commentaires soient écrits en anglais.
 
-```{eval-rst}
-.. exercise:: Verbosité
+```{exercise} Verbosité
 
     Comment récririez-vous ce programme?
 

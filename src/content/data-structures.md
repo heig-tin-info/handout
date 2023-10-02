@@ -1,6 +1,6 @@
-# Structures de données
+## Structures de données
 
-## Types de données abstraits
+### Types de données abstraits
 
 Un [type de donnée abstrait](https://fr.wikipedia.org/wiki/Type_abstrait) (**ADT** pour Abstract Data Type) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
 
@@ -30,7 +30,7 @@ Prenons le cas du fichier `foobar.c` lequel décrit une structure `struct Foo` e
 En plus, il existe un compteur d'accès `count` qui s'incrémente lorsque l'on assigne une valeur et se décrémente lorsque l'on récupère une valeur.
 
 ```c
-#include <stdlib.h>
+##include <stdlib.h>
 
 typedef struct Foo Foo;
 
@@ -64,7 +64,7 @@ foo->count = 42; // Hacked this !
 Pour s'en protéger, on a recours à la compilation séparée (voir chapitre {ref}`TranslationUnits`) dans laquelle le programme est découpé en plusieurs fichiers. Le fichier `foobar.h` contiendra tout ce qui doit être connu du programme principal, à savoir les prototypes des fonctions, et le type abstrait :
 
 ```c
-#pragma once
+##pragma once
 
 typedef struct Foo Foo;
 
@@ -76,8 +76,8 @@ void set(Foo* foo, int value);
 Ce fichier sera inclus dans le programme principal `main.c` :
 
 ```c
-#include "foobar.h"
-#include <stdio.h>
+##include "foobar.h"
+##include <stdio.h>
 
 int main() {
     Foo *foo;
@@ -90,7 +90,7 @@ int main() {
 
 En résumé, un type abstrait impose l'utilisation de fonctions intermédiaires pour modifier le type. Dans la grande majorité des cas, ces types représentent des structures qui contiennent des informations internes qui ne sont pas destinées à être modifiées par l'utilisateur final.
 
-## Tableau dynamique
+### Tableau dynamique
 
 Un tableau dynamique aussi appelé *vecteur* est, comme son nom l'indique, alloué dynamiquement dans le *heap* en fonction des besoins. Vous vous rappelez que le *heap* grossit à chaque appel de `malloc` et diminue à chaque appel de `free`.
 
@@ -122,7 +122,7 @@ La taille du nouvel espace mémoire est plus grande d'un facteur donné que l'an
 
 Lorsque le nombre d'éléments du tableau devient inférieur du facteur de croissance à la taille effective du tableau, il est possible de faire l'opération inverse, c'est-à-dire réduire la taille allouée. En pratique cette opération est rarement implémentée, car peu efficace (c.f. [cette](https://stackoverflow.com/a/60827815/2612235) réponse sur stackoverflow).
 
-### Anatomie
+#### Anatomie
 
 ```{index} tableau dynamique, tête, queue, head, tail
 ```
@@ -243,7 +243,7 @@ if (elements >= capacity) {
 }
 ```
 
-## Buffer circulaire
+### Buffer circulaire
 
 Un {index}`tampon circulaire` aussi appelé {index}`buffer circulaire` ou {index}`ring buffer` en anglais est généralement d'une taille fixe et possède deux pointeurs. L'un pointant sur le dernier élément (*tail*) et l'un sur le premier élément (*head*).
 
@@ -274,9 +274,9 @@ Les indices sont bouclés sur la taille du buffer, l'élément suivant est donc 
 Voici une implémentation possible du buffer circulaire :
 
 ```c
-#define SIZE 16
-#define MOD(A, M) (((A % M) + M) % M)
-#define NEXT(A) (((A) + 1) % SIZE)
+##define SIZE 16
+##define MOD(A, M) (((A % M) + M) % M)
+##define NEXT(A) (((A) + 1) % SIZE)
 
 typedef struct Ring {
     int buffer[SIZE];
@@ -316,7 +316,7 @@ int* dequeue(Ring *ring) {
 }
 ```
 
-## Listes chaînées
+### Listes chaînées
 
 ```{index} liste chaînée
 ```
@@ -416,7 +416,7 @@ Ce surcoût est souvent part du compromis entre la complexité d'exécution du c
     +----------------------+--------------+--------------+-------------------+--------------+
 ```
 
-### Liste simplement chaînée (*linked-list*)
+#### Liste simplement chaînée (*linked-list*)
 
 ```{index} linked-list, liste chaînée
 ```
@@ -432,8 +432,8 @@ Liste chaînée simple
 :::
 
 ```c
-#include <stdio.h>
-#include <stdlib.h>
+##include <stdio.h>
+##include <stdlib.h>
 
 struct Point
 {
@@ -472,7 +472,7 @@ int main(void)
 }
 ```
 
-### Opérations sur une liste chaînée
+#### Opérations sur une liste chaînée
 
 - Création
 - Nombre d'éléments
@@ -488,7 +488,7 @@ l'élément et de faciliter sa manipulation au travers de la liste.  Ne
 pas oublier de libérer la mémoire allouée pour les éléments lors de leur
 suppression…
 
-#### Calcul du nombre d'éléments dans la liste
+##### Calcul du nombre d'éléments dans la liste
 
 Pour évaluer le nombre d'éléments dans une liste, on effectue le
 parcours de la liste à partir de la tête, et on passe d'élément en
@@ -565,7 +565,7 @@ size_t compute_length(Element* head)
 
 Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.
 
-#### Insertion
+##### Insertion
 
 L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante :
 
@@ -583,7 +583,7 @@ Element* insert_after(Element* e, void* payload)
 }
 ```
 
-#### Suppression
+##### Suppression
 
 La suppression implique d'accéder à l'élément parent, il n'est donc pas possible à partir d'un élément donné de le supprimer de la liste.
 
@@ -595,7 +595,7 @@ void delete_after(Element* e)
 }
 ```
 
-#### Recherche
+##### Recherche
 
 Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions :
 
@@ -604,9 +604,9 @@ Rechercher dans une liste chaînée est une question qui peut-être complexe et 
 
 On sait qu'une recherche idéale s'effectue en $O(log(n))$, mais que la solution triviale en $O(n)$ est la suivante :
 
-## Liste doublement chaînée
+### Liste doublement chaînée
 
-### Liste chaînée XOR
+#### Liste chaînée XOR
 
 L'inconvénient d'une liste doublement chaînée est le surcoût nécessaire au stockage d'un élément. Chaque élément contient en effet deux pointeurs sur l'élément précédent (*prev*) et suivant (*next*).
 
@@ -632,7 +632,7 @@ Les inconvénients de cette structure sont :
 
 L'avantage principal étant le gain de place en mémoire.
 
-## Liste chaînée déroulée (Unrolled linked list)
+### Liste chaînée déroulée (Unrolled linked list)
 
 Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec `malloc`.
 
@@ -650,7 +650,7 @@ typedef struct Node {
 } Node;
 ```
 
-## Arbre binaire de recherche
+### Arbre binaire de recherche
 
 L'objectif de cette section n'est pas d'entrer dans les détails des [arbres binaires](https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche) dont la théorie requiert un ouvrage dédié, mais de vous sensibiliser à l'existence de ces structures de données qui sont à la base de beaucoup de langage de haut niveau comme C++, Python ou C#.
 
@@ -701,7 +701,7 @@ Node* search(Node* node, size_t id)
 
 L'insertion et la suppression d'éléments dans un arbre binaire fait appel à des [rotations](https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche), puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.
 
-## Heap
+### Heap
 
 La structure de donnée `heap` aussi nommée tas ne doit pas être confondue avec le tas utilisé en allocation dynamique. Il s'agit d'une forme particulière de l'arbre binaire dit "presque complet", dans lequel la différence de niveau entre les feuilles n'excède pas 1. C'est-à-dire que toutes les feuilles sont à une distance identique de la racine plus ou moins 1.
 
@@ -725,7 +725,7 @@ Un tas peut aisément être représenté sous forme de tableau en utilisant la r
 Représentation d'un *heap*
 :::
 
-## Queue prioritaire
+### Queue prioritaire
 
 ```{index} queue prioritaire
 ```
@@ -767,7 +767,7 @@ La queue prioritaire dispose donc aussi des méthodes `enqueue` et `dequeue` mai
 
 L'implémentation de ce type de structure de donnée s'appuie le plus souvent sur un *heap*, soit construit à partir d'un tableau statique, soit un tableau dynamique.
 
-## Tableau de Hachage
+### Tableau de Hachage
 
 Les tableaux de hachage (*Hash Table*) sont une structure particulière dans laquelle une fonction dite de *hachage* est utilisée pour transformer les entrées en des indices d'un tableau.
 
@@ -846,7 +846,7 @@ L'accès à une personne à partir de la clé se résous donc en `O(1)` car il n
 
 Cette [vidéo](https://www.youtube.com/watch?v=KyUTuwz_b7Q) YouTube explique bien le fonctionnement des tableaux de hachage.
 
-### Collisions
+#### Collisions
 
 ```{index} collision
 ```
@@ -901,7 +901,7 @@ int hash_name(char name[4]) {
 }
 ```
 
-### Facteur de charge
+#### Facteur de charge
 
 Le {index}`facteur de charge` d'une table de hachage est donné par la relation :
 
@@ -913,7 +913,7 @@ Plus ce facteur de charge est élevé, dans le cas du *linear probing*, moins bo
 
 Certains algorithmes permettent de redimensionner dynamiquement la table de hachage pour conserver un facteur de charge le plus faible possible.
 
-### Chaînage
+#### Chaînage
 
 Le {index}`chaînage` ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
@@ -921,7 +921,7 @@ Le {index}`chaînage` ou *chaining* est une autre méthode pour mieux gérer les
 Chaînage d'une table de hachage
 :::
 
-### Fonction de hachage
+#### Fonction de hachage
 
 Nous avons vu plus haut une fonction de hachage calculant le modulo sur la somme des caractères ASCII d'une chaîne de caractères. Nous avons également vu que cette fonction de hachage est source de nombreuses collisions. Les chaînes `"Rea"` ou `"Rae"` auront les même *hash* puisqu'ils contiennent les mêmes lettres. De même une fonction de hachage qui ne répartit pas bien les éléments dans la table de hachage sera mauvaise. On sait par exemple que les voyelles sont nombreuses dans les mots et qu'il n'y en a que six et que la probabilité que nos noms de trois lettres contiennent une voyelle en leur milieu est très élevée.
 
@@ -930,8 +930,8 @@ L'idée générale des fonctions de hachage est de répartir **uniformément** l
 Une idée **mauvaise** et **à ne pas retenir** pourrait être d'utiliser le caractère pseudo-aléatoire de `rand` pour hacher nos noms :
 
 ```c
-#include <stdlib.h>
-#include <stdio.h>
+##include <stdlib.h>
+##include <stdio.h>
 
 int hash(char *str, int mod) {
     int h = 0;
@@ -988,10 +988,10 @@ $ md5sum chanson.txt
 Le *hash* de ce texte est exprimé en hexadécimal ( `0x699bfc5c3fd42a06e99797bfa635f410`). Converti en décimal `140378864046454182829995736237591622672` il peut être réduit en utilisant le modulo. Voici un exemple en C :
 
 ```c
-#include <stdlib.h>
-#include <stdio.h>
-#include <openssl/md5.h>
-#include <string.h>
+##include <stdlib.h>
+##include <stdio.h>
+##include <openssl/md5.h>
+##include <string.h>
 
 int hash(char* str, int mod) {
     // Compute MD5
@@ -1043,7 +1043,7 @@ $ ./a.out
 
 On peut constater qu'ici les indices sont bien répartis et que la fonction de hachage choisie semble uniforme.
 
-## Piles ou LIFO (*Last In First Out*)
+### Piles ou LIFO (*Last In First Out*)
 
 Une pile est une structure de donnée très similaire à un tableau dynamique, mais dans laquelle les opérations sont limitées. Par exemple, il n'est possible que :
 
@@ -1056,7 +1056,7 @@ Une pile est une structure de donnée très similaire à un tableau dynamique, m
 Une utilisation possible de pile sur des entiers serait la suivante :
 
 ```c
-#include "stack.h"
+##include "stack.h"
 
 int main() {
     Stack stack;
@@ -1077,7 +1077,7 @@ int main() {
 
 Les piles peuvent être implémentées avec des tableaux dynamiques ou des listes chaînées (voir plus bas).
 
-## Queues ou FIFO (*First In First Out*)
+### Queues ou FIFO (*First In First Out*)
 
 Les queues sont aussi des structures très similaires à des tableaux dynamiques, mais elles ne permettent que les opérations suivantes :
 
@@ -1089,8 +1089,8 @@ Les queues sont aussi des structures très similaires à des tableaux dynamiques
 Les queues sont souvent utilisées lorsque des processus séquentiels ou parallèles s'échangent des tâches à traiter :
 
 ```
-#include "queue.h"
-#include <stdio.h>
+##include "queue.h"
+##include <stdio.h>
 
 void get_work(Queue *queue) {
     while (!feof(stdin)) {
@@ -1118,7 +1118,7 @@ int main() {
 }
 ```
 
-## Performances
+### Performances
 
 Les différentes structures de données ne sont pas toutes équivalentes en termes de performances. Il convient, selon l'application, d'opter pour la structure la plus adaptée, et par conséquent il est important de pouvoir comparer les différentes structures de données pour choisir la plus appropriée. Est-ce que les données doivent être maintenues triées ? Est-ce que la structure de donnée est utilisée comme une pile ou un tas ? Quelle est la structure de donnée avec le moins d'*overhead* pour les opérations de `push` ou `unshift` ?
 

@@ -1,6 +1,6 @@
-# La programmation
+## La programmation
 
-:::{figure} ../../assets/images/eniac.*
+:::{figure} assets/images/eniac.*
 L'un des premiers ordinateurs: l'Eniac
 :::
 
@@ -14,7 +14,7 @@ Il ne serait pas raisonnable de vous enseigner la programmation C sans au préal
 1. Qu'est-ce que l'algorithmique ?
 2. Qu'est-ce que la programmation ?
 
-## Algorithmique
+### Algorithmique
 
 L'algorithmique et non l'*algorithmie*, est la science qui étudie la production de règles et techniques impliquées dans la définition et la conception d'[algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Nous verrons l'algorithmique plus en détail dans le chapitre {numref}`algorithms`. Retenons pour l'heure que l'algorithmique intervient tous les jours :
 
@@ -33,8 +33,7 @@ Dans le contexte mathématique et scientifique qui nous intéresse ici, citons l
 Algorithme de calcul du PGCD d'Euclide.
 :::
 
-```{eval-rst}
-.. exercise:: Algorithme d'Euclide
+```{exercise} Algorithme d'Euclide
 
     Appliquer l'algorithme d'Euclide aux entrées suivantes. Que vaut :math:`a`
     , :math:`b` et :math:`r` ?
@@ -44,7 +43,7 @@ Algorithme de calcul du PGCD d'Euclide.
         a = 1260, b = 630
 ```
 
-## Programmation
+### Programmation
 
 ```{index} Joseph Marie Jacquard, 1801, Carte perforée
 ```
@@ -109,7 +108,7 @@ Notons que *de gueules* signifie *rouge*. Le [drapeau suisse](https://fr.wikiped
 Armoiries des ducs de Mayenne
 :::
 
-## Calculateur
+### Calculateur
 
 ```{index} calculateur, abaque
 ```
@@ -126,7 +125,7 @@ Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *compu
 ```{index} ordinateur
 ```
 
-## Ordinateur
+### Ordinateur
 
 Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret à la demande d'IBM France (c.f [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)).
 
@@ -143,7 +142,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
 > Vôtre
 > Jacques Perret »
 
-## Historique
+### Historique
 
 87 av. J.-C.
 
@@ -208,18 +207,11 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques P
   - 14.668 GFlops/watt
   - 600 GiB de mémoire RAM
 
-```{eval-rst}
-.. todo:: Chapitre sur le fonctionnement de l'ordinateur
-```
+### Fonctionnement de l'ordinateur
 
-% Fonctionnement de l'ordinateur
+### Machine de Turing
 
-% ==============================
-
-% Machine de Turing
-
-% -----------------
-
-% .. exercise:: Alain Turing
-
-% Comment est mort Alain Turing et pourquoi est-il connu ?
+````{exercise} Alain Turing
+:label: exercise-alain-turing
+Comment est mort Alain Turing et pourquoi est-il connu ?
+````
