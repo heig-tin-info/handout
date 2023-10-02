@@ -1,4 +1,4 @@
-# Ligne de commande
+## Ligne de commande
 
 La maîtrise de la ligne de commande n'est pas indispensable pour ce cours, mais la compréhension de quelques commandes est utile pour bien comprendre les exemples donnés.
 
@@ -16,7 +16,7 @@ Ce dernier vous invite à taper une commande laquelle est le plus souvent le nom
 $ cat foo.txt | hexdump -C -n100
 ```
 
-## Navigation
+### Navigation
 
 Pour naviguer dans l'arborescence, le programme `cd` est utilisé. Il est l'acronyme de *change directory*. Ce programme prend en argument un chemin relatif ou absolu.
 
@@ -32,7 +32,7 @@ $ cd /usr
 
 La dernière commande est singulière : si `cd` est appelé sans argument, il nous ramène dans notre répertoire personnel nommé *home* et abbrégé `~`.
 
-## Affichage
+### Affichage
 
 L'affichage du contenu courant de l'arborescence est possible avec le programme `ls` pour *list structure*.
 
@@ -52,7 +52,7 @@ lrwxrwxrwx 1 root root    9 2020-03-22 16:55 /usr/bin/assistant -> qtchooser
 
 On utilise souvent les options `a` (pour *all*) et `l` (pour *long*) permettant d'afficher les résultats avec plus de détails. Dans l'ordre on peut lire les permissions du fichier, le propriétaire, le groupe, la taille du fichier, sa date de dernière modification et enfin son nom.
 
-## Pipe
+### Pipe
 
 Le signe pipe `|` permet de rediriger le flux de sortie d'un programme vers le flux d'entrée d'un autre programme et ainsi les exécuter à la chaîne.
 

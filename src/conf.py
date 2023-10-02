@@ -2,9 +2,9 @@ import os
 import sys
 sys.path.append(os.path.abspath("../extensions"))
 
-project = 'Test'
-copyright = '2023, Yves'
-author = 'Yves'
+project = "Le C pour l'ingénieur"
+copyright = '2023, HEIG-VD'
+author = 'Prof. Yves Chevallier'
 
 extensions = [
     "myst_parser",
@@ -71,9 +71,7 @@ myst_enable_extensions = [
     "linkify",
     "strikethrough",
     "substitution",
-    "tasklist",
-    "attrs_inline",
-    "attrs_block",
+    "tasklist"
 ]
 
 latex_engine = "xelatex"
@@ -82,4 +80,7 @@ latex_engine = "xelatex"
 tippy_add_class = "has-tippy"
 
 html_static_path = ['_static']
-html_css_files = ["tippy.css"]
+html_css_files = [
+    "css/custom.css",
+    "css/tippy.css"
+]

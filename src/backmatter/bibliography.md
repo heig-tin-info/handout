@@ -1,4 +1,4 @@
-# Bibliographie
+## Bibliographie
 
 Les références utilisées dans cet ouvrage sont :
 

@@ -2,7 +2,7 @@
 \appendix
 ```
 
-# Visual Studio Code
+## Visual Studio Code
 
 Visual Studio Code est un éditeur gratuit open source développé par Microsoft. Il gagne en popularité et réunit les avantages d'être léger, multi-plate-forme et multilangage.
 

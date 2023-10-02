@@ -1,4 +1,4 @@
-# Grammaire C
+## Grammaire C
 
 [Yacc](<https://fr.wikipedia.org/wiki/Yacc_(logiciel)>) (*Yet Another COmpiler-Compiler*) est un logiciel utilisé pour écrire des analyseurs syntaxiques de code. Il prend en entrée une grammaire.
 

@@ -1,4 +1,4 @@
-# Environnement de développement
+## Environnement de développement
 
 Si ce n'est pas déjà le cas, vous devriez disposer sur votre ordinateur d'un environnement de développement. Pour ce cours, vous êtes libre d'utiliser l'outil qui vous semble le plus pertinent, mais il propose d'utiliser un environnement POSIX qui est aujourd'hui le standard le plus établi et le plus largement utilisé, des téléphones portables aux serveurs informatiques, aux MacBook et aux fusées spatiales. L'autre consensus, également largement utilisé est Windows.
 

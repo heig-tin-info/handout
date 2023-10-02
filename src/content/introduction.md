@@ -112,7 +112,7 @@ Le standard est lourd, difficile à lire et avec 552 pages pour **C99**, vous n'
         Au paragraphe §5.2.4.2.1-1 on peut lire que ``ULLONG_MAX`` est encodé sur 64-bits et donc que sa valeur est :math:`2^{64}-1` donc `18'446'744'073'709'551'615`.
 ```
 
-### Environnement de développement
+### Environnement
 
 Un développeur logiciel passe son temps devant son écran à étudier, et écrire du code et bien qu'il pourrait utiliser un éditeur de texte tel que Microsoft Word ou Notepad, il préfèrera des outils apportant davantage d'interactivité et d'aide au développement. Les *smartphones* disposent aujourd'hui d'une fonctionnalité de suggestion automatique de mots; les éditeurs de texte orienté programmation disposent de fonctionnalités similaires qui complètent automatiquement le code selon le contexte.
 
@@ -187,12 +187,13 @@ Représentation graphique des notions de compilateur, IDE, toolchain...
 : Prononcé "hidi", il s'agit du tout premier éditeur de texte développé en 1969 faisant partie des trois premiers éléments du système UNIX: l'assembleur, l'éditeur et le *shell*. Il n'est pas interactif, il n'a pas de coloration syntaxique, il est absolument obscur dans son fonctionnement, mais bientôt 50 ans après, il fait toujours partie de la norme POSIX et donc disponible sur tout système compatible. Bref, ne l'utilisez pas...
 
 ```{exercise} Eclipse
+:label: exercise-eclipse
 
-    Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
+Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
+```
 
-    .. solution::
-
-        `Eclipse <https://www.eclipse.org/ide/>`__ est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+```{solution} exercise-eclipse
+[Eclipse](https://www.eclipse.org/ide/) est un **IDE**. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
 ```
 
 ```{index} anglais
@@ -226,14 +227,16 @@ Un autre point méritant d'être mentionné est la constante interaction d'un d�
 : La documentation (*man pages*) des commandes et outils les plus utilisés dans les environnements macOS/Linux/Unix et POSIX compatible.
 
 ```{exercise} Pêche
+:label: exercise-peche
+Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
+```
 
-    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
+```{solution} exercise-peche
+:label: solution-peche
 
-    .. solution::
+Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En juillet 2019,  il y eut 307'669 questions posées.
 
-        Il suffit pour cela de se rendre sur le site de `Stackoverflow <https://stackoverflow.com/tags/c>`__ et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
-
-        Seriez-vous capable de répondre à une question posée?
+Seriez-vous capable de répondre à une question posée?
 ```
 
 ```{index} apprendre
@@ -272,7 +275,7 @@ Les **compilateurs**, sont ainsi construits autour d'une grammaire du langage qu
 
 L'exemple suivant est un [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
-```
+```text
 POUR CHAQUE oeuf DANS le panier :
     jaune, blanc 🠔 CASSER(oeuf)
     omelette 🠔 MELANGER(jaune, blanc)
@@ -283,7 +286,7 @@ SERVIR(omelette_cuite)
 
 La structure de la phrase permettant de traiter tous les éléments d'un ensemble d'éléments peut alors s'écrire :
 
-```
+```text
 POUR CHAQUE <> DANS <>:
     <>
 ```
@@ -538,69 +541,80 @@ Jul 24 09:50  Date de création du fichier
 a.out         Nom du fichier
 ```
 
-% Liste des exercices du chapitre:
+## Exercices de chapitre
 
 ```{exercise} Auteurs
+:label: exercise-authors
+Qui a inventé le C ?
+```
 
-    Qui a inventé le C ?
+```{solution} exercise-authors
+:label: solution-authors
 
-    .. solution::
-
-        Brian Kernighan et Dennis Ritchie en 1972
+Brian Kernighan et Dennis Ritchie en 1972
 ```
 
 ```{exercise} Standardisation
+:label: exercise-standardization
 
-    Quel est le standard C à utiliser en 2021 et pourquoi ?
+Quel est le standard C à utiliser en 2021 et pourquoi ?
+```
 
-    .. solution::
+```{solution} exercise-standardization
+:label: solution-standardization
 
-        Le standard industriel, malgré que nous soyons en 2019 est toujours
-        **ISO/IEC 9899:1999**, car peu de changements majeurs ont été apportés
-        au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
-        que d'adopter un standard plus récent qui n'apporte que peu de changements.
+Le standard industriel, malgré que nous soyons en 2019 est toujours
+**ISO/IEC 9899:1999**, car peu de changements majeurs ont été apportés
+au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
+que d'adopter un standard plus récent qui n'apporte que peu de changements.
 ```
 
 ```{exercise} Paradigmes
+:label: exercise-paradigms
 
-    Quels sont les paradigmes de programmation supportés par C ?
+Quels sont les paradigmes de programmation supportés par C ?
+```
 
-    .. solution::
-
-        C supporte les paradigmes impératifs, structurés et procédural.
+```{solution} exercise-paradigms
+C supporte les paradigmes impératifs, structurés et procédural.
 ```
 
 ```{exercise} Langage impératif
+:label: exercise-imperative
 
-    Pourriez-vous définir ce qu'est la programmation impérative ?
+Pourriez-vous définir ce qu'est la programmation impérative ?
+```
 
-    .. solution::
-
-        La programmation impérative consiste en des séquences de commandes ordonnées.
-        C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
+```{solution} exercise-imperative
+La programmation impérative consiste en des séquences de commandes ordonnées.
+C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
 ```
 
 ```{exercise} Coulée de lave
+:label: exercise-code-smell
+Qu'est-ce qu'une coulée de lave en informatique ?
+```
 
-    Qu'est-ce qu'une coulée de lave en informatique ?
+```{solution} exercise-code-smell
+:label: solution-code-smell
 
-    .. solution::
+Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
+il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
+s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
+facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
 
-        Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
-        il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
-        s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
-        facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
-
-        Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
+Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
 ```
 
 ```{exercise} Cat
+:label: exercise-cat
 
-    Qu'est-ce que ``cat``?
+Qu'est-ce que ``cat``?
+```
 
-    .. solution::
+```{solution} exercise-cat
 
-        ``cat`` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier ``hello.c`` est bel et bien celui attendu.
+``cat`` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier ``hello.c`` est bel et bien celui attendu.
 ```
 
 [iso9899_1990]: https://www.iso.org/standard/17782.html
