@@ -1,5 +1,8 @@
 # Polycopié d'informatique
 
+> [!WARNING]
+> Ce référentiel est obsolète. Il a été remplacé par [heig-tin-info/handbook](https://github.com/heig-tin-info/handbook). Vous pouvez consulter la dernière version en ligne [ici](https://heig-tin-info.github.io/handbook/).
+
 ![.github/workflows/ci.yml](https://github.com/heig-tin-info/handout/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
 
 ![version](https://img.shields.io/github/v/release/heig-tin-info/handout)
